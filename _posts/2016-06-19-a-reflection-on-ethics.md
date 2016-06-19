@@ -7,7 +7,7 @@ William H. Chuang<br>
 [v1] June 1, 2016 <br>
 [v2] June 19, 2016<br>
 
-<center>A Reflection on Rolston's book<br>
+<center>A Reflection on Rolston's book</center><br>
 
 According to Holmes Rolston III, Kuniyoshi L. Sakai once said that the human left-frontal cortex, thus uniquely specializes in the syntactic processes of sentence comprehension, without any counterparts in other animals, and it leads to a consequence that massive differences in expressive capacities between human language and the communicative systems of other animals. So, at here what Rolston’s concern is he thought that human is not like the other non-human animals. A human could learn the ideas of environmental ethics. <br>
 
