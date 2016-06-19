@@ -13,7 +13,7 @@ blog: passive
 	<h1>{{ page.title }}</h1>
 	<ul class="Dev_Journal">
 
-	  {% for post in site.posts %}
-	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	  {% for Dev_Journal in site.Dev_Journal %}
+	    <li><span>{{ Dev_Journal.date | date_to_string }}</span> » <a href="{{ Dev_Journal.url }}" title="{{ Dev_Journal.title }}">{{ Dev_Journal.title }}</a></li>
 	  {% endfor %}
 	</ul>
