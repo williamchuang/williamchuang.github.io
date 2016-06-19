@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reflection on Rolston's book"
+title: "A Reflection on Rolston's book"
 date: 2016-06-19
 ---
 According to Holmes Rolston III, Kuniyoshi L. Sakai once said that the human left-frontal cortex is thus uniquely specialized in the syntactic processes of sentence comprehension, without any counterparts in other animals, and it leads to a consequence that massive differences in expressive capacities between human language and the communicative systems of other animals. So, at here what Rolston’s concern is he thought that human is not like the other non-human animals. Human could learn the ideas of environmental ethics. However, I think that this is not always the case, and the barriers for average wild animal to violate environmental ethics might be due to their limited intelligence to build the tools, to scale up some manufacture productions, so it’s rather hard for them to pollute the environment. But, does this mean they don’t know the environmental ethics? I don’t think so. Thomas Aquinas argued that non-human animals are “ordered to man’s use”, so in some sense at some period of time human can do more worse than the wild animals to other species. For instance, a chimpanzee potentially could destroy the nest of several different kinds of birds’ nest, but they didn’t. Instead, if they saw a cat fall down to a river, they would try to rescue it.<br>
