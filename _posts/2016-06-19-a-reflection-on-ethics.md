@@ -3,11 +3,11 @@ layout: post
 title: "A Reflection on Rolston's book"
 date: 2016-06-19
 ---
-<p style="text-align: center">William H. Chuang</p><br>
+William H. Chuang<br>
 [v1] June 1, 2016 <br>
 [v2] June 19, 2016<br>
 
-<center>A Reflection on Rolston's book</center><br>
+<p style="text-align: center">A Reflection on Rolston's book</p><br>
 
 According to Holmes Rolston III, Kuniyoshi L. Sakai once said that the human left-frontal cortex, thus uniquely specializes in the syntactic processes of sentence comprehension, without any counterparts in other animals, and it leads to a consequence that massive differences in expressive capacities between human language and the communicative systems of other animals. So, at here what Rolston’s concern is he thought that human is not like the other non-human animals. A human could learn the ideas of environmental ethics. <br>
 
@@ -28,5 +28,5 @@ Finally, it seems what we should educate to poor people about the environmental 
 
 
 
-<center>Works Cited<br></center>
+<p style="text-align: center">Works Cited<br></p>
 Rolston , Holmes. “A New Environmental Ethics.” 6th ed. Routledge, 2012.
