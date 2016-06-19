@@ -1,3 +1,22 @@
+---
+---
+// External
+@import 'external/reset';
+@import 'external/syntax';
+
+// Base
+@import 'base/variables';
+@import 'base/global';
+@import 'base/utility';
+
+// Posts
+@import 'layouts/posts';
+@import 'layouts/index';
+
+// Partials
+@import 'includes/header';
+@import 'includes/footer';
+
 body {
     margin: 60px auto;
     width: 70%;
@@ -62,3 +81,72 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+/* Code */
+
+code, pre {
+font-family: "Courier New", Courier, monospace;
+}
+
+code {
+    padding: .25em .5em;
+    font-size: 80%;
+    background-color: #F0F0F0;
+    border-radius: 3px;
+}
+
+pre {
+    overflow: auto;
+    display: block;
+ border: 1px solid #cccccc;
+  border-radius: 3px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 77%;
+    line-height: 1.4;
+    //white-space: pre;
+    //white-space: pre-wrap;
+    overflow: auto;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
+
+    //word-break: break-all;
+    //word-wrap: break-word;
+    background-color: #F0F0F0;
+}
+pre code {
+    padding: 0;
+    font-size: 100%;
+    background-color: transparent;
+}
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  font-style: italic;
+  font-size: 105%;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+/* Pygments via Jekyll */
+
+.highlight {
+margin-bottom: 1rem;
+border-radius: 4px;
+}
+.highlight pre {
+margin-bottom: 0;
+}
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
