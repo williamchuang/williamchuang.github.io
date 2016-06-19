@@ -3,7 +3,7 @@ layout: post
 title: "A Reflection on Rolston's book"
 date: 2016-06-19
 ---
-William H. Chuang<br>
+William H. Chuang{: .right}<br>
 [v1] June 1, 2016 <br>
 [v2] June 19, 2016<br>
 
