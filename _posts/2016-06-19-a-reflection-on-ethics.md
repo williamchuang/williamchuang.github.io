@@ -4,7 +4,8 @@ title: "A Reflection on Rolston's book"
 date: 2016-06-19
 ---
 William H. Chuang<br>
-June 1, 2016 (First edtion)
+[v1] June 1, 2016 <br>
+[v2] June 19, 2016<br>
 
 <center>A Reflection on Rolston's book<br>
 
