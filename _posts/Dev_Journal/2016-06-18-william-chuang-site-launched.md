@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: Dev_Journal
 title: "William Chuang, USFCA, Launches Site"
 date: 2016-06-18
 ---
