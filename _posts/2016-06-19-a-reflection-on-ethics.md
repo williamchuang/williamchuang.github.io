@@ -28,5 +28,5 @@ Finally, it seems what we should educate to poor people about the environmental 
 
 
 
-<center>Works Cited<br>
+<center>Works Cited<br></center>
 Rolston , Holmes. “A New Environmental Ethics.” 6th ed. Routledge, 2012.
