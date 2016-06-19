@@ -25,7 +25,7 @@ It follows that they may still abuse their poor citizens, if they didn’t decla
 
 Insofar, we only have seen a non-democratized country to invade a democratized country, or vice versa, but the former own a larger probability. Why this is the case? We might be able to assume that if a country is controlled by a small group of people (and most of them own a second country citizenship, and almost all of their family members do that too), then they may act less responsible for their country, and more easily to declare a war to the other country, insofar as they can run away anytime.<br> 
 
-Finally, it seems what we should educate to poor people about the environmental ethics, and to the party leaders should be different, and for some abnormal countries (that the population of poor people are way more than others), the emergent message should target the party leader (the power owner, the military owner), and try to take more power from them and release to their people, and I think the current technology of social media and the artificial intelligence are potential solutions.<br>
+Finally, it seems what poor people should learn about the environmental ethics, and what party leaders should learn are different. To those abnormal countries (that the population of poor people are way more than others), the emergent message should target the party leader (the power owner, the military owner), and try to take more power from them and release to their people, and I think the current technology of social media and the artificial intelligence are potential solutions.<br>
 
 
 
