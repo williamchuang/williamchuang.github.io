@@ -1,0 +1,78 @@
+article,
+.comments {
+  @extend %padding-regular;
+  border-bottom: 1px solid $border-color;
+  float: left;
+  width: 88%;
+  margin-left: 6%
+}
+
+article {
+  text-alight: center;
+  header {
+    margin-bottom: 6%;
+    text-align: center;
+  }
+  a:hover {
+    @extend %link-hover;
+  }
+  .footnotes {
+    font-size: 0.9em;
+  }
+}
+header {
+  h1 {
+    margin: 0;
+  }
+  .meta {
+    color: rgba($text-color, .5);
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+@media (max-width: 48em) {
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    padding-bottom: 0.4em;
+    width: 100%;
+    float: left;
+  }
+
+  h1 {
+    font-size: 1.7em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+  h3 {
+    font-size: 1.1em;
+  }
+  h4 {
+    font-size: 0.8em;
+  }
+
+}
+
+.feature-image {
+  padding: 0%;
+  .post-link {
+    color: $feature-image-text-color;
+  }
+  header {
+    color: $feature-image-text-color;
+    background-size: $feature-image-size;
+    margin-bottom: 0;
+    padding: $padding-large/2.5 $padding-large;
+    .meta {
+      color: rgba($feature-image-text-color, .7);
+    }
+  }
+  .post-content {
+    @extend %padding-regular;
+
+  }
+}
