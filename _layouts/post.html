@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<article {% if page.feature-img %}class="feature-image"{% endif %}>
 <h1>{{ page.title }}</h1>
 <p class="meta">{{ page.date | date_to_string }}</p>
 
@@ -34,7 +35,7 @@ layout: default
         Google+
     </kbd>
 </a>
-
+</article>
 <!-- Disqus -->
 {% if site.theme.disqus_shortname %}
 <div class="comments">
