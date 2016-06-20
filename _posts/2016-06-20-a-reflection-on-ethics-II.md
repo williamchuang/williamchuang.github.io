@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Reflection on Rolston's book II"
-date: 2016-06-19
+date: 2016-06-20
 ---
 William H. Chuang<br>
 [v1] June 9, 2016 <br>
