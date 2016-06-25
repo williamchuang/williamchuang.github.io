@@ -1,3 +1,4 @@
+---
 layout: post
 title: "A Reflection on Rolston's book III"
 date: 2016-06-24
