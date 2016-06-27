@@ -18,7 +18,6 @@ The reason of why Deep Learning is useful is because, for instance, in speech re
 
 Finally, if we combine the previous paragraph and the notion of the number of neurons and connections, we can end up with an understanding that at a fundamental level, according to Deep Learning’s discovery, there is no difference between human animal and nonhuman animals.  They share the same mechanism that is used by the neural nets. What makes the difference between human systems and nonhuman system is due to the number of connections of neurons, and the number of neurons. Then, one implication is, if tomorrow we edit a chimp gene that are controlling these factors of chimp’s neural nets in its brain, then it’s very possible we will have a chimp that could have human linguistic ability. The other implication might be, for a lot of us,  our world view might become different, once we learn this. Also, a further implication might be once we edit plant’s gene, then one day we might be able to talk to a tree, a flower, or a bird.<br>
 
-<p style="text-align: center">Work Cited</p><br>
-
+<p style="text-align: center">Works Cited</p><br>
 Cunningham, S. “What is a Mind?” Hackett Publishing Company, Inc. 2000.<br>
 Anand, Kunal. "3000 Engineers Freed Up At Wipro After Artificial Intelligence Learns To Do Their Work!" Indiatimes.com. Indiatimes.com, 9 June 2016. Web. 27 June 2016. <http://www.indiatimes.com/news/world/3000-software-engineers-might-get-fired-at-wipro-after-artificial-intelligence-learns-to-do-all-their-jobs-256519.html>.<br>
