@@ -17,7 +17,7 @@ If we dig deeper than the previous notions that so far we have built, then we ma
 
 To me, to generate the high barriers between each country (e.g., the currency rate), and the information asymmetry is to avoid letting the developing country and the poor people (the 99% people) who live in developed countries to be united. Because once they could be united, the community becomes a new organism, a new individual that each (neuron) cells could communicate to every others very well, then it will end up with a self-awareness of this new organism: this new individual will suddenly realize where is the resistance for us to make progress in solving the climate change crisis, and all the problems/crisis on the global level.<br>
 
-<p style="text-align: center">Work Cited</p><br>
+<p style="text-align: center">Works Cited</p><br>
 
 Moore, K. D. and Nelson, M. P. “Moral Ground: Ethical Action for a Planet in Peril.”<br>
 Shiva, V. “Soil Not Oil—Environmental Justice in an Age of Climate Crisis.” 2015. North Atlantic Books.<br>
