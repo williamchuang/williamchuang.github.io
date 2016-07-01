@@ -4,7 +4,7 @@ title: "Earth Democracy: Potential Applications of Artificial Intelligence"
 date: 2016-07-01
 ---
 William H. Chuang<br>
-[v1] June 27, 2016 <br>
+[v1] July 01, 2016 <br>
 
 
 Earth Democracy: Potential Applications of Artificial Intelligence<br> 
