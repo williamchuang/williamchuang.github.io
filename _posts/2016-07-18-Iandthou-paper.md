@@ -35,5 +35,5 @@ My final thought is an I-Thou relation usually gets started from an I-It relatio
 <p style="text-align: center">Works Cited</p><br>
 Buber, Martin. “I and Thou.” Walter Kaufmann. Charles Scribner's Sons, 1970 Trans. First Touchstone edition, 1996.<br>
 Zuckerberg, Mark. “Is Connectivity a Human Right?” Aug. 20. 2013. Web. July 17, 2016. <br>
-https://www.facebook.com/isconnectivityahumanright
-Anand, Kunal. "3000 Engineers Freed Up At Wipro After Artificial Intelligence Learns To Do Their Work!" Indiatimes.com. Indiatimes.com, 9 June 2016. Web. 27 June 2016. <http://www.indiatimes.com/news/world/3000-software-engineers-might-get-fired-at-wipro-after-artificial-intelligence-learns-to-do-all-their-jobs-256519.html>.<br>
+https://www.facebook.com/isconnectivityahumanright<br>
+Anand, Kunal. "3000 Engineers Freed Up At Wipro After Artificial Intelligence Learns To Do Their Work!" Indiatimes.com.<br> Indiatimes.com, 9 June 2016. Web. 27 June 2016.<br> <http://www.indiatimes.com/news/world/3000-software-engineers-might-get-fired-at-wipro-after-artificial-intelligence-learns-to-do-all-their-jobs-256519.html>.<br>
