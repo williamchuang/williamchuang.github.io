@@ -1,2 +1,2 @@
 # wchuanghard.github.io
-##  A Deep Learning and Unsupervised Feature Learning  Researcher.
+-A Deep Learning and Unsupervised Feature Learning  Researcher.
