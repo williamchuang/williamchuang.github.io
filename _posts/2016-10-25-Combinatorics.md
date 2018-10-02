@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Knot Theory 1"
+title: "Combinatorics"
 date: 2016-10-25
 ---
 <iframe width='900' height='800' src='http://billchuang.com/files/10252016.pdf' frameborder='0' allowfullscreen></iframe>
