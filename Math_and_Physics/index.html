@@ -7,14 +7,11 @@ projects: passive
 Math_and_Physics: active
 blog: passive
 ---
-<head>
-                        <title>{{ page.title }}</title>
-                        <!-- link to main stylesheet -->
-                        <link rel="stylesheet" type="text/css" href="/css/main.css">
-        </head>
-
+<h1>{{ page.title }}</h1>
+<p class="meta">{{ page.date | date_to_string }}</p>
 
 <div class="Math_and_Physics">
+
   <br><a href="/files/Math729_william_chuang_paper_1.pdf">Prime Geodesic Theorem</a>	
   <br><a href="/files/Basics of Fundamental Group.pdf"> Basics of Fundamental Group</a>
   <br><a href="/files/Nov22.pdf">A study on Hom-polytopes</a>  
