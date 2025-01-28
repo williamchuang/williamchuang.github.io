@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!--<head>
   <meta charset="UTF-8">
   <title>{{ page.title | escape }} - {{ site.title }}</title>
 
@@ -11,7 +11,21 @@
 
   <!-- Link to main stylesheet -->
   <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+</head>-->
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+
+  <!-- MathJax for inline and display math -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
 </head>
+
 <body>
 
   <!-- Top Navigation: single line, horizontally spaced -->
