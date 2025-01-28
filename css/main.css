@@ -1,531 +1,182 @@
-/* =========================
-   CSS Variables
-   ========================= */
-:root {
-    /* Primary and Secondary Colors */
-    --primary-color: #004080; /* Deep Blue */
-    --secondary-color: #ffcc00; /* Gold Accent */
-    
-    /* Background and Text Colors */
-    --background-color: #f9f9f9; /* Light Gray */
-    --text-color: #333333; /* Dark Gray */
-    --link-color: #004080; /* Same as Primary */
-    --link-hover-color: #ffcc00; /* Same as Secondary */
-    
-    /* Footer Specific Colors */
-    --footer-background: #004080; /* Deep Blue */
-    --footer-text-color: #ffffff; /* White */
-    
-    /* Divider Color */
-    --divider-color: #dddddd; /* Light Gray */
-    
-    /* Font Families */
-    --font-sans: 'Arial', 'Helvetica', sans-serif;
-    --font-serif: 'Georgia', serif;
-    
-    /* Font Sizes */
-    --font-size-base: 16px;
-    --font-size-lg: 1.25rem; /* 20px */
-    --font-size-xl: 1.5rem; /* 24px */
-    --font-size-xxl: 2rem; /* 32px */
-    
-    /* Spacing */
-    --spacing-unit: 1rem; /* 16px */
-    
-    /* Border Radius */
-    --border-radius: 8px;
-    
-    /* Box Shadow */
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* =========================
-   Reset and Base Styles
-   ========================= */
-
-/* Reset some default browser styles */
+/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Base Body Styles */
+/* Body + Container */
 body {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    padding: var(--spacing-unit);
-    margin: 0 auto;
-    max-width: 1200px;
+  font-family: "Arial", sans-serif;
+  background: #fff;
+  color: #333;
+  text-align: center; /* center all by default */
 }
 
-/* Anchor Tag Styles */
-a {
-    color: var(--link-color);
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-a:hover,
-a:focus {
-    color: var(--link-hover-color);
-    text-decoration: underline;
-}
-
-/* Image Styles */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* =========================
-   Utility Classes
-   ========================= */
-
-/* Text Alignment */
-.text-center {
-    text-align: center;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.text-left {
-    text-align: left;
-}
-
-/* Margin and Padding */
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-
-.pt-1 { padding-top: 0.5rem; }
-.pb-1 { padding-bottom: 0.5rem; }
-
-/* Responsive Container */
 .container {
-    width: 100%;
-    padding: 0 var(--spacing-unit);
-    margin: 0 auto;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
-/* Button Styles */
-.button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--primary-color);
-    color: var(--footer-text-color);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    text-align: center;
+/* Top Navigation */
+.top-nav ul {
+  list-style: none;
+  margin: 20px 0;
+  display: inline-block;
 }
 
-.button:hover,
-.button:focus {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    text-decoration: none;
+.top-nav ul li {
+  display: inline;
+  margin: 0 10px;
 }
 
-/* =========================
-   Header and Navigation Styles
-   ========================= */
-
-header {
-    margin-bottom: var(--spacing-unit);
+.top-nav ul li a {
+  text-decoration: none;
+  color: #004080; /* or your choice */
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-.navbar {
-    background-color: var(--primary-color);
-    padding: 0.5rem 0;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+.top-nav ul li a:hover {
+  text-decoration: underline;
+  color: #ffcc00; /* or another accent color */
 }
 
-.nav-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+/* Title and Subtitle */
+.title {
+  font-size: 2rem; /* ~ <font size="6"> */
+  margin-bottom: 0.5rem;
 }
 
-.nav-item {
-    margin: 0 1rem;
-}
-
-.nav-link {
-    color: var(--footer-text-color);
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
-
-/* =========================
-   Main Content Styles
-   ========================= */
-
-/* Intro Section */
-.intro {
-    text-align: center;
-    margin-bottom: calc(var(--spacing-unit) * 2);
-}
-
-.intro .title {
-    font-size: var(--font-size-xxl);
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.intro .subtitle {
-    font-size: var(--font-size-lg);
-    color: #666666;
-    margin-bottom: var(--spacing-unit);
+.subtitle {
+  font-size: 1.25rem; /* ~ <font size="4"> */
+  margin-bottom: 20px;
+  color: #555;
 }
 
 /* Profile Image */
-.profile-image {
-    margin-bottom: var(--spacing-unit);
+.profile-image img {
+  border-radius: 8px;
+  margin-bottom: 20px;
+  /* If you prefer CSS-based width control, do it here:
+  width: 90%; 
+  height: auto; 
+  */
 }
 
-.profile-image .responsive-img {
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-/* Contact Information */
+/* Contact Info */
 .contact-info {
-    font-size: 1rem;
-    color: var(--text-color);
+  font-size: 1rem; /* ~ <font size="3"> */
+  margin-bottom: 10px;
 }
 
-.contact-info a {
-    color: var(--link-color);
-    font-weight: bold;
-}
-
-.contact-info a:hover,
-.contact-info a:focus {
-    color: var(--link-hover-color);
-}
-
-/* Divider */
+/* Dividers */
 .divider {
-    border: 0;
-    height: 1px;
-    background-color: var(--divider-color);
-    margin: calc(var(--spacing-unit) * 2) 0;
+  border: 0;
+  height: 1px;
+  width: 80%;
+  margin: 20px auto;
+  background-color: #ccc;
 }
 
-/* About Section */
-.about {
-    margin-bottom: calc(var(--spacing-unit) * 2);
+/* Content Text and Paragraphs */
+.content-text {
+  font-size: 1rem; /* ~ <font size="3"> */
+  margin-bottom: 20px;
+  line-height: 1.8;
+  text-align: center;
 }
 
-.about p {
-    margin-bottom: var(--spacing-unit);
-    text-align: justify;
-    line-height: 1.8;
+.content-text.left {
+  text-align: left; 
+  margin: 0 auto 20px;
+  width: 90%; 
 }
 
-/* Research Journey Section */
-.research-journey {
-    margin-bottom: calc(var(--spacing-unit) * 2);
+/* For the inserted content to center everything */
+.centered-content {
+  text-align: center;
+  margin: 0 auto;
 }
 
-.research-journey h2 {
-    font-size: var(--font-size-xl);
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    text-align: center;
+.centered-content h2, 
+.centered-content h3, 
+.centered-content h4,
+.centered-content p,
+.centered-content ul,
+.centered-content ol,
+.centered-content table {
+  margin: 0 auto 20px;
 }
 
-.research-journey h3 {
-    font-size: var(--font-size-lg);
-    color: var(--text-color);
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.research-journey h4 {
-    font-size: 1.125rem; /* 18px */
-    color: var(--text-color);
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
+/* Timelines: to keep them from spanning full width if you want them narrower */
 .timeline {
-    margin-left: 1.25rem; /* 20px */
+  display: inline-block; /* center the timeline block if you want */
+  text-align: left;      /* bullets left-aligned inside */
+  margin: 20px auto;
+  width: 90%;
 }
 
 .timeline-item {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.timeline-item ul {
-    list-style-type: disc;
-    margin-left: 1.25rem;
-}
-
-.timeline-item ul ul {
-    list-style-type: circle;
-    margin-left: 1.25rem;
-}
-
-/* Key Contributions and Challenges */
-ol {
-    margin-left: 1.25rem;
-    margin-bottom: var(--spacing-unit);
-}
-
-ol li {
-    margin-bottom: 0.75rem;
-}
-
-ol li ul {
-    list-style-type: disc;
-    margin-left: 1.25rem;
-}
-
-ol li ul li {
-    margin-bottom: 0.5rem;
-}
-
-/* Results Table */
+/* Tables */
 .table-responsive {
-    overflow-x: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  display: inline-block; 
+  text-align: center; /* center the table container */
+  margin-bottom: 20px;
 }
-
 .results-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: var(--spacing-unit);
+  margin: 0 auto;
+  border-collapse: collapse;
 }
-
-.results-table th,
-.results-table td {
-    border: 1px solid var(--divider-color);
-    padding: 0.75rem;
-    text-align: left;
+.results-table th, .results-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
 }
-
 .results-table th {
-    background-color: #f2f2f2;
+  background: #f2f2f2;
 }
 
-.results-table tr:nth-child(even) {
-    background-color: #fafafa;
-}
-
-/* Share Page */
-.share-page {
-    text-align: center;
-    background-color: #1ABC9C; /* Teal */
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    margin: 1.5rem 0;
-}
-
-.share-page a {
-    font-weight: bold;
-    color: #ffffff;
-    margin-left: 0.5rem;
-    transition: border-bottom 0.3s ease;
-}
-
-.share-page a:hover,
-.share-page a:focus {
-    border-bottom: 1px dashed #ffffff;
-}
-
-/* YouTube, Older Notes, Genealogy Sections */
-.youtube-section,
-.older-notes,
-.genealogy,
-.genealogy-details {
-    margin-bottom: calc(var(--spacing-unit) * 2);
-}
-
-.youtube-section a,
-.older-notes a,
-.genealogy a,
-.genealogy-details a {
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-.youtube-section a:hover,
-.older-notes a:hover,
-.genealogy a:hover,
-.genealogy-details a:hover {
-    color: var(--link-hover-color);
-}
-
-/* =========================
-   Footer Styles
-   ========================= */
-
-.footer {
-    background-color: var(--footer-background);
-    color: var(--footer-text-color);
-    padding: 1rem 0;
-    text-align: center;
-    border-top: 1px solid var(--divider-color);
-    border-radius: var(--border-radius);
-    margin-top: calc(var(--spacing-unit) * 4);
+/* Footer */
+footer {
+  margin: 20px 0;
 }
 
 .footer-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 0.5rem;
+  list-style: none;
+  display: inline-block;
 }
 
-.footer-link-item {
-    margin: 0 0.75rem;
+.footer-links li {
+  display: inline;
+  margin: 0 10px;
 }
 
-.footer-link {
-    color: var(--footer-text-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: bold;
+.footer-links li a {
+  color: #004080;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
-.footer-link:hover,
-.footer-link:focus {
-    color: var(--link-hover-color);
+.footer-links li a:hover {
+  text-decoration: underline;
+  color: #ffcc00;
 }
 
-/* =========================
-   Responsive Design
-   ========================= */
-
-/* Tablets and Small Desktops */
-@media (max-width: 992px) {
-    body {
-        padding: 1rem;
-        max-width: 90%;
-    }
-
-    .intro .title {
-        font-size: 2rem; /* 32px */
-    }
-
-    .intro .subtitle {
-        font-size: 1.125rem; /* 18px */
-    }
-
-    .navbar .nav-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar .nav-item {
-        margin: 0.5rem 0;
-    }
-
-    .research-journey h2 {
-        font-size: var(--font-size-lg);
-    }
-
-    .research-journey h3 {
-        font-size: 1rem;
-    }
-
-    .results-table th,
-    .results-table td {
-        padding: 0.5rem;
-    }
-
-    .button {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem; /* 14px */
-    }
+/* External Links */
+.external-link {
+  color: #004080;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-/* Mobile Devices */
-@media (max-width: 768px) {
-    body {
-        padding: 0.75rem;
-        max-width: 95%;
-    }
-
-    .intro .title {
-        font-size: 1.75rem; /* 28px */
-    }
-
-    .intro .subtitle {
-        font-size: 1rem; /* 16px */
-    }
-
-    .navbar .nav-list {
-        flex-direction: column;
-    }
-
-    .navbar .nav-item {
-        margin: 0.5rem 0;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-link-item {
-        margin: 0.5rem 0;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 480px) {
-    body {
-        padding: 0.5rem;
-        max-width: 100%;
-    }
-
-    .intro .title {
-        font-size: 1.5rem; /* 24px */
-    }
-
-    .intro .subtitle {
-        font-size: 0.875rem; /* 14px */
-    }
-
-    .research-journey h2 {
-        font-size: 1.5rem; /* 24px */
-    }
-
-    .research-journey h3 {
-        font-size: 0.875rem; /* 14px */
-    }
-
-    .button {
-        padding: 0.5rem 1rem;
-        font-size: 0.75rem; /* 12px */
-    }
+.external-link:hover {
+  text-decoration: underline;
+  color: #ffcc00;
 }
 
