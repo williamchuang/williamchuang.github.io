@@ -282,31 +282,19 @@ description: "Graduate Student at University of Arizona"
         </li>
       </ol>
       <hr class="divider">
+<h3>Future Directions</h3>
+<p>
+    Future work should extend this approach to diverse, real-world tasks, such as language modeling, machine translation, and computer vision. Second, the n-nary search algorithm, though effective, introduces computational overhead, which may be prohibitive for large-scale models. Developing more efficient algorithms for dynamically estimating \(\beta_{\text{opt}}\) is an important area for future research. Lastly, the interaction between \(\beta\) and other critical hyperparameters, such as learning rate, weight initialization, and attention head configurations, remains underexplored. A more comprehensive understanding of these interactions could lead to more holistic approaches to hyperparameter optimization.
+</p>
 
-      <h3>Challenges Faced</h3>
-      <ol>
-        <li>
-          <strong>Skepticism and Rejections:</strong>
-          <ul>
-            <li>Initial skepticism from academic peers due to the bold nature of the proposed changes to a widely used formula in transformers.</li>
-            <li>Multiple rejections from arXiv, citing insufficient originality and substantive contribution, possibly influenced by limited visibility within the academic community.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Institutional Hurdles:</strong>
-          <ul>
-            <li>The Export Control Office at the University of Arizona, despite recognizing the dual-use potential of my research, declined to classify it as requiring special clearance.</li>
-            <li>This lack of institutional recognition limited the visibility and perceived importance of my work.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Resource Limitations:</strong>
-          <ul>
-            <li>Without access to large-scale computational resources, I was unable to demonstrate the results on models comparable to GPT-4, which may have contributed to skepticism.</li>
-          </ul>
-        </li>
-      </ol>
-      <hr class="divider">
+<p>
+    My research from September 2023 demonstrated the necessity of examining all other hyperparameters to uncover potential redundancies in transformer architectures. By employing concepts from the Ising model (spin-lattice, i.e., quantized), it becomes possible to compress or distill models further by quantizing parameter values. Parameters that are zeroed out through this approach reveal redundancy within the model. This insight suggests that the quantization process, informed by spin-lattice physics, could be a key tool for improving model efficiency and scalability.
+</p>
+
+<p>
+    Furthermore, the algorithm I proposed for dynamically estimating \(\beta_{\text{opt}}\) can be translated into a reinforcement training framework. In this context, the algorithm adapts \(\beta\) in response to model feedback, effectively treating the optimization of \(\beta\) as a reinforcement learning problem. By iteratively refining \(\beta_{\text{opt}}\) based on real-time performance metrics, the algorithm could enable more adaptive, task-specific training. This approach not only enhances model efficiency but also provides a pathway for integrating reinforcement training principles into hyperparameter optimization.
+</p>
+
 
       <h3>Published Results</h3>
       <p>
