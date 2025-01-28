@@ -5,14 +5,15 @@
   box-sizing: border-box;
 }
 
-/* Body + Container */
+/* Body: center all text by default */
 body {
-  font-family: "Arial", sans-serif;
-  background: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fff;
   color: #333;
-  text-align: center; /* center all by default */
 }
 
+/* Container for main content */
 .container {
   width: 90%;
   max-width: 900px;
@@ -20,135 +21,41 @@ body {
   padding: 20px 0;
 }
 
-/* Top Navigation */
+/* Top Navigation Styles */
 .top-nav ul {
   list-style: none;
-  margin: 20px 0;
   display: inline-block;
+  margin: 20px 0;
+  padding: 0;
 }
 
 .top-nav ul li {
-  display: inline;
-  margin: 0 10px;
+  display: inline-block;
+  margin: 0 15px;
 }
 
 .top-nav ul li a {
   text-decoration: none;
-  color: #004080; /* or your choice */
+  color: #004080; /* primary color */
   font-weight: bold;
   font-size: 1.1rem;
 }
 
 .top-nav ul li a:hover {
   text-decoration: underline;
-  color: #ffcc00; /* or another accent color */
+  color: #ffcc00; /* secondary color */
 }
 
-/* Title and Subtitle */
-.title {
-  font-size: 2rem; /* ~ <font size="6"> */
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: 1.25rem; /* ~ <font size="4"> */
-  margin-bottom: 20px;
-  color: #555;
-}
-
-/* Profile Image */
-.profile-image img {
-  border-radius: 8px;
-  margin-bottom: 20px;
-  /* If you prefer CSS-based width control, do it here:
-  width: 90%; 
-  height: auto; 
-  */
-}
-
-/* Contact Info */
-.contact-info {
-  font-size: 1rem; /* ~ <font size="3"> */
-  margin-bottom: 10px;
-}
-
-/* Dividers */
-.divider {
-  border: 0;
-  height: 1px;
-  width: 80%;
-  margin: 20px auto;
-  background-color: #ccc;
-}
-
-/* Content Text and Paragraphs */
-.content-text {
-  font-size: 1rem; /* ~ <font size="3"> */
-  margin-bottom: 20px;
-  line-height: 1.8;
-  text-align: center;
-}
-
-.content-text.left {
-  text-align: left; 
-  margin: 0 auto 20px;
-  width: 90%; 
-}
-
-/* For the inserted content to center everything */
-.centered-content {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.centered-content h2, 
-.centered-content h3, 
-.centered-content h4,
-.centered-content p,
-.centered-content ul,
-.centered-content ol,
-.centered-content table {
-  margin: 0 auto 20px;
-}
-
-/* Timelines: to keep them from spanning full width if you want them narrower */
-.timeline {
-  display: inline-block; /* center the timeline block if you want */
-  text-align: left;      /* bullets left-aligned inside */
-  margin: 20px auto;
-  width: 90%;
-}
-
-.timeline-item {
-  margin-bottom: 1.5rem;
-}
-
-/* Tables */
-.table-responsive {
-  display: inline-block; 
-  text-align: center; /* center the table container */
-  margin-bottom: 20px;
-}
-.results-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-.results-table th, .results-table td {
-  border: 1px solid #ccc;
-  padding: 8px 12px;
-}
-.results-table th {
-  background: #f2f2f2;
-}
-
-/* Footer */
+/* Footer Styles */
 footer {
   margin: 20px 0;
+  text-align: center; /* redundant, but ensures clarity */
 }
 
 .footer-links {
   list-style: none;
   display: inline-block;
+  margin-bottom: 5px;
 }
 
 .footer-links li {
@@ -160,7 +67,6 @@ footer {
   color: #004080;
   font-weight: bold;
   text-decoration: none;
-  font-size: 1rem;
 }
 
 .footer-links li a:hover {
@@ -168,15 +74,61 @@ footer {
   color: #ffcc00;
 }
 
-/* External Links */
-.external-link {
+/* Basic Headings & Paragraphs */
+h1, h2, h3, h4, h5 {
+  margin-bottom: 15px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Example for horizontal rule styling */
+hr {
+  width: 80%;
+  margin: 20px auto;
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+
+/* Additional Classes For More Styling If Needed */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  list-style-position: inside;
+  margin: 10px auto;
+  padding: 0;
+  display: inline-block;
+  text-align: left; /* Optional: bullets left-aligned within center */
+}
+
+/* Tables */
+table {
+  margin: 0 auto 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Hyperlinks within content */
+a {
   color: #004080;
-  font-weight: bold;
   text-decoration: none;
 }
 
-.external-link:hover {
-  text-decoration: underline;
+a:hover {
   color: #ffcc00;
+  text-decoration: underline;
 }
 
