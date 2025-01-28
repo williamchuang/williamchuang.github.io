@@ -1,63 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    
-    <!-- SEO Tags -->
-    {% seo %}
-    
-    <!-- Structured Data -->
-    {% include structured-data.html %}
-    
-    <!-- Link to main stylesheet -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    
-    <!-- Optional: Include MathJax for rendering mathematical expressions -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+  <meta charset="UTF-8">
+  <title>{{ page.title | escape }} - {{ site.title }}</title>
 
+  <!-- Optional: SEO tags if using jekyll-seo-tag plugin -->
+  {% if site.plugins contains "jekyll-seo-tag" %}
+    {% seo %}
+  {% endif %}
+
+  <!-- Link to main stylesheet -->
+  <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+</head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/files/william_chuang_cv.pdf" class="nav-link">CV</a></li>
-                <li class="nav-item"><a href="/files/William_advanced_mathematics_courses.pdf" class="nav-link">Math Courses Taken</a></li>
-                <li class="nav-item"><a href="/Research" class="nav-link">Research</a></li>
-                <li class="nav-item"><a href="/Teaching" class="nav-link">Teaching</a></li>
-                <li class="nav-item"><a href="/My Schedule" class="nav-link">My Schedule</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Top Navigation: single line, horizontally spaced -->
+  <header>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <!-- <li><a href="{{ '/about' | relative_url }}">About</a></li> -->
+        <li><a href="{{ '/files/william_chuang_cv.pdf' | relative_url }}">CV</a></li>
+        <li><a href="{{ '/files/William_advanced_mathematics_courses.pdf' | relative_url }}">Math Courses Taken</a></li>
+        <!-- <li><a href="{{ '/projects' | relative_url }}">Projects</a></li> -->
+        <!-- <li><a href="{{ '/files/Research_Statement.pdf' | relative_url }}">Research Statement</a></li> -->
+        <li><a href="{{ '/Research' | relative_url }}">Research</a></li>
+        <li><a href="{{ '/Teaching' | relative_url }}">Teaching</a></li>
+        <li><a href="{{ '/My Schedule' | relative_url }}">My Schedule</a></li>
+        <!-- Add or remove links as needed -->
+      </ul>
+    </nav>
+  </header>
 
-    <div class="container">
-        {{ content }}
-    </div><!-- /.container -->
+  <!-- Main Content Area -->
+  <main class="container">
+    {{ content }}
+  </main>
 
-    <footer class="footer">
-        <ul class="footer-links">
-            <li class="footer-link-item">
-                <a href="https://github.com/williamchuang" class="footer-link">GitHub</a>
-            </li>
-            <li class="footer-link-item">
-                <a href="https://orcid.org/0009-0008-0796-9478" class="footer-link">ORCID</a>
-            </li>
-            <li class="footer-link-item">
-                <a href="https://www.researchgate.net/profile/William-Chuang" class="footer-link">ResearchGate</a>
-            </li>
-            <li class="footer-link-item">
-                <a href="https://scholar.google.com/citations?user=ZxTlNB8AAAAJ&hl=en" class="footer-link">Google Scholar</a>
-            </li>
-            <li class="footer-link-item">
-                <a href="https://www.linkedin.com/in/william-c-94173830b/" class="footer-link">LinkedIn</a>
-            </li>
-        </ul>
-        <p>&copy; 2025 William Chuang. All rights reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <ul class="footer-links">
+      <li>
+        <a href="https://github.com/williamchuang">GitHub</a>
+      </li>
+      <!-- Add more footer links if desired -->
+    </ul>
+    <p>© 2025 {{ site.title }}. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>

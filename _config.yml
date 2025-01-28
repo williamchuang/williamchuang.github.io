@@ -1,90 +1,28 @@
-# =========================
-# Site Metadata
-# =========================
-
 title: "William Chuang"
-description: "Graduate Student at the University of Arizona specializing in innovative neural network models and AI efficiency."
+description: "Graduate Student at the University of Arizona"
 author:
   name: "William Chuang"
   email: "williamchuang@arizona.edu"
-  pronouns: "he/him"
+  
+# Where your site is hosted (change if not user.github.io):
+url: "https://williamchuang.github.io"
+baseurl: ""
 
-# =========================
-# URL Configuration
-# =========================
-
-# The base hostname & protocol for your site
-url: "https://williamchuang.github.io" # Replace with your GitHub Pages URL
-
-# The subpath of your site, e.g., /blog
-# If your site is at the root of the domain, keep it empty
-baseurl: "" 
-
-# =========================
-# Build Settings
-# =========================
-
-# Specify the Markdown processor
+# Build settings
 markdown: kramdown
-
-# Choose the theme (set to `null` since you're using a custom layout)
 theme: null
 
-# List of plugins to use
+# Plugins (optional, remove if not needed or if not supported by GitHub Pages)
+# If you are using GitHub Pages, these are typically allowed:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# =========================
-# SEO Configuration
-# =========================
-
-seo:
-  title: "William Chuang"
-  description: "Graduate Student at the University of Arizona specializing in innovative neural network models and AI efficiency."
-  url: "https://williamchuang.github.io"
-  image: "/files/me_at_Notre_Dame.jpg" # Path to your default image
-
-  # List of social profiles
-  sameAs:
-    - "https://orcid.org/0009-0008-0796-9478"
-    - "https://www.researchgate.net/profile/William-Chuang"
-    - "https://scholar.google.com/citations?user=ZxTlNB8AAAAJ&hl=en"
-    - "https://www.linkedin.com/in/william-c-94173830b/"
-    - "https://github.com/williamchuang"
-
-# =========================
-# Exclude & Include
-# =========================
-
-# Files and directories to exclude from processing
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
-  - README.md
-  - LICENSE
-  - .gitignore
-
-# Files and directories to include (if any)
-include:
-  - _pages
-
-# =========================
-# Permalink Settings
-# =========================
-
-# Define the permalink structure
-# For example: /about/, /contact/, etc.
+# Permalink structure (optional)
 permalink: /:title/
 
-# =========================
 # Defaults
-# =========================
-
-# Set default configurations for specific scopes
 defaults:
   - scope:
       path: ""
@@ -92,38 +30,7 @@ defaults:
     values:
       layout: "post"
 
-# =========================
-# Sitemap Configuration
-# =========================
-
-# jekyll-sitemap generates sitemap.xml automatically
-# No additional configuration needed unless customization is required
-
-# =========================
-# Robots.txt Configuration
-# =========================
-
-# Jekyll doesn't process robots.txt by default. To include it, add it to the root directory.
-# Create a file named robots.txt with the following content:
-#
-# User-agent: *
-# Disallow:
-#
-# Sitemap: https://williamchuang.github.io/sitemap.xml
-
-# =========================
-# SEO Enhancements
-# =========================
-
-# jekyll-seo-tag automatically handles many SEO aspects, but ensure the following:
-# - Include {% seo %} in your _layouts/default.html within the <head> section.
-# - Include structured data using JSON-LD by creating _includes/structured-data.html and including it in your layout.
-
-# =========================
-# Markdown Configuration (Optional)
-# =========================
-
-# Configure Kramdown options
+# Additional configuration for Kramdown (optional)
 kramdown:
   input: GFM
   hard_wrap: false
@@ -131,39 +38,5 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
 
-# =========================
-# Google Analytics (Optional)
-# =========================
-
-# To integrate Google Analytics, add the following:
-# Replace 'UA-XXXXXXXXX-X' with your actual Tracking ID
-
-# google_analytics: UA-XXXXXXXXX-X
-
-# =========================
-# Deployment Settings (Optional)
-# =========================
-
-# If deploying to a GitHub repository other than username.github.io
-# Uncomment and set the following:
-# github:
-#   repository: "yourusername/your-repo-name"
-
-# =========================
-# Additional Settings (Optional)
-# =========================
-
-# Enable relative URLs if needed
-# relative_permalinks: true
-
-# Enable future posts to be published automatically
-# future: true
-
-# =========================
-# Debugging
-# =========================
-
-# Show more error messages
-# show_drafts: true
-# show_excerpts: true
+# Additional site config as needed...
 
