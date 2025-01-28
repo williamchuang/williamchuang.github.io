@@ -1,40 +1,64 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		        <title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
-	 
-	<body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    
+    <!-- SEO Tags -->
+    {% seo %}
+    
+    <!-- Structured Data -->
+    {% include structured-data.html %}
+    
+    <!-- Link to main stylesheet -->
+    <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+    
+    <!-- Optional: Include MathJax for rendering mathematical expressions -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<!--<<li><a href="/about">About</a></li>-->
-        		<li><a href="/files/william_chuang_cv.pdf">CV</a></li>
-			<li><a href="/files/William_advanced_mathematics_courses.pdf">Math Courses Taken</a></li>
-        		<!--<li><a href="/projects">Projects</a></li>-->
-        		<!--<li><a href="/CS_Notes">CS Notes</a></li>-->
-			<!--<li><a href="/files/Research_Statement.pdf">Research Statement</a></li>-->        		
-        		<li><a href="/Research">Research </a></li>
-			<!--<li><a href="/blog">Teaching Samples</a></li>-->
-			<li><a href="/Teaching">Teaching</a></li>
-                        <li><a href="/My Schedule">My Schedule</a></li>
-			<!--<li><a href="/files/William_H_Chuang_personal_history.pdf">My Math Journey</a></li>-->
-    		</ul>
-		</nav>
-		<div class="container">
-    		{{ content }}
-		</div><!-- /.container -->
-		<footer>
-			{% include footer.html %}
-    		<ul>
-			<!--<li><a href="mailto:whchuang@usfca.edu">email</a></li>-->
-        		<li><a href="https://github.com/williamchuang">https://github.com/williamchuang</a></li>
-			<!--<li><a href="https://twitter.com/WhatsTheNewIdea" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @WhatsTheNewIdea</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>-->
-			<!--<li><a href="https://www.linkedin.com/in/whchuang"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_profile_bluetxt_80x15.png" width="80" height="15" border="0" alt="View William H. Chuang's profile on LinkedIn"></a></li>-->
-			</ul>
-		</footer>
-	</body>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/files/william_chuang_cv.pdf" class="nav-link">CV</a></li>
+                <li class="nav-item"><a href="/files/William_advanced_mathematics_courses.pdf" class="nav-link">Math Courses Taken</a></li>
+                <li class="nav-item"><a href="/Research" class="nav-link">Research</a></li>
+                <li class="nav-item"><a href="/Teaching" class="nav-link">Teaching</a></li>
+                <li class="nav-item"><a href="/My Schedule" class="nav-link">My Schedule</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        {{ content }}
+    </div><!-- /.container -->
+
+    <footer class="footer">
+        <ul class="footer-links">
+            <li class="footer-link-item">
+                <a href="https://github.com/williamchuang" class="footer-link">GitHub</a>
+            </li>
+            <li class="footer-link-item">
+                <a href="https://orcid.org/0009-0008-0796-9478" class="footer-link">ORCID</a>
+            </li>
+            <li class="footer-link-item">
+                <a href="https://www.researchgate.net/profile/William-Chuang" class="footer-link">ResearchGate</a>
+            </li>
+            <li class="footer-link-item">
+                <a href="https://scholar.google.com/citations?user=ZxTlNB8AAAAJ&hl=en" class="footer-link">Google Scholar</a>
+            </li>
+            <li class="footer-link-item">
+                <a href="https://www.linkedin.com/in/william-c-94173830b/" class="footer-link">LinkedIn</a>
+            </li>
+        </ul>
+        <p>&copy; 2025 William Chuang. All rights reserved.</p>
+    </footer>
+
+</body>
 </html>
+
