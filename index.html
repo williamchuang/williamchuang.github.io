@@ -397,7 +397,24 @@ description: "Graduate Student at University of Arizona"
     These countermeasures are essential to ensuring that U.S. advancements in AI and semiconductor technologies remain strategically dominant. By integrating adaptive scaling techniques into AI-driven semiconductor R&D and export control strategies, the U.S. can effectively neutralize emerging threats and maintain technological superiority.
   </p>
 </section>
-
+<section class="distinguishing-approach">
+  <h3>Distinguishing My Approach from OpenAI and DeepSeek</h3>
+  <p>
+    While organizations such as OpenAI and emerging competitors like DeepSeek have made significant advancements in developing large language models (LLMs), their methodologies fundamentally differ from my research. My approach centers on identifying and eliminating redundancies within model parameters and hyperparameters, thereby directly reducing the required amount of training data and computational resources. Unlike traditional methods that treat hyperparameter tuning as a static or post-training process, my dynamic optimization framework facilitates the determination of optimal hyperparameters early in the training cycle, often within the first few epochs.
+  </p>
+  <p>
+    This dynamic optimization leverages the intrinsic properties of the model’s topology—such as the number of connections each node possesses—to set critical hyperparameters like the scaling factor \(\beta\). This is in stark contrast to DeepSeek's distillation methods, which rely on starting with a pre-trained model and subsequently compressing it. Such distillation necessitates prior knowledge of the model's structure and hyperparameter values, thereby limiting flexibility and the potential for efficiency gains. Similarly, mainstream approaches, including those employed by OpenAI's ChatGPT, typically operate under the assumption that intrinsic hyperparameter values are unknown or that dynamic optimization techniques to approximate these values are not feasible. This leads to a reliance on extensive hyperparameter searches and large-scale data requirements.
+  </p>
+  <p>
+    My research demonstrates that even with minimal data, optimizing a single hyperparameter can uncover significant redundancies, achieving accuracies ranging from approximately 1% to 97-100% using only 20% or less of the data by fine-tuning \(\beta\). This indicates that a comprehensive optimization of all hyperparameters in the early stages of training, coupled with the dynamic zeroing out of redundant parameters (akin to quantization with specific value gaps), can drastically reduce both data and computational needs while simultaneously enhancing model performance.
+  </p>
+  <p>
+    Furthermore, the intrinsic value of hyperparameters such as \(\beta\) is predominantly determined by the model's topology. This understanding diverges from DeepSeek's distillation methods, which require a pre-trained model and lack insight into the intrinsic values necessary for optimal performance from the outset. In contrast, my approach provides a theoretically grounded method to ascertain these intrinsic values dynamically, without necessitating a pre-trained starting point. This not only streamlines the training process but also unlocks the potential for more efficient and scalable AI models.
+  </p>
+  <p>
+    Additionally, if optimizing a single hyperparameter can reveal and eliminate large redundancies, it stands to reason that optimizing all hyperparameters early on could yield even more substantial improvements. This would enable models to achieve near-perfect accuracy with significantly less data by systematically identifying and zeroing out redundant parameters. Such advancements would represent a paradigm shift in how AI models are trained, moving towards more intelligent and efficient training processes that are both data and computation-efficient.
+  </p>
+</section>
   </main>
 
   <!-- Footer -->
