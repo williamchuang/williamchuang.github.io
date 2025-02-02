@@ -261,6 +261,166 @@ description: "Graduate Student at University of Arizona"
       </ol>
       <hr class="divider">
 
+<section id="landau-preface">
+  <h2>Landau’s 1940 Preface</h2>
+
+  <!-- English Translation Only -->
+  <div class="english-text">
+    <p><strong>Theoretical Physics Course · Mechanics</strong></p>
+    <p>
+      As everyone knows, physics consists of two main disciplines: experimental physics and theoretical physics. The large number of physical laws we know can be derived from a small number of very general principles. Such derivation, and the establishment of those general principles, call for a distinctive method, and this method defines a particular branch of study—namely, theoretical physics.
+    </p>
+    <p>
+      Theoretical physics uses mathematical tools and methods to arrive at its own results and conclusions. However, theoretical physics differs fundamentally from mathematics in that it has a direct link to experimental results. This is not to suggest that the most general laws can only be built on experimental data, nor that drawing conclusions from those laws does not also require prior experimental investigations. Without such investigations, one cannot judge which among the many interwoven factors are important or negligible. Once the relative importance of these factors is known, the essential task of theoretical physics is essentially complete. Further application of these equations to specific cases of varying complexity soon becomes a matter of purely mathematical study, forming what we call “mathematical physics.”
+    </p>
+    <p>
+      The goal of theoretical physics is to establish physical laws, that is, to establish relationships among physical quantities. Determining the specific numerical values of those quantities is generally not the task of theoretical physics, since, for numerical issues, experimental methods are often simpler and do not require labor-intensive calculations. Naturally, if a situation is simple enough, theory can directly compute the numerical values.
+    </p>
+    <p>
+      It must be emphasized that theoretical physics aims to establish and characterize the relationships between the physical quantities of a given phenomenon. Consequently, one can only devise a proper theory if such relationships truly exist in nature. Yet in many cases, the physical quantities of interest bear no relation to each other at all; in other words, they belong to entirely separate categories in different natural phenomena. Hence, in certain situations, the absence of a dedicated theory does not imply an inability to explain that phenomenon; if the most general laws can yield the same result, there is no necessity for a specialized theory.
+    </p>
+    <p>
+      Approximate analysis plays a tremendous role in theoretical physics. First, every “exact” law is in reality approximate, because in the vast majority of cases, that approximation offers sufficient accuracy. Second, theoretical physics does not strictly demand absolute accuracy in physical laws. If one defines the scope of a given phenomenon in advance, it suffices for the outcome to meet the required degree of precision. That is why we can still use Newtonian mechanics for analyzing the trajectory of artillery shells, despite knowing it is not absolutely accurate, simply because it is sufficiently precise in that domain, and we turn to relativity only when necessary for higher accuracy.
+    </p>
+    <p>
+      For this reason, in theoretical physics, there coexist certain theories (often referred to as “classical theories”) that have been shown to be less accurate alongside those that are more exact. They remain useful because, within certain specific ranges of phenomena, they retain their applicability. Any logically complete theory, once verified as valid within a certain accuracy range, does not lose its value. Indeed, partial or approximate results, derived in particular cases, remain embedded in any subsequent, more precise theory. Plainly, this category also includes those still under development or not yet fully coherent; they, too, have significance in the progression of theoretical physics.
+    </p>
+    <p>
+      Thus, we see that a key process in general physical theory lies in deducing more specific laws from the most general principles, without neglecting the central role of careful consideration of the most important factors. Overlooking those primary factors while relying solely on coarse simplifications can lead to ignoring the true scale or magnitude of the phenomena. In reality, the forms of phenomena themselves are often approximate, and the functional relationships among the physical quantities that describe them are similarly approximations. When studied at higher levels of precision, these relationships may reveal deeper meanings.
+    </p>
+    <p>
+      Determining the level of approximation at which one examines a phenomenon is exceptionally important in theoretical research. The gravest error is to adopt an extremely precise theory and exhaustively compute every subtle correction, while failing to recognize the broader advantages that a more streamlined or holistic approach might offer.
+    </p>
+    <p>
+      <strong>L. D. Landau<br>
+      1940</strong>
+    </p>
+    <p>
+      <small>(Note: Landau wrote this preface in 1940, when computational tools were very limited, so numerical experiments remained challenging.)</small>
+    </p>
+  </div>
+</section>
+
+<section id="landau-connection">
+  <h2>Relevance of Landau’s 1940 Preface to My Research</h2>
+  <p>
+    Drawing on over five decades of interdisciplinary work in mathematics, physics, and computer science, I am struck by how
+    Landau’s perspective in his <em>1940 Preface to Theoretical Physics Course</em> resonates with current challenges in
+    large-scale machine learning, particularly regarding the efficient training of transformer architectures. Landau emphasizes
+    that although theory provides a guiding framework, one must isolate and rigorously examine the most critical factors to reach
+    practical, approximate solutions. This vantage point is vital in machine learning research, where computational resources are
+    finite and the complexity of modern models can be immense.
+  </p>
+
+  <p>
+    Specifically, Landau’s discussion about leveraging general principles to sift out essential elements is deeply relevant to
+    the “scaling factor,” or “temperature parameter,” often denoted by <strong>β</strong>, in transformer-based self-attention.
+    Much like Landau’s insistence on identifying the key parameters governing physical phenomena, a dynamically optimized β
+    pinpoints the core drivers of attention mechanism performance. Rather than devoting overwhelming computational effort to
+    brute-force hyperparameter tuning, the principle of focusing on the most significant contributing factors—echoing Landau’s
+    approach—yields both conceptual clarity and practical efficiency in modern AI models.
+  </p>
+
+  <p>
+    Landau also underscores that approximate methods are indispensable in physics when certain complexities, if tackled
+    head-on, would produce diminishing returns relative to overall accuracy and insight. Likewise, my approach to dynamic scaling
+    addresses the need for intelligent approximation: the crux is to adapt β not only to reduce computational overhead but also
+    to preserve (and often enhance) model accuracy. By “zooming in” on the essential hyperparameters—akin to cutting away
+    superfluous elements in an experiment—my work aligns with Landau’s emphasis on capturing the essence of a phenomenon without
+    being overwhelmed by every possible nuance.
+  </p>
+
+  <p>
+    Finally, in the same way Landau accentuates the intimate relationship between theoretical foundations and experimental
+    verification, my research underscores that the best outcomes come from bridging foundational theory with empirical tuning.
+    We capitalize on the dynamic nature of β—rooted in statistical mechanics and energy minimization—to guide real-time updates
+    of the self-attention process. This holistic cycle of theory informing practice, and vice versa, illustrates precisely why
+    Landau’s arguments still hold tremendous value today: when major parameters are systematically refined based on a sound
+    theoretical framework, significant leaps in performance and efficiency can be realized.
+  </p>
+</section>
+
+<section id="ising-deep-learning">
+  <h2>Connecting the Ising Model to Deep Learning and Transformers</h2>
+
+  <p>
+    The mathematical and theoretical connections between the Ising model, spin-glass systems, and modern deep learning architectures like transformers have been well-studied. The following notable works highlight these connections, providing a foundation for understanding the equivalence or similarity between these systems:
+  </p>
+
+  <h3>Key Papers and Abstracts</h3>
+  <ol>
+    <li>
+      <strong>"The Loss Surfaces of Multilayer Networks" (2015)</strong>  
+      <em>Authors:</em> Anna Choromanska, Mikael Henaff, Yann LeCun, et al.  
+      <p>
+        This foundational paper investigates the landscape of loss surfaces in deep neural networks, using tools from statistical physics. The authors demonstrate that the structure of loss surfaces in multilayer networks can be analyzed through connections to the energy landscapes of spin-glass models, such as the Ising model. This work establishes theoretical parallels between deep learning and statistical mechanics, providing insights into why neural networks are able to find good minima despite the complexity of their loss surfaces.
+      </p>
+      <a href="http://proceedings.mlr.press/v38/choromanska15.pdf" target="_blank">Read the Paper</a>
+    </li>
+    <li>
+      <strong>"Deep Learning the Ising Model Near Criticality" (2017)</strong>  
+      <em>Authors:</em> Alan Morningstar and Roger G. Melko  
+      <p>
+        This study investigates the capability of deep generative models, such as Deep Boltzmann Machines and Deep Belief Networks, to learn the probability distribution of a two-dimensional Ising system. The authors compare these deep architectures to shallow networks like Restricted Boltzmann Machines, focusing on their accuracy in generating energetic observables near the phase transition.
+      </p>
+      <a href="https://arxiv.org/abs/1708.04622" target="_blank">Read the Paper</a>
+    </li>
+    <li>
+      <strong>"Explaining the Machine Learning Solution of the Ising Model" (2023)</strong>  
+      <p>
+        This paper shows how a neural network without hidden layers can determine the critical temperature of the ferromagnetic Ising model's phase transition. The study provides insights into the strategies employed by neural networks in solving such problems, paving the way for explainable machine learning applications in physics.
+      </p>
+      <a href="https://arxiv.org/abs/2402.11701" target="_blank">Read the Paper</a>
+    </li>
+    <li>
+      <strong>"Ising Models of Deep Neural Networks" (2022)</strong>  
+      <em>Authors:</em> Dusan Stosic, Darko Stosic, Borko Stosic  
+      <p>
+        The authors map deep neural networks to classical Ising spin models, allowing for a description using statistical thermodynamics. The study reveals that well-trained networks exhibit structures in their weights that span a wider range of realizable energies compared to poorly trained ones.
+      </p>
+      <a href="https://arxiv.org/abs/2209.08678" target="_blank">Read the Paper</a>
+    </li>
+    <li>
+      <strong>"Inverse Ising Inference by Combining Ornstein-Zernike Theory with Deep Learning" (2017)</strong>  
+      <p>
+        This research establishes an analogy between the inverse Ising problem and the Ornstein-Zernike formalism in liquid state physics. A deep neural network is employed to learn closure relations from Ising model simulations, outperforming traditional methods in inferring generative models from data.
+      </p>
+      <a href="https://arxiv.org/abs/1706.08466" target="_blank">Read the Paper</a>
+    </li>
+    <li>
+      <strong>"A Deep Dive into the Connections Between the Renormalization Group and Deep Learning in the Ising Model" (2023)</strong>  
+      <em>Author:</em> Kelsie Taylor  
+      <p>
+        This paper examines parallels between unsupervised deep learning and renormalization group flow through the lens of the two-dimensional Ising model. Restricted Boltzmann Machines are used to explore whether deep learning can be interpreted as a layer-by-layer coarse-graining process akin to renormalization.
+      </p>
+      <a href="https://arxiv.org/abs/2308.11075" target="_blank">Read the Paper</a>
+    </li>
+  </ol>
+
+  <h3>Questioning the Validity of Traditional β in Transformers</h3>
+  <p>
+    Inspired by the works above, particularly LeCun's analysis of loss landscapes in deep networks, consider this reasoning:
+  </p>
+  <ol>
+    <li>
+      Transformers, like deep neural networks, share mathematical similarities with Ising models or spin-glass systems, as evidenced by LeCun's work and others.
+    </li>
+    <li>
+      The traditional scaling factor \( \beta = \frac{1}{\sqrt{d_k}} \), used in transformer self-attention mechanisms (introduced in <em>"Attention is All You Need"</em>), determines the variance of attention scores. This is mathematically analogous to the inverse temperature \( \beta \) in the Ising model, which governs the phase transitions of spin systems.
+    </li>
+    <li>
+      If the traditional method of choosing \( \beta \) is correct and optimal, it would imply that the authors of <em>"Attention is All You Need"</em> have effectively solved the N-dimensional Ising model by identifying its critical temperature through the standard deviation of all weights (i.e., the components of vectors in a spin-glass system).
+    </li>
+  </ol>
+
+  <p>
+    <strong>But could this really be true?</strong> If the N-dimensional Ising model, a longstanding open problem in statistical mechanics, has not been solved, then does this suggest the traditional scaling factor \( \beta = \frac{1}{\sqrt{d_k}} \) might be suboptimal or oversimplified? Could dynamic optimization of β, as proposed in my work, offer a better approximation for the true critical behavior of these systems?
+  </p>
+
+  <p>
+    This reasoning is a proof by contradiction. By questioning the equivalence of the critical temperature in the Ising model and the scaling factor in transformers, we invite the academic and machine learning community to reexamine the assumptions underlying \( \beta \) in transformer architectures. The implications of this exploration could not only advance deep learning but also provide new insights into the Ising model itself.
+  </p>
+</section>
 
 <section class="supporting-visuals">
   <h3>Supporting Visuals</h3>
