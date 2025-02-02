@@ -306,14 +306,8 @@ description: "Graduate Student at University of Arizona"
   <p>
   I find Landau’s perspective in his <em>1940 Preface to Theoretical Physics Course</em> particularly resonant with the challenges in large-scale machine learning today. My academic path, spanning mathematics, physics, and computer science, allows me to appreciate how Landau’s emphasis on identifying key parameters and simplifying complex systems parallels the efficient training of transformer architectures. His insight—that theory provides a guiding framework but requires the isolation and rigorous examination of the most critical factors to achieve practical, approximate solutions—is especially relevant to machine learning, where computational resources are finite and model complexity can be immense.
   </p>
-  <p>
-  In the context of transformers, the traditional scaling factor \( \beta = \frac{1}{\sqrt{d_k}} \), introduced in <em>Attention is All You Need</em>, is treated as a fundamental parameter for ensuring stable self-attention dynamics. However, Landau’s perspective challenges us to question whether such heuristics truly reflect the underlying physics or mathematics of the system. If we consider the established equivalence between deep neural networks and spin-glass models, as demonstrated in LeCun’s seminal work on loss landscapes, the role of \( \beta \) becomes analogous to the inverse temperature in the Ising model—a parameter deeply tied to criticality and phase transitions. Could it be that this choice of \( \beta \) oversimplifies the dynamics of transformers, ignoring subtleties that a more rigorous, theoretically grounded approach might uncover?
-  </p>
-  <p>
-  By leveraging the mathematical connections between Ising models, statistical mechanics, and deep learning, I argue that a dynamic optimization of \( \beta \), informed by principles from energy minimization and criticality, offers a pathway to more efficient and scalable transformer architectures. This approach not only aligns with Landau’s methodological rigor but also holds the potential to address long-standing challenges in both machine learning and statistical physics, such as solving N-dimensional Ising-like problems. I invite the broader academic and machine learning communities to explore these connections further, using well-established mathematics to refine hyperparameter selection and advance the field.
-  </p>
 
-  <p>
+ <p>
     Specifically, Landau’s discussion about leveraging general principles to sift out essential elements is deeply relevant to
     the “scaling factor,” or “temperature parameter,” often denoted by <strong>β</strong>, in transformer-based self-attention.
     Much like Landau’s insistence on identifying the key parameters governing physical phenomena, a dynamically optimized β
@@ -323,18 +317,15 @@ description: "Graduate Student at University of Arizona"
   </p>
 
   <p>
-    Landau also underscores that approximate methods are indispensable in physics when certain complexities, if tackled
-    head-on, would produce diminishing returns relative to overall accuracy and insight. Likewise, my approach to dynamic scaling
-    addresses the need for intelligent approximation: the crux is to adapt β not only to reduce computational overhead but also
-    to preserve (and often enhance) model accuracy. By “zooming in” on the essential hyperparameters—akin to cutting away
-    superfluous elements in an experiment—my work aligns with Landau’s emphasis on capturing the essence of a phenomenon without
-    being overwhelmed by every possible nuance.
+  In the context of transformers, the traditional scaling factor \( \beta = \frac{1}{\sqrt{d_k}} \), introduced in <em>Attention is All You Need</em>, is treated as a fundamental parameter for ensuring stable self-attention dynamics. However, Landau’s perspective challenges us to question whether such heuristics truly reflect the underlying physics or mathematics of the system. If we consider the established equivalence between deep neural networks and spin-glass models, as demonstrated in LeCun’s seminal work on loss landscapes, the role of \( \beta \) becomes analogous to the inverse temperature in the Ising model—a parameter deeply tied to criticality and phase transitions. Could it be that this choice of \( \beta \) oversimplifies the dynamics of transformers, ignoring subtleties that a more rigorous, theoretically grounded approach might uncover?
+  </p>
+  <p>
+  By leveraging the mathematical connections between Ising models, statistical mechanics, and deep learning, I argue that a dynamic optimization of \( \beta \), informed by principles from energy minimization and criticality, offers a pathway to more efficient and scalable transformer architectures. This approach not only aligns with Landau’s methodological rigor but also holds the potential to address long-standing challenges in both machine learning and statistical physics, such as solving N-dimensional Ising-like problems. I invite the broader academic and machine learning communities to explore these connections further, using well-established mathematics to refine hyperparameter selection and advance the field.
   </p>
 
-  <p>
     Finally, in the same way Landau accentuates the intimate relationship between theoretical foundations and experimental
     verification, my research underscores that the best outcomes come from bridging foundational theory with empirical tuning.
-    We capitalize on the dynamic nature of β—rooted in statistical mechanics and energy minimization—to guide real-time updates
+    I capitalize on the dynamic nature of \( \beta \)—rooted in statistical mechanics and energy minimization—to guide real-time updates
     of the self-attention process. This holistic cycle of theory informing practice, and vice versa, illustrates precisely why
     Landau’s arguments still hold tremendous value today: when major parameters are systematically refined based on a sound
     theoretical framework, significant leaps in performance and efficiency can be realized.
