@@ -211,31 +211,38 @@ blog: passive
 </article>
 
 <article>
-  <h2>Symbolic Dynamics and Modular Zeta Functions: A Discrete Quantum Formalism</h2>
+  <h2>Symbolic Dynamics and Modular Zeta Functions: A Physically-Realizable Quantum Operator Framework</h2>
 
   <p>
-    This manuscript develops a precise, algebraically grounded framework for spectral and cryptographic dynamics over finite fields.
-    Building on symbolic dynamics and modular trace theory, it introduces a native formalism in which quantum-like operators act
-    on $\mathbb{F}_p$-vector spaces. Modular zeta functions emerge as characteristic invariants of truncated exponential evolutions,
-    offering a rigorous discrete counterpart to path-integral formulations.
+    In this work, I present a fully unitary and experimentally accessible extension of my earlier modular quantum framework.
+    By lifting symbolic dynamics from vector spaces over \(\mathbb{F}_p\) to Hilbert spaces over \(\mathbb{C}^n\), I construct
+    a physically consistent quantum operator model with discrete, cyclotomic-phase evolution.
   </p>
 
   <p>
-    Unlike heuristic analogies, this system defines genuine modular Hamiltonians, trace-based spectral zeta functions, and
-    combinatorial entropy dynamics—all fully constructed within finite field algebra. Key results include closed-form trace expansions,
-    eigenvalue statistics over $\mathbb{F}_p$, and obfuscation primitives rooted in operator conjugacy. These features enable
-    symbolic quantum emulation without reliance on continuous amplitudes or Hilbert space geometry.
+    The core construction revolves around five steps:
+    <ol>
+      <li>I embed symbolic transition matrices into unitary operators \(Q \in U(n, \mathbb{Q}(\zeta_p))\) with modular spectra.</li>
+      <li>I implement these operators using generalized Pauli “clock” and “shift” gates acting on \(p\)-level qudits.</li>
+      <li>The resulting gates are constructed over cyclotomic fields and decomposed into native hardware operations.</li>
+      <li>I extract trace data \(\operatorname{Tr}(Q^k)\) using quantum Fourier transforms and phase-readout methods.</li>
+      <li>Finally, I realize modular spectral behavior via quantum walks on graphs with adjacency derived from symbolic systems modulo \(p\).</li>
+    </ol>
+    This approach yields concrete zeta functions, trace formulas, and cryptographic primitives—while remaining grounded in
+    the architecture of modern quantum computing.
   </p>
 
   <p>
-    <strong>Note on Physical Implementation:</strong> While structurally quantum, this framework is not yet implementable on anyonic or
-    topological quantum platforms. It lacks unitary evolution, complex amplitudes, and braiding representations essential for
-    physical quantum coherence. Instead, it serves as a mathematically exact analog for cryptographic design, modular dynamics, and
-    spectral theory in classical computation settings.
+    <strong>On Physical Realizability:</strong><br>
+    Unlike earlier abstract finite-field models, this framework supports actual implementation. It can run on trapped-ion
+    systems, photonic qudit arrays, superconducting cavities, and more. I’ve also outlined pathways to incorporate
+    stabilizer codes, GKP grid encodings, and digital emulations using standard qubit registers. There’s no need for
+    anyonic braiding or topological quantum field theory—just modular arithmetic expressed through coherent quantum logic.
   </p>
 
-  <p><strong>Download:</strong>
-    <a href="https://drive.google.com/file/d/1viIfoogDJKPLbl8S2Ln-kt_sj0GpTbxs/view?usp=sharing" target="_blank">
+  <p>
+    <strong>Download the full manuscript:</strong><br>
+    <a href="https://drive.google.com/file/d/1fKEk_BAfMsqnhAFC1TxGVTU1GZvB2udi/view?usp=sharing" target="_blank">
       Symbolic Dynamics and Modular Zeta Functions (PDF)</a>
   </p>
 </article>
