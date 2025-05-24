@@ -54,18 +54,20 @@ blog: passive
   </p>
 
   <h3>2. MSIA is Post-Quantum Resistant by Design</h3>
-  <p>
-    MSIA departs from conventional lattice or code-based schemes by employing:
-  </p>
-  <ul>
-    <li>Modular zeta functions over finite fields</li>
-    <li>Symbolic dynamics derived from Schottky group orbit encodings</li>
-    <li>Obfuscation mechanisms based on Brauer character theory, Frobenius twisting, and Vandermonde concealment</li>
-    <li>Hardness assumptions reducible to #P-complete trace inversion and non-abelian zeta factorization</li>
-  </ul>
-  <p>
-    Crucially, these problems do <strong>not admit known quantum speedups</strong>. Furthermore, MSIA’s IND-CCA2 security is reinforced through a Fujisaki–Okamoto transform, rendering it resilient even against quantum-level chosen-ciphertext attacks.
-  </p>
+<p>
+  MSIA departs from conventional lattice or code-based schemes by employing a layered framework of hardness guarantees:
+</p>
+<ul>
+  <li><strong>Modular Zeta Functions:</strong> Defined over finite fields, encoding symbolic trace spectra linked to non-abelian algebraic structures</li>
+  <li><strong>Schottky-Derived Symbolic Dynamics:</strong> Orbit encodings derived from free, non-commutative generators with exponential-length growth</li>
+  <li><strong>Obfuscation Mechanisms:</strong> Including Frobenius twisting, Brauer character mixing, and Vandermonde slot concealment</li>
+  <li><strong>#P-Hardness:</strong> Inversion equivalent to symbolic trace classification—computationally intractable due to combinatorial explosion</li>
+  <li><strong>NP-Hardness:</strong> Symbolic clauses encode SAT reductions within slot configurations, linking to well-known NP-complete formulations</li>
+  <li><strong>Geometric Hardness:</strong> Recovering symbolic trace peaks reduces to length spectrum inversion on Selberg-type zeta functions, which remains open in hyperbolic geometry</li>
+</ul>
+<p>
+  Crucially, none of these problem classes admit known quantum speedups. Furthermore, MSIA’s IND-CCA2 security is enforced through a Fujisaki–Okamoto transform, making it resilient even under quantum-level chosen-ciphertext scenarios.
+</p>
   <p>My work is designed precisely to neutralize the cryptographic threat posed by quantum computers. Rather than being rendered obsolete, MSIA shields secrets using mathematical structures beyond quantum reach—turning post-quantum fears into robust resilience.</p>
 
   <table>
@@ -102,7 +104,7 @@ blog: passive
     <p>Rather than being rendered obsolete, MSIA <strong>shields secrets</strong> using mathematical structures beyond quantum reach—<strong>turning post-quantum fears into robust resilience</strong>.</p>
   </blockquote>
 
-<p><strong>Downloads:</strong></p>
+  <p><strong>Downloads:</strong></p>
   <ul>
     <li><a href="https://drive.google.com/file/d/1ulllMkc_oVq8JGByiP6jGccSfu8KI3VS/view?usp=sharing" target="_blank">A Modular Framework for Symbolic Dynamics (PDF)</a></li>
     <li><a href="https://drive.google.com/file/d/1Nq2TEpbgFX9M7enx0cO05sTpKwHyml2H/view?usp=sharing" target="_blank">Symbolic Dynamics and Modular Zeta Functions (PDF)</a></li>
@@ -110,12 +112,11 @@ blog: passive
     <li><a href="https://drive.google.com/file/d/1j8O-JpvBREAeNkN7kTjRCs7IW0u-VA7t/view?usp=sharing" target="_blank">MSIA – Modular Symbolic Intelligence Architecture (PDF)</a></li>
     <li><a href="https://drive.google.com/file/d/1rwzUR6AvLigDuSwurYaXnkQUj994ka5l/view?usp=sharing" target="_blank">The Modular Symbolic Intelligence Architecture (PDF)</a></li>
     <li><a href="https://drive.google.com/file/d/1fFw3F_hFst5Zf-dLKDvDevIBt4nrSwYH/view?usp=sharing" target="_blank"><strong>Strategic Symbolic Trace Encryption (Demo 1)</strong> – A prototype illustrating the modular trace encoding process over symbolic dynamics and Schottky zeta architecture. Presented as an academic benchmark for quantum-resilient obfuscation techniques.</a></li>
-  <li><a href="https://drive.google.com/file/d/1HnKD0c-bQRbakQo2zVVmJRPFuHOaUmvq/view?usp=sharing" target="_blank"><strong>Symbolic Zeta Obfuscation Layer (Demo 2)</strong> – Demonstrates Vandermonde masking and Frobenius twists in trace-aligned symbolic coordinates. For policy and defense modeling in post-quantum settings.</a></li>
-  <li><a href="https://drive.google.com/file/d/1FiibByAil0VDYMngIoVHKdWzcJiW-gyg/view?usp=sharing" target="_blank"><strong>Trace Inversion Hardness Under Non-Abelian Schottky Dynamics (Demo 3)</strong> – A high-level illustration of spectral indistinguishability assumptions applied to modular cryptographic contexts. Meant to support national-security-grade validation.</a></li>
+    <li><a href="https://drive.google.com/file/d/1HnKD0c-bQRbakQo2zVVmJRPFuHOaUmvq/view?usp=sharing" target="_blank"><strong>Symbolic Zeta Obfuscation Layer (Demo 2)</strong> – Demonstrates Vandermonde masking and Frobenius twists in trace-aligned symbolic coordinates. For policy and defense modeling in post-quantum settings.</a></li>
+    <li><a href="https://drive.google.com/file/d/1FiibByAil0VDYMngIoVHKdWzcJiW-gyg/view?usp=sharing" target="_blank"><strong>Trace Inversion Hardness Under Non-Abelian Schottky Dynamics (Demo 3)</strong> – A high-level illustration of spectral indistinguishability assumptions applied to modular cryptographic contexts. Meant to support national-security-grade validation.</a></li>
   </ul>
-
 <p><em>Note:</em> This demo implementation uses intentionally small field sizes and simplified primitives. It is designed solely for academic illustration and does not represent a production cryptosystem. For deployment inquiries, contact <a href="mailto:williamhschuang@gmail.com">williamhschuang@gmail.com</a>.</p>
-
+<p>If you're interested in a classified-style policy brief or a public-facing declassified whitepaper, feel free to <a href="mailto:williamhschuang@gmail.com">contact me</a>.</p>
   <p><em>Disclaimer:</em> All technical material is provided for lawful academic and pre-commercial use only. No portion of this site contains classified, export-restricted, or ITAR-governed technology. <strong>Logarchéon, Inc.</strong>—my newly established research entity—is being developed to architect, license, and scale systems integrating symbolic cryptography, post-quantum computation, and lawful innovation for national security applications. It operates in full alignment with U.S. federal law and anticipates future federal clearances for relevant R&D pathways.</p>
 </article>
 
