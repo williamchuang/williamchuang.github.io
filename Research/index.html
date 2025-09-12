@@ -33,53 +33,79 @@ blog: passive
 
     <section class="research-list">
 
-<!-- ===== CONTEXT: Ψ-Framework Paradigm Statement ===== -->
-<section id="psi-paradigm" class="research-list" aria-label="Ψ-Framework Paradigm Statement">
+<!-- ===== CONTEXT: Ψ-Framework — Definition, Iteration, and Paradigm ===== -->
+<section id="psi-paradigm" class="research-list" aria-label="Ψ-Framework: Definition and Paradigm">
   <article class="highlight-card">
     <h2>The Ψ-Framework: Algebraic, Geometric, and Spectral Foundations</h2>
 
+    <!-- Definition -->
+    <h3>Definition of <span style="white-space:nowrap;">\( \Psi \)</span></h3>
     <p>
-      My work does not begin with neural networks as numerical approximators of PDEs. It begins with
-      <strong>the construction of the algebra of Ψ</strong>—a symbolic, structural, and symmetry-sensitive foundation in which
-      <em>wavefunctions, fields, observables, spectra, and renormalization flows</em> are first-class objects. Decomposition,
-      control, and safety constraints are integral to the architecture. Prior results showing that neural models can
-      <em>approximate</em> physics constitute a proper subset of what the Ψ-algebra already implies.
+      I use <strong>\( \Psi \)</strong> to denote a <em>symbolic operator architecture</em>—not a single function or a mere neural approximator—formally
+      \[
+        \Psi \;:=\; \bigl(\,\mathcal{H}_\theta,\;\langle \cdot,\cdot\rangle_\theta,\;\mathcal{O},\;R_\lambda,\;\mathcal{D},\;\mathcal{C}\,\bigr).
+      \]
+    </p>
+    <ul>
+      <li><strong>\( \mathcal{H}_\theta \)</strong> — a learned latent state space (parameters \( \theta \)) on which dynamics and spectra are represented.</li>
+      <li><strong>\( \langle \cdot,\cdot\rangle_\theta \)</strong> — a learned inner product/metric equipping \( \mathcal{H}_\theta \) for spectral calculus.</li>
+      <li><strong>\( \mathcal{O}=\{O_k\} \)</strong> — operator heads (Hermitian/non-Hermitian) producing observables, correlators, and conserved quantities.</li>
+      <li><strong>\( R_\lambda \)</strong> — a latent renormalization flow (“RG brane”) indexed by scale \( \lambda \), organizing effective theories across scales.</li>
+      <li><strong>\( \mathcal{D}=(\mathrm{enc},\mathrm{dec}) \)</strong> — encoder/decoder maps between latent states and physical configurations (fields, metrics, boundary data).</li>
+      <li><strong>\( \mathcal{C}(b) \)</strong> — a control interface (bits/typed selectors \( b \)) routing symmetry constraints, operator policies, and safety envelopes to active heads in \( \mathcal{O} \).</li>
+    </ul>
+
+    <!-- Iterative closure/orbit condition -->
+    <h3>Iterative Closure (Self-Feeding Orbit Condition)</h3>
+    <p>
+      A defining property of my framework is that <em>outputs are admissible inputs</em>, so \( \Psi \) can iterate on its own productions
+      to traverse its orbit (for any desired number of steps). Concretely, define the closed-loop update
+    </p>
+    <p style="overflow:auto;">
+      \[
+        T_b \;:=\; U_b \circ \mathrm{enc}\circ \mathrm{dec}\;:\;\mathcal{H}_\theta \to \mathcal{H}_\theta, 
+        \quad h_{t+1} \;=\; T_b(h_t),
+      \]
+      \[
+        F_b \;:=\; \mathrm{dec}\circ U_b \circ \mathrm{enc}\;:\;\mathcal{X}\to \mathcal{X}, 
+        \quad x_{t+1} \;=\; F_b(x_t),
+      \]
+    </p>
+    <p>
+      where \( U_b\in\mathcal{O} \) is an operator (selected by control \( b \)). Thus, \( \Psi \) supports self-feeding sequences
+      \( (h_t)_{t\ge 0} \) and \( (x_t)_{t\ge 0} \) whose orbits are well-posed under the learned metric \( \langle\cdot,\cdot\rangle_\theta \) and
+      respect the encoded symmetries/safety constraints. In practice, this iterative closure is realized by:
+    </p>
+    <ul>
+      <li><strong>Autoencoder loops:</strong> \( x \!\to\! h=\mathrm{enc}(x)\!\to\! y=\mathrm{dec}(h) \) with \( x_{t+1}=y_t \), enabling denoising, refinement, or spectral filtering.</li>
+      <li><strong>Transformers:</strong> next-token (or patch) generation where the produced sequence is fed back as context for subsequent steps.</li>
+      <li><strong>LLMs (e.g., ChatGPT-style):</strong> dialog/trajectory rollouts in which prior outputs are re-ingested, implementing \( x_{t+1}=F_b(x_t) \) at the text-state level.</li>
+    </ul>
+
+    <p>
+      Path-integral surrogates and spectra are computed <em>within</em> the architecture. For example, a latent partition surrogate
+      \[
+        Z_{\Psi}(\beta)\;=\;\sum_{j} w_j \, e^{-S(\mathrm{dec}(z_j))}
+      \]
+      with samples \( z_j \) from \( \mathcal{H}_\theta \) allows observable queries without presupposing a fixed PDE or Lagrangian. Conventional “NN ≈ physics”
+      appears as a special case where \( \mathcal{O} \), \( \langle\cdot,\cdot\rangle_\theta \), and \( R_\lambda \) are constrained to reproduce a given theory.
     </p>
 
-    <h3>Prior Art: The Approximation Paradigm</h3>
-    <ul>
-      <li><strong>Input:</strong> a fixed PDE/Hamiltonian/Lagrangian specified upfront.</li>
-      <li><strong>Model:</strong> a neural network trained to fit solutions under constraints.</li>
-      <li><strong>Goal:</strong> numerical approximation (e.g., ground states, dynamics).</li>
-      <li><strong>Ontology:</strong> the network functions as a black-box approximator.</li>
-    </ul>
+    <!-- Motivation and contrast -->
+    <h3>Motivation and Contrast</h3>
     <p>
-      <strong>Questions not asked:</strong> Can the network <em>be</em> the physics? Can control bits, learned inner products,
-      and symbolic RG flow emulate theory <em>without</em> prespecified PDEs? Can one build a unifying algebra in which physics
-      is expressed by Ψ itself?
+      Standard practice begins with a <em>given</em> equation (PDE/Hamiltonian/Lagrangian) and trains a network to approximate its solution.
+      By contrast, I begin with the <em>algebra of \( \Psi \)</em>: geometry, spectra, renormalization flow, and <em>closed-loop iteration</em> are learned and composed internally.
+      The same \( \Psi \) object can instantiate a many-body wavefunction, a classical/quantum field, a cosmological metric, or a logic engine for operator discovery—selected via
+      \( \mathcal{C}(b) \) and governed by symmetries enforced in \( \mathcal{O} \) and \( \langle\cdot,\cdot\rangle_\theta \).
     </p>
 
-    <h3>My Framework: The Symbolic Unification Paradigm</h3>
+    <h3>Consequences</h3>
     <ul>
-      <li><strong>Ψ as field–wavefunction–logic triad:</strong> generator of many-body states; latent geometric field; logic engine for spectra and observables.</li>
-      <li><strong>Algebra over fixed laws:</strong> learned inner-product geometries; layerwise latent RG flows; Koopman-compatible operators; Rayleigh–Ritz spectral extraction.</li>
-      <li><strong>Cross-domain polymorphism:</strong> a single Ψ object instantiates QFT wavefunctions, cosmological metrics, condensed-matter lattices, AI/ML logic, and RG attractor systems.</li>
-    </ul>
-
-    <h3>Foundational, Not Incremental</h3>
-    <ul>
-      <li><strong>Scope:</strong> from problem-specific approximators → <em>domain-unifying</em> operator algebra.</li>
-      <li><strong>Physics input:</strong> required upfront → <em>emergent</em> from Ψ’s RG-brane topology.</li>
-      <li><strong>Interface:</strong> minimal → <em>control-bit</em> logic with spectral/observable routing and safety envelopes.</li>
-      <li><strong>Geometry:</strong> predefined/regularized → <em>learned</em> with topological invariants.</li>
-      <li><strong>Role of the network:</strong> approximator → <em>first-class operator algebra and field object</em>.</li>
-    </ul>
-
-    <h3>Priority &amp; Protection</h3>
-    <ul>
-      <li><em>System and method</em> for symbolic physics via latent neural algebras.</li>
-      <li>Operator-brane programming architecture for physics unification.</li>
-      <li>Control-bit–indexed, symmetry-certified polymorphic field generators.</li>
+      <li><strong>Foundational rather than incremental:</strong> replaces “fit a solution” with “specify an operator-geometry with iterative closure.”</li>
+      <li><strong>Emergent equations:</strong> PDEs/Lagrangians can be <em>recovered</em> as invariants of \( \Psi \) rather than assumed upfront.</li>
+      <li><strong>Cross-domain polymorphism:</strong> one architecture yields QFT, condensed-matter, and cosmological views by control and head selection.</li>
+      <li><strong>Safety envelopes:</strong> symmetry and conservation constraints are encoded at the interface (via \( \mathcal{C}(b) \)) and in the operator algebra.</li>
     </ul>
 
     <p style="margin-top:.9rem;">
@@ -94,8 +120,9 @@ blog: passive
 <section id="psi-notes-hub" class="research-list" aria-label="Featured Research: Ψ-Framework Notes I–V">
   <h2>Ψ-Framework — Featured Research Notes (I–V)</h2>
   <p>
-    A five-note sequence that <strong>starts from the algebra and decomposition of Ψ</strong> (not approximation)
-    and then applies it to fields, spectra, RG geometry, and QFT. Approximation results follow as a special case.
+    The sequence begins with the <strong>decomposition and mode calculus of \( \Psi \)</strong>, then develops the operator algebra,
+    the wavefunction–field unification, the theoretical applications, and finally the QFT reformulation. Approximation results are
+    subsumed by the construction.
   </p>
 
   <!-- Quick Jump -->
@@ -114,12 +141,12 @@ blog: passive
     <h3>Lecture Notes — Epicyclic Decomposition (Note I)</h3>
     <p><strong>Status:</strong> Draft — Unpublished Lecture Notes &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
     <p>
-      Establishes Ψ’s <em>mode calculus</em> from first principles: Fourier/epicycle equivalence, cycle stacks, and finite-basis truncations that underwrite Ψ-decompositions.
+      Establishes the <em>mode calculus</em> for \( \Psi \): Fourier/epicycle equivalence, cycle stacks, and finite-basis truncations that support controlled Ψ-decompositions for signals and fields.
     </p>
     <ul>
       <li>Fourier ↔ epicycle reconstruction</li>
-      <li>Truncated cycle bases and guarantees</li>
-      <li>Worked signal/field syntheses</li>
+      <li>Truncated cycle bases with error control</li>
+      <li>Worked syntheses for field data</li>
     </ul>
     <p><strong>Download:</strong>
       <a href="https://drive.google.com/file/d/1WMKy_J-XHu5Uf4FV7SwPvn91ZkQrJMjI/view?usp=sharing" target="_blank" rel="noopener">
@@ -133,16 +160,17 @@ blog: passive
     <h3>A Structured Framework for the Neural Network (Note II)</h3>
     <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
     <p>
-      Builds the <em>algebra of Ψ</em>: learned inner products, Hermitian operator heads, Koopman commutation, and <strong>control-bit routing</strong> for safe polymorphism.
+      Develops the <em>algebra of \( \Psi \)</em>: learned inner products, Hermitian operator heads, Koopman-compatible couplings,
+      Rayleigh–Ritz spectral extraction, and <strong>control-bit routing</strong> for symmetry-aware polymorphism.
     </p>
     <ul>
-      <li>Rayleigh–Ritz spectral extraction on learned metrics</li>
-      <li>Gauge/diffeo/Noether compliance layers</li>
-      <li>Composable operator pipelines &amp; spectral calculus</li>
+      <li>Metric learning for spectral stability</li>
+      <li>Symmetry/Noether compliance layers</li>
+      <li>Composable operator pipelines</li>
     </ul>
-    <p><strong>Download:</strong>
+    <p><strong>Materials:</strong>
       <a href="https://drive.google.com/drive/folders/1g0PpRhaYi6SYfpkSoBXYt18dZJ7sYprS?usp=sharing" target="_blank" rel="noopener">
-        A Structured Framework for the Neural Network (PDF)
+        A Structured Framework for the Neural Network (Folder/PDF)
       </a>
     </p>
   </article>
@@ -152,12 +180,13 @@ blog: passive
     <h3>From Many-Body Wavefunctions to Particle Fields (Note III)</h3>
     <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
     <p>
-      Unifies many-body emulation and <em>field-level</em> representation within a single Ψ object: latent partition sums and observable heads for spectra/correlators.
+      Unifies many-body emulation and <em>field-level</em> representation within a single \( \Psi \) object: latent partition sums,
+      observable heads for spectra and correlators, and a path-integral surrogate \( Z_\Psi \).
     </p>
     <ul>
-      <li>Wavefunction ↔ field duality in Ψ</li>
-      <li>Latent path-integral surrogate \( Z_\Psi \)</li>
-      <li>n-point &amp; spectral function operators</li>
+      <li>Wavefunction ↔ field duality inside \( \Psi \)</li>
+      <li>Latent partition functions and correlators</li>
+      <li>Spectral and \( n \)-point operators</li>
     </ul>
     <p><strong>Download:</strong>
       <a href="https://drive.google.com/file/d/1XbxsU7WTyCP1WPxKcvyzQF2D3I3qSogT/view?usp=sharing" target="_blank" rel="noopener">
@@ -171,12 +200,13 @@ blog: passive
     <h3>Theoretical Applications of the Ψ Framework (Note IV)</h3>
     <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
     <p>
-      Demonstrates Ψ as a <em>symbolic operator–geometry</em> replacing fixed PDEs/Lagrangians with learned RG flows, spectral learning, and query-by-control physics.
+      Shows \( \Psi \) as a <em>symbolic operator–geometry</em>: fixed PDEs/Lagrangians are replaced by learned RG flows, spectral learning,
+      and query-by-control observable routing.
     </p>
     <ul>
-      <li>Latent RG “brane” flows with learned β-fields</li>
-      <li>Koopman couplings + Rayleigh–Ritz spectra</li>
-      <li>Programmable control-bit I/O for observables</li>
+      <li>RG “brane” flows with learned \( \beta \)-fields</li>
+      <li>Koopman couplings with Rayleigh–Ritz spectra</li>
+      <li>Programmable control for observables</li>
     </ul>
     <p><strong>Download:</strong>
       <a href="https://drive.google.com/file/d/1vwPt2FL-uX4AcANPYQ86ClIUm8HPsxG9/view?usp=sharing" target="_blank" rel="noopener">
@@ -187,19 +217,19 @@ blog: passive
 
   <!-- Note V -->
   <article id="psi-qft" class="highlight-card">
-    <h3>A Structured Ψ for Reformulating QFT — Modes, Symmetries, and Safety (Note V)</h3>
+    <h3>A Structured \( \Psi \) for Reformulating QFT — Modes, Symmetries, and Safety (Note V)</h3>
     <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
     <p>
-      Recasts QFT inside Ψ with <em>mode stacks</em>, <em>symmetry-equivariant layers</em>, and <em>safety envelopes</em>. Renormalization emerges as latent RG morphisms.
+      Recasts QFT within \( \Psi \) using <em>mode stacks</em>, <em>symmetry-equivariant layers</em>, and <em>safety envelopes</em>. Renormalization appears as latent RG morphisms with auditable heads.
     </p>
     <ul>
       <li>Gauge/diffeomorphism-respecting operator heads</li>
       <li>Latent RG morphisms as theory transitions</li>
-      <li>Safety-first constraints for physical outputs</li>
+      <li>Constraint-first, safety-aware outputs</li>
     </ul>
     <p><strong>Download:</strong>
       <a href="https://drive.google.com/file/d/1uSqWIk28FGV1DhFYY6v_eHDSFaXSCzwp/view?usp=sharing" target="_blank" rel="noopener">
-        A Structured Ψ for Reformulating QFT — Modes, Symmetries, and Safety (PDF)
+        A Structured \( \Psi \) for Reformulating QFT — Modes, Symmetries, and Safety (PDF)
       </a>
     </p>
   </article>
