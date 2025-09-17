@@ -33,6 +33,101 @@ blog: passive
 
     <section class="research-list">
 
+<!-- ===== INTRO: Finite-Machine Decomposition — Mixed-Audience Overview ===== -->
+<section id="finite-machine-intro" class="research-list" aria-label="Finite-Machine Decomposition — Overview">
+  <article class="highlight-card">
+    <h2>Decomposing Autoregressive Transformers as Finite Machines — Overview</h2>
+
+    <!-- TL;DR for mixed readers -->
+    <aside style="border-left:4px solid #444; padding:.75rem 1rem; background:#f7f7f7; margin:.25rem 0 1rem 0;">
+      <strong>TL;DR.</strong> Treat the model’s rolling context (last \(L\) tokens) as the state. Under
+      <em>deterministic stepwise argmax decoding</em>
+      <span style="white-space:nowrap;">(also: <em>argmax decoding (per step)</em>; <em>zero-temperature decoding</em> with \(T{=}0\) softmax; <em>mode-seeking stepwise decoding</em>; <em>beam search with width 1</em>; <em>stepwise MAP token selection</em>)</span>,
+      the closed-loop map is a finite endofunction \(F:X\!\to\!X\). Lift to a one-hot operator \(P\) and split \(P=D+N\) (cycles vs. transients). 
+      Time is dominated by inference: \(T \approx B/R\) where \(B\) is probed tokens and \(R\) is aggregate tokens/s.
+    </aside>
+
+    <p style="font-size:1.05rem; margin-top:.25rem;">
+      This section summarizes the practical, formal decomposition used in the paper 
+      <a href="https://drive.google.com/file/d/1g5DOVmMgYr-itFShqNkRfjdO7nzxCrue/view?usp=sharing" target="_blank" rel="noopener">Decomposing Autoregressive Transformers as Finite Machines (PDF)</a>.
+    </p>
+
+    <div style="display:grid; gap:.9rem; margin:.9rem 0;">
+      <div>
+        <h3 style="margin:.25rem 0;">Object of study</h3>
+        <ul style="margin:.25rem 0 0 .95rem;">
+          <li><strong>State (“point”):</strong> the rolling window of the last \(L\) tokens; one emitted token = one step.</li>
+          <li><strong>Map:</strong> with <em>deterministic stepwise argmax decoding</em>
+            <span style="white-space:nowrap;">(a.k.a. <em>argmax decoding (per step)</em>; <em>zero-temperature decoding</em>; <em>mode-seeking stepwise decoding</em>; <em>beam search, width 1</em>; <em>stepwise MAP</em>)</span>,
+            we obtain \(F:X\!\to\!X\) and its one-hot lift \(P\) with commuting split \(P=D+N\).</li>
+          <li><strong>Bounded probe:</strong> select a token budget \(B\) (e.g., \(1.024\times10^8\)); the wall-clock obeys \(T \approx B/R\) up to a small additive overhead.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="margin:.25rem 0;">Tight, implementation-level bounds</h3>
+        <p style="margin:.25rem 0;">
+          \(\boxed{T_{\min}=B/R}\) (inference is irreducible) &nbsp;·&nbsp;
+          \(\boxed{T_{\max}\approx B/R+10\text{–}30\text{ min}}\) (global de-duplication, cycle detection, FFT-style projectors).
+        </p>
+        <ul style="margin:.25rem 0 0 .95rem;">
+          <li>Example \(B=1.024\times10^8\): \(R\in\{1{,}000,\,5{,}000,\,20{,}000\}\) tok/s ⇒
+            \(\{28\mathrm{h}27\mathrm{m},\,5\mathrm{h}41\mathrm{m},\,1\mathrm{h}25\mathrm{m}\}\) + overhead.</li>
+          <li>Large dense models (e.g., 405B) require more nodes, yet time still scales linearly with \(B/R\).</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="margin:.25rem 0;">Why exhaustive path coverage is unnecessary</h3>
+        <p style="margin:.25rem 0;">
+          Empirically, a small number of basins accounts for nearly all workload mass. If the visited basins carry \(\ge 99.9\%\) of usage,
+          the restricted dynamics on that subgraph matches the full model within total-variation error \(\le 10^{-3}\) at every horizon,
+          while keeping the overall runtime squarely in the \(B/R\) regime.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="margin:.25rem 0;">Operational uses of the \(P=D+N\) split</h3>
+        <ul style="margin:.25rem 0 0 .95rem;">
+          <li><strong>Certificates & guardrails:</strong> projections to admissible subspaces; fail-closed guarantees.</li>
+          <li><strong>Cycle sentinels & QA:</strong> spectral signatures for loop detection and anomaly scoring.</li>
+          <li><strong>Latency & deployment:</strong> cache hot cycles; export compact finite automata for edge serving.</li>
+          <li><strong>Model surgery:</strong> damp/swap cycle modes; wrap transients; produce auditable change certificates.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Quick jumps to deeper sections you maintain elsewhere -->
+    <nav class="quick-jump" aria-label="Jump to details" style="margin-top:.6rem;">
+      <ul style="display:flex; gap:.5rem; flex-wrap:wrap; list-style:none; padding:0; margin:0;">
+        <li><a class="pill-link" href="#practicality-run-recipes">Practicality &amp; Run Recipes</a></li>
+        <li><a class="pill-link" href="#basin-dominant-sufficiency">99.9% Basin Coverage</a></li>
+        <li><a class="pill-link" href="#throughput-reality">Throughput Reality</a></li>
+        <li><a class="pill-link" href="#finite-machine-references">References</a></li>
+      </ul>
+    </nav>
+
+    <details style="margin-top:.9rem;">
+      <summary><strong>Operational hygiene</strong> (determinism, EOS, duplicates, parallelism)</summary>
+      <ul style="margin:.5rem 0 0 .95rem;">
+        <li><strong>Determinism:</strong> zero temperature; identical contexts map to identical next tokens.</li>
+        <li><strong>EOS handling:</strong> include an absorbing state so variable-length outputs embed in the finite machine.</li>
+        <li><strong>De-duplication:</strong> shard the global “seen” set by context hash; periodic sort/unique compaction.</li>
+        <li><strong>Parallelism:</strong> treat \(R\) as aggregate tokens/s across GPUs or API concurrency; runtime scales as \(B/R\).</li>
+      </ul>
+    </details>
+
+    <p style="margin-top:1rem;">
+      <a class="pill-link" href="https://drive.google.com/file/d/1g5DOVmMgYr-itFShqNkRfjdO7nzxCrue/view?usp=sharing" target="_blank" rel="noopener">
+        Download the Paper (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END INTRO ===== -->
+
+
+
 <!-- ===== CONTEXT: Ψ-Framework — Definition, Iteration, and Paradigm ===== -->
 <section id="psi-paradigm" class="research-list" aria-label="Ψ-Framework: Definition and Paradigm">
   <article class="highlight-card">
