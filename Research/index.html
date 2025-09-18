@@ -28,10 +28,77 @@ blog: passive
 
   <main class="container">
     <h1>Research Projects</h1>
-
-
-
     <section class="research-list">
+
+
+<!-- ===== FEATURED: Ψ-Orbitfold Framework Notes ===== -->
+<section id="psi-orbitfold-notes" class="research-list" aria-label="Featured Research Notes: Ψ-Orbitfold Framework">
+  <h2>Ψ‑Orbitfold Framework — Featured Research Notes</h2>
+
+  <p>
+    These research notes develop a rigorous geometric and operator-theoretic framework for understanding transformer-based models.
+    They unify perspectives from differential geometry, information geometry, graph Ricci flows, and periodic orbit theory, with applications to
+    <strong>LLM interpretability, safety, and structure-aware optimization</strong>.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ notes">
+    <ul style="display:flex; gap:.75rem; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1rem 0;">
+      <li><a href="#note-decomposition" class="pill-link">Transformer Orbitfold Decomposition</a></li>
+      <li><a href="#note-verification" class="pill-link">Verification of Mathematical Invariants</a></li>
+    </ul>
+  </nav>
+
+  <!-- Note A: Transformer Decomposition -->
+  <article id="note-decomposition" class="highlight-card">
+    <h3>Decomposing Transformers and LLMs via Orbitfold Dynamics</h3>
+    <p><strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      This note models a transformer’s deterministic decoding dynamics as a <em>cycles-only orbitfold</em>,
+      where each state eventually enters a periodic loop, and transients form tree-like structures. 
+      Using graph Ricci curvature, holonomy monodromy, and KL-based projections, it derives structural invariants
+      and flow-based controls for transformer stability and interpretability.
+    </p>
+    <ul>
+      <li>Defines the Euler characteristic of LLM orbitfolds under state transitions</li>
+      <li>Introduces Ricci flow on functional graphs as a smoothing dynamic</li>
+      <li>Links holonomy and cycle-based geometry to information projections</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1g1tD1TPtP2f68QsH8sW2quBDXw3d5oD-/view?usp=sharing" target="_blank" rel="noopener">
+        Decomposing Transformers and LLMs (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note B: Proposition Verification -->
+  <article id="note-verification" class="highlight-card">
+    <h3>Verification and Integration of Theoretical Propositions</h3>
+    <p><strong>Status:</strong> Formal Writeup &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      This note rigorously proves and integrates seven propositions spanning geometry, information theory, and renormalization.
+      Each proposition is stated with precise assumptions, proof sketches, and notes on audit/test deployment. 
+      The work bridges earlier constructs such as Unified Flow Equivalence (UFE), Equivariant Path-Integral Surrogates (EPS),
+      and Attention-Graph Mixing (AMG).
+    </p>
+    <ul>
+      <li>Proof of marked length & holonomy rigidity on functional graphs</li>
+      <li>Unified Lyapunov for interleaved descent flows with Γ‑convergence</li>
+      <li>Zeta-function dynamics with cone-angle holonomy and RG contraction</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1TU5Puq-Rt-mC3h4uaORCJXedQ78AAGnY/view?usp=sharing" target="_blank" rel="noopener">
+        Verification and Integration of Propositions (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+
+
+
 <!-- ===== FEATURED: Orbitfold & IG Notes (A→L) ===== -->
 <section id="orbitfold-ig-hub" class="research-list" aria-label="Featured Research: Orbitfold Geometry & Information Geometry">
   <h2>Deterministic LLM Geometry — Featured Notes (A→L)</h2>
