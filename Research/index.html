@@ -31,6 +31,166 @@ blog: passive
     <section class="research-list">
 
 
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes ===== -->
+<section id="psi-finance-notes"
+         class="research-list"
+         aria-labelledby="psi-finance-title"
+         role="region">
+  <h2 id="psi-finance-title">Ψ–Orbitfold Finance — Featured Research Notes</h2>
+
+  <p>
+    Operator-theoretic foundations for markets and models:
+    <em>conditional-expectation projectors, Koopman/PF operators, Dunford (cycle/transient) splits,
+    and spectral projectors</em>. Applications include
+    <strong>CAPM/FF as projections, operator-informed factors, neutrality/guardrails,</strong> and
+    <strong>certified edits with stability guarantees</strong>.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-operator-projection">Operator–Projection Factor Models</a></li>
+      <li><a class="pill-link" href="#note-probability-compact">Probability, Prices & Operators (Compact)</a></li>
+      <li><a class="pill-link" href="#note-capm-projections">CAPM/FF as Projection Theorems</a></li>
+      <li><a class="pill-link" href="#note-markets-transformers">Markets as Autoregressive Transformers</a></li>
+      <li><a class="pill-link" href="#note-conditional-autoregressive">From Conditional Expectations → AR–Transformer</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) Operator–Projection Factor Models -->
+  <article id="note-operator-projection" class="highlight-card" aria-labelledby="note-operator-projection-title">
+    <h3 id="note-operator-projection-title">Operator–Projection Factor Models: A Ψ–Koopman Framework for Asset Pricing</h3>
+    <p>
+      <strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Unifies learned closed-loop state maps with no-arbitrage pricing. Establishes
+      <em>CAPM/FF as L<sup>2</sup> projections</em>, builds <em>operator-informed factors</em> from cycle
+      modes, and proves <em>Davis–Kahan-style stability</em> for safe (certificate-passing) edits.
+    </p>
+    <ul>
+      <li>Dunford split <code>P = D + N</code> (cycle vs. transient) with commuting blocks</li>
+      <li>Oracle inequality for operator-factor spans; market-neutral projectors</li>
+      <li>Cycle-respecting bootstrap with certification hooks</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1ba5Md3dS6MiNVYsjrmxV2x-qWo1PjwaR/view?usp=sharing" target="_blank" rel="noopener">
+        Operator–Projection Factor Models (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 2) Probability Space, Prices, and Operators (Compact) -->
+  <article id="note-probability-compact" class="highlight-card" aria-labelledby="note-probability-compact-title">
+    <h3 id="note-probability-compact-title">Probability Space, Prices, and Operators (Compact Lecture Note)</h3>
+    <p>
+      <strong>Status:</strong> Lecture Note (Concise) &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      A tight primer: <em>no-arbitrage ⇔ equivalent martingale measure</em>; pricing as
+      <em>conditional-expectation projectors</em>; data-driven <em>Koopman/PF</em> operators and finite-rank
+      Dunford splits; measurable embedding to realize factor models as L<sup>2</sup> projections.
+    </p>
+    <ul>
+      <li>Π<sub>t</sub> family as reverse-time Markov semigroup</li>
+      <li>Finite-rank Ulam/Galerkin lifts, cycle Fourier projectors</li>
+      <li>Measure change handled via weighted least squares</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1UpBdIvvY6mls9cUIvVH5ibZ0WV49VxB1/view?usp=sharing" target="_blank" rel="noopener">
+        Probability Space, Prices, and Operators (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 3) CAPM/FF as Projection Theorems -->
+  <article id="note-capm-projections" class="highlight-card" aria-labelledby="note-capm-projections-title">
+    <h3 id="note-capm-projections-title">CAPM/Fama–French as Projection Theorems &amp; Operator–Factor CAPM</h3>
+    <p>
+      <strong>Status:</strong> Formal Write-up &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Recasts CAPM/FF as orthogonal projections in Hilbert space and generalizes to an
+      <em>Operator–Factor CAPM</em> using Dunford cycle modes mapped into L<sup>2</sup>. Includes dynamic
+      (lagged) projections, measure-change (Q vs. P) as weighting, and subspace-mismatch oracles.
+    </p>
+    <ul>
+      <li>Gram systems & betas; Moore–Penrose for singular designs</li>
+      <li>Dynamic predictable spans (VAR/AR as special cases)</li>
+      <li>OF-CAPM contains classical factors when spans coincide</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1PN8791jUvSotoSCNn6KH-dHzlT5z627T/view?usp=sharing" target="_blank" rel="noopener">
+        CAPM/FF as Projection Theorems (1) (PDF)
+      </a>
+      <a href="https://drive.google.com/file/d/1qxSuDpvISownSMI0XIvWXTgSrpX7f53H/view?usp=sharing" target="_blank" rel="noopener">
+        CAPM/FF as Projection Theorems (2) (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 4) Markets as Autoregressive Transformers -->
+  <article id="note-markets-transformers" class="highlight-card" aria-labelledby="note-markets-transformers-title">
+    <h3 id="note-markets-transformers-title">Markets as Autoregressive Transformers</h3>
+    <p>
+      <strong>Status:</strong> Draft Paper &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Treats markets as finite-machine decoders: Koopman/PF lifts with Dunford splits yield
+      interpretable cycle modes. Embedding to prices turns modes into factors; neutrality and
+      guardrails become Σ-orthogonal projectors; safety enforced by a <em>systole (no-new-arbitrage) gate</em>.
+    </p>
+    <ul>
+      <li>Static & dynamic projection theorems (lag polynomials)</li>
+      <li>Σ-projectors ↔ constrained QP; sentinel architecture</li>
+      <li>Projector stability under certified edits (gap-preserving)</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1a7ggBiXf8qVpxYYoto-XImjohoZE2OzQ/view?usp=sharing" target="_blank" rel="noopener">
+        Markets as Autoregressive Transformers (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 5) From Conditional Expectations to Autoregressive–Transformer -->
+  <article id="note-conditional-autoregressive" class="highlight-card" aria-labelledby="note-conditional-autoregressive-title">
+    <h3 id="note-conditional-autoregressive-title">From Conditional Expectations to Autoregressive–Transformer Decompositions</h3>
+    <p>
+      <strong>Status:</strong> Bridge Note &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Bridges classical pricing to modern pipelines: Π<sub>t</sub> as orthogonal projectors,
+      Koopman/PF operators with finite-rank Dunford splittings, and <em>cycle projectors → L<sup>2</sup>
+      factors</em> for transparent, certifiable modeling (static & dynamic).
+    </p>
+    <ul>
+      <li>Clean separation: regimes (D) vs. transients (N)</li>
+      <li>De-blackboxing via interpretable linear projectors</li>
+      <li>Measure-robust estimation with Z-weighted LS</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1U5y5z0EBX-35D28iYpsAoc7R-ZNoVNDh/view?usp=sharing" target="_blank" rel="noopener">
+        From Conditional Expectations → AR–Transformer (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+
+
+
 <!-- ===== FEATURED: Ψ-Orbitfold Framework Notes ===== -->
 <section id="psi-orbitfold-notes"
          class="research-list"
