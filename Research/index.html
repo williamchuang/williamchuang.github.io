@@ -30,6 +30,120 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set IV) ===== -->
+<section id="psi-finance-notes-iv"
+         class="research-list"
+         aria-labelledby="psi-finance-iv-title"
+         role="region">
+  <h2 id="psi-finance-iv-title">Ψ–Orbitfold Finance — Featured Research Notes (Set IV)</h2>
+
+  <p>
+    A consolidated rewrite of stochastic finance in the Ψ–operator language:
+    <em>finite-machine lifts, Dunford (cycle/transient) splits, risk-neutral conjugations,</em>
+    and <em>spectral pricing without PDEs</em>. Includes outline → full-paper progression.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes (Set IV)">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-psi-reformulation">A Ψ-Structured Reformulation of Stochastic Finance</a></li>
+      <li><a class="pill-link" href="#note-rewriting-psi">Rewriting Stochastic Finance with the Ψ–Framework</a></li>
+      <li><a class="pill-link" href="#note-psi-reformulation-2">Ψ-Structured Reformulation (2) — <em>Outline of (3)</em></a></li>
+      <li><a class="pill-link" href="#note-psi-reformulation-3">Ψ-Structured Reformulation (3) — Full Paper</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) A Ψ-Structured Reformulation of Stochastic Finance -->
+  <article id="note-psi-reformulation" class="highlight-card" aria-labelledby="note-psi-reformulation-title">
+    <h3 id="note-psi-reformulation-title">A Ψ-Structured Reformulation of Stochastic Finance</h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Replaces SDE/PDE-first pipelines with a finite-machine operator view:
+      learn a closed-loop decode Ψ, lift to <code>T = ΠVΨΠV</code>, split <code>T = D+N</code>, embed to returns,
+      and do pricing/neutrality as orthogonal projections; risk-neutral change is a positive
+      conjugation that preserves certified cycles. Black–Scholes appears as semigroup spectral
+      pricing; uncertainty via cycle-respecting bootstrap/MC; safety via systole and projector
+      stability certificates.
+    </p>
+    <ul>
+      <li>Epicyclic projectors, operator factors, and auditable guardrails</li>
+      <li>P/Q as conjugate operator systems (mode-invariant subspaces)</li>
+      <li>Info-geometry: fast Fisher / natural gradients on certified modes</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1N4EzjNSBK9U2kiHH5qKsYz3RqRtDHIGG/view?usp=sharing" target="_blank" rel="noopener">
+        A Ψ-Structured Reformulation of Stochastic Finance (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 2) Rewriting Stochastic Finance with the Ψ–Framework -->
+  <article id="note-rewriting-psi" class="highlight-card" aria-labelledby="note-rewriting-psi-title">
+    <h3 id="note-rewriting-psi-title">Rewriting Stochastic Finance with the Ψ–Framework</h3>
+    <p><strong>Status:</strong> Companion Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      A self-contained rewrite: filtrations and conditional expectation as projectors; Itô/Girsanov
+      as operator identities; Black–Scholes from spectral expansion (no PDEs as axioms);
+      algorithms with systole gates and projector-stability bounds.
+    </p>
+    <ul>
+      <li>Operator Itô/Doob–Meyer, generator as Δ→0 lift limit</li>
+      <li>GBM monomial eigenfunctions inside the epicyclic basis</li>
+      <li>Cycle-aware natural gradients and regularization</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1uCx3QMbGi2yrZINSnw4hBy61xejB3Ubz/view?usp=sharing" target="_blank" rel="noopener">
+        Rewriting Stochastic Finance with the Ψ–Framework (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 3) Ψ-Structured Reformulation — An Outline -->
+  <article id="note-psi-reformulation-2" class="highlight-card" aria-labelledby="note-psi-reformulation-2-title">
+    <h3 id="note-psi-reformulation-2-title">A Ψ-Structured Reformulation of Stochastic Finance 2 — <em>Outline</em></h3>
+    <p><strong>Status:</strong> Structured Outline &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Concise outline of the full Version 3: Ψ-foundations, P/Q via conjugation, symbolic
+      Ψ-analogues of SDEs, spectral Black–Scholes, cycle-respecting bootstrap/MC, and defense-oriented
+      certification. <strong>Note:</strong> This document is an <em>outline of A Ψ-Structured Reformulation of
+      Stochastic Finance 3</em>.
+    </p>
+    <ul>
+      <li>Section-by-section roadmap of the v3 results</li>
+      <li>Key propositions and pseudocode pointers</li>
+      <li>Emphasis on certified cycles and auditability</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1SmxfD5Sz6xHWIDSouebbmOgrOc__b2ku/view?usp=sharing" target="_blank" rel="noopener">
+        Ψ-Structured Reformulation — Outline (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 4) Ψ-Structured Reformulation -->
+  <article id="note-psi-reformulation-3" class="highlight-card" aria-labelledby="note-psi-reformulation-3-title">
+    <h3 id="note-psi-reformulation-3-title">A Ψ-Structured Reformulation of Stochastic Finance </h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Expanded treatment with proofs and algorithms: operator calculus (Itô/Doob–Meyer/Girsanov)
+      in the epicyclic basis, semigroup spectral pricing (BS as one-mode limit), cycle-bootstrap/MC,
+      and information geometry with certified edit safety (systole gate, Davis–Kahan bounds).
+    </p>
+    <ul>
+      <li>Projection theorem for pricing/neutrality; Greeks via operator differentials</li>
+      <li>P/Q invariance of factor subspaces; loading reweighting only</li>
+      <li>Practical pipeline & comparisons to classical SDE/PDE approaches</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1byHw4h_7uVbAh9C-8iSIKiquSU7rTRTT/view?usp=sharing" target="_blank" rel="noopener">
+        Ψ-Structured Reformulation (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
 
 <!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set III, Updated) ===== -->
 <section id="psi-finance-notes-iii"
