@@ -30,6 +30,133 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set II) ===== -->
+<section id="psi-finance-notes-ii"
+         class="research-list"
+         aria-labelledby="psi-finance-ii-title"
+         role="region">
+  <h2 id="psi-finance-ii-title">Ψ–Orbitfold Finance — Featured Research Notes (Set II)</h2>
+
+  <p>
+    Bridges from discrete operator learning to diffusion pricing, plus estimation theory,
+    information geometry, testable axioms, and a production recipe. Each note keeps the
+    <em>finite-machine (Dunford) split, certified cycles,</em> and <em>auditable projectors</em> front and center.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes (Set II)">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-ct-link">Continuous-Time Link for Operator Markets</a></li>
+      <li><a class="pill-link" href="#note-operator-estimation">Operator-Aware Estimation</a></li>
+      <li><a class="pill-link" href="#note-info-geometry">Information Geometry &amp; Regularization</a></li>
+      <li><a class="pill-link" href="#note-testable-claims">Concrete, Testable Statements</a></li>
+      <li><a class="pill-link" href="#note-min-recipe">Minimal Deployable Recipe</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) Continuous-Time Link -->
+  <article id="note-ct-link" class="highlight-card" aria-labelledby="note-ct-link-title">
+    <h3 id="note-ct-link-title">Continuous-Time Link for Operator Markets: GBM, Girsanov &amp; Generator Limits</h3>
+    <p>
+      <strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Connects GBM and Girsanov to a data-driven operator view: as Δt→0, a learned finite-rank
+      transfer/Koopman operator <code>T</code> satisfies <code>T≈e^{ΔtL}</code>, so Dunford cycle modes approximate
+      eigenfunctions of a generator <code>L</code>. Pricing under <em>Q</em> comes from drift shifts, and SDF
+      perturbations show betas as Gâteaux derivatives along operator eigen-modes (de-blackboxing continuous-time sensitivities).
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1lSbCkq0l0GOkpTA0xHd1t3zMAI5bNCXm/view?usp=sharing" target="_blank" rel="noopener">
+        Continuous-Time Link for Operator Markets (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 2) Operator-Aware Estimation -->
+  <article id="note-operator-estimation" class="highlight-card" aria-labelledby="note-operator-estimation-title">
+    <h3 id="note-operator-estimation-title">Operator-Aware Estimation for Market Transformers</h3>
+    <p>
+      <strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      M-estimation where the factor span depends on <code>T=D+N</code>. Consistency and asymptotic
+      normality follow via a functional delta method on spectral projectors (Kato resolvent form).
+      Adds a cycle-respecting bootstrap, jackknife/IJ with operator influence, and a Koopman–Bayes
+      MCMC with priors over cycle energy and nilpotent mass—so uncertainty is certified and transparent.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1LdhdyMakkEh4CSuoPt6-sAnO6yYuGsdM/view?usp=sharing" target="_blank" rel="noopener">
+        Operator-Aware Estimation (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 3) Information Geometry -->
+  <article id="note-info-geometry" class="highlight-card" aria-labelledby="note-info-geometry-title">
+    <h3 id="note-info-geometry-title">Information Geometry for Operator Factor Models</h3>
+    <p>
+      <strong>Status:</strong> Draft Paper &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Builds a Fisher/natural-gradient layer on top of certified operator factors. Key result:
+      <em>Psi–Transformer Fisher</em>—cycle projectors (as linear heads) induce sufficient statistics and a
+      Fisher metric <em>without PDEs</em>. Everything reduces to tiny <code>k×k</code> covariances; α-divergence
+      trust regions and O(ε/γ₀) stability yield curvature-aware, robust updates.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/13HRvZQGEKTWh-lKRznd2315Rhv4F8Til/view?usp=sharing" target="_blank" rel="noopener">
+        Information Geometry &amp; Regularization (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 4) Concrete, Testable Statements -->
+  <article id="note-testable-claims" class="highlight-card" aria-labelledby="note-testable-claims-title">
+    <h3 id="note-testable-claims-title">Concrete, Testable Statements for Operator–Projection CAPM</h3>
+    <p>
+      <strong>Status:</strong> Formal Theorems &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Three falsifiable pillars: (i) <em>Existence/optimality</em>—projection onto the certified operator span
+      minimizes MSE among k-factor models measurable to the learned state; (ii) <em>Stability</em>—projectors,
+      neutralizers, and betas vary O(ε/γ₀) under certified edits; (iii) <em>Girsanov-mode compatibility</em>—measure
+      change reweights coefficients but preserves the factor subspace. Auditable, with explicit projector matrices.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1f5OsiV-shMima6fp6Rop5LS1M5_eavvB/view?usp=sharing" target="_blank" rel="noopener">
+        Concrete, Testable Statements (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 5) Minimal Deployable Recipe -->
+  <article id="note-min-recipe" class="highlight-card" aria-labelledby="note-min-recipe-title">
+    <h3 id="note-min-recipe-title">A Minimal Deployable Recipe for Operator Factor Models</h3>
+    <p>
+      <strong>Status:</strong> Ops Playbook &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      A step-by-step, certificate-driven pipeline: fit <code>T</code>, extract certified cycles, map to factors, project &amp;
+      neutralize (Σ-orthogonal), validate with <em>systole gate</em>, <em>class spectral-change</em>, and <em>GW geometry drift</em>,
+      then quantify uncertainty via <em>cycle block bootstrap</em> and benchmark vs. CAPM/FF. Built for safety, speed, and auditability.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1ji9aqYeEHqM7g8u3_OLV9UzqTFuOuGd9/view?usp=sharing" target="_blank" rel="noopener">
+        Minimal Deployable Recipe (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+
 
 <!-- ===== FEATURED: Ψ–Orbitfold Finance Notes ===== -->
 <section id="psi-finance-notes"
