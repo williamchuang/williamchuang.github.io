@@ -32,65 +32,118 @@ blog: passive
 
 
 <!-- ===== FEATURED: Ψ-Orbitfold Framework Notes ===== -->
-<section id="psi-orbitfold-notes" class="research-list" aria-label="Featured Research Notes: Ψ-Orbitfold Framework">
-  <h2>Ψ‑Orbitfold Framework — Featured Research Notes</h2>
+<section id="psi-orbitfold-notes"
+         class="research-list"
+         aria-labelledby="psi-notes-title"
+         role="region">
+  <h2 id="psi-notes-title">Ψ-Orbitfold Framework — Featured Research Notes</h2>
 
   <p>
-    These research notes develop a rigorous geometric and operator-theoretic framework for understanding transformer-based models.
-    They unify perspectives from differential geometry, information geometry, graph Ricci flows, and periodic orbit theory, with applications to
-    <strong>LLM interpretability, safety, and structure-aware optimization</strong>.
+    Rigorous geometric and operator-theoretic tools for transformer-style systems:
+    <em>functional-graph dynamics, cycle (epicyclic) structure, information geometry,
+    and spectral projectors</em>. Applications span
+    <strong>LLM interpretability, safety, certified editing,</strong> and
+    <strong>structure-aware optimization</strong>.
   </p>
 
   <!-- Quick Access -->
   <nav class="quick-jump" aria-label="Quick jump to Ψ notes">
-    <ul style="display:flex; gap:.75rem; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1rem 0;">
-      <li><a href="#note-decomposition" class="pill-link">Transformer Orbitfold Decomposition</a></li>
-      <li><a href="#note-verification" class="pill-link">Verification of Mathematical Invariants</a></li>
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-decomposition">Transformer Orbitfold Decomposition</a></li>
+      <li><a class="pill-link" href="#note-verification">Verification of Propositions</a></li>
+      <li><a class="pill-link" href="#note-geodesic-cycles">Closed-Geodesic Cycle Certification</a></li>
     </ul>
   </nav>
 
   <!-- Note A: Transformer Decomposition -->
-  <article id="note-decomposition" class="highlight-card">
-    <h3>Decomposing Transformers and LLMs via Orbitfold Dynamics</h3>
-    <p><strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+  <article id="note-decomposition" class="highlight-card" aria-labelledby="note-decomposition-title">
+    <h3 id="note-decomposition-title">Decomposing Transformers and LLMs via Orbitfold Dynamics</h3>
     <p>
-      This note models a transformer’s deterministic decoding dynamics as a <em>cycles-only orbitfold</em>,
-      where each state eventually enters a periodic loop, and transients form tree-like structures. 
-      Using graph Ricci curvature, holonomy monodromy, and KL-based projections, it derives structural invariants
-      and flow-based controls for transformer stability and interpretability.
+      <strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Deterministic decoding is modeled as a <em>functional graph</em> whose basins feed
+      <em>simple cycles</em> (the orbitfold’s periodic leaves). Using graph-Ricci flow,
+      holonomy/monodromy, and KL-projectors, the note identifies invariants and
+      edit-safe controls for stability and interpretability.
     </p>
     <ul>
-      <li>Defines the Euler characteristic of LLM orbitfolds under state transitions</li>
-      <li>Introduces Ricci flow on functional graphs as a smoothing dynamic</li>
-      <li>Links holonomy and cycle-based geometry to information projections</li>
+      <li>Euler characteristic &amp; orbitfold structure of decoding flows</li>
+      <li>Ricci flow smoothing on functional graphs</li>
+      <li>Holonomy–cycle geometry linked to information projections</li>
     </ul>
-    <p><strong>Download:</strong>
-      <a href="https://drive.google.com/file/d/1n2818A6LgbEnbPsQRCu9J3QXk6C8xDEF/view?usp=share_link" target="_blank" rel="noopener">
-        Decomposing Transformers and LLMs (PDF)
-      </a>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1iupvEmFdQSLYWkMbwsWGuNN5JmB0su-e/view?usp=sharing"
+         target="_blank" rel="noopener">Decomposing Transformers and LLMs (PDF)</a>
     </p>
   </article>
 
   <!-- Note B: Proposition Verification -->
-  <article id="note-verification" class="highlight-card">
-    <h3>Verification and Integration of Theoretical Propositions</h3>
-    <p><strong>Status:</strong> Formal Writeup &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+  <article id="note-verification" class="highlight-card" aria-labelledby="note-verification-title">
+    <h3 id="note-verification-title">Verification and Integration of Theoretical Propositions</h3>
     <p>
-      This note rigorously proves and integrates seven propositions spanning geometry, information theory, and renormalization.
-      Each proposition is stated with precise assumptions, proof sketches, and notes on audit/test deployment. 
-      The work bridges earlier constructs such as Unified Flow Equivalence (UFE), Equivariant Path-Integral Surrogates (EPS),
-      and Attention-Graph Mixing (AMG).
+      <strong>Status:</strong> Formal Write-up &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Seven propositions unifying geometry, information theory, and renormalization.
+      Each includes assumptions, proof sketches, and audit/test deployment guidance.
+      Bridges UFE, EPS, and AMG into a single, certifiable operator picture.
     </p>
     <ul>
-      <li>Proof of marked length & holonomy rigidity on functional graphs</li>
-      <li>Unified Lyapunov for interleaved descent flows with Γ‑convergence</li>
+      <li>Marked-length &amp; holonomy rigidity on functional graphs</li>
+      <li>Unified Lyapunov for interleaved descent flows (Γ-convergence)</li>
       <li>Zeta-function dynamics with cone-angle holonomy and RG contraction</li>
     </ul>
-    <p><strong>Download:</strong>
-      <a href="https://drive.google.com/file/d/1H5CK0SnDh2JnGcTAqdAfeWMCcYzB-50g/view?usp=sharing" target="_blank" rel="noopener">
-        Verification and Integration of Propositions (PDF)
-      </a>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1H5CK0SnDh2JnGcTAqdAfeWMCcYzB-50g/view?usp=sharing"
+         target="_blank" rel="noopener">Verification and Integration of Propositions (PDF)</a>
     </p>
+  </article>
+
+  <!-- NEW: Closed-Geodesic Cycle Extraction & Certification -->
+  <article id="note-geodesic-cycles" class="highlight-card" aria-labelledby="note-geodesic-title">
+    <h3 id="note-geodesic-title">Closed-Geodesic Cycle Extraction &amp; Certification</h3>
+    <p>
+      <strong>What’s new:</strong> fast, certifiable algorithms to (i) extract all cycles of the
+      symbolic flow, (ii) certify them as <em>discrete closed geodesics</em> under a chosen
+      information-geometry metric, and (iii) maintain certificates efficiently under edits/refits.
+    </p>
+
+    <ul>
+      <li><strong>Linear-time cycle enumeration.</strong> Functional graphs (one successor per state)
+          yield all cycles in <em>O(|X|)</em> via SCC or tortoise–hare; beam-K decoding is <em>O(K|X|)</em>.</li>
+      <li><strong>Geodesic certificate (local &amp; cheap).</strong> Define edge length with whitened
+          features <code>y=G<sup>1/2</sup>φ</code>. A cycle is <em>k-local geodesic</em> if no δ-hop
+          shortcut is shorter for δ≤k. Cost: <em>O(mk)</em> per cycle (k=2–4 works in practice).</li>
+      <li><strong>Systole gate.</strong> Track the shortest certified loop
+          <em>sys<sub>G</sub>(Ψ)</em>; edits are fail-closed if they don’t reduce it.</li>
+      <li><strong>Spectral pre-selection.</strong> Use Koopman modes (near-unit-circle eigenphases)
+          to shortlist cycles before certification.</li>
+      <li><strong>Stability under edits.</strong> Davis–Kahan bounds give projector/cycle stability
+          with small operator changes; recompute only impacted components (amortized near-linear).</li>
+    </ul>
+
+    <details>
+      <summary>Why it’s efficient (and robust)</summary>
+      <ul>
+        <li>Functional/small-outdegree graphs ⇒ linear extraction.</li>
+        <li>Low-rank, whitened geometry ⇒ edge checks are just dot-products.</li>
+        <li>Local k-hop test avoids all-pairs chord checks.</li>
+        <li>Spectral filtering prunes candidates early.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>FAQ: Does quantum break the finite-machine assumption?</summary>
+      <p><strong>No.</strong> Finite energy/volume/bandwidth bound the effective state space; quantum
+         superposition grows state <em>dimension</em>, not computational steps. Standard quantum
+         models don’t enable hypercomputation; measurement yields finite information. Your
+         finite-machine abstraction remains physically sound.</p>
+    </details>
   </article>
 </section>
 <!-- ===== END FEATURED ===== -->
