@@ -30,6 +30,136 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set III, Updated) ===== -->
+<section id="psi-finance-notes-iii"
+         class="research-list"
+         aria-labelledby="psi-finance-iii-title"
+         role="region">
+  <h2 id="psi-finance-iii-title">Ψ–Orbitfold Finance — Featured Research Notes (Set III)</h2>
+
+  <p>
+    Extending the operator–projection program into <em>GMM/SDF instrument design, semigroup links,
+    neural dynamics,</em> and <em>macro policy</em>. Common spine: finite-rank Koopman lifts, Dunford
+    (cycle/transient) split, certified edits (systole gate), and fast Fisher on the mode manifold.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes (Set III)">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-koopman-instruments">Koopman Modes as Optimal Instruments</a></li>
+      <li><a class="pill-link" href="#note-gbm-capm">GBM, CAPM/FF &amp; Koopman-Projected Markets</a></li>
+      <li><a class="pill-link" href="#note-psi-neuro">From DCM/Predictive Coding → Ψ-Operator Neural Dynamics</a></li>
+      <li><a class="pill-link" href="#note-psi-rl">Operator–Ψ Reinforcement Learning for Algorithmic Trading</a></li>
+      <li><a class="pill-link" href="#note-psi-macro">From DSGE/OLG → Operator-Ψ Macroeconomics</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) Koopman Modes as Optimal Instruments -->
+  <article id="note-koopman-instruments" class="highlight-card" aria-labelledby="note-koopman-instruments-title">
+    <h3 id="note-koopman-instruments-title">Koopman Modes as Optimal Instruments: GMM/SDF Links &amp; Tensorized Factors</h3>
+    <p><strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Certified cycle (Koopman) modes furnish <em>semiparametrically efficient GMM instruments</em> and
+      become <em>sufficient statistics</em> for exponential-family SDFs; extends cross-asset structure via
+      Kronecker lifts with low-rank CP/Tucker recipes and FFT-amenable Fisher/Gram blocks.
+    </p>
+    <ul>
+      <li>Instrument optimality &amp; sufficiency under SDF exponentials</li>
+      <li>Tensor modes for entangled sector/style regimes</li>
+      <li>Cycle-aware bootstrap and practical estimation pipeline</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1h7uvsJjP9KzRuNNmQJokR6yilVxA2h2_/view?usp=sharing" target="_blank" rel="noopener">Koopman Modes as Optimal Instruments (PDF)</a>
+    </p>
+  </article>
+
+  <!-- 2) GBM, CAPM/FF & Koopman-Projected Markets -->
+  <article id="note-gbm-capm" class="highlight-card" aria-labelledby="note-gbm-capm-title">
+    <h3 id="note-gbm-capm-title">GBM, CAPM/FF, and Koopman-Projected Markets</h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Places GBM as a <em>one-mode semigroup</em> and CAPM/FF as <em>hand-crafted projections</em> inside a larger
+      learned cycle subspace; proves discrete↔continuous spectral links, subspace invariance under measure
+      change, finite-rank consistency for cycle projectors, GMM efficiency of Koopman instruments, and
+      tensorized multi-asset extensions with diagnostics.
+    </p>
+    <ul>
+      <li>Spectral mapping: <code>λ ≈ e^{Δtν}</code> (discrete→generator)</li>
+      <li>Measure-weighted projections; classical spans as coordinates/constraints</li>
+      <li>Angles/oracle tests and implementation sketch</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1fdeRvAEqbhS4zLMqSEQ2l1vUWf_UnCIM/view?usp=sharing" target="_blank" rel="noopener">GBM, CAPM/FF, and Koopman-Projected Markets (PDF)</a>
+    </p>
+  </article>
+
+  <!-- 3) From DCM/Predictive Coding → Ψ-Operator Neural Dynamics -->
+  <article id="note-psi-neuro" class="highlight-card" aria-labelledby="note-psi-neuro-title">
+    <h3 id="note-psi-neuro-title">From DCM and Predictive Coding to Ψ-Operator Neural Dynamics</h3>
+    <p><strong>Status:</strong> Draft Paper &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Recasts DCM/predictive-coding in an <em>operator DCM (oDCM)</em> basis: learn finite-rank <code>T = D+N</code>,
+      certify neural <em>cycle</em> (attractor) vs. <em>transient</em> modes, perform <em>α-divergence e-projections</em> with fast Fisher,
+      and enforce a <em>systole gate</em> to avoid spurious short pathological loops.
+    </p>
+    <ul>
+      <li>Mode-manifold geometry without PDEs</li>
+      <li>Projector stability (Davis–Kahan-style) under low-rank edits</li>
+      <li>Operator-aware diagnostics for psychiatry</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1cqKDFp1d5BIbeUS8L-A9p0tS-Waj98c2/view?usp=sharing" target="_blank" rel="noopener">Ψ-Operator Neural Dynamics (PDF)</a>
+    </p>
+  </article>
+
+  <!-- 4) Operator–Ψ Reinforcement Learning for Algorithmic Trading (replaces Biocircuits) -->
+  <article id="note-psi-rl" class="highlight-card" aria-labelledby="note-psi-rl-title">
+    <h3 id="note-psi-rl-title">Operator–Ψ Reinforcement Learning for Algorithmic Trading</h3>
+    <p><strong>Status:</strong> Draft Paper &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Recasts trading RL with a finite-rank transfer/Koopman operator <code>T = D + N</code> learned on market windows.
+      <em>Koopman value modes</em> linearize Bellman in spectral coordinates, <em>systole safety</em> forbids creation of new
+      short inventory/profit loops, and <em>Σ-orthogonal affine projectors</em> enforce risk &amp; inventory guardrails.
+      Fast <em>Fisher geometry</em> on the certified mode manifold yields natural-gradient policy updates; Avellaneda–Stoikov,
+      Q/PPO/SAC appear as coordinates or constraints inside the learned span.
+    </p>
+    <ul>
+      <li>Spectral value approximation &amp; policy improvement on the mode manifold</li>
+      <li>Systole gate + affine neutralizers for certified, auditable safety</li>
+      <li>Regime-aware bootstrap / operator-aware MCMC for uncertainty</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/14GWTYhv-Kint4s00Vm0xS-DGR8-vz5WE/view?usp=sharing" target="_blank" rel="noopener">
+        Operator–Ψ RL for Algorithmic Trading (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 5) From DSGE/OLG → Operator-Ψ Macroeconomics -->
+  <article id="note-psi-macro" class="highlight-card" aria-labelledby="note-psi-macro-title">
+    <h3 id="note-psi-macro-title">From DSGE/OLG to Operator-Ψ Macroeconomics</h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Replaces local linearizations with learned operator regimes for inflation/output/interest cycles;
+      forecasts are <em>orthogonal projections</em> on a low-rank factor manifold; policy edits are screened by a
+      <em>systole-aware feasibility certificate</em> with projector-stability bounds and fast Fisher geometry.
+    </p>
+    <ul>
+      <li>DSGE/OLG as special coordinates or constraints</li>
+      <li>Policy guardrails (budget/bounds) via Σ-orthogonal affine projectors</li>
+      <li>Regime-aware bootstrap &amp; operator-aware MCMC</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1dmOWkN28s9KiaoEH33hwcGRSlZQ1Kk8R/view?usp=sharing" target="_blank" rel="noopener">
+        Operator-Ψ Macroeconomics (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
 <!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set II) ===== -->
 <section id="psi-finance-notes-ii"
          class="research-list"
