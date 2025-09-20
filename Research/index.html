@@ -30,6 +30,49 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+
+
+<!-- ===== FEATURED: Implementation of Cycle-Based Spectral Decomposition ===== -->
+<section id="implementation-cycle-pdn">
+  <h2>
+    Implementation of My Eigenvalue, Cycle–Dunford Decomposition Using Disjoint Cycle Structures
+    (<a href="#overview-transformer-finite-machines" style="font-weight:normal;">see overview</a>)
+  </h2>
+
+  <p class="intro-cta">
+    <a href="https://drive.google.com/file/d/1RA-SyZFDsg4CRj4Bipi_3wcC2Ens1jVi/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer"
+       title="Open the full implementation PDF">
+      View Full Implementation Report
+    </a>
+  </p>
+
+  <p>
+    This implementation operationalizes a rigorous eigen-decomposition and PDN (diagonal + nilpotent) splitting of the learned transition map in a Transformer trained on a finite symbolic task. The method leverages the structure of functional graphs—where every state deterministically transitions to a unique successor—to decompose behavior into cycle-local dynamics and transient in-trees. This reflects a formalization previously outlined in
+    <a href="#overview-transformer-finite-machines" class="internal-link">Decomposing Autoregressive Transformers as Finite Machines — Overview</a>.
+  </p>
+
+  <p>
+    The full transition operator is encoded as a permutation matrix. Using this representation, I extract the system’s disjoint-cycle topology, construct a cycle-wise spectral basis, and verify eigenvalue-weighted reconstruction. A precise Dunford decomposition is obtained, isolating any nilpotent component associated with transients—though in the current model, this vanishes.
+  </p>
+
+  <p>
+    Geometric diagnostics—including systolic bounds and discrete geodesics—are evaluated within a Hamming-based metric over symbolic states. The implementation achieves full model coverage, perfect reconstruction fidelity, and analytic traceability. Each result is independently verifiable, with the codebase structured for modular reuse, audit, and extension.
+  </p>
+
+  <h3>Key Implementation Objectives and Verifications</h3>
+  <ol>
+    <li>Encode the learned model’s transition structure as a sparse permutation matrix.</li>
+    <li>Decompose the system into disjoint cycles and extract cycle-local eigenbases.</li>
+    <li>Construct orthonormal spectral projectors and verify full operator reconstruction.</li>
+    <li>Isolate and interpret the nilpotent part, characterizing transient structures if present.</li>
+    <li>Certify geometric invariants (e.g., systole, injectivity radius) under symbolic metrics.</li>
+    <li>Provide a self-contained codebase with logs, sanity checks, and exact reconstruction steps.</li>
+  </ol>
+</section>
+
+
+
 <!-- ===== FEATURED: Ψ‑Operator Framework for Semiconductor Sovereignty ===== -->
 <section id="psi-semiconductor-modeling" class="research-list" aria-label="Featured Ψ‑Operator Research for Semiconductor Manufacturing">
   <h2>Ψ‑Operator Framework — Symbolic Methods for Chip Design, Process Control, and Yield Sovereignty</h2>
