@@ -30,44 +30,41 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
-
-
-<!-- ===== FEATURED: Implementation of Cycle-Based Spectral Decomposition ===== -->
-<section id="implementation-cycle-pdn">
+<!-- ===== FEATURED: Cycle-Based Spectral Decomposition Implementation ===== -->
+<section id="implementation-cycle-pdn" class="research-list" aria-label="Cycle-Based Spectral Decomposition">
   <h2>
-    Implementation of My Eigenvalue, Cycle–Dunford Decomposition Using Disjoint Cycle Structures
-    (<a href="#overview-transformer-finite-machines" style="font-weight:normal;">see overview</a>)
+    Implementation of Eigenvalue & Cycle–Dunford Decomposition via Disjoint Cycle Structures
+    (<a href="https://williamchuang.github.io/Research/#finite-machine-intro" class="internal-link" style="font-weight:normal;">see overview</a>)
   </h2>
 
   <p class="intro-cta">
     <a href="https://drive.google.com/file/d/1RA-SyZFDsg4CRj4Bipi_3wcC2Ens1jVi/view?usp=sharing"
        target="_blank" rel="noopener noreferrer"
-       title="Open the full implementation PDF">
-      View Full Implementation Report
+       title="View Implementation PDF">
+      View Implementation Report (PDF)
     </a>
   </p>
 
   <p>
-    This implementation operationalizes a rigorous eigen-decomposition and PDN (diagonal + nilpotent) splitting of the learned transition map in a Transformer trained on a finite symbolic task. The method leverages the structure of functional graphs—where every state deterministically transitions to a unique successor—to decompose behavior into cycle-local dynamics and transient in-trees. This reflects a formalization previously outlined in
-    <a href="#overview-transformer-finite-machines" class="internal-link">Decomposing Autoregressive Transformers as Finite Machines — Overview</a>.
+    This implementation realizes a rigorous spectral decomposition and PDN (Permutation–Diagonal–Nilpotent) splitting of a transformer’s learned transition map on symbolic tasks. Building on finite-machine representations, the method decomposes the full-state operator into disjoint cycle dynamics and transient nilpotent components, using the functional graph structure of deterministic token flows.
   </p>
 
   <p>
-    The full transition operator is encoded as a permutation matrix. Using this representation, I extract the system’s disjoint-cycle topology, construct a cycle-wise spectral basis, and verify eigenvalue-weighted reconstruction. A precise Dunford decomposition is obtained, isolating any nilpotent component associated with transients—though in the current model, this vanishes.
+    The transition operator is encoded as a sparse permutation matrix. Its disjoint-cycle topology enables explicit eigenbasis extraction, localized spectral projectors, and exact operator reconstruction. The nilpotent component—isolated via Dunford's functional calculus—vanishes for purely cyclic models but is retained for completeness.
   </p>
 
   <p>
-    Geometric diagnostics—including systolic bounds and discrete geodesics—are evaluated within a Hamming-based metric over symbolic states. The implementation achieves full model coverage, perfect reconstruction fidelity, and analytic traceability. Each result is independently verifiable, with the codebase structured for modular reuse, audit, and extension.
+    Geometric diagnostics, including systolic bounds and discrete geodesics, are evaluated under symbolic Hamming metrics. The implementation ensures exact traceability, full model coverage, and audit-ready reconstruction fidelity. All results are independently reproducible from the provided codebase.
   </p>
 
-  <h3>Key Implementation Objectives and Verifications</h3>
+  <h3>Highlights of the Implementation</h3>
   <ol>
-    <li>Encode the learned model’s transition structure as a sparse permutation matrix.</li>
-    <li>Decompose the system into disjoint cycles and extract cycle-local eigenbases.</li>
+    <li>Represent the model’s learned transition structure as a sparse permutation matrix.</li>
+    <li>Extract disjoint cycles and their localized eigenbases.</li>
     <li>Construct orthonormal spectral projectors and verify full operator reconstruction.</li>
-    <li>Isolate and interpret the nilpotent part, characterizing transient structures if present.</li>
-    <li>Certify geometric invariants (e.g., systole, injectivity radius) under symbolic metrics.</li>
-    <li>Provide a self-contained codebase with logs, sanity checks, and exact reconstruction steps.</li>
+    <li>Isolate nilpotent components corresponding to transient dynamics.</li>
+    <li>Evaluate geometric invariants (e.g., systole, injectivity radius) under symbolic metrics.</li>
+    <li>Provide a modular, self-contained codebase with sanity checks and reconstruction logs.</li>
   </ol>
 </section>
 
