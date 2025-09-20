@@ -30,6 +30,70 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+
+<!-- ===== FEATURED: Cycle Decomposition & Eigen–Decomposition Toolkit ===== -->
+<section id="reverse-transformer-27" class="research-list" aria-label="Cycle Decomposition and Eigen–Decomposition">
+  <h2>
+    Implementation of Cycle Decomposition and Eigen–Decomposition for a Reverse Transformer Model
+    <span style="display:block;font-size:.9em;font-weight:normal;line-height:1.35;">
+      A Toolkit for Constructing Examples of Propositions in Information Geometry, Differential Geometry, and Artificial Intelligence
+    </span>
+  </h2>
+
+  <p class="intro-cta" style="margin:.75rem 0 1.25rem;">
+    <a href="https://drive.google.com/file/d/1kJmz3DFUD2i2q6CSrta34hegu96ODTQK/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer"
+       title="View implementation report (PDF)">
+      View Implementation Report (PDF)
+    </a>
+  </p>
+
+  <p>
+    This implementation delivers a complete, audited workflow for characterizing the state-space dynamics of a small Transformer trained
+    to reverse fixed-length token sequences. By treating greedy decoding as a discrete dynamical system, the learned map induces a functional
+    graph on a finite state space that decomposes into directed cycles with in-tree transients. The code constructs the permutation matrix
+    <code>P</code>, performs a Dunford-style split into diagonal and nilpotent parts (<code>P = D + N</code>), builds orthonormal
+    eigenvectors on each cycle, and verifies discrete geodesic certificates—exactly as reported in the accompanying logs.
+  </p>
+
+  <p>
+    On the length-3, base-3 reversal task (27 states), the model attains perfect accuracy; the functional graph has
+    nine fixed points and nine two-cycles (18 cycles total); the nilpotent component vanishes on this instance; and the transition operator
+    is reconstructed from spectral projectors at machine precision. Invariants are checked directly from code and console output,
+    including the orbifold Euler characteristic (<code>chi_orb = 13.5</code>), trace identities for <code>n = 1..6</code>, closed-geodesic
+    certificates on cycle rings, and a non-trivial systole length of <code>2.82843</code> in the chosen embedding.
+  </p>
+
+  <h3>Highlights (exactly what is implemented and verified)</h3>
+  <ol>
+    <li>Encode the learned transition as a sparse permutation matrix <code>P</code>; enumerate cycles in canonical order.</li>
+    <li>Compute the PDN (diagonal-plus-nilpotent) split; observe <code>N = 0</code> for the 27-state reversal instance.</li>
+    <li>Construct a per-cycle Fourier eigenbasis (for 2-cycles the spectrum is <code>{+1, −1}</code>); build orthonormal projectors.</li>
+    <li>Reconstruct <code>P</code> from spectral projectors with machine-precision error (~<code>1e−16</code> in the runs shown).</li>
+    <li>Report the exact cycle structure: 18 cycles with lengths
+        <code>[1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1]</code>
+        (nine fixed points, nine two-cycles).</li>
+    <li>Verify universal/discrete-geometric checks: <code>chi_orb = 13.5</code>, closed-geodesic certificates on cycle rings,
+        systole <code>2.82843</code>, and <code>trace(P<sup>n</sup>)</code> equal to the sum of cycle lengths dividing <code>n</code> for
+        <code>n = 1..6</code>.</li>
+  </ol>
+
+  <h3>Why this matters—even at 27 states</h3>
+  <p>
+    Although the state space here is intentionally small, the implementation is a bona fide Transformer with the same decoding machinery
+    used in large-scale models. The spectral/functional-graph toolkit is architecture-faithful and directly bootstraps to larger vocabularies,
+    longer contexts, and full LLM settings: the primitives (cycle extraction, PDN split, per-cycle eigenbases, projector reconstruction,
+    and invariant checks) are model-agnostic and scale with the operator they analyze. This example is deliberately sized for complete
+    enumeration and exact verification, providing a rigorous blueprint for scaling the same diagnostics to larger Transformer systems.
+  </p>
+
+  <h3>Reproducibility</h3>
+  <p>
+    The report interleaves Python listings and console logs (ASCII-safe). A minimal Colab cell runs the PDN pipeline end-to-end on the
+    27-state task and prints the exact cycle summaries, projector reconstructions, invariants, and certificates reproduced above.
+  </p>
+</section>
+
 <!-- ===== FEATURED: Cycle-Based Spectral Decomposition Implementation ===== -->
 <section id="implementation-cycle-pdn" class="research-list" aria-label="Cycle-Based Spectral Decomposition">
   <h2>
