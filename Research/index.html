@@ -202,9 +202,6 @@ blog: passive
 
 
 
-
-
-
 <!-- ===== From Spectral Decomposition to Editable Transformers ===== -->
 <section id="spectral-to-editable" class="research-list" aria-label="From spectral decomposition to editable transformers">
   <h2>From Spectral Decomposition to Editable Transformers</h2>
@@ -213,16 +210,16 @@ blog: passive
     After decomposing a trained transformer into a symbolic sum
     <span class="nowrap">\( \Psi \;=\; \sum_{i} c_i\,\phi_i \)</span>,
     where each \( \phi_i \) is a deterministic automaton extracted from disjoint cycles (and their transients) and \( c_i \) denotes its coefficient
-    (e.g., empirical support, frequency weight, or normalized trust score), there are two distinct operating modes.
+    (e.g., empirical support, frequency weight, or normalized trust score), there are two complementary operating modes.
   </p>
 
   <section aria-label="Operating modes after decomposition">
-    <h3>Two non-overlapping operating modes</h3>
+    <h3>Two complementary operating modes</h3>
     <ol>
       <li>
         <strong>Certified symbolic execution (finite interpreter).</strong>
-        Route inputs on the verified domain through the ensemble \( \{ \phi_i \} \) with coefficients \( \{ c_i \} \) to obtain a finite, interpretable, deterministic system.
-        This maximizes auditability but intentionally sacrifices open-ended generalization beyond the certified basin.
+        Route inputs within the verified domain (e.g., 99.9% usage basin) through the ensemble \( \{ \phi_i \} \) with coefficients \( \{ c_i \} \) to obtain a finite, interpretable, deterministic system.
+        This maximizes auditability and formal guarantees on the certified basin by design.
       </li>
       <li>
         <strong>Live-model refinement (editable transformer).</strong>
@@ -232,14 +229,77 @@ blog: passive
     </ol>
   </section>
 
-  <section aria-label="Implication of the two modes">
+  <section aria-label="Implications of the two modes">
     <h3>Implications</h3>
     <ul>
-      <li><strong>Deterministic interpreter:</strong> maximizes certifiability on the verified 99.9% basin; minimizes behavioral drift; limited adaptability by design.</li>
-      <li><strong>Editable transformer:</strong> preserves creative capacity; enables principled modification using \( \{ \phi_i, c_i \} \) as precise handles on behavior.</li>
+      <li><strong>Deterministic interpreter:</strong> certifiable behavior on the verified basin; minimal drift; intentionally limited adaptability beyond that basin.</li>
+      <li><strong>Editable transformer:</strong> preserved creative capacity; principled modification using \( \{ \phi_i, c_i \} \) as precise handles on behavior.</li>
     </ul>
   </section>
 </section>
+
+<!-- ===== From Frozen Ψ to Editable Ψ: Using {φ_i, c_i} to Modify Ψ ===== -->
+<section id="editable-with-phi" class="research-list" aria-label="Editing the live model using symbolic components">
+  <h2>From Frozen \( \Psi \) to Editable \( \Psi \): Using \( \{ \phi_i, c_i \} \) to Modify the Model</h2>
+
+  <section aria-label="Clarifying the objective">
+    <h3>1) Clarifying the objective</h3>
+    <p>
+      Executing only \( \{ \phi_i \} \) yields a finite interpreter and discards the constructive generalization of \( \Psi \).
+      The objective here is different: <em>use</em> \( \{ \phi_i, c_i \} \) to shape and improve \( \Psi \), not to replace it.
+    </p>
+  </section>
+
+  <section aria-label="Symbolic-to-neural editing mechanisms">
+    <h3>2) Symbolic → neural editing mechanisms</h3>
+    <ol>
+      <li>
+        <strong>Back-projection to parameters.</strong>
+        Attribute each \( \phi_i \) to the dominant subnetwork (heads, MLP rows, layer norms) along its trajectories; apply localized edits
+        (masking, pruning, calibrated weight nudges) to suppress or enhance the targeted behavior.
+      </li>
+      <li>
+        <strong>Guided fine-tuning via symbolic curricula.</strong>
+        Generate synthetic inputs that elicit selected \( \phi_i \); optimize a constrained objective
+        <span class="nowrap">\( \mathcal{L}_i = \| \Psi(x) - \phi_i(x) \|^2 \)</span>
+        on these curricula to repair or refine without broad retraining.
+      </li>
+      <li>
+        <strong>Coefficient-gated routing.</strong>
+        Implement gates keyed to \( \phi_i \) patterns so that \( c_i \) modulates attention/MLP subpaths
+        (e.g., mixture-of-experts style routing) to amplify or damp behaviors in situ.
+      </li>
+      <li>
+        <strong>Low-rank corrective injections.</strong>
+        Where a \( \phi_i \) admits a clean linear surrogate along its path, insert rank-1/low-rank updates
+        <span class="nowrap">\( \Delta W = \eta\,u v^\top \)</span>
+        at selected layers to enforce or redirect the corresponding transition logic.
+      </li>
+    </ol>
+  </section>
+
+  <section aria-label="Operational guarantees">
+    <h3>3) Operational guarantees and scope</h3>
+    <ul>
+      <li><strong>Certified core:</strong> on the verified domain (e.g., 99.9% basin), serve the certified operator
+        <span class="nowrap">\( \widehat{\Psi}(x) = \sum_i c_i\,\phi_i(x) \)</span> with projector-based certificates.</li>
+      <li><strong>Editable perimeter:</strong> outside the certified basin, run the live \( \Psi \) with edits derived from \( \{ \phi_i, c_i \} \);
+        re-enumerate and re-certify as distributions drift.</li>
+    </ul>
+  </section>
+
+  <section aria-label="Definition of de-blackboxing">
+    <h3>4) De-blackboxing, precisely stated</h3>
+    <p>
+      De-blackboxing does not mean freezing \( \Psi \) or replaying memorized oracles as a giant lookup table. It means exposing modular symbolic behaviors
+      \( \{ \phi_i \} \) and leveraging their coefficients \( \{ c_i \} \) to produce auditable, localized changes to \( \Psi \) while maintaining the
+      integrity of the global generator.
+    </p>
+  </section>
+</section>
+
+
+
 
 <!-- ===== From Frozen Ψ to Editable Ψ: Using {φ_i, c_i} to Modify Ψ ===== -->
 <section id="editable-with-phi" class="research-list" aria-label="Editing the live model using symbolic components">
