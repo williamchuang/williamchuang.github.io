@@ -301,66 +301,6 @@ blog: passive
 
 
 
-<!-- ===== From Frozen Ψ to Editable Ψ: Using {φ_i, c_i} to Modify Ψ ===== -->
-<section id="editable-with-phi" class="research-list" aria-label="Editing the live model using symbolic components">
-  <h2>From Frozen \( \Psi \) to Editable \( \Psi \): Using \( \{ \phi_i, c_i \} \) to Modify the Model</h2>
-
-  <section aria-label="False alternative">
-    <h3>1) False alternative: symbolic replay vs. living model</h3>
-    <p>
-      Executing only \( \{ \phi_i \} \) turns the system into a static interpreter and discards the constructive generalization of \( \Psi \).
-      The objective is different: <em>use</em> \( \{ \phi_i, c_i \} \) to shape \( \Psi \), not to replace it.
-    </p>
-  </section>
-
-  <section aria-label="Symbolic-to-neural editing mechanisms">
-    <h3>2) Symbolic &rarr; neural editing mechanisms </h3>
-    <ol>
-      <li>
-        <strong>Back-projection to parameters.</strong>
-        Attribute each \( \phi_i \) to the dominant subnetwork (heads, MLP rows, layernorms) along its trajectories; apply localized edits
-        (masking, pruning, or calibrated weight nudges) to suppress or enhance the targeted behavior.
-      </li>
-      <li>
-        <strong>Guided fine-tuning via symbolic curricula.</strong>
-        Generate synthetic inputs that elicit selected \( \phi_i \); optimize a constrained objective
-        <span class="nowrap">\( \mathcal{L}_i = \| \Psi(x) - \phi_i(x) \|^2 \)</span>
-        on these curricula to repair or refine without broad retraining.
-      </li>
-      <li>
-        <strong>Coefficient-gated routing.</strong>
-        Implement gates keyed to \( \phi_i \)-like patterns so that \( c_i \) modulates attention/MLP subpaths
-        (e.g., mixture-of-experts style routing) to amplify or damp behaviors in situ.
-      </li>
-      <li>
-        <strong>Low-rank corrective injections.</strong>
-        Where a \( \phi_i \) admits a clean linear surrogate along its path, insert rank-1/low-rank updates
-        <span class="nowrap">\( \Delta W = \eta\,u v^\top \)</span>
-        at selected layers to enforce or redirect the corresponding transition logic.
-      </li>
-    </ol>
-  </section>
-
-  <section aria-label="Operational guarantees">
-    <h3>3) Operational guarantees and scope</h3>
-    <ul>
-      <li><strong>Certified core:</strong> on the verified domain (e.g., 99.9% basin), continue to serve the certified operator
-        <span class="nowrap">\( \widehat{\Psi}(x) = \sum_i c_i\,\phi_i(x) \)</span> with projector-based certificates.</li>
-      <li><strong>Editable perimeter:</strong> outside the certified basin, run the live \( \Psi \) with edits derived from \( \{ \phi_i, c_i \} \);
-        re-enumerate and re-certify as distributions drift.</li>
-    </ul>
-  </section>
-
-  <section aria-label="Definition of de-blackboxing">
-    <h3>4) De-blackboxing, precisely stated</h3>
-<p class="lead">
-  De-blackboxing does not mean freezing \( \Psi \) or replaying memorized oracles as a giant lookup table; it preserves a live generator while exposing modular behaviors \(\{\phi_i, c_i\}\) for precise, auditable edits.
-</p>
-  
-
-
-</section>
-</section>
 
 
 
