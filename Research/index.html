@@ -175,11 +175,18 @@ blog: passive
   </section>
 
   <section>
-    <h3>Guarantee Statement</h3>
-    <blockquote>
-  “In a finite, deterministic decode regime, the transformer operator \( \Psi \) induces a fully symbolic graph over the token state space. Its lifted operator \( P \) decomposes exactly into disjoint cycles and transients via \( P = D + N \), with spectral projectors attached. No slicing, approximation, or internal modeling is required—particularly when the objective is to capture and govern the top 99.9% of trajectory mass under empirical deployment.”
 
-    </blockquote>
+<!-- ===== Symbolic Decomposition: Global vs. Local Variation ===== -->
+<blockquote>
+  In a finite, deterministic decode regime, the transformer operator \( \Psi \) induces a fully symbolic graph over the token state space. Its lifted operator \( P \) decomposes exactly into disjoint cycles and transients via \( P = D + N \), with spectral projectors attached. No slicing, approximation, or internal modeling is required—particularly when the goal is limited to capturing the dominant 99.9% of behavioral mass under inference.
+</blockquote>
+
+<p>
+  While the global decomposition remains exact under finiteness and determinism, an optional local variant remains admissible: when analysis is restricted to a confined region of the symbolic state space—such as a task-specific cluster, a high-density attractor, or a localized semantic basin—one may perform localized slicing or coarse-grained zooming of \( \Psi \)'s flow. This enables fine-scale inspection, transient detection, or causal tracing within the localized substructure, without invoking full global decomposition. The architecture remains agnostic to such partitioning, and the decomposition formalism remains valid in both regimes.
+</p>
+
+
+
   </section>
 </section>
 
