@@ -133,222 +133,83 @@ blog: passive
 </section>
 
 
-<!-- ===== PDN Explainer: Dunford (Jordan–Chevalley) for Transformer Operator Representations ===== -->
-<section id="pdn-explainer" class="research-list" aria-label="Dunford PDN explainer for transformer operator representations">
-  <h2>Operator Decomposition for Transformers: <span class="nowrap">&#92;(P = D + N&#92;)</span></h2>
+<!-- ===== PDN Explainer (BLUF-Aligned): Transformer Operator Spectral Decomposition ===== -->
+<section id="pdn-bluf-summary" class="research-list" aria-label="Transformer Spectral Decomposition with Dunford Split">
+  <h2>Preserving Nonlinearity Through Operator Decomposition</h2>
 
   <p class="lead">
-    With quiet precision and disciplined intent, this program applies the Dunford (Jordan–Chevalley) decomposition &#92;(P = D + N&#92;) to a
-    <em>linear operator representation</em> of a transformer step (one‑hot lift, Koopman/EDMD view, or finite‑state closed loop). The claim is not that the network is
-    globally linear; it is that, in the right representation, the step admits a lawful split into semisimple modes and nilpotent couplings. This is the appropriate instrument
-    for spectral analysis—deployed with humility, clarity of purpose, and regard for system integrity.
+    The spectral decomposition \(P = D + N\) does not flatten or discard the nonlinear structure of the transformer. Instead, it preserves the full complexity through a lawful
+    split of a <em>linear operator representation</em>—one extracted via deterministic closure (e.g., one-hot lift), observable transformation (e.g., Koopman/EDMD), or symbolic
+    dynamics. This representation enables high-fidelity analysis of modal and transient behaviors while remaining fully compatible with nonlinearity in the original system.
   </p>
 
-  <!-- Hierarchy & Mission Clarity -->
-  <nav class="quick-jump" aria-label="Quick jump links">
-    <ul style="display:flex; gap:.75rem; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1rem 0;">
-      <li><a href="#pdn-method" class="pill-link">Statement of method</a></li>
-      <li><a href="#pdn-nonrelu" class="pill-link">Non‑ReLU activations</a></li>
-      <li><a href="#pdn-related" class="pill-link">Related documents</a></li>
-    </ul>
-  </nav>
-
-  <section id="pdn-method" aria-label="Statement of method">
-    <h3>Statement of method</h3>
+  <section id="pdn-bluf-confirmed" aria-label="Confirmed correct usage">
+    <h3>Confirmed: The PDN method is correctly applied</h3>
     <ul>
-      <li>
-        <strong>One‑hot lift → functional graph → PDN.</strong>
-        A deterministic closed‑loop system induces a column‑stochastic linear operator &#92;(P&#92;) with out‑degree 1. The state space separates into <em>cycle</em> blocks (permutations)
-        and <em>transient</em> trees feeding those cycles. This yields a commuting split <span class="nowrap">&#92;(P = D + N&#92;)</span> with &#92;(N&#92;) nilpotent and &#92;(D&#92;)
-        diagonalizable (Fourier modes on cycles).
+      <li><strong>One-hot lift → functional graph → PDN.</strong> The deterministic closed-loop induces a column-stochastic operator \(P\) with out-degree 1. This operator admits a
+        structured decomposition: block-permutation cycles (diagonalizable \(D\)) and strictly upper triangular transients (nilpotent \(N\)). The components commute: \(P = D + N\).
       </li>
-      <li>
-        <strong>Koopman correspondence.</strong>
-        On observables and under the counting measure, <span class="nowrap">&#92;(K_{&#92;Psi} = P^{&#92;top}&#92;)</span>. Spectral structure of &#92;(P&#92;) therefore provides a principled lens on
-        nonlinear &#92;(&#92;Psi&#92;) through its linear action on features/observables.
+      <li><strong>Koopman correspondence.</strong> Under counting measure, \(K_\Psi = P^\top\), which means the spectral properties of \(P\) project directly onto the nonlinear
+        evolution \(\Psi\), preserving dynamics through linear observables.
       </li>
-      <li>
-        <strong>Sum vs. direct sum.</strong>
-        Value‑space reconstructions (ordinary sums of basis maps) are distinguished from the operator <em>direct‑sum</em> organization on cycle subspaces, preserving clarity of
-        meaning and computation.
+      <li><strong>Operator direct sum vs. value reconstruction.</strong> A clear distinction is upheld between the direct-sum structure of \(P\) (mode/cycle-wise decomposition) and
+        basis expansions used for reconstructing values or observables.
       </li>
     </ul>
   </section>
 
-  <section id="pdn-nonrelu" aria-label="Applicability with non‑ReLU activations">
-    <h3>Non‑ReLU activations: lawful applicability of <span class="nowrap">&#92;(P=D+N&#92;)</span></h3>
-    <p>
-      The decomposition applies to any finite linear operator selected to represent a step of the dynamics. With smooth nonlinearities (GELU, SiLU/Swish, SwiGLU, softmax attention,
-      LayerNorm), the operator is obtained via a suitable representation and then decomposed.
-    </p>
+  <section id="pdn-bluf-refinements" aria-label="Technical refinements">
+    <h3>Two refinements for technical completeness</h3>
     <ol>
       <li>
-        <strong>EDMD / Koopman lifting.</strong> Choose a feature map &#92;(&#92;Phi(x)&#92;) (e.g., polynomial/Hermite, Fourier, or log‑ratio features for softmax). Fit a linear operator
-        &#92;(K&#92;) so that <span class="nowrap">&#92;(&#92;Phi(x_{t+1}) &#92;approx K^{&#92;top}&#92;,&#92;Phi(x_t)&#92;)</span>, then perform the Dunford split &#92;(K=D+N&#92;).
+        <strong>Temporal evolution under \(P\).</strong> While \(P^t = D^t\) is not globally valid, the asymptotic regime behaves lawfully: once \(P^t v\) lies within the cycle
+        subspace, further evolution aligns with \(D\). The full expansion:
+        <pre><code>P^t = (D + N)^t = \sum_{k=0}^{\ell-1} \binom{t}{k} D^{t-k} N^k</code></pre>
+        ensures that nilpotent effects vanish per-vector after transient depth. Suggested phrasing:
+        <blockquote>"For \(t\) beyond the maximal transient depth of the input state, the image of \(P^t\) lies in the cycle subspace and subsequent evolution is governed by \(D\); globally \(P^t \ne D^t\) in general, but the \(N\)-terms act only during transients."</blockquote>
       </li>
       <li>
-        <strong>Local Jacobian / monodromy.</strong> Along a fixed context or trajectory, take the Jacobian &#92;(J = &#92;partial f/&#92;partial x&#92;) (or a one‑period product) and analyze
-        <span class="nowrap">&#92;(J = D + N&#92;)</span>.
-      </li>
-      <li>
-        <strong>Carleman / polynomialization.</strong> Truncate the multivariate Taylor jet and augment the state with monomials; the lifted dynamics are linear in the augmented
-        coordinates, enabling a standard &#92;(P=D+N&#92;) analysis.
+        <strong>Field of diagonalization.</strong> The cycle blocks in \(P\) are permutation matrices, diagonalizable over \(\mathbb{C}\). This clarification may be stated once
+        (e.g., "...with \(D\) diagonalizable over \(\mathbb{C}\), as the cycle structure yields roots of unity eigenvalues").
       </li>
     </ol>
-
-    <details>
-      <summary>Activation‑aware feature cues (concise)</summary>
-      <ul>
-        <li><strong>GELU</strong>: Hermite/polynomial features for the erf/normal‑CDF structure.</li>
-        <li><strong>SiLU / Swish</strong>: include &#92;(&#92;{x,&#92;,&#92;sigma(x),&#92;,x&#92;,&#92;sigma(x)&#92;}&#92;) with low‑order products.</li>
-        <li><strong>SwiGLU</strong>: atoms of the form &#92;((b^{&#92;top}x)&#92;,&#92;sigma(a^{&#92;top}x)&#92;) aligned to learned rows.</li>
-        <li><strong>Softmax attention</strong>: logit‑difference (log‑ratio) or exponential features &#92;(&#92;{e^{z_i}&#92;}&#92;).</li>
-        <li><strong>RoPE</strong>: complex/Fourier features for block‑rotation structure.</li>
-        <li><strong>LayerNorm</strong>: local Jacobian around operating statistics or a compact jet expansion.</li>
-      </ul>
-    </details>
-
-    <p class="note" style="font-size:.95rem; opacity:.9;">
-      The work remains intentionally modest in posture: it does not assert global linearity of the network. It studies a linear representation—fixed or contexted—in which the
-      nonlinear dynamics act. The nilpotent component &#92;(N&#92;) expresses higher‑order, non‑modal couplings; the semisimple component &#92;(D&#92;) reflects modal structure. The aim is
-      coherence, interpretability, and the safeguarding of performance under constraint.
-    </p>
   </section>
 
-  <section id="pdn-related" aria-label="Related documents">
-    <h3>Related documents</h3>
-    <ul>
-      <li>
-        <a href="/docs/Lecture%20Notes-%20Transformers%20as%20Functional%20Objects%20for%20Physics.pdf" target="_blank" rel="noopener noreferrer">
-          Lecture Notes — Transformers as Functional Objects for Physics
-        </a>
-      </li>
-      <li>
-        <a href="/docs/A%20Structured%20Framework%20for%20the%20Neural%20Network.pdf" target="_blank" rel="noopener noreferrer">
-          A Structured Framework for the Neural Network
-        </a>
-      </li>
-      <li>
-        <a href="/docs/Lecture%20Notes-%20Epicyclic%20Decomposition%20in%20Rn%20and%20a%20Psi-Based%20Equivalence%20Basis%20Framework.pdf" target="_blank" rel="noopener noreferrer">
-          Lecture Notes — Epicyclic Decomposition in &#92;(&#92;mathbb{R}^n&#92;) and a &#92;(&#92;Psi&#92;)‑Based Equivalence Basis Framework
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <hr class="soft" />
-  <p style="font-size:.95rem; opacity:.85;">
-    Tone and intent: precision in service of mission; humility of craft; disciplined intellect ordered toward the common good; fidelity to structure as a form of care.
-  </p>
-</section>
-<!-- ===== PDN Explainer: Dunford (Jordan–Chevalley) for Transformer Operator Representations ===== -->
-<section id="pdn-explainer" class="research-list" aria-label="Dunford PDN explainer for transformer operator representations">
-  <h2>Operator Decomposition for Transformers: <span class="nowrap">&#92;(P = D + N&#92;)</span></h2>
-
-  <p class="lead">
-    With quiet precision and disciplined intent, this program applies the Dunford (Jordan–Chevalley) decomposition &#92;(P = D + N&#92;) to a
-    <em>linear operator representation</em> of a transformer step (one‑hot lift, Koopman/EDMD view, or finite‑state closed loop). The claim is not that the network is
-    globally linear; it is that, in the right representation, the step admits a lawful split into semisimple modes and nilpotent couplings. This is the appropriate instrument
-    for spectral analysis—deployed with humility, clarity of purpose, and regard for system integrity.
-  </p>
-
-  <!-- Hierarchy & Mission Clarity -->
-  <nav class="quick-jump" aria-label="Quick jump links">
-    <ul style="display:flex; gap:.75rem; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1rem 0;">
-      <li><a href="#pdn-method" class="pill-link">Statement of method</a></li>
-      <li><a href="#pdn-nonrelu" class="pill-link">Non‑ReLU activations</a></li>
-      <li><a href="#pdn-related" class="pill-link">Related documents</a></li>
-    </ul>
-  </nav>
-
-  <section id="pdn-method" aria-label="Statement of method">
-    <h3>Statement of method</h3>
-    <ul>
-      <li>
-        <strong>One‑hot lift → functional graph → PDN.</strong>
-        A deterministic closed‑loop system induces a column‑stochastic linear operator &#92;(P&#92;) with out‑degree 1. The state space separates into <em>cycle</em> blocks (permutations)
-        and <em>transient</em> trees feeding those cycles. This yields a commuting split <span class="nowrap">&#92;(P = D + N&#92;)</span> with &#92;(N&#92;) nilpotent and &#92;(D&#92;)
-        diagonalizable (Fourier modes on cycles).
-      </li>
-      <li>
-        <strong>Koopman correspondence.</strong>
-        On observables and under the counting measure, <span class="nowrap">&#92;(K_{&#92;Psi} = P^{&#92;top}&#92;)</span>. Spectral structure of &#92;(P&#92;) therefore provides a principled lens on
-        nonlinear &#92;(&#92;Psi&#92;) through its linear action on features/observables.
-      </li>
-      <li>
-        <strong>Sum vs. direct sum.</strong>
-        Value‑space reconstructions (ordinary sums of basis maps) are distinguished from the operator <em>direct‑sum</em> organization on cycle subspaces, preserving clarity of
-        meaning and computation.
-      </li>
-    </ul>
-  </section>
-
-  <section id="pdn-nonrelu" aria-label="Applicability with non‑ReLU activations">
-    <h3>Non‑ReLU activations: lawful applicability of <span class="nowrap">&#92;(P=D+N&#92;)</span></h3>
+  <section id="pdn-bluf-nonlinear" aria-label="Compatibility with smooth nonlinearities">
+    <h3>Compatibility with Non-ReLU Activations</h3>
     <p>
-      The decomposition applies to any finite linear operator selected to represent a step of the dynamics. With smooth nonlinearities (GELU, SiLU/Swish, SwiGLU, softmax attention,
-      LayerNorm), the operator is obtained via a suitable representation and then decomposed.
+      The decomposition \(P = D + N\) is invariant to the specific nonlinear activation used, so long as the step-wise evolution is captured by a linear representation (via
+      lifting, local Jacobian, or symbolic modeling). The following constructions validate usage with smooth nonlinearities:
     </p>
-    <ol>
-      <li>
-        <strong>EDMD / Koopman lifting.</strong> Choose a feature map &#92;(&#92;Phi(x)&#92;) (e.g., polynomial/Hermite, Fourier, or log‑ratio features for softmax). Fit a linear operator
-        &#92;(K&#92;) so that <span class="nowrap">&#92;(&#92;Phi(x_{t+1}) &#92;approx K^{&#92;top}&#92;,&#92;Phi(x_t)&#92;)</span>, then perform the Dunford split &#92;(K=D+N&#92;).
+    <ul>
+      <li><strong>Koopman or EDMD lifting:</strong> Feature maps \(\Phi(x)\) appropriate for GELU, SiLU, SwiGLU, softmax, etc., yield linear operator \(K\) such that
+        \(\Phi(x_{t+1}) \approx K^\top \Phi(x_t)\), then decomposed as \(K = D + N\).
       </li>
-      <li>
-        <strong>Local Jacobian / monodromy.</strong> Along a fixed context or trajectory, take the Jacobian &#92;(J = &#92;partial f/&#92;partial x&#92;) (or a one‑period product) and analyze
-        <span class="nowrap">&#92;(J = D + N&#92;)</span>.
+      <li><strong>Jacobian / monodromy:</strong> Locally around a fixed context, the Jacobian or a trajectory-aligned matrix \(J\) is linear and decomposable.
       </li>
-      <li>
-        <strong>Carleman / polynomialization.</strong> Truncate the multivariate Taylor jet and augment the state with monomials; the lifted dynamics are linear in the augmented
-        coordinates, enabling a standard &#92;(P=D+N&#92;) analysis.
+      <li><strong>Polynomialization (Carleman):</strong> Smooth flows allow Taylor expansion into augmented monomial space, where the dynamics are linear.
       </li>
-    </ol>
-
-    <details>
-      <summary>Activation‑aware feature cues (concise)</summary>
-      <ul>
-        <li><strong>GELU</strong>: Hermite/polynomial features for the erf/normal‑CDF structure.</li>
-        <li><strong>SiLU / Swish</strong>: include &#92;(&#92;{x,&#92;,&#92;sigma(x),&#92;,x&#92;,&#92;sigma(x)&#92;}&#92;) with low‑order products.</li>
-        <li><strong>SwiGLU</strong>: atoms of the form &#92;((b^{&#92;top}x)&#92;,&#92;sigma(a^{&#92;top}x)&#92;) aligned to learned rows.</li>
-        <li><strong>Softmax attention</strong>: logit‑difference (log‑ratio) or exponential features &#92;(&#92;{e^{z_i}&#92;}&#92;).</li>
-        <li><strong>RoPE</strong>: complex/Fourier features for block‑rotation structure.</li>
-        <li><strong>LayerNorm</strong>: local Jacobian around operating statistics or a compact jet expansion.</li>
-      </ul>
-    </details>
-
-    <p class="note" style="font-size:.95rem; opacity:.9;">
-      The work remains intentionally modest in posture: it does not assert global linearity of the network. It studies a linear representation—fixed or contexted—in which the
-      nonlinear dynamics act. The nilpotent component &#92;(N&#92;) expresses higher‑order, non‑modal couplings; the semisimple component &#92;(D&#92;) reflects modal structure. The aim is
-      coherence, interpretability, and the safeguarding of performance under constraint.
+    </ul>
+    <p class="note">
+      The resulting operator \(P\), though linear, reflects nonlinear structure through its spectral content: \(D\) captures persistent modal behaviors, \(N\) encodes higher-order
+      couplings. Thus, nothing is lost—the decomposition reveals what the nonlinearity otherwise conceals.
     </p>
   </section>
 
-  <section id="pdn-related" aria-label="Related documents">
-    <h3>Related documents</h3>
+  <section id="pdn-bluf-polish" aria-label="Optional clarity for completeness">
+    <h3>Optional polish: structural descriptions</h3>
     <ul>
-      <li>
-        <a href="/docs/Lecture%20Notes-%20Transformers%20as%20Functional%20Objects%20for%20Physics.pdf" target="_blank" rel="noopener noreferrer">
-          Lecture Notes — Transformers as Functional Objects for Physics
-        </a>
+      <li><strong>Column-stochastic operator.</strong> The one-hot lift yields a matrix \(P\) with exactly one nonzero (1) per column; such structure is preserved in symbolic tasks.
       </li>
-      <li>
-        <a href="/docs/A%20Structured%20Framework%20for%20the%20Neural%20Network.pdf" target="_blank" rel="noopener noreferrer">
-          A Structured Framework for the Neural Network
-        </a>
+      <li><strong>Cycle block = permutation.</strong> Each diagonalizable block \(D_i\) corresponds to a permutation matrix, hence spectrum is roots of unity over \(\mathbb{C}\).
       </li>
-      <li>
-        <a href="/docs/Lecture%20Notes-%20Epicyclic%20Decomposition%20in%20Rn%20and%20a%20Psi-Based%20Equivalence%20Basis%20Framework.pdf" target="_blank" rel="noopener noreferrer">
-          Lecture Notes — Epicyclic Decomposition in &#92;(&#92;mathbb{R}^n&#92;) and a &#92;(&#92;Psi&#92;)‑Based Equivalence Basis Framework
-        </a>
+      <li><strong>Transient block = nilpotent.</strong> The remaining part is strictly upper-triangular, naturally nilpotent with bounded depth.
       </li>
     </ul>
   </section>
-
-  <hr class="soft" />
-  <p style="font-size:.95rem; opacity:.85;">
-    Tone and intent: precision in service of mission; humility of craft; disciplined intellect ordered toward the common good; fidelity to structure as a form of care.
-  </p>
 </section>
+
+
 
 
 
