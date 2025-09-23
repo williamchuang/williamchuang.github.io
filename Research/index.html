@@ -185,9 +185,19 @@ blog: passive
   While the global decomposition remains exact under finiteness and determinism, an optional local variant remains admissible: when analysis is restricted to a confined region of the symbolic state space—such as a task-specific cluster, a high-density attractor, or a localized semantic basin—one may perform localized slicing or coarse-grained zooming of \( \Psi \)'s flow. This enables fine-scale inspection, transient detection, or causal tracing within the localized substructure, without invoking full global decomposition. The architecture remains agnostic to such partitioning, and the decomposition formalism remains valid in both regimes.
 </p>
 
+<p>
+  How different would it be if we collapsed the model into a single symbolic operator \( \Psi \)—even at the scale of ChatGPT‑3/4/5? In prior analysis, I estimated that covering just the <strong>99.9% basin of symbolic brain weight transitions</strong> suffices to reconstruct most learned behaviors; see <a href="https://logarcheon.com/Research/#finite-machine-intro" target="_blank" rel="noopener noreferrer">Finite Machine Intro</a>. This leads to a critical reframing: instead of probing the internal nonlinearity of \( \Psi \), <strong>the focus shifts to its deterministic behavior over a finite domain and codomain</strong>, encoded as symbolic transitions that the model enacts during training or inference.
+</p>
+
+<p>
+  My framework is not based on Dunford decomposition per se. Rather, it views \( \Psi \) as a black-box automaton and extracts structure by observing the automorphic flow of outputs recursively fed back as inputs. The disjoint cycles that emerge from this process form a complete decomposition of the transformer’s operational graph over the training set. This is conceptually akin to AlphaGo’s pruning strategy: from an exponentially large search tree, we restrict attention to only those symbolic paths that are likely to arise in actual usage.
+</p>
+
+<p>
+  Through this lens, transformer behavior is approximated by a cycle-based decomposition of its symbolic state machine. For formal verification, one can constrain outputs to lie strictly within (or within certified neighborhoods of) these known cycles—yielding provable behavioral bounds over nearly the entire operational surface of the model.
+</p>
 
 
-  </section>
 </section>
 
 
