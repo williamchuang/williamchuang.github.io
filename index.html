@@ -589,6 +589,99 @@ description: "Graduate Student at University of Arizona"
 
 
 
+<!-- ===== EFFECT OF MODEL SIZE ON β SCALING DYNAMICS ===== -->
+<section id="beta-scaling-metaphor" class="research-list" aria-label="Model β Scaling and Rolling Log Analogy">
+  <h2>β Scaling in Large vs Small Models — Rolling Log Metaphor</h2>
+
+  <p>
+    Imagine your model as an ancient stone structure that you want to preserve. You wish to relocate it to a more optimal position — not instantly, but gradually, using physical means.
+  </p>
+
+  <p>
+    Think of <code>1/√dₖ</code> as the model’s <strong>initial coordinate or address</strong> at initialization. It reflects the center of statistical mass assuming an ideal Gaussian distribution — especially accurate for large models due to the Central Limit Theorem.
+  </p>
+
+  <p>
+    The <strong>β range I theoretically predict</strong> offers a corridor pointing to where the model will eventually be optimized toward — a <strong>future coordinate</strong> the system is gradually shifting toward through backpropagation. This prediction, although less precise initially, gives you insight into the <em>destination</em> of the learning journey.
+  </p>
+
+  <p>
+    Using this metaphor, training is like moving an ancient building using round logs to roll it. The learning rate maps to the <strong>radius of these logs</strong> — larger logs (higher learning rate) move the building faster, while narrower logs (lower learning rate) result in slower shifts. When training a large model, default β scaling appears precise at first. But over time, gradients work like friction and torque — gradually nudging the entire structure into the predicted corridor.
+  </p>
+
+  <p>
+    The table below compares how quickly different model sizes "begin to roll" and show β shifting into the optimal corridor predicted by my method:
+  </p>
+
+  <table style="border-collapse: collapse; margin-top: 1em; width: 100%;">
+    <thead>
+      <tr style="border-bottom: 2px solid #000;">
+        <th style="text-align:left; padding:6px;">Model Size</th>
+        <th style="text-align:left; padding:6px;">Rolling Log Radius (Learning Rate)</th>
+        <th style="text-align:left; padding:6px;">Observed β Shift After 3 Min</th>
+        <th style="text-align:left; padding:6px;">Time to Reach Best β Range</th>
+        <th style="text-align:left; padding:6px;">Total Training Time</th>
+        <th style="text-align:left; padding:6px;">GPUs Used</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #ccc;">
+        <td style="padding:6px;">Tiny (9K params)</td>
+        <td style="padding:6px;"><code>1e-3</code> (medium-radius logs)</td>
+        <td style="padding:6px;">Yes (β ≈ 0.5)</td>
+        <td style="padding:6px;">~10 sec – 1 min</td>
+        <td style="padding:6px;">~3–5 minutes</td>
+        <td style="padding:6px;">1 GPU</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ccc;">
+        <td style="padding:6px;">Small GPT (~14M params)</td>
+        <td style="padding:6px;"><code>1e-4</code> (narrow-radius logs)</td>
+        <td style="padding:6px;">Very slow shift</td>
+        <td style="padding:6px;">>2 hours estimated</td>
+        <td style="padding:6px;">~15 hours</td>
+        <td style="padding:6px;">1 GPU</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:1em;"><strong>Metaphor Mapping Table:</strong></p>
+  <table style="border-collapse: collapse; margin-top: 0.5em; width: 100%;">
+    <thead>
+      <tr style="border-bottom: 2px solid #000;">
+        <th style="text-align:left; padding:6px;">Concept</th>
+        <th style="text-align:left; padding:6px;">Metaphor Component</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #ccc;">
+        <td style="padding:6px;">Model</td>
+        <td style="padding:6px;">Ancient Building</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ccc;">
+        <td style="padding:6px;">Rolling Log Radius (Learning Rate)</td>
+        <td style="padding:6px;">Size of Rolling Logs</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ccc;">
+        <td style="padding:6px;">β Scaling Shift</td>
+        <td style="padding:6px;">Final Relocation Distance</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ccc;">
+        <td style="padding:6px;">Training Time</td>
+        <td style="padding:6px;">Rolling Time</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ccc;">
+        <td style="padding:6px;">Default β (<code>1/√dₖ</code>)</td>
+        <td style="padding:6px;">Initial Address</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">Theoretical β Corridor</td>
+        <td style="padding:6px;">Future Destination</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
 <!-- ===== Estimated Cost & Compute Savings: GPT-Scale Models ===== -->
 <section id="budget-savings-analysis" class="research-list" aria-label="Cost and GPU Impact: Scaling Benefits of β Prediction">
   <h2>Estimated Cost & Compute Savings with β‑Scaling Optimization</h2>
