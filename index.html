@@ -589,7 +589,6 @@ description: "Graduate Student at University of Arizona"
 
 
 
-
 <!-- ===== EFFECT OF MODEL SIZE ON β SCALING DYNAMICS ===== -->
 <section id="beta-scaling-metaphor" class="research-list" aria-label="Model β Scaling and Rolling Log Analogy">
   <h2>β Scaling in Large vs Small Models — Rolling Log Metaphor</h2>
@@ -599,11 +598,11 @@ description: "Graduate Student at University of Arizona"
   </p>
 
   <p>
-    Think of <code>1/√dₖ</code> as the model’s <strong>current coordinate or address</strong> at initialization. It reflects the exact center of statistical mass assuming an ideal Gaussian distribution — especially accurate for large models due to the Central Limit Theorem.
+    Think of <code>1/√dₖ</code> as the model’s <strong>initial coordinate or address</strong> at initialization. It reflects the center of statistical mass assuming an ideal Gaussian distribution — especially accurate for large models due to the Central Limit Theorem.
   </p>
 
   <p>
-    On the other hand, the <strong>β range I theoretically predict</strong> offers a corridor pointing to where the model will eventually be optimized toward — a <strong>future coordinate</strong> the system is gradually shifting toward through backpropagation. This prediction, although less precise initially, gives you insight into the <em>destination</em> of the learning journey, rather than the starting point.
+    The <strong>β range I theoretically predict</strong> offers a corridor pointing to where the model will eventually be optimized toward — a <strong>future coordinate</strong> the system is gradually shifting toward through backpropagation. This prediction, although less precise initially, gives you insight into the <em>destination</em> of the learning journey.
   </p>
 
   <p>
@@ -618,7 +617,7 @@ description: "Graduate Student at University of Arizona"
     <thead>
       <tr style="border-bottom: 2px solid #000;">
         <th style="text-align:left; padding:6px;">Model Size</th>
-        <th style="text-align:left; padding:6px;">Learning Rate (Log Radius)</th>
+        <th style="text-align:left; padding:6px;">Rolling Log Radius (Learning Rate)</th>
         <th style="text-align:left; padding:6px;">Observed β Shift After 3 Min</th>
         <th style="text-align:left; padding:6px;">Time to Reach Best β Range</th>
         <th style="text-align:left; padding:6px;">Total Training Time</th>
@@ -635,7 +634,7 @@ description: "Graduate Student at University of Arizona"
         <td style="padding:6px;">1 GPU</td>
       </tr>
       <tr style="border-bottom: 1px solid #ccc;">
-        <td style="padding:6px;">Small GPT (~230K)</td>
+        <td style="padding:6px;">Small GPT (~14M params)</td>
         <td style="padding:6px;"><code>1e-4</code> (narrow-radius logs)</td>
         <td style="padding:6px;">Very slow shift</td>
         <td style="padding:6px;">>2 hours estimated</td>
@@ -659,8 +658,8 @@ description: "Graduate Student at University of Arizona"
         <td style="padding:6px;">Ancient Building</td>
       </tr>
       <tr style="border-bottom: 1px solid #ccc;">
-        <td style="padding:6px;">Learning Rate</td>
-        <td style="padding:6px;">Radius of Rolling Logs</td>
+        <td style="padding:6px;">Rolling Log Radius (Learning Rate)</td>
+        <td style="padding:6px;">Size of Rolling Logs</td>
       </tr>
       <tr style="border-bottom: 1px solid #ccc;">
         <td style="padding:6px;">β Scaling Shift</td>
