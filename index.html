@@ -81,34 +81,12 @@ description: "Graduate Student at University of Arizona"
 
 <section id="grail-cpu-trustless" style="font-family:sans-serif; padding:2rem; line-height:1.6; max-width:1000px; margin:auto;">
 
-<!-- Callout Box -->
-<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f8f9fa;">
-  <strong>BLUF:</strong> GRAIL runs at full native speed and **does not require CPU trust**—a decisive advantage over all known encrypted ML methods. While others must decrypt (or emulate computation over ciphertext), GRAIL parses encrypted data directly through model layers without slowdown.
-</div>
-
-
   <h2 style="font-size:1.8rem;">GRAIL: Trustless, Fast, and Secure Neural Computation</h2>
 
 
-<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f0f8ff;">
-  <strong style="font-size:1.05rem;">Use Case: Protecting Neural Execution Against Runtime Exploits</strong><br><br>
-
-  Most architectures can secure data during storage and transmission—but not during execution. When models run on commodity CPUs or GPUs, sensitive data and weights are exposed in plaintext within registers, memory, and internal buses.<br><br>
-
-  This creates a critical attack surface:
-  <ul style="margin-left:1.25rem; padding-left:1rem;">
-    <li><strong>Side-channel leaks</strong> via cache timing, power draw, RF emissions, or speculative execution</li>
-    <li><strong>Microarchitectural exploits</strong> such as Meltdown, Spectre, or Rowhammer</li>
-    <li><strong>Firmware and microcode backdoors</strong> buried below OS or hypervisor-level visibility</li>
-    <li><strong>Live runtime probing</strong> through JTAG, debug interrupts, or transient instruction tracing</li>
-  </ul>
-
-  <div style="margin-top:0.75rem; padding:0.75rem; background:#fff3cd; border-left:4px solid #ffc107;">
-    <strong style="color:#664d03;">Reframed Misconception:</strong><br>
-    It is widely assumed that encryption stops leaks. But once computation begins, traditional architectures must decrypt, operate on, and temporarily store plaintext—creating windows of exposure that adversaries can exploit.
-  </div><br>
-
-  <strong style="color:#0056b3;">GRAIL closes this window entirely:</strong> All activations, weights, and intermediate states remain encrypted under algebraic transformations throughout execution. No plaintext ever appears—even for a single clock cycle.
+<!-- Callout Box -->
+<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f8f9fa;">
+  <strong>BLUF:</strong> GRAIL runs at full native speed and **does not require CPU trust**—a decisive advantage over all known encrypted ML methods. While others must decrypt (or emulate computation over ciphertext), GRAIL parses encrypted data directly through model layers without slowdown.
 </div>
 
 
