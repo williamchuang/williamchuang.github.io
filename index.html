@@ -84,10 +84,12 @@ description: "Graduate Student at University of Arizona"
   <h2 style="font-size:1.8rem;">GRAIL: Trustless, Fast, and Secure Neural Computation</h2>
 
 
-<!-- Callout Box -->
-<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f8f9fa;">
-  <strong>BLUF:</strong> GRAIL runs at full native speed and **does not require CPU trust**—a decisive advantage over all known encrypted ML methods. While others must decrypt (or emulate computation over ciphertext), GRAIL parses encrypted data directly through model layers without slowdown.
+<div style="margin-top:1.25rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f0f8ff;">
+  <strong>BLUF:</strong> GRAIL runs at full native speed and <strong>requires no CPU or cloud trust</strong>—a decisive advantage over all known encrypted ML methods. Unlike systems that must decrypt or emulate over ciphertext, GRAIL directly parses encrypted inputs and parameters through model layers with <em>no runtime slowdown</em>.<br><br>
+
+  <strong>Deployment Note:</strong> As with any cryptographic protocol, security assumes that model training and encryption occur on secure or air-gapped devices, <em>prior</em> to inference-time execution. Once encrypted, models and inputs remain opaque to untrusted CPUs throughout usage.
 </div>
+
 
 
 <details style="margin-bottom:1.5rem; border-left:4px solid #007BFF; padding-left:1rem;">
