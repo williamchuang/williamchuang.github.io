@@ -80,7 +80,26 @@ description: "Graduate Student at University of Arizona"
 
 
 <section id="grail-cpu-trustless" style="font-family:sans-serif; padding:2rem; line-height:1.6; max-width:1000px; margin:auto;">
+
   <h2 style="font-size:1.8rem;">GRAIL: Trustless, Fast, and Secure Neural Computation</h2>
+
+<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #dc3545; background-color:#f8d7da;">
+  <strong style="font-size:1.05rem;">Core Insight:</strong> What’s sold as “secure computation” is often only secure at the edges.<br><br>
+
+  Data is masked during transit and disguised at rest—but once arithmetic begins, most systems expose the underlying data directly to the processor’s logic.<br><br>
+
+  This opens the door to:
+  <ul style="margin-left:1.25rem; padding-left:1rem;">
+    <li><strong>Side-channel leaks</strong> (timing, power, EM radiation, cache behavior)</li>
+    <li><strong>Speculative execution attacks</strong> (e.g., Spectre, Meltdown)</li>
+    <li><strong>Hardware implants and firmware backdoors</strong> (e.g., hidden microcontrollers)</li>
+    <li><strong>Runtime introspection vulnerabilities</strong> (via debugging interfaces or compromised OS)</li>
+  </ul>
+
+  <strong>GRAIL’s Guarantee:</strong> <em>No intermediate stage ever reveals the data in the clear</em>—not even at the level of instruction execution. Neural computation is represented and processed entirely within encrypted algebraic form over curved manifolds. This removes the attack surface altogether—side channels included.
+</div>
+
+
 
   <details style="margin-bottom:1.5rem; border-left:4px solid #007BFF; padding-left:1rem;">
     <summary style="cursor:pointer; font-weight:bold; font-size:1.1rem;">What is GRAIL?</summary>
@@ -197,14 +216,16 @@ description: "Graduate Student at University of Arizona"
 
 
 
-  <h4 style="margin-top:2rem;">Tweet-length summary:</h4>
-  <p style="font-style:italic; background:#f8f9fa; padding:1rem; border-left:4px solid #007BFF;">
-    GRAIL ≠ FHE ≠ TEEs. It keeps <strong>semantics encrypted by default</strong>, during compute—<u>no CPU trust</u> required. And it runs at <strong>native speed</strong>.
-  </p>
+<!-- Callout Box -->
+<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f8f9fa;">
+  <strong>BLUF:</strong> GRAIL runs at full native speed and **does not require CPU trust**—a decisive advantage over all known encrypted ML methods. While others must decrypt (or emulate computation over ciphertext), GRAIL parses encrypted data directly through model layers without slowdown.
+</div>
 
-  <h4>Footnote:</h4>
-  <p>To hide access patterns, you can combine GRAIL with lightweight ORAM, padding, or randomized dummy tokens. For auditability, optional <strong>zk-proofs</strong> can be layered externally without leaking cryptographic structure.</p>
-</section>
+<!-- Additional Emphasis -->
+<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #6f42c1; background-color:#f2eafa;">
+  <strong>Note:</strong> The comparison with FHE or MPC is just **one small corner** of GRAIL's capabilities. GRAIL is not merely an encryption layer—it is a **superset architecture** that unifies cryptographic, geometric, symbolic, and post-quantum computation into a single coherent neural framework.
+</div>
+
 
 
 <!-- =========================================================
