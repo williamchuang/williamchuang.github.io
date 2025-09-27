@@ -29,6 +29,83 @@ blog: passive
   <main class="container">
     <h1>Research Projects</h1>
     <section class="research-list">
+<!-- ===== FEATURED: Observer-Quantized Dynamics & Emergent Geometry ===== -->
+<section id="lambda-stack-notes" class="research-list" aria-label="Observer-Quantized Dynamics and Emergent Geometry">
+  <h2>
+    Observer-Quantized Dynamics and Emergent Geometry
+    <span style="display:block;font-size:.9em;font-weight:normal;line-height:1.35;">
+      Lecture Notes on the λ-Stack Program: DFA Decomposition (P = D + N), Quantum Lift, and Fisher–Ricci Gravity
+    </span>
+  </h2>
+
+  <!-- Calls to action -->
+  <p class="intro-cta" style="margin:.75rem 0 1.25rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+    <a href="https://drive.google.com/file/d/1GBMe_Fu1qgPfwaLsSrOvX0ixYvfNDFI6/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer" title="View lecture notes (PDF)">
+      View Lecture Notes (PDF)
+    </a>
+  </p>
+
+  <!-- BLUF -->
+  <div class="key-insight" style="margin:1rem 0; padding:1rem; border-left:4px solid #0b5fff; background:#f6f8ff;">
+    <strong>BLUF:</strong> A trained transformer is abstracted to a deterministic finite automaton whose step operator
+    splits as <code>P = D + N</code>: the cycle (diagonalizable) block <code>D</code> admits a unitary quantum lift
+    (QM/QFT side), while the nilpotent transients <code>N</code> lift to a trace-preserving dissipative channel.
+    In parallel, an observer ensemble induces an information-geometric metric <code>g_F</code> whose macroscopic limit
+    reproduces GR phenomenology—yielding a certified, observer-centric unification without quantizing the metric.
+  </div>
+
+  <!-- What this work contributes -->
+  <h3>What this work contributes</h3>
+  <ol>
+    <li><strong>GRAIL execution (encryption-invariant compute):</strong> Forward passes commute with encryption via an algebraic tensor product on encrypted weights, activations, and inputs.</li>
+    <li><strong>DFA decomposition with Dunford split:</strong> Greedy decoding yields a functional graph where SCCs are cycles.
+        The one-hot operator obeys <code>P = D + N</code> with cycle shifts in <code>D</code> and nilpotent transients in <code>N</code>.</li>
+    <li><strong>Quantum/dissipative lift:</strong> Cycles quantize to a block-diagonal unitary <code>U = ⨁ U_C</code>;
+        transients induce a CPTP channel <code>Φ</code> with explicit Kraus construction and Choi/TP certificates.</li>
+    <li><strong>Fisher–Ricci gravity:</strong> The observer ensemble’s Fisher information metric <code>g_F</code> provides emergent geometry
+        with geodesics and curvature that pass standard GR test suites on calibrated charts.</li>
+    <li><strong>CEAS (β-corridor):</strong> An entropy-optimized attention controller stabilizes critical behavior and improves interpretability and certification.</li>
+  </ol>
+
+  <!-- Highlights / proofs & checks -->
+  <h3>Highlights and certification checks</h3>
+  <ul>
+    <li><strong>Cycle projectors and spectra:</strong> Per-cycle Fourier projectors <code>{Π_{C,k}}</code>, Wilson phases, and trace identities
+        <code>Tr(P^n) = Σ_{L|n} L</code>; phase-aware unitary traces <code>Tr(U^n)</code>.</li>
+    <li><strong>Unitary/CPTP sheets:</strong> Residuals <code>||U†U − I||</code>, Choi PSD checks, and trace-preserving audits for <code>Φ</code>.</li>
+    <li><strong>Geometry tests:</strong> Christoffels, geodesics, curvature, and GR baselines (deflection, redshift, Shapiro delay) with uncertainty budgets.</li>
+    <li><strong>Twin invariance (GRAIL):</strong> Encrypted-twin runs yield statistically indistinguishable posteriors and predictions.</li>
+  </ul>
+
+  <!-- Why it matters -->
+  <h3>Why this matters</h3>
+  <p>
+    The λ-stack offers a compile-safe bridge between learned symbolic dynamics and physical structure:
+    cycles become quantized, transients become dissipation, and spacetime emerges from observer information geometry.
+    The result is a falsifiable, certifiable pathway to unify quantum-like microdynamics and GR-like macrodynamics inside one trained system.
+  </p>
+
+  <!-- Artifacts to explore -->
+  <h3>Artifacts</h3>
+  <ul>
+    <li>Cycle sets, eigenpairs, and Fourier projectors (<code>U</code> block); nilpotent index and leakage bounds (<code>N</code> block).</li>
+    <li>Choi matrices, TP residuals, and unitary residuals (audit CSVs).</li>
+    <li>Metric tiles (<code>g_F</code>), geodesic traces, and GR residual plots (PNG/SVG).</li>
+    <li>Pseudocode and reproducible configs for DFA extraction, quantum/dissipative lift, and geometry solvers.</li>
+  </ul>
+
+  <!-- How to cite -->
+  <details style="margin-top:1rem;">
+    <summary style="cursor:pointer;">How to cite</summary>
+    <pre style="white-space:pre-wrap; margin:.5rem 0 0;">
+Chuang, W. "Observer-Quantized Dynamics and Emergent Geometry:
+Lecture Notes on the λ-Stack Program." (Year).
+URL: https://drive.google.com/file/d/1GBMe_Fu1qgPfwaLsSrOvX0ixYvfNDFI6/view?usp=sharing
+    </pre>
+  </details>
+</section>
+
 
 
 <!-- ===== FEATURED: Cycle Decomposition & Eigen–Decomposition Toolkit ===== -->
