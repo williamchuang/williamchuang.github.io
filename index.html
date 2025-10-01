@@ -184,6 +184,77 @@ description: "Graduate Student at University of Arizona"
 </section>
 
 
+<section class="blurb" id="entropy-as-scatter">
+  <h2>Entropy as “Scatter” — but in a Moving Frame</h2>
+  <p>
+    In the videos, high entropy corresponds to particles/states <em>scattered</em> across accessible configurations.
+    In CEAS we read “scatter” <strong>relatively</strong>, because gradient descent continually moves the latent space.
+    What matters for attention is not absolute coordinates but the <em>current decision margins</em> encoded by the
+    score gaps \( \Delta_i = s_i - \mathrm{max}_j\, s_j \). When margins are small, attention is indecisive and
+    the softmax becomes high-entropy; when a winner separates cleanly, entropy drops.
+  </p>
+
+  <div style="border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;">
+    <p><strong>Softmax temperature and entropy.</strong>
+      With \(p_\beta(i\!\mid\!x)=\exp(\beta s_i)/\sum_j \exp(\beta s_j)\) and entropy
+      \(H(\beta)=-\sum_i p_\beta\log p_\beta\), we have the Gibbs identity
+      \[
+        \frac{\mathrm d H}{\mathrm d \beta} \;=\; -\,\beta\;\mathrm{Var}_{p_\beta}[\,s\,].
+      \]
+      Thus, for a fixed score field \(s\), increasing \(\beta\) <em>reduces</em> entropy (sharper focus);
+      decreasing \(\beta\) <em>increases</em> entropy (broader spread).
+      The “scatter” CEAS cares about is the <em>softmax-weighted variance</em> of scores,
+      \( \mathrm{Var}_{p_\beta}[s] \), which is a moving-frame measure tied to current decision margins.
+    </p>
+    <p>
+      A convenient “competition” readout is the effective number of competitors
+      \(N_{\text{eff}}(\beta)=\exp\!\big(H(\beta)\big)\) (perplexity). Large \(N_{\text{eff}}\) means the head
+      is distributing probability mass across many tokens (relative scatter is high).
+    </p>
+  </div>
+
+  <h3>CEAS = Aim for the Final Address, Not the Initial Guess</h3>
+  <p>
+    Rather than freezing \(\beta\) at \(1/\sqrt{d_k}\) (an <em>initial address</em>), CEAS targets a
+    <em>final coordinate</em>—a head-wise entropy band or \(N_{\text{eff}}\) level that keeps learning inside a
+    productive critical region. A one-step Newton update that follows directly from
+    \( \frac{\mathrm d H}{\mathrm d \beta} = -\beta\,\mathrm{Var}_{p_\beta}[s] \) is:
+    \[
+      \boxed{\;\beta_{\text{new}}
+      \;=\;
+      \beta
+      \;+\;
+      \frac{H(\beta)-H_{\text{target}}}{\beta\,\mathrm{Var}_{p_\beta}[s]+\varepsilon}\;}
+    \]
+    (small \(\varepsilon>0\) for numerical safety). Equivalently, in “competition” form:
+    \[
+      \beta_{\text{new}}
+      \;=\;
+      \beta
+      \;+\;
+      \frac{\log N_{\text{eff}}(\beta)-\log N_{\text{target}}}{\beta\,\mathrm{Var}_{p_\beta}[s]+\varepsilon}.
+    \]
+    This drives \(\beta\) toward the equilibrium that matches the desired focus level, even as the latent chart
+    moves during training.
+  </p>
+
+  <h3>How this reconciles “scatter” with practice</h3>
+  <ul>
+    <li><strong>Relative, not absolute:</strong> We judge scatter by the <em>uncertainty over who should win now</em> (entropy of \(p_\beta\)),
+        not by raw latent variance (which can grow while margins also grow).</li>
+    <li><strong>Coordinate sanity:</strong> Softmax is invariant to additive shifts \(s_i\!\mapsto\!s_i+C\);
+        CEAS uses gap-based and entropy metrics that respect this, and lets \(\beta\) handle scale.</li>
+    <li><strong>Landau lens:</strong> Near the critical region, a second-order (Taylor) free-energy view is adequate and tractable;
+        CEAS keeps you there by thermostating \(\beta\), rather than “freezing physics” at \(1/\sqrt{d_k}\).</li>
+  </ul>
+
+  <!-- Optional tiny callout to connect back to your earlier blocks -->
+  <aside class="callout" style="margin-top:.75rem;">
+    <strong>Operational rule of thumb:</strong>
+    pick \(H_{\text{target}}\) (or \(N_{\text{target}}\)) per head from data dispersion & competition statistics;
+    update \(\beta\) with the Newton step above; monitor \(N_{\text{eff}}\) and \(\mathrm{Var}_{p_\beta}[s]\) during training.
+  </aside>
+</section>
 
 
 
