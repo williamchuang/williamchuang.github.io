@@ -79,6 +79,120 @@ description: "Graduate Student at University of Arizona"
 
 
 
+
+
+
+
+
+<section class="blurb" id="why-ceas-works">
+  <h2>Why CEAS Works — A Physicist’s Case for Investors</h2>
+
+  <p>
+    If you want the crisp “why/how” behind CEAS, two short videos give a solid hint at the
+    foundations we build on:
+    <a href="https://www.youtube.com/watch?v=iqVeZ70muyw" target="_blank" rel="noopener noreferrer">Ep. 1: Canonical Ensemble → Linear Regression</a>
+    and
+    <a href="https://www.youtube.com/watch?v=tJcQ7sasNKs" target="_blank" rel="noopener noreferrer">Ep. 2: Entropy → Loss (KL → NLL)</a>.
+    They document the physics/statistics bedrock: Gibbs distributions, maximum entropy, Gaussians, and KL divergence.
+  </p>
+
+  <p>
+    CEAS (Critical Entropy Attention System) adopts the same logic. In Landau’s spirit, we
+    don’t “ignore” higher-order effects; we <em>organize</em> them. Near the operating point
+    that matters (the <strong>critical region</strong> where attention must be precise yet
+    flexible), we Taylor-expand the effective energy/free-energy and keep the modes that
+    control behavior. The “irrelevant term” we refuse to overfit to is a <em>static</em> view
+    of the full weight distribution during training; instead, we control the
+    <strong>order parameter</strong> that actually gates behavior: the attention temperature
+    \( \beta \).
+  </p>
+
+  <p>
+    Concretely, with scores \( s_i(x) \) and attention
+    \( p_\beta(i\!\mid\!x)=\exp(\beta s_i)/\sum_j \exp(\beta s_j) \),
+    the entropy \( H(\beta) = -\sum_i p_\beta \log p_\beta \) obeys the Gibbs identity
+    \[
+      \frac{\mathrm d H}{\mathrm d \beta} \;=\; -\,\beta \,\mathrm{Var}_{p_\beta}[\,s\,].
+    \]
+    So increasing \( \beta \) sharpens the distribution (lower entropy), and decreasing it
+    broadens (higher entropy). CEAS <em>thermostats</em> \( \beta \) to keep the model in a
+    target “entropy corridor” around the critical region—where gradients are informative but
+    not chaotic—rather than freezing \( \beta \) to a textbook constant like \(1/\sqrt{d_k}\).
+  </p>
+
+  <p>
+    This is also why I emphasize my “moving ancient building” analogy: you don’t plan from the
+    <em>initial address</em>; you plan from the <em>final coordinates</em>. CEAS sets a target
+    equilibrium (entropy/temperature) and chooses steps that land there. In symbols:
+    \[
+      \beta^\star \;=\; \arg\min_\beta \;\mathcal L(\beta)\quad
+      \text{s.t.}\quad H(\beta)\in[H_{\min},H_{\max}],
+    \]
+    or equivalently with a penalty term
+    \( \mathcal L(\beta)+\lambda\,\big|H(\beta)-H_{\text{target}}\big| \).
+    The mainstream variance-stabilizer \(1/\sqrt{d_k}\) is an <em>initial guess</em>; CEAS
+    learns \( \beta^\star \) from data dispersion and head-wise competition.
+  </p>
+
+  <!-- Your requested aside block -->
+  <aside class="callout">
+    <strong>From Canonical Ensemble to Regression (and CEAS):</strong>
+    If <em>p(state)</em> ∝ exp(−β·energy) and energy is locally quadratic, then the joint over (x,y) is Gaussian.
+    Conditioning yields <em>E[y|x] = μ_y + Σ<sub>yx</sub>Σ<sub>xx</sub><sup>−1</sup>(x−μ_x)</em> — a linear map.
+    CEAS applies the same control idea: pick β to set distribution sharpness (entropy) of attention scores, but learn β
+    from data dispersion and competition, not a fixed 1/√d<sub>k</sub>.
+  </aside>
+
+  <!-- Your requested Ep. 2 block -->
+  <section class="blurb" id="entropy-to-loss">
+    <h2>From Entropy to Loss (Ep. 2 → λ-Stack/CEAS)</h2>
+    <p><em>Key identity:</em> minimizing KL to data equals maximizing likelihood.</p>
+    <div style="border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;">
+      <p>
+        Let \(P_{\text{emp}}\) be the empirical distribution and \(q_\theta\) the model.
+        The training loss (NLL) is
+        \[
+          \mathcal L(\theta)
+          = -\tfrac1N\sum_{i=1}^N \log q_\theta(x_i)
+          = H(P_{\text{emp}},q_\theta)
+          = H(P_{\text{emp}}) + \mathrm{KL}\!\left(P_{\text{emp}}\Vert q_\theta\right).
+        \]
+        Since \(H(P_{\text{emp}})\) is constant, training \(\Leftrightarrow\) minimizing \(\mathrm{KL}\).
+      </p>
+      <p><strong>Gaussian case → OLS:</strong> If \(y|x\sim\mathcal N(w^\top x+b,\sigma^2)\),
+        then \(\mathcal L\) reduces to MSE (up to constants), so OLS = MLE.</p>
+      <p><strong>Conditional Gaussian:</strong>
+        \(\mathbb E[y|x]=\mu_y+\Sigma_{y x}\Sigma_{x x}^{-1}(x-\mu_x)\) (linear regression from joint Gaussian).
+      </p>
+    </div>
+
+    <h3 style="margin-top:1rem;">CEAS Thermostat View</h3>
+    <p>With attention temperature \(\beta\): 
+      \(p_\beta(y|x)=\frac{e^{\beta s_y(x)}}{\sum_j e^{\beta s_j(x)}}\) and
+      \(\frac{\partial}{\partial \beta}\log p_\beta(y|x)= s_y(x)-\mathbb E_{p_\beta}[s(x)]\).
+      CEAS adjusts \(\beta\) to hold an entropy corridor—stabilizing learning and inference.
+    </p>
+  </section>
+
+  <h3>Investor takeaway</h3>
+  <ul>
+    <li><strong>Physics-grounded control knob:</strong> \( \beta \) is the inverse temperature of attention. CEAS sets it by data, not dimension.</li>
+    <li><strong>Critical-region operation:</strong> We work where small score shifts carry maximal information; Taylor models are justified and monitored.</li>
+    <li><strong>Objective alignment:</strong> Because NLL \(=\) cross-entropy \(=\) entropy \(+\) KL, CEAS’s temperature control directly manages the gap to data.</li>
+    <li><strong>Practical result:</strong> Fewer wasted updates, stabler training, and more reliable inference—without hard-coding \(1/\sqrt{d_k}\).</li>
+  </ul>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 <section id="grail-cpu-trustless" style="font-family:sans-serif; padding:2rem; line-height:1.6; max-width:1000px; margin:auto;">
 
   <h2 style="font-size:1.8rem;">GRAIL: Trustless, Fast, and Secure Neural Computation</h2>
