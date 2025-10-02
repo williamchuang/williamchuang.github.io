@@ -86,88 +86,47 @@ description: "Graduate Student at University of Arizona"
 <section class="blurb" id="ceas-intro">
   <h1>Critical Entropy Attention System (CEAS)</h1>
   <p class="lede">
-    CEAS is a way to run attention in AI models with a <em>thermostat</em>. Instead of fixing a constant scale,
-    I control a single knob—called the attention temperature, <span aria-label="beta">β</span>—so that attention
-    is neither too diffuse nor too frozen. The goal is simple: steadier training, fewer wasted updates, and more
-    reliable decisions.
+    CEAS runs attention with a <em>thermostat</em>. Instead of a fixed constant, a single knob—attention temperature <span aria-label="beta">β</span>—is adjusted so attention is neither too diffuse nor too frozen. The aim: steadier training, fewer wasted updates, and more reliable decisions.
   </p>
 
   <div class="callout" role="note" aria-label="Plain-English summary" style="border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;margin:1rem 0;">
     <strong>Plain English:</strong>
-    Entropy here means “how spread out the model’s attention is.” High entropy = attention is scattered across many options.
-    Low entropy = attention is focused on a few. CEAS keeps that spread inside a healthy band (an <em>entropy corridor</em>)
-    by turning the temperature knob β up or down.
+    “Entropy” here means how spread out attention weights are. High entropy = spread over many options; low entropy = focused on a few.
+    CEAS keeps that spread inside a healthy band (an <em>entropy corridor</em>) by turning the β knob up or down.
   </div>
+
+  <h2>What the “C” means</h2>
+  <p>
+    “Critical” refers to <em>critical phenomena</em>. The controller steers the model toward its <strong>critical temperature</strong>—the regime where small score changes carry the most information.
+    On finite machines this is a <em>pseudo-critical</em> point; as model size grows, the effect becomes clearer and closer to textbook critical behavior.
+  </p>
 
   <h2>What problem this solves</h2>
   <ul>
-    <li><strong>Fixed scaling is brittle.</strong> The textbook constant \(1/\sqrt{d_k}\) assumes one setting fits every head, layer, and dataset. It rarely does.</li>
-    <li><strong>Runaway scatter or collapse.</strong> If attention is too scattered, gradients are noisy. If it’s too sharp, learning stalls. Both waste compute.</li>
-    <li><strong>CEAS balances the two.</strong> β is adjusted so attention stays in a “critical” region where small score changes carry useful information.</li>
+    <li><strong>Fixed scaling is brittle.</strong> The textbook \(1/\sqrt{d_k}\) assumes one setting fits every head, layer, and dataset.</li>
+    <li><strong>Instability at the extremes.</strong> Too broad → noisy gradients; too sharp → stalled learning. Both waste compute.</li>
+    <li><strong>Targeted balance.</strong> CEAS keeps attention in the region where small score changes carry useful information.</li>
   </ul>
 
   <h2>How CEAS works (conceptually)</h2>
   <p>
-    Attention assigns weights \(p(i)\) to candidates using scores \(s_i\). With a temperature β:
-    \(p_\beta(i) \propto \exp(\beta\,s_i)\).
-    Entropy \(H\) measures how spread those weights are. A core identity from statistical mechanics applies directly:
-    \[
-      \frac{dH}{d\beta} = -\,\beta\;\mathrm{Var}_{p_\beta}[s].
-    \]
-    Turning β up reduces entropy (more focus); turning it down increases entropy (more exploration). CEAS uses this
-    identity as a thermostat: keep \(H\) near a target band that is empirically stable for training.
-  </p>
-
-  <aside class="callout" style="margin:1rem 0;border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;">
-    <strong>Physics lineage (no background required):</strong>
-    In statistical physics, states with lower energy are more likely:
-    \(p(\text{state}) \propto \exp(-\beta_{\text{phys}} \cdot \text{energy})\).
-    CEAS uses the same mathematics by identifying “energy” with minus the model score: \(\text{energy}=-s\).
-    Same entropy, same β, same calculus—applied locally to attention so β acts like a temperature knob.
-  </aside>
-
-  <h2>“Scatter” explained</h2>
-  <p>
-    Scatter is read <em>relatively</em>, not absolutely. What matters are the current score gaps
-    \(\Delta_i = s_i - \max_j s_j\): if several scores tie, attention should stay broader (higher entropy); if one
-    score separates cleanly, attention should sharpen (lower entropy). CEAS measures the softmax-weighted variance
-    \(\mathrm{Var}_{p_\beta}[s]\) and the effective number of competitors
-    \(N_{\mathrm{eff}} = \exp(H)\) to judge that balance in real time.
+    Attention assigns weights from scores. β acts like temperature: higher β concentrates weights; lower β spreads them.
+    CEAS monitors spread and nudges β so attention stays inside a target band that is empirically stable for training and aligned with the model’s pseudo-critical regime.
   </p>
 
   <h2>What runs in practice</h2>
   <ul>
-    <li><strong>Target a corridor.</strong> Pick a head-wise entropy or \(N_{\mathrm{eff}}\) band that keeps learning stable.</li>
-    <li><strong>Adjust β with a one-step update.</strong>
-      \[
-        \beta_{\text{new}} = \beta \;+\; \frac{H(\beta)-H_{\text{target}}}{\beta\,\mathrm{Var}_{p_\beta}[s] + \varepsilon}
-      \]
-      (small \(\varepsilon>0\) for numerical safety).
-    </li>
-    <li><strong>Closed-form “final address.”</strong> A static estimate near the high-entropy regime is
-      \[
-        \beta^\star \;=\; \frac{1}{\sigma_{qk}}\;\sqrt{2\,\ln N_{\mathrm{eff}}}\,,
-      \]
-      where \(\sigma_{qk}\) is the empirical standard deviation of query–key dot products and \(N_{\mathrm{eff}}\) is
-      the effective competitor count. This gives a principled starting point before the thermostat takes over.
-    </li>
+    <li><strong>Pick a corridor.</strong> Choose a head-wise entropy or effective-competitor band that keeps learning stable.</li>
+    <li><strong>Automate β.</strong> A one-step controller adjusts β online; a closed-form initializer provides a principled starting point.</li>
+    <li><strong>Scale with size.</strong> Larger models make the pseudo-critical behavior more pronounced, improving the controller’s leverage.</li>
   </ul>
 
   <h2>Investor takeaway</h2>
   <ul>
-    <li><strong>Single, physics-grounded control knob:</strong> β is set by data dispersion and competition, not just by embedding dimension.</li>
+    <li><strong>Single, physics-grounded control knob:</strong> β is set by data dispersion and competition, not just embedding dimension.</li>
     <li><strong>Compute discipline:</strong> Keeping entropy in a critical band reduces noisy updates and improves convergence stability.</li>
-    <li><strong>Drop-in design:</strong> Works per head, per layer, or globally; replaces a fixed constant with an adaptive rule.</li>
+    <li><strong>Production ready:</strong> Minimal code changes; complements standard optimizers and schedulers.</li>
   </ul>
-
-  <details style="margin-top:1rem;">
-    <summary style="cursor:pointer;"><strong>Optional: background primers (CEAS predates these videos)</strong></summary>
-    <p style="margin-top:.5rem;">
-      CEAS research began long before these links and was developed independently. The videos below are offered only as accessible primers on the shared physics/statistics toolkit:
-      <a href="https://www.youtube.com/watch?v=iqVeZ70muyw" target="_blank" rel="noopener noreferrer">Canonical Ensemble → Linear Regression</a> and
-      <a href="https://www.youtube.com/watch?v=tJcQ7sasNKs" target="_blank" rel="noopener noreferrer">Entropy → Loss (KL → NLL)</a>.
-    </p>
-  </details>
 
   <p style="margin-top:1rem;color:#555;font-size:.95rem;">
     <em>Note:</em> CEAS is under active development. Patent pending.
@@ -178,177 +137,92 @@ description: "Graduate Student at University of Arizona"
 <section class="blurb" id="why-ceas-works">
   <h2>Why CEAS Works — A Physicist’s Case for Investors</h2>
 
-  <!-- 1) External anchors (context) -->
   <p>
-    For a crisp “why/how” behind CEAS, two short videos give a solid hint at the
-    foundations I build on:
-    <a href="https://www.youtube.com/watch?v=iqVeZ70muyw" target="_blank" rel="noopener noreferrer">Ep. 1: Canonical Ensemble → Linear Regression</a>
-    and
-    <a href="https://www.youtube.com/watch?v=tJcQ7sasNKs" target="_blank" rel="noopener noreferrer">Ep. 2: Entropy → Loss (KL → NLL)</a>.
-    They cover Gibbs distributions, maximum entropy, Gaussians, and KL divergence.
+    CEAS predates the following primers; they are included only as accessible context on shared math:
+    <a href="https://www.youtube.com/watch?v=iqVeZ70muyw" target="_blank" rel="noopener noreferrer">Canonical Ensemble → Linear Regression</a> and
+    <a href="https://www.youtube.com/watch?v=tJcQ7sasNKs" target="_blank" rel="noopener noreferrer">Entropy → Loss (KL → NLL)</a>.
   </p>
 
-  <!-- 2) Physics origin (MECE: source of math, not operation) -->
   <aside class="callout">
     <strong>Same physics root, different placement:</strong>
-    In the canonical ensemble, \( p(\text{state}) \propto \exp(-\beta_{\text{phys}}\,\text{energy}) \).
-    In attention, \( p(i) \propto \exp(\beta\,s_i) \) with the identification \( \text{energy} = -\,s \).
-    The entropy object is the same, \( H = -\sum_i p \log p \), and the core identity carries over:
-    <nobr>\( \dfrac{dH}{d\beta} = -\,\beta\,\mathrm{Var}_{p}[s] \).</nobr>
-    CEAS applies this locally to attention as an operational control knob, not only globally to data likelihood.
+    In the canonical ensemble, \(p(\text{state}) \propto \exp(-\beta_{\text{phys}}\cdot \text{energy})\).
+    In attention, \(p(i) \propto \exp(\beta\,s_i)\) by identifying \(\text{energy}=-s\).
+    The entropy is the same object \(H=-\sum_i p\log p\), yielding
+    <nobr>\(\displaystyle \frac{dH}{d\beta} = -\,\beta\,\mathrm{Var}_{p}[s]\).</nobr>
+    CEAS applies this locally so β functions as an operational temperature knob.
   </aside>
 
-  <!-- 3) Control principle (MECE: how CEAS uses the physics) -->
+  <h3>Critical-region operation</h3>
   <p>
-    CEAS (Critical Entropy Attention System) adopts that physics directly. In Landau’s spirit, I don’t
-    “ignore” higher-order effects; I <em>organize</em> them. Near the operating point
-    that matters (the <strong>critical region</strong> where attention must be precise yet
-    flexible), I Taylor-expand an effective free-energy and keep the modes that
-    control behavior. The “irrelevant term” I refuse to overfit is a <em>static</em> global scale;
-    instead, I control the <strong>order parameter</strong> that actually gates behavior: the attention temperature \( \beta \).
+    The controller centers operation near the model’s pseudo-critical regime where information per update is maximized.
+    A low-order (Landau-style) expansion is accurate enough here to steer β; as models scale up, the critical signatures and gains become more apparent.
   </p>
 
-  <!-- 4) Mechanism (MECE: concrete equations) -->
+  <h3>Objective alignment</h3>
   <p>
-    With scores \( s_i(x) \) and attention
-    \( p_\beta(i\!\mid\!x)=\exp(\beta s_i)/\sum_j \exp(\beta s_j) \),
-    the entropy \( H(\beta) = -\sum_i p_\beta \log p_\beta \) obeys
-    \[
-      \frac{d H}{d \beta} \;=\; -\,\beta \,\mathrm{Var}_{p_\beta}[s].
-    \]
-    Increasing \( \beta \) sharpens (lower entropy), decreasing it broadens (higher entropy).
-    CEAS <em>thermostats</em> \( \beta \) to keep an “entropy corridor” in the critical region—rather than
-    freezing \( \beta \) to \(1/\sqrt{d_k}\).
+    Training with negative log-likelihood equals minimizing KL divergence to data; in Gaussian settings this reduces to ordinary least squares.
+    Managing β therefore directly manages the gap to data: sharper when evidence is clear, broader when it is not.
   </p>
-
-  <!-- 5) Objective framing (MECE: what is optimized) -->
-  <p>
-    This is why the “moving ancient building” analogy fits: planning does not start from the
-    <em>initial address</em>; planning starts from the <em>final address</em>. CEAS sets a target
-    equilibrium (entropy/temperature) and chooses steps that land there. In symbols:
-    \[
-      \beta^\star \;=\; \arg\min_\beta \;\mathcal L(\beta)\quad
-      \text{s.t.}\quad H(\beta)\in[H_{\min},H_{\max}].
-    \]
-    The variance-stabilizer \(1/\sqrt{d_k}\) is an <em>initial guess</em>; CEAS learns \( \beta^\star \)
-    from data dispersion and head-wise competition.
-  </p>
-
-  <!-- 6) Static target (MECE: closed-form final address) -->
-  <aside class="callout">
-    <strong>Static “final address” for β (closed form):</strong>
-    Near the high-entropy regime,
-    \[
-      \beta^\star \;=\; \frac{1}{\sigma_{qk}}\,\sqrt{2\ln N_{\mathrm{eff}}}.
-    \]
-    If preferred with \(d_k\) explicit and \(\sigma_{qk}\!\approx\!c_\sigma/\sqrt{d_k}\),
-    \[
-      \beta^\star \;\approx\; \frac{\sqrt{d_k}}{c_\sigma}\,\sqrt{2\ln N_{\mathrm{eff}}}.
-    \]
-    This admits multiple independent derivations (KL gap, entropy target, EVT gap, free-energy balance, etc.).
-    During training, a Newton-style “thermostat” holds an entropy corridor around the target.
-  </aside>
-
-  <!-- 7) Bridge to statistics (MECE: how the videos connect) -->
-  <aside class="callout">
-    <strong>From Canonical Ensemble to Regression (and CEAS):</strong>
-    If \(p(\text{state}) \propto \exp(-\beta\,\text{energy})\) and energy is locally quadratic, then the joint over \((x,y)\) is Gaussian.
-    Conditioning yields \( \mathbb E[y|x] = \mu_y + \Sigma_{y x}\Sigma_{x x}^{-1}(x-\mu_x) \) — a linear map.
-    CEAS uses the same control idea: pick \( \beta \) to set the sharpness (entropy) of attention, but learn \( \beta \)
-    from dispersion and competition, not a fixed \(1/\sqrt{d_k}\).
-  </aside>
-
-  <!-- 8) Likelihood connection (MECE: objective equivalence) -->
-  <section class="blurb" id="entropy-to-loss">
-    <h3>From Entropy to Loss (Ep. 2 → λ-Stack/CEAS)</h3>
-    <p><em>Key identity:</em> minimizing KL to data equals maximizing likelihood.</p>
-    <div style="border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;">
-      <p>
-        Let \(P_{\text{emp}}\) be the empirical distribution and \(q_\theta\) the model.
-        The training loss (NLL) is
-        \[
-          \mathcal L(\theta)
-          = -\tfrac1N\sum_{i=1}^N \log q_\theta(x_i)
-          = H(P_{\text{emp}},q_\theta)
-          = H(P_{\text{emp}}) + \mathrm{KL}\!\left(P_{\text{emp}}\Vert q_\theta\right).
-        \]
-        Since \(H(P_{\text{emp}})\) is constant, training \(\Leftrightarrow\) minimizing \(\mathrm{KL}\).
-      </p>
-      <p><strong>Gaussian case → OLS:</strong> If \(y|x\sim\mathcal N(w^\top x+b,\sigma^2)\),
-        then \(\mathcal L\) reduces to MSE (up to constants), so OLS = MLE.</p>
-    </div>
-
-    <h4 style="margin-top:1rem;">CEAS Thermostat View</h4>
-    <p>
-      With attention temperature \(\beta\):
-      \(p_\beta(y|x)=\tfrac{e^{\beta s_y(x)}}{\sum_j e^{\beta s_j(x)}}\) and
-      \(\tfrac{\partial}{\partial \beta}\log p_\beta(y|x)= s_y(x)-\mathbb E_{p_\beta}[s(x)]\).
-      I adjust \(\beta\) to hold an entropy corridor—stabilizing learning and inference.
-    </p>
-  </section>
-
-  <!-- 9) Investor recap (MECE: outcomes, not methods) -->
-  <h3>Investor takeaway</h3>
-  <ul>
-    <li><strong>Physics-grounded control knob:</strong> \( \beta \) is the inverse temperature of attention. I set it by data, not by dimension.</li>
-    <li><strong>Critical-region operation:</strong> I operate where small score shifts carry maximal information; Taylor models are justified and monitored.</li>
-    <li><strong>Objective alignment:</strong> Because NLL \(=\) cross-entropy \(=\) entropy \(+\) KL, CEAS temperature control directly manages the gap to data.</li>
-    <li><strong>Practical result:</strong> Fewer wasted updates, stabler training, and more reliable inference—without hard-coding \(1/\sqrt{d_k}\).</li>
-  </ul>
 </section>
 
-<section class="blurb" id="entropy-as-scatter">
-  <h2>Entropy as “Scatter” — in a Moving Frame</h2>
 
-  <!-- 1) Definition (MECE: what “scatter” means here) -->
-  <p>
-    In the videos, high entropy corresponds to states <em>scattered</em> across accessible configurations.
-    In CEAS, “scatter” is read <strong>relatively</strong>, because gradient descent continually moves the latent space.
-    What matters is the <em>current decision margin</em>—the score gaps \( \Delta_i = s_i - \max_j s_j \)—not raw coordinates.
-  </p>
+<section class="blurb" id="operational-control">
+  <h2>Operational Control — Initialization, Update, and Thresholds</h2>
 
-  <!-- 2) Operational metrics (MECE: how scatter is measured) -->
+  <h3>Closed-form initializer (“final address”)</h3>
   <div style="border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;">
-    <p><strong>Softmax temperature and entropy.</strong>
-      With \(p_\beta(i\!\mid\!x)=\exp(\beta s_i)/\sum_j \exp(\beta s_j)\) and
-      \(H(\beta)=-\sum_i p_\beta\log p_\beta\),
-      \[
-        \frac{d H}{d \beta} \;=\; -\,\beta\,\mathrm{Var}_{p_\beta}[s].
-      \]
-      The operational “scatter” is the <em>softmax-weighted variance</em> \( \mathrm{Var}_{p_\beta}[s] \).
-    </p>
     <p>
-      Effective competitors are tracked by \(N_{\text{eff}}(\beta)=\exp(H(\beta))\) (perplexity).
-      Maximum possible entropy grows like \(\log N\) with the number of competing states; sample size does not “cause” entropy to grow—it only improves its estimation.
+      Near the high-entropy regime, a principled starting value is
+    </p>
+    <p style="margin:.5rem 0 0 .25rem;">
+      \[
+        \beta^\star \;=\; \frac{1}{\sigma_{qk}}\,\sqrt{2\,\ln N_{\mathrm{eff}}}\,,
+      \]
+    </p>
+    <p style="margin:.5rem 0 0 .25rem;">
+      where \(\sigma_{qk}\) is the empirical standard deviation of query–key dot products and \(N_{\mathrm{eff}}=\exp(H)\) is the effective competitor count.
     </p>
   </div>
 
-  <!-- 3) Rule & update (MECE: decision rule + control law) -->
-  <h3>Final address and the one-step controller</h3>
+  <h3>One-step controller (online β tuning)</h3>
   <p>
-    Rather than freezing \(\beta\) at \(1/\sqrt{d_k}\) (an initial guess), CEAS targets a
-    <em>final address</em>—a head-wise entropy band or \(N_{\text{eff}}\) level. A one-step Newton update moves β:
+    A Newton-style update drives β toward the target band while the representation shifts:
+  </p>
+  <p style="margin:.5rem 0 0 .25rem;">
     \[
       \boxed{\beta_{\text{new}}=\beta+\frac{H(\beta)-H_{\text{target}}}{\beta\,\mathrm{Var}_{p_\beta}[s]+\varepsilon}}
     \]
-    (equivalently in terms of \(\log N_{\text{eff}}\)), driving \(\beta\) toward equilibrium even as the latent chart moves.
+  </p>
+  <p style="color:#555;margin-top:.5rem;">
+    Use a small \(\varepsilon>0\) for numerical safety. The same rule can be written with \(\log N_{\mathrm{eff}}\).
   </p>
 
-  <!-- 4) Gating / freeze (MECE: boundary condition) -->
-  <aside class="callout" style="margin-top:.75rem;">
-    <strong>Freeze / gating rule (unified form):</strong>
-    I treat the regime as decisively non-uniform once
+  <h3>Where \(\beta^\star\) comes from (6 + 1)</h3>
+  <ul>
+    <li><strong>KL/entropy constraint:</strong> match a target divergence or entropy drop from uniform.</li>
+    <li><strong>Extreme-value gap:</strong> scale to the expected top-score gap \(\sim \sigma\sqrt{2\ln N_{\mathrm{eff}}}\).</li>
+    <li><strong>Free-energy balance:</strong> pick β at the saddle/minimum of a variational free-energy.</li>
+    <li><strong>Target-entropy rule:</strong> solve \(H(\beta)=H^\*\) for a chosen corridor.</li>
+    <li><strong>Variance-anneal:</strong> constrain output-weight variance of the softmax.</li>
+    <li><strong>Information-susceptibility / RG view:</strong> align with macro response as heads/scale increase.</li>
+    <li><strong>+1 control:</strong> the Newton update above maintains the corridor in real time.</li>
+  </ul>
+
+  <h3>Decision boundary for gating</h3>
+  <aside class="callout" style="margin-top:.25rem;">
+    <strong>Freeze / gating condition:</strong>
+    treat a head as decisively non-uniform once
     \[
-      \beta\,\sigma_{qk}\,\sqrt{2\ln N_{\mathrm{eff}}}\;\gtrsim\;1.
+      \beta\,\sigma_{qk}\,\sqrt{2\,\ln N_{\mathrm{eff}}}\;\gtrsim\;1.
     \]
+    Below this boundary, keep exploration; above it, permit pruning or confidence-weighted updates.
   </aside>
 
-  <!-- 5) Why relative (MECE: rationale and invariances) -->
-  <h3>How “scatter” connects to practice</h3>
+  <h3>Why this matters</h3>
   <ul>
-    <li><strong>Relative, not absolute:</strong> Scatter is judged by the entropy of \(p_\beta\) and the current gaps, not by raw latent variance that drifts during training.</li>
-    <li><strong>Coordinate sanity:</strong> Softmax is shift-invariant; gap/entropy metrics respect this, and \(\beta\) controls scale.</li>
-    <li><strong>Landau lens:</strong> Near the critical region, a second-order free-energy view is adequate; the thermostat keeps operation there.</li>
+    <li><strong>Stable learning:</strong> β adapts to data dispersion and head-wise competition around the pseudo-critical point.</li>
+    <li><strong>Efficient compute:</strong> Less time in low-information regimes; fewer wasted updates.</li>
+    <li><strong>Predictable scaling:</strong> Larger models show stronger critical signatures, improving controllability and returns.</li>
   </ul>
 </section>
 
