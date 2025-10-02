@@ -95,11 +95,14 @@ description: "Graduate Student at University of Arizona"
     CEAS keeps that spread inside a healthy band (an <em>entropy corridor</em>) by turning the β knob up or down.
   </div>
 
-  <h2>What the “C” means</h2>
-  <p>
-    “Critical” refers to <em>critical phenomena</em>. The controller steers the model toward its <strong>critical temperature</strong>—the regime where small score changes carry the most information.
-    On finite machines this is a <em>pseudo-critical</em> point; as model size grows, the effect becomes clearer and closer to textbook critical behavior.
-  </p>
+<h2>What the “C” means</h2>
+<p>
+  <em>Notation:</em> let <span aria-label="L sub corr">\(L_{\text{corr}}\)</span> denote the correlation length (instead of the conventional \( \xi \)).
+  “Critical” refers to <em>critical phenomena</em>: the regime where the system’s effective correlation length grows without bound—informally, a small local change influences the whole system.
+  The controller steers the model toward its <strong>critical temperature</strong>, i.e., the point where \( L_{\text{corr}} \to \infty \).
+  On finite machines this manifests as a <em>pseudo-critical</em> regime with a large but finite \( L_{\text{corr}} \) (near “blow-up,” yet bounded by model/context size).
+  As model scale grows, finite-size effects shrink and the pseudo-critical behavior approaches the textbook limit.
+</p>
 
   <h2>What problem this solves</h2>
   <ul>
