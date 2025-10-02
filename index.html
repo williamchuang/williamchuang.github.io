@@ -658,6 +658,70 @@ description: "Graduate Student at University of Arizona"
   <aside class="callout bottomline" role="note" aria-label="Bottom line">
     <strong>Bottom line:</strong> β alone already delivers substantial gains. Bringing learning rate, batch size, smoothing/regularization, and principled gating under the same entropy/critical controller pushes the compound step‑reduction and pruning high enough to cross the ≥50% line—while staying a controlled distance from the pseudo‑critical point.
   </aside>
+  
+  <h3>6) MaxEnt add‑on: architecture & initialization</h3>
+  <p>Extend the entropy/critical‑control lens to <em>structural</em> hyper‑parameters as well: matrix sizes (<span class="kbd">d_model</span>, <span class="kbd">d_k</span>, <span class="kbd">d_ff</span>), number of heads <span class="kbd">H</span>, attention pattern/positional scheme, activation parameters, and initialization scales. The Maximum Entropy (MaxEnt) principle selects the least‑assumptive configuration consistent with constraints (compute, memory, stability, and the corridor targets), reducing over‑/under‑provisioned work before training even starts.</p>
+
+  <ol class="knobs">
+    <li>
+      <h4>(A) Initialization scales (per layer)</h4>
+      <p class="kbits">Choose weight std. <span class="kbd">σ<sub>w</sub></span> so the temperature <span class="kbd">T = β·σ<sub>qk</sub>·√(2·ln N<sub>eff</sub>)</span> starts near a target band <span class="kbd">T*</span> at step 0, while keeping variance propagation and kurtosis within bounds. This places layers closer to the entropy corridor from the first updates.</p>
+    </li>
+    <li>
+      <h4>(B) Matrix sizes & heads</h4>
+      <p class="kbits">Evaluate a small, tile‑friendly catalog of tuples <span class="kbd">(H, d_k, d_ff, d_model)</span> with measured cost (FLOPs/memory) and a corridor‑utility score (how well per‑head N<sub>eff</sub> stays in band for moderate β). Select via a softmax/Lagrange trade‑off between cost and utility, then fix the best tuple before training.</p>
+    </li>
+    <li>
+      <h4>(C) Activation/normalization parameters</h4>
+      <p class="kbits">Maintain an output‑entropy band <span class="kbd">H(f(x))</span> using a tiny PI controller on activation parameters (and a sensible layer‑norm ε), plus a spectral‑radius cap to avoid heavy‑tail gradients.</p>
+    </li>
+    <li>
+      <h4>(D) Attention pattern / positional scheme</h4>
+      <p class="kbits">Pick among rotary / learned / ALiBi / local patterns by the same cost–utility criterion, favoring options that keep early‑layer N<sub>eff</sub> high at fixed compute.</p>
+    </li>
+  </ol>
+
+  <h3>7) Updated projections with MaxEnt (structural)</h3>
+  <div class="twrap" role="region" aria-label="Updated savings with MaxEnt">
+    <table>
+      <thead>
+        <tr>
+          <th>Scale</th>
+          <th class="text-right">From MaxEnt structure/init</th>
+          <th class="text-right">New total projection (vs. your table)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-th="Scale">9k</td>
+          <td data-th="From MaxEnt" class="text-right"><strong>+8–12 pp</strong></td>
+          <td data-th="Total" class="text-right"><strong>52–70%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">14.4M</td>
+          <td data-th="From MaxEnt" class="text-right"><strong>+5–9 pp</strong></td>
+          <td data-th="Total" class="text-right"><strong>43–61%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">GPT‑3</td>
+          <td data-th="From MaxEnt" class="text-right"><strong>+4–8 pp</strong></td>
+          <td data-th="Total" class="text-right"><strong>39–58%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">GPT‑4</td>
+          <td data-th="From MaxEnt" class="text-right"><strong>+3–7 pp</strong></td>
+          <td data-th="Total" class="text-right"><strong>35–54%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">GPT‑5</td>
+          <td data-th="From MaxEnt" class="text-right"><strong>+3–6 pp</strong></td>
+          <td data-th="Total" class="text-right"><strong>33–51%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">pp = percentage points. Assumes: (i) small discrete architecture catalog aligned to hardware tiles, (ii) one‑shot MaxEnt pre‑selection before training (or very infrequent), and (iii) CEAS multi‑knob control active during training. Realized gains depend on dataloader throughput and compile/graph amortization.</p>
+
 </section>
 
 
