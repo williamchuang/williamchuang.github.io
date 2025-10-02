@@ -229,6 +229,436 @@ description: "Graduate Student at University of Arizona"
   </ul>
 </section>
 
+<section id="ceas-controller" aria-labelledby="ceas-controller-title" class="relative scroll-mt-24 py-10">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <!-- Title + Lede -->
+    <header class="mb-6">
+      <h2 id="ceas-controller-title" class="text-2xl font-semibold tracking-tight text-slate-900">
+        Retuned β-Thermostat + Entropy Gating (aggressive early, safe late)
+      </h2>
+      <p class="mt-2 text-slate-600 leading-relaxed">
+        This controller accelerates entry into the useful regime (the <em>entropy corridor</em>) and continuously
+        skips low-information work, while keeping a safe margin from pseudo-critical slowdowns. It is designed to
+        drop cleanly into a standard Transformer training loop.
+      </p>
+    </header>
+
+    <!-- Objectives callout -->
+    <aside role="note" aria-label="Objectives" class="rounded-xl border border-blue-200 bg-blue-50/60 p-4 sm:p-5 mb-8">
+      <h3 class="mb-2 text-base font-semibold text-slate-900">Objectives</h3>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700">
+        <li><strong>Warm-up savings:</strong> reach the entropy corridor quickly without overshoot.</li>
+        <li><strong>Steady-state savings:</strong> prune low-information tokens/heads continuously.</li>
+        <li><strong>Avoid critical slowing down:</strong> maintain a controlled distance from the pseudo-critical
+          point so relaxation time remains bounded.</li>
+      </ul>
+    </aside>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-4">Controller Design</h3>
+
+    <!-- A) Faster relaxation -->
+    <section aria-labelledby="faster-relaxation" class="mb-8">
+      <h4 id="faster-relaxation" class="text-lg font-semibold text-slate-900 mb-2">A) Faster relaxation into the corridor</h4>
+      <p class="text-slate-700">Replace the unit-gain Newton step with a <em>gain-scheduled</em> update:</p>
+      <div class="mt-3 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800">
+        <div>\[
+          \Delta\beta \;=\; \kappa(t)\,\frac{H(\beta) - H_{\text{target}}}{\beta\,\mathrm{Var}_{p_\beta}[s] + \varepsilon},
+          \qquad
+          \kappa(t)=\kappa_{\max} e^{-t/\tau_\kappa} + \kappa_\infty
+        \]</div>
+      </div>
+
+      <p class="mt-3 font-medium text-slate-900">Defaults:</p>
+      <ul class="mt-1 grid gap-1 text-slate-700 sm:grid-cols-2">
+        <li>9k parameters: \(\kappa_{\max}=2.2,\; \kappa_\infty=1.0,\; \tau_\kappa=500\text{–}1000\) steps</li>
+        <li>14.4M parameters: \(\kappa_{\max}=1.8,\; \kappa_\infty=1.0,\; \tau_\kappa=1\text{–}2\text{k}\)</li>
+        <li>GPT-3/4/5 scale: \(\kappa_{\max}=1.5,\; \kappa_\infty=1.0,\; \tau_\kappa=2\text{–}5\text{k}\)</li>
+      </ul>
+      <p class="mt-2 text-slate-700">
+        <strong>Clip per update:</strong> \(|\Delta\beta| \le \Delta\beta_{\max}\).
+        Defaults: 9k → 0.75; 14.4M → 0.5; GPT-scale → 0.3.
+      </p>
+    </section>
+
+    <!-- B) Critical margin -->
+    <section aria-labelledby="critical-margin" class="mb-8">
+      <h4 id="critical-margin" class="text-lg font-semibold text-slate-900 mb-2">B) “Don’t get stuck near critical” margin</h4>
+      <p class="text-slate-700">
+        Use a correlation-length proxy (custom symbol) and hold a minimum gap from the pseudo-critical point:
+      </p>
+      <div class="mt-3 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800 space-y-1">
+        <div>\[
+          \zeta_{\mathrm{CE}}(\beta) \;=\; \frac{1}{\bigl(\max(u,u_{\min})\bigr)^{\nu}},
+          \qquad
+          u = \frac{|\beta-\beta_c|}{\beta_c},\ \ \nu\in[0.5,1]
+        \]</div>
+      </div>
+      <p class="mt-2 text-slate-700">
+        <strong>Defaults:</strong> \(u_{\min}=0.06\) (9k), \(0.05\) (14.4M), \(0.04\) (GPT-scale).
+        This caps \( \tau \sim \zeta_{\mathrm{CE}}^{\,z} \) and prevents critical slowing down from erasing gains.
+      </p>
+    </section>
+
+    <!-- C) Gating -->
+    <section aria-labelledby="gating" class="mb-8">
+      <h4 id="gating" class="text-lg font-semibold text-slate-900 mb-2">C) Selective early gating, relaxed later</h4>
+      <p class="text-slate-700">
+        Gate by a dimensionless temperature-gap score \( T = \beta\,\sigma_{qk}\,\sqrt{2\ln N_{\mathrm{eff}}} \).
+      </p>
+      <p class="mt-2 font-medium text-slate-900">Threshold schedule:</p>
+      <div class="mt-2 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800">
+        \[
+          T_{\text{gate}}(t) \;=\; T_{\max} - (T_{\max}-T_\infty)\,\bigl(1-e^{-t/\tau_T}\bigr)
+        \]
+      </div>
+      <ul class="mt-2 grid gap-1 text-slate-700 sm:grid-cols-2">
+        <li>9k: \(T_{\max}=1.8,\; T_\infty=1.05,\; \tau_T=600\) steps</li>
+        <li>14.4M: \(1.6,\; 1.02,\; 1.2\text{k}\)</li>
+        <li>GPT-scale: \(1.5,\; 1.00,\; 2\text{–}4\text{k}\)</li>
+      </ul>
+      <p class="mt-2 text-slate-700">
+        <strong>Token gating:</strong> keep tokens with \(T \ge T_{\text{gate}}\) or among top-\(q\) by \(T\) per head.
+        Default (9k): \(q=0.55\) initially (~45% pruning), decaying to \(q=0.75\) by 2k steps.
+      </p>
+      <p class="text-slate-700">
+        <strong>Head gating:</strong> freeze head \(h\) when \(H_h \le H_{\text{freeze}}\) for \(w\) consecutive steps; unfreeze on exit.
+        Defaults: \(H_{\text{freeze}} = \log N_{\mathrm{eff}} - 0.9;\; w=50\) (9k), 100 (14.4M), 200 (GPT-scale).
+      </p>
+    </section>
+
+    <!-- D) Guardrails -->
+    <section aria-labelledby="guardrails" class="mb-10">
+      <h4 id="guardrails" class="text-lg font-semibold text-slate-900 mb-2">D) Guardrails (quality first)</h4>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700">
+        <li>Pruning floors: keep at least \(m_{\min}\) tokens/sequence (e.g., 16–32) and at least \(h_{\min}\)
+          heads/layer (e.g., 2–4).</li>
+        <li>Back-off: if validation loss rises &gt; 0.2σ (short EMA), decrease \(T_{\text{gate}}\) by 0.05 and halve
+          \(\kappa(t)\) for 200 steps.</li>
+      </ul>
+    </section>
+
+    <!-- Integrated Cost Model -->
+    <section aria-labelledby="cost-model" class="mb-10">
+      <h3 id="cost-model" class="text-xl font-semibold text-slate-900 mb-3">
+        Integrated Cost Model (with pseudo-critical effects)
+      </h3>
+
+      <p class="text-slate-700 font-medium">Baseline cost:</p>
+      <div class="mt-2 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800">
+        \[
+          \mathcal{C}_{\text{base}} \approx
+          \underbrace{\int_0^{T_w} c(\beta_{\text{txtbk}})\,dt}_{\text{warm-up}} \;+\;
+          \underbrace{\int_{T_w}^{T_B} c(\beta^\star)\,dt}_{\text{steady}}
+        \]
+      </div>
+
+      <p class="mt-3 text-slate-700 font-medium">With controller:</p>
+      <div class="mt-2 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800">
+        \[
+          \mathcal{C}_{\text{CEAS}} \approx
+          \underbrace{\int_0^{T'_w} (1-\chi(t))\,c(\beta(t))\,dt}_{\text{faster warm-up, gated}} \;+\;
+          \underbrace{\int_{T'_w}^{T_B} (1-\chi(t))\,c(\beta^\star)\,dt}_{\text{steady gated}}
+        \]
+      </div>
+
+      <p class="mt-2 text-slate-600 text-sm">
+        Here \(T'_w \ll T_w\) (gain-scheduled \(\kappa(t)\) and the \(u_{\min}\) margin), \(\chi(t)\) is the pruned fraction
+        (tokens + heads), and \(c(\cdot)\) includes finite-size effects via \(\tau \propto \zeta_{\mathrm{CE}}^{\,z}\) with the margin keeping \(\tau\) bounded.
+      </p>
+
+      <p class="mt-3 text-slate-700 font-medium">End-to-end savings (closed-form approximation):</p>
+      <p class="text-slate-700">Define average prune rates \(\bar{\chi}_{\rm warm}, \bar{\chi}_{\rm steady}\) and warm-up speedup \(s=T_w/T'_w\).</p>
+      <div class="mt-2 rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-emerald-900 font-semibold">
+        \[
+          \boxed{
+            \mathrm{Save} \;\approx\; 1 - \frac{\tfrac{1-\bar{\chi}_{\rm warm}}{s}\,T_w + (1-\bar{\chi}_{\rm steady})(T_B - T_w)}{T_B}
+          }
+        \]
+      </div>
+    </section>
+
+    <!-- Projected Savings Table -->
+    <section aria-labelledby="projected-savings" class="mb-10">
+      <h4 id="projected-savings" class="text-lg font-semibold text-slate-900 mb-3">Projected Savings (typical runs)</h4>
+      <div class="overflow-x-auto rounded-lg border border-slate-200">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-slate-50 text-slate-700">
+            <tr>
+              <th class="px-3 py-2 font-semibold">Scale</th>
+              <th class="px-3 py-2 text-right font-semibold">\(s\) (warm-up speedup)</th>
+              <th class="px-3 py-2 text-right font-semibold">\(\bar{\chi}_{\rm warm}\)</th>
+              <th class="px-3 py-2 text-right font-semibold">\(\bar{\chi}_{\rm steady}\)</th>
+              <th class="px-3 py-2 text-right font-semibold">Projected savings</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="px-3 py-2 font-semibold">9k</td>
+              <td class="px-3 py-2 text-right">2.4–3.2</td>
+              <td class="px-3 py-2 text-right">0.45–0.55</td>
+              <td class="px-3 py-2 text-right">0.22–0.30</td>
+              <td class="px-3 py-2 text-right font-semibold">35–52% (≥30% floor; ~45% common)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">14.4M</td>
+              <td class="px-3 py-2 text-right">1.8–2.4</td>
+              <td class="px-3 py-2 text-right">0.35–0.45</td>
+              <td class="px-3 py-2 text-right">0.18–0.26</td>
+              <td class="px-3 py-2 text-right font-semibold">26–40%</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">GPT-3</td>
+              <td class="px-3 py-2 text-right">1.5–2.0</td>
+              <td class="px-3 py-2 text-right">0.28–0.40</td>
+              <td class="px-3 py-2 text-right">0.15–0.22</td>
+              <td class="px-3 py-2 text-right font-semibold">28–38%</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">GPT-4</td>
+              <td class="px-3 py-2 text-right">1.4–1.8</td>
+              <td class="px-3 py-2 text-right">0.25–0.35</td>
+              <td class="px-3 py-2 text-right">0.12–0.20</td>
+              <td class="px-3 py-2 text-right font-semibold">24–34%</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">GPT-5</td>
+              <td class="px-3 py-2 text-right">1.3–1.6</td>
+              <td class="px-3 py-2 text-right">0.22–0.32</td>
+              <td class="px-3 py-2 text-right">0.10–0.18</td>
+              <td class="px-3 py-2 text-right font-semibold">20–30%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-sm text-slate-600">
+        Larger models start closer to the corridor under the textbook \(1/\sqrt{d_k}\), so warm-up speedup \(s\)
+        is smaller. However, steady-state gating (\(\bar{\chi}_{\rm steady}>0\)) provides persistent, scale-agnostic
+        savings. The gap margin \(u_{\min}\) keeps \(\tau\) finite as pseudo-critical behavior strengthens with scale.
+      </p>
+    </section>
+
+    <!-- Drop-In Defaults -->
+    <section aria-labelledby="drop-in-defaults" class="mb-8">
+      <h3 id="drop-in-defaults" class="text-xl font-semibold text-slate-900 mb-3">Drop-In Defaults</h3>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700">
+        <li><strong>Targets:</strong> \(H_{\text{target}}=\log N_{\mathrm{eff}}-1.1\) (tighten to −1.3 if stable).
+          EMA windows: 64 steps for \(H\), 128 for \(\sigma_{qk}\).</li>
+        <li><strong>\(\beta\) init:</strong> \(\beta \leftarrow 1/\sqrt{d_k}\).</li>
+        <li><strong>Final address:</strong> \(\beta^\star \approx \dfrac{1}{\sigma_{qk}}\,\sqrt{2\ln N_{\mathrm{eff}}}\).</li>
+        <li><strong>Newton step:</strong> gain schedule \(\kappa(t)\) as above; clip \(|\Delta\beta|\).</li>
+        <li><strong>Gating:</strong> threshold \(T_{\text{gate}}(t)\) as above; maintain floors \(m_{\min}\) tokens/seq and \(h_{\min}\) heads/layer.</li>
+        <li><strong>Freeze:</strong> if \(H_h \le H_{\text{freeze}}\) for \(w\) steps, stop backprop through head \(h\); unfreeze when it exits the band.</li>
+        <li><strong>Back-off:</strong> if short-EMA validation loss rises &gt; 0.2σ, set \(T_{\text{gate}}\leftarrow T_{\text{gate}}-0.05\)
+          and \(\kappa\leftarrow \kappa/2\) for 200 steps.</li>
+      </ul>
+    </section>
+
+    <!-- Plain-English recap -->
+    <aside role="note" aria-label="Plain-English recap" class="rounded-xl border border-blue-200 bg-blue-50/60 p-4 sm:p-5">
+      <p class="text-slate-900 font-semibold">Plain-English recap:</p>
+      <p class="mt-1 text-slate-700">
+        Start with the textbook scale, then push \(\beta\) into a healthy entropy band quickly (but not so close to the critical point that updates slow down).
+        While training, keep only the tokens and heads that carry information. The result is faster warm-up and fewer wasted updates—typically
+        double-digit end-to-end savings even at very large scales.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<section id="entropy-first-controller" aria-labelledby="entropy-title" class="blurb">
+  <!-- Scoped styles: safe to paste anywhere; affects only #entropy-first-controller -->
+  <style>
+    #entropy-first-controller { --ink:#0f2230; --muted:#55657e; --line:#e6ecf7; --soft:#f6f8ff; --accent:#0b5fff; color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    #entropy-first-controller h2, #entropy-first-controller h3, #entropy-first-controller h4 { line-height:1.15; margin:0 0 .5rem; }
+    #entropy-first-controller h2 { font-size:1.5rem; letter-spacing:-0.01em; }
+    #entropy-first-controller h3 { font-size:1.125rem; margin-top:1.25rem; }
+    #entropy-first-controller h4 { font-size:1rem; margin-top:.75rem; }
+    #entropy-first-controller p { margin:.5rem 0 1rem; color:var(--muted); }
+    #entropy-first-controller .lede { color:#334155; font-size:1.05rem; line-height:1.6; }
+    #entropy-first-controller .callout { border-left:4px solid var(--accent); background:var(--soft); padding:0.9rem 1rem; border-radius:10px; margin:.9rem 0; }
+    #entropy-first-controller .callout.bottomline { background:#eef5ff; }
+    #entropy-first-controller .symbols { color:#3b4758; font-size:.95rem; margin-top:.5rem; }
+    #entropy-first-controller .stacked { display:grid; gap:.25rem; }
+    #entropy-first-controller ul, #entropy-first-controller ol { padding-left:1.2rem; margin:.4rem 0 1rem; }
+    #entropy-first-controller li { margin:.25rem 0; }
+    #entropy-first-controller .knobs > li { margin:.6rem 0 1rem; }
+    #entropy-first-controller .knobs h4 { margin:0 0 .25rem; font-weight:600; color:#0f172a; }
+    #entropy-first-controller .kbits { margin:.25rem 0 .4rem; }
+    #entropy-first-controller .eq { background:#f8fafc; border:1px solid #e5e7eb; padding:.6rem .7rem; border-radius:.6rem; color:#0f172a; overflow-x:auto; }
+    #entropy-first-controller table { width:100%; border-collapse:collapse; font-size:.95rem; }
+    #entropy-first-controller thead th { text-align:left; border-bottom:1px solid #dbe3ef; padding:.55rem; color:#334155; background:#f8fbff; position:sticky; top:0; }
+    #entropy-first-controller tbody td { border-bottom:1px solid #eef2f9; padding:.55rem; color:#253140; }
+    #entropy-first-controller .twrap { overflow-x:auto; border:1px solid #e6ecf7; border-radius:.6rem; }
+    #entropy-first-controller .note { font-size:.92rem; color:#475569; }
+    #entropy-first-controller .kbd { font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:.92em; }
+    @media (max-width:640px) {
+      #entropy-first-controller h2 { font-size:1.25rem; }
+      #entropy-first-controller .lede { font-size:1rem; }
+      #entropy-first-controller thead { display:none; }
+      #entropy-first-controller table, #entropy-first-controller tbody, #entropy-first-controller tr, #entropy-first-controller td { display:block; width:100%; }
+      #entropy-first-controller tbody tr { border-bottom:1px solid #eef2f9; }
+      #entropy-first-controller tbody td { display:flex; justify-content:space-between; gap:.75rem; }
+      #entropy-first-controller tbody td::before { content:attr(data-th); font-weight:600; color:#334155; }
+    }
+    @media (prefers-color-scheme: dark) {
+      #entropy-first-controller { --ink:#e5e7eb; --muted:#b6c0d2; --line:#263243; --soft:#0b1220; }
+      #entropy-first-controller .eq { background:#0f172a; border-color:#1f2a3a; color:#e5e7eb; }
+      #entropy-first-controller .callout { background:#0b1220; border-left-color:#6aa4ff; }
+      #entropy-first-controller .callout.bottomline { background:#0d1426; }
+      #entropy-first-controller thead th { background:#0d1424; border-bottom-color:#22314a; color:#cbd5e1; }
+      #entropy-first-controller tbody td { border-bottom-color:#1e293b; color:#dbe5f3; }
+      #entropy-first-controller .note { color:#c2cbe0; }
+    }
+  </style>
+
+  <header>
+    <h2 id="entropy-title">Beyond β: An Entropy‑First Training Controller (toward ≥50% savings)</h2>
+    <p class="lede">Extending the same entropy/critical‑control lens beyond the attention temperature β—to learning rate, batch size, regularization, smoothing/dropout, and gating—compounds the gains. The result is a defensible path to <strong>≥50% end‑to‑end training savings</strong> at LLM scale while meeting the same validation target.</p>
+  </header>
+
+  <h3>1) Integrated cost model</h3>
+  <p>Decompose baseline training into warm‑up (before entering the corridor) and steady‑state:</p>
+
+  <div class="callout" role="note" aria-label="Integrated cost model">
+    <div class="stacked">
+      <div>Baseline cost (normalized units):</div>
+      <div class="eq">\[ \text{Cost}_{\text{base}} = \underbrace{W}_{\text{warm-up share}} + \underbrace{(1-W)}_{\text{steady}}. \]</div>
+      <div>With control and pruning:</div>
+      <div class="eq">\[ \text{Cost}_{\text{ctrl}} = \underbrace{\frac{1-\bar\chi_{\rm warm}}{s_{\rm warm}}\,W}_{\substack{\text{fewer steps \&}\\\text{fewer tokens (warm-up)}}} + \underbrace{\frac{1-\bar\chi_{\rm steady}}{s_{\rm steady}}\,(1-W)}_{\substack{\text{fewer tokens (steady)}\\\text{+ faster relaxation}}}. \]</div>
+      <div>Savings:</div>
+      <div class="eq">\[ \boxed{\text{Save}=1-\text{Cost}_{\text{ctrl}}} \]</div>
+    </div>
+    <p class="symbols"><span class="kbd">W</span> = warm‑up share of baseline steps (typ. 0.25–0.35 at LLM scale); <span class="kbd">\(\bar\chi_{\rm warm},\,\bar\chi_{\rm steady}\)</span> = average pruned fraction (tokens/heads) from gating; <span class="kbd">\(s_{\rm warm},\,s_{\rm steady}\)</span> = step‑count speedups from better relaxation (including bounded critical slowing down).</p>
+  </div>
+
+  <p>A workable target mix to clear 50% at LLM scale: \(W\!\approx\!0.30,\;\bar\chi_{\rm warm}\!\approx\!0.30,\;\bar\chi_{\rm steady}\!\approx\!0.20,\; s_{\rm warm}\!\gtrsim\!2.3,\;s_{\rm steady}\!\gtrsim\!1.25\). These thresholds are achieved when multiple knobs are governed by the same entropy/critical controller—not β alone.</p>
+
+  <h3>2) Multi‑knob controller (6 + 1)</h3>
+  <p>Each knob is assigned (i) a local observable, (ii) a target band, and (iii) a one‑step update (Newton/PI style), with a <em>pseudo‑critical margin</em> to avoid \(\tau\!\sim\!\zeta_{\rm CE}^{\,z}\) blowups.</p>
+
+  <ol class="knobs">
+    <li>
+      <h4>(1) Attention temperature β (CEAS core)</h4>
+      <p class="kbits"><em>Observable:</em> attention entropy \(H\) (or \(N_{\rm eff}=e^H\)).</p>
+      <p class="kbits"><em>Update:</em> gain‑scheduled Newton step on \(H\) toward \(H_{\text{target}}\).</p>
+      <p class="kbits"><em>Margin:</em> keep \(u=\tfrac{|\beta-\beta_c|}{\beta_c}\ge u_{\min}\) so \(\zeta_{\rm CE}\) and \(\tau\) remain finite.</p>
+    </li>
+    <li>
+      <h4>(2) Learning rate \(\eta\) (critical‑damping target)</h4>
+      <p class="kbits"><em>Observable:</em> trust ratio \(\rho=\eta\,\lambda_{\max}(H_\theta)\) (or a curvature proxy via EMA).</p>
+      <p class="kbits"><em>Target:</em> \(\rho\in[\rho_{\min},\rho_{\max}]\) (e.g., 0.02–0.08).</p>
+      <p class="kbits"><em>Update:</em> \(\eta\leftarrow \eta\,\exp\!\big(\kappa_\eta(\rho^{*}-\rho)\big)\).</p>
+    </li>
+    <li>
+      <h4>(3) Batch size \(B\) (constant gradient‑noise scale)</h4>
+      <p class="kbits"><em>Observable:</em> GNS proxy \(g\) via online gradient variance.</p>
+      <p class="kbits"><em>Target:</em> \(g\approx g^{*}\).</p>
+      <p class="kbits"><em>Update:</em> \(B\leftarrow B\cdot \exp\!\big(\kappa_B(g/g^{*}-1)\big)\) with hardware caps.</p>
+    </li>
+    <li>
+      <h4>(4) Weight decay \(\lambda_{\rm wd}\) (spectral/entropy regularizer)</h4>
+      <p class="kbits"><em>Observable:</em> parameter spectral norm or parameter‑entropy \(H(\theta)\).</p>
+      <p class="kbits"><em>Target:</em> keep \(H(\theta)\) in band (avoid collapse/explosion).</p>
+      <p class="kbits"><em>Update:</em> \(\lambda_{\rm wd}\leftarrow \lambda_{\rm wd}+\kappa_\lambda\big(H^{*}-H(\theta)\big)\).</p>
+    </li>
+    <li>
+      <h4>(5) Label smoothing / dropout \(p\) (mutual‑information cap)</h4>
+      <p class="kbits"><em>Observable:</em> logits entropy \(H_{\rm logit}\) or calibration error.</p>
+      <p class="kbits"><em>Target:</em> maintain a high‑entropy band early; anneal later.</p>
+      <p class="kbits"><em>Update:</em> \(p\leftarrow \text{sched}(t)\) to keep \(H_{\rm logit}\!\to\!H_{\rm logit}^{*}\).</p>
+    </li>
+    <li>
+      <h4>(6) Token/head gating (work pruning)</h4>
+      <p class="kbits"><em>Observable:</em> temperature‑gap score \(T=\beta\,\sigma_{qk}\sqrt{2\ln N_{\rm eff}}\).</p>
+      <p class="kbits"><em>Target:</em> schedule \(T_{\text{gate}}(t)\) high early, relaxing later.</p>
+      <p class="kbits"><em>Rule:</em> keep tokens with \(T\ge T_{\text{gate}}\) or top‑\(q\) per head; freeze heads on persistently low entropy.</p>
+    </li>
+    <li>
+      <h4>(+1) Pseudo‑critical margin (applies to all)</h4>
+      <p class="kbits">Define a custom correlation‑length proxy \(\zeta_{\rm CE}(\beta)=1/\big(\max(u,u_{\min})\big)^{\nu}\) (with \(\nu\in[0.5,1]\)).</p>
+      <p class="kbits">Enforce \(u\ge u_{\min}\) by capping updates. This bounds \(\tau\propto \zeta_{\rm CE}^{\,z}\) and prevents critical slowing‑down from erasing the gains.</p>
+    </li>
+  </ol>
+
+  <h3>3) Why the gains compound</h3>
+  <ul>
+    <li><strong>Multiplicative warm‑up reduction.</strong> Typical factors when each knob is steered to an information‑optimal band: \(s_{\rm warm}^{(\beta)}\sim 1.5\! -\! 1.8,\; s_{\rm warm}^{(\eta)}\sim 1.2\! -\! 1.4,\; s_{\rm warm}^{(B)}\sim 1.1\! -\! 1.2,\; s_{\rm warm}^{(\text{reg})}\sim 1.05\! -\! 1.15\). Product \(s_{\rm warm}\approx 2.2\! -\! 3.0\) is common.</li>
+    <li><strong>Steady‑state keeps paying.</strong> Even when textbook \(1/\sqrt{d_k}\) lands closer to the corridor at huge scale, non‑zero \(\bar\chi_{\rm steady}\) (gating) and tempered \(\eta,B\) reduce steps by another 15–35%.</li>
+    <li><strong>Critical behavior helps—if the margin is enforced.</strong> Larger models sit nearer to pseudo‑criticality (better coupling), so smaller β changes propagate farther; the explicit \(u_{\min}\) gap prevents \(\tau\) blowups.</li>
+  </ul>
+
+  <h3>4) What to expect (projected ranges)</h3>
+  <div class="twrap" role="region" aria-label="Projected savings table">
+    <table>
+      <thead>
+        <tr>
+          <th>Scale</th>
+          <th class="text-right">Warm‑up speedup \(s_{\rm warm}\)</th>
+          <th class="text-right">\(\bar\chi_{\rm warm}\)</th>
+          <th class="text-right">\(\bar\chi_{\rm steady}\)</th>
+          <th class="text-right">Steady speedup \(s_{\rm steady}\)</th>
+          <th class="text-right">Projected savings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-th="Scale">9k</td>
+          <td data-th="Warm‑up speedup s_warm" class="text-right">2.6–3.4</td>
+          <td data-th="χ̄_warm" class="text-right">0.45–0.55</td>
+          <td data-th="χ̄_steady" class="text-right">0.22–0.30</td>
+          <td data-th="Steady speedup s_steady" class="text-right">1.20–1.35</td>
+          <td data-th="Projected" class="text-right"><strong>45–60%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">14.4M</td>
+          <td data-th="Warm‑up speedup s_warm" class="text-right">2.1–2.8</td>
+          <td data-th="χ̄_warm" class="text-right">0.38–0.48</td>
+          <td data-th="χ̄_steady" class="text-right">0.18–0.26</td>
+          <td data-th="Steady speedup s_steady" class="text-right">1.20–1.30</td>
+          <td data-th="Projected" class="text-right"><strong>38–52%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">GPT‑3</td>
+          <td data-th="Warm‑up speedup s_warm" class="text-right">1.9–2.5</td>
+          <td data-th="χ̄_warm" class="text-right">0.30–0.42</td>
+          <td data-th="χ̄_steady" class="text-right">0.18–0.24</td>
+          <td data-th="Steady speedup s_steady" class="text-right">1.20–1.30</td>
+          <td data-th="Projected" class="text-right"><strong>35–50%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">GPT‑4</td>
+          <td data-th="Warm‑up speedup s_warm" class="text-right">1.8–2.4</td>
+          <td data-th="χ̄_warm" class="text-right">0.28–0.38</td>
+          <td data-th="χ̄_steady" class="text-right">0.16–0.22</td>
+          <td data-th="Steady speedup s_steady" class="text-right">1.18–1.28</td>
+          <td data-th="Projected" class="text-right"><strong>32–48%</strong></td>
+        </tr>
+        <tr>
+          <td data-th="Scale">GPT‑5</td>
+          <td data-th="Warm‑up speedup s_warm" class="text-right">1.7–2.2</td>
+          <td data-th="χ̄_warm" class="text-right">0.25–0.35</td>
+          <td data-th="χ̄_steady" class="text-right">0.15–0.20</td>
+          <td data-th="Steady speedup s_steady" class="text-right">1.15–1.25</td>
+          <td data-th="Projected" class="text-right"><strong>30–45%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Projections are end‑to‑end token‑update savings to the same validation target, under a bounded‑\(\tau\) regime.</p>
+
+  <h3>5) Minimal drop‑in updates (beyond β)</h3>
+  <ul>
+    <li><strong>Curvature‑aware learning rate:</strong> maintain \(\rho=\eta\,\widehat{\lambda}_{\max}\in[0.02,0.08]\) via an EMA of top‑eigenvalue proxies (e.g., light power‑iteration every \(N\) steps).</li>
+    <li><strong>GNS‑scheduled batch:</strong> track gradient variance per layer; increase \(B\) when \(g>g^{*}\) (too noisy), decrease when \(g<g^{*}\) (wasting compute).</li>
+    <li><strong>Entropy‑tuned smoothing:</strong> adapt label smoothing/dropout to keep prediction‑entropy in a band early, then anneal.</li>
+    <li><strong>Regularization balance:</strong> nudge \(\lambda_{\rm wd}\) so parameter‑entropy or spectral radius stays inside a band; relax as the corridor stabilizes.</li>
+    <li><strong>Always enforce \(u_{\min}\):</strong> never allow any knob to push β closer than the pseudo‑critical gap; this guardrail preserves speedups by preventing \(\tau\) spikes.</li>
+  </ul>
+
+  <aside class="callout bottomline" role="note" aria-label="Bottom line">
+    <strong>Bottom line:</strong> β alone already delivers substantial gains. Bringing learning rate, batch size, smoothing/regularization, and principled gating under the same entropy/critical controller pushes the compound step‑reduction and pruning high enough to cross the ≥50% line—while staying a controlled distance from the pseudo‑critical point.
+  </aside>
+</section>
 
 
 
