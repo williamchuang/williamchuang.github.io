@@ -533,7 +533,7 @@ description: "Graduate Student at University of Arizona"
 
   <p>A workable target mix to clear 50% at LLM scale: \(W\!\approx\!0.30,\;\bar\chi_{\rm warm}\!\approx\!0.30,\;\bar\chi_{\rm steady}\!\approx\!0.20,\; s_{\rm warm}\!\gtrsim\!2.3,\;s_{\rm steady}\!\gtrsim\!1.25\). These thresholds are achieved when multiple knobs are governed by the same entropy/critical controller—not β alone.</p>
 
-  <h3>2) Multi‑knob controller (6 + 1)</h3>
+  <h3>2) Multi‑knob controller</h3>
   <p>Each knob is assigned (i) a local observable, (ii) a target band, and (iii) a one‑step update (Newton/PI style), with a <em>pseudo‑critical margin</em> to avoid \(\tau\!\sim\!\zeta_{\rm CE}^{\,z}\) blowups.</p>
 
   <ol class="knobs">
@@ -574,7 +574,7 @@ description: "Graduate Student at University of Arizona"
       <p class="kbits"><em>Rule:</em> keep tokens with \(T\ge T_{\text{gate}}\) or top‑\(q\) per head; freeze heads on persistently low entropy.</p>
     </li>
     <li>
-      <h4>(+1) Pseudo‑critical margin (applies to all)</h4>
+      <h4>(7) Pseudo‑critical margin (applies to all)</h4>
       <p class="kbits">Define a custom correlation‑length proxy \(\zeta_{\rm CE}(\beta)=1/\big(\max(u,u_{\min})\big)^{\nu}\) (with \(\nu\in[0.5,1]\)).</p>
       <p class="kbits">Enforce \(u\ge u_{\min}\) by capping updates. This bounds \(\tau\propto \zeta_{\rm CE}^{\,z}\) and prevents critical slowing‑down from erasing the gains.</p>
     </li>
