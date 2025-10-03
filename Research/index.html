@@ -30,6 +30,166 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GRAIL × DFA — Introduction</title>
+  <!-- MathJax (TeX → HTML) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        displayMath: [["$$","$$"], ["\\[","\\]"]],
+        tags: "none"
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; }
+    section { max-width: 980px; margin: 2rem auto; padding: 0 1rem; }
+    h1, h2, h3 { line-height: 1.2; }
+    .lede { font-size: 1.1rem; color: #444; margin: 0.5rem 0 1.25rem; }
+    .pill { display: inline-block; border: 1px solid #bbb; border-radius: 999px; padding: 0.15rem 0.6rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem; background: rgba(0,0,0,0.02); }
+    .muted { color: #666; font-size: 0.925rem; }
+    .kicker { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; font-size: .8rem; color: #666; }
+    .eq { margin: .6rem 0 .2rem; }
+    a { color: #0b63c5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { margin: .6rem 0 0 1rem; }
+  </style>
+</head>
+<body>
+
+<section id="intro">
+  <div class="kicker">GRAIL × DFA</div>
+  <h1>Dual Quantization for an Observer-Centric Physics Engine</h1>
+  <p class="lede">
+    <strong>GRAIL</strong> (Geometric Representation Algebra for Intelligent Learning) treats optimization as geometry:
+    the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\), and the failure of a symmetry action \(\xi\)
+    to commute with a gradient step \(X=\nabla\mathcal L\) is measured by the Lie bracket \([\xi,X]\).
+    <strong>DFA quantization</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language,
+    cycle components lift to unitary blocks \(U_C\), and transients lift to CPTP channels.
+  </p>
+
+  <p class="muted">
+    Single-author project. Originally drafted in 2024; under active development in 2025.
+    A non-provisional patent has been filed. Full notes (PDF): 
+    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+      GRAIL × DFA Lecture Notes
+    </a>.
+  </p>
+
+  <div class="grid" style="margin-top:1rem">
+    <div class="card">
+      <h3>Core Idea</h3>
+      <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
+      <div class="eq">BCH drift (operational):</div>
+      \[
+        e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
+        \;=\; \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
+      \]
+      <ul>
+        <li>\([\xi,X]=0\) &rarr; symmetry and descent commute (equivariance).</li>
+        <li>\([\xi,X]\neq 0\) &rarr; curvature-like obstruction that reshapes training dynamics.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>DFA Layer (Symbolic Quantization)</h3>
+      <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
+      <div class="eq">Cycle \(C\) (length \(L\)) &rarr; unitary lift:</div>
+      \[
+        U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
+        \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
+      \]
+      <p class="muted">Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
+    </div>
+
+    <div class="card">
+      <h3>Quantum-like Optimization Geometry</h3>
+      <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
+      <div class="eq">Imaginary-time / Fokker–Planck:</div>
+      \[
+        \partial_t \rho \;=\; \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
+        \qquad \hbar_{\text{eff}} := 2D.
+      \]
+      <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
+    </div>
+
+    <div class="card">
+      <h3>Observer-Centric Quantum Gravity (Stance)</h3>
+      <ul>
+        <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
+        <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
+        <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
+      </ul>
+      <span class="pill">No contradiction with QM/QFT/GR</span>
+      <span class="pill">Falsifiable: latent geometry & audits</span>
+    </div>
+  </div>
+
+  <h2 style="margin-top:2rem">At-a-Glance Equations</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="kicker">Curvature (gauge view)</div>
+      \[
+        \Omega \;=\; dA + A\wedge A,\qquad
+        [D_v, D_w]\Phi \;=\; \Omega(v,w)\cdot \Phi.
+      \]
+      <p class="muted">Non-commuting covariant flows \(\Leftrightarrow\) curvature acting on fields/updates.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Projection–Symmetry</div>
+      \[
+        [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
+      \]
+      <p class="muted">DFA can preserve or deliberately break a symmetry, by design.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Finite Heisenberg–Weyl (per cycle)</div>
+      \[
+        T_C S_C \;=\; \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
+      \]
+      <p class="muted">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:2rem">What This Enables</h2>
+  <ul>
+    <li><strong>Auditability:</strong> unitary checks on cycles, Choi positivity/trace-preservation on transients, projector–symmetry commutators, micro-causality/light-cone diagnostics.</li>
+    <li><strong>Security knobs:</strong> group-keyed permutations on code indices; DFA as a syntax firewall for outputs.</li>
+    <li><strong>Falsifiability:</strong> distinct physics domains should induce distinct latent curvatures and cycle-phase spectra; failure to separate is evidence against the thesis.</li>
+  </ul>
+
+  <h2 style="margin-top:2rem">Status & Links</h2>
+  <p>
+    This introduction summarizes the current direction. The program was first written in 2024 and continues to evolve in 2025.
+    A non-provisional patent has been filed. For the full technical development, see the PDF:
+    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+      GRAIL × DFA as Dual Quantization: Toward an Observer-Centric Quantum Gravity
+    </a>.
+  </p>
+</section>
+
+</body>
+</html>
+
+
+
+
+
+
 <section id="grail-intro">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
