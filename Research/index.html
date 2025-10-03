@@ -30,6 +30,70 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+<section id="grail-intro">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <style>
+    #grail-intro { max-width: 880px; margin: 2rem auto; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; }
+    #grail-intro h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 0.25rem; }
+    #grail-intro h2 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; }
+    #grail-intro .tag { display:inline-block; font-size: .85rem; background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; border-radius: 999px; padding:.15rem .6rem; margin-left:.5rem; vertical-align: middle;}
+    #grail-intro p { margin: .75rem 0; }
+    #grail-intro .cta { display:inline-block; margin-top:1rem; padding:.6rem .9rem; border-radius:.5rem; border:1px solid #d1d5db; text-decoration:none; color:#111827; background:#fff; }
+    #grail-intro .cta:hover { background:#f9fafb; }
+    #grail-intro code { background:#f3f4f6; padding:.15rem .35rem; border-radius:.25rem; }
+    #grail-intro .note { font-size:.9rem; color:#4b5563; }
+  </style>
+
+  <h1>GRAIL: Geometric Representation Algebra for Intelligent Learning
+    <span class="tag">ongoing—original draft written a year ago</span>
+  </h1>
+
+  <p class="note">
+    This research originated one year ago and remains under active development toward more advanced progress.
+    A non-provisional patent has been filed for the core ideas.
+  </p>
+
+  <h2>What is GRAIL?</h2>
+  <p>
+    GRAIL formalizes learning as geometry. It introduces a representation algebra on (pseudo-)Riemannian
+    manifolds—particularly Minkowski and hyperbolic models—so that optimization, symmetry, and security
+    can be reasoned about with group actions, orbits, and invariant distances.
+  </p>
+
+  <h2>Key ideas at a glance</h2>
+  <ul>
+    <li><strong>Gradient–symmetry interplay.</strong> In general geometries, group actions need not commute with gradient descent; this reshapes optimization paths and landscapes.</li>
+    <li><strong>When commutativity returns.</strong> Under isometric symmetries on Riemannian manifolds with invariant loss, gradient flow is equivariant and commutes with those symmetries.</li>
+    <li><strong>Secure-by-geometry.</strong> Time-varying Lorentz/Möbius actions on parameters and data enable real-time, non-malleable encryption aligned with model inference.</li>
+    <li><strong>Autoencoders as dynamical systems.</strong> Fixed points, orbits, and hyperbolic distances structure compression, transfer, and reconstruction guarantees.</li>
+  </ul>
+
+  <h2>Mathematical backbone</h2>
+  <p>
+    Let \(G\) act isometrically on \((\mathcal{M},\langle\cdot,\cdot\rangle)\) with \(\mathcal{L}(g\!\cdot\!\theta)=\mathcal{L}(\theta)\).
+    Then the gradient field is \(G\)-equivariant:
+    \[
+      d(g)_\theta\big(\nabla \mathcal{L}(\theta)\big)=\nabla \mathcal{L}(g\!\cdot\!\theta),
+    \]
+    so gradient flow \(\Phi_t\) and isometries commute: \(g\!\cdot\!\Phi_t(\theta)=\Phi_t(g\!\cdot\!\theta)\).
+    Departures from these hypotheses (e.g., adaptive preconditioners, regularizers, stochasticity) generally break commutativity and can be exploited to navigate landscapes.
+  </p>
+
+  <h2>Why this matters</h2>
+  <p>
+    By treating learning as geometry, GRAIL unifies optimization, symmetry, and cryptography:
+    it yields principled invariances when desired and controlled non-commutativity when beneficial,
+    with direct routes to secure, real-time, model-aligned encryption.
+  </p>
+
+  <p>
+    <a class="cta" href="https://drive.google.com/file/d/1b4MsNssiyuZTsf3ucsWDrDjzbW35e-g_/view?usp=sharing" target="_blank" rel="noopener">
+      Read the full GRAIL draft (PDF)
+    </a>
+  </p>
+</section>
 
 
 <!-- ===== Lambda Stack Inverse Capability Overview ===== -->
