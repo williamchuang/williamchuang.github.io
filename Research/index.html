@@ -31,149 +31,214 @@ blog: passive
     <section class="research-list">
 
 
+<section id="extended-notes" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+    GRAIL × DFA
+  </div>
+  <h1 style="line-height:1.2;margin:.25rem 0 0;">Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
+
+  <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+    This installment deepens the <em>observer-centric</em> program. It couples
+    <strong>GRAIL’s optimization-as-geometry</strong> (optimizer as a connection \(A\), curvature \(\Omega=dA{+}A\wedge A\))
+    and <strong>DFA quantization</strong> (projectors \(\Pi_q\), cycle unitaries \(U_C\), transient CPTP maps)
+    with a full <strong>random-matrix theory (RMT)</strong> toolkit for analyzing infinite families of
+    <em>twin models</em> related by GRAIL symmetries. The aim is a teachable, auditable path from Lie brackets to
+    spectral certification—without contradicting QM/QFT/GR when interpreted as a meta-theory of inference.
+  </p>
+
+  <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+    Full PDF:
+    <a href="https://drive.google.com/file/d/1kQMZDSQKCOqd_ag6tz1Xjs3hFjTIVKm8/view?usp=sharing" target="_blank" rel="noopener">
+      Extended Lecture Notes (Lie/Gauge + RMT Twins)
+    </a>.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">What’s new here</h3>
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow:
+          \[
+            e^{\varepsilon\xi}e^{-\eta X}e^{-\varepsilon\xi}e^{\eta X}
+            = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X]+\cdots\Big).
+          \]
+        </li>
+        <li><strong>Covariant optimizer</strong> \(X_H=X+A\cdot\xi\) to commute with generators.</li>
+        <li><strong>Cycle/transient lifts</strong>: finite Heisenberg–Weyl blocks \(U_C\) and CPTP maps \(\Phi\).</li>
+        <li><strong>RMT twins</strong>: invariants, free convolutions, BBP spikes, Dyson flows.</li>
+        <li><strong>Lorentz/hyperbolic RMT</strong>: \(\eta\)-Wishart spectra and \(O(p,q)\)-invariant audits.</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Core equations</h3>
+      <div style="margin:.4rem 0 .2rem;">Gauge curvature & covariant flows</div>
+      \[
+        \Omega = dA + A\wedge A,\qquad [D_v,D_w]\Phi = \Omega(v,w)\cdot \Phi.
+      \]
+      <div style="margin:.6rem 0 .2rem;">Cycle unitary & Floquet Hamiltonian</div>
+      \[
+        U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\lvert s_{j+1}\rangle,\quad
+        H_C = \tfrac{i}{\Delta t}\log U_C.
+      \]
+      <div style="margin:.6rem 0 .2rem;">Free multiplicative convolution</div>
+      \[
+        \nu_{(A W B)^{\!*}(A W B)} \;\approx\; \nu_{A^{\!*}A}\ \boxtimes\ \nu_{W^{\!*}W}\ \boxtimes\ \nu_{B B^{\!*}}.
+      \]
+      <div style="margin:.6rem 0 .2rem;">\(\eta\)-Wishart (hyperbolic Gram)</div>
+      \[
+        K=\tfrac{1}{n}X^\top \eta X
+        = \tfrac{1}{n}X_+^\top X_+ \;-\; \tfrac{1}{n}X_-^\top X_-,
+      \]
+      with limiting law \( \mu_K = \mu_{\mathrm{MP}}(\gamma_+,\sigma_+^2)\ \boxplus\ \big(-\,\mu_{\mathrm{MP}}(\gamma_-,\sigma_-^2)\big).\)
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Why RMT?</h3>
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li><strong>Twin certification:</strong> spectra must match along symmetry orbits.</li>
+        <li><strong>Stability margins:</strong> bulk edges/gaps predict conditioning.</li>
+        <li><strong>Symmetry probes:</strong> BBP outliers reveal low-rank structure by sector.</li>
+        <li><strong>Design:</strong> pick \((p,q)\) so hyperbolic edges stay away from \(0\).</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">How to use</h3>
+      <ol style="margin:.4rem 0 0 1rem;">
+        <li>Insert DFA projectors \(\Pi_q\); add \(\mathcal L_{\text{DFA}}\).</li>
+        <li>Quantize hidden states; get SCCs; form \(P=D+N\); lift \(U_C\), \(\Phi\).</li>
+        <li>Run audits: unitary, Choi PSD/TP, projector–symmetry commutators, micro-causality.</li>
+        <li>RMT twins: fit MP/deformed-MP; track BBP outliers & edge flows.</li>
+        <li>Covariantize: fit \(A\) to reduce \([\xi_a,\,X+A\cdot\xi]\); monitor BCH drift.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2 style="margin-top:2rem;">Reading roadmap</h2>
+  <ul style="margin:.4rem 0 0 1rem;">
+    <li><strong>Lie/BCH + covariant optimizer</strong>: operational commutator loops.</li>
+    <li><strong>DFA quantization</strong>: Dunford split; cycle unitary & CPTP lifts.</li>
+    <li><strong>RMT twins</strong>: free convolutions, BBP, Dyson flows; Lorentz/hyperbolic ensembles.</li>
+    <li><strong>Appendices</strong>: pseudocode, proof sketches, audits, effective-\(\hbar\).</li>
+  </ul>
+
+  <p style="color:#666;font-size:.95rem;margin-top:1rem;">
+    This remains an inference-level theory: spacetime is not quantized here; geometry emerges from Fisher structure over observer ensembles.
+  </p>
+</section>
 
 
 
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>GRAIL × DFA — Introduction</title>
-  <!-- MathJax (TeX → HTML) -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]],
-        displayMath: [["$$","$$"], ["\\[","\\]"]],
-        tags: "none"
-      }
-    };
-  </script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-  <style>
-    :root { color-scheme: light dark; }
-    body { font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; }
-    section { max-width: 980px; margin: 2rem auto; padding: 0 1rem; }
-    h1, h2, h3 { line-height: 1.2; }
-    .lede { font-size: 1.1rem; color: #444; margin: 0.5rem 0 1.25rem; }
-    .pill { display: inline-block; border: 1px solid #bbb; border-radius: 999px; padding: 0.15rem 0.6rem; font-size: 0.85rem; margin-right: 0.4rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem; background: rgba(0,0,0,0.02); }
-    .muted { color: #666; font-size: 0.925rem; }
-    .kicker { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; font-size: .8rem; color: #666; }
-    .eq { margin: .6rem 0 .2rem; }
-    a { color: #0b63c5; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ul { margin: .6rem 0 0 1rem; }
-  </style>
-</head>
-<body>
 
-<section id="intro">
-  <div class="kicker">GRAIL × DFA</div>
-  <h1>Dual Quantization for an Observer-Centric Physics Engine</h1>
-  <p class="lede">
+<section id="intro" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+    GRAIL × DFA
+  </div>
+
+  <h1 style="line-height:1.2;margin:.25rem 0 0;">Dual Quantization for an Observer-Centric Physics Engine</h1>
+
+  <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
     <strong>GRAIL</strong> (Geometric Representation Algebra for Intelligent Learning) treats optimization as geometry:
-    the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\), and the failure of a symmetry action \(\xi\)
+    the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\). The failure of a symmetry action \(\xi\)
     to commute with a gradient step \(X=\nabla\mathcal L\) is measured by the Lie bracket \([\xi,X]\).
     <strong>DFA quantization</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language,
     cycle components lift to unitary blocks \(U_C\), and transients lift to CPTP channels.
   </p>
 
-  <p class="muted">
+  <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
     Single-author project. Originally drafted in 2024; under active development in 2025.
-    A non-provisional patent has been filed. Full notes (PDF): 
+    A non-provisional patent has been filed. Full notes (PDF):
     <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
       GRAIL × DFA Lecture Notes
     </a>.
   </p>
 
-  <div class="grid" style="margin-top:1rem">
-    <div class="card">
-      <h3>Core Idea</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Core Idea</h3>
       <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
-      <div class="eq">BCH drift (operational):</div>
+      <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
       \[
         e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
-        \;=\; \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
+        = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
       \]
-      <ul>
-        <li>\([\xi,X]=0\) &rarr; symmetry and descent commute (equivariance).</li>
-        <li>\([\xi,X]\neq 0\) &rarr; curvature-like obstruction that reshapes training dynamics.</li>
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li>\([\xi,X]=0\) → symmetry and descent commute (equivariance).</li>
+        <li>\([\xi,X]\neq 0\) → curvature-like obstruction that reshapes training dynamics.</li>
       </ul>
     </div>
 
-    <div class="card">
-      <h3>DFA Layer (Symbolic Quantization)</h3>
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">DFA Layer (Symbolic Quantization)</h3>
       <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
-      <div class="eq">Cycle \(C\) (length \(L\)) &rarr; unitary lift:</div>
+      <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
       \[
         U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
         \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
       \]
-      <p class="muted">Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
+      <p style="color:#666;font-size:.95rem;">Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
     </div>
 
-    <div class="card">
-      <h3>Quantum-like Optimization Geometry</h3>
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Quantum-like Optimization Geometry</h3>
       <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
-      <div class="eq">Imaginary-time / Fokker–Planck:</div>
+      <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
       \[
-        \partial_t \rho \;=\; \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
+        \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
         \qquad \hbar_{\text{eff}} := 2D.
       \]
       <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
     </div>
 
-    <div class="card">
-      <h3>Observer-Centric Quantum Gravity (Stance)</h3>
-      <ul>
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Observer-Centric Quantum Gravity (Stance)</h3>
+      <ul style="margin:.4rem 0 0 1rem;">
         <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
         <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
         <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
       </ul>
-      <span class="pill">No contradiction with QM/QFT/GR</span>
-      <span class="pill">Falsifiable: latent geometry & audits</span>
+      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
+      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
     </div>
   </div>
 
-  <h2 style="margin-top:2rem">At-a-Glance Equations</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="kicker">Curvature (gauge view)</div>
+  <h2 style="margin-top:2rem;">At-a-Glance Equations</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Curvature (gauge view)</div>
       \[
-        \Omega \;=\; dA + A\wedge A,\qquad
-        [D_v, D_w]\Phi \;=\; \Omega(v,w)\cdot \Phi.
+        \Omega = dA + A\wedge A,\qquad
+        [D_v, D_w]\Phi = \Omega(v,w)\cdot \Phi.
       \]
-      <p class="muted">Non-commuting covariant flows \(\Leftrightarrow\) curvature acting on fields/updates.</p>
+      <p style="color:#666;font-size:.95rem;">Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
     </div>
-    <div class="card">
-      <div class="kicker">Projection–Symmetry</div>
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Projection–Symmetry</div>
       \[
         [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
       \]
-      <p class="muted">DFA can preserve or deliberately break a symmetry, by design.</p>
+      <p style="color:#666;font-size:.95rem;">DFA can preserve or deliberately break a symmetry, by design.</p>
     </div>
-    <div class="card">
-      <div class="kicker">Finite Heisenberg–Weyl (per cycle)</div>
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Finite Heisenberg–Weyl (per cycle)</div>
       \[
-        T_C S_C \;=\; \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
+        T_C S_C = \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
       \]
-      <p class="muted">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
+      <p style="color:#666;font-size:.95rem;">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
     </div>
   </div>
 
-  <h2 style="margin-top:2rem">What This Enables</h2>
-  <ul>
+  <h2 style="margin-top:2rem;">What This Enables</h2>
+  <ul style="margin:.6rem 0 0 1rem;">
     <li><strong>Auditability:</strong> unitary checks on cycles, Choi positivity/trace-preservation on transients, projector–symmetry commutators, micro-causality/light-cone diagnostics.</li>
     <li><strong>Security knobs:</strong> group-keyed permutations on code indices; DFA as a syntax firewall for outputs.</li>
     <li><strong>Falsifiability:</strong> distinct physics domains should induce distinct latent curvatures and cycle-phase spectra; failure to separate is evidence against the thesis.</li>
   </ul>
 
-  <h2 style="margin-top:2rem">Status & Links</h2>
-  <p>
+  <h2 style="margin-top:2rem;">Status & Links</h2>
+  <p style="color:#444;">
     This introduction summarizes the current direction. The program was first written in 2024 and continues to evolve in 2025.
     A non-provisional patent has been filed. For the full technical development, see the PDF:
     <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
@@ -181,9 +246,6 @@ blog: passive
     </a>.
   </p>
 </section>
-
-</body>
-</html>
 
 
 
