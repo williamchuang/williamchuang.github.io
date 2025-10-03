@@ -649,7 +649,7 @@ description: "Graduate Student at University of Arizona"
   <h3>5) Minimal drop‑in updates (beyond β)</h3>
   <ul>
     <li><strong>Curvature‑aware learning rate:</strong> maintain \(\rho=\eta\,\widehat{\lambda}_{\max}\in[0.02,0.08]\) via an EMA of top‑eigenvalue proxies (e.g., light power‑iteration every \(N\) steps).</li>
-    <li><strong>GNS‑scheduled batch:</strong> track gradient variance per layer; increase \(B\) when \(g>g^{*}\) (too noisy), decrease when \(g<g^{*}\) (wasting compute).</li>
+    <li><strong>GNS‑scheduled batch:</strong> track gradient variance per layer; increase \(B\) when \(g>g^{*}\) (too noisy), decrease when \(g&lt;g^{*}\) (wasting compute).</li>
     <li><strong>Entropy‑tuned smoothing:</strong> adapt label smoothing/dropout to keep prediction‑entropy in a band early, then anneal.</li>
     <li><strong>Regularization balance:</strong> nudge \(\lambda_{\rm wd}\) so parameter‑entropy or spectral radius stays inside a band; relax as the corridor stabilizes.</li>
     <li><strong>Always enforce \(u_{\min}\):</strong> never allow any knob to push β closer than the pseudo‑critical gap; this guardrail preserves speedups by preventing \(\tau\) spikes.</li>
