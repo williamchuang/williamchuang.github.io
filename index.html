@@ -538,43 +538,43 @@ description: "Graduate Student at University of Arizona"
 
   <ol class="knobs">
     <li>
-      <h4>(1) Attention temperature β (CEAS core)</h4>
+      <h4>Attention temperature β (CEAS core)</h4>
       <p class="kbits"><em>Observable:</em> attention entropy \(H\) (or \(N_{\rm eff}=e^H\)).</p>
       <p class="kbits"><em>Update:</em> gain‑scheduled Newton step on \(H\) toward \(H_{\text{target}}\).</p>
       <p class="kbits"><em>Margin:</em> keep \(u=\tfrac{|\beta-\beta_c|}{\beta_c}\ge u_{\min}\) so \(\zeta_{\rm CE}\) and \(\tau\) remain finite.</p>
     </li>
     <li>
-      <h4>(2) Learning rate \(\eta\) (critical‑damping target)</h4>
+      <h4>Learning rate \(\eta\) (critical‑damping target)</h4>
       <p class="kbits"><em>Observable:</em> trust ratio \(\rho=\eta\,\lambda_{\max}(H_\theta)\) (or a curvature proxy via EMA).</p>
       <p class="kbits"><em>Target:</em> \(\rho\in[\rho_{\min},\rho_{\max}]\) (e.g., 0.02–0.08).</p>
       <p class="kbits"><em>Update:</em> \(\eta\leftarrow \eta\,\exp\!\big(\kappa_\eta(\rho^{*}-\rho)\big)\).</p>
     </li>
     <li>
-      <h4>(3) Batch size \(B\) (constant gradient‑noise scale)</h4>
+      <h4>Batch size \(B\) (constant gradient‑noise scale)</h4>
       <p class="kbits"><em>Observable:</em> GNS proxy \(g\) via online gradient variance.</p>
       <p class="kbits"><em>Target:</em> \(g\approx g^{*}\).</p>
       <p class="kbits"><em>Update:</em> \(B\leftarrow B\cdot \exp\!\big(\kappa_B(g/g^{*}-1)\big)\) with hardware caps.</p>
     </li>
     <li>
-      <h4>(4) Weight decay \(\lambda_{\rm wd}\) (spectral/entropy regularizer)</h4>
+      <h4>Weight decay \(\lambda_{\rm wd}\) (spectral/entropy regularizer)</h4>
       <p class="kbits"><em>Observable:</em> parameter spectral norm or parameter‑entropy \(H(\theta)\).</p>
       <p class="kbits"><em>Target:</em> keep \(H(\theta)\) in band (avoid collapse/explosion).</p>
       <p class="kbits"><em>Update:</em> \(\lambda_{\rm wd}\leftarrow \lambda_{\rm wd}+\kappa_\lambda\big(H^{*}-H(\theta)\big)\).</p>
     </li>
     <li>
-      <h4>(5) Label smoothing / dropout \(p\) (mutual‑information cap)</h4>
+      <h4>Label smoothing / dropout \(p\) (mutual‑information cap)</h4>
       <p class="kbits"><em>Observable:</em> logits entropy \(H_{\rm logit}\) or calibration error.</p>
       <p class="kbits"><em>Target:</em> maintain a high‑entropy band early; anneal later.</p>
       <p class="kbits"><em>Update:</em> \(p\leftarrow \text{sched}(t)\) to keep \(H_{\rm logit}\!\to\!H_{\rm logit}^{*}\).</p>
     </li>
     <li>
-      <h4>(6) Token/head gating (work pruning)</h4>
+      <h4>Token/head gating (work pruning)</h4>
       <p class="kbits"><em>Observable:</em> temperature‑gap score \(T=\beta\,\sigma_{qk}\sqrt{2\ln N_{\rm eff}}\).</p>
       <p class="kbits"><em>Target:</em> schedule \(T_{\text{gate}}(t)\) high early, relaxing later.</p>
       <p class="kbits"><em>Rule:</em> keep tokens with \(T\ge T_{\text{gate}}\) or top‑\(q\) per head; freeze heads on persistently low entropy.</p>
     </li>
     <li>
-      <h4>(7) Pseudo‑critical margin (applies to all)</h4>
+      <h4>Pseudo‑critical margin (applies to all)</h4>
       <p class="kbits">Define a custom correlation‑length proxy \(\zeta_{\rm CE}(\beta)=1/\big(\max(u,u_{\min})\big)^{\nu}\) (with \(\nu\in[0.5,1]\)).</p>
       <p class="kbits">Enforce \(u\ge u_{\min}\) by capping updates. This bounds \(\tau\propto \zeta_{\rm CE}^{\,z}\) and prevents critical slowing‑down from erasing the gains.</p>
     </li>
