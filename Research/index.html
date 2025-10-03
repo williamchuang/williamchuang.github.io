@@ -1664,6 +1664,84 @@ blog: passive
 </section>
 <!-- ===== END CONTEXT ===== -->
 
+<section id="intro" aria-labelledby="intro-title">
+  <header>
+    <h2 id="intro-title">From Autoencoder Dynamics to DFA Cycle Decomposition</h2>
+    <p class="subtitle">Fixed points, orbits, and practical convergence—two complementary lenses on reconstruction models</p>
+  </header>
+
+  <p>
+    This work develops a principled taxonomy for autoencoders (and encoder–decoder transformers) and
+    contrasts it with a recent <strong>deterministic finite automaton (DFA)</strong> cycle–decomposition
+    framework. The autoencoder lens studies the <em>continuous</em> map
+    <code>Ψ = g ∘ f : V → V</code> via intrinsic dimension, fixed points, and local stability.
+    The DFA lens treats the compiled, quantized network as a <em>finite</em> endofunction
+    whose functional graph decomposes exactly into cycles (attractors) and transient trees.
+  </p>
+
+  <p class="resource">
+    See the full <strong>Autoencoder study</strong> (PDF):
+    <a href="https://drive.google.com/file/d/1wAsvpfISSOnuKNqpXSgJ1d0wkflKFXtV/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Autoencoder Notes (PDF)</a>.
+  </p>
+
+  <blockquote class="tl-dr">
+    <strong>TL;DR.</strong> In reals, we certify set-wise contractivity and convergence of
+    <code>Ψ<sup>t</sup></code> toward its fixed-point set; on hardware, quantization turns the same
+    model into a finite-state system with exact cycle/basin structure. The two views line up:
+    analytic contractivity predicts which machine-level attractors appear and how fast they’re reached.
+  </blockquote>
+
+  <h3>What’s new</h3>
+  <ul>
+    <li><strong>Taxonomy:</strong> dimension (intrinsic vs. effective), dynamics (fixed points/orbits),
+        and algebra (symmetry orbits/invariants) for reconstruction maps.</li>
+    <li><strong>Minimality:</strong> an <em>ε-fundamental</em> notion (Pareto-minimal parameters and nonlinearities)
+        with a certified reduction routine that preserves accuracy on the data region.</li>
+    <li><strong>Convergence:</strong> linear-rate, Fejér-monotone approach to the fixed-point set under
+        <em>point-to-set contractivity</em> (layerwise checkable in Euclidean and hyperbolic settings).</li>
+    <li><strong>Bridge to DFA:</strong> a machine-level classification by cycles and basins; analytic
+        results project to finite precision as attractors with logarithmic approach time in the quantization scale.</li>
+  </ul>
+
+  <h3>Two lenses at a glance</h3>
+  <table aria-label="Comparison of Autoencoder vs DFA views">
+    <thead>
+      <tr>
+        <th scope="col">Autoencoder (Continuous)</th>
+        <th scope="col">DFA (Finite-State)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Map <code>Ψ=g∘f</code> on metric space; differentiate, bound Jacobians.</td>
+        <td>Compiled map <code>Φ:S→S</code> on a finite set; cycles + transients.</td>
+      </tr>
+      <tr>
+        <td>Fixed-point set <code>Λ</code>, local spectra, attraction basins.</td>
+        <td>Exact cycle decomposition; basins partition the state space.</td>
+      </tr>
+      <tr>
+        <td>Set-wise contractivity ⇒ <code>d(Ψ<sup>t</sup>(x),Λ)→0</code> (linear rate).</td>
+        <td>Eventual periodicity ⇒ convergence to a cycle/fixed point in finitely many steps.</td>
+      </tr>
+      <tr>
+        <td>Minimal model = ε-fundamental (Pareto-minimal complexity).</td>
+        <td>Fundamental implementation = Pareto-minimal within a dynamic equivalence class.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <details>
+    <summary>Scope and readership</summary>
+    <p>
+      For researchers and practitioners working on autoencoders, encoder–decoder transformers,
+      reversible/contractive architectures, and anyone deploying models where long-run iterative
+      behavior and hardware precision matter.
+    </p>
+  </details>
+</section>
+
 
 <!-- ===== FEATURED: Ψ-Framework Notes I–V (Ordered) ===== -->
 <section id="psi-notes-hub" class="research-list" aria-label="Featured Research: Ψ-Framework Notes I–V">
