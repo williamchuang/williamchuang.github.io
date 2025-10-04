@@ -46,11 +46,12 @@ blog: passive
       \qquad f(\lambda)=\widehat{\phi}(\lambda),
     \]
     with \(\Delta\) the Laplace–Beltrami operator and \(\widehat\phi\) the spherical transform of a zonal profile \(\phi\).
-    In Lorentzian settings (e.g. Minkowski) I use a <em>retarded</em> functional calculus
-    \[
-      \mathcal A_\phi \;=\; f_{\mathrm{ret}}(\Box),
-    \]
-    with \(\Box\) the d’Alembertian to respect causality.
+    In Lorentzian settings (e.g. Minkowski) I use a <em>causal</em> functional calculus
+\[
+  \mathcal A_\phi \;=\; f_{\mathrm{causal}}(\Box),
+\]
+with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future lightcone
+(\(\operatorname{supp} k_\phi \subset J^+(0)\)), ensuring causality.
     In a one-step linearization of training, eigenmodes of the generator
     (\(\Delta\) or \(\Box\)) contract independently via
     \[
