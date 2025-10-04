@@ -30,6 +30,86 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+
+
+
+<section id="grail-triquantized">
+  <h2>Tri-Quantized GRAIL for Hyperbolic Transformers</h2>
+
+  <p>
+    I cast attention as an automorphic operator on a hyperbolic quotient,
+    \[
+      K_{\phi}(z,w)=\sum_{\gamma\in\Gamma}\phi\!\big(d_{\mathbb H}(z,\gamma w)\big),
+      \qquad
+      (\mathcal A_\phi f)(z)=\int_{\Gamma\backslash\mathbb H} K_{\phi}(z,w)\,f(w)\,d\mu(w),
+    \]
+    so that \( \mathcal A_\phi = f(\Delta) \) with spectral multiplier
+    \( f(\lambda)=\widehat{\phi}(\lambda) \). In a one-step linearization of training,
+    eigenmodes of the Laplace–Beltrami operator \( \Delta \) contract independently by
+    \[
+      \rho(\lambda)=\bigl|\,1-\eta\,m(\lambda)\,\bigr|,\qquad m(\lambda)\ \propto\ \widehat{\phi}(\lambda),
+    \]
+    yielding Langlands-guided convergence and a principled Lorentz scheduling rule.
+  </p>
+
+  <h3>Tomorrow-morning quick-start (4 steps)</h3>
+  <ol>
+    <li>
+      <strong>Probe bank.</strong>
+      Log \(E(t_m)=\|e^{-t_m\Delta}h\|_2^2\) for \(m=1,\dots,M\) (using radial kernels already in the block).
+      Fit a simple mixture for the spectral density \( \rho(\lambda) \) consistent with Weyl’s law
+      \( N(\Lambda)\sim \tfrac{\mathrm{Area}}{4\pi}\Lambda \).
+    </li>
+    <li>
+      <strong>Gap &amp; bands.</strong>
+      From the fitted \( \rho(\lambda) \), locate the band that dominates the error energy.
+      Choose \( \phi \) so \( f(\lambda)=\widehat{\phi}(\lambda) \) damps that band
+      (heat \( e^{-t\lambda} \) for low-pass; resolvent \( (\lambda+s)^{-1} \) for flattened preconditioning).
+    </li>
+    <li>
+      <strong>Hecke stabilize (if available).</strong>
+      On congruence \( \Gamma \), average a few small primes to reduce gain spread:
+      \[
+        \mathcal A^{(H)}\;=\;\sum_{p\in\{2,3,5\}} w_p\,T_p\,\mathcal A_\phi.
+      \]
+    </li>
+    <li>
+      <strong>Close the loop with DFA.</strong>
+      Track cycle phases \( \Phi_C \) (DFA charges) alongside spectral probes; stability of \( \Phi_C \)
+      while the high-\( \lambda \) tail shrinks is the dual-quantization certificate.
+    </li>
+  </ol>
+
+  <h3>Tri-quantization (one-line Rosetta)</h3>
+  <ul>
+    <li><em>GRAIL (flow).</em> Non-commutativity \( [\xi,X] \) (BCH loop) \(\Rightarrow\) optimization curvature; normalize by an effective \( \hbar_{\mathrm{eff}} \) from gradient diffusion.</li>
+    <li><em>DFA (discrete).</em> Cycle blocks with \( T_CS_C=\omega S_CT_C \) and Wilson phases \( \Phi_C \) (block-local \(U(1)\) charges); transients as CPTP maps.</li>
+    <li><em>Maass (spectral/chaos).</em> \( \mathcal A_\phi=f(\Delta) \) acts on the automorphic spectrum; Selberg/Huber link probes to the length spectrum of closed geodesics.</li>
+  </ul>
+
+  <p>
+    <a href="https://drive.google.com/file/d/1smwK4PMxvB1ZyAJWj95tvhfB3GOPA73J/view?usp=sharing" target="_blank" rel="noopener">
+      📄 Open the full notes (Google Drive)
+    </a>
+  </p>
+
+  <details>
+    <summary>Copy-paste citation</summary>
+    <pre><code>@misc{chuang_grail_tri_quantized_2025,
+  title  = {Tri-Quantized GRAIL for Hyperbolic Transformers:
+            Maass Attention, Langlands-Guided Convergence,
+            Lorentz Scheduling, and DFA-Backed Influence Physics},
+  author = {Chuang, William},
+  year   = {2025},
+  note   = {Lecture notes},
+  url    = {https://drive.google.com/file/d/1smwK4PMxvB1ZyAJWj95tvhfB3GOPA73J/view?usp=sharing}
+}</code></pre>
+  </details>
+</section>
+
+
+
+
 <section id="grail-performance">
   <div class="kicker">GRAIL (no CEAS)</div>
   <h2>Does it slow training?</h2>
