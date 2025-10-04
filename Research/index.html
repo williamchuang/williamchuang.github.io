@@ -34,75 +34,91 @@ blog: passive
 
 
 <section id="grail-triquantized">
-  <h2>Tri-Quantized GRAIL for Hyperbolic Transformers</h2>
+  <h2>Tri-Quantized GRAIL on Curved Spacetimes</h2>
 
   <p>
-    I cast attention as an automorphic operator on a hyperbolic quotient,
+    I cast attention as a group-convolution / automorphic operator on a
+    <em>curved spacetime or symmetry manifold</em> (Riemannian or Lorentzian),
+    optionally a quotient \(X_\Gamma=\Gamma\backslash X\) where \(X\simeq G/K\) is a coset geometry.
+    In the Riemannian case this yields
     \[
-      K_{\phi}(z,w)=\sum_{\gamma\in\Gamma}\phi\!\big(d_{\mathbb H}(z,\gamma w)\big),
-      \qquad
-      (\mathcal A_\phi f)(z)=\int_{\Gamma\backslash\mathbb H} K_{\phi}(z,w)\,f(w)\,d\mu(w),
+      \mathcal A_\phi \;=\; f(\Delta),
+      \qquad f(\lambda)=\widehat{\phi}(\lambda),
     \]
-    so that \( \mathcal A_\phi = f(\Delta) \) with spectral multiplier
-    \( f(\lambda)=\widehat{\phi}(\lambda) \). In a one-step linearization of training,
-    eigenmodes of the Laplace–Beltrami operator \( \Delta \) contract independently by
+    with \(\Delta\) the Laplace–Beltrami operator and \(\widehat\phi\) the spherical transform of a zonal profile \(\phi\).
+    In Lorentzian settings (e.g. Minkowski) I use a <em>retarded</em> functional calculus
     \[
-      \rho(\lambda)=\bigl|\,1-\eta\,m(\lambda)\,\bigr|,\qquad m(\lambda)\ \propto\ \widehat{\phi}(\lambda),
+      \mathcal A_\phi \;=\; f_{\mathrm{ret}}(\Box),
     \]
-    yielding Langlands-guided convergence and a principled Lorentz scheduling rule.
+    with \(\Box\) the d’Alembertian to respect causality.
+    In a one-step linearization of training, eigenmodes of the generator
+    (\(\Delta\) or \(\Box\)) contract independently via
+    \[
+      \rho(\lambda)=\bigl|\,1-\eta\,m(\lambda)\,\bigr|,
+      \qquad m(\lambda)\ \propto\ f(\lambda),
+    \]
+    giving geometry-aware (Langlands-style) convergence and an isometry-scheduling rule
+    (Lorentz boosts/rotations on relativistic backgrounds, rotations on spheres, translations/rotations on Euclidean phases, etc.).
   </p>
 
-  <h3>How to use it: A quick-start (4 steps)</h3>
+  <h3>How to use it: a quick start (4 steps)</h3>
   <ol>
     <li>
       <strong>Probe bank.</strong>
-      Log \(E(t_m)=\|e^{-t_m\Delta}h\|_2^2\) for \(m=1,\dots,M\) (using radial kernels already in the block).
-      Fit a simple mixture for the spectral density \( \rho(\lambda) \) consistent with Weyl’s law
-      \( N(\Lambda)\sim \tfrac{\mathrm{Area}}{4\pi}\Lambda \).
+      Log spectral probes on your background:
+      \(E(t_m)=\|e^{-t_m\Delta}h\|_2^2\) for Riemannian \(X\),
+      or the causal analogue for Lorentzian \(X\),
+      \(m=1,\dots,M\).
+      Fit a simple nonnegative mixture for the spectral density \(\rho(\lambda)\) consistent with the appropriate Weyl law for \(X\)
+      (e.g. hyperbolic surface \(N(\Lambda)\sim \tfrac{\mathrm{Area}}{4\pi}\Lambda\);
+      Euclidean \(d\)-torus \(N(\Lambda)\sim C_d\,\Lambda^{d/2}\);
+      sphere \(S^d\) with polynomial eigenvalue growth).
     </li>
     <li>
       <strong>Gap &amp; bands.</strong>
-      From the fitted \( \rho(\lambda) \), locate the band that dominates the error energy.
-      Choose \( \phi \) so \( f(\lambda)=\widehat{\phi}(\lambda) \) damps that band
-      (heat \( e^{-t\lambda} \) for low-pass; resolvent \( (\lambda+s)^{-1} \) for flattened preconditioning).
+      From the fitted \(\rho(\lambda)\), locate the band that dominates error energy.
+      Choose \(\phi\) so \(f(\lambda)=\widehat{\phi}(\lambda)\) damps that band
+      (heat \(e^{-t\lambda}\) for low-pass; resolvent \((\lambda+s)^{-1}\) for flattened preconditioning;
+      narrow band-pass if selectivity is needed).
     </li>
     <li>
-      <strong>Hecke stabilize (if available).</strong>
-      On congruence \( \Gamma \), average a few small primes to reduce gain spread:
+      <strong>Stabilize with commuting structure (if available).</strong>
+      On congruence hyperbolic quotients, average a few small primes to reduce gain spread:
       \[
         \mathcal A^{(H)}\;=\;\sum_{p\in\{2,3,5\}} w_p\,T_p\,\mathcal A_\phi.
       \]
+      On spheres/tori, use small symmetry averages (spherical designs, lattice-shell averages) as commuting stabilizers.
     </li>
     <li>
       <strong>Close the loop with DFA.</strong>
-      Track cycle phases \( \Phi_C \) (DFA charges) alongside spectral probes; stability of \( \Phi_C \)
-      while the high-\( \lambda \) tail shrinks is the dual-quantization certificate.
+      Track cycle phases \(\Phi_C\) (DFA charges) alongside spectral probes.
+      Stability of \(\Phi_C\) while the high-\(\lambda\) tail shrinks is the dual-quantization certificate.
     </li>
   </ol>
 
   <h3>Tri-quantization (one-line Rosetta)</h3>
   <ul>
-    <li><em>GRAIL (flow).</em> Non-commutativity \( [\xi,X] \) (BCH loop) \(\Rightarrow\) optimization curvature; normalize by an effective \( \hbar_{\mathrm{eff}} \) from gradient diffusion.</li>
-    <li><em>DFA (discrete).</em> Cycle blocks with \( T_CS_C=\omega S_CT_C \) and Wilson phases \( \Phi_C \) (block-local \(U(1)\) charges); transients as CPTP maps.</li>
-    <li><em>Maass (spectral/chaos).</em> \( \mathcal A_\phi=f(\Delta) \) acts on the automorphic spectrum; Selberg/Huber link probes to the length spectrum of closed geodesics.</li>
+    <li><em>GRAIL (flow).</em> Non-commutativity \( [\xi,X] \) measured by a BCH loop \(\Rightarrow\) optimization curvature; normalize by an effective \( \hbar_{\mathrm{eff}} \) from gradient diffusion.</li>
+    <li><em>DFA (discrete).</em> Cycle blocks with \(T_CS_C=\omega S_CT_C\) and Wilson phases \(\Phi_C\) (block-local \(U(1)\) charges); transients as CPTP maps.</li>
+    <li><em>Spectral/chaos.</em> \( \mathcal A_\phi=f(\Delta)\) (Riemannian) or \(f_{\mathrm{ret}}(\Box)\) (Lorentzian) acts on the spectrum; in negatively curved/automorphic cases, Selberg/Huber link probes to the length spectrum of closed geodesics.</li>
   </ul>
 
   <p>
-    <a href="https://drive.google.com/file/d/1smwK4PMxvB1ZyAJWj95tvhfB3GOPA73J/view?usp=sharing" target="_blank" rel="noopener">
+    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=share_link" target="_blank" rel="noopener">
       📄 Open the full notes (Google Drive)
     </a>
   </p>
 
   <details>
     <summary>Copy-paste citation</summary>
-    <pre><code>@misc{chuang_grail_tri_quantized_2025,
-  title  = {Tri-Quantized GRAIL for Hyperbolic Transformers:
-            Maass Attention, Langlands-Guided Convergence,
-            Lorentz Scheduling, and DFA-Backed Influence Physics},
+    <pre><code>@misc{chuang_grail_triquantized_2025,
+  title  = {Tri-Quantized GRAIL on Curved Spacetimes:
+            Automorphic/Group Attention, Langlands-Guided Convergence,
+            Isometry Scheduling, and DFA-Backed Influence Physics},
   author = {Chuang, William},
   year   = {2025},
   note   = {Lecture notes},
-  url    = {https://drive.google.com/file/d/1smwK4PMxvB1ZyAJWj95tvhfB3GOPA73J/view?usp=sharing}
+  url    = {https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=share_link}
 }</code></pre>
   </details>
 </section>
