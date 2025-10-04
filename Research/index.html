@@ -30,6 +30,62 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+<section id="grail-performance">
+  <div class="kicker">GRAIL (no CEAS)</div>
+  <h2>Does it slow training?</h2>
+  <p class="lede">
+    Short answer: <strong>not much</strong>. The extra geometry (log/exp maps and a hyperbolic distance)
+    is <em>linear</em> in sequence length and width, while attention remains the dominant cost.
+  </p>
+
+  <div class="grid" style="margin-top:1rem">
+    <div class="card">
+      <h3>Where any overhead comes from</h3>
+      <ul>
+        <li><span class="pill">Maps</span> One <code>log_o</code> + one <code>exp_o</code> per block: \(O(BS\,d)\).</li>
+        <li><span class="pill">Distance</span> Minkowski dot + \(\operatorname{acosh}\) inside attention logits: same tensor shapes as vanilla attention.</li>
+        <li><span class="pill">Compare</span> Vanilla attention: \(O(B\,H\,S^2\,d)\) &mdash; this still dominates for realistic \(S,d\).</li>
+      </ul>
+      <p class="muted">
+        In practice on real configs this shows up as ~10–30% wall-clock, often less after a couple of micro-optimizations.
+        On tiny toy models, transcendentals can look larger than they will at scale.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Keep it fast (simple tweaks)</h3>
+      <ul>
+        <li>Fuse to <em>one</em> <code>log_o</code> at block entry and <em>one</em> <code>exp_o</code> at exit.</li>
+        <li>Batch Minkowski dots with <code>einsum</code>/<code>bmm</code> (hits tensor cores).</li>
+        <li>Cache \( \exp_o(u_P) \) for token prototypes once per step.</li>
+        <li>Use BF16/FP16 with the existing clamps; it’s numerically stable.</li>
+        <li>Approximate \(\operatorname{acosh}\) in the tails (absorb scale into \(\tau\) if needed).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Smallest working example</h3>
+      <p>
+        A compact transformer with hyperbolic attention learns 3-token string reversal to 100% in ~1 minute
+        on a single GPU. It demonstrates the framework end-to-end (curved token space, curved activations,
+        prototype decoding) with minimal code.
+      </p>
+      <p class="muted">
+        Notes PDF (transformer version): 
+        <a href="https://drive.google.com/file/d/1CzGHDlAd30qol0pB3mCg2nYz28ODm5rP/view?usp=sharing" target="_blank" rel="noopener">
+          GRAIL on a Transformer — Minimal Demo
+        </a>.
+      </p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:1.25rem">Bottom line</h3>
+  <ul>
+    <li><strong>GRAIL without CEAS ≈ vanilla + a small constant factor</strong> (single-digit to ~20% in typical regimes).</li>
+    <li>As \(S\) and \(d\) grow, attention’s \(O(BHS^2d)\) cost overwhelms the manifold’s \(O(BSd)\) extras.</li>
+    <li>If you do see larger slowdowns, it’s usually a toy-scale artifact or unfused log/exp calls.</li>
+  </ul>
+</section>
 
 <section id="grail-transformer-mwe">
   <div class="kicker">GRAIL × DFA</div>
