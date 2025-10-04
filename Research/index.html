@@ -31,42 +31,47 @@ blog: passive
     <section class="research-list">
 
 
-<section id="grail-transformer">
+<section id="grail-transformer-mwe">
   <div class="kicker">GRAIL × DFA</div>
-  <h1>GRAIL Transformer that Learns Strings on <span style="white-space:nowrap;">\(\mathbb{H}^d\)</span></h1>
+  <h1>Near-Minimal GRAIL Transformer on \(\mathbb{H}^d\)</h1>
   <p class="lede">
-    This experiment ports <strong>GRAIL</strong> from an autoencoder to a <em>transformer-style encoder</em> that operates on the hyperboloid model 
-    \(\mathbb{H}^d\). Tokens are represented by trainable prototypes \(P_c=\exp_o(u_c)\), attention is computed via hyperbolic distances, and the head lives in the tangent space via \(\log_o\).
-    The model learns the toy string task “reverse three tokens from \(\{1,2,3\}\)” to \(100\%\) accuracy.
+    This is a <em>near-minimal working example</em> of the <strong>GRAIL</strong> framework on a transformer encoder that learns short strings.
+    Tokens live on the hyperboloid \(\mathbb{H}^d\), attention uses hyperbolic distances, and outputs remain on the manifold via \(\exp_o/\log_o\).
+    Despite having ~396 parameters, it solves the 3-token reverse task with perfect accuracy.
   </p>
 
   <div class="grid" style="margin-top:1rem">
     <div class="card">
-      <h3>What’s new</h3>
+      <h3>Why this matters</h3>
       <ul>
-        <li><strong>Curved domain & codomain:</strong> sequences live on \(\mathbb{H}^d\); the predictor maps \(\mathbb{H}^d \rightarrow \mathbb{H}^d\) with geometry-aware layers.</li>
-        <li><strong>Hyperbolic attention:</strong> queries/keys are mapped through \(\exp_o\); logits are \(-d_{\mathbb{H}}^2/\tau\).</li>
-        <li><strong>Prototype decoding:</strong> class logits use squared distances to \(P_c\) on \(\mathbb{H}^d\).</li>
-        <li><strong>Tangent regularizer:</strong> \(\mathcal{R}_{\text{tan}}=\tfrac{1}{BS\,d}\lVert U-T\rVert_F^2\) stabilizes curvature awareness.</li>
+        <li><strong>Curved domain & codomain:</strong> inputs and predictions both lie on \(\mathbb{H}^d\), matching tree-like/ultrametric structure.</li>
+        <li><strong>Hyperbolic attention:</strong> logits are \(-d_{\mathbb{H}}^2/\tau\) between \(\exp_o(\text{queries})\) and \(\exp_o(\text{keys})\).</li>
+        <li><strong>Prototype decoding:</strong> class scores are distances to trainable prototypes \(P_c=\exp_o(u_c)\).</li>
+        <li><strong>Tangent regularizer:</strong> \(\displaystyle \mathcal{R}_{\text{tan}}=\frac{1}{BS\,d}\lVert U - T\rVert_F^2\) keeps geometry stable.</li>
       </ul>
+      <span class="pill">Near-minimal demo</span>
+      <span class="pill">~396 params</span>
+      <span class="pill">Geometry-aware</span>
     </div>
 
     <div class="card">
-      <h3>Objective</h3>
-      <p class="muted">Let \(B\) be batch size, \(S\) sequence length, \(d\) the tangent dimension, and \(C\) the number of tokens.</p>
+      <h3>Objective (symbols defined)</h3>
+      <p class="muted">
+        \(B\): batch size, \(S\): sequence length, \(d\): tangent dim, \(C\): tokens, \(Y\): outputs on \(\mathbb{H}^d\), \(U=\log_o(Y)\), 
+        \(P_c\): prototypes, \(T=\log_o(P_y)\), temperature \(\tau_{\text{cls}}\), weight \(\lambda\).
+      </p>
       <div class="eq">
         \[
           \mathcal{L}
-          \;=\;
-          \underbrace{\frac{1}{BS}\sum_{b,t} \Big[-\log\mathrm{softmax}(\ell_{b,t,\cdot})_{y_{b,t}}\Big]}_{\mathcal{L}_{\mathrm{CE}}}
-          \;+\;
-          \lambda\,\underbrace{\frac{1}{BS\,d}\,\lVert U - T\rVert_F^2}_{\mathcal{R}_{\mathrm{tan}}}.
+          =
+          \underbrace{\frac{1}{BS}\sum_{b,t}\!\Big[-\log\mathrm{softmax}(\ell_{b,t,\cdot})_{y_{b,t}}\Big]}_{\mathcal{L}_{\mathrm{CE}}}
+          +
+          \lambda\,
+          \underbrace{\frac{1}{BS\,d}\,\lVert U - T\rVert_F^2}_{\mathcal{R}_{\mathrm{tan}}},
+          \quad
+          \ell_{b,t,c}=-\frac{d_{\mathbb{H}}(Y_{b,t},P_c)^2}{\tau_{\text{cls}}}.
         \]
       </div>
-      <p class="muted">
-        Here \(U=\log_o(Y)\) are model outputs in the tangent space, \(T=\log_o(P_{y})\) are target prototype tangents, and
-        \(\ell_{b,t,c}=-d_{\mathbb{H}}(Y_{b,t},P_c)^2/\tau_{\text{cls}}\).
-      </p>
     </div>
 
     <div class="card">
@@ -75,30 +80,29 @@ blog: passive
 Epoch 54: val_acc = 1.000
 Final test accuracy: 1.000
       </pre>
-      <p class="muted">Tiny model (≈396 params) converges quickly on the 27 sequences (\(3^3\)) reverse task.</p>
+      <p class="muted">
+        Dataset: all \(3^3=27\) strings with reversal as the target. 
+        Small cosine schedule + early stopping reach perfect accuracy quickly.
+      </p>
+      <span class="pill">100% on 27 strings</span>
       <span class="pill">Hyperbolic attention</span>
       <span class="pill">Prototype decoding</span>
-      <span class="pill">Tangent regularizer</span>
     </div>
 
     <div class="card">
-      <h3>Why curvature matters</h3>
+      <h3>Takeaway</h3>
       <p>
-        Sequences of discrete symbols often exhibit <em>tree-like</em> or <em>hierarchical</em> structure, which is well-matched by negative curvature. 
-        By keeping both the <em>domain</em> (token stream) and the <em>codomain</em> (predicted representations) on \(\mathbb{H}^d\), 
-        the transformer’s geometry aligns with the task’s latent symmetries, and the prototypes become anchors on the manifold rather than 
-        Euclidean points with ad-hoc normalization.
+        This compact setup demonstrates the end-to-end mechanics of GRAIL on a transformer: curved token geometry, curvature-aware attention, 
+        and manifold-preserving heads. It’s intentionally minimal so the geometric pieces (and how they interact) are easy to inspect and extend.
       </p>
     </div>
   </div>
 
   <h2 style="margin-top:2rem">Notes & PDF</h2>
   <p class="muted">
-    The implementation uses \(\exp_o\), \(\log_o\), Lorentzian dot, and distance-based logits. 
-    A small cosine schedule and early stopping reach perfect accuracy. 
-    For a write-up with equations and code snippets, see the PDF:
+    For a concise write-up with equations and code snippets, see:
     <a href="https://drive.google.com/file/d/1CzGHDlAd30qol0pB3mCg2nYz28ODm5rP/view?usp=sharing" target="_blank" rel="noopener">
-      GRAIL Transformer on \(\mathbb{H}^d\): String Learning via Hyperbolic Attention
+      GRAIL Transformer on \(\mathbb{H}^d\): Near-Minimal String Learner
     </a>.
   </p>
 </section>
