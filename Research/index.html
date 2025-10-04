@@ -31,6 +31,80 @@ blog: passive
     <section class="research-list">
 
 
+<section id="sgd-lorentz-commutator">
+  <div class="kicker">GRAIL × DFA — experiment</div>
+  <h2>Operational Test of Non-Commutativity: SGD vs Lorentz Transformation</h2>
+
+  <p class="lede">
+    I run a contrapositive probe to test whether a tiny SGD step \(e^{-\eta X}\) commutes with a Lorentz action \(\Gamma_L\) applied to inputs and the first layer of a small autoencoder on the hyperboloid. If they commuted, swapping the order would leave parameters unchanged up to higher-order terms; instead I measure a clear first-order drift.
+  </p>
+
+  <div class="card">
+    <h3>The two one-step paths</h3>
+    <div class="eq">
+      \[
+        \textbf{Path A: }\ \theta_A = e^{-\eta X}(\theta)
+        \qquad\qquad
+        \textbf{Path B: }\ \theta_B = \Gamma_{L^{-1}}\!\big(e^{-\eta X_L}(\Gamma_L \theta)\big)
+      \]
+    </div>
+    <p class="muted">
+      Here \(X\) is the gradient field on the original data; \(X_L\) is the gradient in the transformed frame. The first layer is precomposed exactly so \(f(Lx;W)=f(x;W')\) with \(W_1' = L^\top W_1\).
+    </p>
+  </div>
+
+  <div class="grid" style="margin-top:1rem">
+    <div class="card">
+      <h3>What I measure</h3>
+      <div class="eq">
+        \[
+          \Delta_{\theta}^{\mathrm{norm}}=\frac{\lVert \theta_B-\theta_A\rVert}{\eta\,\varepsilon},
+          \qquad
+          \Delta_{\mathcal L}^{\mathrm{norm}}=\frac{\big|\mathcal L(\theta_B)-\mathcal L(\theta_A)\big|}{\eta\,\varepsilon}.
+        \]
+      </div>
+      <p class="muted">BCH predicts a first-order term \(\tfrac12\,\eta\varepsilon\,\![\xi,X]\); nonzero normalized drift certifies non-commutativity.</p>
+    </div>
+
+```
+<div class="card">
+  <h3>Controls</h3>
+  <ul>
+    <li>\(\varepsilon=0\): no transform \(\Rightarrow\) drifts \(\approx 0\).</li>
+    <li>\(\eta=0\): push–pull \(\Gamma_{L^{-1}}\Gamma_L\) leaves parameters unchanged.</li>
+  </ul>
+  <p class="muted">These checks validate the instrumentation and scaling.</p>
+</div>
+
+<div class="card">
+  <h3>What happens in practice</h3>
+  <ul>
+    <li>After a short warm-up, \(\Delta_{\theta}^{\mathrm{norm}}\) is consistently &gt; 0 (often order \(4\!-\!15\) for small \(\eta,\varepsilon\)).</li>
+    <li>\(\Delta_{\mathcal L}^{\mathrm{norm}}\) is smaller (single-step MSE hardly moves) but detectable and scales with \(\eta\varepsilon\).</li>
+  </ul>
+  <p class="muted">This demonstrates that “train then transform” \(\neq\) “transform then train (and pull back)” at first order.</p>
+</div>
+```
+
+  </div>
+
+  <h3 style="margin-top:2rem">Notes (PDF)</h3>
+  <p>
+    For the write-up with derivations, macros, and the exact precomposition rule:
+    <a href="https://drive.google.com/file/d/1rCWCOj6mXCpCs094icIa1z80g3MNhH_7/view?usp=sharing" target="_blank" rel="noopener">
+      Operational Test of Non-Commutativity: SGD vs. Lorentz Transformation
+    </a>.
+  </p>
+
+  <h3 style="margin-top:2rem">Why this matters</h3>
+  <ul>
+    <li>Quantifies symmetry obstruction via an observable bracket proxy, \([\xi,X]\).</li>
+    <li>Portable audit: swap in other groups/optimizers and reuse the same test.</li>
+    <li>Guides covariant training: large drift suggests adding gauge terms to reduce path dependence.</li>
+  </ul>
+</section>
+
+
 <section id="extended-notes" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
   <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
     GRAIL × DFA
