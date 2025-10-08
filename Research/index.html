@@ -219,21 +219,83 @@ blog: passive
     </div>
   </article>
 
-  <!-- NEW: Yoneda operational card -->
-  <article class="ctq-card" id="yoneda">
-    <h3>Yoneda theorem (operational) → heads as functors</h3>
-    <p class="ctq-mini">
-      I view each head as a covariant fiber functor \( \widehat{\mathrm{Head}}_\beta:\mathsf{Rep}(\Gamma)\to\mathsf{Hilb}_{\mathrm{fe}} \),
-      \( V \mapsto (V^\vee\!\otimes \mathcal H_\beta)_\Gamma \). By <em>Yoneda</em>, specifying a head on representable objects
-      determines it up to a unique natural isomorphism; natural transformations correspond to elements in the target.
-    </p>
-    <ul class="ctq-list">
-      <li><strong>Cryptographic twins:</strong> two heads are equivalent iff there is a unitary monoidal natural iso (they yield identical observables).</li>
-      <li><strong>Hecke as natural endotransformations:</strong> \(\{T_n\}\) act componentwise on \( \mathcal H_\beta \), commuting with the functor’s tensor structure.</li>
-      <li><strong>DFA compliance:</strong> an endofunctor \( \mathsf T_{\mathrm{DFA}} \) provides a natural comparison; stable heads land in its invariant image.</li>
-      <li><strong>QG implication:</strong> the EH/spectral invariants (heat trace, \(\lambda_{\mathrm{eff}}\)) are <em>functorial</em>—they survive gauge, matching the GR idea that physics lives in invariants.</li>
-    </ul>
-  </article>
+<!-- Yoneda: probes determine heads -->
+<article class="ctq-card" id="yoneda">
+  <h3>Yoneda viewpoint: probes &rarr; heads</h3>
+  <p class="ctq-mini">
+    I treat each head as a covariant fiber functor
+    \( \widehat{\mathrm{Head}}_\beta:\mathsf{Rep}(\Gamma)\!\to\!\mathsf{Hilb}_{\mathrm{fe}} \),
+    \( V \mapsto (V^\vee \!\otimes \mathcal H_\beta)_\Gamma \).
+    For any \( V\in\mathsf{Rep}(\Gamma) \), the representable probe is
+    \( h_V(W)=\mathrm{Hom}_\Gamma(V,W) \).
+    By <em>Yoneda</em>,
+    <span class="ctq-pill">Nat\(h_V,\widehat{\mathrm{Head}}_\beta\)\(\;\cong\;\)\(\widehat{\mathrm{Head}}_\beta(V)\)</span>.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Operational reading.</strong>
+    Specifying how a head acts on <em>all maps out of \(V\)</em> is equivalent to a single feature vector in the fiber at \(V\).
+    So a small family of probes \( \{h_{V_a}\} \) suffices to recover the head on a dense class of tests.
+  </div>
+
+  <h4 class="ctq-mini">Practical probes</h4>
+  <ul class="ctq-list">
+    <li>Pick a finite tensor–dual generating set \( \mathcal G=\{V_a\} \) (e.g., standard rep, its dual, and a few low tensor powers).</li>
+    <li>Log the fibers \( \widehat{\mathrm{Head}}_\beta(V_a) \) during diagnostics; these are exactly the “features on probes.”</li>
+    <li>(Optional) Coend reconstruction: \( \displaystyle \mathcal H_\beta^{\mathrm{rec}}=\int^{V} V^\vee\!\otimes \widehat{\mathrm{Head}}_\beta(V) \), then pass to \( \Gamma \)-coinvariants to recover \( \mathcal H_\beta \).</li>
+  </ul>
+
+  <h4 class="ctq-mini">Hecke &amp; DFA as natural maps</h4>
+  <ul class="ctq-list">
+    <li><strong>Hecke naturality:</strong> postcomposing \( \eta:h_V\!\Rightarrow\!\widehat{\mathrm{Head}}_\beta \) with \( \eta^{(n)} \) corresponds to applying \( T_n \) on the \( \mathcal H_\beta \)-factor of \( \widehat{\mathrm{Head}}_\beta(V) \).</li>
+    <li><strong>DFA compliance:</strong> the comparison \( \widehat{\mathrm{Head}}_\beta\!\Rightarrow\!\mathsf T_{\mathrm{DFA}}\widehat{\mathrm{Head}}_\beta \) is natural in \(V\); stable heads land in the invariant image.</li>
+  </ul>
+
+  <h4 class="ctq-mini">Physics link (CTQ gravity)</h4>
+  <ul class="ctq-list">
+    <li><strong>Observer–probe principle:</strong> the measured BCH spectrum and \( \lambda_{\mathrm{eff}}(t) \) are functions of a small probe set \( \mathcal G \).</li>
+    <li><strong>Gauge invariance:</strong> functorial invariants (Hecke spectra, heat trace, BCH functionals) match GR’s “physics = invariants” ethos.</li>
+  </ul>
+</article>
+
+<!-- Twin verification (cryptographic twins via Yoneda) -->
+<article class="ctq-card" id="twin-check">
+  <h3>Twin verification via Yoneda (cryptographic twins)</h3>
+  <p class="ctq-mini">
+    Two heads \( \widehat{\mathrm{Head}}_\beta \) and \( \widehat{\mathrm{Head}}'_\beta \) are <em>cryptographic twins</em> if there is a unitary monoidal natural isomorphism
+    \( \eta:\widehat{\mathrm{Head}}_\beta \Rightarrow \widehat{\mathrm{Head}}'_\beta \)
+    that intertwines all Hecke maps and respects the DFA comparison.
+  </p>
+
+  <h4 class="ctq-mini">Checklist (finite generator test)</h4>
+  <ul class="ctq-ticks">
+    <li><strong>Choose generators:</strong> fix a tensor–dual generating set \( \mathcal G=\{V_a\} \subset \mathsf{Rep}(\Gamma) \).</li>
+    <li><strong>Fiber match:</strong> find unitary maps \( \theta_{V_a}: \widehat{\mathrm{Head}}_\beta(V_a) \!\to\! \widehat{\mathrm{Head}}'_\beta(V_a) \) (use unitary Procrustes on the logged features).</li>
+    <li><strong>Naturality:</strong> verify \( \theta \) commutes with the generating morphisms between \( V_a \)’s.</li>
+    <li><strong>Monoidality:</strong> check \( \theta_{V\otimes W} = \mu'_{V,W}\!\circ(\theta_V\!\otimes\!\theta_W)\!\circ\mu_{V,W}^{-1} \) on probe pairs.</li>
+    <li><strong>Hecke/DFA squares:</strong> confirm \( \theta\circ \eta^{(n)}=\eta'^{(n)}\!\circ \theta \) and naturality with \( \mathsf T_{\mathrm{DFA}} \).</li>
+  </ul>
+
+  <div class="ctq-callout">
+    <strong>Conclude twinhood.</strong>
+    If the five items hold on \( \mathcal G \), Yoneda + monoidality extend \( \theta \) uniquely to a unitary monoidal natural isomorphism
+    \( \eta:\widehat{\mathrm{Head}}_\beta \Rightarrow \widehat{\mathrm{Head}}'_\beta \).
+  </div>
+
+  <h4 class="ctq-mini">Invariants to compare (should match for twins)</h4>
+  <ul class="ctq-list">
+    <li>Hecke spectra: eigenvalues of \( \{\eta^{(n)}\} \) on each \( \widehat{\mathrm{Head}}_\beta(V_a) \).</li>
+    <li>Heat trace / spectral action proxies: \( \mathrm{Tr}(e^{-tL_\beta}) \), \( \lambda_{\mathrm{eff}}(t) \).</li>
+    <li>BCH field: input-projected Gram eigenvalues of \( [\xi,X](t) \) on first layers.</li>
+    <li>DFA invariants: dimension of the DFA-invariant subspace and its stability under CEAS.</li>
+  </ul>
+
+  <h4 class="ctq-mini">Notes</h4>
+  <ul class="ctq-list">
+    <li><strong>\( \mathbb H^2 \) vs \( \mathbb H^d \):</strong> the Yoneda test is geometry-agnostic; only your kernel/trace proxies change when moving to \( d=3,4 \).</li>
+    <li><strong>WMAP checkpoints:</strong> I pick \( \mathcal G \) to reflect the symmetries seen by the hyperbolic sampler; matching fibers on \( \mathcal G \) aligns models across runs.</li>
+  </ul>
+</article>
 
   <!-- NEW: Seven bridges -> EH action -->
   <article class="ctq-card" id="bridges-eh">
