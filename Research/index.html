@@ -69,6 +69,7 @@ blog: passive
     .ctq-card h3{margin:.2rem 0 .55rem;font-size:1.05rem}
     .ctq-callout{background:var(--soft);border-left:4px solid var(--accent);
       padding:12px 14px;border-radius:10px;margin:10px 0}
+    .ctq-note{background:#fff8e1;border-left:4px solid #f4c20d;padding:10px 12px;border-radius:10px;margin:10px 0;color:#664d03}
     .ctq-sep{height:1px;background:#eef0f4;margin:18px 0}
     .ctq-pill{display:inline-block;font:12px/1 var(--font,inherit);padding:2px 8px;border-radius:999px;background:#eef7f1;color:#0a6d47;border:1px solid #d9f0e4}
     .ctq-link{color:var(--accent);text-decoration:none}
@@ -93,7 +94,8 @@ blog: passive
     <p class="ctq-sub">A learning–theoretic route to emergent quantum gravity: geometry (automorphic), information (Galois/DFA), and thermodynamics (Selberg–Huber) fused by a critical-entropy thermostat.</p>
     <div class="ctq-badges">
       <span class="ctq-badge">Automorphic kernels</span>
-      <span class="ctq-badge">Hyperbolic attention \( \mathbb H^2 \)</span>
+      <span class="ctq-badge">Hyperbolic attention \( \mathbb H^2 \) (current)</span>
+      <span class="ctq-badge">Roadmap: \( \mathbb H^d \) (\(d=3,4\))</span>
       <span class="ctq-badge">CEAS criticality</span>
       <span class="ctq-badge">DFA symbolic quantization</span>
       <span class="ctq-badge">Selberg/Huber diagnostics</span>
@@ -119,6 +121,9 @@ blog: passive
         \]
       </div>
     </div>
+    <div class="ctq-note" role="note" aria-label="Geometry notice">
+      <strong>Geometry notice.</strong> The current diagnostics and Selberg/prime-geodesic proxies are <em>2D-specific</em> (surface quotients \( \mathrm{PSL}(2,\mathbb Z)\backslash\mathbb H^2 \)). The \( \mathbb H^d \) roadmap (for \( d=3,4 \)) replaces these with lattices in \( SO^+(d,1) \) and the appropriate higher-dimensional hyperbolic weights.
+    </div>
 
     <h3>Synthesis at a glance</h3>
     <div class="ctq-table-wrap" role="region" aria-label="Synthesis table">
@@ -131,7 +136,7 @@ blog: passive
         <tbody>
           <tr class="ctq-row">
             <td>Automorphic geometry</td>
-            <td>Heat/Maass kernel on \( \mathrm{PSL}(2,\mathbb Z)\backslash \mathbb H \), truncated Poincaré (+ Hecke)</td>
+            <td>Heat/Maass kernel on \( \mathrm{PSL}(2,\mathbb Z)\backslash \mathbb H^2 \) (current); truncated Poincaré (+ Hecke)</td>
             <td>Curvature quantization; \( \beta \) sharpens/softens geometry</td>
           </tr>
           <tr class="ctq-row">
@@ -154,14 +159,14 @@ blog: passive
     <ul class="ctq-list">
       <li><strong>Non-commutativity field \( [\xi,X](t) \):</strong> BCH two-path probe; report via input-projected Gram eigenvalues per first layer.</li>
       <li><strong>Effective spectrum \( \lambda_{\mathrm{eff}}(t) \):</strong> from probe energies \( E(t) \), \( \lambda_{\mathrm{eff}}(t)\!\approx\! -\,\frac{d}{dt}\log E(t) \); bands narrow under CEAS.</li>
-      <li><strong>Hyperbolic trace proxies:</strong> seeded prime-geodesic/trace terms certify negative curvature in the learned operator.</li>
+      <li><strong>Hyperbolic trace proxies (2D):</strong> seeded prime-geodesic/trace terms on \( \mathrm{PSL}(2,\mathbb Z) \) certify negative curvature in the learned operator.</li>
     </ul>
 
     <div class="ctq-sep"></div>
 
     <h3>Download &amp; cite</h3>
     <p>
-      <a class="ctq-link" href="https://drive.google.com/file/d/1rvy7MWXthtzLC4NAmu35GaWkz83B86Yh/view?usp=sharing" target="_blank" rel="noopener">Download the PDF</a>
+      <a class="ctq-link" href="https://drive.google.com/file/d/12hLuoJQgtzsayyXcZQKgBO7ixl23XIGQ/view?usp=sharing" target="_blank" rel="noopener">Download the PDF</a>
       <span class="ctq-pill">Lecture Notes (Draft)</span>
     </p>
     <details>
@@ -173,7 +178,7 @@ blog: passive
   author = {William Chuang},
   year   = {2025},
   note   = {Lecture Notes (Draft)},
-  url    = {https://drive.google.com/file/d/1rvy7MWXthtzLC4NAmu35GaWkz83B86Yh/view?usp=sharing}
+  url    = {https://drive.google.com/file/d/12hLuoJQgtzsayyXcZQKgBO7ixl23XIGQ/view?usp=sharing}
 }
 </pre>
     </details>
@@ -191,7 +196,7 @@ blog: passive
       <div>Thermostat</div>
       <div>CEAS regulates \( \beta \) via \( \frac{dH}{d\beta} \) near pseudo-criticality</div>
       <div>Observables</div>
-      <div>\( [\xi,X](t) \) spectrum; \( \lambda_{\mathrm{eff}}(t) \); hyperbolic trace proxies</div>
+      <div>\( [\xi,X](t) \) spectrum; \( \lambda_{\mathrm{eff}}(t) \); hyperbolic trace proxies (2D)</div>
     </div>
   </article>
 
@@ -214,6 +219,16 @@ blog: passive
       Diagnostics run on a trained <em>GRAILAttention</em> (with optional DFA).
       If the WMAP V-band FITS is absent locally, a synthetic hyperbolic sampler reproduces the reported spectra using the same code path.
     </p>
+  </article>
+
+  <article class="ctq-card" aria-label="H^d roadmap">
+    <h3>Roadmap: \( \mathbb H^d \) ( \(d=3,4\) )</h3>
+    <ul class="ctq-list ctq-mini">
+      <li>Switch to the Poincaré <em>ball</em> distance (dimension-agnostic) in the kernel.</li>
+      <li>Replace \( \mathrm{PSL}(2,\mathbb Z) \) proxies with lattices in \( SO^+(d,1) \); new word generators/length extractors.</li>
+      <li>Use the appropriate higher-dimensional Selberg/Huber hyperbolic weights (not \( \ell / 2\sinh(\ell/2) \)).</li>
+      <li>Keep CEAS, DFA, and the BCH commutator probe unchanged (they are geometry-agnostic).</li>
+    </ul>
   </article>
 </section>
 
