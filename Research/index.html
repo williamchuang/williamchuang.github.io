@@ -30,6 +30,170 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+<!-- Optional: enable only if your site doesn't already load MathJax -->
+<!--
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+-->
+
+<section class="ctq-wrap" id="ctq-langlands">
+  <style>
+    .ctq-wrap{--ink:#0F2230;--muted:#55657E;--soft:#F6F8FF;--accent:#0B5FFF;--emerald:#0E9F6E;--amber:#FFC107;--rose:#e11d48;--slate:#334155;
+      color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:1100px;margin:0 auto;padding:28px 18px}
+    .ctq-hero{background:linear-gradient(180deg,rgba(11,95,255,.07),rgba(11,95,255,0));border:1px solid #e6ecff;border-radius:14px;padding:22px 20px;margin-bottom:22px}
+    .ctq-title{margin:0 0 6px;font-weight:800;letter-spacing:.2px}
+    .ctq-sub{margin:4px 0 0;color:var(--muted)}
+    .ctq-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .ctq-badge{font-size:12px;padding:4px 8px;border-radius:999px;background:#eef3ff;color:#173e8f;border:1px solid #dbe7ff}
+    .ctq-grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width:820px){.ctq-grid{grid-template-columns:1.2fr .8fr}}
+    .ctq-card{background:white;border:1px solid #e6e8ee;border-radius:12px;padding:16px}
+    .ctq-card h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+    .ctq-kv{display:grid;grid-template-columns:140px 1fr;gap:8px}
+    .ctq-kv div:first-child{color:var(--muted)}
+    .ctq-callout{background:var(--soft);border-left:4px solid var(--accent);padding:12px 14px;border-radius:10px;margin:10px 0}
+    .ctq-sep{height:1px;background:#eef0f4;margin:18px 0}
+    .ctq-pill{display:inline-block;font:12px/1 var(--font,inherit);padding:2px 8px;border-radius:999px;background:#eef7f1;color:#0a6d47;border:1px solid #d9f0e4}
+    .ctq-link{color:var(--accent);text-decoration:none}
+    .ctq-link:hover{text-decoration:underline}
+    .ctq-list{margin:8px 0 0;padding-left:18px}
+    .ctq-mini{color:var(--muted);font-size:13px;margin-top:10px}
+    .ctq-table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:.95rem}
+    .ctq-table th{font-weight:700;text-align:left;color:#23324a}
+    .ctq-table td,.ctq-table th{padding:8px 10px}
+    .ctq-row{background:#fff;border:1px solid #e6e8ee;border-radius:10px}
+  </style>
+
+  <div class="ctq-hero">
+    <h1 class="ctq-title">Critical–Tri–Quantized Langlands: Automorphic Attention, Galois/DFA, and Motivic Thermodynamics at CEAS Criticality</h1>
+    <p class="ctq-sub">A learning–theoretic route to emergent quantum gravity: geometry (automorphic), information (Galois/DFA), and thermodynamics (Selberg–Huber) fused by a critical-entropy thermostat.</p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Automorphic kernels</span>
+      <span class="ctq-badge">Hyperbolic attention \( \mathbb H^2 \)</span>
+      <span class="ctq-badge">CEAS criticality</span>
+      <span class="ctq-badge">DFA symbolic quantization</span>
+      <span class="ctq-badge">Selberg/Huber diagnostics</span>
+    </div>
+  </div>
+
+  <div class="ctq-grid">
+    <article class="ctq-card">
+      <h3>Abstract (plain language)</h3>
+      <p>
+        I construct an attention mechanism that natively lives on hyperbolic geometry and uses automorphic (Maass-type) kernels. A critical-entropy controller (CEAS) regulates the inverse temperature \( \beta \) so that attention entropy hovers near a pseudo-critical point. Within this setting, the classic Langlands triad is realized \emph{inside} a neural operator:
+        <em>automorphic</em> \( \leftrightarrow \) <em>Galois</em> \( \leftrightarrow \) <em>motive</em>.
+      </p>
+      <div class="ctq-callout">
+        <strong>Key equations.</strong>
+        <div class="ctq-mini">
+          Automorphic kernel:
+          \[
+            K_{\beta}(q,k)=\sum_{\gamma\in\Gamma_{\text{trunc}}}\exp\big(-\beta\, d_{\mathbb H}(q,\gamma k)\big)
+          \]
+          CEAS identity:
+          \[
+            \frac{dH}{d\beta} \;=\; -\,\beta\,\mathbb{E}_i\!\left[\operatorname{Var}_{p_{i\cdot}(\beta)}\!\big(s_{i\cdot}\big)\right]
+          \]
+        </div>
+      </div>
+
+      <h3>Synthesis at a glance</h3>
+      <table class="ctq-table" aria-label="Synthesis table">
+        <thead>
+          <tr class="ctq-row">
+            <th>Pillar</th><th>Realization</th><th>Physical meaning / Control</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ctq-row">
+            <td>Automorphic geometry</td>
+            <td>Heat/Maass kernel on \( \mathrm{PSL}(2,\mathbb Z)\backslash \mathbb H \), truncated Poincaré (+ Hecke)</td>
+            <td>Curvature quantization; \( \beta \) sharpens/softens geometry</td>
+          </tr>
+          <tr class="ctq-row">
+            <td>Galois information</td>
+            <td>DFA coupler (cycle/transition bias; row-stochastic shifts)</td>
+            <td>Discrete causal quantization; entropy gate constrains transitions</td>
+          </tr>
+          <tr class="ctq-row">
+            <td>Motivic thermodynamics</td>
+            <td>Selberg/Huber probe energies &amp; pressure bands</td>
+            <td>Thermodynamic quantization; CEAS maintains near-critical corridor</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="ctq-sep"></div>
+
+      <h3>Operational signatures</h3>
+      <ul class="ctq-list">
+        <li><strong>Non-commutativity field \( [\xi,X](t) \):</strong> read out by a BCH two-path probe (tiny isometry push vs. direct update); reported via input-projected Gram eigenvalues per first layer.</li>
+        <li><strong>Effective spectrum \( \lambda_{\mathrm{eff}}(t) \):</strong> from probe energies \( E(t) \), \( \lambda_{\mathrm{eff}}(t)\approx -\,\frac{d}{dt}\log E(t) \); bands narrow under CEAS control.</li>
+        <li><strong>Hyperbolic trace proxies:</strong> seeded prime-geodesic/trace terms certify negative-curvature structure in the learned operator.</li>
+      </ul>
+
+      <div class="ctq-sep"></div>
+
+      <h3>Download &amp; cite</h3>
+      <p>
+        <a class="ctq-link" href="https://drive.google.com/file/d/1T9onFetTOs4ImFWg8w4ncLEGTdYg9Csp/view?usp=sharing" target="_blank" rel="noopener">Download the PDF</a>
+        <span class="ctq-pill">Lecture Notes (Draft)</span>
+      </p>
+      <details>
+        <summary class="ctq-link">Show suggested citation (BibTeX)</summary>
+<pre style="white-space:pre-wrap;margin:8px 0 0;background:#f7f9fc;border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
+@misc{CTQLanglands,
+  title  = {Critical--Tri--Quantized Langlands:
+            Automorphic Attention, Galois/DFA, and Motivic Thermodynamics at CEAS Criticality},
+  author = {William Chuang, Independent Researcher},
+  year   = {2025},
+  note   = {Lecture Notes (Draft)},
+  url    = {https://drive.google.com/file/d/1T9onFetTOs4ImFWg8w4ncLEGTdYg9Csp/view?usp=sharing}
+}
+</pre>
+      </details>
+    </article>
+
+    <aside class="ctq-card">
+      <h3>Quick orientation</h3>
+      <div class="ctq-kv">
+        <div>Geometry</div>
+        <div>Tokens on \( \mathbb H^2 \) (Poincaré disk/UHP); logits include hyperbolic heat distance</div>
+        <div>Automorphic gates</div>
+        <div>Truncated Poincaré series; optional small-prime Hecke averages</div>
+        <div>Symbolic layer</div>
+        <div>DFA coupler modulates cycles / row-stochastic shifts</div>
+        <div>Thermostat</div>
+        <div>CEAS regulates \( \beta \) via \( \frac{dH}{d\beta} \) to keep entropy near pseudo-criticality</div>
+        <div>Observables</div>
+        <div>\( [\xi,X](t) \) spectrum; \( \lambda_{\mathrm{eff}}(t) \); hyperbolic trace proxies</div>
+      </div>
+
+      <div class="ctq-sep"></div>
+
+      <h3>One-line logit (schematic)</h3>
+      <div class="ctq-mini">
+        \[
+        \underbrace{\langle q(x_i),k(x_j)\rangle}_{\text{content}}
+        + \underbrace{\mathrm{heat}_t\!\big(d_{\mathbb H}(z_i,z_j)\big)}_{\text{geometry}}
+        + \underbrace{\log\!\!\sum_{\gamma\in\Gamma_{\rm trunc}}\! e^{-\beta\, d_{\mathbb H}(z_i,\gamma z_j)} + \text{Hecke}}_{\text{automorphic}}
+        + \underbrace{\mathrm{DFA}_{ij}}_{\text{cycles}}
+        \]
+        Softmax at inverse temperature \( \beta \) (regulated by CEAS).
+      </div>
+
+      <div class="ctq-sep"></div>
+
+      <h3>Reproducibility</h3>
+      <p class="ctq-mini">
+        Diagnostics run on a trained <em>GRAILAttention</em> (with optional DFA).
+        If the WMAP V-band FITS is absent locally, a synthetic hyperbolic sampler reproduces the reported spectra using the same code path.
+      </p>
+    </aside>
+  </div>
+</section>
 
 
 
