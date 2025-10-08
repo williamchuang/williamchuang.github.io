@@ -87,6 +87,11 @@ blog: passive
     .ctq-table th{font-weight:700;text-align:left;color:#23324a}
     .ctq-table td,.ctq-table th{padding:8px 10px;vertical-align:top}
     .ctq-row{background:#fff;border:1px solid #e6e8ee;border-radius:10px}
+
+    /* small badge list */
+    .ctq-ticks{list-style:none;margin:8px 0 0;padding:0}
+    .ctq-ticks li{margin:6px 0;padding-left:22px;position:relative}
+    .ctq-ticks li::before{content:"✓";position:absolute;left:0;top:0;color:#0E9F6E}
   </style>
 
   <div class="ctq-hero">
@@ -99,6 +104,7 @@ blog: passive
       <span class="ctq-badge">CEAS criticality</span>
       <span class="ctq-badge">DFA symbolic quantization</span>
       <span class="ctq-badge">Selberg/Huber diagnostics</span>
+      <span class="ctq-badge">Yoneda lift</span>
     </div>
   </div>
 
@@ -122,7 +128,7 @@ blog: passive
       </div>
     </div>
     <div class="ctq-note" role="note" aria-label="Geometry notice">
-      <strong>Geometry notice.</strong> The current diagnostics and Selberg/prime-geodesic proxies are <em>2D-specific</em> (surface quotients \( \mathrm{PSL}(2,\mathbb Z)\backslash\mathbb H^2 \)). The \( \mathbb H^d \) roadmap (for \( d=3,4 \)) replaces these with lattices in \( SO^+(d,1) \) and the appropriate higher-dimensional hyperbolic weights.
+      <strong>Geometry notice.</strong> The current diagnostics and Selberg/prime-geodesic proxies are <em>2D-specific</em> (surface quotients \( \mathrm{PSL}(2,\mathbb Z)\backslash\mathbb H^2 \)). The \( \mathbb H^d \) roadmap (for \( d=3,4 \)) replaces these with lattices in \( SO^+(d,1) \) and higher-dimensional hyperbolic weights.
     </div>
 
     <h3>Synthesis at a glance</h3>
@@ -157,16 +163,16 @@ blog: passive
 
     <h3>Operational signatures</h3>
     <ul class="ctq-list">
-      <li><strong>Non-commutativity field \( [\xi,X](t) \):</strong> BCH two-path probe; report via input-projected Gram eigenvalues per first layer.</li>
+      <li><strong>Non-commutativity field \( [\xi,X](t) \):</strong> BCH two-path probe → input-projected Gram eigenvalues (first layers).</li>
       <li><strong>Effective spectrum \( \lambda_{\mathrm{eff}}(t) \):</strong> from probe energies \( E(t) \), \( \lambda_{\mathrm{eff}}(t)\!\approx\! -\,\frac{d}{dt}\log E(t) \); bands narrow under CEAS.</li>
-      <li><strong>Hyperbolic trace proxies (2D):</strong> seeded prime-geodesic/trace terms on \( \mathrm{PSL}(2,\mathbb Z) \) certify negative curvature in the learned operator.</li>
+      <li><strong>Hyperbolic trace proxies (2D):</strong> seeded prime-geodesic/trace terms on \( \mathrm{PSL}(2,\mathbb Z) \) certify negative curvature.</li>
     </ul>
 
     <div class="ctq-sep"></div>
 
     <h3>Download &amp; cite</h3>
     <p>
-      <a class="ctq-link" href="https://drive.google.com/file/d/12hLuoJQgtzsayyXcZQKgBO7ixl23XIGQ/view?usp=sharing" target="_blank" rel="noopener">Download the PDF</a>
+      <a class="ctq-link" href="https://drive.google.com/file/d/1rvy7MWXthtzLC4NAmu35GaWkz83B86Yh/view?usp=sharing" target="_blank" rel="noopener">Download the PDF</a>
       <span class="ctq-pill">Lecture Notes (Draft)</span>
     </p>
     <details>
@@ -178,7 +184,7 @@ blog: passive
   author = {William Chuang},
   year   = {2025},
   note   = {Lecture Notes (Draft)},
-  url    = {https://drive.google.com/file/d/12hLuoJQgtzsayyXcZQKgBO7ixl23XIGQ/view?usp=sharing}
+  url    = {https://drive.google.com/file/d/1rvy7MWXthtzLC4NAmu35GaWkz83B86Yh/view?usp=sharing}
 }
 </pre>
     </details>
@@ -213,6 +219,64 @@ blog: passive
     </div>
   </article>
 
+  <!-- NEW: Yoneda operational card -->
+  <article class="ctq-card" id="yoneda">
+    <h3>Yoneda theorem (operational) → heads as functors</h3>
+    <p class="ctq-mini">
+      I view each head as a covariant fiber functor \( \widehat{\mathrm{Head}}_\beta:\mathsf{Rep}(\Gamma)\to\mathsf{Hilb}_{\mathrm{fe}} \),
+      \( V \mapsto (V^\vee\!\otimes \mathcal H_\beta)_\Gamma \). By <em>Yoneda</em>, specifying a head on representable objects
+      determines it up to a unique natural isomorphism; natural transformations correspond to elements in the target.
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Cryptographic twins:</strong> two heads are equivalent iff there is a unitary monoidal natural iso (they yield identical observables).</li>
+      <li><strong>Hecke as natural endotransformations:</strong> \(\{T_n\}\) act componentwise on \( \mathcal H_\beta \), commuting with the functor’s tensor structure.</li>
+      <li><strong>DFA compliance:</strong> an endofunctor \( \mathsf T_{\mathrm{DFA}} \) provides a natural comparison; stable heads land in its invariant image.</li>
+      <li><strong>QG implication:</strong> the EH/spectral invariants (heat trace, \(\lambda_{\mathrm{eff}}\)) are <em>functorial</em>—they survive gauge, matching the GR idea that physics lives in invariants.</li>
+    </ul>
+  </article>
+
+  <!-- NEW: Seven bridges -> EH action -->
+  <article class="ctq-card" id="bridges-eh">
+    <h3>Seven bridges → Einstein–Hilbert action</h3>
+    <p class="ctq-mini">
+      The bridges carry positive/Lorentzian observations onto a negatively curved, \( \Gamma \)-automorphic stage where Laplace-type analysis is valid.
+      They supply: (i) <em>automorphy</em>, (ii) a <em>Laplace-type generator</em> with a well-behaved heat trace, and (iii) <em>scale separation</em>.
+    </p>
+    <ul class="ctq-list">
+      <li><strong>A1–A3 (symbolic–arithmetic):</strong> modular symbols; Poisson–Helgason; arithmetic lifts.</li>
+      <li><strong>B1–B2 (thermodynamic encoders):</strong> transfer operators; horocycle/geodesic encodings.</li>
+      <li><strong>C1–C2 (functorial):</strong> moduli-stack lift; Langlands-style functoriality.</li>
+    </ul>
+    <div class="ctq-callout">
+      <strong>Result.</strong>
+      With a suitable test function \( f \), the spectral action \( \mathcal S_{\mathrm{spec}}(L_\beta,\Lambda)=\mathrm{Tr}\,f(L_\beta/\Lambda^2) \)
+      expands as \( c_0 \Lambda^d \mathrm{Vol} + c_2 \Lambda^{d-2}\!\int \sqrt{-g}\,R + \cdots \);
+      the \(c_2\) term is of Einstein–Hilbert type. A Regge-style graph functional converges to the same curvature term under refinement.
+    </div>
+  </article>
+
+  <!-- NEW: Milestones & status -->
+  <article class="ctq-card" id="milestones">
+    <h3>Milestones &amp; status</h3>
+    <h4 class="ctq-mini">Now (implemented)</h4>
+    <ul class="ctq-ticks">
+      <li>\( \mathbb H^2 \) automorphic attention with truncated Poincaré (+ optional Hecke).</li>
+      <li>CEAS identity and control; BCH probe for \( [\xi,X](t) \); \( \lambda_{\mathrm{eff}}(t) \) from probe energies.</li>
+      <li>2D Selberg/prime-geodesic proxies; Regge-style discrete curvature; Fisher–Rao pullback prototype.</li>
+      <li>Yoneda/Tannakian lift of heads; Hecke as monoidal natural endotransformations; DFA endofunctor.</li>
+    </ul>
+    <h4 class="ctq-mini">Next (short horizon)</h4>
+    <ul class="ctq-ticks">
+      <li>Match the EH coefficient from the spectral action to graph-Regge and Fisher–Rao estimates.</li>
+      <li>Generalize kernels and diagnostics to \( \mathbb H^d \) (\(d=3,4\)) via \( SO^+(d,1) \) lattices and higher-dimensional weights.</li>
+    </ul>
+    <h4 class="ctq-mini">Toward Einstein equations</h4>
+    <ul class="ctq-ticks">
+      <li>Derive Einstein equations variationally from a CEAS free-energy and compare the EH coefficient to the spectral-action estimate.</li>
+      <li>Ablate CEAS (weight \( \to 0\)) to confirm that bridges alone keep the EH machinery valid.</li>
+    </ul>
+  </article>
+
   <article class="ctq-card" aria-label="Reproducibility">
     <h3>Reproducibility</h3>
     <p class="ctq-mini">
@@ -225,9 +289,9 @@ blog: passive
     <h3>Roadmap: \( \mathbb H^d \) ( \(d=3,4\) )</h3>
     <ul class="ctq-list ctq-mini">
       <li>Switch to the Poincaré <em>ball</em> distance (dimension-agnostic) in the kernel.</li>
-      <li>Replace \( \mathrm{PSL}(2,\mathbb Z) \) proxies with lattices in \( SO^+(d,1) \); new word generators/length extractors.</li>
-      <li>Use the appropriate higher-dimensional Selberg/Huber hyperbolic weights (not \( \ell / 2\sinh(\ell/2) \)).</li>
-      <li>Keep CEAS, DFA, and the BCH commutator probe unchanged (they are geometry-agnostic).</li>
+      <li>Replace \( \mathrm{PSL}(2,\mathbb Z) \) proxies with lattices in \( SO^+(d,1) \); new generators and length extractors.</li>
+      <li>Adopt higher-dimensional Selberg/Huber weights (not \( \ell / 2\sinh(\ell/2) \)).</li>
+      <li>Keep CEAS, DFA, and BCH probe unchanged (geometry-agnostic).</li>
     </ul>
   </article>
 </section>
