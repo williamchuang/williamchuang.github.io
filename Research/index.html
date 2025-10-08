@@ -318,26 +318,26 @@ blog: passive
   </article>
 
   <!-- NEW: Milestones & status -->
-  <article class="ctq-card" id="milestones">
-    <h3>Milestones &amp; status</h3>
-    <h4 class="ctq-mini">Now (implemented)</h4>
-    <ul class="ctq-ticks">
-      <li>\( \mathbb H^2 \) automorphic attention with truncated Poincaré (+ optional Hecke).</li>
-      <li>CEAS identity and control; BCH probe for \( [\xi,X](t) \); \( \lambda_{\mathrm{eff}}(t) \) from probe energies.</li>
-      <li>2D Selberg/prime-geodesic proxies; Regge-style discrete curvature; Fisher–Rao pullback prototype.</li>
-      <li>Yoneda/Tannakian lift of heads; Hecke as monoidal natural endotransformations; DFA endofunctor.</li>
-    </ul>
-    <h4 class="ctq-mini">Next (short horizon)</h4>
-    <ul class="ctq-ticks">
-      <li>Match the EH coefficient from the spectral action to graph-Regge and Fisher–Rao estimates.</li>
-      <li>Generalize kernels and diagnostics to \( \mathbb H^d \) (\(d=3,4\)) via \( SO^+(d,1) \) lattices and higher-dimensional weights.</li>
-    </ul>
-    <h4 class="ctq-mini">Toward Einstein equations</h4>
-    <ul class="ctq-ticks">
-      <li>Derive Einstein equations variationally from a CEAS free-energy and compare the EH coefficient to the spectral-action estimate.</li>
-      <li>Ablate CEAS (weight \( \to 0\)) to confirm that bridges alone keep the EH machinery valid.</li>
-    </ul>
-  </article>
+<article class="ctq-card">
+  <h3>Milestones</h3>
+  <ul class="ctq-list">
+    <li><strong>Spectral–thermodynamic coefficient match.</strong>
+      Derive Einstein-like equations from the CEAS free energy and fit 
+      <code>α<sub>EH</sub><sup>(CEAS)</sup></code>. 
+      Compare to the spectral-action coefficient 
+      <code>α<sub>EH</sub><sup>(spec)</sup></code> obtained on 
+      <em>X</em> = Γ\H<sup>d</sup> (Route A); report 
+      <code>ρ = α<sub>EH</sub><sup>(CEAS)</sup> / α<sub>EH</sub><sup>(spec)</sup></code>.
+    </li>
+    <li><strong>CEAS ablation (validity, not dependence).</strong>
+      Set <code>α<sub>ec</sub>=0</code> to ablate CEAS and verify that the bridge-based routes 
+      (spectral-action, Regge, Fisher–Rao) still yield a stable EH term on 
+      <em>X</em> = Γ\H<sup>d</sup>. Use band flatness of 
+      <code>λ<sub>eff</sub>(t)</code> and stable heat-trace fits as criteria; CEAS should mainly narrow variance and provide a complementary thermodynamic derivation.
+    </li>
+    <!-- keep your other milestone items here -->
+  </ul>
+</article>
 
   <article class="ctq-card" aria-label="Reproducibility">
     <h3>Reproducibility</h3>
