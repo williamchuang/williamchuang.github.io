@@ -297,6 +297,82 @@ blog: passive
   </ul>
 </article>
 
+
+<!-- NEW: Orbit–jump controller (automorphic shortcut) -->
+<article class="ctq-card" id="orbit-jump">
+  <h3>Orbit–jump controller: automorphic shortcuts for training</h3>
+  <p class="ctq-mini">
+    Use DFA + Langlands diagnostics to select isometries \( \varphi\in\mathrm{Isom}(\mathbb H^d) \) that <em>leap</em> across basins where standard gradient steps stall. 
+    Non-commutativity turns symmetry into an optimization step.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Key choices.</strong>
+    <div class="ctq-mini">
+      One-sided automorphic kernel:
+      \[
+        K_{\beta}(q,k)=\sum_{\gamma\in\Gamma_{\rm trunc}}\exp\!\big(-\beta\, d_{\mathbb H}(q,\gamma k)\big)
+      \]
+      To make <em>cryptographic twins</em> (identical outputs), push all geometric weights by the same isometry:
+      \[
+        \{q_i,k_j\}\mapsto\{\varphi q_i,\varphi k_j\}
+      \]
+      and conjugate the truncation set:
+      \(\Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1}\).
+    </div>
+  </div>
+
+  <h4 class="ctq-mini">Orbit–jump recipe</h4>
+  <ul class="ctq-list">
+    <li><strong>Parameterize isometries.</strong> In \( \mathbb H^d \): \( \varphi(\xi)=\exp(\sum_a \xi_a J_a)\in SO^+(d,1) \) (boosts+rotations). In \( \mathbb H^2 \): \( \varphi(\xi)\in PSL(2,\mathbb R) \).</li>
+    <li><strong>Collect state features.</strong> Yoneda probes; CEAS stats \( H(\beta),\tfrac{dH}{d\beta},\mathcal K(\beta) \); Selberg/Huber (heat-trace fit, spectral bands, \( \lambda_{\rm eff}(t) \)); DFA cycle spectrum and \( \mathrm{KL}(P_{\rm DFA}\,\|\,P_{\rm auto}) \); small-prime Hecke checks.</li>
+    <li><strong>Score a candidate jump.</strong>
+      \[
+      \mathcal J(\varphi)=
+      \underbrace{\mathcal L_{\rm train}^{(+m)}(\varphi\!\cdot\!\theta)}_{\text{lookahead}}
+      +\alpha_{\rm ceas}(H(\beta)-H^\star)^2
+      +\alpha_{\rm spec}\,\mathrm{bandwidth}(\lambda_{\rm eff})
+      +\alpha_{\rm dfa}\,\mathrm{KL}
+      +\alpha_{\rm heck}\,\mathrm{err}_{\rm Hecke}
+      \]
+    </li>
+    <li><strong>Pick \( \varphi \).</strong> (1) differentiable lookahead (MAML-style) on Lie-algebra coords; (2) black-box bandit/CMA-ES near identity; (3) RL policy \( \pi(\xi\mid\text{state}) \).</li>
+    <li><strong>Apply jump.</strong> Push \( (q,k)\leftarrow(\varphi q,\varphi k) \); update \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \); shift DFA coupler consistently; resume CEAS-regulated training.</li>
+  </ul>
+
+  <div class="ctq-note" role="note" aria-label="Exact twins note">
+    <strong>Exact twins.</strong> Conjugation keeps equality to round-off. If \( \varphi \) lies in the normalizer/commensurator of \( \Gamma \), the truncated list is unchanged up to relabeling.
+  </div>
+
+  <h4 class="ctq-mini">Safety guards</h4>
+  <ul class="ctq-list">
+    <li>Early-reject \( \varphi \) if \( \mathcal J \) worsens beyond tolerance.</li>
+    <li>Trust region on Lie-algebra step size to avoid degeneracy.</li>
+    <li>Periodic Yoneda naturality checks to certify twinhood.</li>
+  </ul>
+
+  <h4 class="ctq-mini">Pseudo-loop</h4>
+  <pre style="white-space:pre-wrap;margin:8px 0 0;background:#f7f9fc;border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
+for step in training:
+  train k SGD steps with CEAS
+  if step % T == 0:
+    S  = collect_state(Yoneda, CEAS, SelbergHuber, DFA, Hecke)
+    φ* = argmin_φ J(φ; S)    # option 1/2/3
+    if accept(φ*):
+      q, k     = φ*·q, φ*·k
+      Γ_trunc  = φ*·Γ_trunc·(φ*)^{-1}
+  </pre>
+
+  <h4 class="ctq-mini">Relation to Fourier Neural Operators (FNO)</h4>
+  <ul class="ctq-list">
+    <li><strong>Beats:</strong> curved/quotient domains \( \Gamma\backslash\mathbb H \) and arithmetic/automorphic tasks; native kernels + Selberg/Huber control; orbit-jumps exploit GD–symmetry non-commutativity.</li>
+    <li><strong>FNO wins:</strong> flat, periodic PDE boxes (FFT \( O(N\log N) \), strong resolution-invariance).</li>
+    <li><strong>Hybrid:</strong> automorphic (Laplace–Beltrami/Hecke) block with orbit-jumps, plus an FNO block on near-Euclidean charts.</li>
+  </ul>
+</article>
+
+
+
   <!-- NEW: Seven bridges -> EH action -->
   <article class="ctq-card" id="bridges-eh">
     <h3>Seven bridges → Einstein–Hilbert action</h3>
