@@ -553,63 +553,6 @@ for step in training:
 </section>
 
 
-<!-- NEW: Metric-invariant algebra (d_M as the primitive) -->
-<article class="ctq-card" id="metric-algebra">
-  <h3>Metric-invariant algebra: replace scalar products by \( d_M \)</h3>
-  <p class="ctq-mini">
-    The core idea extends far beyond automorphic kernels. Replace scalar products everywhere with a
-    <em>Riemannian (or pseudo-Riemannian) metric distance</em> \(d_M(\cdot,\cdot)\) on a manifold \( (M,g) \)
-    with isometry group \(G=\mathrm{Isom}(M)\). The fundamental invariance
-    \[
-      d_M(\varphi q,\varphi k)=d_M(q,k)\qquad\forall\,\varphi\in G
-    \]
-    makes \(d_M\) a building block for scores, gates, and whole forward passes.
-  </p>
-
-  <div class="ctq-callout">
-    <strong>Construct metric-based operators (no automorphy required).</strong>
-    For any scalar function \(F:\mathbb R_{\ge 0}\!\to\!\mathbb R\) and any algebraic/compositional use ( \(+,-,\times,/\), powers,
-    rational forms, thresholds ), define
-    \[
-      S_{ij}=F\!\big(d_M(q_i,k_j)\big).
-    \]
-    Because \(d_M\) is isometry-invariant, every expression built solely from \(\{d_M(q_i,k_j)\}\) is unchanged under the
-    <em>diagonal</em> action \( (q_i,k_j;x)\mapsto(\varphi q_i,\varphi k_j;\varphi x) \).
-  </div>
-
-  <h4 class="ctq-mini">Twin models without automorphy</h4>
-  <p class="ctq-mini">
-    If a forward map \(\mathcal F\) depends only on metric distances and shared readouts,
-    \[
-      \mathcal F\big(\{d_M(q_i,k_j)\},\,\varphi x\big)=\mathcal F\big(\{d_M(\varphi q_i,\varphi k_j)\},\,\varphi x\big)
-      =\mathcal F\big(\{d_M(q_i,k_j)\},\,x\big),
-    \]
-    then applying the same isometry \(\varphi\) to <em>both</em> geometric parameters and data yields
-    <span class="ctq-pill">function-identical twins</span> — <em>no automorphy needed</em>.
-  </p>
-
-  <h4 class="ctq-mini">Examples of metric primitives</h4>
-  <ul class="ctq-list">
-    <li><strong>Metric kernels:</strong> \(e^{-\beta d_M}\), \(1/(1+\alpha d_M)\), \((d_M+\epsilon)^{-p}\), truncated/polynomial expansions.</li>
-    <li><strong>Distance matrices as logits:</strong> \(S_{ij}=F(d_M(q_i,k_j))\) followed by softmax/normalization.</li>
-    <li><strong>Gates &amp; masks:</strong> indicators \(1\{d_M\!\le\!\tau\}\), annealed via \(F\).</li>
-    <li><strong>Heat/Green surrogates:</strong> use \(F(d_M)\) as a chart-free proxy for diffusion/propagators.</li>
-  </ul>
-
-  <div class="ctq-note" role="note" aria-label="Automorphy: optional add-on">
-    <strong>Automorphy is optional.</strong>
-    Automorphic sums (e.g., one-sided Poincaré \( \sum_{\gamma} e^{-\beta d_M(q,\gamma k)} \)) add arithmetic/geometric structure.
-    They are <em>not required</em> for twins. When used, preserve exactness by conjugating the truncated set:
-    \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
-  </div>
-
-  <h4 class="ctq-mini">Practical guardrails</h4>
-  <ul class="ctq-list">
-    <li>Ensure every non-metric feature that influences logits (biases, normalizers) is transformed consistently; otherwise twinhood can break.</li>
-    <li>For Minkowski/pseudo-Riemannian settings, choose the appropriate invariant (e.g., Lorentz interval) and restrict to the proper isometry subgroup (e.g., \(SO^+(d,1)\)).</li>
-    <li>Numerical charts should be consistent across the diagonal move to keep distance computations stable.</li>
-  </ul>
-</article>
 
 <!-- NEW: Metric-invariant algebra (d_M as the primitive) -->
 <article class="ctq-card" id="metric-algebra">
