@@ -634,6 +634,26 @@ for step in training:
     and <em>twin models do not require automorphy</em>.
   </div>
 
+  <div class="ctq-note" role="note" aria-label="Beyond isometry">
+    <strong>Beyond isometry.</strong>
+    Twin generation does not require distance preservation specifically. If the forward map depends only on a
+    scalar invariant \( I(q,k) \) that is preserved by a group action \( g \) (i.e., \( I(g\,q, g\,k)=I(q,k) \)),
+    then applying the same group element diagonally to weights and data leaves outputs unchanged:
+    \( (q_i,k_j;x)\mapsto(g\,q_i, g\,k_j; g\,x) \).
+    Examples of admissible invariants include:
+    <ul class="ctq-list">
+      <li>Metric distances \( d_M \) on any Riemannian/pseudo-Riemannian manifold with the invariance \( d_M(g q, g k)=d_M(q,k) \).</li>
+      <li>Conformal/projective invariants (e.g., cross-ratios on \( \partial\mathbb H \)) preserved by the chosen symmetry group.</li>
+      <li>Physics-meaningful invariants (e.g., gauge-invariant scalars/Casimirs from the ambient geometry).</li>
+      <li>Algebraic/compositional uses of a fixed invariant \( I \) (e.g., \(+,-,\times,/,\log,\sum,\prod\)) applied consistently across the model.</li>
+    </ul>
+    <span class="ctq-mini">
+      Note: for automorphic kernels, isometry is required to preserve the one-sided Poincaré sum and thus
+      the exact automorphy (with conjugation \( \Gamma_{\rm trunc}\!\leftarrow\!g\,\Gamma_{\rm trunc}\,g^{-1} \)).
+      For metric-only or invariant-only twin constructions, automorphy is unnecessary; diagonal action by any group that preserves \( I \) suffices for identical outputs.
+    </span>
+  </div>
+
   <h4 class="ctq-mini">What is—and isn’t—being claimed</h4>
   <ul class="ctq-list">
     <li><strong>Bypass, not contradiction.</strong> The classical NP-hardness (post-hoc discovery of hidden invariances) is not contradicted. The framework <em>assumes a known symmetry group</em> and provides a constructive <em>transport</em> along its orbits.</li>
