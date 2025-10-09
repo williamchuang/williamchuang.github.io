@@ -299,133 +299,153 @@ blog: passive
 
 
 <!-- NEW: Orbit–jump controller (automorphic shortcut) -->
+<!-- NEW: Orbit–jump (diagonal action on weights + data) -->
 <article class="ctq-card" id="orbit-jump">
-<h3>Orbit–Jump: Constructive Transport of Models Along Symmetry Orbits</h3>
-<p class="ctq-mini">
-  This method introduces a constructive, metric-respecting framework to map a trained model along the orbit of a known symmetry group. By applying the same isometry \( \varphi \in \mathrm{Isom}(\mathbb H^d) \) to both the model’s geometric parameters and the input data, the forward behavior of the network is preserved exactly.
-  When the automorphic attention kernel is one-sided,
-  \[
-  K_\beta(q,k) = \sum_{\gamma\in\Gamma_{\rm trunc}} \exp\big(-\beta\, d_{\mathbb H}(q,\gamma k)\big),
-  \]
-  and the Poincaré truncation is conjugated as \( \Gamma_{\rm trunc} \mapsto \varphi \Gamma_{\rm trunc} \varphi^{-1} \), this yields function-identical cryptographic twins across the orbit.
-</p>
+  <h3>Orbit–jump: diagonal isometries on <em>weights</em> and <em>data</em></h3>
 
-<div class="ctq-callout">
-  <strong>Safe novelty claim.</strong><br>
-  Introduces an automorphic attention kernel with a one-sided group action and an orbit-jump controller that applies a known isometry simultaneously to the model weights, inputs, and group generator.
-  The result is a functionally identical model twin that is geometrically distinct, enabling structured optimization jumps.
-</div>
-
-<h4 class="ctq-mini">What this framework solves</h4>
-<ul class="ctq-list">
-  <li><strong>Symmetry-preserving model transport:</strong> Transports neural models along a group orbit by maintaining dot products \( q_i^\top k_i \) and preserving their interpretation under hyperbolic metric \( d_{\mathbb H^d}(q_i,k_i) \).</li>
-  <li><strong>Constructive twin generation:</strong> Enables infinite, behaviorally identical twins \( f_{\varphi_j} \) by pushing weights and data together under known group actions \( \varphi_j \in G \).</li>
-  <li><strong>Bypasses NP-hard extraction:</strong> Avoids discovering invariances (which is NP-hard); instead, directly acts using known symmetry structure.</li>
-</ul>
-
-<h4 class="ctq-mini">How this circumvents NP-hardness</h4>
-<ul class="ctq-list">
-  <li>Does not search for hidden group structure; assumes group is known.</li>
-  <li>Applies geometric group theory and differentiable mappings to transform model weights and data directly.</li>
-  <li>Preserves function through invariant metrics and conjugation of automorphic group action.</li>
-</ul>
-
-<h3>Orbit–Jump Controller: Automorphic Shortcuts for Training</h3>
-<p class="ctq-mini">
-  Use DFA + Langlands diagnostics to select isometries \( \varphi\in\mathrm{Isom}(\mathbb H^d) \) that <em>leap</em> across basins where standard gradient steps stall.
-  Non-commutativity turns symmetry into an optimization step.
-</p>
-
-<div class="ctq-callout">
-  <strong>Key choices.</strong>
-  <div class="ctq-mini">
-    One-sided automorphic kernel:
+  <p class="ctq-mini">
+    Core idea: map models along orbits of a symmetry group. Apply a single isometry
+    \( \varphi\in\mathrm{Isom}(\mathbb H^d) \) <em>simultaneously</em> to the model’s geometric
+    weights and to the data anchors, i.e.
+    \( (q_i,k_j; x) \mapsto (\varphi q_i,\varphi k_j; \varphi x) \),
+    while keeping the one–sided automorphic kernel
     \[
-      K_{\beta}(q,k)=\sum_{\gamma\in\Gamma_{\rm trunc}}\exp\!\big(-\beta\, d_{\mathbb H}(q,\gamma k)\big)
+      K_\beta(q,k)=\sum_{\gamma\in\Gamma_{\rm trunc}} \exp\!\big(-\beta\, d_{\mathbb H}(q,\gamma k)\big)
     \]
-    To make <em>cryptographic twins</em> (identical outputs), push all geometric weights by the same isometry:
+    and conjugating the truncation \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
+    Because hyperbolic distance is isometry-invariant, the forward map is preserved exactly; this yields
+    <span class="ctq-pill">cryptographic twins</span> of a trained model.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Diagonal action ≠ ordinary equivariance.</strong>
+    Typical equivariant nets enforce \(f(g\!\cdot\!x)=\rho(g)f(x)\) by <em>tying</em> parameters. Here, after training, this framework
+    <em>transports the entire solution</em> along an orbit:
     \[
-      \{q_i,k_j\}\mapsto\{\varphi q_i,\varphi k_j\}
+      \{q_i,k_j\}\mapsto\{\varphi q_i,\varphi k_j\},\quad
+      \Gamma_{\rm trunc}\mapsto \varphi\Gamma_{\rm trunc}\varphi^{-1},\quad
+      x\mapsto \varphi x,
     \]
-    and conjugate the truncation set:
-    \(\Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1}\).
+    so logits based on \(d_{\mathbb H}(q,\gamma k)\) and evaluations on \(\varphi x\) are unchanged. This produces
+    infinitely many functionally identical twins indexed by \(\varphi\), with exact equality (up to relabeling) when
+    \(\varphi\) lies in the normalizer/commensurator of \(\Gamma\).
   </div>
-</div>
 
-<h4 class="ctq-mini">Orbit–Jump Recipe</h4>
-<ul class="ctq-list">
-  <li><strong>Parameterize isometries.</strong> In \( \mathbb H^d \): \( \varphi(\xi)=\exp(\sum_a \xi_a J_a)\in SO^+(d,1) \) (boosts+rotations). In \( \mathbb H^2 \): \( \varphi(\xi)\in PSL(2,\mathbb R) \).</li>
-  <li><strong>Collect state features.</strong> Yoneda probes; CEAS stats \( H(\beta),\tfrac{dH}{d\beta},\mathcal K(\beta) \); Selberg/Huber (heat-trace fit, spectral bands, \( \lambda_{\rm eff}(t) \)); DFA cycle spectrum and \( \mathrm{KL}(P_{\rm DFA}\,\|\,P_{\rm auto}) \); small-prime Hecke checks.</li>
-  <li><strong>Score a candidate jump.</strong>
-    \[
-    \mathcal J(\varphi)=
-    \underbrace{\mathcal L_{\rm train}^{(+m)}(\varphi\!\cdot\!\theta)}_{\text{lookahead}}
-    +\alpha_{\rm ceas}(H(\beta)-H^\star)^2
-    +\alpha_{\rm spec}\,\mathrm{bandwidth}(\lambda_{\rm eff})
-    +\alpha_{\rm dfa}\,\mathrm{KL}
-    +\alpha_{\rm heck}\,\mathrm{err}_{\rm Hecke}
-    \]
-  </li>
-  <li><strong>Pick \( \varphi \).</strong> (1) Differentiable lookahead (MAML-style) on Lie-algebra coords; (2) Black-box bandit/CMA-ES near identity; (3) RL policy \( \pi(\xi\mid\text{state}) \).</li>
-  <li><strong>Apply jump.</strong> Push \( (q,k)\leftarrow(\varphi q,\varphi k) \); update \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \); shift DFA coupler consistently; resume CEAS-regulated training.</li>
-</ul>
+  <h4 class="ctq-mini">What this framework solves</h4>
+  <ul class="ctq-list">
+    <li><strong>Symmetry-preserving model transport:</strong> Transports neural models along a group orbit by preserving the forward map via
+      isometry-invariant distances and conjugation of the automorphic group action.</li>
+    <li><strong>Constructive twin generation:</strong> Enables infinite, behaviorally identical twins \( f_{\varphi_j} \) by pushing weights and data together
+      under known group actions \( \varphi_j \in G \).</li>
+    <li><strong>Bypasses NP-hard extraction:</strong> Avoids discovering invariances (which is NP-hard); instead, directly acts using known symmetry structure.</li>
+  </ul>
 
-<h4 class="ctq-mini">Timeline of relevant complexity results</h4>
-<div class="ctq-table-wrap">
-  <table class="ctq-table">
-    <thead>
-      <tr class="ctq-row"><th>Year</th><th>Researcher(s)</th><th>Contribution</th></tr>
-    </thead>
-    <tbody>
-      <tr class="ctq-row">
-        <td>1969–1972</td>
-        <td>Minsky &amp; Papert</td>
-        <td>
-          <strong>Perceptrons (1969/1972).</strong><br>
-          <em>Claim:</em> While predating the formal definition of NP-completeness, this book first introduced the use of <strong>group invariance</strong> concepts to show what a perceptron cannot compute.<br>
-          <em>Significance:</em> Contained the <strong>group invariance theorem</strong>, which stated that a network’s output can be expressed as a function of the input orbits. This was used to prove that certain invariant predicates lay beyond the capabilities of a single-layer perceptron. Ensign et al. (2017) cite this theorem as a precursor to their own NP-hardness proof.
-        </td>
-      </tr>
-      <tr class="ctq-row">
-        <td>1992</td>
-        <td>Blum &amp; Rivest</td>
-        <td>
-          <strong>Learning neural networks is NP-hard.</strong><br>
-          <em>Claim:</em> Proved that learning a single hidden layer neural network with threshold gates is NP-hard.<br>
-          <em>Significance:</em> Although not explicitly about group orbits, this was an early foundational result for the general hardness of neural network learning. The orbit-identification problem is a type of “learning” or “explanation,” and this result grounds the later, more specific NP-hardness proofs in the literature.
-        </td>
-      </tr>
-      <tr class="ctq-row">
-        <td>2017</td>
-        <td>Ensign, Neville, Paul, Venkatasubramanian</td>
-        <td>
-          <strong>First direct NP-hardness proof for group invariants.</strong><br>
-          <em>Claim:</em> Extracting implicit group invariances from trained general-purpose neural networks is NP-hard.<br>
-          <em>Significance:</em> Showed a formal <strong>reduction from the KNAPSACK problem</strong> to the problem of finding permutation invariants for a boolean-input network. This paper is widely considered the first direct proof that orbit identification in neural networks inherits classical NP-hardness.
-        </td>
-      </tr>
-      <tr class="ctq-row">
-        <td>2021</td>
-        <td>Grein et al.</td>
-        <td>Introduced E(3)-equivariant networks to encode geometric symmetries directly into architecture design, avoiding post-hoc orbit discovery.</td>
-      </tr>
-      <tr class="ctq-row">
-        <td>2023</td>
-        <td>Vardi et al.</td>
-        <td>Showed that even learning under known symmetries (e.g. in group CNNs) can be exponentially hard in the Statistical Query (SQ) model, setting limits on symmetry-based training efficiency.</td>
-      </tr>
-      <tr class="ctq-row">
-        <td>2023–2025</td>
-        <td>William Chuang</td>
-        <td>
-          Recorded the earliest edition of this independent research on November 9, 2023.<br>
-          <em>Contribution:</em> Developed a constructive, geometric, inner-product-preserving framework to transport trained neural models along known group orbits. This work bypasses the NP-hardness of orbit identification by avoiding discovery altogether and instead applying explicit geometric operators to re-embed models across different manifolds while preserving function, dot-product structure, and symmetry.<br>
-          <em>Note:</em> This research is a personal independent project, not conducted under a university.
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <h4 class="ctq-mini">How this circumvents NP-hardness</h4>
+  <ul class="ctq-list">
+    <li>Does not search for hidden group structure; assumes group is known.</li>
+    <li>Applies geometric group theory and differentiable mappings to transform model weights and data directly.</li>
+    <li>Preserves function through invariant metrics and conjugation of automorphic group action.</li>
+  </ul>
+
+  <h3>Orbit–Jump Controller: Automorphic Shortcuts for Training</h3>
+  <p class="ctq-mini">
+    Use DFA + Langlands diagnostics to select isometries \( \varphi\in\mathrm{Isom}(\mathbb H^d) \) that <em>leap</em> across basins where standard gradient steps stall.
+    Non-commutativity turns symmetry into an optimization step.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Key choices.</strong>
+    <div class="ctq-mini">
+      One-sided automorphic kernel:
+      \[
+        K_{\beta}(q,k)=\sum_{\gamma\in\Gamma_{\rm trunc}}\exp\!\big(-\beta\, d_{\mathbb H}(q,\gamma k)\big)
+      \]
+      To make <em>cryptographic twins</em> (identical outputs), push all geometric weights by the same isometry:
+      \[
+        \{q_i,k_j\}\mapsto\{\varphi q_i,\varphi k_j\}
+      \]
+      and conjugate the truncation set:
+      \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
+    </div>
+  </div>
+
+  <h4 class="ctq-mini">Orbit–Jump Recipe</h4>
+  <ul class="ctq-list">
+    <li><strong>Parameterize isometries.</strong> In \( \mathbb H^d \): \( \varphi(\xi)=\exp(\sum_a \xi_a J_a)\in SO^+(d,1) \) (boosts+rotations). In \( \mathbb H^2 \): \( \varphi(\xi)\in PSL(2,\mathbb R) \).</li>
+    <li><strong>Collect state features.</strong> Yoneda probes; CEAS stats \( H(\beta),\tfrac{dH}{d\beta},\mathcal K(\beta) \); Selberg/Huber (heat-trace fit, spectral bands, \( \lambda_{\rm eff}(t) \)); DFA cycle spectrum and \( \mathrm{KL}(P_{\rm DFA}\,\|\,P_{\rm auto}) \); small-prime Hecke checks.</li>
+    <li><strong>Score a candidate jump.</strong>
+      \[
+      \mathcal J(\varphi)=
+      \underbrace{\mathcal L_{\rm train}^{(+m)}(\varphi\!\cdot\!\theta)}_{\text{lookahead}}
+      +\alpha_{\rm ceas}(H(\beta)-H^\star)^2
+      +\alpha_{\rm spec}\,\mathrm{bandwidth}(\lambda_{\rm eff})
+      +\alpha_{\rm dfa}\,\mathrm{KL}
+      +\alpha_{\rm heck}\,\mathrm{err}_{\rm Hecke}
+      \]
+    </li>
+    <li><strong>Pick \( \varphi \).</strong> (1) Differentiable lookahead (MAML-style) on Lie-algebra coords; (2) Black-box bandit/CMA-ES near identity; (3) RL policy \( \pi(\xi\mid\text{state}) \).</li>
+    <li><strong>Apply jump.</strong> Push \( (q,k)\leftarrow(\varphi q,\varphi k) \); update \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \); shift DFA coupler consistently; resume CEAS-regulated training.</li>
+  </ul>
+
+  <h4 class="ctq-mini">Timeline of relevant complexity results</h4>
+  <div class="ctq-table-wrap">
+    <table class="ctq-table">
+      <thead>
+        <tr class="ctq-row"><th>Year</th><th>Researcher(s)</th><th>Contribution</th></tr>
+      </thead>
+      <tbody>
+        <tr class="ctq-row">
+          <td>1969–1972</td>
+          <td>Minsky &amp; Papert</td>
+          <td>
+            <strong>Perceptrons (1969/1972).</strong><br>
+            <em>Claim:</em> While predating the formal definition of NP-completeness, this book first introduced the use of <strong>group invariance</strong> concepts to show what a perceptron cannot compute.<br>
+            <em>Significance:</em> Contained the <strong>group invariance theorem</strong>, which stated that a network’s output can be expressed as a function of the input orbits. This was used to prove that certain invariant predicates lay beyond the capabilities of a single-layer perceptron. Ensign et&nbsp;al. later cite this as a precursor to their NP-hardness results.
+          </td>
+        </tr>
+        <tr class="ctq-row">
+          <td>1992</td>
+          <td>Blum &amp; Rivest</td>
+          <td>
+            <strong>Learning neural networks is NP-hard.</strong><br>
+            <em>Claim:</em> Proved that learning a single hidden layer neural network with threshold gates is NP-hard, and that training a 3-node network is NP-complete.<br>
+            <em>Significance:</em> Although not explicitly about group orbits, this was an early foundational result for the general hardness of neural network learning; the orbit-identification problem is a type of “learning” or “explanation,” grounding later NP-hardness proofs.
+          </td>
+        </tr>
+        <tr class="ctq-row">
+          <td>2017 → 2020</td>
+          <td>Ensign, Neville, Paul, Venkatasubramanian</td>
+          <td>
+            <strong>First direct NP-hardness proof for group invariants.</strong><br>
+            <em>Claim:</em> Extracting implicit group invariances from trained general-purpose neural networks is NP-hard.<br>
+            <em>Significance:</em> Gave a formal <strong>reduction from the KNAPSACK problem</strong> to finding permutation invariants for a Boolean-input network, establishing hardness of orbit identification.
+          </td>
+        </tr>
+        <tr class="ctq-row">
+          <td>2021</td>
+          <td>Grein et&nbsp;al.</td>
+          <td>Demonstrated Euclidean/E(3)-equivariant networks as a way to encode geometric symmetries in the architecture, avoiding post-hoc orbit discovery.</td>
+        </tr>
+        <tr class="ctq-row">
+          <td>2023–2024</td>
+          <td>Vardi et&nbsp;al.</td>
+          <td>Showed that even learning under known symmetries can be exponentially hard in the Statistical Query (SQ) model, bounding symmetry-based training efficiency.</td>
+        </tr>
+        <tr class="ctq-row">
+          <td>2023–2025</td>
+          <td>William Chuang</td>
+          <td>
+            First public commit on Oct&nbsp;8,&nbsp;2023.<br>
+            <em>Contribution:</em> A constructive, geometric, metric-invariant framework to transport trained neural models along known group orbits—jointly moving weights and data with explicit conjugation of the automorphic truncation—yielding function-identical twins and enabling orbit-jump optimization without post-hoc symmetry discovery.<br>
+            <em>Note:</em> Independent research, not conducted under a university.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
 <h4 class="ctq-mini">Distinction from prior work</h4>
   <ul class="ctq-list">
     <li><strong>Not an equivariant network:</strong> Does not enforce equivariance by architectural constraints; operates post-training via orbit-preserving isometries.</li>
