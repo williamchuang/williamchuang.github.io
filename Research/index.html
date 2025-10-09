@@ -553,6 +553,224 @@ for step in training:
 </section>
 
 
+<!-- NEW: Metric-invariant algebra (d_M as the primitive) -->
+<article class="ctq-card" id="metric-algebra">
+  <h3>Metric-invariant algebra: replace scalar products by \( d_M \)</h3>
+  <p class="ctq-mini">
+    The core idea extends far beyond automorphic kernels. Replace scalar products everywhere with a
+    <em>Riemannian (or pseudo-Riemannian) metric distance</em> \(d_M(\cdot,\cdot)\) on a manifold \( (M,g) \)
+    with isometry group \(G=\mathrm{Isom}(M)\). The fundamental invariance
+    \[
+      d_M(\varphi q,\varphi k)=d_M(q,k)\qquad\forall\,\varphi\in G
+    \]
+    makes \(d_M\) a building block for scores, gates, and whole forward passes.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Construct metric-based operators (no automorphy required).</strong>
+    For any scalar function \(F:\mathbb R_{\ge 0}\!\to\!\mathbb R\) and any algebraic/compositional use ( \(+,-,\times,/\), powers,
+    rational forms, thresholds ), define
+    \[
+      S_{ij}=F\!\big(d_M(q_i,k_j)\big).
+    \]
+    Because \(d_M\) is isometry-invariant, every expression built solely from \(\{d_M(q_i,k_j)\}\) is unchanged under the
+    <em>diagonal</em> action \( (q_i,k_j;x)\mapsto(\varphi q_i,\varphi k_j;\varphi x) \).
+  </div>
+
+  <h4 class="ctq-mini">Twin models without automorphy</h4>
+  <p class="ctq-mini">
+    If a forward map \(\mathcal F\) depends only on metric distances and shared readouts,
+    \[
+      \mathcal F\big(\{d_M(q_i,k_j)\},\,\varphi x\big)=\mathcal F\big(\{d_M(\varphi q_i,\varphi k_j)\},\,\varphi x\big)
+      =\mathcal F\big(\{d_M(q_i,k_j)\},\,x\big),
+    \]
+    then applying the same isometry \(\varphi\) to <em>both</em> geometric parameters and data yields
+    <span class="ctq-pill">function-identical twins</span> — <em>no automorphy needed</em>.
+  </p>
+
+  <h4 class="ctq-mini">Examples of metric primitives</h4>
+  <ul class="ctq-list">
+    <li><strong>Metric kernels:</strong> \(e^{-\beta d_M}\), \(1/(1+\alpha d_M)\), \((d_M+\epsilon)^{-p}\), truncated/polynomial expansions.</li>
+    <li><strong>Distance matrices as logits:</strong> \(S_{ij}=F(d_M(q_i,k_j))\) followed by softmax/normalization.</li>
+    <li><strong>Gates &amp; masks:</strong> indicators \(1\{d_M\!\le\!\tau\}\), annealed via \(F\).</li>
+    <li><strong>Heat/Green surrogates:</strong> use \(F(d_M)\) as a chart-free proxy for diffusion/propagators.</li>
+  </ul>
+
+  <div class="ctq-note" role="note" aria-label="Automorphy: optional add-on">
+    <strong>Automorphy is optional.</strong>
+    Automorphic sums (e.g., one-sided Poincaré \( \sum_{\gamma} e^{-\beta d_M(q,\gamma k)} \)) add arithmetic/geometric structure.
+    They are <em>not required</em> for twins. When used, preserve exactness by conjugating the truncated set:
+    \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
+  </div>
+
+  <h4 class="ctq-mini">Practical guardrails</h4>
+  <ul class="ctq-list">
+    <li>Ensure every non-metric feature that influences logits (biases, normalizers) is transformed consistently; otherwise twinhood can break.</li>
+    <li>For Minkowski/pseudo-Riemannian settings, choose the appropriate invariant (e.g., Lorentz interval) and restrict to the proper isometry subgroup (e.g., \(SO^+(d,1)\)).</li>
+    <li>Numerical charts should be consistent across the diagonal move to keep distance computations stable.</li>
+  </ul>
+</article>
+
+<!-- NEW: Metric-invariant algebra (d_M as the primitive) -->
+<article class="ctq-card" id="metric-algebra">
+  <h3>Metric-invariant algebra: replace scalar products by \( d_M \)</h3>
+  <p class="ctq-mini">
+    The core idea extends far beyond automorphic kernels. Replace scalar products everywhere with a
+    <em>Riemannian (or pseudo-Riemannian) metric distance</em> \(d_M(\cdot,\cdot)\) on a manifold \( (M,g) \)
+    with isometry group \(G=\mathrm{Isom}(M)\). The fundamental invariance
+    \[
+      d_M(\varphi q,\varphi k)=d_M(q,k)\qquad\forall\,\varphi\in G
+    \]
+    makes \(d_M\) a building block for scores, gates, and whole forward passes.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Construct metric-based operators (no automorphy required).</strong>
+    For any scalar function \(F:\mathbb R_{\ge 0}\!\to\!\mathbb R\) and any algebraic/compositional use ( \(+,-,\times,/\), powers,
+    rational forms, thresholds ), define
+    \[
+      S_{ij}=F\!\big(d_M(q_i,k_j)\big).
+    \]
+    Because \(d_M\) is isometry-invariant, every expression built solely from \(\{d_M(q_i,k_j)\}\) is unchanged under the
+    <em>diagonal</em> action \( (q_i,k_j;x)\mapsto(\varphi q_i,\varphi k_j;\varphi x) \).
+  </div>
+
+  <h4 class="ctq-mini">Twin models without automorphy</h4>
+  <p class="ctq-mini">
+    If a forward map \(\mathcal F\) depends only on metric distances and shared readouts,
+    \[
+      \mathcal F\big(\{d_M(q_i,k_j)\},\,\varphi x\big)=\mathcal F\big(\{d_M(\varphi q_i,\varphi k_j)\},\,\varphi x\big)
+      =\mathcal F\big(\{d_M(q_i,k_j)\},\,x\big),
+    \]
+    then applying the same isometry \(\varphi\) to <em>both</em> geometric parameters and data yields
+    <span class="ctq-pill">function-identical twins</span> — <em>no automorphy needed</em>.
+  </p>
+
+  <h4 class="ctq-mini">Examples of metric primitives</h4>
+  <ul class="ctq-list">
+    <li><strong>Metric kernels:</strong> \(e^{-\beta d_M}\), \(1/(1+\alpha d_M)\), \((d_M+\epsilon)^{-p}\), truncated/polynomial expansions.</li>
+    <li><strong>Distance matrices as logits:</strong> \(S_{ij}=F(d_M(q_i,k_j))\) followed by softmax/normalization.</li>
+    <li><strong>Gates &amp; masks:</strong> indicators \(1\{d_M\!\le\!\tau\}\), annealed via \(F\).</li>
+    <li><strong>Heat/Green surrogates:</strong> use \(F(d_M)\) as a chart-free proxy for diffusion/propagators.</li>
+  </ul>
+
+  <div class="ctq-note" role="note" aria-label="Automorphy: optional add-on">
+    <strong>Automorphy is optional.</strong>
+    Automorphic sums (e.g., one-sided Poincaré \( \sum_{\gamma} e^{-\beta d_M(q,\gamma k)} \)) add arithmetic/geometric structure.
+    They are <em>not required</em> for twins. When used, preserve exactness by conjugating the truncated set:
+    \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
+  </div>
+
+  <h4 class="ctq-mini">Practical guardrails</h4>
+  <ul class="ctq-list">
+    <li>Ensure every non-metric feature that influences logits (biases, normalizers) is transformed consistently; otherwise twinhood can break.</li>
+    <li>For Minkowski/pseudo-Riemannian settings, choose the appropriate invariant (e.g., Lorentz interval) and restrict to the proper isometry subgroup (e.g., \(SO^+(d,1)\)).</li>
+    <li>Numerical charts should be consistent across the diagonal move to keep distance computations stable.</li>
+  </ul>
+</article>
+
+<article class="ctq-card" id="novelty-claim">
+  <h3>Novelty &amp; claim (to the best of current knowledge)</h3>
+  <div class="ctq-callout">
+    <strong>Claim.</strong>
+    This framework provides, to the best of current knowledge, the first repeatedly tested method that
+    <em>bypasses</em> the NP-hard problem of post-hoc symmetry extraction for neural networks by:
+    (i) applying a single isometry \( \varphi\in\mathrm{Isom}(\mathbb H^d) \) to <em>both</em> model geometry and data,
+    (ii) keeping a <em>one-sided</em> automorphic kernel \( K_\beta(q,k)=\sum_{\gamma\in\Gamma_{\rm trunc}}\exp(-\beta\,d_{\mathbb H}(q,\gamma k)) \),
+    and (iii) <em>conjugating</em> the truncation \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
+    This yields function-identical twins by construction and enables orbit-jump optimization.
+  </div>
+
+  <div class="ctq-note" role="note" aria-label="Beyond automorphy">
+    <strong>Beyond automorphy.</strong>
+    The same diagonal-isometry idea extends to any manifold metric \(d_M\) with \(d_M(\varphi q,\varphi k)=d_M(q,k)\).
+    Any forward map built solely from \( \{d_M(q_i,k_j)\} \) remains identical under the diagonal action
+    \( (q_i,k_j;x)\mapsto(\varphi q_i,\varphi k_j;\varphi x) \).
+    Hence there is an <em>infinite design space</em> of twin-generating constructions (via algebraic/compositional uses of \(d_M\)),
+    and <em>twin models do not require automorphy</em>.
+  </div>
+
+  <h4 class="ctq-mini">What is—and isn’t—being claimed</h4>
+  <ul class="ctq-list">
+    <li><strong>Bypass, not contradiction.</strong> The classical NP-hardness (post-hoc discovery of hidden invariances) is not contradicted. The framework <em>assumes a known symmetry group</em> and provides a constructive <em>transport</em> along its orbits.</li>
+    <li><strong>Scope (automorphic specialization).</strong> Works with the one-sided Poincaré/automorphic kernel on \( \Gamma \backslash \mathbb H^d \), acts diagonally on (weights, data), and preserves exactness via conjugation of \( \Gamma_{\rm trunc} \).</li>
+    <li><strong>Scope (metric-only twinhood).</strong> For metric-only constructions using \(d_M\), automorphy is optional; exact twinhood holds whenever logits depend only on \(d_M\) and the same isometry is applied to both model geometry and data.</li>
+    <li><strong>Evidence.</strong> Empirically validated across repeated experiments; forward equality follows from isometry invariance of the distance and the relabeling \( \gamma\mapsto \varphi\gamma\varphi^{-1} \) in the automorphic case.</li>
+  </ul>
+
+  <h4 class="ctq-mini">Suggested formal naming</h4>
+  <ul class="ctq-list">
+    <li>“<em>Symmetry-Preserving Model Transport via Metric-Invariant Embedding</em>”</li>
+    <li>“<em>Geometric Orbit Lifting of Neural Models via Metric Invariants</em>”</li>
+    <li>“<em>Constructive Symmetry Twinning under Non-Euclidean Isometries</em>”</li>
+  </ul>
+
+  <div class="ctq-note" role="note" aria-label="Limits">
+    <strong>Limits &amp; guardrails.</strong>
+    Automorphic exactness requires a known lattice/group and one-sided kernel with consistent conjugation of \( \Gamma_{\rm trunc} \).
+    Metric-only twins require that the forward map depend solely on \(d_M\) and that the diagonal isometry act on both model geometry and data.
+    This is an <em>after-training</em> transport (and an optimization shortcut), not an oracle for discovering hidden invariances.
+  </div>
+</article>
+
+<article class="ctq-card" id="independence">
+  <h3>Independence & research context</h3>
+  <p class="ctq-mini">
+    This project is an independent effort developed outside a university setting. The work spans physics,
+    mathematics, statistics, and AI/CS, and was pursued independently because the academic roles and positions
+    previously held did not support proposing or building new frameworks of this kind.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Why independent.</strong>
+    <ul class="ctq-list">
+      <li><strong>Novelty constraints.</strong> Student roles were limited to surveys/expository writing; proposing
+        original frameworks was discouraged or deemed “not qualified” within those roles.</li>
+      <li><strong>Advisor familiarity bounds.</strong> Work was expected to stay within what advisors were already
+        familiar with; interdisciplinary directions (physics ↔ math ↔ statistics ↔ AI/CS) were effectively out of scope.</li>
+      <li><strong>Framework-level research.</strong> Building a new paradigm that replaces or generalizes existing
+        frameworks was not supported in those environments, motivating an independent path.</li>
+    </ul>
+  </div>
+
+  <h4 class="ctq-mini">Provenance & transparency</h4>
+  <ul class="ctq-list">
+    <li><strong>Public record:</strong> first public GitHub commit for this line of work on
+      <em>Oct 8, 2023</em> (see project repository).</li>
+    <li><strong>Self-funded, independent:</strong> no institutional sponsorship; artifacts and diagnostics are
+      released to enable external replication.</li>
+    <li><strong>Positioning:</strong> statements here reflect personal experience; the technical claims stand on
+      the reproducible code, logs, and benchmarks provided.</li>
+  </ul>
+</article>
+
+<article class="ctq-card" id="personal-path">
+  <h3>Personal Path and Strategic Motivation</h3>
+  <p class="ctq-mini">
+    According to verified library records, independent study in special and general relativity began as early as third grade (K–3), forming the earliest seed of a long-term intellectual mission.
+    Since approximately 2003–2004, the pursuit of quantum gravity has been the principal objective—navigated through autodidactic rigor and sustained despite prolonged side tracks undertaken to secure necessary financial and logistical stability.
+  </p>
+
+  <div class="ctq-callout">
+    <strong>Formative Influences</strong>
+    <ul class="ctq-list">
+      <li>
+        Initiated direction through a translated edition of Lee Smolin’s <em>Three Roads to Quantum Gravity</em>, translated by
+        <a class="ctq-link" href="https://en.wikipedia.org/wiki/Hong-Yee_Chiu" target="_blank" rel="noopener">Dr. Hong-Yee Chiu</a>—
+        a NASA astrophysicist and
+        <a class="ctq-link" href="https://en.wikipedia.org/wiki/List_of_Cosmos_Club_members" target="_blank" rel="noopener">Cosmos Club member</a>
+        whose career spanned elite scientific, national, and diplomatic circles.
+      </li>
+      <li>
+        During undergraduate physics coursework, posed an early question that anticipated later developments in CEAS: 
+        why physical laws were written in perfectly clean formulaic form with no perturbation—e.g., why Coulomb’s inverse-square law lacked an &epsilon;-term. 
+        When presented to Professor Chia-Liang Cheng, this line of inquiry foreshadowed the entropy-based variational structure at the heart of CEAS. 
+        The intuitive notion of embedding controlled deviation directly into physical law (e.g., modifying Maxwell to Proca via &epsilon;) ultimately inspired the core
+        idea of scalable entropy adjustment in high-dimensional learning systems.
+      </li>
+    </ul>
+  </div>
+</article>
 
 
 
