@@ -657,9 +657,13 @@ for step in training:
   <h4 class="ctq-mini">What is—and isn’t—being claimed</h4>
   <ul class="ctq-list">
     <li><strong>Bypass, not contradiction.</strong> The classical NP-hardness (post-hoc discovery of hidden invariances) is not contradicted. The framework <em>assumes a known symmetry group</em> and provides a constructive <em>transport</em> along its orbits.</li>
+    <li><strong>In-loop optimization, not just transport.</strong> Beyond producing exact twins, the framework includes an
+      <em>orbit-jump controller</em> that uses Langlands-triad diagnostics (automorphic&nbsp;↔&nbsp;Galois/DFA&nbsp;↔&nbsp;thermodynamic/Selberg–Huber)
+      to select loss-decreasing Lorentz/Möbius moves \( \varphi \) <em>during</em> training. These non-SGD steps exploit real-world
+      non-commutativity to reduce loss between gradient updates.</li>
     <li><strong>Scope (automorphic specialization).</strong> Works with the one-sided Poincaré/automorphic kernel on \( \Gamma \backslash \mathbb H^d \), acts diagonally on (weights, data), and preserves exactness via conjugation of \( \Gamma_{\rm trunc} \).</li>
-    <li><strong>Scope (metric-only twinhood).</strong> For metric-only constructions using \(d_M\), automorphy is optional; exact twinhood holds whenever logits depend only on \(d_M\) and the same isometry is applied to both model geometry and data.</li>
-    <li><strong>Evidence.</strong> Empirically validated across repeated experiments; forward equality follows from isometry invariance of the distance and the relabeling \( \gamma\mapsto \varphi\gamma\varphi^{-1} \) in the automorphic case.</li>
+    <li><strong>Scope (metric/invariant twinhood).</strong> For metric-only or invariant-only constructions using \(d_M\) or a scalar invariant \(I\), automorphy is optional; exact twinhood holds whenever logits depend only on the preserved invariant and the same group action is applied to both model geometry and data.</li>
+    <li><strong>Evidence.</strong> Empirically validated across repeated experiments; forward equality follows from invariance of the chosen scalar (distance or other \(I\)) and, in the automorphic case, from the relabeling \( \gamma\mapsto \varphi\gamma\varphi^{-1} \).</li>
   </ul>
 
   <h4 class="ctq-mini">Suggested formal naming</h4>
@@ -673,8 +677,9 @@ for step in training:
   <div class="ctq-note" role="note" aria-label="Limits">
     <strong>Limits &amp; guardrails.</strong>
     Automorphic exactness requires a known lattice/group and one-sided kernel with consistent conjugation of \( \Gamma_{\rm trunc} \).
-    Metric-only twins require that the forward map depend solely on \(d_M\) and that the diagonal isometry act on both model geometry and data.
-    This is an <em>after-training</em> transport (and an optimization shortcut), not an oracle for discovering hidden invariances.
+    Metric/invariant twins require that the forward map depend solely on a group-preserved scalar and that the diagonal group action be applied to both model geometry and data.
+    The optimization component selects \( \varphi \) within a <em>known</em> symmetry group; it does not attempt to
+    discover unknown symmetry groups, and thus avoids the NP-hard post-hoc extraction problem.
   </div>
 </article>
 
