@@ -34,6 +34,118 @@ blog: passive
 
 
 
+<section id="grail-dfa-wmap">
+  <header>
+    <h2>GRAIL × DFA on WMAP — Implementation Overview</h2>
+    <p class="lede">
+      Geometry-aware attention on the Poincaré disk, stabilized with automorphic gates and a DFA coupler, applied to the 9-year WMAP V-band temperature map.
+    </p>
+    <p><a href="https://drive.google.com/file/d/1crgQsea0dTulbl-oGNykAnMyxnSMVuCV/view?usp=sharing" target="_blank" rel="noopener">PDF (notes & diagnostics)</a></p>
+  </header>
+
+  <section>
+    <h3>What this does</h3>
+    <ul>
+      <li><strong>GRAILAttention:</strong> attention logits combine content similarity and hyperbolic geometry on the Poincaré disk.</li>
+      <li><strong>Automorphic gates:</strong> Poincaré-series averaging and small-prime Hecke operators commute with the geometry and narrow spectral spread.</li>
+      <li><strong>DFA coupler:</strong> optional bias favoring <em>k</em>-step cycles or row-stochastic shifts to capture discrete syntax without retraining.</li>
+      <li><strong>Diagnostics:</strong> BCH/commutator spectrum, Selberg/Huber effective spectrum, seeded prime-geodesic proxies, Mirzakhani-style growth proxy.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Logit model (schematic)</h3>
+    <p>
+      The attention logits decompose as:
+    </p>
+    <p>
+      \[
+      \mathrm{logits}
+      =
+      \underbrace{\langle q(x),\,k(x)\rangle}_{\text{content}}
+      +
+      \underbrace{\mathrm{heat}\!\big(d_{\mathbb{H}}(z_i,z_j);\,t\big)}_{\text{geometry}}
+      +
+      \underbrace{\text{(Poincaré series + Hecke)}}_{\text{automorphic}}
+      +
+      \underbrace{\text{DFA}(x)}_{\text{cycles}}.
+      \]
+    </p>
+  </section>
+
+  <section>
+    <h3>Included components</h3>
+    <ul>
+      <li><code>GrailScalarModel</code> wrapper for <code>attn</code> + scalar <code>readout</code>.</li>
+      <li><code>DFACoupler</code> with <code>projector</code>, <code>log</code>, or <code>cptp</code> modes.</li>
+      <li><code>load_grail_from_pt</code> to rebuild the model from a plain <code>.pt</code> state dict (and restore DFA config).</li>
+      <li><code>build_batch</code> for WMAP V-band patches (with a synthetic fallback).</li>
+      <li><code>run_qg_diagnostics</code> to execute all diagnostics end-to-end.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Quick start (minimal)</h3>
+    <pre><code class="language-python">from grail_dfa import run_qg_diagnostics
+
+# Option A: load from a saved .pt
+run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
+                   eps=1e-3, eta=1e-3, axis="z",
+                   Ltok=64, batch_size=16, N_sample=4096)
+
+# Option B: pass an in-memory model object
+# run_qg_diagnostics(model_obj=my_model, ...)</code></pre>
+  </section>
+
+  <section>
+    <h3>What the diagnostics report</h3>
+
+    <h4>1) BCH / commutator spectrum \([\xi, X]\)</h4>
+    <p>
+      Compares a one-step gradient update with and without an infinitesimal isometry
+      \(\Gamma_\varepsilon\). The resulting layer deltas are projected to the \(4\times 4\) input and
+      eigenvalues of the input-projected Gram are printed. Rank-2 is the signature of a tiny
+      planar rotation.
+    </p>
+
+    <h4>2) Selberg/Huber effective spectrum</h4>
+    <p>
+      Estimates \(\lambda_{\mathrm{eff}}(t)\approx -\frac{d}{dt}\log E(t)\) from probe energies.
+      A narrow operating band appears nearly flat in \(t\); spread indicates band-mixing.
+    </p>
+
+    <h4>3) Prime-geodesic proxies</h4>
+    <p>
+      Uses the seeded family \(ST^n\) (\(\ell=2\,\arcosh(n/2)\)) to compute cumulative counts,
+      a Patterson–Sullivan slope proxy \(\hat\delta\), and simple hyperbolic sums that mirror
+      the hyperbolic portion of the trace formula.
+    </p>
+
+    <h4>4) Mirzakhani-style growth proxy</h4>
+    <p>
+      Fits \(\log N(L)-L \sim \hat\alpha \log L\) over a short window as a coarse indicator of a
+      polynomial prefactor. With seeded hyperbolics, early counts are sparse and the slope can be negative.
+    </p>
+  </section>
+
+  <section>
+    <h3>Interpretation at a glance</h3>
+    <ul>
+      <li><strong>Non-commutativity:</strong> persistent rank-2 modes indicate a rotation-sensitive pathway (often largest in <code>v</code>).</li>
+      <li><strong>Effective spectrum:</strong> reduced bandwidth in \(\lambda_{\mathrm{eff}}(t)\) correlates with better geometric consistency.</li>
+      <li><strong>Hyperbolic signals:</strong> \(\hat\delta\) near \(1\) and growing hyperbolic sums align with operation in a negatively curved regime.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Extend</h3>
+    <ul>
+      <li>Increase Poincaré depth (<code>gamma_wordlen</code>, <code>gamma_cap</code>) and enable Hecke \(\{2,3,5\}\) to narrow bands.</li>
+      <li>Replace seeded \(ST^n\) with BFS over generators for richer geodesics and a steadier \(\hat\delta\).</li>
+      <li>Add a small commutator penalty to target covariance and monitor the leading eigenvalues.</li>
+    </ul>
+  </section>
+</section>
 
 
 
