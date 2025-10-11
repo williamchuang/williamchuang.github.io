@@ -23,19 +23,6 @@ blog: passive
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 </head>
-<script>
-window.MathJax = {
-  tex: {
-    packages: {'[+]': ['ams']},
-    macros: {
-      arcosh: "\\operatorname{arcosh}",
-      HH: "\\mathbb{H}",
-      DD: "\\mathbb{D}"
-    }
-  }
-};
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
 
 
 <body>
@@ -130,7 +117,7 @@ run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
 
     <h4>3) Prime-geodesic proxies</h4>
     <p>
-      Uses the seeded family \(ST^n\) (\(\ell=2\,\arcosh(n/2)\)) to compute cumulative counts,
+      Uses the seeded family \(ST^n\) (\(\ell = 2\,\cosh^{-1}(n/2)\)) to compute cumulative counts,
       a Patterson–Sullivan slope proxy \(\hat\delta\), and simple hyperbolic sums that mirror
       the hyperbolic portion of the trace formula.
     </p>
