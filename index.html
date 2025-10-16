@@ -218,15 +218,19 @@
     <section id="frameworks" aria-labelledby="frameworks-h">
       <h2 id="frameworks-h">Featured frameworks</h2>
 
-      <article class="card" id="ceas">
-        <h3>CEAS — Critical Entropy Attention System</h3>
-        <ul>
-          <li><strong>What</strong>: β‑control for attention (inverse temperature).</li>
-          <li><strong>Why</strong>: The fixed <span class="math">1/√d<sub>k</sub></span> heuristic is an initialization convenience; after learning begins, variance assumptions drift.</li>
-          <li><strong>How</strong>: Short <span class="kbd">n‑ary search</span> early in training → choose <span class="math">β*</span> → lock or clamp in a <strong>corridor</strong>; monitor with entropy/energy metrics.</li>
-          <li><strong>Artifacts</strong>: derivations (thermo/KL/RG), corridor algorithm, small‑task demos, and safety clamps (log‑sum‑exp, bounds).</li>
-        </ul>
-      </article>
+<article class="card" id="ceas">
+  <h3>CEAS — Critical Entropy Attention System</h3>
+  <ul>
+    <li><strong>What</strong>: A β-thermostat for attention with a target <em>entropy corridor</em> and a guarded distance from the pseudo-critical point.</li>
+    <li><strong>Why</strong>: The textbook <span class="math">1/\sqrt{d_k}</span> is only an initialization convenience; heads/layers/datasets drift and fixed scaling becomes brittle.</li>
+    <li><strong>How</strong>: Initialize with
+      <nobr>\(\displaystyle \beta^\star=\frac{1}{\sigma_{qk}}\sqrt{2\ln N_{\mathrm{eff}}}\)</nobr>,
+      then apply a one-step (Newton/PI) update on attention entropy toward a target band, enforce a small gap
+      \(u=\tfrac{|\beta-\beta_c|}{\beta_c}\ge u_{\min}\) to avoid critical slowing down, and use a lightweight gate
+      \(T=\beta\,\sigma_{qk}\sqrt{2\ln N_{\mathrm{eff}}}\) to skip low-information tokens/heads with safety floors/back-off.</li>
+    <li><strong>Artifacts</strong>: β initializer + controller code, entropy/variance monitors, gating masks, proofs/derivations, and small-task demos.</li>
+  </ul>
+</article>
 
       <article class="card" id="dfa">
         <h3>DFA / Finite‑Lift — Decompose for traceability</h3>
