@@ -266,6 +266,11 @@
 
 <li><strong>Degenerate Encoder-Decoder Twin Design.</strong>
 Even if the encoder matrix <code>A</code> is captured, the model is not uniquely identifiable: the system is designed with an infinite class of mathematically equivalent encoder–decoder pairs <code>(A_i, D_i)</code> that each preserve functionality but obfuscate structure. As a result, recovering plaintext or inferring the internal state from <code>AX</code> alone is insufficient — the mapping lacks uniqueness, and decoding depends on knowing the correct twin decoder, which is not recoverable from outputs. This degeneracy provides architectural protection against reverse engineering and chosen-plaintext attacks without requiring traditional cryptographic primitives.
+
+<li><strong>Encoder–Decoder Security (Message Mode).</strong>
+When GRAIL is used as a secure message-passing scheme (encoder–decoder), the encoded output takes the form of a nonlinear composition: a weighted sum of hyperbolic distances between latent points, recursively passed through a truncated Maass form built from Poincaré series. Even if the encoder matrix <code>A</code> is captured, reversing the transformation requires solving an inverse problem akin to decoding AdS/CFT boundary observables or inverting a truncated automorphic spectral map. These operations are conjectured to be computationally intractable, even with quantum resources. Additionally, the design admits an infinite class of encoder–decoder "twins" that can be rotated at runtime, ensuring resilience even after partial compromise.
+</li>
+
 </li>
 
 
