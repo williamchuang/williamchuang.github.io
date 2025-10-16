@@ -88,6 +88,22 @@
     /* Keep hero subtitle centered and prevent wrap on final phrase */
     #preface-import .subtitle { text-align:center; margin-left:auto; margin-right:auto; max-width:100%; }
     .nowrap { white-space: nowrap; }
+    /* Emphasis callout box for the automorphic/hyperbolic highlight */
+    .emph-box {
+     border-left: 4px solid var(--accent);
+     background: linear-gradient(
+       90deg,
+       color-mix(in oklab, var(--card) 96%, transparent),
+       color-mix(in oklab, var(--card) 92%, transparent)
+     );
+     border: 1px solid rgba(255,255,255,.06);
+     border-radius: 14px;
+     padding: 1.1rem 1.25rem;
+     box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
+     margin-top: 1rem;
+     }
+
+
   </style>
   <!-- Added per your existing site -->
   <link rel="stylesheet" href="/css/main.css">
@@ -161,6 +177,19 @@
         </div>
       </div>
     </section>
+    <!-- Emphasis: Automorphic attention on hyperbolic geometry -->
+<aside id="automorphic-callout" class="card emph-box" role="note" aria-label="Automorphic attention highlight">
+  <div class="kicker">Research highlight</div>
+  <p>
+    I construct an attention mechanism that natively lives on <strong>hyperbolic geometry</strong>
+    and uses <strong>automorphic (Maass-type) kernels</strong>. A critical-entropy controller (CEAS)
+    regulates the inverse temperature so that attention entropy hovers near a pseudo-critical point.
+  </p>
+  <p>
+    <span class="nowrap">Within this setting, the classic Langlands triad is realized inside a neural operator:</span>
+    <span class="nowrap">automorphic</span> ⟷ <span class="nowrap">Galois</span> ⟷ <span class="nowrap">motive</span>.
+  </p>
+</aside>
 
     <section id="overview" aria-labelledby="overview-h">
       <h2 id="overview-h">Overview</h2>
