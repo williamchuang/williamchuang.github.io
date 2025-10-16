@@ -260,7 +260,7 @@
     <section id="evidence" aria-labelledby="evidence-h">
   <h2 id="evidence-h">Evidence &amp; Claims — How to Read</h2>
   <ul>
-    <li><strong>Performance Claims (GRAIL).</strong> GRAIL executes standard model operations at native (plaintext-equivalent) speed. No custom cryptographic runtime or external slowdown is introduced. When comparisons are made to FHE or MPC, they refer to how *those* schemes degrade runtime relative to plaintext, not to any change within GRAIL itself. The claim is therefore: <em>GRAIL runs at plaintext speed; FHE/MPC introduces slowdown by comparison</em>. Specific overheads vary by scheme, hardware, and workload.</li>
+    <li><strong>Performance Claims (GRAIL).</strong> GRAIL executes standard model operations at native (plaintext-equivalent) speed. No custom cryptographic runtime or external slowdown is introduced. When comparisons are made to FHE or MPC, they refer to how <strong>those</strong> schemes degrade runtime relative to plaintext, not to any change within GRAIL itself. The claim is therefore: <em>GRAIL runs at plaintext speed; FHE/MPC introduces slowdown by comparison</em>. Specific overheads vary by scheme, hardware, and workload.</li>
     
     <li><strong>Scope of Protection.</strong> GRAIL safeguards model parameters, activations, and latent states via symbolic and geometric encryption. These protections remain active even in fully untrusted compute environments. Security pertains to semantic leakage resistance, not cryptographic proof-of-secrecy under all attack models. Side-channel and implementation attacks remain in scope for external review and red-teaming.</li>
     
