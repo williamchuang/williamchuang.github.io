@@ -264,20 +264,77 @@
 
     <li><strong>Scope of protection.</strong> Parameters, activations, and latent states are protected via a group-action / symbolic-geometry mapping; both the <em>model</em> and the <em>data</em> remain encrypted during use. Security depends on deployment: <em>once</em> the system is air-gapped or otherwise physically isolated, external side-channels are nullified for that system; <em>before</em> isolation, standard side-channel and operational risks apply.</li>
 
-<li><strong>Degenerate Encoder-Decoder Twin Design.</strong>
-Even if the encoder matrix <code>A</code> is captured, the model is not uniquely identifiable: the system is designed with an infinite class of mathematically equivalent encoder–decoder pairs <code>(A_i, D_i)</code> that each preserve functionality but obfuscate structure. As a result, recovering plaintext or inferring the internal state from <code>AX</code> alone is insufficient — the mapping lacks uniqueness, and decoding depends on knowing the correct twin decoder, which is not recoverable from outputs. This degeneracy provides architectural protection against reverse engineering and chosen-plaintext attacks without requiring traditional cryptographic primitives.
 
-<li><strong>Encoder–Decoder Security (Message Mode).</strong>
-When GRAIL is used as a secure message-passing scheme (encoder–decoder), the encoded output takes the form of a nonlinear composition: a weighted sum of hyperbolic distances between latent points, recursively passed through a truncated Maass form built from Poincaré series. Even if the encoder matrix <code>A</code> is captured, reversing the transformation requires solving an inverse problem akin to decoding AdS/CFT boundary observables or inverting a truncated automorphic spectral map. These operations are conjectured to be computationally intractable, even with quantum resources. Additionally, the design admits an infinite class of encoder–decoder "twins" that can be rotated at runtime, ensuring resilience even after partial compromise.
-</li>
-
-</li>
 
 
     <li><strong>Stability &amp; edit safety.</strong> Each version includes entropy-corridor bounds, deviation limits, and edit-stability certificates (time, memory, parameter coverage) showing that controlled local edits do not trigger unbounded downstream drift.</li>
 
     <li><strong>Demonstrations &amp; audits.</strong> I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain behavior. Independent benchmarking, replication, and third-party cryptographic review are welcome under representative workloads.</li>
   </ul>
+</section>
+
+<section id="grail-security" aria-labelledby="grail-security-h">
+  <h2 id="grail-security-h">Twin Encoders &amp; Message-Mode Security</h2>
+
+  <article class="card" id="twin-design">
+    <h3>Degenerate Twin Design (Non-Unique Encoders &amp; Decoders)</h3>
+    <p>
+      The encoder–decoder is not a single fixed pair. It lives inside an
+      <em>infinite family</em> of mathematically equivalent pairs (“twins”) that all
+      produce the same outputs for the same inputs while looking different inside.
+      If an adversary copies one encoder, the system is still not uniquely
+      identifiable: many decoders are compatible in principle, but only the
+      <em>paired</em> twin will successfully decrypt. Observing encoded outputs does
+      not reveal which twin is in use, and rotating to a new twin can be done at
+      runtime without changing external behavior.
+    </p>
+    <div class="callout" role="note" aria-label="Plain-English summary">
+      <strong>Plain English:</strong> Even if someone steals one encoder, they still
+      don’t have the “matching decoder.” There are infinitely many look-alike
+      versions. You can switch to a fresh twin on the fly, frustrating reverse
+      engineering and chosen-plaintext probes.
+    </div>
+    <ul>
+      <li><strong>Obfuscation by design:</strong> Non-uniqueness makes parameter
+          recovery and architecture inference unstable from samples alone.</li>
+      <li><strong>Operational agility:</strong> Rotate twins proactively or after any
+          suspected exposure; external I/O remains unchanged.</li>
+      <li><strong>Works with standard crypto:</strong> Complements TLS/VPN and
+          storage encryption; not a replacement for basic hygiene.</li>
+    </ul>
+  </article>
+
+  <article class="card" id="message-mode">
+    <h3>Encoder–Decoder Security (Message Mode)</h3>
+    <p>
+      In secure message-passing mode, the encoder maps a message into a curved-space
+      representation built from <em>hyperbolic distances</em> and then filters it
+      through <em>automorphic (Maass-type) kernels</em) assembled via truncated
+      Poincaré series. The result is a nonlinear composition that does not admit a
+      straightforward inverse. Even if the encoder parameters are captured, turning
+      encoded messages back into plaintext without the correct paired decoder
+      requires solving a difficult inverse spectral problem on a curved space.
+      There is no known practical algorithm—classical or quantum—that reliably
+      recovers plaintext from these aggregates at realistic model sizes.
+    </p>
+    <div class="callout" role="note" aria-label="Plain-English summary">
+      <strong>Plain English:</strong> The message is scrambled using curved-geometry
+      distances and special waveforms. Without the exact partner decoder, “unscrambling”
+      it is a dead-end computation. Capturing the encoder alone isn’t enough.
+    </div>
+    <ul>
+      <li><strong>Resilience after compromise:</strong> Because many twins exist,
+          a compromised encoder can be retired and replaced instantly; the
+          replacement remains functionally identical to the outside world.</li>
+      <li><strong>Deployment hygiene matters:</strong> On air-gapped or equivalently
+          isolated machines, external side-channels are effectively nullified. In
+          connected environments, pair this with standard hardening (audit logs,
+          rate limits, constant-time paths where feasible).</li>
+      <li><strong>Independent scrutiny welcome:</strong> Security depends on the
+          hardness of the underlying geometric inverse problem and on sound
+          implementation. External cryptanalysis and red-teaming are invited.</li>
+    </ul>
+  </article>
 </section>
 
 
