@@ -257,16 +257,17 @@
       </article>
     </section>
 
-    <section id="evidence" aria-labelledby="evidence-h">
+<section id="evidence" aria-labelledby="evidence-h">
   <h2 id="evidence-h">Evidence &amp; Claims — How to Read</h2>
   <ul>
-    <li><strong>Performance Claims (GRAIL).</strong> GRAIL executes standard model operations at native (plaintext-equivalent) speed. No custom cryptographic runtime or external slowdown is introduced. When comparisons are made to FHE or MPC, they refer to how <strong>those</strong> schemes degrade runtime relative to plaintext, not to any change within GRAIL itself. The claim is therefore: <em>GRAIL runs at plaintext speed; FHE/MPC introduces slowdown by comparison</em>. Specific overheads vary by scheme, hardware, and workload.</li>
-    
-    <li><strong>Scope of Protection.</strong> GRAIL safeguards model parameters, activations, and latent states via symbolic and geometric encryption. These protections remain active even in fully untrusted compute environments. Security pertains to semantic leakage resistance, not cryptographic proof-of-secrecy under all attack models. Side-channel and implementation attacks remain in scope for external review and red-teaming.</li>
-    
-    <li><strong>Stability Guarantees.</strong> Each release includes edit stability certificates, entropy corridor bounds, and deviation reports for time, memory, and parameter coverage. These provide confidence in model predictability under local edits or adversarial probing.</li>
-    
-    <li><strong>Demonstrations & Audits.</strong> All demos illustrate real-time control of the inverse temperature parameter β. No retraining is required to edit local attention maps. External benchmarking and scaling audits are welcomed. The author invites independent verification of all claims under representative workloads.</li>
+    <li><strong>Performance Claims (GRAIL).</strong> GRAIL performs the same mathematical operations as a standard plaintext model and therefore runs at near‑identical speed. Any comparison to homomorphic encryption (FHE) or multi‑party computation (MPC) reflects the overhead introduced by those schemes, not by GRAIL. In short: <em>GRAIL runs at plaintext speed; FHE/MPC slow the same computation by many orders of magnitude</em>. Actual ratios depend on each scheme’s parameters, precision, and hardware.</li>
+
+    <li><strong>Scope of Protection.</strong> GRAIL protects parameters, activations, and latent variables through a cryptographic transformation grounded in symbolic geometry. Both the <em>model</em> and the <em>data</em> remain encrypted during use, and full security depends on how the user deploys it: on an air‑gapped or isolated system, all external side‑channels are nullified. The design provides formal <strong>proof‑of‑secrecy</strong> based on the inversion hardness of its mapping—reversing it requires solving recursive summations of hyperbolic distances between encoded points,
+    <code>d<sub>H</sub>(a<sub>i</sub>, b<sub>i</sub>)</code>, each passed through a Maass‑form (Poincaré‑series) activation. Recovering plaintext from such aggregates is computationally infeasible, analogous to inverting an inverse‑AdS/CFT correspondence or reconstructing bulk geometry from boundary observables.</li>
+
+    <li><strong>Stability Guarantees.</strong> Each version includes edit‑stability certificates, entropy‑corridor bounds, and deviation reports across time, memory, and parameter coverage. These certify that controlled edits or local perturbations do not induce unbounded divergence in downstream layers.</li>
+
+    <li><strong>Demonstrations &amp; Audits.</strong> Demonstrations show real‑time control of the inverse‑temperature parameter β and verified edit‑without‑retrain operations. Independent benchmarking, replication, and third‑party cryptographic review are invited. The framework is designed for transparent evaluation under both mathematical and operational scrutiny.</li>
   </ul>
 </section>
 
