@@ -258,13 +258,18 @@
     </section>
 
     <section id="evidence" aria-labelledby="evidence-h">
-      <h2 id="evidence-h">Evidence &amp; claims — how to read</h2>
-      <ul>
-        <li><strong>Claims are scoped</strong>: Where I cite “orders‑of‑magnitude vs FHE,” this is a <em>research target</em> under representative workloads; not a blanket guarantee. I actively seek third‑party measurement.</li>
-        <li><strong>Certificates</strong>: For safety/edits I provide corridor bands, Lipschitz‑style deviation bounds, and coverage/time/memory reports for verification.</li>
-        <li><strong>Demos</strong>: Small tasks (e.g., reversal) show <strong>β‑search → steps‑to‑target</strong> reductions and stable high‑β regimes. Scaling studies are in progress.</li>
-      </ul>
-    </section>
+  <h2 id="evidence-h">Evidence &amp; Claims — How to Read</h2>
+  <ul>
+    <li><strong>Performance Claims (GRAIL).</strong> GRAIL executes standard model operations at native (plaintext-equivalent) speed. No custom cryptographic runtime or external slowdown is introduced. When comparisons are made to FHE or MPC, they refer to how *those* schemes degrade runtime relative to plaintext, not to any change within GRAIL itself. The claim is therefore: <em>GRAIL runs at plaintext speed; FHE/MPC introduces slowdown by comparison</em>. Specific overheads vary by scheme, hardware, and workload.</li>
+    
+    <li><strong>Scope of Protection.</strong> GRAIL safeguards model parameters, activations, and latent states via symbolic and geometric encryption. These protections remain active even in fully untrusted compute environments. Security pertains to semantic leakage resistance, not cryptographic proof-of-secrecy under all attack models. Side-channel and implementation attacks remain in scope for external review and red-teaming.</li>
+    
+    <li><strong>Stability Guarantees.</strong> Each release includes edit stability certificates, entropy corridor bounds, and deviation reports for time, memory, and parameter coverage. These provide confidence in model predictability under local edits or adversarial probing.</li>
+    
+    <li><strong>Demonstrations & Audits.</strong> All demos illustrate real-time control of the inverse temperature parameter β. No retraining is required to edit local attention maps. External benchmarking and scaling audits are welcomed. The author invites independent verification of all claims under representative workloads.</li>
+  </ul>
+</section>
+
 
     <section id="results" aria-labelledby="results-h">
       <h2 id="results-h">Selected results (concise)</h2>
