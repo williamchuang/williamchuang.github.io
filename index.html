@@ -260,15 +260,21 @@
 <section id="evidence" aria-labelledby="evidence-h">
   <h2 id="evidence-h">Evidence &amp; Claims — How to Read</h2>
   <ul>
-    <li><strong>Performance (GRAIL).</strong> GRAIL executes the same operators as a standard plaintext model, so it runs at essentially plaintext speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC) reflects the overhead added by those schemes, not by GRAIL. In short: <em>GRAIL runs at plaintext speed; FHE/MPC slow the same workload by design</em>. Exact slowdowns for FHE/MPC depend on scheme, parameters, hardware, and task.</li>
+    <li><strong>Performance (GRAIL).</strong> GRAIL performs the same math as a plaintext model and therefore runs at essentially plaintext speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC) reflects the overhead added by those schemes, not by GRAIL. In short: <em>GRAIL runs at plaintext speed; FHE/MPC slow the same workload by design</em>. Exact slowdowns for FHE/MPC depend on scheme, precision, hardware, and task.</li>
 
-    <li><strong>What’s protected and how.</strong> GRAIL keeps the <em>model</em> and the <em>data</em> encrypted in use via a group-action / symbolic-geometry mapping. I provide formal <strong>proof-of-secrecy</strong>: inverting the mapping reduces to solving recursive sums of hyperbolic distances passed through Maass-type (Poincaré-series) activations—an inversion problem I analyze as computationally infeasible. Security in practice also depends on deployment: <em>when</em> the system is air-gapped or otherwise physically isolated, external side-channels are nullified for that system; <em>before</em> isolation, standard operational side-channel risks apply.</li>
+    <li><strong>Scope of protection.</strong> Parameters, activations, and latent states are protected via a group-action / symbolic-geometry mapping; both the <em>model</em> and the <em>data</em> remain encrypted during use. Security depends on deployment: <em>once</em> the system is air-gapped or otherwise physically isolated, external side-channels are nullified for that system; <em>before</em> isolation, standard side-channel and operational risks apply.</li>
 
-    <li><strong>Stability &amp; edit safety.</strong> Each release includes entropy-corridor bounds, deviation limits, and edit-stability certificates covering time, memory, and parameter coverage—so local edits do not cause unbounded downstream drift.</li>
+<li><strong>Degenerate Encoder-Decoder Twin Design.</strong>
+Even if the encoder matrix <code>A</code> is captured, the model is not uniquely identifiable: the system is designed with an infinite class of mathematically equivalent encoder–decoder pairs <code>(A_i, D_i)</code> that each preserve functionality but obfuscate structure. As a result, recovering plaintext or inferring the internal state from <code>AX</code> alone is insufficient — the mapping lacks uniqueness, and decoding depends on knowing the correct twin decoder, which is not recoverable from outputs. This degeneracy provides architectural protection against reverse engineering and chosen-plaintext attacks without requiring traditional cryptographic primitives.
+</li>
 
-    <li><strong>Demonstrations &amp; audits.</strong> I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain behavior. I invite independent benchmarking, cryptographic review, and replication under representative workloads.</li>
+
+    <li><strong>Stability &amp; edit safety.</strong> Each version includes entropy-corridor bounds, deviation limits, and edit-stability certificates (time, memory, parameter coverage) showing that controlled local edits do not trigger unbounded downstream drift.</li>
+
+    <li><strong>Demonstrations &amp; audits.</strong> I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain behavior. Independent benchmarking, replication, and third-party cryptographic review are welcome under representative workloads.</li>
   </ul>
 </section>
+
 
 
     <section id="results" aria-labelledby="results-h">
