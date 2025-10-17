@@ -262,7 +262,15 @@
   <ul>
     <li><strong>Performance (GRAIL).</strong> GRAIL performs the same math as a plaintext model and therefore runs at essentially plaintext speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC) reflects the overhead added by those schemes, not by GRAIL. In short: <em>GRAIL runs at plaintext speed; FHE/MPC slow the same workload by design</em>. Exact slowdowns for FHE/MPC depend on scheme, precision, hardware, and task.</li>
 
-    <li><strong>Scope of protection.</strong> Parameters, activations, and latent states are protected via a group-action / symbolic-geometry mapping; both the <em>model</em> and the <em>data</em> remain encrypted during use. Security depends on deployment: <em>once</em> the system is air-gapped or otherwise physically isolated, external side-channels are nullified for that system; <em>before</em> isolation, standard side-channel and operational risks apply.</li>
+<li><strong>Scope of protection.</strong>
+  Parameters, activations, and latent states are protected via a group-action / symbolic-geometry transform; both the <em>model</em> and the <em>data</em> remain encrypted in use.
+  Security is deployment-dependent: once the system is operated inside a
+  <abbr title="Sensitive Compartmented Information Facility">SCIF</abbr> or an equivalently isolated posture
+  (air-gapped, shielded/TEMPEST-class enclosure, no external I/O), external side-channels
+  (network beacons, vendor telemetry, remote DMA, RF/EM egress) are effectively nullified for that system.
+  Before such isolation, standard side-channel and operational risks apply, and routine hardening
+  (I/O policy, audit logging, rate-limits, constant-time paths where feasible) remains required.
+</li>
 
 
 
