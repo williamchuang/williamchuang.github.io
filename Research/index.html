@@ -655,6 +655,9 @@ for step in training:
     </span>
   </div>
 
+<article class="ctq-note" role="note" aria-label="Beyond scalar computation"> <strong>Beyond scalar computation.</strong> The diagonal-isometry framework extends beyond neural architectures. Any computational system—classical or Turing-complete—can be embedded in a curved manifold \( (M, g) \) by replacing scalar multiplications with invariant functions \(F(I(q,k))\), where \(I\) is preserved by a known group action \(g\). Model instructions, register values, memory contents, and data inputs are all treated as vector points \(p_i \in M\), and transported together via diagonal group action: \[ (p_i;x) \mapsto (g\,p_i;\,g\,x) \] This yields functionally identical machines or programs under geometric transport. Thus, even legacy OS architectures or classical machines can be upgraded to curvature-aware, symmetry-transportable systems before the rise of AI-native substrates. </article>
+
+
   <h4 class="ctq-mini">What is—and isn’t—being claimed</h4>
   <ul class="ctq-list">
     <li><strong>Bypass, not contradiction.</strong> The classical NP-hardness (post-hoc discovery of hidden invariances) is not contradicted. The framework <em>assumes a known symmetry group</em> and provides a constructive <em>transport</em> along its orbits.</li>
