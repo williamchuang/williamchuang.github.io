@@ -36,10 +36,7 @@ blog: passive
 
 
 
-
-
-<!-- Optional: enable only if your site doesn't already load MathJax -->
-<!--
+<!-- Optional: enable only if your site doesn't already load MathJax
 <script>
   window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
 </script>
@@ -47,38 +44,9 @@ blog: passive
 -->
 
 <section class="ctq-wrap" id="ctq-cyclic-decomposition">
-  <style>
-    /* Uses your existing CTQ design language (safe to duplicate) */
-    .ctq-wrap{
-      --ink:#0F2230;--muted:#55657E;--soft:#F6F8FF;--accent:#0B5FFF;--emerald:#0E9F6E;
-      --amber:#FFC107;--rose:#e11d48;--slate:#334155;
-      color:var(--ink);
-      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      max-width:780px;margin:0 auto;padding:28px 18px
-    }
-    .ctq-hero{background:linear-gradient(180deg,rgba(11,95,255,.07),rgba(11,95,255,0));
-      border:1px solid #e6ecff;border-radius:14px;padding:22px 20px;margin-bottom:22px;text-align:center}
-    .ctq-title{margin:0 0 6px;font-weight:800;letter-spacing:.2px}
-    .ctq-sub{margin:6px 0 0;color:var(--muted)}
-    .ctq-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center}
-    .ctq-badge{font-size:12px;padding:4px 8px;border-radius:999px;background:#eef3ff;color:#173e8f;border:1px solid #dbe7ff}
-
-    .ctq-card{background:#fff;border:1px solid #e6e8ee;border-radius:12px;padding:16px;margin:16px 0}
-    .ctq-card h3{margin:.2rem 0 .55rem;font-size:1.05rem}
-    .ctq-callout{background:var(--soft);border-left:4px solid var(--accent);
-      padding:12px 14px;border-radius:10px;margin:10px 0}
-    .ctq-note{background:#fff8e1;border-left:4px solid #f4c20d;padding:10px 12px;border-radius:10px;margin:10px 0;color:#664d03}
-    .ctq-sep{height:1px;background:#eef0f4;margin:18px 0}
-    .ctq-pill{display:inline-block;font:12px/1 var(--font,inherit);padding:2px 8px;border-radius:999px;background:#eef7f1;color:#0a6d47;border:1px solid #d9f0e4}
-    .ctq-link{color:var(--accent);text-decoration:none}
-    .ctq-link:hover{text-decoration:underline}
-    .ctq-list{margin:8px 0 0;padding-left:18px}
-    .ctq-mini{color:var(--muted);font-size:13px;margin-top:10px}
-  </style>
-
   <div class="ctq-hero">
     <h1 class="ctq-title">Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
-    <p class="ctq-sub">Clarifying “cycles” for physicists and readers of Penrose: cycles may be finite, quasi-periodic, or chaotic; in λ-stack they live in the <em>observer’s</em> internal dynamics—not in physical spacetime.</p>
+    <p class="ctq-sub">For mathematicians & physicists: cycles may be finite, quasi-periodic, or chaotic; in λ-stack they live in the <em>observer’s</em> internal dynamics—not in physical spacetime.</p>
     <div class="ctq-badges">
       <span class="ctq-badge">Tri-quantized observer</span>
       <span class="ctq-badge">Automorphic \( \mathbb H^2 \)</span>
@@ -112,26 +80,26 @@ blog: passive
       <li><strong>Thermodynamic parameters</strong> (free energy, pressure bands) → operating regime under CEAS.</li>
     </ul>
 
-<div class="ctq-note" role="note" aria-label="Outputs vs entropy reset">
-  <p class="ctq-mini" style="margin:0 0 8px 0;">
-    <strong>These outputs summarize emergent geometry and gauge-like structure without invoking any “entropy reset” mechanism.</strong>
-  </p>
-
-  <div class="ctq-mini">
-    <strong>Contrast with “cycle” misread vs Penrose (CCC):</strong>
-    <ul class="ctq-list" style="margin-top:6px;">
-      <li><strong>Misreading —</strong> “cycle” ≙ a short, finite loop ⇒ demands a mechanism to <em>cancel entropy</em> at the loop’s end.</li>
-      <li><strong>Penrose (CCC) —</strong> “cycles” are entire <em>aeons</em>; the infinite future of one aeon is conformally matched to the Big Bang of the next—<em>no engineered reset</em> is required.</li>
-    </ul>
-  </div>
-</div>
-
-
+    <!-- Single consolidated yellow box: emphasis + CCC contrast + fixed-point reading -->
+    <div class="ctq-note" role="note" aria-label="Outputs, CCC contrast, and fixed-point reading">
+      <p class="ctq-mini" style="margin:0 0 .5rem 0;">
+        <strong>These outputs summarize emergent geometry and gauge-like structure without invoking any “entropy reset” mechanism.</strong>
+      </p>
+      <div class="ctq-mini" style="margin:.35rem 0;">
+        <strong>Contrast: misread “cycle” vs Penrose (CCC).</strong>
+        <ul class="ctq-list" style="margin:.25rem 0 0 1rem;">
+          <li><strong>Misread —</strong> “cycle” ≙ a short finite loop ⇒ demands a device to <em>cancel entropy</em> at loop end.</li>
+          <li><strong>Penrose (CCC) —</strong> an entire <em>aeon</em> is a cosmological era; the infinite future \(\mathscr I^+\) of one aeon is conformally matched to the next Big-Bang slice via \(\tilde g=\Omega^2 g\) with \(\Omega\!\downarrow\!0\). This is a <em>conformal identification</em>, not a periodic reset.</li>
+        </ul>
+      </div>
+      <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+        <strong>Fixed-point case (math/physics phrasing).</strong>
+        If late-time dynamics approach a <em>conformal fixed point</em> \([g_\star]\) at \(\mathscr I^+\), the rescaled metric extends smoothly to seed the next aeon’s initial data. Entropy remains monotone within an aeon; the conformal map changes units/scales, not microstate counts—so <strong>no entropy reset is required</strong>.
+      </p>
+    </div>
   </article>
 
-
-
-  <!-- 2) Cycle ≠ finite loop; stress “infinite period” and sinks -->
+  <!-- 2) Cycle ≠ finite loop; emphasize “infinite period” and sinks -->
   <article class="ctq-card" id="ctq-cycles-math">
     <h3>2) “Cycle” does <em>not</em> always mean a finite loop</h3>
     <p>
@@ -143,12 +111,12 @@ blog: passive
       <li><strong>Quasi-periodic cycles.</strong> With incommensurate frequencies the orbit fills a torus; it <em>never closes</em> and behaves as if it has “infinite period.”</li>
       <li><strong>Chaotic (strange) cycles.</strong> Period-doubling cascades lead to attractors with infinitely many points; trajectories approach but <em>never repeat</em>.</li>
     </ul>
-    <div class="ctq-note" aria-label="Strong emphasis">
-      <strong>Strong emphasis:</strong> In mathematics, “cycle” includes the non-closing cases. A trajectory may <em>approach</em> an attractor forever without ever arriving or looping.
+    <div class="ctq-callout" aria-label="Strong emphasis">
+      <strong>Strong emphasis.</strong>
+      In mathematics, “cycle” includes the non-closing cases: a trajectory may <em>approach</em> an attractor forever without ever arriving or looping.
     </div>
     <p>
-      Fixed points (sinks) are 1-cycles: the orbit tends to a single point asymptotically. No “entropy cancellation” is required.
-      Likewise, Penrose’s <em>Conformal Cyclic Cosmology</em> speaks of whole “aeons,” not short loops; conformal rescaling relates the far future of one aeon to the Big Bang of the next.
+      Fixed points (sinks) are 1-cycles: trajectories converge asymptotically to a single state; no “entropy cancellation” is needed.
     </p>
   </article>
 
@@ -162,12 +130,12 @@ blog: passive
     </p>
     <ul class="ctq-list">
       <li>a <strong>finite</strong> set of states,</li>
-      <li>a transition function that maps each (state, symbol) pair to exactly one successor.</li>
+      <li>a transition function mapping each \((\text{state},\text{symbol})\) to exactly one successor.</li>
     </ul>
     <div class="ctq-callout">
       <strong>Consequence.</strong>
       <p class="ctq-mini">
-        By the pigeon-hole principle, any sufficiently long run must revisit a state, so the automaton enters a <strong>finite cycle</strong>.
+        By the pigeon-hole principle, any sufficiently long run revisits a state and hence enters a <strong>finite cycle</strong>.
         Minimization and other iterative procedures <em>must terminate</em> because only finitely many states/symbols exist.
       </p>
     </div>
