@@ -212,14 +212,6 @@ blog: passive
 
 
 
-
-<!-- Optional: enable only if the site doesn't already load MathJax
-<script>
-  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
--->
-
 <section class="ctq-wrap" id="mia-validation" aria-label="Metric-Invariant Architecture (MIA) — Validation & Proof-of-Work">
   <div class="ctq-hero">
     <h1 class="ctq-title">Metric-Invariant Architecture (MIA) — Validation &amp; Proof-of-Work</h1>
@@ -231,9 +223,7 @@ blog: passive
       (function-identical, internally distinct).
     </p>
     <div class="ctq-mini" role="note" aria-label="Where MIA lives">
-      <strong>Where it lives.</strong> MIA is an <em>architecture layer</em> that can sit at the VM/runtime (JIT/bytecode),
-      OS/driver shim, ISA extension or microcode, co-processor/accelerator tiles (FPGA/CGRA/analog/in-memory),
-      and embedded/PLC firmware.
+      <strong>Where it lives.</strong> Architecture layer at VM/runtime, OS/driver shim, ISA extension or microcode, co-processor/accelerator tiles (FPGA/CGRA/analog/in-memory), and embedded/PLC firmware.
     </div>
     <div class="ctq-badges" aria-label="Highlights">
       <span class="ctq-badge">Bit-exact fp16 primitive</span>
@@ -244,41 +234,30 @@ blog: passive
     </div>
   </div>
 
-  <!-- Overview -->
   <article class="ctq-card" id="mia-overview">
     <h3>Overview</h3>
     <p>
-      MIA reframes programs and models so that outputs depend only on group-preserved quantities. This enables
-      orbit-transported <em>twins</em>—deployments that remain behaviorally identical while being internally distinct.
-      The result is a practical blend of <strong>security</strong> (orbit-locked execution), <strong>portability</strong>
-      (digital, analog, and in-memory substrates), and <strong>efficiency</strong> (distance/invariant primitives reduce
-      reliance on power-hungry multipliers).
+      MIA reframes programs and models so that outputs depend only on group-preserved quantities. This yields orbit-transported <em>twins</em>—deployments that remain behaviorally identical while being internally distinct. The result is a practical blend of <strong>security</strong> (orbit-locked execution), <strong>portability</strong> (digital, analog, and in-memory substrates), and <strong>efficiency</strong> (distance/invariant primitives reduce reliance on power-hungry multipliers).
     </p>
     <div class="ctq-callout" aria-label="Effect on software">
-      <strong>Effect on software.</strong> Once the platform speaks in invariants, unmodified programs—and AI models—
-      inherit GRAIL features: orbit-locked twins for deployment obfuscation, geometry-native security, ISA-agnostic
-      portability, and optional CEAS/DFA controls for stability and policy.
+      <strong>Effect on software.</strong> Once the platform speaks in invariants, unmodified programs—and AI models—inherit GRAIL features: orbit-locked twins for deployment obfuscation, geometry-native security, ISA-agnostic portability, and optional CEAS/DFA controls for stability and policy.
     </div>
   </article>
 
-  <!-- Highlights -->
   <article class="ctq-card" id="mia-highlights">
     <h3>Validation at a glance</h3>
     <ul class="ctq-list">
       <li><strong>Bit-exact fp16 MIA multiply</strong> passes exhaustive/randomized coverage (NaNs treated equal): functional correctness established.</li>
-      <li><strong>Twin invariance demonstration</strong> yields identical predictions, scores, and <em>trace SHA-256</em> after diagonal transport: architectural soundness & obfuscation.</li>
+      <li><strong>Twin invariance demonstration</strong> yields identical predictions, scores, and execution trace after diagonal transport: architectural soundness &amp; obfuscation.</li>
       <li><strong>PPA + roofline overlay</strong> calibrated with a measured dot peak: kernels operate within compute/bandwidth ceilings with realistic arithmetic intensity.</li>
     </ul>
     <p class="ctq-mini"><span class="ctq-pill">Why it matters</span> Public, laptop-reproducible artifacts with honest bounds—no FPGA required.</p>
   </article>
 
-  <!-- Evidence table -->
   <article class="ctq-card" id="mia-evidence">
     <h3>Evidence &amp; interpretation</h3>
     <div class="ctq-callout">
-      <strong>Readout.</strong> The checks cover <em>correctness</em> (bit-exact vs IEEE-754), <em>architectural invariance</em> (twinhood),
-      and <em>physics-respecting performance</em> (roofline). Together, they support claims that targeted MIA kernels operate without
-      requiring &lt;100&nbsp;nm silicon.
+      <strong>Readout.</strong> Checks cover <em>correctness</em> (bit-exact vs IEEE-754), <em>architectural invariance</em> (twinhood), and <em>physics-respecting performance</em> (roofline). Together, they support claims that targeted MIA kernels operate without requiring &lt;100&nbsp;nm silicon.
     </div>
 
     <div class="ctq-table-wrap" role="region" aria-label="Validation evidence">
@@ -299,8 +278,9 @@ blog: passive
             <td>Closes the correctness gap—MIA is not merely approximate</td>
             <td><span class="ctq-pill">✅ Passed</span></td>
             <td>
-              <a class="ctq-link" href="/files/mia/logs/fp16_pass.txt">pass log</a> &middot;
-              <a class="ctq-link" href="/files/mia/code/mia_fp16_mul.py">code</a>
+              <a class="ctq-link" href="/files/mia/mia_fp16_mul.py">mia_fp16_mul.py</a> &middot;
+              <a class="ctq-link" href="/files/mia/mia_fp16_mul2.py">mia_fp16_mul2.py</a> &middot;
+              <a class="ctq-link" href="/files/mia/mia_fp16_mul3.py">mia_fp16_mul3.py</a>
             </td>
           </tr>
           <tr class="ctq-row">
@@ -309,8 +289,7 @@ blog: passive
             <td>Demonstrates built-in obfuscation and deployment agility (infinite twins)</td>
             <td><span class="ctq-pill">✅ Passed</span></td>
             <td>
-              <a class="ctq-link" href="/files/mia/code/mia_twin_demo.py">code</a> &middot;
-              <a class="ctq-link" href="/files/mia/logs/twin_trace_sha.txt">trace SHA-256</a>
+              <a class="ctq-link" href="/files/mia/mia_twin_demo.py">mia_twin_demo.py</a>
             </td>
           </tr>
           <tr class="ctq-row">
@@ -319,9 +298,10 @@ blog: passive
             <td>Keeps claims within physics; supports “no &lt;100&nbsp;nm needed for these tasks”</td>
             <td><span class="ctq-pill">✅ Passed</span></td>
             <td>
-              <a class="ctq-link" href="/files/mia/summary/dot_fp32_cal_summary.json">dot summary</a> &middot;
-              <a class="ctq-link" href="/files/mia/summary/l1_numpy_512x1024_summary.json">L1 summary</a> &middot;
-              <a class="ctq-link" href="/files/mia/plots/roofline_overlay.png">overlay plot</a>
+              <a class="ctq-link" href="/files/mia/dot_fp32_cal_summary.json">dot_fp32_cal_summary.json</a> &middot;
+              <a class="ctq-link" href="/files/mia/l1_numpy_512x1024_summary.json">l1_numpy_512x1024_summary.json</a> &middot;
+              <a class="ctq-link" href="/files/mia/ppa_result_summary.json">ppa_result_summary.json</a> &middot;
+              <a class="ctq-link" href="/files/mia/roofline_overlay.png">roofline_overlay.png</a>
             </td>
           </tr>
         </tbody>
@@ -329,21 +309,57 @@ blog: passive
     </div>
   </article>
 
-  <!-- Local reproduction -->
+  <article class="ctq-card" id="mia-roofline-figure">
+    <h3>Calibrated roofline</h3>
+    <figure style="margin:0;">
+      <img src="/files/mia/roofline_overlay.png"
+           alt="Calibrated roofline with measured points: DOT fp32 near compute roof, L1 fp32 in bandwidth-limited region"
+           style="width:100%;height:auto;border-radius:10px;border:1px solid #e6e8ee" />
+      <figcaption class="ctq-mini">Peak and bandwidth derive from <code>dot_fp32_cal_summary.json</code>; measured kernels overlay accordingly.</figcaption>
+    </figure>
+  </article>
+
+  <article class="ctq-card" id="mia-artifacts-index">
+    <h3>Artifacts index</h3>
+    <ul class="ctq-list">
+      <li><strong>Summaries (JSON/CSV):</strong>
+        <a class="ctq-link" href="/files/mia/dot_fp32_cal_summary.json">dot_fp32_cal_summary.json</a>,
+        <a class="ctq-link" href="/files/mia/dot_fp32_cal_summary.csv">dot_fp32_cal_summary.csv</a>,
+        <a class="ctq-link" href="/files/mia/l1_numpy_512x1024_summary.json">l1_numpy_512x1024_summary.json</a>,
+        <a class="ctq-link" href="/files/mia/l1_numpy_512x1024_summary.csv">l1_numpy_512x1024_summary.csv</a>,
+        <a class="ctq-link" href="/files/mia/l1_large_summary.json">l1_large_summary.json</a>,
+        <a class="ctq-link" href="/files/mia/l1_large_summary.csv">l1_large_summary.csv</a>,
+        <a class="ctq-link" href="/files/mia/l1_modeled_summary.json">l1_modeled_summary.json</a>,
+        <a class="ctq-link" href="/files/mia/l1_modeled_summary.csv">l1_modeled_summary.csv</a>,
+        <a class="ctq-link" href="/files/mia/ppa_result_summary.json">ppa_result_summary.json</a>,
+        <a class="ctq-link" href="/files/mia/ppa_result_summary.csv">ppa_result_summary.csv</a>
+      </li>
+      <li><strong>Code:</strong>
+        <a class="ctq-link" href="/files/mia/ppa.py">ppa.py</a>,
+        <a class="ctq-link" href="/files/mia/ppa_roofline.py">ppa_roofline.py</a>,
+        <a class="ctq-link" href="/files/mia/overlay_roofline.py">overlay_roofline.py</a>,
+        <a class="ctq-link" href="/files/mia/mia_fp16_mul3.py">mia_fp16_mul3.py</a>,
+        <a class="ctq-link" href="/files/mia/mia_twin_demo.py">mia_twin_demo.py</a>
+      </li>
+      <li><strong>Plot:</strong> <a class="ctq-link" href="/files/mia/roofline_overlay.png">roofline_overlay.png</a></li>
+    </ul>
+    <p class="ctq-mini">Paths assume the files live under <code>/files/mia/</code>. Adjust links if hosted elsewhere.</p>
+  </article>
+
   <article class="ctq-card" id="mia-reproduce">
     <h3>Local reproduction (no FPGA required)</h3>
     <ul class="ctq-list">
       <li>
         <strong>Bit-exact fp16:</strong>
         <div class="ctq-mini">
-          Command: <code>python3 mia_fp16_mul.py</code><br>
+          Command: <code>python3 /files/mia/mia_fp16_mul.py</code><br>
           Expected output: <em>PASS: … cases matched</em>
         </div>
       </li>
       <li>
         <strong>Twin invariance:</strong>
         <div class="ctq-mini">
-          Command: <code>python3 mia_twin_demo.py</code><br>
+          Command: <code>python3 /files/mia/mia_twin_demo.py</code><br>
           Expected output: equal predictions/scores and identical trace hash
         </div>
       </li>
@@ -351,10 +367,10 @@ blog: passive
         <strong>PPA / roofline overlay:</strong>
         <div class="ctq-mini">
           1) Calibrate dot peak (records achieved Gops/s in JSON):<br>
-          <code>python3 ppa.py --kernel dot --dtype fp32 --M 2048 --N 2048 --K 2048 --repeat 3 --impl numpy --out dot_fp32_cal</code><br>
+          <code>python3 /files/mia/ppa.py --kernel dot --dtype fp32 --M 2048 --N 2048 --K 2048 --repeat 3 --impl numpy --out dot_fp32_cal</code><br>
           2) Run an L1 kernel and overlay (fill with the measured peak and a bandwidth estimate):<br>
-          <code>python3 ppa.py --kernel l1 --dtype fp32 --M 512 --N 512 --K 1024 --repeat 3 --impl numpy --peak-gops &lt;PEAK_GOPS&gt; --bw-gbs &lt;BW_GBps&gt; --out l1_numpy_512x1024</code><br>
-          <code>python3 overlay_roofline.py --dot dot_fp32_cal_summary.json --other l1_numpy_512x1024_summary.json --label-other "L1 fp32 (NumPy tiled)" --peak-gops &lt;PEAK_GOPS&gt; --bw-gbs &lt;BW_GBps&gt; --out roofline_overlay.png</code>
+          <code>python3 /files/mia/ppa.py --kernel l1 --dtype fp32 --M 512 --N 512 --K 1024 --repeat 3 --impl numpy --peak-gops &lt;PEAK_GOPS&gt; --bw-gbs &lt;BW_GBps&gt; --out l1_numpy_512x1024</code><br>
+          <code>python3 /files/mia/overlay_roofline.py --dot dot_fp32_cal_summary.json --other l1_numpy_512x1024_summary.json --label-other "L1 fp32 (NumPy tiled)" --peak-gops &lt;PEAK_GOPS&gt; --bw-gbs &lt;BW_GBps&gt; --out roofline_overlay.png</code>
         </div>
       </li>
     </ul>
@@ -362,16 +378,6 @@ blog: passive
       <span class="ctq-pill">Note</span> Use the achieved value from the dot calibration for <code>&lt;PEAK_GOPS&gt;</code>;
       set <code>&lt;BW_GBps&gt;</code> to a reasonable main-memory bandwidth estimate for the system under test.
     </p>
-  </article>
-
-  <!-- Roadmap -->
-  <article class="ctq-card" id="mia-next">
-    <h3>Planned releases</h3>
-    <ul class="ctq-list">
-      <li><strong>Security game one-pager.</strong> Twin-indistinguishability / orbit-recovery game formulation.</li>
-      <li><strong>ASIC synthesis (65/130/180&nbsp;nm).</strong> OpenROAD/OpenLane experiments for DSP-free DEU blocks; early PPA reports.</li>
-      <li><strong>BOM / cost sheet.</strong> Comparative economics for a “MIA tile” vs conventional multiplier tiles.</li>
-    </ul>
   </article>
 </section>
 
