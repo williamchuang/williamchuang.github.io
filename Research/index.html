@@ -36,6 +36,141 @@ blog: passive
 
 
 
+
+<!-- Optional: enable only if your site doesn't already load MathJax
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+-->
+
+<section class="ctq-wrap" id="mia-validation">
+  <div class="ctq-hero">
+    <h1 class="ctq-title">Metric-Invariant Architecture (MIA) — Validation & Proof-of-Work</h1>
+    <p class="ctq-sub">
+      <strong>What is MIA?</strong> A computing paradigm that replaces scalar multiplies/divides with
+      scalar <em>invariants</em> \( I \) (distance-like or other group-preserved scalars) and a readout \( F \),
+      yielding primitives of the form \( F\!\circ I \). Transporting <em>all</em> program elements by the same group element
+      (“diagonal action”) leaves outputs and control flow unchanged — giving <em>infinite twins</em>
+      (function-identical, internally distinct).
+    </p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Bit-exact fp16 primitive</span>
+      <span class="ctq-badge">Twin invariance (trace-match)</span>
+      <span class="ctq-badge">Roofline overlay (compute-cap OK)</span>
+      <span class="ctq-badge">Reproducible on a laptop</span>
+    </div>
+  </div>
+
+  <!-- TL;DR card -->
+  <article class="ctq-card emph-box" id="mia-tldr">
+    <div class="kicker">TL;DR — Bucket 1 is satisfied</div>
+    <ul class="ctq-list">
+      <li><strong>Bit-exact fp16 MIA multiply</strong> passes exhaustive randomized coverage (NaNs treated equal) — functional correctness sealed.</li>
+      <li><strong>Twin invariance demo</strong> shows identical predictions, scores, and <em>trace SHA-256</em> after diagonal transport — architectural soundness & obfuscation.</li>
+      <li><strong>PPA + Roofline</strong> calibrated with a measured dot peak; overlay confirms MIA kernels respect compute ceilings and report realistic arithmetic intensity.</li>
+    </ul>
+    <p class="ctq-mini"><span class="badge">Why it matters</span> You can now advertise MIA with concrete, reproducible artifacts (no FPGA required) and honest bounds.</p>
+  </article>
+
+  <!-- What passed, why it matters -->
+  <article class="ctq-card" id="mia-why-matters">
+    <h3>What passed — and why it matters</h3>
+    <div class="ctq-callout">
+      <strong>Interpretation.</strong> These items establish <em>correctness</em> (bit-exact vs IEEE-754),
+      <em>architectural invariance</em> (twinhood), and <em>physics-respecting performance claims</em> (roofline).
+      Together they justify public claims that “MIA works” on targeted kernels without <span class="nowrap">&lt;100&nbsp;nm</span> silicon.
+    </div>
+
+    <div class="card" style="padding:0; overflow:auto; margin-top:1rem;">
+      <table style="width:100%; border-collapse:collapse; font-variant-numeric: tabular-nums;">
+        <thead>
+          <tr style="background: rgba(255,255,255,.04);">
+            <th style="text-align:left; padding:.75rem 1rem; border-bottom:1px solid rgba(255,255,255,.08);">Evidence</th>
+            <th style="text-align:left; padding:.75rem 1rem; border-bottom:1px solid rgba(255,255,255,.08);">What it proves</th>
+            <th style="text-align:left; padding:.75rem 1rem; border-bottom:1px solid rgba(255,255,255,.08);">Why it matters</th>
+            <th style="text-align:left; padding:.75rem 1rem; border-bottom:1px solid rgba(255,255,255,.08);">Status</th>
+            <th style="text-align:left; padding:.75rem 1rem; border-bottom:1px solid rgba(255,255,255,.08);">Artifacts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:.65rem 1rem;"><strong>Bit-exact primitive (fp16)</strong></td>
+            <td style="padding:.65rem 1rem;">MIA \(F\!\circ I\) reproduces IEEE-754 multiply bit-for-bit (incl. NaNs/±0/subnormals)</td>
+            <td style="padding:.65rem 1rem;">Closes the “correctness gap” — MIA is not just approximate</td>
+            <td style="padding:.65rem 1rem;"><span class="badge">✅ Passed</span></td>
+            <td style="padding:.65rem 1rem;">
+              <a href="/files/mia/logs/fp16_pass.txt">pass log</a> &middot;
+              <a href="/files/mia/code/mia_fp16_mul.py">code</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:.65rem 1rem;"><strong>Twin invariance demo</strong></td>
+            <td style="padding:.65rem 1rem;">Outputs, scores, and execution trace are identical after diagonal transport</td>
+            <td style="padding:.65rem 1rem;">Shows built-in obfuscation & deployment agility (infinite twins)</td>
+            <td style="padding:.65rem 1rem;"><span class="badge">✅ Passed</span></td>
+            <td style="padding:.65rem 1rem;">
+              <a href="/files/mia/code/mia_twin_demo.py">code</a> &middot;
+              <a href="/files/mia/logs/twin_trace_sha.txt">trace SHA-256</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:.65rem 1rem;"><strong>PPA + Roofline</strong></td>
+            <td style="padding:.65rem 1rem;">Measured peak (dot) and MIA kernels plotted vs compute/BW ceilings</td>
+            <td style="padding:.65rem 1rem;">Claims stay within physics; supports “no &lt;100&nbsp;nm needed for these tasks”</td>
+            <td style="padding:.65rem 1rem;"><span class="badge">✅ Passed</span></td>
+            <td style="padding:.65rem 1rem;">
+              <a href="/files/mia/summary/dot_fp32_cal_summary.json">dot summary</a> &middot;
+              <a href="/files/mia/summary/l1_numpy_512x1024_summary.json">L1 summary</a> &middot;
+              <a href="/files/mia/plots/roofline_overlay.png">overlay plot</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <!-- Reproduce section -->
+  <article class="ctq-card" id="mia-reproduce">
+    <h3>Reproduce locally (no FPGA required)</h3>
+    <ul class="ctq-list">
+      <li><strong>Bit-exact fp16:</strong> run <span class="kbd">python3 mia_fp16_mul.py</span> → expect <em>PASS: … cases matched</em>.</li>
+      <li><strong>Twin invariance:</strong> run <span class="kbd">python3 mia_twin_demo.py</span> → expect equal preds/scores and identical trace hash.</li>
+      <li><strong>PPA/Roofline:</strong>
+        <div class="ctq-mini">
+          <div>1) Calibrate dot peak (records achieved Gops/s in JSON):</div>
+          <div class="kbd">python3 ppa.py --kernel dot --dtype fp32 --M 2048 --N 2048 --K 2048 --repeat 3 --impl numpy --out dot_fp32_cal</div>
+          <div>2) Run an L1 kernel and overlay (fill with <em>your</em> measured peak and a bandwidth estimate):</div>
+          <div class="kbd">python3 ppa.py --kernel l1 --dtype fp32 --M 512 --N 512 --K 1024 --repeat 3 --impl numpy --peak-gops &lt;PEAK_GOPS&gt; --bw-gbs &lt;BW_GBps&gt; --out l1_numpy_512x1024</div>
+          <div class="kbd">python3 overlay_roofline.py --dot dot_fp32_cal_summary.json --other l1_numpy_512x1024_summary.json --label-other "L1 fp32 (NumPy tiled)" --peak-gops &lt;PEAK_GOPS&gt; --bw-gbs &lt;BW_GBps&gt; --out roofline_overlay.png</div>
+        </div>
+      </li>
+    </ul>
+    <p class="ctq-mini"><span class="badge">Note</span> Replace <span class="kbd">&lt;PEAK_GOPS&gt;</span> with the “achieved” value from your dot calibration;
+      choose <span class="kbd">&lt;BW_GBps&gt;</span> as a reasonable main-memory bandwidth estimate for your system.</p>
+  </article>
+
+  <!-- Next steps (optional visibility) -->
+  <article class="ctq-card" id="mia-next">
+    <h3>Next steps (optional, not required for advertising)</h3>
+    <ul class="ctq-list">
+      <li><strong>Security game one-pager.</strong> Write-up of the twin indistinguishability/orbit-recovery game (template ready; publish when convenient).</li>
+      <li><strong>ASIC synthesis (65/130/180&nbsp;nm).</strong> OpenROAD/OpenLane experiments for DEU blocks (no DSPs) to produce early PPA reports.</li>
+      <li><strong>BOM/cost sheet.</strong> Comparative economics for a “MIA tile” vs conventional multiplier tiles.</li>
+    </ul>
+  </article>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 <!-- Optional: enable only if your site doesn't already load MathJax
 <script>
   window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
