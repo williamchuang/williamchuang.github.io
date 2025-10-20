@@ -153,6 +153,128 @@ blog: passive
 
 
 
+<section class="ctq-wrap" id="ctq-mia-verification">
+  <div class="ctq-hero" role="banner" aria-label="MIA verification & proof artifacts">
+    <h1 class="ctq-title">MIA Verification: Specification, Proof Artifacts, and CI</h1>
+    <p class="ctq-sub">
+      A verification blueprint for Metric-Invariant Architecture: bit-exact IEEE-754 equivalence, whole-machine diagonal transport, and twin-model security—packaged with acceptance criteria and continuous integration.
+    </p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Bit-exact IEEE-754</span>
+      <span class="ctq-badge">Diagonal transport (twinhood)</span>
+      <span class="ctq-badge">Game-based security</span>
+      <span class="ctq-badge">Coq/Isabelle + SMT</span>
+      <span class="ctq-badge">CI acceptance gates</span>
+      <span class="ctq-badge">RISC-V overlay ready</span>
+      <span class="ctq-badge">FPGA / 28–65&nbsp;nm</span>
+    </div>
+  </div>
+
+  <article class="ctq-card">
+    <h3>Abstract (plain language)</h3>
+    <p>
+      This work specifies a concrete path to <em>verified</em> MIA: multiplication is replaced by an invariant pipeline \(F\!\circ I\) that matches IEEE-754 results bit-for-bit (values and flags); entire program executions obey a <em>diagonal transport law</em> (apply the same group action to inputs, state, and encoded outputs and the observable behavior is unchanged); and <em>twin-model security</em> is framed as indistinguishability and orbit-recovery resistance. The package includes a machine-checkable spec, proof obligations, SMT harnesses for fp8/fp16, a twin-execution simulator, and CI gates that define “pass/fail” for deployment.
+    </p>
+    <div class="ctq-callout">
+      <strong>One-line effect.</strong>
+      <span class="ctq-mini">Make MIA auditable: format-true arithmetic, transport-invariant execution, and provable twin security—shipped with CI.</span>
+    </div>
+  </article>
+
+  <article class="ctq-card">
+    <h3>At a glance</h3>
+    <div class="ctq-table-wrap" role="region" aria-label="Verification synthesis">
+      <table class="ctq-table">
+        <thead>
+          <tr class="ctq-row"><th>Target</th><th>Realization</th><th>Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr class="ctq-row">
+            <td>Functional equivalence</td>
+            <td>IEEE-754 multiply reproduced by \(F\!\circ I\) (values + flags)</td>
+            <td>Drop-in replacement; format-true behavior</td>
+          </tr>
+          <tr class="ctq-row">
+            <td>Whole-machine invariance</td>
+            <td>Step-indexed proof that execution commutes with transport</td>
+            <td>Infinite twins: function-identical, internally distinct</td>
+          </tr>
+          <tr class="ctq-row">
+            <td>Security</td>
+            <td>Twin-IND / orbit-recovery games (reductions &amp; assumptions)</td>
+            <td>Architecture-level obfuscation and attestation</td>
+          </tr>
+          <tr class="ctq-row">
+            <td>Tooling</td>
+            <td>Coq/Isabelle skeletons; fp8 exhaustive &amp; fp16 high-coverage SMT</td>
+            <td>Reproducible proof-of-work beyond slides</td>
+          </tr>
+          <tr class="ctq-row">
+            <td>Integration</td>
+            <td>CI jobs + acceptance gates; traceability matrix</td>
+            <td>Clear go/no-go for releases</td>
+          </tr>
+          <tr class="ctq-row">
+            <td>Deployment</td>
+            <td>ISA/microcode overlay (RISC-V), DEU tiles (FPGA/ASIC), VM shim</td>
+            <td>Sovereign stacks on mature nodes; twin-locked binaries</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="ctq-card">
+    <h3>What ships (engineer-facing)</h3>
+    <ul class="ctq-list">
+      <li><strong>Spec &amp; lemmas:</strong> precise \( (\psi,d_M,F) \) interfaces; IEEE side-conditions; transport action on machine state.</li>
+      <li><strong>Proof scaffolds:</strong> Coq/Isabelle modules targeting Flocq/CompCert; EasyCrypt/SSProve game definitions.</li>
+      <li><strong>SMT harnesses:</strong> exhaustive fp8, high-coverage fp16 (Z3/CVC5) with logs for values and flags.</li>
+      <li><strong>Twin simulator:</strong> side-by-side executions under random group elements with trace checks.</li>
+      <li><strong>CI &amp; gates:</strong> proofs compile with no admits; fp8 equals 100% bit-match; fp16 zero-mismatch on stress suites; invariance tests pass on random programs.</li>
+    </ul>
+  </article>
+
+  <article class="ctq-card" aria-label="Notes & caveats">
+    <h3>Notes</h3>
+    <ul class="ctq-list">
+      <li><strong>Format-true vs correction LUT:</strong> exact per-format constructions or “approx + tiny LUT” to flip ±1&nbsp;ulp to exact—both produce identical bits at the interface.</li>
+      <li><strong>Substrates:</strong> DEUs map to add/shift/XOR/LUT (and CORDIC) for FPGA and 28–65&nbsp;nm; photonic/analog variants are optional accelerants.</li>
+      <li><strong>Scope:</strong> Verified kernels slot under VM/runtime, ISA/microcode, or accelerator tiles; applications remain unmodified and inherit twin/obfuscation properties.</li>
+    </ul>
+  </article>
+
+  <article class="ctq-card">
+    <h3>Download &amp; cite</h3>
+    <p>
+      <a class="ctq-link" href="https://drive.google.com/file/d/18S8YGXroxbR2T0ZFietEgSjbSapHVXSs/view?usp=sharing" target="_blank" rel="noopener">PDF</a>
+      <span class="ctq-pill">DOI: <a class="ctq-link" href="https://doi.org/10.5281/zenodo.17401675" target="_blank" rel="noopener">10.5281/zenodo.17401675</a></span>
+    </p>
+    <details>
+      <summary class="ctq-link">Show suggested citation (BibTeX)</summary>
+<pre style="white-space:pre-wrap;margin:8px 0 0;background:#f7f9fc;border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
+@misc{Chuang_MIA_Verification_2025,
+  title  = {MIA Verification: Specification, Proof Artifacts, and Continuous Integration},
+  author = {William Chuang},
+  year   = {2025},
+  doi    = {10.5281/zenodo.17401675},
+  url    = {https://drive.google.com/file/d/18S8YGXroxbR2T0ZFietEgSjbSapHVXSs/view?usp=sharing},
+  note   = {Specification \& Proof Artifacts}
+}
+</pre>
+    </details>
+  </article>
+</section>
+
+
+
+
+
+
+
+
+
+
 
 
 
