@@ -233,10 +233,25 @@ blog: passive
       (“diagonal action”) leaves outputs and control flow unchanged—producing <em>infinite twins</em>
       (function-identical, internally distinct).
     </p>
-    <div class="ctq-mini" role="note" aria-label="Where MIA lives">
-      <strong>Where it lives.</strong> Architecture layer at VM/runtime, OS/driver shim, ISA extension or microcode, co-processor/accelerator tiles (FPGA/CGRA/analog/in-memory), and embedded/PLC firmware.
-    </div>
-    <div class="ctq-badges" aria-label="Highlights">
+   <div class="ctq-mini" role="note" aria-label="Where MIA lives">
+  <strong>Where it lives.</strong>
+  Architecture layer deployable at multiple seams:
+  <em>VM/runtime</em> (JIT/bytecode); <em>OS/driver</em> shims; <em>ISA/microcode</em> on x86, Arm, and RISC-V
+  (SIMD/tensor op mappings); <em>GPU/NPU</em> kernels (tensor-core and WMMA hooks);
+  <em>co-processor tiles</em> on FPGA/CGRA; <em>ASIC/SoC chiplets</em> (UCIe/AXI/PCIe attach);
+  <em>memory-centric</em> paths (HBM, in-/near-memory compute on SRAM/PCM/ReRAM crossbars);
+  <em>analog/photonic</em> accelerators with ADC/DAC front-ends; and <em>edge/industrial</em> targets
+  (Cortex-M/RTOS MCUs, PLC firmware with safety envelopes).
+</div>
+<div class="ctq-callout" aria-label="Hardware effect">
+  <strong>Hardware effect.</strong>
+  MIA swaps multiplier-heavy datapaths for invariant primitives (distance/LUT/CORDIC), reduces data movement,
+  and composes cleanly with chiplet interconnects and in-/near-memory execution.
+</div>
+ 
+
+
+   <div class="ctq-badges" aria-label="Highlights">
       <span class="ctq-badge">Bit-exact fp16 primitive</span>
       <span class="ctq-badge">Twin invariance (trace-match)</span>
       <span class="ctq-badge">Roofline capacity check</span>
