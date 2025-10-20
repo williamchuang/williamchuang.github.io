@@ -231,28 +231,43 @@
       </div>
     </section>
 
-    <section id="work" aria-labelledby="work-h">
-      <h2 id="work-h">What I work on</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>CEAS</h3>
-          <p>a control‑theoretic attention scaling method (<span class="math">β</span> as inverse temperature) to cut training steps and improve stability.</p>
-        </div>
-        <div class="card">
-          <h3>Finite‑Machine Lift (DFA/PDN)</h3>
-          <p>decompose trained transformers into cycles and transients for <strong>traceable, symbolic reasoning</strong> and safe edit‑without‑retrain.</p>
-        </div>
-        <div class="card">
-          <h3>GRAIL</h3>
-          <p>an algebraic/geometry‑native framework for <strong>trustless model execution</strong>; explores encrypted representations and cryptomorphic twins.</p>
-        </div>
-        <div class="card">
-          <h3>Λ‑Stack</h3>
-          <p>an end‑to‑end architecture combining CEAS + finite lift + optional dual‑lock security for interpretable, hardened LLMs.</p>
-        </div>
-      </div>
-    </section>
-    <!-- Emphasis: Automorphic attention on hyperbolic geometry -->
+
+
+
+<section id="work" aria-labelledby="work-h">
+  <h2 id="work-h">What I work on</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>CEAS</h3>
+      <p>a control-theoretic attention scaling method (<span class="math">β</span> as inverse temperature) to cut training steps and improve stability.</p>
+    </div>
+
+    <div class="card">
+      <h3>Finite-Machine Lift (DFA/PDN)</h3>
+      <p>decompose trained transformers into cycles and transients for <strong>traceable, symbolic reasoning</strong> and safe edit-without-retrain.</p>
+    </div>
+
+    <div class="card">
+      <h3>MIA (GRAIL-derived)</h3>
+      <p>metric-invariant architecture built on <strong>invariants of groups</strong> (not equivariance). Inputs, machine state, and outputs move together (diagonal action), so behavior is preserved while internals vary—enabling <em>twin</em> deployments.</p>
+      <p class="callout"><span class="badge">Is new hardware required?</span> Usually not. Software blocks compute invariants. If acceleration is desired later, FPGAs and older-node chips implement these features efficiently.</p>
+    </div>
+
+    <div class="card">
+      <h3>GRAIL</h3>
+      <p>algebraic/geometry-native secure execution for <strong>cryptomorphic twins</strong> and invariant-first computation; pairs naturally with MIA at the system/ISA layer.</p>
+    </div>
+
+    <div class="card">
+      <h3>Λ-Stack</h3>
+      <p>end-to-end architecture combining CEAS + finite-lift + MIA/GRAIL for interpretable, hardened models and systems.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
 <aside id="automorphic-callout" class="card emph-box" role="note" aria-label="Automorphic attention highlight">
   <div class="kicker">Research highlight</div>
   <p>
@@ -264,30 +279,42 @@
     <span class="nowrap">Within this setting, the classic Langlands triad is realized inside a neural operator:</span>
     <span class="nowrap">automorphic</span> ⟷ <span class="nowrap">Galois</span> ⟷ <span class="nowrap">motive</span>.
   </p>
+  <p class="callout"><span class="badge">Note</span> MIA/GRAIL use <em>invariants of groups</em> with diagonal transport of inputs, machine state, and outputs—not equivariance of inputs alone.</p>
 </aside>
 
-    <section id="overview" aria-labelledby="overview-h">
-      <h2 id="overview-h">Overview</h2>
-      <p class="lede">I design at the intersection of <strong>geometry, control, and security</strong>. My recent work treats attention temperature <span class="math">β</span> as a controllable parameter rather than a constant; derives safe corridors from thermodynamic arguments; and refactors trained models into <strong>finite operators</strong> with certified wrappers so that targeted changes don’t require retraining. On the security side, I explore <strong>cryptomorphically equivalent</strong> model families: weight‑distinct networks that <strong>provably preserve I/O behavior</strong> under symmetry‑preserving transforms.</p>
-    </section>
 
-    <section id="pillars" aria-labelledby="pillars-h">
-      <h2 id="pillars-h">Three pillars</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <div class="kicker">1) Efficiency (CEAS)</div>
-          <p>Treat attention scaling as <span class="math">β</span> (inverse temperature). Do an early, budgeted search, fix β (or clamp it within a corridor), and monitor entropy/energy metrics. Results: faster steps‑to‑target on controlled tasks and improved numerical behavior.</p>
-        </div>
-        <div class="card">
-          <div class="kicker">2) Interpretability (Finite‑Machine Lift)</div>
-          <p>Lift a trained model’s closed‑loop behavior to a finite operator <span class="math">P = D + N</span> (cycles + transients). Use cycle projectors to trace reasoning flows, detect degeneracy, and perform <strong>edit‑without‑retrain</strong> with certificates.</p>
-        </div>
-        <div class="card">
-          <div class="kicker">3) Security (GRAIL)</div>
-          <p>Run models over <strong>algebraically encrypted</strong> representations (research direction). Explore <em>cryptomorphic twins</em>: weight‑distinct yet function‑equivalent models for per‑tenant deployments and tamper‑resistance.</p>
-        </div>
-      </div>
-    </section>
+<section id="overview" aria-labelledby="overview-h">
+  <h2 id="overview-h">Overview</h2>
+  <p class="lede">
+    I design at the intersection of <strong>geometry, control, and security</strong>.
+    Recent work treats attention temperature <span class="math">β</span> as a controllable parameter; lifts trained models into
+    <strong>finite operators</strong> for certified edit-without-retrain; and develops MIA (GRAIL-derived), a
+    metric-invariant architecture where <em>invariants of groups</em> drive computation. Inputs, machine
+    state, and outputs transform together (diagonal action), preserving behavior while enabling
+    <strong>cryptomorphic twin</strong> deployments. Adoption starts in AI (LLMs/transformers/NNs) and extends to the
+    ISA/system layer without new hardware; software shims compute invariants today, with optional FPGA or
+    older-node acceleration later.
+  </p>
+</section>
+
+
+<section id="pillars" aria-labelledby="pillars-h">
+  <h2 id="pillars-h">Three pillars</h2>
+  <div class="grid cols-3">
+    <div class="card">
+      <div class="kicker">1) Efficiency (CEAS)</div>
+      <p>Treat attention scaling as <span class="math">β</span>. Early, budgeted search; clamp in a corridor; monitor entropy/energy. Faster steps-to-target and improved numerical behavior.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">2) Interpretability (Finite-Machine Lift)</div>
+      <p>Lift closed-loop behavior to <span class="math">P = D + N</span> (cycles + transients). Trace reasoning; detect degeneracy; certify <strong>edit-without-retrain</strong>.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">3) Security & Substrate Portability (GRAIL → MIA)</div>
+      <p>Invariant-first compute with diagonal transport yields <strong>twin</strong> deployments and drop-in adoption on existing machines. Most use-cases do not require sub-100&nbsp;nm fabs; FPGAs and 28–180&nbsp;nm nodes suffice for acceleration.</p>
+    </div>
+  </div>
+</section>
 
     <section id="frameworks" aria-labelledby="frameworks-h">
       <h2 id="frameworks-h">Featured frameworks</h2>
@@ -330,6 +357,31 @@
         <p>CEAS (β‑control) + finite lift (trace) + GRAIL + optional dual‑lock security (GRAIL plus MSIA) = an interpretable, hardened transformer. Designed to be <strong>edit‑ready</strong> and <strong>auditable</strong>.</p>
       </article>
     </section>
+
+
+<section id="frameworks" aria-labelledby="frameworks-h">
+  <h2 id="frameworks-h">Featured frameworks</h2>
+
+  <article class="card" id="mia">
+    <h3>MIA — Metric-Invariant Architecture</h3>
+    <ul>
+      <li><strong>What</strong>: invariant-of-groups compute (functions of distances/ratios/Hamming/cross-ratios, etc.) with diagonal transport of inputs, machine, and outputs.</li>
+      <li><strong>Why</strong>: twin deployments (function-identical, internally distinct), fewer recalibrations in control, and acceleration without cutting-edge fabs.</li>
+      <li><strong>How</strong>: software shim today; optional RISC-V micro-ops and FPGA/older-node DEUs (add/shift/XOR/popcount/LUT, small CORDIC) later.</li>
+    </ul>
+  </article>
+
+  <!-- keep your existing CEAS / DFA / GRAIL / Λ-Stack cards below -->
+
+
+
+
+
+
+
+
+
+
 
 <section id="evidence" aria-labelledby="evidence-h">
   <h2 id="evidence-h">Evidence &amp; Claims — How to Read</h2>
@@ -443,6 +495,80 @@
         <p><strong>Who benefits</strong>: critical infrastructure, national missions, regulated enterprises, and labs seeking <strong>explainable</strong> and <strong>hardened</strong> LLMs.</p>
       </div>
     </section>
+
+<section id="mia-now" aria-labelledby="mia-now-h">
+  <h2 id="mia-now-h">Product brief — MIA:  What Changes Today</h2>
+
+  <div class="grid cols-2">
+    <article class="card">
+      <div class="kicker">Drop-in, no rip-and-replace</div>
+      <p class="lede">Adopt as a software shim: compute <em>invariants</em> (distances, ratios, Hamming counts, cross-ratios) and feed existing controllers or models with those numbers instead of raw coordinates/IDs.</p>
+      <div class="callout"><span class="badge">Is new hardware required?</span> Usually not. Software blocks compute invariants. If hardware acceleration is desired later, FPGAs and even older-node chips compute these features efficiently.</div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">From AI → whole stack</div>
+      <p>Started inside LLMs/transformers and neural nets; now extended to the machine/ISA layer so that CPUs/PLCs can run with the same invariant-first semantics. When the platform runs in this style, everything on it inherits the <strong>twin</strong> property (cryptomorphic, function-identical deployments).</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Tolerance & uptime for robotics/PLC</div>
+      <ul>
+        <li>Drift-proof control: use distances/angles/ratios and order-free aggregates—<em>not</em> absolute X/Y/Z or sensor IDs.</li>
+        <li>Graceful dropouts via redundant invariants: one probe fails, the control signal persists.</li>
+        <li>Looser fixtures: larger mechanical tolerances without re-teach; fewer stops for recalibration.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Compute without bleeding-edge fabs</div>
+      <p>Invariant evaluation prefers add/shift/XOR/popcount and small LUTs or CORDIC; giant multiplier arrays are optional. Most use-cases do <strong>not</strong> demand sub-100 nm nodes—28–180 nm, FPGAs, or mixed-signal blocks are viable.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Security by construction (twins)</div>
+      <p>Inputs, machine state, and outputs transform <em>together</em> under group action (diagonal move). Behavior is preserved while internal encodings differ—per-device/site <strong>twins</strong> for anti-cloning and licensing, compatible with GRAIL-style deployments.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Less memory/interconnect pain</div>
+      <p>Many “reorders” compile to <em>address math</em> (orbit-in-place) rather than physical data shuffles—lower traffic, lower energy, simpler scaling.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Exactness is testable</div>
+      <ul>
+        <li><strong>Format-true</strong>: reproduce standard int/fp results bit-for-bit (including IEEE-754 flags).</li>
+        <li><strong>Approx + tiny fix-up</strong>: cheap core + ±1 ulp correction LUT → still bit-identical on all cases.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Adopt this week</div>
+      <ol>
+        <li>Pick a multiply-heavy kernel (or a drift-sensitive control loop).</li>
+        <li>Swap raw measurements for invariants (L1/Hamming/cross-ratio/ratios).</li>
+        <li>Wrap the ABI once (encode/decode), keep apps/tests unchanged.</li>
+        <li>Optional: add “orbit-in-place” address transforms for common reorders.</li>
+      </ol>
+      <p class="callout"><span class="badge">RISC-V / PLC</span> Works as a micro-op overlay (`DISTMUL`, `DISTCMP`, `KERNELACC`) or as PLC function blocks (`DISTCMP`, `RATIO`, `REDUCE`, `INVPID`).</p>
+    </article>
+  </div>
+</section>
+
+<aside class="card emph-box" id="mia-one-liner" role="note" aria-label="Invariant-first summary">
+  <div class="kicker">Invariant-first compute</div>
+  <p>
+    Replace fragile scalars with <em>group-invariant</em> numbers. Move inputs, machine state, and outputs together; behavior stays fixed while internals vary. 
+    Result: runs today in software, accelerates on FPGAs or mature nodes, raises robotic tolerance, and ships as <strong>per-device twins</strong> for security.
+  </p>
+</aside>
+
+
+
+
+
+
 
     <section id="notes" aria-labelledby="notes-h">
       <h2 id="notes-h">Research notes &amp; essays (selected)</h2>
