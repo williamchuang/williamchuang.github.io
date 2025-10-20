@@ -165,6 +165,90 @@ blog: passive
 
 
 
+<section class="ctq-wrap" id="ctq-mia-feasibility">
+  <div class="ctq-hero" role="banner" aria-label="MIA feasibility study">
+    <h1 class="ctq-title">Feasibility of Replacing Scalar Multiplication with Metric-Invariant Functions on Traditional Machines</h1>
+    <p class="ctq-sub">A VM-level blueprint for Metric-Invariant Architecture (MIA): exact/IEEE-754-conformant primitives, orbit-secure twins, and ISA-transparent execution.</p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">MIA primitives</span>
+      <span class="ctq-badge">Orbit twins</span>
+      <span class="ctq-badge">IEEE-754 target</span>
+      <span class="ctq-badge">VM/microcode mapping</span>
+      <span class="ctq-badge">Comparison: hyperbolic ops</span>
+    </div>
+  </div>
+
+  <article class="ctq-card">
+    <h3>Abstract (plain language)</h3>
+    <p>
+      The study shows how a legacy machine (CPU/VM/MCU) can run unmodified binaries while internally replacing scalar
+      multiplication by an invariant composite on a metric space \( (M,g) \). Values are embedded \( \iota:\Sigma\!\to\!M \);
+      arithmetic uses a calibrated head map \( F \) over a group-preserved scalar invariant, e.g.
+      \( \mu(q_i,q_j)=F\!\big(d_M(q_i,q_j)\big) \). With \( d_M(\varphi q_i,\varphi q_j)=d_M(q_i,q_j) \), a diagonal action
+      \( \varphi\in\mathrm{Isom}(M) \) generates function-identical twins without exposing plaintext in the ALU. Bit-exact (or
+      last-bit-safe) conformance to IEEE-754 is the target, verified by exhaustive/rand tests and SMT on reduced domains.
+    </p>
+    <div class="ctq-callout">
+      <strong>Key primitive (schematic).</strong>
+      \[
+        \text{FMUL:}\quad \mû(x,y)=\iota\!\big(F(I(x,y))\big),
+        \quad \pi\!\big(\mû(\iota(a),\iota(b))\big)=\mathrm{round}_{754}(a\times b)
+      \]
+      Here \(I\) is any group-invariant scalar (distance, bilinear form, cross-ratio, Casimir), not limited to \(d_M\).
+    </div>
+  </article>
+
+  <article class="ctq-card">
+    <h3>What’s inside</h3>
+    <ul class="ctq-list">
+      <li><strong>Formal substrate.</strong> Replace scalar ops with group-invariant scalars on \(M\); keep ISA/ABI behavior identical.</li>
+      <li><strong>Orbit-twinhood.</strong> Diagonal isometries on parameters, state, and inputs yield behaviorally indistinguishable twins.</li>
+      <li><strong>Verification plan.</strong> Exhaustive fp16 / randomized fp32, edge-case NaNs/±0/subnormals, SMT on ranges; branch-decision preservation via monotone observables or light decode.</li>
+      <li><strong>VM mapping.</strong> Transparent FMUL/FADD via invariant heads; comparator design to maintain ordering on \( \iota(\Sigma) \).</li>
+      <li><strong>Contrast.</strong> Distinguishes MIA’s coordinate-free invariants from coordinate-bound Möbius ops in prior hyperbolic work.</li>
+    </ul>
+  </article>
+
+  <article class="ctq-card">
+    <h3>Download &amp; cite</h3>
+    <p>
+      <a class="ctq-link" href="https://drive.google.com/file/d/1LjLCP2QRNdOIbBYZJRlFyS4nZf7PamG6/view?usp=sharing" target="_blank" rel="noopener">PDF</a>
+      <span class="ctq-pill">DOI: 10.5281/ZENODO.17382332</span>
+    </p>
+    <details>
+      <summary class="ctq-link">Show suggested citation (BibTeX)</summary>
+<pre style="white-space:pre-wrap;margin:8px 0 0;background:#f7f9fc;border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
+@misc{Chuang_MIA_Feasibility_2025,
+  title  = {Feasibility of Replacing Scalar Multiplication with Metric-Invariant Functions on Traditional Machines},
+  author = {William Chuang},
+  year   = {2025},
+  doi    = {10.5281/ZENODO.17382332},
+  url    = {https://drive.google.com/file/d/1LjLCP2QRNdOIbBYZJRlFyS4nZf7PamG6/view?usp=sharing},
+  note   = {Whitepaper}
+}
+</pre>
+    </details>
+  </article>
+
+  <article class="ctq-card" aria-label="Quick orientation">
+    <h3>Quick orientation</h3>
+    <div class="ctq-kv">
+      <div>Encoding</div><div>\( \iota:\Sigma\!\to\!M \), \( \pi\circ\iota=\mathrm{id}_\Sigma \)</div>
+      <div>Invariant</div><div>\( I(x,y) \) (distance, bilinear, cross-ratio, Casimir)</div>
+      <div>Head map</div><div>\( F:\mathbb R\!\to\!\Sigma \) calibrated for IEEE-754 rounding</div>
+      <div>FMUL</div><div>\( \mû(x,y)=\iota(F(I(x,y))) \)</div>
+      <div>Comparator</div><div>Monotone observable or light decode \( \pi \) for branch parity</div>
+      <div>Orbit twins</div><div>State push \( s\mapsto \varphi s \) preserves outputs; infinite indistinguishable realizations</div>
+    </div>
+  </article>
+</section>
+
+
+
+
+
+
+
 
 
 
