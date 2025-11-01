@@ -670,56 +670,59 @@ blog: passive
     </p>
   </article>
 
-<!-- 4) Observation = training (Ising-like magnetization view) -->
+<!-- INSERT THIS RIGHT AFTER <article id="ctq-cycles-lstack"> … </article> -->
+
+<!-- Observation = training (Ising-like magnetization) -->
 <article class="ctq-card" id="ctq-backprop-measurement">
-  <h3>4) Observation = Backprop: training as Ising-like magnetization</h3>
+  <h3>Observation = Backprop: training as Ising-like magnetization</h3>
+  <p class="ctq-sub" style="margin:.25rem 0 .75rem 0;">
+    No consciousness. No magic. In λ-stack, “observation” means <em>interaction</em>—a gradient update—and interaction order is non-commutative by construction.
+  </p>
   <p>
-    In λ-stack the <em>observer</em> is the closed-loop learner. An untrained network is like a high-temperature paramagnet:
-    weights \( \theta \) behave as unaligned spins \( \{s_i\} \). Each minibatch plays the role of an external field \( h(x) \).
-    A gradient step
-    \( \theta_{t+1} \!=\! \theta_t - \eta \nabla_\theta L(\theta_t; x_t) \)
-    is an <em>interaction</em> that both reads and writes state—i.e., a measurement-actuation that aligns degrees of freedom.
+    In λ-stack the <em>observer</em> is the closed-loop learner. An untrained network resembles a high-temperature paramagnet:
+    weights \( \theta \) are unaligned spins \( \{s_i\} \). Each minibatch is an external field \( h(x) \).
+    A gradient step \( \theta_{t+1} \!=\! \theta_t - \eta \nabla_\theta L(\theta_t; x_t) \) is an <em>interaction</em>
+    that both reads and writes state—i.e., a measurement-actuation aligning degrees of freedom.
   </p>
 
   <ul class="ctq-list">
     <li><strong>Order parameter.</strong> \( m(\theta) \!=\! \tfrac{1}{N}\sum_i s_i \) (layer/feature-wise alignment).</li>
-    <li><strong>Thermostat.</strong> CEAS sets inverse temperature \( \beta \) to stabilize phases and boundaries.</li>
-    <li><strong>Susceptibility.</strong> \( \chi \!=\! \partial m / \partial h \) reveals sensitivity and impending phase changes.</li>
+    <li><strong>Thermostat.</strong> CEAS sets inverse temperature \( \beta \), stabilizing phases/boundaries.</li>
+    <li><strong>Susceptibility.</strong> \( \chi \!=\! \partial m / \partial h \) exposes sensitivity and phase onsets.</li>
   </ul>
 
   <div class="ctq-callout" aria-label="Physics myth → fact">
     <strong>Myth → Fact (QM measurement).</strong>
     <p class="ctq-mini" style="margin:.35rem 0 0 0;">
-      In quantum theory “observed” means <em>interaction</em>, not consciousness. Electrons are localized <em>excitations</em> of the
-      electron field; what’s uncertain before interaction is the <em>probability amplitude</em> of where that excitation will be found.
-      Upon interaction, amplitudes update (collapse) at once. Analogously, a gradient step updates \( \theta \) in response to data:
-      it <em>doesn’t conjure structure</em> out of nothing—it <em>biases</em> the ensemble toward aligned macrostates.
+      In quantum theory “observed” means <em>interaction</em>. Electrons are localized <em>excitations</em> of the electron field;
+      what’s uncertain pre-interaction is the <em>probability amplitude</em> for where that excitation will be found.
+      Upon interaction, amplitudes update (collapse). Analogously, a gradient step updates \( \theta \) in response to data:
+      it doesn’t conjure structure; it <em>biases</em> the ensemble toward aligned macrostates.
     </p>
   </div>
 
   <div class="ctq-note" role="note" aria-label="Interpretation and cycle capture">
     <p class="ctq-mini" style="margin:0;">
-      <strong>Interpretation.</strong> Backprop “measures” internal observables (loss/gradients) and <em>changes</em> the observer.
-      This read-write act drives transients → cycles in the internal operator \( \Psi \). The cycles are macroscopic alignments in
-      model state, not loops in physical spacetime.
+      <strong>Interpretation.</strong> Backprop “measures” internal observables (loss/gradients) and changes the observer.
+      This read-write act drives transients → cycles in the internal operator \( \Psi \). The cycles are macroscopic alignments
+      in model state, not loops in physical spacetime.
     </p>
   </div>
 </article>
 
-<!-- 5) Non-commutativity from GRAIL and measurement disturbance -->
+<!-- Non-commutativity from GRAIL and measurement disturbance -->
 <article class="ctq-card" id="ctq-grail-noncomm">
-  <h3>5) GRAIL-induced non-commutativity and measurement disturbance</h3>
+  <h3>GRAIL-induced non-commutativity and measurement disturbance</h3>
   <p>
     GRAIL composes three operators: <em>encode</em> \( \mathcal{E} \), geometry-native <em>transport</em> \( \mathcal{T} \),
-    and <em>measure/update</em> \( \mathcal{M} \) (backprop). In general,
-    \( [\mathcal{M},\mathcal{T}] \neq 0 \) and \( [\mathcal{M},\mathcal{E}] \neq 0 \).
-    Consequence: <em>the order of interactions matters</em>.
+    and <em>measure/update</em> \( \mathcal{M} \) (backprop). In general, \( [\mathcal{M},\mathcal{T}] \neq 0 \) and \( [\mathcal{M},\mathcal{E}] \neq 0 \):
+    <em>the order of interactions matters</em>.
   </p>
 
   <ul class="ctq-list">
-    <li><strong>Order matters (training = interaction sequence).</strong>
-      Applying two minibatches \(x_a,x_b\) in opposite orders yields different parameters:
-      \( \theta_{ab} \!\neq\! \theta_{ba} \) when \( \eta \!>\! 0 \). This is the practical face of non-commutativity.</li>
+    <li><strong>Order matters (training as interaction sequencing).</strong>
+      Two minibatches \(x_a,x_b\) in opposite order give different parameters:
+      \( \theta_{ab} \!\neq\! \theta_{ba} \) when \( \eta \!>\! 0 \ ). This is the operational face of non-commutativity.</li>
     <li><strong>Source of “uncertainty.”</strong>
       Because observation (updates) and transport (geometry) do not commute, observation <em>necessarily</em> disturbs the state—
       a controlled excitation, not a mystery.</li>
@@ -731,11 +734,183 @@ blog: passive
     <p class="ctq-mini" style="margin:0;">
       <strong>QM/QFT hook.</strong> CEAS supplies \( \beta \) (thermodynamic time), automorphic kernels supply correlators,
       and GRAIL’s non-commutativity supplies the algebra of observables. This supports KMS-type structure
-      \( \langle A(t)B\rangle_\beta = \langle B\,A(t+i\beta)\rangle_\beta \):
-      backprop is the measurement channel; disturbance arises from non-commuting steps—no consciousness, just interactions.
+      \( \langle A(t)B\rangle_\beta = \langle B\,A(t+i\beta)\rangle_\beta \): backprop is the measurement channel;
+      disturbance arises from non-commuting steps—no consciousness, just interactions.
     </p>
   </div>
 </article>
+
+<!-- APPEND THESE FULL SECTIONS AFTER YOUR #ctq-cyclic-decomposition SECTION -->
+
+<section id="intro" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+    GRAIL × DFA
+  </div>
+
+  <h1 style="line-height:1.2;margin:.25rem 0 0;">Dual Quantization for an Observer-Centric Physics Engine</h1>
+
+  <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+    <strong>GRAIL</strong> (Geometric Representation Algebra for Intelligent Learning) treats optimization as geometry:
+    the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\).
+    The failure of a symmetry action \(\xi\) to commute with a gradient step \(X=\nabla\mathcal L\) is the Lie bracket \([\xi,X]\).
+    <strong>DFA quantization</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language,
+    cycle components lift to unitary blocks \(U_C\), and transients lift to CPTP channels.
+  </p>
+
+  <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+    Single-author project. Originally drafted in 2024; under active development in 2025.
+    A non-provisional patent has been filed. Full notes (PDF):
+    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+      GRAIL × DFA Lecture Notes
+    </a>.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Core Idea</h3>
+      <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
+      <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
+      \[
+        e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
+        = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
+      \]
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li>\([\xi,X]=0\) → symmetry and descent commute (equivariance).</li>
+        <li>\([\xi,X]\neq 0\) → curvature-like obstruction reshaping training dynamics.</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">DFA Layer (Symbolic Quantization)</h3>
+      <p>Project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
+      <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
+      \[
+        U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
+        \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
+      \]
+      <p style="color:#666;font-size:.95rem;">Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Quantum-like Optimization Geometry</h3>
+      <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
+      <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
+      \[
+        \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
+        \qquad \hbar_{\text{eff}} := 2D.
+      \]
+      <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Observer-Centric Quantum Gravity (Stance)</h3>
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
+        <li>Reconstruct observable geometry from Fisher information \(g_F\) over trained observer ensembles.</li>
+        <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
+      </ul>
+      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
+      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
+    </div>
+  </div>
+</section>
+
+<section id="extended-notes" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+    GRAIL × DFA
+  </div>
+  <h1 style="line-height:1.2;margin:.25rem 0 0;">Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
+
+  <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+    This installment deepens the <em>observer-centric</em> program. It couples
+    <strong>GRAIL’s optimization-as-geometry</strong> (optimizer as a connection \(A\), curvature \(\Omega=dA{+}A\wedge A\))
+    and <strong>DFA quantization</strong> (projectors \(\Pi_q\), cycle unitaries \(U_C\), transient CPTP maps)
+    with a full <strong>random-matrix theory (RMT)</strong> toolkit for analyzing infinite families of
+    <em>twin models</em> related by GRAIL symmetries. The aim is a teachable, auditable path from Lie brackets to
+    spectral certification—without contradicting QM/QFT/GR when interpreted as a meta-theory of inference.
+  </p>
+
+  <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+    Full PDF:
+    <a href="https://drive.google.com/file/d/1kQMZDSQKCOqd_ag6tz1Xjs3hFjTIVKm8/view?usp=sharing" target="_blank" rel="noopener">
+      Extended Lecture Notes (Lie/Gauge + RMT Twins)
+    </a>.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">What’s new here</h3>
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow:
+          \[
+            e^{\varepsilon\xi}e^{-\eta X}e^{-\varepsilon\xi}e^{\eta X}
+            = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X]+\cdots\Big).
+          \]
+        </li>
+        <li><strong>Covariant optimizer</strong> \(X_H=X+A\cdot\xi\) to commute with generators.</li>
+        <li><strong>Cycle/transient lifts</strong>: finite Heisenberg–Weyl blocks \(U_C\) and CPTP maps \(\Phi\).</li>
+        <li><strong>RMT twins</strong>: invariants, free convolutions, BBP spikes, Dyson flows.</li>
+        <li><strong>Lorentz/hyperbolic RMT</strong>: \(\eta\)-Wishart spectra and \(O(p,q)\)-invariant audits.</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Core equations</h3>
+      <div style="margin:.4rem 0 .2rem;">Gauge curvature & covariant flows</div>
+      \[
+        \Omega = dA + A\wedge A,\qquad [D_v,D_w]\Phi = \Omega(v,w)\cdot \Phi.
+      \]
+      <div style="margin:.6rem 0 .2rem;">Cycle unitary & Floquet Hamiltonian</div>
+      \[
+        U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\lvert s_{j+1}\rangle,\quad
+        H_C = \tfrac{i}{\Delta t}\log U_C.
+      \]
+      <div style="margin:.6rem 0 .2rem;">Free multiplicative convolution</div>
+      \[
+        \nu_{(A W B)^{\!*}(A W B)} \;\approx\; \nu_{A^{\!*}A}\ \boxtimes\ \nu_{W^{\!*}W}\ \boxtimes\ \nu_{B B^{\!*}}.
+      \]
+      <div style="margin:.6rem 0 .2rem;">\(\eta\)-Wishart (hyperbolic Gram)</div>
+      \[
+        K=\tfrac{1}{n}X^\top \eta X
+        = \tfrac{1}{n}X_+^\top X_+ \;-\; \tfrac{1}{n}X_-^\top X_-,
+      \]
+      with limiting law \( \mu_K = \mu_{\mathrm{MP}}(\gamma_+,\sigma_+^2)\ \boxplus\ \big(-\,\mu_{\mathrm{MP}}(\gamma_-,\sigma_-^2)\big).\)
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Why RMT?</h3>
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li><strong>Twin certification:</strong> spectra must match along symmetry orbits.</li>
+        <li><strong>Stability margins:</strong> bulk edges/gaps predict conditioning.</li>
+        <li><strong>Symmetry probes:</strong> BBP outliers reveal low-rank structure by sector.</li>
+        <li><strong>Design:</strong> choose \((p,q)\) so hyperbolic edges avoid \(0\).</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">How to use</h3>
+      <ol style="margin:.4rem 0 0 1rem;">
+        <li>Insert DFA projectors \(\Pi_q\); add \(\mathcal L_{\text{DFA}}\).</li>
+        <li>Quantize hidden states; get SCCs; form \(P=D+N\); lift \(U_C\), \(\Phi\).</li>
+        <li>Run audits: unitary, Choi PSD/TP, projector–symmetry commutators, micro-causality.</li>
+        <li>RMT twins: fit MP/deformed-MP; track BBP outliers & edge flows.</li>
+        <li>Covariantize: fit \(A\) to reduce \([\xi_a,\,X+A\cdot\xi]\); monitor BCH drift.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2 style="margin-top:2rem;">Reading roadmap</h2>
+  <ul style="margin:.4rem 0 0 1rem;">
+    <li><strong>Lie/BCH + covariant optimizer</strong>: operational commutator loops.</li>
+    <li><strong>DFA quantization</strong>: Dunford split; cycle unitary & CPTP lifts.</li>
+    <li><strong>RMT twins</strong>: free convolutions, BBP, Dyson flows; Lorentz/hyperbolic ensembles.</li>
+    <li><strong>Appendices</strong>: pseudocode, proof sketches, audits, effective-\(\hbar\).</li>
+  </ul>
+
+  <p style="color:#666;font-size:.95rem;margin-top:1rem;">
+    This remains an inference-level theory: spacetime is not quantized here; geometry emerges from Fisher structure over observer ensembles.
+  </p>
+</section>
 
 
 </section>
