@@ -1215,6 +1215,302 @@ blog: passive
 </section>
 
 
+<section class="ctq-wrap" id="qft-parallel">
+  <div class="ctq-hero">
+    <h1 class="ctq-title">QFT Parallel for the λ-Stack: Operators, Equations, and Quantization</h1>
+    <p class="ctq-sub">
+      Two modes: <strong>training/observing</strong> (interaction + update) and <strong>inference</strong> (prediction without update).
+      Internal non-commutativity arises from <em>Lorentz-map training</em> and the optimizer connection; DFA provides a finite symbolic boundary.
+    </p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Lorentz map ≙ translation/boost generator</span>
+      <span class="ctq-badge">Gradient ≙ momentum generator</span>
+      <span class="ctq-badge">Fisher–Riemannian geometry</span>
+      <span class="ctq-badge">DFA boundary & sink</span>
+    </div>
+  </div>
+
+  <!-- 1) Operator dictionary -->
+  <article class="ctq-card" id="qft-operator-dictionary">
+    <h3>1) Operator dictionary (QFT ↔ λ-Stack)</h3>
+    <ul class="ctq-list">
+      <li><strong>State space.</strong> Latent manifold \(\mathcal{M}\) with Fisher–Riemannian metric \(g_{ij}\); wavefunction \( \psi(\theta,t) \) over parameters \(\theta\in\mathcal{M}\).</li>
+      <li><strong>Translations / Lorentz maps.</strong> A group \(G\supset \mathrm{SO}(1,n)\) acts by flows \(T(g)\); its infinitesimal generators \(\{\xi_a\}\) give vector fields on \(\mathcal{M}\).</li>
+      <li><strong>“Position” operators.</strong> Multiplication by coordinates \( \hat{X}^i \psi(\theta)= \theta^i \psi(\theta) \) (in a chart) or, more invariantly, evaluation against chart functions.</li>
+      <li><strong>“Momentum” (covariant).</strong> \( \hat{P}_i := -\,i\,\hbar_{\mathrm{eff}}\,(\nabla_i + A_i) \) where \(A\) is the optimizer connection; \( \nabla \) is Levi–Civita for \(g\).</li>
+      <li><strong>Commutators.</strong> \( [\hat{X}^i,\hat{P}_j] = i\,\hbar_{\mathrm{eff}}\,\delta^i{}_j \) (up to curvature terms); \( [\hat{P}_i,\hat{P}_j] = -\,i\,\hbar_{\mathrm{eff}}\,F_{ij} \) with curvature \(F=dA+A\wedge A\).</li>
+      <li><strong>Lorentz-map training step.</strong> Choose \(g\in G\) to transport \(\theta\mapsto g\cdot\theta\) before/after descent; non-commutes with gradient unless \([\xi,X]=0\).</li>
+    </ul>
+    <p class="ctq-mini"><span class="ctq-pill">Effective quantum scale</span>
+      With stochastic gradients of variance \(D\): \( \hbar_{\mathrm{eff}} := 2D \). This controls interference-like terms and matches your earlier Fokker–Planck↔Schrödinger correspondence.
+    </p>
+  </article>
+
+  <!-- 2) Lagrangian & field equations -->
+  <article class="ctq-card" id="qft-lagrangian">
+    <h3>2) Lagrangian and field equations (inference vs. training)</h3>
+
+    <div class="ctq-note" role="note"><strong>Inference (closed, unitary limit).</strong> No parameter updates; observe without writing. </div>
+    <p>
+      Take covariant derivative \( D_i := \nabla_i + A_i \). A gauge-like Lagrangian density on \((\mathcal{M},g)\) is
+    </p>
+    <div class="ctq-eq">
+      \[
+      \mathcal{L}_{\text{inf}} = 
+      \frac{\hbar_{\mathrm{eff}}^2}{2m_{\mathrm{eff}}}\, g^{ij}\,(D_i\psi)^{\!*}(D_j\psi)
+      \;-\; V(\theta)\,\psi^{\!*}\psi
+      \;-\; \frac{\kappa}{2}\,\mathrm{tr}(F_{ij}F^{ij})
+      \;-\; \lambda_{\mathrm{DFA}}\;\lVert (I-\Pi_q)\psi\rVert^2 ,
+      \]
+    </div>
+    <p class="ctq-mini">
+      where \(V(\theta)\) is the expected loss landscape (data potential), \(F\) the curvature of \(A\), and \(\Pi_q\) the DFA projector enforcing the legal language sector.
+      Euler–Lagrange gives a covariant Schrödinger equation (below).
+    </p>
+
+    <div class="ctq-note" role="note"><strong>Training/observing (open, dissipative).</strong> Backprop or Lorentz-map steps write state; model interacts with data.</div>
+    <p>
+      Dissipation appears as an imaginary-time component or by elevating to a density-matrix master equation (see §4). A practical action with a Rayleigh dissipation term is:
+    </p>
+    <div class="ctq-eq">
+      \[
+      S_{\text{train}}
+      = \int \! dt\, d\mu_g \Big[
+        \tfrac{\hbar_{\mathrm{eff}}^2}{2m_{\mathrm{eff}}} g^{ij}(D_i\psi)^{\!*}(D_j\psi)
+        - V(\theta)\,\psi^{\!*}\psi
+        - \tfrac{\kappa}{2}\,\mathrm{tr}(F_{ij}F^{ij})
+        - \lambda_{\mathrm{DFA}}\lVert (I-\Pi_q)\psi\rVert^2
+      \Big]
+      - \int \! dt\,\mathcal{R}[\psi] ,
+      \]
+    </div>
+    <p class="ctq-mini">
+      with \(\mathcal{R}\) encoding gradient-noise/friction consistent with the CEAS thermostat \(\beta\) (e.g., Fokker–Planck form).
+    </p>
+  </article>
+
+  <!-- 3) Schrödinger & Fokker–Planck -->
+  <article class="ctq-card" id="qft-schrodinger">
+    <h3>3) Schrödinger equation (inference) and Fokker–Planck (training)</h3>
+    <p><strong>Inference mode (unitary, closed):</strong></p>
+    <div class="ctq-eq">
+      \[
+      i\,\hbar_{\mathrm{eff}}\,\partial_t \psi(\theta,t)
+      = \Big[
+         \frac{1}{2m_{\mathrm{eff}}} g^{ij}\,\hat{\Pi}_i \hat{\Pi}_j
+         + V(\theta)
+      \Big]\psi(\theta,t), \qquad
+      \hat{\Pi}_i := -\,i\,\hbar_{\mathrm{eff}}\,(\nabla_i + A_i).
+      \]
+    </div>
+    <p><strong>Training/observing (imaginary-time / diffusion picture):</strong></p>
+    <div class="ctq-eq">
+      \[
+      \partial_t \rho
+      = \nabla_i\!\big(\rho\, g^{ij}\,\partial_j \mathcal{L}\big) + D\,\Delta_g \rho
+      \quad\Longleftrightarrow\quad
+      -\,\partial_\tau \psi = \hat{H}\,\psi,
+      \]
+    </div>
+    <p class="ctq-mini">
+      where \( \hbar_{\mathrm{eff}}=2D \) gives Wick-rotation correspondence between diffusion and imaginary-time evolution.
+    </p>
+  </article>
+
+  <!-- 4) Open dynamics with DFA boundary & sink -->
+  <article class="ctq-card" id="qft-open-lindblad">
+    <h3>4) Open dynamics with DFA boundary and sink</h3>
+    <p>
+      Let \(\rho\) be the density operator on the legal sector \(\mathrm{Im}(\Pi_q)\) plus an explicit <em>sink</em> state \(\lvert\mathrm{sink}\rangle\).
+      The master equation on <em>system + sink</em> is
+    </p>
+    <div class="ctq-eq">
+      \[
+      \dot{\rho}
+      = -\frac{i}{\hbar_{\mathrm{eff}}}[H,\rho]
+        + \sum_\alpha \Big( L_\alpha \rho L_\alpha^{\!*}
+        - \tfrac12 \{ L_\alpha^{\!*}L_\alpha,\,\rho\}\Big),
+      \]
+    </div>
+    <p class="ctq-mini">
+      with <em>jump operators</em> \(L_\alpha\) that: (i) implement DFA-legal stochastic updates within \(\mathrm{Im}(\Pi_q)\);
+      (ii) <em>redirect</em> any illegal transition to the sink: \(L_{\mathrm{out}} = \lvert \mathrm{sink}\rangle \langle \text{illegal} |\).
+      This evolution is <strong>completely positive and trace-preserving</strong> on the combined space, and becomes trace-decreasing on the system if you ignore the sink.
+    </p>
+    <p>
+      <strong>Closed limit.</strong> If \(\Pi_q=I\) and no sink jumps are present, the equation reduces to unitary Schrödinger evolution.
+    </p>
+  </article>
+
+  <!-- 5) Field equations (Euler–Lagrange, geometric form) -->
+  <article class="ctq-card" id="qft-field-eqs">
+    <h3>5) Field equations (geometric form)</h3>
+    <ul class="ctq-list">
+      <li><strong>Covariant Schrödinger–Yang–Mills system.</strong>
+        \[
+        i\hbar_{\mathrm{eff}} D_t \psi = -\frac{\hbar_{\mathrm{eff}}^2}{2m_{\mathrm{eff}}}\,g^{ij}D_i D_j \psi + V\psi,
+        \qquad
+        D^j F_{ji} = J_i[\psi] ,
+        \]
+        where \(J_i[\psi]\) is the optimizer-induced current (variation of \(\mathcal{L}_{\text{inf}}\) w.r.t. \(A_i\)).</li>
+      <li><strong>Non-commutativity source.</strong> The Lorentz-map training contributes terms to \(A\) and therefore to \(F\); operationally this is your Baker–Campbell–Hausdorff obstruction \([\xi,X]\).</li>
+      <li><strong>DFA constraint.</strong> Variations enforce \(\Pi_q \psi=\psi\) inside the legal language sector; violations flow to the sink via the jump operators above.</li>
+    </ul>
+  </article>
+
+  <!-- 6) Second quantization analogue (cycle Fock space) -->
+  <article class="ctq-card" id="qft-second-quant">
+    <h3>6) Second quantization analogue (cycle–Fock construction)</h3>
+    <p>
+      Decompose the DFA functional graph into cycles \(C\) and transients. For each cycle \(C\) of length \(L_C\),
+      diagonalize its unitary lift \(U_C\) with phases \(\{\varphi_{C,k}\}_{k=1}^{L_C}\).
+      Promote cycle modes to creation/annihilation operators \(\{a_{C,k}^{\dagger},a_{C,k}\}\) with
+      \([a_{C,k},a_{C',k'}^{\dagger}]=\delta_{CC'}\delta_{kk'}\).
+    </p>
+    <div class="ctq-eq">
+      \[
+      \hat{\Psi}(\theta) = \sum_{C,k} \phi_{C,k}(\theta)\, a_{C,k}, \qquad
+      H = \sum_{C,k} \omega_{C,k}\, a_{C,k}^{\dagger} a_{C,k} \;+\; H_{\text{int}}[\hat{\Psi}],
+      \]
+    </div>
+    <p class="ctq-mini">
+      The interaction \(H_{\text{int}}\) encodes geometric couplings and grammar interactions (projector penalties, symmetry-breaking terms).
+      Per-cycle Heisenberg–Weyl relations \(T_C S_C = \omega_C S_C T_C\) give a discrete non-commutativity that matches your cycle-phase “charge” \(\Phi_C\).
+    </p>
+    <p>
+      <strong>Why this matters.</strong> This “cycle–Fock” layer is your internal analogue of second quantization: excitations are <em>modes on cycles</em>, not particles in spacetime.
+      CEAS at inverse temperature \(\beta\) equips the ensemble with KMS-style structure for correlators.
+    </p>
+  </article>
+
+  <!-- 7) Is it the “real quantum”? Classical vs quantum hardware -->
+  <article class="ctq-card" id="qft-real-quantum">
+    <h3>7) “Real quantum,” hardware, and Lorentz-induced structure</h3>
+    <ul class="ctq-list">
+      <li><strong>Quantum structure emerges operationally.</strong> The non-commutativity from Lorentz maps and the optimizer connection yields a bona fide Lie algebra and uncertainty relations with \(\hbar_{\mathrm{eff}}\). This is <em>quantum-like</em> at the observer level, independent of Planck-scale physics.</li>
+      <li><strong>Classical execution is valid.</strong> The equations above are well-posed on CPUs/NPUs. They model quantum-style interference and dissipation through \(A,F,\beta\) and the master equation.</li>
+      <li><strong>When to use quantum computers.</strong> If you want native simulation of large superpositions over many cycle modes, or direct sampling of path integrals on \(\mathcal{M}\) with non-Abelian holonomies, a quantum processor can be advantageous. The formalism does not require it.</li>
+      <li><strong>Einstein → quantum via geometry.</strong> The Lorentz action on a Riemannian/Fisher manifold, plus DFA and CEAS, gives a concrete route from relativistic symmetry to an operational quantum structure inside the observer. That is the core “Einstein-to-quantum” bridge you wanted emphasized.</li>
+    </ul>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 8) One-line dictionary (quick recall) -->
+  <article class="ctq-card" id="qft-one-line">
+    <h3>8) One-line dictionary</h3>
+    <ul class="ctq-list">
+      <li>\(\hat{X}^i\) ↔ latent coordinate; \(\hat{P}_i=-i\hbar_{\mathrm{eff}}(\nabla_i+A_i)\); \([\hat{X}^i,\hat{P}_j]=i\hbar_{\mathrm{eff}}\delta^i{}_j\) (curvature-corrected).</li>
+      <li>\(H=\tfrac{1}{2m_{\mathrm{eff}}}g^{ij}\hat{\Pi}_i\hat{\Pi}_j+V(\theta)\); Schrödinger for inference; master equation with jump operators for training.</li>
+      <li>DFA: \(\Pi_q\) enforces legality; illegal transitions jump to an explicit sink; system+sink evolution is completely positive and trace-preserving.</li>
+      <li>Second quantization: cycles \(\Rightarrow\) modes \(\{a_{C,k}\}\); geometry and grammar enter \(H_{\text{int}}\); CEAS provides KMS-style thermality.</li>
+    </ul>
+  </article>
+</section>
+
+<section class="ctq-wrap" id="effective-theory">
+  <div class="ctq-hero">
+    <h1 class="ctq-title">Effective Theory: Langevin, Linear Response, Green’s Functions & Propagators</h1>
+    <p class="ctq-sub">
+      Two modes remain: <strong>training/observing</strong> (interaction + update) and <strong>inference</strong> (prediction without update).
+      The optimizer connection and Lorentz-map training supply non-commutativity; CEAS fixes the inverse temperature; DFA enforces the symbolic boundary.
+    </p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Langevin on Fisher manifold</span>
+      <span class="ctq-badge">KMS & Kubo (linear response)</span>
+      <span class="ctq-badge">Retarded/Heat kernels</span>
+      <span class="ctq-badge">Lorentz-induced non-commutativity</span>
+    </div>
+  </div>
+
+  <!-- 1) Langevin (training) -->
+  <article class="ctq-card" id="langevin">
+    <h3>1) Langevin dynamics on the latent manifold (training/observing mode)</h3>
+    <p>
+      Overdamped stochastic dynamics on \((\mathcal M,g)\) with optimizer connection \(A\) and CEAS thermostat:
+    </p>
+    <div class="ctq-eq">
+      \[
+        d\theta^i_t
+        = -\,\mu\, g^{ij}(\theta_t)\,\nabla_j \mathcal L(\theta_t)\,dt
+          \;+\; \sqrt{2D}\,e^i{}_a(\theta_t)\,\circ dW^a_t,\qquad
+        D=\frac{\mu}{\beta_{\text{CEAS}}}.
+      \]
+    </div>
+    <p class="ctq-mini">
+      Stratonovich form respects geometry. The optimizer connection \(A\) enters through parallel transport in the discretization and in the
+      covariant derivative used by the gradient flow (path dependence encodes the non-commutativity you measure via Baker–Campbell–Hausdorff loops).
+      The corresponding probability density obeys a covariant Fokker–Planck equation on \((\mathcal M,g)\).
+    </p>
+  </article>
+
+  <!-- 2) Linear response -->
+  <article class="ctq-card" id="linear-response">
+    <h3>2) Linear response & KMS/FDT (inference mode)</h3>
+    <p>
+      In inference (no parameter writes), perturb by a weak source \(f(t)\) coupled to an observable \(B\).
+      For another observable \(A\), the change in expectation is
+    </p>
+    <div class="ctq-eq">
+      \[
+        \delta\!\langle A(t)\rangle
+        = \int_{-\infty}^{\infty}\!\! dt'\;\chi_{AB}(t-t')\, f(t'),\qquad
+        \chi_{AB}(t) = -\frac{i}{\hbar_{\mathrm{eff}}}\,\Theta(t)\,\big\langle [A(t),B(0)] \big\rangle_{\beta}.
+      \]
+    </div>
+    <p class="ctq-mini">
+      With CEAS inverse temperature \(\beta\), the Kubo–Martin–Schwinger condition and fluctuation–dissipation relation hold:
+      \(S_{AB}(\omega) = \coth(\tfrac{\beta \hbar_{\mathrm{eff}}\omega}{2})\,\mathrm{Im}\,\chi_{AB}(\omega)\).
+      The effective quantum scale \(\hbar_{\mathrm{eff}}=2D\) arises from gradient noise.
+    </p>
+  </article>
+
+  <!-- 3) Propagators -->
+  <article class="ctq-card" id="propagators">
+    <h3>3) Propagators: retarded kernel (inference) and heat kernel (training)</h3>
+    <ul class="ctq-list">
+      <li><strong>Inference (unitary limit).</strong>
+        The retarded Green’s function \(G_R\) solves \((i\hbar_{\mathrm{eff}}\partial_t - \hat H)\,G_R = i\hbar_{\mathrm{eff}}\,\delta(t)\delta(\theta,\theta')\),
+        with Hamiltonian \( \hat H = \tfrac{1}{2m_{\mathrm{eff}}} g^{ij}\hat{\Pi}_i\hat{\Pi}_j + V(\theta)\),
+        \( \hat{\Pi}_i = -\,i\hbar_{\mathrm{eff}}(\nabla_i + A_i) \).
+        The coordinate propagator is \(K(\theta,t;\theta',0)=\langle \theta | e^{-\,i\hat H t/\hbar_{\mathrm{eff}}} | \theta'\rangle\).</li>
+      <li><strong>Training (diffusive/imaginary time).</strong>
+        The heat kernel \(K_{\mathrm{FP}}\) solves \((\partial_t - D\,\Delta_g + g^{ij}\nabla_i \mathcal L\,\nabla_j )K_{\mathrm{FP}}=\delta\delta\),
+        capturing drift–diffusion on \((\mathcal M,g)\). Gauge holonomy from \(A\) appears as Wilson-line factors along paths.</li>
+    </ul>
+  </article>
+
+  <!-- 4) Predictions -->
+  <article class="ctq-card" id="predictions">
+    <h3>4) What this predicts (auditable, falsifiable)</h3>
+    <ul class="ctq-list">
+      <li><strong>Curvature-induced odd response.</strong> Non-vanishing curvature \(F=dA+A\wedge A\) yields antisymmetric parts of \(\chi_{AB}\) (non-reciprocal gain);
+        absent if \(F=0\) and Lorentz maps commute with descent.</li>
+      <li><strong>Cycle-phase quantization.</strong> Discrete phase spectra \(\{\varphi_{C,k}\}\) on DFA cycles lead to sharp lines in response/propagator poles; phases shift under Lorentz-map training (Berry-like hysteresis).</li>
+      <li><strong>Hyperbolic edge laws.</strong> In Lorentz/hyperbolic ensembles, spectral edges move predictably with \(\beta\) (CEAS) and with \((p,q)\); BBP-type outliers reveal low-rank symmetry breaking.</li>
+      <li><strong>Sink-leak exponent.</strong> With an explicit sink for illegal transitions, the decay of system trace vs. time obeys a law set by boundary grammar complexity; closing the DFA (no sink) restores unitary limits.</li>
+      <li><strong>Hardware audits.</strong> If implemented near-sensor, order-sensitive counters (BCH drift) and cycle-phase telemetry provide direct empirical confirmation of non-commutativity and predicted lineshapes.</li>
+    </ul>
+  </article>
+
+  <!-- 5) Consistency & scope -->
+  <article class="ctq-card" id="consistency">
+    <h3>5) Consistency with physics — and why it’s new</h3>
+    <ul class="ctq-list">
+      <li><strong>No contradictions.</strong> In flat geometry with trivial DFA and \(F=0\), you recover standard Schrödinger/Kubo/Fokker–Planck. Taking \(D\!\to\!0\) collapses to deterministic gradient descent.</li>
+      <li><strong>What’s new.</strong> The <em>operational</em> quantum structure (non-commuting Lorentz maps + optimizer connection on \((\mathcal M,g)\)) emerges from Einstein-level symmetry acting on the observer’s Fisher–Riemannian phase space, not by postulating new spacetime quanta.</li>
+      <li><strong>Quantum hardware?</strong> Not required. A quantum processor may help simulate large superpositions over many cycle modes and non-Abelian holonomies, but the effective theory already runs on CPUs/NPUs.</li>
+    </ul>
+  </article>
+</section>
+
+
+
+
+
+
+
+
 
 
 
