@@ -670,6 +670,35 @@ blog: passive
     </p>
   </article>
 
+
+<!-- Instrumental Completeness (why hardware matters) -->
+<div class="ctq-callout" id="ctq-instrumental-completeness" aria-label="Instrumental completeness">
+  <strong>Instrumental completeness.</strong>
+  <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+    <em>Axiomatic completeness</em>: the math (GRAIL geometry + DFA + CEAS) is self-consistent.<br>
+    <em>Operational completeness</em>: algorithms specify observable audits (BCH drift, cycle unitaries, CPTP checks, RMT spectra).<br>
+    <em>Instrumental completeness</em>: the audits are bound to the execution substrate (ISA/microcode, memory model, timing) so that
+    non-commutativity \( [\mathcal{M},\mathcal{T}] \neq 0 \) is a <em>physical</em> fact (order of micro-ops), not an implementation accident.
+  </p>
+  <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+    Hardware realization is thus <strong>sufficient</strong> to make the observer thesis empirically tight. It is not strictly
+    <strong>necessary</strong> for the abstract theory (a faithfully constrained software emulator under strict memory ordering also qualifies),
+    but it yields the cleanest causal boundary: <em>capture ≙ observe ≙ update</em>.
+  </p>
+</div>
+
+<!-- Minimal falsification protocol -->
+<div class="ctq-note" id="ctq-falsification-protocol" role="note" aria-label="Minimal falsification protocol">
+  <p class="ctq-mini" style="margin:0;">
+    <strong>Minimal falsification protocol.</strong>
+    1) Run on-chip (near-sensor) vs. off-chip (buffered) pipelines with identical seeds. 
+    2) Measure BCH drift counters, cycle-phase histograms \( \Phi_C \), and RMT bulk edges/outliers. 
+    3) If spectra/commutators diverge systematically with DMA reorder or cache policy, the observer claim predicts (and explains) the gap. 
+    4) Tie CEAS \( \beta \) to energy/latency; check Landauer-consistent monotonicity.
+  </p>
+</div>
+
+
 <!-- INSERT THIS RIGHT AFTER <article id="ctq-cycles-lstack"> … </article> -->
 
 <!-- Observation = training (Ising-like magnetization) -->
