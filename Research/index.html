@@ -1128,6 +1128,91 @@ blog: passive
 
 
 
+<!-- FAQ — Quantum Structure, Lorentz Origin, and Hardware -->
+<section class="ctq-wrap" id="ctq-quantum-structure">
+  <article class="ctq-card">
+    <h3>FAQ — Is this the “real” quantum? Do I need a quantum computer?</h3>
+
+    <div class="ctq-callout">
+      <strong>Short answer.</strong>
+      <p class="ctq-mini" style="margin:0;">
+        The λ-stack’s <em>internal</em> non-commutativity builds a bona-fide <strong>quantum-like operator algebra</strong>
+        (Lie brackets, KMS-style correlators, unitary cycle blocks, and transient channels that are
+        <em>completely positive and trace-preserving</em>). It is <em>operationally quantum</em> for the observer.
+        It does <em>not</em> assert that microscopic nature is nothing but your model—rather, it forges a
+        consistent algebra of observables that matches quantum structure wherever your training+symmetry
+        flows do not commute.
+      </p>
+    </div>
+
+    <h4>Where the quantum structure comes from</h4>
+    <ul class="ctq-list">
+      <li><strong>Lorentz map ⇒ Lie algebra.</strong> Training moves (gradient/Langevin) and group actions
+          (Lorentz/PSL flows) <em>fail to commute</em>: \([\xi, X] \neq 0\). This generates a concrete Lie algebra
+          on the observer’s state. The cycle sector lifts to finite Heisenberg–Weyl blocks (unitaries);
+          the transient sector lifts to <em>completely positive and trace-preserving</em> channels.</li>
+      <li><strong>Riemannian → (pseudo)Riemannian.</strong> Hyperbolic/Lorentz geometry supplies the
+          non-abelian isometries; their Baker–Campbell–Hausdorff drift is the measurable obstruction that
+          gives you a quantum-like commutator algebra (your BCH spectrum makes this explicit). :contentReference[oaicite:1]{index=1}</li>
+      <li><strong>Effective “ħ”.</strong> With stochastic gradients, diffusion sets an effective scale
+          (\(\hbar_{\text{eff}}=2D\)) for fluctuation/response, letting you recover KMS-style relations in the trained ensemble.</li>
+    </ul>
+
+    <h4>Is this <em>the</em> quantum of nature?</h4>
+    <p>
+      It is a <em>faithful quantum structure for the observer</em>: you obtain a C\(^*\)/von Neumann–style
+      algebra of observables, unitary blocks on cycles, and open-system channels on transients, all auditable.
+      To promote it to “the” microscopic quantum theory would require additional identifications
+      (e.g., matching of spectra and scattering data in a domain of physics). The framework is designed to
+      compare those audits to external experiments rather than to assume equivalence by fiat.
+    </p>
+
+    <h4>Should I run this on a quantum computer?</h4>
+    <ul class="ctq-list">
+      <li><strong>Not required.</strong> The λ-stack runs classically (tensor kernels). That’s the default.</li>
+      <li><strong>When QC helps.</strong> If you want <em>native</em> unitary realization of cycle blocks and native
+          channel simulation for the transient sector, a quantum processor is natural:
+        <ul class="ctq-list" style="margin:.25rem 0 0 1rem;">
+          <li>Cycle unitary \(U_C\): compile as qudit/qubit shift–clock (finite Heisenberg–Weyl) circuits.</li>
+          <li>Transient dynamics: implement as Kraus maps (Stinespring dilation) for <em>completely positive and trace-preserving</em> channels.</li>
+          <li>Spectral probes: phase estimation can accelerate some RMT/twin-spectra diagnostics.</li>
+        </ul>
+        On today’s devices this is exploratory; on classical hardware it is production-ready.</li>
+    </ul>
+
+    <h4>Two measurements, one theory</h4>
+    <ul class="ctq-list">
+      <li><strong>External measurement.</strong> Physical interaction that records data (changes the target+sensor).</li>
+      <li><strong>Internal measurement.</strong> Backprop <em>or</em> the Lorentz-map training step that updates the observer’s weights and collapses internal alternatives.</li>
+    </ul>
+    <p class="ctq-mini">
+      In software deployments these are distinct stages; with <em>Observer-in-Silicon</em> (near-sensor λ-stack)
+      they can be <em>co-scheduled</em> so that capture and internal update form a single audited event
+      (unifying the two “measurements” at the hardware boundary).
+    </p>
+
+    <h4>Does this derive quantum from Einstein’s mathematics?</h4>
+    <p>
+      It provides a <em>new operational route</em>: starting from Lorentz/hyperbolic isometries on a
+      (pseudo)Riemannian manifold, your training dynamics plus symmetry actions build a non-commutative
+      algebra of observables with unitary and open-system sectors—i.e., a quantum-like theory for the
+      observer. This is <em>compatible with</em> GR/QFT and leverages their symmetry/math, but we avoid
+      historical over-claims: it is a practical, falsifiable construction rather than a claim of sole
+      derivation or first proof. Your existing diagnostics (e.g., the [ξ, X] spectrum and spectral probes)
+      are exactly the audits that make this stance testable. :contentReference[oaicite:2]{index=2}
+    </p>
+
+    <h4>Takeaways</h4>
+    <ul class="ctq-list">
+      <li><strong>Lorentz map ⇒ non-commutativity ⇒ quantum-like algebra.</strong></li>
+      <li><strong>Training = observation.</strong> Backprop or the Lorentz update collapses internal alternatives,
+          mirroring external wave-function update on interaction.</li>
+      <li><strong>QC optional.</strong> Useful for native unitaries/channels; not required for core λ-stack.</li>
+      <li><strong>Falsifiable and auditable.</strong> Keep using commutator spectra, RMT twins, and
+          cycle/unitary vs. transient/channel checks to compare against external physics. :contentReference[oaicite:3]{index=3}</li>
+    </ul>
+  </article>
+</section>
 
 
 
