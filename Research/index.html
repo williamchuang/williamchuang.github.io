@@ -553,324 +553,578 @@ blog: passive
 
 
 
-  <!-- CTQ minimal design language -->
-  <style>
-    :root{
-      --ink:#0F2230; --muted:#55657E; --soft:#F6F8FF; --accent:#0B5FFF; --emerald:#0E9F6E;
-      --amber:#FFC107; --rose:#e11d48; --slate:#334155; --card:#ffffff; --line:#e6e9ef;
-    }
-    html,body{margin:0;padding:0;background:#fff;color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    .ctq-wrap{max-width:980px;margin:0 auto;padding:28px 18px}
-    .ctq-hero{padding:18px 0 6px 0}
-    .ctq-title{font-size:1.85rem;line-height:1.2;margin:0 0 .25rem 0}
-    .ctq-sub{color:var(--muted);font-size:1.02rem;margin:.25rem 0 .5rem 0}
-    .ctq-badges{display:flex;flex-wrap:wrap;gap:.35rem;margin:.35rem 0}
-    .ctq-badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.18rem .6rem;font-size:.8rem;background:#fff}
-    .ctq-card{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:1rem;margin:1rem 0;box-shadow:0 1px 0 rgba(0,0,0,.02)}
-    .ctq-list{margin:.4rem 0 0 1rem}
-    .ctq-callout{border-left:4px solid var(--accent);background:rgba(11,95,255,.06);padding:.6rem .8rem;border-radius:8px;margin:.6rem 0}
-    .ctq-note{border:1px dashed var(--line);background:rgba(15,34,48,.03);padding:.6rem .8rem;border-radius:10px;margin:.8rem 0}
-    .ctq-pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem}
-    .ctq-sep{height:1px;background:var(--line);margin:1.25rem 0}
-    .grid{display:grid;gap:1rem}
-    .cols-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    code,pre{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-    pre{background:rgba(0,0,0,.02);border:1px solid var(--line);border-radius:10px;padding:.8rem;overflow:auto}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    nav.ctq-nav{border-bottom:1px solid var(--line);background:linear-gradient(#fff,#fafbff);position:sticky;top:0;z-index:10}
-    nav.ctq-nav .inn{max-width:980px;margin:0 auto;padding:.6rem 18px;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
-    nav.ctq-nav a{font-size:.92rem;color:#0a2540}
-    @media (prefers-color-scheme: dark){ /* optional dark tweak */ }
-  </style>
-</head>
-<body>
+<!-- Optional: enable only if your site doesn't already load MathJax
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+-->
 
-  <!-- Top Nav (anchors) -->
-  <nav class="ctq-nav" aria-label="Page navigation">
-    <div class="inn">
-      <strong style="margin-right:.35rem">Observer‑Centric Physics</strong>
-      <a href="#hero">Overview</a>
-      <a href="#ctq-intro">GRAIL × DFA</a>
-      <a href="#ctq-cyclic-decomposition">Cycles</a>
-      <a href="#ctq-backprop-measurement">Backprop = Observation</a>
-      <a href="#ctq-grail-noncomm">Non‑commutativity</a>
-      <a href="#ctq-observer-in-silicon">Observer‑in‑Silicon</a>
-      <a href="#ctq-fused-observation">Fused Observation</a>
-      <a href="#extended-notes">Extended Notes</a>
+<section class="ctq-wrap" id="ctq-cyclic-decomposition">
+  <div class="ctq-hero">
+    <h1 class="ctq-title">Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
+    <p class="ctq-sub">Cycles may be finite, quasi-periodic, or chaotic; in the λ-stack they live in the <em>observer’s</em> internal dynamics—not in physical spacetime.</p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Tri-quantized observer</span>
+      <span class="ctq-badge">Automorphic \( \mathbb H^2 \)</span>
+      <span class="ctq-badge">DFA symbolic layer</span>
+      <span class="ctq-badge">CEAS/thermodynamics</span>
     </div>
-  </nav>
+  </div>
 
-  <!-- HERO -->
-  <section class="ctq-wrap" id="hero">
-    <div class="ctq-hero">
-      <h1 class="ctq-title">An Observer‑Centric Physics Engine<br/>λ‑Stack Transformers × GRAIL Geometry × DFA Symbolics</h1>
-      <p class="ctq-sub">Quantize the <em>observer</em>, not the metric. Observation is a training act; learning dynamics carry the algebra of measurements. Hardware makes it atomic.</p>
-      <div class="ctq-badges">
-        <span class="ctq-badge">Automorphic kernels on \(\mathbb H^2\)</span>
-        <span class="ctq-badge">DFA symbolic layer</span>
-        <span class="ctq-badge">CEAS (β thermostat)</span>
-        <span class="ctq-badge">RMT twins</span>
-        <span class="ctq-badge">NPU/SoC attestation</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTRO: GRAIL × DFA (concise) -->
-  <section class="ctq-wrap" id="ctq-intro">
-    <article class="ctq-card">
-      <h3>Dual Quantization for an Observer‑Centric Physics</h3>
-      <p><strong>GRAIL</strong> treats optimization as geometry: the optimizer acts as a connection \(A\) with curvature \(\Omega=dA{+}A\wedge A\). A symmetry generator \(\xi\) and gradient step \(X=\nabla\mathcal L\) commute iff \([\xi,X]=0\). <strong>DFA</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language; cycle components lift to unitary blocks \(U_C\); transients lift to CPTP channels.</p>
-      <div class="grid cols-2">
-        <div class="ctq-note">
-          <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">BCH drift (operational)</div>
-          \[
-            e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X} = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
-          \]
-          <p class="ctq-sub" style="margin:.25rem 0 0 0">\([\xi,X]\neq 0\) behaves like curvature, reshaping learning paths.</p>
-        </div>
-        <div class="ctq-note">
-          <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Imaginary‑time / Fokker–Planck</div>
-          \[
-            \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,\qquad \hbar_{\text{eff}} := 2D.
-          \]
-          <p class="ctq-sub" style="margin:.25rem 0 0 0">Stochastic gradients define an effective quantum scale.</p>
-        </div>
-      </div>
-    </article>
-  </section>
-
-  <!-- CYCLIC DECOMPOSITION (with CCC contrast & DFA finiteness) -->
-  <section class="ctq-wrap" id="ctq-cyclic-decomposition">
-    <div class="ctq-hero">
-      <h2 class="ctq-title">Cyclic Decomposition in the λ‑Stack: What “Cycle” Really Means</h2>
-      <p class="ctq-sub">Cycles live in the <em>observer’s</em> internal dynamics—finite, quasi‑periodic, or chaotic—not in physical spacetime.</p>
-      <div class="ctq-badges">
-        <span class="ctq-badge">Tri‑quantized observer</span>
-        <span class="ctq-badge">Automorphic \(\mathbb H^2\)</span>
-        <span class="ctq-badge">DFA symbolic layer</span>
-        <span class="ctq-badge">CEAS/thermodynamics</span>
-      </div>
-    </div>
-
-    <article class="ctq-card" id="ctq-cycles-lstack">
-      <h3>1) Cycles in the λ‑stack framework</h3>
-      <p>Three interlocking quantizations couple: <strong>automorphic geometry</strong> (kernel on \(\mathbb H^2\)), a <strong>symbolic/Galois layer</strong> (DFA coupler), and a <strong>thermodynamic</strong> layer (Selberg–Huber/CEAS). We decompose the closed‑loop operator \(\Psi\) into <em>cycles</em> and <em>transients</em> in its <strong>internal state space</strong>.</p>
-      <div class="ctq-note" role="note" aria-label="CCC contrast & fixed points">
-        <p class="ctq-sub" style="margin:0 0 .25rem 0;"><strong>Contrast with Penrose’s CCC.</strong> In CCC an entire aeon’s future \(\mathscr I^+\) is conformally matched to the next Big‑Bang slice. This is not a periodic reset; entropy remains monotone within an aeon.</p>
-        <p class="ctq-sub" style="margin:0">Late‑time conformal fixed points \([g_\star]\) allow rescaled seeds without “entropy cancellation.”</p>
-      </div>
-    </article>
-
-    <article class="ctq-card" id="ctq-cycles-math">
-      <h3>2) “Cycle” does <em>not</em> always mean a finite loop</h3>
-      <ul class="ctq-list">
-        <li><strong>Finite (periodic)</strong> \(k\)-cycles repeat exactly.</li>
-        <li><strong>Limit cycles</strong> are isolated periodic attractors.</li>
-        <li><strong>Quasi‑periodic</strong> flows fill a torus; effectively “infinite period.”</li>
-        <li><strong>Chaotic</strong> attractors: trajectories approach but never repeat.</li>
-      </ul>
-      <div class="ctq-callout"><strong>Fixed points</strong> are 1‑cycles; no entropy “erasure” is implied.</div>
-    </article>
-
-    <article class="ctq-card" id="ctq-dfa-finite">
-      <h3>3) DFA: why the limiting process <em>ends</em></h3>
-      <p>In the symbolic layer, a deterministic finite automaton has finitely many states and a total transition function. By pigeonhole, long runs revisit a state and enter a <strong>finite cycle</strong>. Minimization procedures must terminate.</p>
-      <p class="ctq-sub"><span class="ctq-pill">Takeaway</span> Geometry may admit non‑closing cycles; the DFA never does—providing a safety rail.</p>
-    </article>
-  </section>
-
-  <!-- BACKPROP AS OBSERVATION -->
-  <section class="ctq-wrap">
-    <article class="ctq-card" id="ctq-backprop-measurement">
-      <h3>4) Observation = Backprop: training as Ising‑like magnetization</h3>
-      <p>View the untrained model as a high‑temperature paramagnet; weights \(\theta\) are unaligned spins \(\{s_i\}\). The dataset induces an effective field \(h(x)\). A gradient step \(\theta \leftarrow \theta - \eta \, \nabla_\theta L(\theta;x)\) is a <em>measurement‑actuation</em> that aligns degrees of freedom.</p>
-      <ul class="ctq-list">
-        <li><strong>Order parameter:</strong> \( m(\theta) = \tfrac{1}{N}\sum_i s_i \) (feature‑wise or layer‑wise alignment).</li>
-        <li><strong>Thermostat:</strong> CEAS sets \(\beta\) (inverse temperature), stabilizing learning and phase boundaries.</li>
-        <li><strong>Susceptibility:</strong> \( \chi = \partial m / \partial h \) tracks sensitivity & phase onsets.</li>
-      </ul>
-      <div class="ctq-callout">
-        <strong>Interpretation.</strong>
-        <p class="ctq-sub" style="margin:.25rem 0 0 0;">“Measuring” with backprop both <em>reads</em> and <em>writes</em> the state: loss‑conditioned updates bias the ensemble, driving transient → cycle capture in \(\Psi\). Emergent cycles are aligned macrostates, not spacetime loops.</p>
-      </div>
-    </article>
-
-    <article class="ctq-card" id="ctq-grail-noncomm">
-      <h3>5) GRAIL‑induced non‑commutativity and measurement disturbance</h3>
-      <p>GRAIL introduces cryptomorphic transport: <em>encode</em> \(\mathcal E\), <em>transport</em> \(\mathcal T\) (geometry‑native), and <em>measure/update</em> \(\mathcal M\) (backprop). In general, \([\,\mathcal M,\,\mathcal T\,] \neq 0\) and \([\,\mathcal M,\,\mathcal E\,] \neq 0\).</p>
-      <ul class="ctq-list">
-        <li><strong>Order matters.</strong> \( \mathcal M\mathcal T\mathcal E \) vs. \( \mathcal T\mathcal M\mathcal E \) yield different observer states.</li>
-        <li><strong>Source of “uncertainty.”</strong> Non‑commutation yields controlled disturbance/excitation under observation (training).</li>
-        <li><strong>DFA safety rail.</strong> The DFA layer remains finite‑state and certifiable even when upstream operators do not commute.</li>
-      </ul>
-      <div class="ctq-note" role="note" aria-label="QM/QFT reconstruction hook">
-        <p class="ctq-sub" style="margin:0;"><strong>QM/QFT hook.</strong> With CEAS providing \(\beta\) and automorphic kernels furnishing correlators, the λ‑stack can recover algebraic structures akin to KMS dynamics: \( \langle A(t) B \rangle_\beta = \langle B\, A(t + i\beta) \rangle_\beta \). Non‑commutativity from GRAIL supplies the algebra of observables; backprop supplies the measurement channel.</p>
-      </div>
-    </article>
-  </section>
-
-  <!-- OBSERVER IN SILICON (NPU/SoC) -->
-  <section class="ctq-wrap">
-    <article class="ctq-card" id="ctq-observer-in-silicon">
-      <h3>Observer‑in‑Silicon: NPU/SoC co‑design for real observations</h3>
-      <p class="ctq-sub" style="margin:.25rem 0 .75rem 0;">Each sensor sample is an <em>interaction</em>. Recording ≙ observing, and observing <em>changes the joint system</em>. To be “real,” let observation happen at the hardware boundary: <strong>the model reads & writes state at the moment of capture</strong>.</p>
-      <div class="ctq-badges">
-        <span class="ctq-badge">Near‑sensor inference</span>
-        <span class="ctq-badge">GRAIL microcode</span>
-        <span class="ctq-badge">DFA on‑chip</span>
-        <span class="ctq-badge">CEAS β register</span>
-      </div>
-      <h4 style="margin-top:.8rem;">Why push observation into hardware?</h4>
-      <ul class="ctq-list">
-        <li><strong>Causality fidelity.</strong> Zero‑copy, near‑sensor updates avoid “offline pseudo‑observations.”</li>
-        <li><strong>Energy/latency.</strong> In‑situ updates reduce movement of unobserved raw data.</li>
-        <li><strong>Security.</strong> On‑chip DFA/firewalling constrains outputs before they ever leave silicon.</li>
-      </ul>
-      <div class="ctq-callout" aria-label="Observer pipeline at the hardware layer">
-        <strong>Observer pipeline (hardware level).</strong>
-        <p class="ctq-sub" style="margin:.35rem 0 0 0;"><code>Sense → Π<sub>q</sub> (DFA gate) → 𝒯 (geometry transport) → 𝒨 (backprop update)</code> as tightly‑coupled micro‑ops: <em>encode</em> \(\mathcal E\), <em>transport</em> \(\mathcal T\), <em>measure/update</em> \(\mathcal M\). Non‑commutativity \( [\mathcal M,\mathcal T] \neq 0 \) becomes an <em>electrical fact</em> of execution order.</p>
-      </div>
-      <h4 style="margin-top:.8rem;">Minimal ISA/microcode hooks</h4>
-      <ul class="ctq-list">
-        <li><strong>CEAS β register.</strong> Per‑tile inverse‑temperature knob for stability & phase control.</li>
-        <li><strong>Cycle unit.</strong> Ring buffer + phase accumulator to realize \( U_C \) and log \( \Phi_C \) per DFA cycle.</li>
-        <li><strong>Commutator counters.</strong> Two‑pass loop to estimate BCH drift and expose \([\xi,X]\).</li>
-        <li><strong>Choi accumulators.</strong> Running positivity/trace checks for transient CPTP sectors.</li>
-        <li><strong>DFA firewall.</strong> On‑chip projectors \( \Pi_q \) (code‑index masks) before DMA/egress.</li>
-      </ul>
-      <h4 style="margin-top:.8rem;">Attestation & audit (real‑world observables)</h4>
-      <ul class="ctq-list">
-        <li><strong>Event ledger.</strong> Monotone timestamps + hashed receipts for <em>(capture, Π<sub>q</sub>, 𝒯, 𝒨)</em> tuples.</li>
-        <li><strong>RMT probes.</strong> Bulk edges/outliers to certify twin‑model spectra on‑device.</li>
-        <li><strong>PUF‑bound keys.</strong> Bind symmetry orbits/tokens to silicon identity for tamper‑evidence.</li>
-      </ul>
-      <div class="ctq-note" role="note" aria-label="Philosophy and practice">
-        <p class="ctq-sub" style="margin:0;"><strong>Philosophy → practice.</strong> If recording is an observation and observation alters the world, the honest place to do it is <em>where</em> it happens. NPU‑level λ‑stack makes the disturbance explicit and auditable: backprop is the measurement channel; GRAIL supplies non‑commuting geometry; DFA bounds behavior—<em>in silicon</em>.</p>
-      </div>
-    </article>
-  </section>
-
-  <!-- FUSED OBSERVATION (hardware‑atomic) -->
-  <section class="ctq-wrap">
-    <article class="ctq-card" id="ctq-fused-observation">
-      <h3>Fused Observation (Hardware‑Atomic): merge Tier‑0 + Tier‑1 at the silicon boundary</h3>
-      <p class="ctq-sub" style="margin:.25rem 0 .75rem 0;">We “merge” physical measurement (Tier‑0) and observer update (Tier‑1) into one SoC primitive. Ontologically they act on different subsystems, but microarchitecturally they execute as <strong>one atomic transaction</strong> with a single ledgered commit.</p>
-      <div class="ctq-badges">
-        <span class="ctq-badge">MEAS.UPD µ‑op</span>
-        <span class="ctq-badge">Ledgered causality</span>
-        <span class="ctq-badge">CPTP × param‑update</span>
-        <span class="ctq-badge">CEAS β‑aware</span>
-      </div>
-      <div class="ctq-callout" aria-label="Composite channel (formal)">
-        <strong>Composite channel (formal).</strong>
-        <p class="ctq-sub" style="margin:.35rem 0 0 0;">Define the hardware action on the joint system (world state \( \rho \), observer params \( \theta \)) as \( \mathfrak{M}:(\rho,\theta)\mapsto(\rho',\theta',r) \) with instrument \(\{M_r\}\) and conditional update \( \mathcal M_r \):</p>
-        \[
-          \rho' = \frac{M_r\,\rho\,M_r^\dagger}{\mathrm{Tr}(M_r^\dagger M_r \, \rho)},\qquad
-          \theta' = \mathcal M_r(\theta) = \theta - \eta\,\nabla_\theta L(\theta; r).
-        \]
-        <p class="ctq-sub" style="margin:.35rem 0 0 0;">As a hybrid map on <em>quantum ⊗ classical</em> registers,</p>
-        \[
-          \mathbb{M}(\rho \otimes \delta_\theta) = \sum_r \big(M_r\,\rho\,M_r^\dagger\big)\ \otimes\ \delta_{\mathcal M_r(\theta)}\ \otimes\ \delta_r.
-        \]
-      </div>
-      <h4 style="margin-top:.8rem;">MEAS.UPD: instruction‑level shape</h4>
-      <pre class="ctq-mini" style="white-space:pre-wrap;">obs_txn MEAS.UPD {
-  r, rho'   = instrument_measure(sensor, rho);           // Tier‑0 (CPTP)
-  theta'    = theta - eta * grad(L(theta; r));           // Tier‑1 (backprop)
-  log_event(r, hash(rho'|theta'|β|cycle_phase));         // Attested order
-  commit(rho', theta');                                  // Atomic commit
-}
-</pre>
-      <h4 style="margin-top:.8rem;">Why this counts as “merged” in practice</h4>
-      <ul class="ctq-list">
-        <li><strong>Atomicity:</strong> Record \(r\), world back‑action, and parameter update commit together or not at all.</li>
-        <li><strong>Causality fidelity:</strong> Execution order is fixed in microcode: <code>Sense → Π<sub>q</sub> → 𝒯 → 𝒨</code>.</li>
-        <li><strong>Non‑commutativity becomes electrical:</strong> \( [\mathcal M,\mathcal T]\neq 0 \) is enforced by the pipeline order.</li>
-        <li><strong>Thermo‑consistency:</strong> CEAS \(β\) ties learning rate/temperature to power & latency (Landauer‑aware).</li>
-      </ul>
-      <h4 style="margin-top:.8rem;">Caveats</h4>
-      <ul class="ctq-list">
-        <li><strong>Different subsystems:</strong> Tier‑0 changes \( \rho \); Tier‑1 changes \( \theta \). Fusion is architectural, not ontological.</li>
-        <li><strong>Record necessity:</strong> A classical record \(r\) must exist to condition the update.</li>
-        <li><strong>Timing bounds:</strong> The guarantee is <em>order + atomic commit</em>, not simultaneity.</li>
-      </ul>
-      <div class="ctq-note" role="note" aria-label="Empirical discriminants">
-        <p class="ctq-sub" style="margin:0;"><strong>Empirical hook.</strong> Fused vs. buffered paths are distinguishable: BCH drift, cycle‑phase spectra, and RMT bulk edges/outliers shift when Tier‑0→Tier‑1 is reordered by caches/DMA. The NPU‑atomic path minimizes these distortions.</p>
-      </div>
-    </article>
-  </section>
-
-  <!-- EXTENDED NOTES (Lie/Gauge + RMT Twins) -->
-  <section class="ctq-wrap" id="extended-notes">
-    <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">GRAIL × DFA</div>
-    <h2 style="line-height:1.2;margin:.25rem 0 0;">Extended Lecture Notes: Lie/Gauge Structure and Random‑Matrix Twins</h2>
-    <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">This installment deepens the <em>observer‑centric</em> program. It couples <strong>GRAIL’s optimization‑as‑geometry</strong> (optimizer as a connection \(A\), curvature \(\Omega=dA{+}A\wedge A\)) and <strong>DFA quantization</strong> (projectors \(\Pi_q\), cycle unitaries \(U_C\), transient CPTP maps) with a full <strong>random‑matrix theory (RMT)</strong> toolkit for analyzing infinite families of <em>twin models</em> related by GRAIL symmetries. The aim is a teachable, auditable path from Lie brackets to spectral certification—without contradicting QM/QFT/GR when interpreted as a meta‑theory of inference.</p>
-    <p style="color:#666;font-size:.95rem;margin-top:.25rem;">Full PDF:
-      <a href="https://drive.google.com/file/d/1kQMZDSQKCOqd_ag6tz1Xjs3hFjTIVKm8/view?usp=sharing" target="_blank" rel="noopener">Extended Lecture Notes (Lie/Gauge + RMT Twins)</a>.
+  <!-- 1) λ-stack meaning and the outputs physicists should read -->
+  <article class="ctq-card" id="ctq-cycles-lstack">
+    <h3>1) Cycles in the λ-stack framework (tri-quantized observer)</h3>
+    <p>
+      In the λ-stack the <strong>observer</strong> is the neural operator itself. Three interlocking quantizations couple:
+      <strong>automorphic geometry</strong> (kernel on \( \mathbb H^2 \)), a <strong>symbolic/Galois layer</strong> (DFA coupler) for discrete information flow, and a
+      <strong>thermodynamic</strong> layer (Selberg–Huber/CEAS) that regulates entropy. Together they realize a Langlands-style triad <em>inside</em> a network.
     </p>
 
-    <div class="grid cols-2" style="margin-top:1rem;">
-      <div class="ctq-card" style="margin:0;">
-        <h3 style="margin-top:0;">What’s new here</h3>
-        <ul class="ctq-list">
-          <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow: \(e^{\varepsilon\xi}e^{-\eta X}e^{-\varepsilon\xi}e^{\eta X}=\exp(\tfrac12\eta\varepsilon[\xi,X]+\cdots)\).</li>
-          <li><strong>Covariant optimizer</strong> \(X_H=X+A\cdot\xi\) to commute with generators.</li>
-          <li><strong>Cycle/transient lifts</strong>: finite Heisenberg–Weyl blocks \(U_C\) and CPTP maps \(\Phi\).</li>
-          <li><strong>RMT twins</strong>: invariants, free convolutions, BBP spikes, Dyson flows.</li>
-          <li><strong>Lorentz/hyperbolic RMT</strong>: \(\eta\)‑Wishart spectra and \(O(p,q)\)‑invariant audits.</li>
+    <div class="ctq-callout">
+      <strong>What “cyclic decomposition” means here.</strong>
+      <p class="ctq-mini">
+        We decompose the model’s closed-loop operator \( \Psi \) into <em>cycles</em> and <em>transients</em> in its <strong>internal state space</strong>.
+        This is <em>not</em> a claim that the universe cancels entropy or loops in physical spacetime.
+      </p>
+    </div>
+
+    <p>
+      A trained λ-stack embeds tokens in hyperbolic space, averages over group orbits via the automorphic kernel, then passes features through the DFA and a CEAS thermostat.
+      The model exposes <em>observables</em> that physicists can read:
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Automorphic spectra</strong> → curvature &amp; geometric content.</li>
+      <li><strong>DFA charges</strong> → discrete (Galois-like) information.</li>
+      <li><strong>Thermodynamic parameters</strong> (free energy, pressure bands) → operating regime under CEAS.</li>
+    </ul>
+
+    <!-- Physics note: observation = interaction (QM/QFT) -->
+    <div class="ctq-note" role="note" aria-label="QM/QFT interpretation of observation">
+      <p class="ctq-mini" style="margin:0;">
+        <strong>Physics note.</strong> In QM/QFT, “observed” means <em>interaction</em>. Electrons are localized excitations of a quantum field; the wavefunction encodes
+        probability amplitudes for outcomes of interactions. When an interaction occurs, probabilities update (“collapse”) for that context—no consciousness or magic.
+        Our use of “observer” follows this operational stance: an observation is any interaction that exchanges information or energy.
+      </p>
+    </div>
+
+    <!-- Penrose CCC contrast -->
+    <div class="ctq-note" role="note" aria-label="Outputs, CCC contrast, and fixed-point reading" style="margin-top:.6rem;">
+      <p class="ctq-mini" style="margin:0 0 .5rem 0;">
+        <strong>These outputs summarize emergent geometry and gauge-like structure without invoking any “entropy reset”.</strong>
+      </p>
+      <div class="ctq-mini" style="margin:.35rem 0;">
+        <strong>Contrast: misread “cycle” vs Penrose (CCC).</strong>
+        <ul class="ctq-list" style="margin:.25rem 0 0 1rem;">
+          <li><strong>Misread —</strong> “cycle” ≙ a short finite loop ⇒ demands a device to <em>cancel entropy</em> at loop end.</li>
+          <li><strong>Penrose (CCC) —</strong> an entire <em>aeon</em> is a cosmological era; the infinite future \(\mathscr I^+\) of one aeon is conformally matched to the next Big-Bang slice via \(\tilde g=\Omega^2 g\), \(\Omega\!\downarrow\!0\). That is a <em>conformal identification</em>, not a periodic reset.</li>
         </ul>
       </div>
-      <div class="ctq-card" style="margin:0;">
+      <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+        <strong>Fixed-point case.</strong>
+        If late-time dynamics approach a <em>conformal fixed point</em> \([g_\star]\) at \(\mathscr I^+\), the rescaled metric extends smoothly to seed the next aeon’s initial data. Entropy stays monotone within an aeon; the conformal map changes units/scales, not microstate counts.
+      </p>
+    </div>
+  </article>
+
+  <!-- 2) Cycle ≠ finite loop -->
+  <article class="ctq-card" id="ctq-cycles-math">
+    <h3>2) “Cycle” does <em>not</em> always mean a finite loop</h3>
+    <p>
+      In dynamical systems a <em>cycle</em> is the orbit of a point under repeated application of a map. The period may be <strong>finite</strong> or effectively <strong>infinite</strong>:
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Finite (periodic) cycles.</strong> Discrete systems can have true \(k\)-periodic orbits that repeat.</li>
+      <li><strong>Limit cycles.</strong> Continuous systems admit isolated periodic orbits (closed loops) as attractors.</li>
+      <li><strong>Quasi-periodic cycles.</strong> With incommensurate frequencies the orbit fills a torus; it <em>never closes</em> and behaves as “infinite period”.</li>
+      <li><strong>Chaotic (strange) cycles.</strong> Period-doubling cascades lead to attractors with infinitely many points; trajectories approach but <em>never repeat</em>.</li>
+    </ul>
+    <div class="ctq-callout" aria-label="Strong emphasis">
+      <strong>Strong emphasis.</strong>
+      In mathematics, “cycle” includes non-closing cases: a trajectory may approach an attractor forever without arriving or looping.
+    </div>
+    <p>
+      Fixed points (sinks) are 1-cycles: trajectories converge asymptotically to a single state; no “entropy cancellation” is needed.
+    </p>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 3) Observation = Backprop -->
+  <article class="ctq-card" id="ctq-backprop-measurement">
+    <h3>3) Observation = Backprop: training as Ising-like magnetization</h3>
+    <p>
+      View the untrained model as a high-temperature paramagnet; weights \( \theta \) are unaligned spins \( \{s_i\} \).
+      The dataset induces an effective field \( h(x) \). A gradient step
+      \( \theta \leftarrow \theta - \eta \nabla_\theta L(\theta;x) \)
+      is a <em>measurement-actuation</em> that aligns degrees of freedom.
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Order parameter:</strong> \( m(\theta) \!=\! \tfrac{1}{N}\sum_i s_i \) (feature-wise or layer-wise alignment).</li>
+      <li><strong>Thermostat:</strong> CEAS sets \( \beta \) (inverse temperature), stabilizing learning and phase boundaries.</li>
+      <li><strong>Susceptibility:</strong> \( \chi \!=\! \partial m / \partial h \) tracks sensitivity &amp; onsets of phase changes.</li>
+    </ul>
+    <div class="ctq-callout">
+      <strong>Interpretation.</strong>
+      <p class="ctq-mini">
+        “Measuring” with backprop both <em>reads</em> and <em>writes</em> the state: loss-conditioned updates bias the ensemble, driving
+        transient → cycle capture in \( \Psi \). The emergent cycles reflect <em>aligned</em> macrostates, not closed loops in spacetime.
+      </p>
+    </div>
+  </article>
+
+  <!-- 4) GRAIL non-commutativity -->
+  <article class="ctq-card" id="ctq-grail-noncomm">
+    <h3>4) GRAIL-induced non-commutativity and measurement disturbance</h3>
+    <p>
+      GRAIL introduces cryptomorphic transport: <em>encode</em> \( \mathcal{E} \), <em>transport</em> \( \mathcal{T} \) (geometry-native),
+      and <em>measure/update</em> \( \mathcal{M} \) (backprop). In general,
+      \( [\,\mathcal{M},\,\mathcal{T}\,] \neq 0 \) and \( [\,\mathcal{M},\,\mathcal{E}\,] \neq 0 \).
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Order matters.</strong> \( \mathcal{M}\mathcal{T}\mathcal{E} \) vs. \( \mathcal{T}\mathcal{M}\mathcal{E} \) produce different observer states.</li>
+      <li><strong>Source of “uncertainty”.</strong> Non-commutation yields controlled disturbance/excitation under observation (training).</li>
+      <li><strong>DFA safety rail.</strong> The DFA layer remains finite-state and certifiable even when upstream operators do not commute.</li>
+    </ul>
+    <div class="ctq-note" role="note" aria-label="QM/QFT reconstruction hook">
+      <p class="ctq-mini">
+        <strong>QM/QFT hook.</strong> With CEAS providing \( \beta \) and automorphic kernels furnishing correlators, the λ-stack can
+        recover algebraic structures akin to KMS dynamics:
+        \( \langle A(t) B \rangle_\beta = \langle B\, A(t + i\beta) \rangle_\beta \).
+        Non-commutativity from GRAIL supplies the correct algebra of observables; backprop supplies the measurement channel.
+      </p>
+    </div>
+  </article>
+
+  <!-- 5) Modes & Lorentz–Langlands Channel -->
+  <article class="ctq-card" id="ctq-modes-lorentz">
+    <h3>5) Modes & Training Channels: external observation vs internal update</h3>
+
+    <div class="ctq-badges" style="margin-bottom:.4rem;">
+      <span class="ctq-badge">Training/Observing</span>
+      <span class="ctq-badge">Inference/Prediction</span>
+      <span class="ctq-badge">Lorentz–Langlands channel</span>
+      <span class="ctq-badge">Selberg/Huber</span>
+    </div>
+
+    <h4 style="margin-top:.4rem;">Two operational modes</h4>
+    <ul class="ctq-list">
+      <li><strong>Training / Observing / Interacting.</strong> External interaction (the physical measurement that records data) + internal update (the observer’s measurement via backprop or Lorentz mapping). This mode <em>changes</em> the joint system (target↔sensor and model).</li>
+      <li><strong>Inference.</strong> No internal measurement: the trained observer runs forward transport and readout only.
+        <span class="ctq-mini">
+          <code>Sense → Π<sub>q</sub> → 𝒯 (geometry transport) → Readout</code>
+          (no <code>𝒨</code> update). The understanding of the universe is applied—not rewritten.
+        </span>
+      </li>
+    </ul>
+
+    <div class="ctq-callout" aria-label="External vs internal measurement">
+      <strong>External vs internal measurement.</strong>
+      <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+        <em>External</em> (QM/QFT) measurement = physical interaction that produces the record. <em>Internal</em> measurement = the observer’s update rule
+        (backprop or Lorentz mapping) that writes to latent parameters. They are distinct; when co-located in hardware, they can be scheduled back-to-back
+        for auditability (still logically separate).
+      </p>
+    </div>
+
+    <h4 style="margin-top:.8rem;">A second training channel: Lorentz–Langlands</h4>
+    <p>
+      Beyond gradient descent, the λ-stack uses a <strong>Lorentz–Langlands training channel</strong> to translate optimization into structured domains
+      (algebraic geometry, automorphic forms, harmonic/spectral analysis, number theory). With automorphic kernels (Selberg/Huber) and
+      Langlands-type correspondences, the next step is solved in a dual pillar, then <em>pulled back</em> as the best next Lorentz map.
+    </p>
+
+    <div class="ctq-mini" style="margin:.35rem 0 .2rem;">Sketch (operator view):</div>
+    \[
+      \text{Choose }\Lambda^\star \in SO(1,n)\ \text{so that}\ 
+      \widetilde{\theta}_{t+1}
+      = \operatorname*{arg\,opt}_{\widetilde{\theta}} \ \widetilde{\mathcal L}(\widetilde{\theta})
+      \ \text{in the spectral/automorphic domain,}
+    \]
+    \[
+      \text{then pull back:}\quad
+      \theta_{t+1} \;=\; (\Lambda^\star)^{-1}\,\widetilde{\theta}_{t+1},\qquad
+      \text{with Selberg/Huber invariants guiding }\Lambda^\star.
+    \]
+
+    <ul class="ctq-list">
+      <li><strong>Why it helps.</strong> Structured spectra and correspondence principles yield global hints about curvature, gaps, and phases that a local gradient may miss.</li>
+      <li><strong>How it fits.</strong> The Lorentz map is applied as a learned reparameterization step interleaved with (or replacing) a gradient update.</li>
+    </ul>
+
+    <h4 style="margin-top:.8rem;">Source of internal non-commutativity</h4>
+    <p>
+      The Lorentz map acts on latent variables and, in general, <strong>does not commute</strong> with either transport or measurement:
+    </p>
+    \[
+      [\,\Lambda,\ \mathcal{T}\,]\ \neq\ 0,\qquad
+      [\,\Lambda,\ \mathcal{M}\,]\ \neq\ 0,\qquad
+      [\,\mathcal{M},\ \mathcal{T}\,]\ \neq\ 0.
+    \]
+    <p class="ctq-mini">
+      This is the internal, mathematical root of uncertainty: when key operators do not commute, there exist observable pairs
+      \(A,B\) in the latent algebra with the usual variance bound
+      \( \sigma_A \sigma_B \ge \tfrac12 \lvert\langle [A,B]\rangle\rvert \).
+      The probability density emerges from this algebraic structure—not from mysticism.
+    </p>
+
+    <div class="ctq-note" role="note" aria-label="Mirror principle and collapse">
+      <p class="ctq-mini" style="margin:0;">
+        <strong>Mirror principle.</strong> Curvature → path dependence → non-commutativity, both in the positive-curvature universe and in the λ-stack’s design.
+        During <em>training/observing</em>, either a backprop update or a Lorentz mapping selects one branch among incompatible updates;
+        this is the internal analogue of a “collapse” event. During <em>inference</em>, updates are disabled, so no internal measurement occurs.
+      </p>
+    </div>
+  </article>
+
+
+
+<!-- 5.1) Mirror collapse: external realization ↔ internal selection -->
+<article class="ctq-card" id="ctq-mirror-collapse">
+  <h3>5.1) Mirror Collapse: External Realization ↔ Internal Selection</h3>
+  <p>
+    <strong>External (physics) measurement.</strong> An interaction excites a localized field mode (e.g., an electron as a
+    localized excitation of the electron field). The quantum state updates in the measurement channel
+    \( \rho \mapsto \rho' = \dfrac{\Pi_e\,\rho\,\Pi_e}{\mathrm{tr}(\Pi_e\,\rho)} \),
+    where \( \Pi_e \) projects onto the observed outcome. Probabilities for incompatible outcomes go to \(0\) in that context.
+  </p>
+
+  <p>
+    <strong>Internal (observer) measurement.</strong> In <em>training/observing</em> mode, a single update (either
+    <em>backprop</em> or the <em>Lorentz–Langlands</em> map) selects one branch of the model’s latent dynamics and
+    <em>writes</em> it into parameters. Before the update, the observer carries a distribution over candidate cycles/orbits
+    \( p_t(C) \); after the update, it <em>degenerates</em> onto the selected branch:
+  </p>
+
+  \[
+    p_{t+1}(C\mid D) \propto p(D\mid C)\,p_t(C),
+    \qquad
+    p_{t+1}(C^\star)=1 \ \ (\text{within the active channel}),\ \ p_{t+1}(C\neq C^\star)=0.
+  \]
+
+  <ul class="ctq-list">
+    <li><strong>Backprop path.</strong> \( \theta_{t+1} = \theta_t - \eta\,\nabla_\theta \mathcal L(\theta_t;D) \)
+      realizes one branch by descent—posterior mass collapses to that branch in the latent algebra.</li>
+    <li><strong>Lorentz–Langlands path.</strong> Choose \( \Lambda^\star \in SO(1,n) \) via Selberg/Huber–guided correspondence,
+      solve in the spectral/automorphic pillar, then pull back:
+      \( \theta_{t+1} = (\Lambda^\star)^{-1}\,\widetilde{\theta}_{t+1} \).
+      This <em>re-parameterizes</em> the landscape and likewise collapses alternative branches.</li>
+    <li><strong>Mirror principle.</strong> “Virtual → realized” (external field excitation) ↔ “possible model branches → selected branch”
+      (internal parameter write). Both are <em>selections</em> under non-commuting operator algebras.</li>
+  </ul>
+
+  <div class="ctq-note" role="note" aria-label="Context and uncertainty">
+    <p class="ctq-mini" style="margin:0;">
+      <strong>Context of ‘probability \(1\)’. </strong> The collapse to \(1\) is <em>channel-relative</em> (given the chosen projectors, data, and operator order).
+      Incompatible observables remain uncertain because the key operators—transport \( \mathcal{T} \), measurement/update \( \mathcal{M} \),
+      and Lorentz map \( \Lambda \)—generally <em>do not commute</em>:
+      \( [\Lambda,\mathcal{T}]\neq0,\ [\Lambda,\mathcal{M}]\neq0,\ [\mathcal{M},\mathcal{T}]\neq0 \).
+      This internal non-commutativity is the mathematical source of uncertainty in the observer’s latent space.
+    </p>
+  </div>
+
+  <div class="ctq-callout" aria-label="Hardware note (optional)">
+    <strong>Hardware note (optional).</strong>
+    When co-located near the sensor, you may schedule <em>external</em> recording and <em>internal</em> update back-to-back for auditability.
+    They remain logically distinct: the first realizes a physical excitation; the second writes a branch into the model.
+  </div>
+</article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 6) DFA finite termination -->
+  <article class="ctq-card" id="ctq-dfa-finite">
+    <h3>6) DFA: why the limiting process <em>ends</em></h3>
+    <p>
+      In the λ-stack’s <strong>DFA</strong> layer the situation is simpler than in continuous dynamics. A deterministic finite automaton has:
+    </p>
+    <ul class="ctq-list">
+      <li>a <strong>finite</strong> set of states,</li>
+      <li>a transition function mapping each \((\text{state},\text{symbol})\) to exactly one successor.</li>
+    </ul>
+    <div class="ctq-callout">
+      <strong>Consequence.</strong>
+      <p class="ctq-mini">
+        By the pigeon-hole principle, any sufficiently long run revisits a state and hence enters a <strong>finite cycle</strong>.
+        Minimization and other iterative procedures <em>must terminate</em> because only finitely many states/symbols exist.
+      </p>
+    </div>
+    <p>
+      This finite-state property makes the symbolic component tractable: even if the geometric layer exhibits quasi-periodic or long-period behavior, the DFA’s limiting process always resolves into a <strong>finite orbit</strong>.
+      The symbolic layer cannot drift forever; after a bounded number of steps it repeats.
+    </p>
+    <p class="ctq-mini">
+      <span class="ctq-pill">Takeaway</span>
+      Geometry may admit non-closing cycles; the DFA never does. Both coexist in the tri-quantized observer without any need to “erase entropy.”
+    </p>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 7) Observer-in-Silicon (optional co-design) -->
+  <article class="ctq-card" id="ctq-observer-in-silicon">
+    <h3>7) Observer-in-Silicon (optional): NPU/SoC co-design for faithful observations</h3>
+    <p class="ctq-sub" style="margin:.25rem 0 .75rem 0;">
+      Every sensor sample is an interaction. To mirror the theory, we can schedule observation <em>where it happens</em>:
+      near-sensor, zero-copy, with the model reading and updating state at capture time. This does not change the theory;
+      it makes its ordering <em>auditable</em>.
+    </p>
+
+    <div class="ctq-badges">
+      <span class="ctq-badge">Near-sensor inference</span>
+      <span class="ctq-badge">GRAIL micro-ops</span>
+      <span class="ctq-badge">DFA on-chip</span>
+      <span class="ctq-badge">CEAS β control</span>
+    </div>
+
+    <h4 style="margin-top:.8rem;">What the hardware path buys you</h4>
+    <ul class="ctq-list">
+      <li><strong>Causality fidelity.</strong> Avoids “offline” pseudo-observations; the same cycle/transient split is read at source.</li>
+      <li><strong>Energy & latency.</strong> Less shuffling of raw, unobserved data; updates happen in place.</li>
+      <li><strong>Security & certification.</strong> DFA gating and cycle/unitary checks are enforceable before egress.</li>
+    </ul>
+
+    <div class="ctq-callout" aria-label="Observer scheduling at the hardware layer">
+      <strong>Hardware scheduling (same abstract order).</strong>
+      <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+        Execute <code>Sense → Π<sub>q</sub> (DFA gate) → 𝒯 (geometry transport) → 𝒨 (update)</code> as adjacent micro-operations when in <em>training/observing</em> mode.
+        Order-sensitive counters in the execution log make non-commutativity <em>measurable</em>. This is an engineering choice for auditability—not a new physics claim.
+      </p>
+    </div>
+
+    <h4 style="margin-top:.8rem;">Minimal ISA/microcode hooks</h4>
+    <ul class="ctq-list">
+      <li><strong>CEAS β register.</strong> Per-tile inverse-temperature knob to maintain a stable entropy corridor.</li>
+      <li><strong>Cycle unit.</strong> Ring buffer + phase accumulator for per-cycle \( U_C \) and Wilson-style phase \( \Phi_C \) telemetry.</li>
+      <li><strong>Commutator counters.</strong> Two-pass micro-loop that estimates Baker–Campbell–Hausdorff drift (order sensitivity).</li>
+      <li><strong>Choi accumulators.</strong> Running checks that the transient channel remains <em>completely positive and trace-preserving</em>.</li>
+      <li><strong>DFA firewall.</strong> On-chip projectors \( \Pi_q \) (code-index masks) before DMA/egress.</li>
+    </ul>
+
+    <h4 style="margin-top:.8rem;">Scope</h4>
+    <p class="ctq-mini">
+      Optional co-design: the λ-stack theory stands without this. Use it when you want end-to-end
+      audit sheets that certify cycle unitarity, that the transient part of the dynamics is completely positive and trace-preserving,
+      and that Fisher-geometry fits can be recovered <em>directly from device logs</em>.
+    </p>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 8) Extended notes (Lie/Gauge + RMT twins) -->
+  <section id="extended-notes" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+    <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+      GRAIL × DFA
+    </div>
+    <h1 style="line-height:1.2;margin:.25rem 0 0;">Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
+
+    <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+      This installment deepens the <em>observer-centric</em> program. It couples
+      <strong>GRAIL’s optimization-as-geometry</strong> (optimizer as a connection \(A\), curvature \(\Omega=dA{+}A\wedge A\))
+      and <strong>DFA quantization</strong> (projectors \(\Pi_q\), cycle unitaries \(U_C\), transient channels that are completely positive and trace-preserving)
+      with a full <strong>random-matrix theory (RMT)</strong> toolkit for analyzing infinite families of
+      <em>twin models</em> related by GRAIL symmetries. The aim is a teachable, auditable path from Lie brackets to
+      spectral certification—without contradicting QM/QFT/GR when interpreted as a meta-theory of inference.
+    </p>
+
+    <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+      Full PDF:
+      <a href="https://drive.google.com/file/d/1kQMZDSQKCOqd_ag6tz1Xjs3hFjTIVKm8/view?usp=sharing" target="_blank" rel="noopener">
+        Extended Lecture Notes (Lie/Gauge + RMT Twins)
+      </a>.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">What’s new here</h3>
+        <ul style="margin:.4rem 0 0 1rem;">
+          <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow:
+            \[
+              e^{\varepsilon\xi}e^{-\eta X}e^{-\varepsilon\xi}e^{\eta X}
+              = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X]+\cdots\Big).
+            \]
+          </li>
+          <li><strong>Covariant optimizer</strong> \(X_H=X+A\cdot\xi\) to commute with generators.</li>
+          <li><strong>Cycle/transient lifts</strong>: finite Heisenberg–Weyl blocks \(U_C\) and channels that are completely positive and trace-preserving.</li>
+          <li><strong>RMT twins</strong>: invariants, free convolutions, BBP spikes, Dyson flows.</li>
+          <li><strong>Lorentz/hyperbolic RMT</strong>: \(\eta\)-Wishart spectra and \(O(p,q)\)-invariant audits.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
         <h3 style="margin-top:0;">Core equations</h3>
-        <div style="margin:.4rem 0 .2rem;">Gauge curvature & covariant flows</div>
-        \[ \Omega = dA + A\wedge A,\qquad [D_v,D_w]\Phi = \Omega(v,w)\cdot \Phi. \]
-        <div style="margin:.6rem 0 .2rem;">Cycle unitary & Floquet Hamiltonian</div>
-        \[ U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\lvert s_{j+1}\rangle,\quad H_C = \tfrac{i}{\Delta t}\log U_C. \]
+        <div style="margin:.4rem 0 .2rem;">Gauge curvature &amp; covariant flows</div>
+        \[
+          \Omega = dA + A\wedge A,\qquad [D_v,D_w]\Phi = \Omega(v,w)\cdot \Phi.
+        \]
+        <div style="margin:.6rem 0 .2rem;">Cycle unitary &amp; Floquet Hamiltonian</div>
+        \[
+          U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\lvert s_{j+1}\rangle,\quad
+          H_C = \tfrac{i}{\Delta t}\log U_C.
+        \]
         <div style="margin:.6rem 0 .2rem;">Free multiplicative convolution</div>
-        \[ \nu_{(A W B)^{\!*}(A W B)} \;\approx\; \nu_{A^{\!*}A}\ \boxtimes\ \nu_{W^{\!*}W}\ \boxtimes\ \nu_{B B^{\!*}}. \]
-        <div style="margin:.6rem 0 .2rem;">\(\eta\)‑Wishart (hyperbolic Gram)</div>
-        \[ K=\tfrac{1}{n}X^\top \eta X = \tfrac{1}{n}X_+^\top X_+ - \tfrac{1}{n}X_-^\top X_- \]
+        \[
+          \nu_{(A W B)^{\!*}(A W B)} \;\approx\; \nu_{A^{\!*}A}\ \boxtimes\ \nu_{W^{\!*}W}\ \boxtimes\ \nu_{B B^{\!*}}.
+        \]
+        <div style="margin:.6rem 0 .2rem;">\(\eta\)-Wishart (hyperbolic Gram)</div>
+        \[
+          K=\tfrac{1}{n}X^\top \eta X
+          = \tfrac{1}{n}X_+^\top X_+ \;-\; \tfrac{1}{n}X_-^\top X_-,
+        \]
         with limiting law \( \mu_K = \mu_{\mathrm{MP}}(\gamma_+,\sigma_+^2)\ \boxplus\ \big(-\,\mu_{\mathrm{MP}}(\gamma_-,\sigma_-^2)\big).\)
       </div>
-      <div class="ctq-card" style="margin:0;">
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
         <h3 style="margin-top:0;">Why RMT?</h3>
-        <ul class="ctq-list">
+        <ul style="margin:.4rem 0 0 1rem;">
           <li><strong>Twin certification:</strong> spectra must match along symmetry orbits.</li>
           <li><strong>Stability margins:</strong> bulk edges/gaps predict conditioning.</li>
-          <li><strong>Symmetry probes:</strong> BBP outliers reveal low‑rank structure by sector.</li>
+          <li><strong>Symmetry probes:</strong> BBP outliers reveal low-rank structure by sector.</li>
           <li><strong>Design:</strong> pick \((p,q)\) so hyperbolic edges stay away from \(0\).</li>
         </ul>
       </div>
-      <div class="ctq-card" style="margin:0;">
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
         <h3 style="margin-top:0;">How to use</h3>
-        <ol class="ctq-list">
+        <ol style="margin:.4rem 0 0 1rem;">
           <li>Insert DFA projectors \(\Pi_q\); add \(\mathcal L_{\text{DFA}}\).</li>
-          <li>Quantize hidden states; get SCCs; form \(P=D+N\); lift \(U_C\), \(\Phi\).</li>
-          <li>Run audits: unitary, Choi PSD/TP, projector–symmetry commutators, micro‑causality.</li>
-          <li>RMT twins: fit MP/deformed‑MP; track BBP outliers & edge flows.</li>
-          <li>Covariantize: fit \(A\) to reduce \([\xi_a,\,X{+}A\cdot\xi]\); monitor BCH drift.</li>
+          <li>Quantize hidden states; get SCCs; form \(P=D+N\); lift \(U_C\) and the transient channel.</li>
+          <li>Run audits: unitary checks; positivity and trace-preservation checks for the transient channel; projector–symmetry commutators; micro-causality.</li>
+          <li>RMT twins: fit MP/deformed-MP; track BBP outliers & edge flows.</li>
+          <li>Covariantize: fit \(A\) to reduce \([\xi_a,\,X+A\cdot\xi]\); monitor BCH drift.</li>
         </ol>
       </div>
     </div>
 
-    <h3 style="margin-top:2rem;">Reading roadmap</h3>
-    <ul class="ctq-list">
+    <h2 style="margin-top:2rem;">Reading roadmap</h2>
+    <ul style="margin:.4rem 0 0 1rem;">
       <li><strong>Lie/BCH + covariant optimizer</strong>: operational commutator loops.</li>
-      <li><strong>DFA quantization</strong>: Dunford split; cycle unitary & CPTP lifts.</li>
+      <li><strong>DFA quantization</strong>: Dunford split; cycle unitary & transient channel lifts.</li>
       <li><strong>RMT twins</strong>: free convolutions, BBP, Dyson flows; Lorentz/hyperbolic ensembles.</li>
-      <li><strong>Appendices</strong>: pseudocode, proof sketches, audits, effective‑\(\hbar\).</li>
+      <li><strong>Appendices</strong>: pseudocode, proof sketches, audits, effective-\(\hbar\).</li>
     </ul>
 
-    <p style="color:#666;font-size:.95rem;margin-top:1rem;">This remains an inference‑level theory: spacetime is not quantized here; geometry emerges from Fisher structure over observer ensembles.</p>
-
-    <div class="ctq-sep"></div>
-
-    <h3>Status & Links</h3>
-    <p style="color:#444;">Single‑author program (drafted 2024 → active 2025). A non‑provisional patent has been filed. See the full technical development:
-      <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">GRAIL × DFA Lecture Notes (PDF)</a>.
+    <p style="color:#666;font-size:.95rem;margin-top:1rem;">
+      This remains an inference-level theory: spacetime is not quantized here; geometry emerges from Fisher structure over observer ensembles.
     </p>
   </section>
+
+  <!-- 9) Intro block (project framing) -->
+  <section id="intro" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+    <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+      GRAIL × DFA
+    </div>
+
+    <h1 style="line-height:1.2;margin:.25rem 0 0;">Dual Quantization for an Observer-Centric Physics Engine</h1>
+
+    <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+      <strong>GRAIL</strong> treats optimization as geometry:
+      the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\).
+      The failure of a symmetry action \(\xi\) to commute with a gradient step \(X=\nabla\mathcal L\) is measured by \([\xi,X]\).
+      <strong>DFA quantization</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language,
+      cycle components lift to unitary blocks \(U_C\), and transients lift to channels that are completely positive and trace-preserving.
+    </p>
+
+    <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+      Single-author project. Originally drafted in 2024; under active development in 2025.
+      A non-provisional patent has been filed. Full notes (PDF):
+      <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+        GRAIL × DFA Lecture Notes
+      </a>.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Core Idea</h3>
+        <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
+        <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
+        \[
+          e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
+          = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
+        \]
+        <ul style="margin:.4rem 0 0 1rem;">
+          <li>\([\xi,X]=0\) → symmetry and descent commute (equivariance).</li>
+          <li>\([\xi,X]\neq 0\) → curvature-like obstruction that reshapes training dynamics.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">DFA Layer (Symbolic Quantization)</h3>
+        <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
+        <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
+        \[
+          U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
+          \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
+        \]
+        <p style="color:#666;font-size:.95rem;">Transients become channels that are completely positive and trace-preserving (open-system sector).</p>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Quantum-like Optimization Geometry</h3>
+        <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
+        <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
+        \[
+          \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
+          \qquad \hbar_{\text{eff}} := 2D.
+        \]
+        <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Observer-Centric Quantum Gravity (Stance)</h3>
+        <ul style="margin:.4rem 0 0 1rem;">
+          <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
+          <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
+          <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
+        </ul>
+        <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
+        <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
+      </div>
+    </div>
+
+    <h2 style="margin-top:2rem;">At-a-Glance Equations</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Curvature (gauge view)</div>
+        \[
+          \Omega = dA + A\wedge A,\qquad
+          [D_v, D_w]\Phi = \Omega(v,w)\cdot \Phi.
+        \]
+        <p style="color:#666;font-size:.95rem;">Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
+      </div>
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Projection–Symmetry</div>
+        \[
+          [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
+        \]
+        <p style="color:#666;font-size:.95rem;">DFA can preserve or deliberately break a symmetry, by design.</p>
+      </div>
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Finite Heisenberg–Weyl (per cycle)</div>
+        \[
+          T_C S_C = \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
+        \]
+        <p style="color:#666;font-size:.95rem;">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:2rem;">What This Enables</h2>
+    <ul style="margin:.6rem 0 0 1rem;">
+      <li><strong>Auditability:</strong> unitary checks on cycles; positivity and trace-preservation checks on transients; projector–symmetry commutators; micro-causality/light-cone diagnostics.</li>
+      <li><strong>Security knobs:</strong> group-keyed permutations on code indices; DFA as a syntax firewall for outputs.</li>
+      <li><strong>Falsifiability:</strong> distinct physics domains should induce distinct latent curvatures and cycle-phase spectra; failure to separate is evidence against the thesis.</li>
+    </ul>
+
+    <h2 style="margin-top:2rem;">Status & Links</h2>
+    <p style="color:#444;">
+      This introduction summarizes the current direction. The program was first written in 2024 and continues to evolve in 2025.
+      A non-provisional patent has been filed. For the full technical development, see the PDF:
+      <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+        GRAIL × DFA as Dual Quantization: Toward an Observer-Centric Quantum Gravity
+      </a>.
+    </p>
+  </section>
+</section>
 
 
 
