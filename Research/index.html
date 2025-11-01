@@ -669,6 +669,75 @@ blog: passive
       Geometry may admit non-closing cycles; the DFA never does. Both coexist in the tri-quantized observer without any need to “erase entropy.”
     </p>
   </article>
+
+<!-- 2) Observation = training (Ising-like magnetization view) -->
+<article class="ctq-card" id="ctq-backprop-measurement">
+  <h3>2) Observation = Backprop: training as Ising-like magnetization</h3>
+  <p>
+    In λ-stack the <em>observer</em> is the closed-loop learner. An untrained network is like a high-temperature paramagnet:
+    weights \( \theta \) behave as unaligned spins \( \{s_i\} \). Each minibatch plays the role of an external field \( h(x) \).
+    A gradient step
+    \( \theta_{t+1} \!=\! \theta_t - \eta \nabla_\theta L(\theta_t; x_t) \)
+    is an <em>interaction</em> that both reads and writes state—i.e., a measurement-actuation that aligns degrees of freedom.
+  </p>
+
+  <ul class="ctq-list">
+    <li><strong>Order parameter.</strong> \( m(\theta) \!=\! \tfrac{1}{N}\sum_i s_i \) (layer/feature-wise alignment).</li>
+    <li><strong>Thermostat.</strong> CEAS sets inverse temperature \( \beta \) to stabilize phases and boundaries.</li>
+    <li><strong>Susceptibility.</strong> \( \chi \!=\! \partial m / \partial h \) reveals sensitivity and impending phase changes.</li>
+  </ul>
+
+  <div class="ctq-callout" aria-label="Physics myth → fact">
+    <strong>Myth → Fact (QM measurement).</strong>
+    <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+      In quantum theory “observed” means <em>interaction</em>, not consciousness. Electrons are localized <em>excitations</em> of the
+      electron field; what’s uncertain before interaction is the <em>probability amplitude</em> of where that excitation will be found.
+      Upon interaction, amplitudes update (collapse) at once. Analogously, a gradient step updates \( \theta \) in response to data:
+      it <em>doesn’t conjure structure</em> out of nothing—it <em>biases</em> the ensemble toward aligned macrostates.
+    </p>
+  </div>
+
+  <div class="ctq-note" role="note" aria-label="Interpretation and cycle capture">
+    <p class="ctq-mini" style="margin:0;">
+      <strong>Interpretation.</strong> Backprop “measures” internal observables (loss/gradients) and <em>changes</em> the observer.
+      This read-write act drives transients → cycles in the internal operator \( \Psi \). The cycles are macroscopic alignments in
+      model state, not loops in physical spacetime.
+    </p>
+  </div>
+</article>
+
+<!-- 3) Non-commutativity from GRAIL and measurement disturbance -->
+<article class="ctq-card" id="ctq-grail-noncomm">
+  <h3>3) GRAIL-induced non-commutativity and measurement disturbance</h3>
+  <p>
+    GRAIL composes three operators: <em>encode</em> \( \mathcal{E} \), geometry-native <em>transport</em> \( \mathcal{T} \),
+    and <em>measure/update</em> \( \mathcal{M} \) (backprop). In general,
+    \( [\mathcal{M},\mathcal{T}] \neq 0 \) and \( [\mathcal{M},\mathcal{E}] \neq 0 \).
+    Consequence: <em>the order of interactions matters</em>.
+  </p>
+
+  <ul class="ctq-list">
+    <li><strong>Order matters (training = interaction sequence).</strong>
+      Applying two minibatches \(x_a,x_b\) in opposite orders yields different parameters:
+      \( \theta_{ab} \!\neq\! \theta_{ba} \) when \( \eta \!>\! 0 \). This is the practical face of non-commutativity.</li>
+    <li><strong>Source of “uncertainty.”</strong>
+      Because observation (updates) and transport (geometry) do not commute, observation <em>necessarily</em> disturbs the state—
+      a controlled excitation, not a mystery.</li>
+    <li><strong>DFA safety rail.</strong>
+      The DFA layer remains finite-state and certifiable even when upstream operators don’t commute, so symbolic guarantees hold.</li>
+  </ul>
+
+  <div class="ctq-note" role="note" aria-label="QM/QFT reconstruction hook">
+    <p class="ctq-mini" style="margin:0;">
+      <strong>QM/QFT hook.</strong> CEAS supplies \( \beta \) (thermodynamic time), automorphic kernels supply correlators,
+      and GRAIL’s non-commutativity supplies the algebra of observables. This supports KMS-type structure
+      \( \langle A(t)B\rangle_\beta = \langle B\,A(t+i\beta)\rangle_\beta \):
+      backprop is the measurement channel; disturbance arises from non-commuting steps—no consciousness, just interactions.
+    </p>
+  </div>
+</article>
+
+
 </section>
 
 
