@@ -1915,62 +1915,63 @@ blog: passive
     <li><strong>Apply jump.</strong> Push \( (q,k)\leftarrow(\varphi q,\varphi k) \); update \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \); shift DFA coupler consistently; resume CEAS-regulated training.</li>
   </ul>
 
-  <h4 class="ctq-mini">Timeline of relevant complexity results</h4>
-  <div class="ctq-table-wrap">
-    <table class="ctq-table">
-      <thead>
-        <tr class="ctq-row"><th>Year</th><th>Researcher(s)</th><th>Contribution</th></tr>
-      </thead>
-      <tbody>
-        <tr class="ctq-row">
-          <td>1969–1972</td>
-          <td>Minsky &amp; Papert</td>
-          <td>
-            <strong>Perceptrons (1969/1972).</strong><br>
-            <em>Claim:</em> While predating the formal definition of NP-completeness, this book first introduced the use of <strong>group invariance</strong> concepts to show what a perceptron cannot compute.<br>
-            <em>Significance:</em> Contained the <strong>group invariance theorem</strong>, which stated that a network’s output can be expressed as a function of the input orbits. This was used to prove that certain invariant predicates lay beyond the capabilities of a single-layer perceptron. Ensign et&nbsp;al. later cite this as a precursor to their NP-hardness results.
-          </td>
-        </tr>
-        <tr class="ctq-row">
-          <td>1992</td>
-          <td>Blum &amp; Rivest</td>
-          <td>
-            <strong>Learning neural networks is NP-hard.</strong><br>
-            <em>Claim:</em> Proved that learning a single hidden layer neural network with threshold gates is NP-hard, and that training a 3-node network is NP-complete.<br>
-            <em>Significance:</em> Although not explicitly about group orbits, this was an early foundational result for the general hardness of neural network learning; the orbit-identification problem is a type of “learning” or “explanation,” grounding later NP-hardness proofs.
-          </td>
-        </tr>
-        <tr class="ctq-row">
-          <td>2017 → 2020</td>
-          <td>Ensign, Neville, Paul, Venkatasubramanian</td>
-          <td>
-            <strong>First direct NP-hardness proof for group invariants.</strong><br>
-            <em>Claim:</em> Extracting implicit group invariances from trained general-purpose neural networks is NP-hard.<br>
-            <em>Significance:</em> Gave a formal <strong>reduction from the KNAPSACK problem</strong> to finding permutation invariants for a Boolean-input network, establishing hardness of orbit identification.
-          </td>
-        </tr>
-        <tr class="ctq-row">
-          <td>2021</td>
-          <td>Grein et&nbsp;al.</td>
-          <td>Demonstrated Euclidean/E(3)-equivariant networks as a way to encode geometric symmetries in the architecture, avoiding post-hoc orbit discovery.</td>
-        </tr>
-        <tr class="ctq-row">
-          <td>2023–2024</td>
-          <td>Vardi et&nbsp;al.</td>
-          <td>Showed that even learning under known symmetries can be exponentially hard in the Statistical Query (SQ) model, bounding symmetry-based training efficiency.</td>
-        </tr>
-        <tr class="ctq-row">
-          <td>2023–2025</td>
-          <td>William Chuang</td>
-          <td>
-            First public commit on Oct&nbsp;8,&nbsp;2023 (on my personal GitHub repository).<br>
-            <em>Contribution:</em> Bypasses the NP-hardness of orbit identification by avoiding discovery altogether and instead applying explicit geometric operators to re-embed models across different manifolds while preserving function, dot-product structure, and symmetry. A constructive, geometric, metric-invariant framework to transport trained neural models along known group orbits—jointly moving weights and data with explicit conjugation of the automorphic truncation—yielding function-identical twins and enabling orbit-jump optimization without post-hoc symmetry discovery.<br>
-            <em>Note:</em> Independent research, not conducted under a university.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<h4 class="ctq-mini">Timeline of relevant complexity results</h4>
+<div class="ctq-table-wrap">
+  <table class="ctq-table">
+    <thead>
+      <tr class="ctq-row"><th>Year</th><th>Researcher(s)</th><th>Contribution</th></tr>
+    </thead>
+    <tbody>
+      <tr class="ctq-row">
+        <td>1969–1972</td>
+        <td>Minsky &amp; Papert</td>
+        <td>
+          <strong>Perceptrons (1969/1972).</strong><br>
+          <em>Claim:</em> While predating the formal definition of NP-completeness, this book first introduced the use of <strong>group invariance</strong> concepts to show what a perceptron cannot compute.<br>
+          <em>Significance:</em> Contained the <strong>group invariance theorem</strong>, which stated that a network’s output can be expressed as a function of the input orbits. This was used to prove that certain invariant predicates lay beyond the capabilities of a single-layer perceptron. Ensign et&nbsp;al. later cite this as a precursor to their NP-hardness results.
+        </td>
+      </tr>
+      <tr class="ctq-row">
+        <td>1992</td>
+        <td>Blum &amp; Rivest</td>
+        <td>
+          <strong>Learning neural networks is NP-hard.</strong><br>
+          <em>Claim:</em> Proved that learning a single hidden layer neural network with threshold gates is NP-hard, and that training a 3-node network is NP-complete.<br>
+          <em>Significance:</em> Although not explicitly about group orbits, this was an early foundational result for the general hardness of neural network learning; the orbit-identification problem is a type of “learning” or “explanation,” grounding later NP-hardness proofs.
+        </td>
+      </tr>
+      <tr class="ctq-row">
+        <td>2017 → 2020</td>
+        <td>Ensign, Neville, Paul, Venkatasubramanian</td>
+        <td>
+          <strong>First direct NP-hardness proof for group invariants.</strong><br>
+          <em>Claim:</em> Extracting implicit group invariances from trained general-purpose neural networks is NP-hard.<br>
+          <em>Significance:</em> Gave a formal <strong>reduction from the KNAPSACK problem</strong> to finding permutation invariants for a Boolean-input network, establishing hardness of orbit identification.
+        </td>
+      </tr>
+      <tr class="ctq-row">
+        <td>2021</td>
+        <td>Grein et&nbsp;al.</td>
+        <td>Demonstrated Euclidean/E(3)-equivariant networks as a way to encode geometric symmetries in the architecture, avoiding post-hoc orbit discovery.</td>
+      </tr>
+      <tr class="ctq-row">
+        <td>2023–2024</td>
+        <td>Vardi et&nbsp;al.</td>
+        <td>Showed that even learning under known symmetries can be exponentially hard in the Statistical Query (SQ) model, bounding symmetry-based training efficiency.</td>
+      </tr>
+      <tr class="ctq-row">
+        <td>2023–2025</td>
+        <td>William Chuang</td>
+        <td>
+          <em>Early public pointer (Apr&nbsp;8,&nbsp;2023):</em> The README of the <code>well-distributed-schottky-groups</code> repository (Schottky subgroups of PSL(2,&nbsp;R) for a hyperbolic-geometry master’s thesis) notes that the implementation “could also work as a cipher device for non-linear encryption,” explicitly suggesting Schottky/Möbius/Lorentz maps as a non-linear cipher and as a bridge to statistical-mechanics style ensembles.<br>
+          <em>First explicit orbit-transport commit (Oct&nbsp;8,&nbsp;2023):</em> A separate personal repository generalizes these ideas into a <strong>metric-invariant architecture</strong> for transporting trained neural models along known group orbits.<br>
+          <em>Contribution:</em> Bypasses the NP-hardness of orbit identification by avoiding post-hoc discovery altogether and instead applying explicit geometric operators to re-embed models across different manifolds while preserving function, dot-product structure, and symmetry. Develops a constructive, geometric, metric-invariant framework that jointly moves weights and data via conjugation by automorphic operators (Schottky / Langlands–Maass / Poincaré-series style), yielding function-identical “twins” and enabling orbit-jump optimization without solving the hard inverse problem of extracting implicit invariants.<br>
+          <em>Note:</em> Independent research, not conducted under a university.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
 
