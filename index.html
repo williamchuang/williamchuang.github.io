@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>William Chuang — Logarchéon</title>
-  <meta name="description" content="Logarchéon builds λ-secure private AI: sub-1B models and MIA VMs for law firms and privacy-first founders who need serious AI without surrendering their data or models." />
+  <meta name="description" content="Logarchéon builds λ-secure private AI and encrypted-in-use compute for US national security, defense, critical infrastructure, systemic finance, and other high-assurance environments—using sub-1B models and MIA VMs that you can run on your own hardware. Law firms, privacy-first founders, and high-confidentiality civil organizations use the same stack as a sandbox." />
 
   <!-- Canonical & Social -->
   <link rel="canonical" href="https://logarcheon.com/">
   <meta property="og:url" content="https://logarcheon.com/">
   <meta property="og:site_name" content="Logarchéon">
   <meta property="og:title" content="William Chuang — Logarchéon" />
-  <meta property="og:description" content="Private λ-secure AI you can run on your own hardware: sub-1B models, MIA VMs, and geometry-native cryptographic wrappers for law firms and privacy-first founders." />
+  <meta property="og:description" content="λ-secure private AI for high-assurance missions: encrypted-in-use models, MIA VMs, and geometry-native cryptographic wrappers for national security, critical infrastructure, systemic finance—and for law firms and privacy-first founders as an early sandbox." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
   <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
@@ -70,7 +70,7 @@
     header.site { padding: 3rem 0 1rem; }
 
     .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-weight: 600; color: var(--muted); font-size: .8rem; }
-    h1 { font-family: Fraunces, Georgia, 'Times New Roman', serif; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 4vw, 3rem); margin: .25rem 0 .25rem; }
+    h1 { font-family: Fraunces, Georgia, 'Times New Roman', serif; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 4vw, 3rem); margin: .25rem 0 .25rem; text-align: center; }
     .subhead { font-size: 1.05rem; color: var(--muted); max-width: 70ch; text-align: center; margin-left: auto; margin-right: auto; }
     .nowrap { white-space: nowrap; }
 
@@ -79,7 +79,6 @@
       background: rgba(17,19,23,.9); /* fallback */
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(255,255,255,.06);
-      /* fancy background if supported */
       background: color-mix(in oklab, var(--bg) 80%, transparent);
     }
     nav.top-nav ul { list-style: none; margin: 0; padding: .7rem 1rem; display: flex; gap: .75rem; align-items: center; }
@@ -99,7 +98,10 @@
     .grid { display: grid; gap: 1rem; }
     .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    @media (max-width: 900px){ .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
+    @media (max-width: 900px){ .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+
+      h1, .subhead { text-align: left; }
+    }
 
     .callout { border-left: 3px solid var(--accent); padding-left: .9rem; margin: 1rem 0; color: var(--muted); }
     .badge { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; color: var(--muted); padding: .25rem .55rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); border-radius: 999px; }
@@ -115,7 +117,7 @@
     .hr { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); border: none; margin: 1.5rem 0; }
 
     /* TOC chips */
-    .toc { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 0; }
+    .toc { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 0; justify-content: center; }
     .toc a { font-size: .85rem; color: var(--muted); border: 1px solid rgba(255,255,255,.1); padding: .25rem .55rem; border-radius: 999px; }
     .toc a:hover { color: var(--text); background: rgba(255,255,255,.06); }
 
@@ -132,6 +134,35 @@
       padding: 1.1rem 1.25rem;
       box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
       margin-top: 1rem;
+    }
+
+    table.segment-map {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+    table.segment-map th,
+    table.segment-map td {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: .4rem .3rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    table.segment-map th {
+      font-weight: 700;
+      color: var(--muted);
+    }
+    table.segment-map td.rank-col {
+      width: 2.5rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+    table.segment-map td.segment-col {
+      width: 35%;
+      font-weight: 500;
+    }
+    table.segment-map td.role-col {
+      color: var(--muted);
     }
   </style>
 
@@ -165,15 +196,17 @@
 
     <!-- Hero: clear value prop + CTA -->
     <header class="site" aria-labelledby="site-title">
-      <div class="eyebrow">Logarchéon · λ-secure AI</div>
-      <h1 id="site-title">Private AI you can actually run on your own hardware.</h1>
+      <div class="eyebrow">Logarchéon · λ-secure AI · high-assurance compute</div>
+      <h1 id="site-title">Encrypted-in-use AI for missions that cannot fail.</h1>
       <p class="subhead">
-        Sub-1B λ-secure models and MIA VMs for law firms and privacy-first founders.
-        Train on GPUs you rent or GPUs you own, while your documents, IP, and tuned models
-        remain mathematically opaque to external vendors.
+        Logarchéon builds λ-secure private AI and MIA VMs for high-assurance environments:
+        US national security, defense and intelligence, critical infrastructure, systemic finance,
+        and other regulated domains that cannot surrender their models or data. The same stack
+        powers early sandboxes for law firms, privacy-first founders, and high-confidentiality civil organizations.
       </p>
       <div class="toc" aria-label="Quick links">
         <a href="#for-whom">Who this is for</a>
+        <a href="#segment-map">Segment map</a>
         <a href="#offers">What you get</a>
         <a href="#how-it-works">How it works</a>
         <a href="#why-different">Why different</a>
@@ -187,41 +220,140 @@
     <section id="for-whom" aria-labelledby="for-whom-h">
       <h2 id="for-whom-h">Who this is for</h2>
       <p class="lede">
-        Logarchéon exists for teams who cannot afford to hand their core knowledge
-        to generic cloud LLM providers—and who still want serious AI leverage.
+        Strategically, Logarchéon is built for high-assurance missions: national security, defense and intelligence,
+        critical infrastructure, and systemic finance. Tactically, the first versions ship where a single founder can
+        deliver: law firms, privacy-first startups, and a small number of high-confidentiality civil organizations.
       </p>
 
-      <div class="grid cols-2">
-        <article class="card" id="for-law">
-          <div class="kicker">Segment A · Law firms &amp; in-house legal</div>
-          <h3>“We can’t just upload client files to random LLMs.”</h3>
+      <div class="grid cols-3">
+        <article class="card" id="for-core">
+          <div class="kicker">Tier I · Core high-assurance missions</div>
+          <h3>US natsec, defense, IC, and systemic risk</h3>
           <ul>
-            <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
-            <li>You need tools that live <strong>on your own hardware or in your own cloud tenancy</strong>.</li>
-            <li>You want a story stronger than “we signed a DPA and trust the logs.”</li>
+            <li><strong>US national security &amp; defense:</strong> IC agencies, DoD components, DARPA/IARPA-style programs that need encrypted-in-use models, twin deployments, and audit-grade interpretability.</li>
+            <li><strong>Defense &amp; intel industrial base:</strong> primes and niche defense AI vendors that must embed robust, explainable, and cryptographically hardened AI in real systems.</li>
+            <li><strong>Systemic finance &amp; markets:</strong> exchanges, SIFIs, and elite risk/quant shops where encrypted stress tests and explainable models are regulatory, not optional.</li>
+            <li><strong>Critical infrastructure / OT:</strong> grid, pipelines, rail, aerospace manufacturing, and industrial control where failure modes are physical and irreversible.</li>
           </ul>
           <p class="callout">
-            <span class="badge">Outcome</span>
-            A private assistant that reads your contracts, policies, and matters—running inside
-            your own perimeter, with an architecture designed so that outside vendors cannot
-            see a canonical copy of your tuned model.
+            <span class="badge">Strategic alignment</span>
+            These actors have the strongest overlap with GRAIL/Λ-Stack/MIA: mission risk, appetite for deep math, and budgets for non-commodity IP.
           </p>
         </article>
 
-        <article class="card" id="for-startups">
-          <div class="kicker">Segment B · Privacy-first founders &amp; small teams</div>
-          <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
+        <article class="card" id="for-regulated">
+          <div class="kicker">Tier II · Regulated expansion</div>
+          <h3>Healthcare, regulated enterprise, and platforms</h3>
           <ul>
-            <li>You want local or self-hosted LLMs that run on a single GPU or a small server.</li>
-            <li>You’re open to using public cloud compute—but only if <em>you</em> control the account and keys.</li>
-            <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training data.</li>
+            <li><strong>High-security healthcare / clinical AI:</strong> multi-center studies and PHI-heavy workflows that need encrypted models and calibrated risk scores.</li>
+            <li><strong>Regulated enterprise:</strong> energy, pharma, aerospace, and advanced manufacturing that care about IP protection, audit, and sovereign AI.</li>
+            <li><strong>Cloud &amp; hardware vendors:</strong> future platform licensing of encrypted-in-use engines, invariant-first NPUs, and twin-model infrastructure.</li>
+            <li><strong>Academic / non-profit labs:</strong> collaboration partners for physics, biology, and λ-Stack research—more for credibility and science than for revenue.</li>
           </ul>
           <p class="callout">
-            <span class="badge">Outcome</span>
-            A “moat-preserving” AI stack: sub-1B λ-secure models and MIA VMs that you run locally
-            or in your own cloud tenancy, with a built-in obfuscation layer on top of standard crypto.
+            <span class="badge">Role</span>
+            Expansion segments once the core stack is proven; they benefit from the same λ-secure foundation without driving the initial roadmap.
           </p>
         </article>
+
+        <article class="card" id="for-sandbox">
+          <div class="kicker">Tier III · Sandbox &amp; civil</div>
+          <h3>Law, founders, and high-confidentiality civil orgs</h3>
+          <ul>
+            <li><strong>Law firms &amp; in-house legal:</strong> cannot upload client files to random LLM APIs; need on-prem or tenant-isolated private GPTs with a stronger story than “trust our logs.”</li>
+            <li><strong>Privacy-first founders &amp; indie teams:</strong> treat their data as the moat; want local or BYO-cloud LLMs without leaking core IP into big vendor models.</li>
+            <li><strong>High-confidentiality civil / religious / humanitarian organizations:</strong> religious orders, diocesan structures, professional bodies, and select NGOs that require sovereign control over internal documents and archives.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Why they matter</span>
+            These segments are ideal early sandboxes: shorter cycles, unclassified workloads, and strong privacy instincts that stress-test the λ-secure stack before it enters classified or systemic domains.
+          </p>
+        </article>
+      </div>
+
+      <div class="emph-box">
+        <strong>Short version:</strong> law firms and startups are not the final destination; they are the proving ground.
+        The long-term home for Logarchéon is high-assurance environments where encrypted-in-use AI and interpretable models
+        are mission-critical, not just “nice marketing.”
+      </div>
+    </section>
+
+    <!-- Section: Segment map (MECE ranking) -->
+    <section id="segment-map" aria-labelledby="segment-map-h">
+      <h2 id="segment-map-h">Segment map &amp; priority (MECE view)</h2>
+      <p class="lede">
+        A concise, MBA-style view of the option space. Segments are mutually exclusive, collectively exhaustive for
+        Logarchéon’s plausible buyers, and ranked by strategic fit, ability to pay for deep IP, confidentiality needs,
+        and feasibility for a one-person IP lab.
+      </p>
+
+      <div class="card">
+        <table class="segment-map" aria-label="Segment map and priority">
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Segment</th>
+              <th scope="col">Role &amp; why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rank-col">1</td>
+              <td class="segment-col">US NatSec / Defense / IC</td>
+              <td class="role-col">Core strategic home. Highest mission alignment, deep need for encrypted-in-use AI, twin deployments, and certified interpretability. Used to funding weird math that works.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">2</td>
+              <td class="segment-col">Defense &amp; Intel Industrial Base</td>
+              <td class="role-col">Primary licensing path into real systems (ISR, EW, C2). Embed GRAIL/Λ-Stack/MIA into programs via primes and niche defense integrators.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">3</td>
+              <td class="segment-col">Systemic Finance &amp; Markets</td>
+              <td class="role-col">High budgets, strong regulatory pressure for audit and privacy. Natural fit for encrypted stress tests and DFA-traceable risk engines.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">4</td>
+              <td class="segment-col">Critical Infrastructure / OT</td>
+              <td class="role-col">Physical consequences and legacy hardware. Ideal long-term home for MIA hardware/control and invariant-first compute on older nodes.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">5</td>
+              <td class="segment-col">High-security Healthcare / Clinical AI</td>
+              <td class="role-col">PHI-heavy, safety-critical decisions. Benefits from encrypted-in-use models and coverage-aware predictions; timing later due to regulation.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">6</td>
+              <td class="segment-col">Regulated Enterprise (non-financial)</td>
+              <td class="role-col">Energy, pharma, aerospace, advanced manufacturing. Good fit for private GPT and IP protection, but crowded with incumbents.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">7</td>
+              <td class="segment-col">Law Firms &amp; Legal Ecosystem</td>
+              <td class="role-col">Near-term sandbox. Strong confidentiality norms and clear pain around public LLMs; ideal for early λ-secure private GPT pilots.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">8</td>
+              <td class="segment-col">Privacy-paranoid Startups / Indies</td>
+              <td class="role-col">Developer sandbox. Excellent feedback for the MIA VM and λ-secure training, but low budgets; not the long-term revenue core.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">9</td>
+              <td class="segment-col">High-confidentiality Civil / Religious / NGOs</td>
+              <td class="role-col">Opportunistic, curated. Aligns with ethical and humanitarian concerns; useful testbeds for sovereign document AI under strict governance.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">10</td>
+              <td class="segment-col">Cloud &amp; Hardware Vendors</td>
+              <td class="role-col">Long-term platform licensing and embedded engines. High upside once patents and reference deployments exist.</td>
+            </tr>
+            <tr>
+              <td class="rank-col">11</td>
+              <td class="segment-col">Academic / Non-Profit Research Labs</td>
+              <td class="role-col">Collaboration and credibility. Important for science, λ-Stack physics/biology, and external review—not the direct revenue driver.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -229,8 +361,9 @@
     <section id="offers" aria-labelledby="offers-h">
       <h2 id="offers-h">What you actually get from Logarchéon</h2>
       <p class="lede">
-        This is not a generic “AI consulting” site. There are concrete, opinionated
-        offerings designed around single-GPU deployments and strict privacy.
+        This is not generic “AI consulting.” The offerings are opinionated: they assume high-assurance environments,
+        single-GPU constraints, and a zero-knowledge vendor posture. Tier III sandboxes and Tier I missions run on
+        the same λ-secure backbone.
       </p>
 
       <div class="grid cols-3">
@@ -238,28 +371,28 @@
           <div class="kicker">V1 · λ-secure private model</div>
           <h3>λ-secure private GPT (sub-1B)</h3>
           <ul>
-            <li>Base model in a pseudo-Riemannian latent space, designed to run on a single RTX-class GPU.</li>
-            <li>Custom fine-tuning inside your perimeter, with your own secret transform <span class="math">T</span>.</li>
-            <li>Target use-cases: contract review, policy analysis, internal knowledge search, and drafting.</li>
+            <li>Base model in a pseudo-Riemannian latent space, designed to run on a single RTX-class GPU or modest server.</li>
+            <li>Custom fine-tuning inside your perimeter, with your own secret transform <span class="math">T</span> (Lorentz/orthogonal in a Minkowski-style frame).</li>
+            <li>Target use-cases: contracts and policy, internal knowledge search, red/blue analysis notes, and mission or matter drafting.</li>
           </ul>
           <p class="callout">
             <span class="badge">Deployment</span>
-            Self-hosted on your on-prem GPU or in a tenant-isolated cloud instance you control.
+            Self-hosted on your on-prem GPU, in a SCIF, or in a tenant-isolated cloud instance you control. Designed to be upgradeable to classified or export-controlled regimes.
           </p>
         </article>
 
         <article class="card" id="mia-vm">
           <div class="kicker">V2 · Appliance</div>
-          <h3>MIA VM — AI OS in a box</h3>
+          <h3>MIA VM — λ-secure AI OS</h3>
           <ul>
             <li>A virtual machine / container image with:
-              λ-geometry runtime, an auto-training agent, and connectors to open-source models (e.g. 7B / 8B / 70B via your chosen tooling).</li>
-            <li>You pull model weights from official sources using your own credentials; I do not re-host them.</li>
-            <li>Designed so you can run the same encrypted AI stack on your laptop, your rack server, or your own cloud account.</li>
+              λ-geometry runtime, an auto-training agent, and connectors to open-source models (7B / 8B / 70B via your chosen tooling).</li>
+            <li>You pull model weights from official sources using your own credentials; Logarchéon does not re-host foundation models.</li>
+            <li>One semantics, many environments: laptop, rack server, on-prem cluster, or your own cloud tenancy.</li>
           </ul>
           <p class="callout">
             <span class="badge">Upgrade path</span>
-            Start with a sub-1B λ-secure model; grow into a full MIA VM “AI OS” once you want multi-model support.
+            Tier III sandboxes start with a sub-1B λ-secure model; Tier I/II deployments grow into full MIA VMs with multiple models, agents, and red/blue workflows.
           </p>
         </article>
 
@@ -267,13 +400,55 @@
           <div class="kicker">V3 · Future</div>
           <h3>Hardware appliance (roadmap)</h3>
           <ul>
-            <li>A small, hardened “λ-secure AI box” built on FPGAs / mature-node silicon.</li>
-            <li>Drop into a rack, connect power + internal network, and keep everything air-gapped if needed.</li>
-            <li>Same λ-geometry and T-transform semantics as the software stack, with a physical security posture.</li>
+            <li>A small, hardened “λ-secure AI box” built on FPGAs / mature-node silicon for OT, forward-deployed, or air-gapped use.</li>
+            <li>Drop into a rack, connect power + internal network; keep everything air-gapped from the public internet if required.</li>
+            <li>Same λ-geometry and T-transform semantics as the software stack, plus a physical security posture for high-assurance missions.</li>
           </ul>
           <p class="callout">
             <span class="badge">Status</span>
-            Design underway; early partners can influence specs and use-cases (e.g. critical infrastructure, national missions).
+            Design underway. Early partners in national security, defense, critical infrastructure, and systemic finance can help shape specs and certification targets.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section: Sandbox personas (law + startups) -->
+    <section id="sandbox-detail" aria-labelledby="sandbox-detail-h">
+      <h2 id="sandbox-detail-h">Near-term sandbox: law &amp; privacy-first founders</h2>
+      <p class="lede">
+        Early prototypes and case studies focus on environments where a single person can deliver end-to-end:
+        law practices and privacy-first startups. They stress the λ-secure stack without classification or export issues.
+      </p>
+
+      <div class="grid cols-2">
+        <article class="card" id="for-law">
+          <div class="kicker">Sandbox A · Law firms &amp; in-house legal</div>
+          <h3>“We can’t just upload client files to random LLMs.”</h3>
+          <ul>
+            <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
+            <li>You need tools that live <strong>on your own hardware or in your own cloud tenancy</strong>, with a clear audit story.</li>
+            <li>You want more than “we signed a DPA and trust the vendor” when explaining risk to partners and clients.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Outcome</span>
+            A private assistant that reads your contracts, policies, and matters—running inside
+            your perimeter, with an architecture designed so external vendors never see a canonical copy
+            of your tuned model.
+          </p>
+        </article>
+
+        <article class="card" id="for-startups">
+          <div class="kicker">Sandbox B · Privacy-first founders &amp; small teams</div>
+          <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
+          <ul>
+            <li>You want local or self-hosted LLMs that run on a single GPU or small server, not a sprawling cluster.</li>
+            <li>You are willing to rent cloud GPUs—<em>if</em> the account, keys, and λ-secure transform <span class="math">T</span> stay under your control.</li>
+            <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training signal.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Outcome</span>
+            A moat-preserving AI stack: sub-1B λ-secure models and MIA VMs that you run locally
+            or in your own cloud tenancy, with geometry-native obfuscation layered on top of standard crypto.
           </p>
         </article>
       </div>
@@ -283,8 +458,8 @@
     <section id="how-it-works" aria-labelledby="how-it-works-h">
       <h2 id="how-it-works-h">How the λ-secure “self-laundromat” works</h2>
       <p class="lede">
-        The core idea is simple: I provide the geometry and the machinery; you keep the key.
-        The key is a secret transform <span class="math">T</span> that only you know.
+        The core idea is simple: the geometry and machinery come from Logarchéon; the secret frame comes from you.
+        A private transform <span class="math">T</span> (e.g., Lorentz/orthogonal) defines your model’s working coordinates.
       </p>
 
       <div class="grid cols-3">
@@ -292,8 +467,8 @@
           <div class="kicker">Step 1</div>
           <h3>You keep the secret <span class="math">T</span></h3>
           <ul>
-            <li>You run a small setup routine (or the MIA VM) that embeds your documents into the λ-geometry space.</li>
-            <li>You choose a secret Lorentz / orthogonal transform <span class="math">T</span> on your side.</li>
+            <li>You run a setup routine (or the MIA VM) that embeds your documents or signals into the λ-geometry space.</li>
+            <li>You choose a secret transform <span class="math">T</span> on your side.</li>
             <li>The system applies <span class="math">T</span> to both the model and your embedded data, producing <span class="math">T·M</span> and <span class="math">T·X</span>.</li>
           </ul>
         </article>
@@ -309,7 +484,7 @@
               </ul>
             </li>
             <li>Only <span class="math">T·M</span> and <span class="math">T·X</span> ever touch that compute environment.</li>
-            <li>I never see your raw data or a canonical version of your tuned model.</li>
+            <li>Neither Logarchéon nor the cloud provider sees plaintext data or a canonical tuned model.</li>
           </ul>
         </article>
 
@@ -317,17 +492,18 @@
           <div class="kicker">Step 3</div>
           <h3>Inference stays vendor-blind</h3>
           <ul>
-            <li>You can keep everything in the T-frame (simple, operationally clean), or locally apply <span class="math">T^{-1}</span> if needed.</li>
-            <li>Even if someone copies the VM or model weights, they obtain only <span class="math">T·M'</span>, not a usable canonical twin.</li>
-            <li>Standard crypto (disk encryption, TLS, TEEs) adds another layer below the λ-geometry obfuscation.</li>
+            <li>You can keep everything in the T-frame for operations, or locally apply <span class="math">T^{-1}</span> if you need canonical outputs.</li>
+            <li>Even if someone copies the VM or model, they obtain only <span class="math">T·M'</span>, not a usable canonical twin.</li>
+            <li>Standard crypto (disk encryption, TLS, TEEs) sits underneath the λ-geometry layer as defense-in-depth.</li>
           </ul>
         </article>
       </div>
 
       <p class="callout">
         <span class="badge">Plain English</span>
-        You get a self-service “encrypted AI laundromat”: your data and model go in wearing your secret disguise
-        <span class="math">T</span>; all training happens in that disguise; only you can reverse it, and only if you choose to.
+        You get a self-service “encrypted AI laundromat”: your data and model go in wearing your secret transform
+        <span class="math">T</span>; all training and inference happen in that disguise; only you can reverse it—and only if
+        your policy says you should.
       </p>
     </section>
 
@@ -339,17 +515,17 @@
           <div class="kicker">Common patterns</div>
           <ul>
             <li><strong>Cloud LLM SaaS:</strong> Data is “protected by policy,” but runs in plaintext inside someone else’s stack.</li>
-            <li><strong>On-prem legal AI:</strong> Runs inside your network, but the vendor still sees a canonical model and plaintext data when they support you.</li>
-            <li><strong>DIY local LLMs:</strong> Full control, but you own all the complexity and there is no formal obfuscation story.</li>
+            <li><strong>On-prem legal/enterprise AI:</strong> Runs inside your network, but the vendor still sees a canonical model and often plaintext data when supporting you.</li>
+            <li><strong>DIY local LLMs:</strong> Full control, but you own all the complexity and there is no formal obfuscation or twin-deployment story.</li>
           </ul>
         </article>
 
         <article class="card">
           <div class="kicker">Logarchéon’s posture</div>
           <ul>
-            <li><strong>Single-GPU friendly:</strong> Sub-1B λ-secure models and 7B-class open models that run on a single RTX-class GPU or a modest server.</li>
-            <li><strong>Zero-knowledge vendor posture:</strong> I design the geometry and training stack; you keep the transform <span class="math">T</span> and control the runtime environment.</li>
-            <li><strong>By-design BYO-cloud:</strong> The stack is meant to run in your AWS/Azure/GCP tenancy, not mine. I don’t need or want direct access to your workloads.</li>
+            <li><strong>Single-GPU friendly:</strong> Sub-1B λ-secure models and 7B-class open models that run on a single RTX-class GPU or modest server.</li>
+            <li><strong>Zero-knowledge vendor stance:</strong> Logarchéon designs the geometry and training stack; you keep <span class="math">T</span>, own the accounts, and control the runtime.</li>
+            <li><strong>By-design BYO-cloud:</strong> The stack is meant to run in your AWS/Azure/GCP tenancy (or on-prem). Logarchéon does not ask for production access.</li>
           </ul>
         </article>
       </div>
@@ -357,20 +533,20 @@
 
     <!-- Section: Under the hood / credibility -->
     <section id="under-the-hood" aria-labelledby="under-the-hood-h">
-      <h2 id="under-the-hood-h">Under the hood: CEAS, finite-lift, GRAIL, and MIA</h2>
+      <h2 id="under-the-hood-h">Under the hood: CEAS, finite lift, GRAIL, and MIA</h2>
       <p class="lede">
-        The landing page is simple on purpose. Underneath, the stack is built from
-        research-grade components that you can inspect in detail.
+        The landing page is simple on purpose. Underneath, the stack draws on original work in geometry, symbolic dynamics,
+        and secure computation. The emphasis is: interpretable dynamics, encrypted-in-use execution, and invariant-first hardware.
       </p>
 
       <div class="grid cols-2">
         <article class="card">
           <div class="kicker">Core pillars</div>
           <ul>
-            <li><strong>CEAS:</strong> critical-entropy attention scaling; treats β as a controlled parameter to cut training steps and improve stability.</li>
-            <li><strong>Finite-machine lift:</strong> decomposes model behavior into cycles and transients for traceability and safe edit-without-full-retrain.</li>
-            <li><strong>GRAIL:</strong> geometry-native secure execution aimed at cryptomorphic (function-identical, weight-distinct) twins.</li>
-            <li><strong>MIA:</strong> metric-invariant architecture where inputs, machine state, and outputs move together under group action.</li>
+            <li><strong>CEAS:</strong> critical-entropy attention scaling; treats β as a controlled parameter to cut training steps and improve stability, especially in long-sequence regimes.</li>
+            <li><strong>Finite-machine lift:</strong> decomposes model behavior into cycles and transients (Dunford D+N / PDN) for traceability and safe edit-without-full-retrain.</li>
+            <li><strong>GRAIL:</strong> geometry-native secure execution aimed at cryptomorphic (function-identical, weight-distinct) twins and encrypted-in-use computation.</li>
+            <li><strong>MIA:</strong> metric-invariant architecture where inputs, machine state, and outputs move together under group action; suitable for FPGAs and mature-node silicon.</li>
           </ul>
         </article>
 
@@ -381,14 +557,14 @@
             proofs, and prototypes:
           </p>
           <ul>
-            <li>Visit the <a href="/Research">Research</a> page for notes, slides, and code.</li>
-            <li>See my <a href="/files/william_chuang_cv.pdf">CV</a> for academic background.</li>
-            <li>Or email me for non-enabling technical briefs and NDA-gated materials.</li>
+            <li>Visit the <a href="/Research">Research</a> page for notes, slides, and code snippets.</li>
+            <li>See my <a href="/files/william_chuang_cv.pdf">CV</a> for academic background and prior work.</li>
+            <li>Or email for non-enabling technical briefs and NDA-gated materials where appropriate.</li>
           </ul>
           <p class="callout">
             <span class="badge">Expectation</span>
-            Public write-ups are deliberately non-enabling; detailed materials are shared under
-            NDA and, where appropriate, export-controlled review.
+            Public write-ups are intentionally non-enabling. Detailed materials are shared under
+            NDA and, where relevant, export-control and classification review.
           </p>
         </article>
       </div>
@@ -401,8 +577,8 @@
         <p>
           I’m <strong>William Huanshan Chuang</strong>, a mathematician and founder of Logarchéon Inc.,
           a one-human C-Corporation structured as an IP-first research lab. My work sits at the seam
-          of geometry, control, and security. I use recursive teams of AI agents to design and test
-          architectures; human priors and proofs decide which ones survive.
+          of geometry, control, cryptography, and AI. I use recursive teams of AI agents to explore design space;
+          proofs, counterexamples, and national-security ethics decide which ideas survive.
         </p>
         <p>
           If you want the full story—formation, research, teaching, and vocation—see the
@@ -417,12 +593,13 @@
       <h2 id="contact-h">Next steps</h2>
       <div class="card">
         <p class="lede">
-          If any of this resonates—especially if you are a law firm, in-house legal team,
-          or privacy-first founder—the next step is simple: start a private conversation.
+          If you work in national security, defense, systemic finance, critical infrastructure, or run a high-confidentiality
+          environment—and you want private AI that respects both your threat model and your conscience—the next step is simple:
+          start a quiet conversation. The same applies if you are a law firm or privacy-first founder who wants to be an early sandbox.
         </p>
         <ul>
           <li><strong>Email (preferred):</strong>
-            <a href="mailto:founder@logarcheon.com?subject=Logarcheon%20%E2%80%93%20Private%20AI%20inquiry">
+            <a href="mailto:founder@logarcheon.com?subject=Logarcheon%20%E2%80%93%20High-assurance%20AI%20inquiry">
               founder@logarcheon.com
             </a>
           </li>
@@ -431,8 +608,8 @@
         </ul>
         <p class="callout">
           <span class="badge">Typical starting points</span>
-          A 30–45 minute briefing on your privacy constraints and workflows; then a scoped,
-          single-GPU proof-of-concept (under NDA) that lives on your hardware or in your own cloud.
+          A 30–45 minute briefing on your mission, privacy constraints, and hardware; then a scoped,
+          single-GPU proof-of-concept (under NDA) that lives on your hardware or in your own cloud tenancy.
         </p>
       </div>
     </section>
@@ -443,7 +620,8 @@
       <p>
         Some materials relate to active or planned U.S. filings. Public descriptions on this site are
         <strong>non-enabling summaries</strong>. Technical evaluations proceed under NDA and export-control
-        compliance. Independent cryptographic review and red-teaming are welcome under appropriate safeguards.
+        compliance. Independent cryptographic review and red-teaming are welcome under appropriate safeguards
+        and with attention to national-security implications.
       </p>
     </section>
 
