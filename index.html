@@ -76,7 +76,7 @@
 
     /* Top nav */
     nav.top-nav { position: sticky; top: 0; z-index: 10;
-      background: rgba(17,19,23,.9); /* fallback */
+      background: rgba(17,19,23,.9);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(255,255,255,.06);
       background: color-mix(in oklab, var(--bg) 80%, transparent);
@@ -278,13 +278,12 @@
       </div>
     </section>
 
-    <!-- Section: Segment map (MECE ranking) -->
+    <!-- Section: Segment map & priority -->
     <section id="segment-map" aria-labelledby="segment-map-h">
-      <h2 id="segment-map-h">Segment map &amp; priority (MECE view)</h2>
+      <h2 id="segment-map-h">Segment map &amp; priority</h2>
       <p class="lede">
-        A concise, MBA-style view of the option space. Segments are mutually exclusive, collectively exhaustive for
-        Logarchéon’s plausible buyers, and ranked by strategic fit, ability to pay for deep IP, confidentiality needs,
-        and feasibility for a one-person IP lab.
+        A concise view of the option space. Segments cover Logarchéon’s plausible buyers and are ranked by strategic fit,
+        ability to pay for deep IP, confidentiality needs, and feasibility for a one-person IP lab.
       </p>
 
       <div class="card">
@@ -300,7 +299,7 @@
             <tr>
               <td class="rank-col">1</td>
               <td class="segment-col">US NatSec / Defense / IC</td>
-              <td class="role-col">Core strategic home. Highest mission alignment, deep need for encrypted-in-use AI, twin deployments, and certified interpretability. Used to funding weird math that works.</td>
+              <td class="role-col">Core strategic home. Highest mission alignment, deep need for encrypted-in-use AI, twin deployments, and certified interpretability. Used to funding unusual math that works.</td>
             </tr>
             <tr>
               <td class="rank-col">2</td>
@@ -412,57 +411,57 @@
       </div>
     </section>
 
-<!-- Section: V1 beachhead personas (law + startups) -->
-<section id="sandbox-detail" aria-labelledby="sandbox-detail-h">
-  <h2 id="sandbox-detail-h">V1 beachhead: law &amp; privacy-first founders</h2>
-  <p class="lede">
-    Logarchéon’s first deployments focus on environments where confidentiality, single-GPU footprints,
-    and fast iteration matter most: law practices and privacy-first startups. These stress-test the
-    λ-secure stack on real workloads without classification or export-control constraints, and generate
-    the references needed for Tier I missions in national security, defense, and systemic finance.
-  </p>
-
-  <div class="grid cols-2">
-    <article class="card" id="for-law">
-      <div class="kicker">Sandbox A · Law firms &amp; in-house legal</div>
-      <h3>“We can’t just upload client files to random LLMs.”</h3>
-      <ul>
-        <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
-        <li>You need tools that live <strong>on your own hardware or in your own cloud tenancy</strong>, with a clear audit story.</li>
-        <li>You want more than “we signed a DPA and trust the vendor” when explaining risk to partners and clients.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Why this segment first</span>
-        Law firms have sharp, well-defined pain around generic LLMs, can adopt a single-GPU λ-secure
-        assistant quickly, and create clean case studies that translate upward into regulated enterprise,
-        finance, and government use-cases.
+    <!-- Section: V1 beachhead personas (law + startups) -->
+    <section id="sandbox-detail" aria-labelledby="sandbox-detail-h">
+      <h2 id="sandbox-detail-h">V1 beachhead: law &amp; privacy-first founders</h2>
+      <p class="lede">
+        Logarchéon’s first deployments focus on environments where confidentiality, single-GPU footprints,
+        and fast iteration matter most: law practices and privacy-first startups. These stress-test the
+        λ-secure stack on real workloads without classification or export-control constraints, and generate
+        the references needed for Tier I missions in national security, defense, and systemic finance.
       </p>
-    </article>
 
-    <article class="card" id="for-startups">
-      <div class="kicker">Sandbox B · Privacy-first founders &amp; small teams</div>
-      <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
-      <ul>
-        <li>You want local or self-hosted LLMs that run on a single GPU or small server, not a sprawling cluster.</li>
-        <li>You are willing to rent cloud GPUs—<em>if</em> the account, keys, and λ-secure transform <span class="math">T</span> stay under your control.</li>
-        <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training signal.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Why this segment first</span>
-        Privacy-first founders move fast, live close to the tooling, and are comfortable with open-source
-        components. They are ideal partners to harden the MIA VM, λ-secure training, and single-GPU deployment
-        path before those same primitives are presented to defense, IC, and critical-infrastructure programs.
-      </p>
-    </article>
-  </div>
+      <div class="grid cols-2">
+        <article class="card" id="for-law">
+          <div class="kicker">Sandbox A · Law firms &amp; in-house legal</div>
+          <h3>“We can’t just upload client files to random LLMs.”</h3>
+          <ul>
+            <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
+            <li>You need tools that live <strong>on your own hardware or in your own cloud tenancy</strong>, with a clear audit story.</li>
+            <li>You want more than “we signed a DPA and trust the vendor” when explaining risk to partners and clients.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Why this segment first</span>
+            Law firms have sharp, well-defined pain around generic LLMs, can adopt a single-GPU λ-secure
+            assistant quickly, and create clean case studies that translate upward into regulated enterprise,
+            finance, and government use-cases.
+          </p>
+        </article>
 
-  <div class="emph-box">
-    <strong>Staged strategy:</strong> V1 proves the λ-secure / MIA stack with law firms and privacy-first teams.
-    V2 extends into regulated enterprise and critical infrastructure. V3 carries the same primitives into
-    national security, defense, and systemic finance missions that demand encrypted-in-use compute and
-    cryptomorphic twins at scale.
-  </div>
-</section>
+        <article class="card" id="for-startups">
+          <div class="kicker">Sandbox B · Privacy-first founders &amp; small teams</div>
+          <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
+          <ul>
+            <li>You want local or self-hosted LLMs that run on a single GPU or small server, not a sprawling cluster.</li>
+            <li>You are willing to rent cloud GPUs—<em>if</em> the account, keys, and λ-secure transform <span class="math">T</span> stay under your control.</li>
+            <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training signal.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Why this segment first</span>
+            Privacy-first founders move fast, live close to the tooling, and are comfortable with open-source
+            components. They are ideal partners to harden the MIA VM, λ-secure training, and single-GPU deployment
+            path before those same primitives are presented to defense, IC, and critical-infrastructure programs.
+          </p>
+        </article>
+      </div>
+
+      <div class="emph-box">
+        <strong>Staged strategy:</strong> V1 proves the λ-secure / MIA stack with law firms and privacy-first teams.
+        V2 extends into regulated enterprise and critical infrastructure. V3 carries the same primitives into
+        national security, defense, and systemic finance missions that demand encrypted-in-use compute and
+        cryptomorphic twins at scale.
+      </div>
+    </section>
 
     <!-- Section: How it works -->
     <section id="how-it-works" aria-labelledby="how-it-works-h">
