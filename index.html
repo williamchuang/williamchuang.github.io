@@ -412,47 +412,57 @@
       </div>
     </section>
 
-    <!-- Section: Sandbox personas (law + startups) -->
-    <section id="sandbox-detail" aria-labelledby="sandbox-detail-h">
-      <h2 id="sandbox-detail-h">Near-term sandbox: law &amp; privacy-first founders</h2>
-      <p class="lede">
-        Early prototypes and case studies focus on environments where a single person can deliver end-to-end:
-        law practices and privacy-first startups. They stress the λ-secure stack without classification or export issues.
+<!-- Section: V1 beachhead personas (law + startups) -->
+<section id="sandbox-detail" aria-labelledby="sandbox-detail-h">
+  <h2 id="sandbox-detail-h">V1 beachhead: law &amp; privacy-first founders</h2>
+  <p class="lede">
+    Logarchéon’s first deployments focus on environments where confidentiality, single-GPU footprints,
+    and fast iteration matter most: law practices and privacy-first startups. These stress-test the
+    λ-secure stack on real workloads without classification or export-control constraints, and generate
+    the references needed for Tier I missions in national security, defense, and systemic finance.
+  </p>
+
+  <div class="grid cols-2">
+    <article class="card" id="for-law">
+      <div class="kicker">Sandbox A · Law firms &amp; in-house legal</div>
+      <h3>“We can’t just upload client files to random LLMs.”</h3>
+      <ul>
+        <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
+        <li>You need tools that live <strong>on your own hardware or in your own cloud tenancy</strong>, with a clear audit story.</li>
+        <li>You want more than “we signed a DPA and trust the vendor” when explaining risk to partners and clients.</li>
+      </ul>
+      <p class="callout">
+        <span class="badge">Why this segment first</span>
+        Law firms have sharp, well-defined pain around generic LLMs, can adopt a single-GPU λ-secure
+        assistant quickly, and create clean case studies that translate upward into regulated enterprise,
+        finance, and government use-cases.
       </p>
+    </article>
 
-      <div class="grid cols-2">
-        <article class="card" id="for-law">
-          <div class="kicker">Sandbox A · Law firms &amp; in-house legal</div>
-          <h3>“We can’t just upload client files to random LLMs.”</h3>
-          <ul>
-            <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
-            <li>You need tools that live <strong>on your own hardware or in your own cloud tenancy</strong>, with a clear audit story.</li>
-            <li>You want more than “we signed a DPA and trust the vendor” when explaining risk to partners and clients.</li>
-          </ul>
-          <p class="callout">
-            <span class="badge">Outcome</span>
-            A private assistant that reads your contracts, policies, and matters—running inside
-            your perimeter, with an architecture designed so external vendors never see a canonical copy
-            of your tuned model.
-          </p>
-        </article>
+    <article class="card" id="for-startups">
+      <div class="kicker">Sandbox B · Privacy-first founders &amp; small teams</div>
+      <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
+      <ul>
+        <li>You want local or self-hosted LLMs that run on a single GPU or small server, not a sprawling cluster.</li>
+        <li>You are willing to rent cloud GPUs—<em>if</em> the account, keys, and λ-secure transform <span class="math">T</span> stay under your control.</li>
+        <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training signal.</li>
+      </ul>
+      <p class="callout">
+        <span class="badge">Why this segment first</span>
+        Privacy-first founders move fast, live close to the tooling, and are comfortable with open-source
+        components. They are ideal partners to harden the MIA VM, λ-secure training, and single-GPU deployment
+        path before those same primitives are presented to defense, IC, and critical-infrastructure programs.
+      </p>
+    </article>
+  </div>
 
-        <article class="card" id="for-startups">
-          <div class="kicker">Sandbox B · Privacy-first founders &amp; small teams</div>
-          <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
-          <ul>
-            <li>You want local or self-hosted LLMs that run on a single GPU or small server, not a sprawling cluster.</li>
-            <li>You are willing to rent cloud GPUs—<em>if</em> the account, keys, and λ-secure transform <span class="math">T</span> stay under your control.</li>
-            <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training signal.</li>
-          </ul>
-          <p class="callout">
-            <span class="badge">Outcome</span>
-            A moat-preserving AI stack: sub-1B λ-secure models and MIA VMs that you run locally
-            or in your own cloud tenancy, with geometry-native obfuscation layered on top of standard crypto.
-          </p>
-        </article>
-      </div>
-    </section>
+  <div class="emph-box">
+    <strong>Staged strategy:</strong> V1 proves the λ-secure / MIA stack with law firms and privacy-first teams.
+    V2 extends into regulated enterprise and critical infrastructure. V3 carries the same primitives into
+    national security, defense, and systemic finance missions that demand encrypted-in-use compute and
+    cryptomorphic twins at scale.
+  </div>
+</section>
 
     <!-- Section: How it works -->
     <section id="how-it-works" aria-labelledby="how-it-works-h">
