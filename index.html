@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>William Chuang — Logarchéon</title>
-  <meta name="description" content="Founder of Logarchéon. Architect of interpretable AI systems; research in secure computation & symbolic dynamics. CEAS, Finite-Machine Lift, GRAIL, Λ-Stack." />
+  <meta name="description" content="Logarchéon builds λ-secure private AI: sub-1B models and MIA VMs for law firms and privacy-first founders who need serious AI without surrendering their data or models." />
 
   <!-- Canonical & Social -->
   <link rel="canonical" href="https://logarcheon.com/">
   <meta property="og:url" content="https://logarcheon.com/">
   <meta property="og:site_name" content="Logarchéon">
   <meta property="og:title" content="William Chuang — Logarchéon" />
-  <meta property="og:description" content="Interpretable, certifiable transformer systems with CEAS, Finite-Machine Lift, GRAIL, and Λ-Stack." />
+  <meta property="og:description" content="Private λ-secure AI you can run on your own hardware: sub-1B models, MIA VMs, and geometry-native cryptographic wrappers for law firms and privacy-first founders." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
   <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
@@ -163,453 +163,288 @@
 
   <main class="container">
 
-    <!-- Hero -->
+    <!-- Hero: clear value prop + CTA -->
     <header class="site" aria-labelledby="site-title">
-      <div class="eyebrow">Founder, Logarchéon</div>
-      <h1 id="site-title">William Chuang</h1>
-      <p class="subhead">Architect of interpretable AI systems · Researcher in secure computation &amp; <span class="nowrap">symbolic dynamics</span></p>
+      <div class="eyebrow">Logarchéon · λ-secure AI</div>
+      <h1 id="site-title">Private AI you can actually run on your own hardware.</h1>
+      <p class="subhead">
+        Sub-1B λ-secure models and MIA VMs for law firms and privacy-first founders.
+        Train on GPUs you rent or GPUs you own, while your documents, IP, and tuned models
+        remain mathematically opaque to external vendors.
+      </p>
       <div class="toc" aria-label="Quick links">
-        <a href="#one-liner">One-liner</a>
-        <a href="#ceas">CEAS</a>
-        <a href="#dfa">Finite-Lift</a>
-        <a href="#grail">GRAIL</a>
-        <a href="#lambda-stack">Λ-Stack</a>
-        <a href="#mia">MIA</a>
+        <a href="#for-whom">Who this is for</a>
+        <a href="#offers">What you get</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#why-different">Why different</a>
+        <a href="#under-the-hood">Under the hood</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact">Talk to me</a>
       </div>
     </header>
 
-    <!-- Company / posture -->
-    <section id="company" aria-labelledby="company-h">
-      <h2 id="company-h">Logarchéon — geometry-native recursive agent lab</h2>
+    <!-- Section: Who this is for -->
+    <section id="for-whom" aria-labelledby="for-whom-h">
+      <h2 id="for-whom-h">Who this is for</h2>
+      <p class="lede">
+        Logarchéon exists for teams who cannot afford to hand their core knowledge
+        to generic cloud LLM providers—and who still want serious AI leverage.
+      </p>
 
+      <div class="grid cols-2">
+        <article class="card" id="for-law">
+          <div class="kicker">Segment A · Law firms &amp; in-house legal</div>
+          <h3>“We can’t just upload client files to random LLMs.”</h3>
+          <ul>
+            <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
+            <li>You need tools that live <strong>on your own hardware or in your own cloud tenancy</strong>.</li>
+            <li>You want a story stronger than “we signed a DPA and trust the logs.”</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Outcome</span>
+            A private assistant that reads your contracts, policies, and matters—running inside
+            your own perimeter, with an architecture designed so that outside vendors cannot
+            see a canonical copy of your tuned model.
+          </p>
+        </article>
+
+        <article class="card" id="for-startups">
+          <div class="kicker">Segment B · Privacy-first founders &amp; small teams</div>
+          <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
+          <ul>
+            <li>You want local or self-hosted LLMs that run on a single GPU or a small server.</li>
+            <li>You’re open to using public cloud compute—but only if <em>you</em> control the account and keys.</li>
+            <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training data.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Outcome</span>
+            A “moat-preserving” AI stack: sub-1B λ-secure models and MIA VMs that you run locally
+            or in your own cloud tenancy, with a built-in obfuscation layer on top of standard crypto.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section: What you get (offers) -->
+    <section id="offers" aria-labelledby="offers-h">
+      <h2 id="offers-h">What you actually get from Logarchéon</h2>
+      <p class="lede">
+        This is not a generic “AI consulting” site. There are concrete, opinionated
+        offerings designed around single-GPU deployments and strict privacy.
+      </p>
+
+      <div class="grid cols-3">
+        <article class="card" id="lambda-secure-model">
+          <div class="kicker">V1 · λ-secure private model</div>
+          <h3>λ-secure private GPT (sub-1B)</h3>
+          <ul>
+            <li>Base model in a pseudo-Riemannian latent space, designed to run on a single RTX-class GPU.</li>
+            <li>Custom fine-tuning inside your perimeter, with your own secret transform <span class="math">T</span>.</li>
+            <li>Target use-cases: contract review, policy analysis, internal knowledge search, and drafting.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Deployment</span>
+            Self-hosted on your on-prem GPU or in a tenant-isolated cloud instance you control.
+          </p>
+        </article>
+
+        <article class="card" id="mia-vm">
+          <div class="kicker">V2 · Appliance</div>
+          <h3>MIA VM — AI OS in a box</h3>
+          <ul>
+            <li>A virtual machine / container image with:
+              λ-geometry runtime, an auto-training agent, and connectors to open-source models (e.g. 7B / 8B / 70B via your chosen tooling).</li>
+            <li>You pull model weights from official sources using your own credentials; I do not re-host them.</li>
+            <li>Designed so you can run the same encrypted AI stack on your laptop, your rack server, or your own cloud account.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Upgrade path</span>
+            Start with a sub-1B λ-secure model; grow into a full MIA VM “AI OS” once you want multi-model support.
+          </p>
+        </article>
+
+        <article class="card" id="hardware-appliance">
+          <div class="kicker">V3 · Future</div>
+          <h3>Hardware appliance (roadmap)</h3>
+          <ul>
+            <li>A small, hardened “λ-secure AI box” built on FPGAs / mature-node silicon.</li>
+            <li>Drop into a rack, connect power + internal network, and keep everything air-gapped if needed.</li>
+            <li>Same λ-geometry and T-transform semantics as the software stack, with a physical security posture.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Status</span>
+            Design underway; early partners can influence specs and use-cases (e.g. critical infrastructure, national missions).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section: How it works -->
+    <section id="how-it-works" aria-labelledby="how-it-works-h">
+      <h2 id="how-it-works-h">How the λ-secure “self-laundromat” works</h2>
+      <p class="lede">
+        The core idea is simple: I provide the geometry and the machinery; you keep the key.
+        The key is a secret transform <span class="math">T</span> that only you know.
+      </p>
+
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="kicker">Step 1</div>
+          <h3>You keep the secret <span class="math">T</span></h3>
+          <ul>
+            <li>You run a small setup routine (or the MIA VM) that embeds your documents into the λ-geometry space.</li>
+            <li>You choose a secret Lorentz / orthogonal transform <span class="math">T</span> on your side.</li>
+            <li>The system applies <span class="math">T</span> to both the model and your embedded data, producing <span class="math">T·M</span> and <span class="math">T·X</span>.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Step 2</div>
+          <h3>Training happens in the T-frame</h3>
+          <ul>
+            <li>Training runs either on:
+              <ul>
+                <li>your own GPU/on-prem server, or</li>
+                <li>GPUs you rent in your own cloud account, using the MIA VM.</li>
+              </ul>
+            </li>
+            <li>Only <span class="math">T·M</span> and <span class="math">T·X</span> ever touch that compute environment.</li>
+            <li>I never see your raw data or a canonical version of your tuned model.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Step 3</div>
+          <h3>Inference stays vendor-blind</h3>
+          <ul>
+            <li>You can keep everything in the T-frame (simple, operationally clean), or locally apply <span class="math">T^{-1}</span> if needed.</li>
+            <li>Even if someone copies the VM or model weights, they obtain only <span class="math">T·M'</span>, not a usable canonical twin.</li>
+            <li>Standard crypto (disk encryption, TLS, TEEs) adds another layer below the λ-geometry obfuscation.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="callout">
+        <span class="badge">Plain English</span>
+        You get a self-service “encrypted AI laundromat”: your data and model go in wearing your secret disguise
+        <span class="math">T</span>; all training happens in that disguise; only you can reverse it, and only if you choose to.
+      </p>
+    </section>
+
+    <!-- Section: Why this vs. typical "private GPT" -->
+    <section id="why-different" aria-labelledby="why-different-h">
+      <h2 id="why-different-h">Why this is different from typical “private GPT” offerings</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="kicker">Common patterns</div>
+          <ul>
+            <li><strong>Cloud LLM SaaS:</strong> Data is “protected by policy,” but runs in plaintext inside someone else’s stack.</li>
+            <li><strong>On-prem legal AI:</strong> Runs inside your network, but the vendor still sees a canonical model and plaintext data when they support you.</li>
+            <li><strong>DIY local LLMs:</strong> Full control, but you own all the complexity and there is no formal obfuscation story.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Logarchéon’s posture</div>
+          <ul>
+            <li><strong>Single-GPU friendly:</strong> Sub-1B λ-secure models and 7B-class open models that run on a single RTX-class GPU or a modest server.</li>
+            <li><strong>Zero-knowledge vendor posture:</strong> I design the geometry and training stack; you keep the transform <span class="math">T</span> and control the runtime environment.</li>
+            <li><strong>By-design BYO-cloud:</strong> The stack is meant to run in your AWS/Azure/GCP tenancy, not mine. I don’t need or want direct access to your workloads.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section: Under the hood / credibility -->
+    <section id="under-the-hood" aria-labelledby="under-the-hood-h">
+      <h2 id="under-the-hood-h">Under the hood: CEAS, finite-lift, GRAIL, and MIA</h2>
+      <p class="lede">
+        The landing page is simple on purpose. Underneath, the stack is built from
+        research-grade components that you can inspect in detail.
+      </p>
+
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="kicker">Core pillars</div>
+          <ul>
+            <li><strong>CEAS:</strong> critical-entropy attention scaling; treats β as a controlled parameter to cut training steps and improve stability.</li>
+            <li><strong>Finite-machine lift:</strong> decomposes model behavior into cycles and transients for traceability and safe edit-without-full-retrain.</li>
+            <li><strong>GRAIL:</strong> geometry-native secure execution aimed at cryptomorphic (function-identical, weight-distinct) twins.</li>
+            <li><strong>MIA:</strong> metric-invariant architecture where inputs, machine state, and outputs move together under group action.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Where to read more</div>
+          <p>
+            If you are a technical reviewer, cryptographer, or ML researcher and want the math,
+            proofs, and prototypes:
+          </p>
+          <ul>
+            <li>Visit the <a href="/Research">Research</a> page for notes, slides, and code.</li>
+            <li>See my <a href="/files/william_chuang_cv.pdf">CV</a> for academic background.</li>
+            <li>Or email me for non-enabling technical briefs and NDA-gated materials.</li>
+          </ul>
+          <p class="callout">
+            <span class="badge">Expectation</span>
+            Public write-ups are deliberately non-enabling; detailed materials are shared under
+            NDA and, where appropriate, export-controlled review.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section: About the founder (short) -->
+    <section id="founder" aria-labelledby="founder-h">
+      <h2 id="founder-h">Who is behind Logarchéon?</h2>
+      <div class="card">
+        <p>
+          I’m <strong>William Huanshan Chuang</strong>, a mathematician and founder of Logarchéon Inc.,
+          a one-human C-Corporation structured as an IP-first research lab. My work sits at the seam
+          of geometry, control, and security. I use recursive teams of AI agents to design and test
+          architectures; human priors and proofs decide which ones survive.
+        </p>
+        <p>
+          If you want the full story—formation, research, teaching, and vocation—see the
+          <a href="/About">About</a> page, <a href="/Research">Research</a> index, and
+          <a href="/files/william_resume.pdf">resume</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section: Contact / CTA -->
+    <section id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Next steps</h2>
       <div class="card">
         <p class="lede">
-          <strong>Logarchéon Inc.</strong> is a one-human C-Corporation structured as an <strong>IP-first research lab</strong>.
-          I build and direct recursive teams of AI agents that conduct secure, geometry-native computation—executing proofs,
-          simulations, refinements, and technical writing. Direction, priors, and standards come from decades of human study
-          across physics, mathematics, symbolic systems, and secure design.
+          If any of this resonates—especially if you are a law firm, in-house legal team,
+          or privacy-first founder—the next step is simple: start a private conversation.
         </p>
-        <p>
-          This is a <strong>research stack</strong>, not a product company. It is <em>recursive, local, interpretable, and founder-shaped</em>.
-          The agents do the work; I determine what work matters. Same models ≠ same results—because the judgment layer is not downloadable.
-        </p>
-      </div>
-
-      <article class="card emph-box" id="recursive-leverage" aria-labelledby="recursive-leverage-h">
-        <div class="kicker" id="recursive-leverage-h">Recursive agent stack</div>
         <ul>
-          <li><strong>Human priors → agent swarm.</strong> Geometry/AI/symbolic logic shape the hypothesis space; agents explore it in parallel—each task framed, bounded, and testable.</li>
-          <li><strong>Agents talk to agents.</strong> Demos, derivations, and results are passed, critiqued, and improved across agent layers—until convergence or rejection.</li>
-          <li><strong>Recursive loops, not pipelines.</strong> Each AI worker can instantiate others, forming self-refining trees of code, reasoning, and simulation. I remain the source of taste and direction.</li>
+          <li><strong>Email (preferred):</strong>
+            <a href="mailto:founder@logarcheon.com?subject=Logarcheon%20%E2%80%93%20Private%20AI%20inquiry">
+              founder@logarcheon.com
+            </a>
+          </li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/williamchuang" rel="me">github.com/williamchuang</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chuang-william">linkedin.com/in/chuang-william</a></li>
         </ul>
         <p class="callout">
-          <span class="badge">Why it matters</span>
-          This isn’t “agent-first.” It’s <em>recursive, founder-calibrated intelligence</em>. The same agents in other hands won’t produce the same frontier results.
+          <span class="badge">Typical starting points</span>
+          A 30–45 minute briefing on your privacy constraints and workflows; then a scoped,
+          single-GPU proof-of-concept (under NDA) that lives on your hardware or in your own cloud.
         </p>
-      </article>
-    </section>
-
-    <!-- Vocation / mottos (no order named) -->
-    <section id="vocation" aria-labelledby="vocation-h">
-      <h2 id="vocation-h">Guiding commitments</h2>
-      <article class="card emph-box" aria-label="Vocation commitments">
-        <div class="kicker">Two mottos I try to live</div>
-        <ul>
-          <li><strong><em>tuitio fidei</em></strong> — the defense and cultivation of the faith through study, prayer, and witness.</li>
-          <li><strong><em>obsequium pauperum</em></strong> — service to the poor and the sick through concrete, steady works of mercy.</li>
-        </ul>
-        <p class="callout"><span class="badge">Orientation</span> These principles shape how I design systems: rigor as fidelity; security as protection of human dignity; learning as formation under constraint.</p>
-      </article>
-    </section>
-
-    <!-- Institutional model -->
-    <article class="card emph-box" id="formation" aria-labelledby="formation-h">
-      <div class="kicker" id="formation-h">Institutional model — recursive IP lab, C-Corp</div>
-      <p>
-        <strong>Logarchéon Inc.</strong> is a C-Corporation operated by a single human founder with a recursive stack of
-        <strong>autonomous AI agents</strong>—each trained, directed, and coordinated to execute tightly scoped research and engineering tasks.
-        Wherever this site says <em>“we”</em> or <em>“our”</em>, it means the founder + agents working in unison to produce original, defensible intellectual property.
-      </p>
-      <ul>
-        <li><strong>What we produce.</strong> Patentable inventions, working demos, proofs-of-concept, and <em>experimentally validated</em> claims. Public summaries are deliberately non-enabling; full technical materials are available under NDA/export-controlled access.</li>
-        <li><strong>Commercialization pathway.</strong> IP is available for <strong>licensing, joint development, or secure transfer</strong>. Deployments are often per-tenant and partner-specific, with options for cryptomorphic twins or interpretable derivatives.</li>
-        <li><strong>Manufacturing posture.</strong> Logarchéon does not run physical production. Hardware implementations or productization are handled by licensed partners or downstream integrators.</li>
-        <li><strong>Scientific discipline.</strong> Every prototype includes reproducible traces, entropy metrics, code audits, and provenance logging to support independent verification.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Summary</span>
-        <strong>One founder + recursive AI agents</strong> generating proof-backed IP in geometry, symbolic reasoning, and secure computation. Partners bring scale; Logarchéon provides the design.
-      </p>
-    </article>
-
-    <!-- One-liner -->
-    <section id="one-liner" aria-labelledby="one-liner-h">
-      <h2 id="one-liner-h">One-liner</h2>
-      <div class="card">
-        <p>I build <strong>interpretable, certifiable transformer systems</strong> that train faster, edit safely, and can run inside <strong>secure, geometry-native cryptographic wrappers</strong>.</p>
-        <p class="callout"><span class="badge">Goal</span> <strong>rigor + practice</strong>. Each idea comes with proofs or certificates, plus runnable prototypes (see GitHub) and small-scale demos.</p>
       </div>
-    </section>
-
-    <!-- What I work on -->
-    <section id="work" aria-labelledby="work-h">
-      <h2 id="work-h">What I work on</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>CEAS</h3>
-          <p>a control-theoretic attention scaling method (<span class="math">β</span> as inverse temperature) to cut training steps and improve stability.</p>
-        </div>
-
-        <div class="card">
-          <h3>Finite-Machine Lift (DFA/PDN)</h3>
-          <p>decompose trained transformers into cycles and transients for <strong>traceable, symbolic reasoning</strong> and safe edit-without-retrain.</p>
-        </div>
-
-        <div class="card">
-          <h3>MIA (GRAIL-derived)</h3>
-          <p>metric-invariant architecture built on <strong>invariants of groups</strong> (not equivariance). Inputs, machine state, and outputs move together (diagonal action), so behavior is preserved while internals vary—enabling <em>twin</em> deployments.</p>
-          <p class="callout"><span class="badge">Is new hardware required?</span> Usually not. Software blocks compute invariants. If acceleration is desired later, FPGAs and mature-node chips implement these features efficiently.</p>
-        </div>
-
-        <div class="card">
-          <h3>GRAIL</h3>
-          <p>algebraic/geometry-native secure execution for <strong>cryptomorphic twins</strong> and invariant-first computation; pairs naturally with MIA at the system/ISA layer.</p>
-        </div>
-
-        <div class="card">
-          <h3>Λ-Stack</h3>
-          <p>end-to-end architecture combining CEAS + finite-lift + MIA/GRAIL for interpretable, hardened models and systems.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Highlight -->
-    <aside id="automorphic-callout" class="card emph-box" role="note" aria-label="Automorphic attention highlight">
-      <div class="kicker">Research highlight</div>
-      <p>
-        I construct an attention mechanism that natively lives on <strong>hyperbolic geometry</strong>
-        and uses <strong>automorphic (Maass-type) kernels</strong>. A critical-entropy controller (CEAS)
-        regulates the inverse temperature so that attention entropy hovers near a pseudo-critical point.
-      </p>
-      <p>
-        <span class="nowrap">Within this setting, the classic Langlands triad is realized inside a neural operator:</span>
-        <span class="nowrap">automorphic</span> ⟷ <span class="nowrap">Galois</span> ⟷ <span class="nowrap">motive</span>.
-      </p>
-      <p class="callout"><span class="badge">Note</span> MIA/GRAIL use <em>invariants of groups</em> with diagonal transport of inputs, machine state, and outputs—not equivariance of inputs alone.</p>
-    </aside>
-
-    <!-- Overview -->
-    <section id="overview" aria-labelledby="overview-h">
-      <h2 id="overview-h">Overview</h2>
-      <p class="lede">
-        I design at the intersection of <strong>geometry, control, and security</strong>.
-        Recent work treats attention temperature <span class="math">β</span> as a controllable parameter; lifts trained models into
-        <strong>finite operators</strong> for certified edit-without-retrain; and develops MIA (GRAIL-derived), a
-        metric-invariant architecture where <em>invariants of groups</em> drive computation. Inputs, machine
-        state, and outputs transform together (diagonal action), preserving behavior while enabling
-        <strong>cryptomorphic twin</strong> deployments. Adoption starts in AI (LLMs/transformers/NNs) and extends to the
-        ISA/system layer without new hardware; software shims compute invariants today, with optional FPGA or
-        older-node acceleration later.
-      </p>
-    </section>
-
-    <!-- Pillars -->
-    <section id="pillars" aria-labelledby="pillars-h">
-      <h2 id="pillars-h">Three pillars</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <div class="kicker">1) Efficiency (CEAS)</div>
-          <p>Treat attention scaling as <span class="math">β</span>. Early, budgeted search; clamp in a corridor; monitor entropy/energy. Faster steps-to-target and improved numerical behavior.</p>
-        </div>
-        <div class="card">
-          <div class="kicker">2) Interpretability (Finite-Machine Lift)</div>
-          <p>Lift closed-loop behavior to <span class="math">P = D + N</span> (cycles + transients). Trace reasoning; detect degeneracy; certify <strong>edit-without-retrain</strong>.</p>
-        </div>
-        <div class="card">
-          <div class="kicker">3) Security & Substrate Portability (GRAIL → MIA)</div>
-          <p>Invariant-first compute with diagonal transport yields <strong>twin</strong> deployments and drop-in adoption on existing machines. Most use-cases do not require sub-100&nbsp;nm fabs; FPGAs and 28–180&nbsp;nm nodes suffice for acceleration.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured frameworks -->
-    <section id="frameworks" aria-labelledby="frameworks-h">
-      <h2 id="frameworks-h">Featured frameworks</h2>
-
-      <article class="card" id="ceas">
-        <h3>CEAS — Critical Entropy Attention System</h3>
-        <ul>
-          <li><strong>What</strong>: A β-thermostat for attention with a target <em>entropy corridor</em> and a guarded distance from the pseudo-critical point.</li>
-          <li><strong>Why</strong>: The textbook <nobr>1/√d<sub>k</sub></nobr> is only an initialization convenience; heads/layers/datasets drift and fixed scaling becomes brittle.</li>
-          <li><strong>How</strong>: Initialize with
-            <nobr>\(\displaystyle \beta^\star=\frac{1}{\sigma_{qk}}\sqrt{2\ln N_{\mathrm{eff}}}\)</nobr>,
-            then apply a one-step (Newton/PI) update on attention entropy toward a target band, enforce a small gap
-            \(u=\tfrac{|\beta-\beta_c|}{\beta_c}\ge u_{\min}\) to avoid critical slowing down, and use a lightweight gate
-            \(T=\beta\,\sigma_{qk}\sqrt{2\ln N_{\mathrm{eff}}}\) to skip low-information tokens/heads with safety floors/back-off.</li>
-          <li><strong>Artifacts</strong>: β initializer + controller code, entropy/variance monitors, gating masks, proofs/derivations, and small-task demos.</li>
-        </ul>
-      </article>
-
-      <article class="card" id="dfa">
-        <h3>DFA / Finite-Lift — Decompose for traceability</h3>
-        <ul>
-          <li><strong>What</strong>: Determinize rollout → lift to <span class="math">P</span> → split <span class="math">P = D + N</span> → build cycle projectors.</li>
-          <li><strong>Why</strong>: Produce <strong>symbolic traces</strong> and stable subspaces for safe, local edits.</li>
-          <li><strong>How</strong>: Runtime sentinels (O(1) membership), systole/holonomy monitors, and certificates reporting coverage/time/memory.</li>
-        </ul>
-      </article>
-
-      <article class="card" id="grail">
-        <h3>GRAIL — geometry-native secure execution (research)</h3>
-        <ul>
-          <li><strong>What</strong>: Algebraic/geometry-native encodings intended to keep parameters/activations <strong>opaque to untrusted CPUs</strong>.</li>
-          <li><strong>Why</strong>: Explore <strong>trustless</strong> execution paths outside TEEs and without FHE-class slowdowns.</li>
-          <li><strong>Status</strong>: Theory + prototypes; seeking <strong>independent benchmarking</strong> and review. Performance claims are workload-dependent and provided with caveats.</li>
-          <li><strong>Twin models</strong>: Generate <em>cryptomorphic</em> variants (weight-distinct, function-equivalent) for per-user instances and anti-fingerprinting.</li>
-        </ul>
-      </article>
-
-      <article class="card" id="lambda-stack">
-        <h3>Λ-Stack — The integrated system</h3>
-        <p>CEAS (β-control) + finite lift (trace) + GRAIL + optional dual-lock security (GRAIL plus MSIA) = an interpretable, hardened transformer. Designed to be <strong>edit-ready</strong> and <strong>auditable</strong>.</p>
-      </article>
-
-      <article class="card" id="mia">
-        <h3>MIA — Metric-Invariant Architecture</h3>
-        <ul>
-          <li><strong>What</strong>: invariant-of-groups compute (functions of distances/ratios/Hamming/cross-ratios, etc.) with diagonal transport of inputs, machine, and outputs.</li>
-          <li><strong>Why</strong>: twin deployments (function-identical, internally distinct), fewer recalibrations in control, and acceleration without bleeding-edge fabs.</li>
-          <li><strong>How</strong>: software shim today; optional RISC-V micro-ops and FPGA/older-node DEUs (add/shift/XOR/popcount/LUT, small CORDIC) later.</li>
-        </ul>
-      </article>
-    </section>
-
-    <!-- Evidence & claims -->
-    <section id="evidence" aria-labelledby="evidence-h">
-      <h2 id="evidence-h">Evidence &amp; claims — how to read</h2>
-      <ul>
-        <li><strong>Performance (GRAIL).</strong> GRAIL performs the same math as a plaintext model and therefore runs at essentially plaintext speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC) reflects the overhead added by those schemes, not by GRAIL. Exact slowdowns for FHE/MPC depend on scheme, precision, hardware, and task.</li>
-
-        <li><strong>Scope of protection.</strong>
-          Parameters, activations, and latent states are protected via a group-action / symbolic-geometry transform; both the <em>model</em> and the <em>data</em> remain encrypted in use.
-          Security is deployment-dependent: once the system is operated inside a
-          <abbr title="Sensitive Compartmented Information Facility">SCIF</abbr> or an equivalently isolated posture
-          (air-gapped, shielded/TEMPEST-class enclosure, no external I/O), external side-channels
-          (network beacons, vendor telemetry, remote DMA, RF/EM egress) are greatly reduced for that system.
-          Before such isolation, standard side-channel and operational risks apply, and routine hardening
-          (I/O policy, audit logging, rate-limits, constant-time paths where feasible) remains required.
-        </li>
-
-        <li><strong>Stability &amp; edit safety.</strong> Each version includes entropy-corridor bounds, deviation limits, and edit-stability certificates (time, memory, parameter coverage) showing that controlled local edits do not trigger unbounded downstream drift.</li>
-
-        <li><strong>Demonstrations &amp; audits.</strong> I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain behavior. Independent benchmarking, replication, and third-party cryptographic review are welcome under representative workloads.</li>
-      </ul>
-    </section>
-
-    <!-- Security details -->
-    <section id="grail-security" aria-labelledby="grail-security-h">
-      <h2 id="grail-security-h">Twin encoders &amp; message-mode security</h2>
-
-      <article class="card" id="twin-design">
-        <h3>Degenerate twin design (non-unique encoders &amp; decoders)</h3>
-        <p>
-          The encoder–decoder is not a single fixed pair. It lives inside an
-          <em>infinite family</em> of mathematically equivalent pairs (“twins”) that all
-          produce the same outputs for the same inputs while looking different inside.
-          If an adversary copies one encoder, the system is still not uniquely
-          identifiable: many decoders are compatible in principle, but only the
-          <em>paired</em> twin will successfully decrypt. Observing encoded outputs does
-          not reveal which twin is in use, and rotating to a new twin can be done at
-          runtime without changing external behavior.
-        </p>
-        <div class="callout" role="note" aria-label="Plain-English summary">
-          <strong>Plain English:</strong> Even if someone steals one encoder, they still
-          don’t have the “matching decoder.” There are infinitely many look-alike
-          versions. You can switch to a fresh twin on the fly, frustrating reverse
-          engineering and chosen-plaintext probes.
-        </div>
-        <ul>
-          <li><strong>Obfuscation by design:</strong> Non-uniqueness makes parameter
-              recovery and architecture inference unstable from samples alone.</li>
-          <li><strong>Operational agility:</strong> Rotate twins proactively or after any
-              suspected exposure; external I/O remains unchanged.</li>
-          <li><strong>Works with standard crypto:</strong> Complements TLS/VPN and
-              storage encryption; not a replacement for basic hygiene.</li>
-        </ul>
-      </article>
-
-      <article class="card" id="message-mode">
-        <h3>Encoder–decoder security (message mode)</h3>
-        <p>
-          In secure message-passing mode, the encoder maps a message into a curved-space
-          representation built from <em>hyperbolic distances</em> and then filters it
-          through <em>automorphic (Maass-type) kernels</em> assembled via truncated
-          Poincaré series. The result is a nonlinear composition that does not admit a
-          straightforward inverse. Even if the encoder parameters are captured, turning
-          encoded messages back into plaintext without the correct paired decoder
-          requires solving a difficult inverse spectral problem on a curved space.
-        </p>
-        <div class="callout" role="note" aria-label="Plain-English summary">
-          <strong>Plain English:</strong> The message is scrambled using curved-geometry
-          distances and special waveforms. Without the exact partner decoder, “unscrambling”
-          it is a dead-end computation. Capturing the encoder alone isn’t enough.
-        </div>
-        <ul>
-          <li><strong>Resilience after compromise:</strong> Because infinitely many twins exist,
-              a compromised encoder can be retired and replaced instantly; the
-              replacement remains functionally identical to the outside world.</li>
-          <li><strong>Deployment hygiene matters:</strong> On air-gapped or equivalently
-              isolated machines, external side-channels are strongly reduced. In
-              connected environments, pair this with standard hardening (audit logs,
-              rate limits, constant-time paths where feasible).</li>
-          <li><strong>Independent scrutiny welcome:</strong> Security depends on the
-              hardness of the underlying geometric inverse problem and on sound
-              implementation. External cryptanalysis and red-teaming are invited.</li>
-        </ul>
-      </article>
-    </section>
-
-    <!-- Results -->
-    <section id="results" aria-labelledby="results-h">
-      <h2 id="results-h">Selected results (concise)</h2>
-      <ul>
-        <li><strong>Early β-search works</strong>: on controlled tasks, a brief early search (log-grid, 5–10 points) reliably finds a stable <strong>high-β</strong> regime; fixing β then reduces steps-to-target vs. <span class="math">1/√d<sub>k</sub></span>.</li>
-        <li><strong>Edit-without-retrain</strong>: finite-lift + cycle shims enable local logic changes with <strong>bounded deviation</strong> on a protected manifold.</li>
-        <li><strong>Cryptomorphic twins</strong> (research): construct weight-distinct, function-equivalent variants via symmetry-preserving transforms; useful for per-tenant deployments.</li>
-      </ul>
-    </section>
-
-    <!-- Product briefs -->
-    <section id="product" aria-labelledby="product-h">
-      <h2 id="product-h">Product brief — Λ-Stack</h2>
-      <div class="card">
-        <p><strong>Why now</strong>: training/retraining costs, auditability requirements, and model protection pressures are rising together.</p>
-        <p><strong>What you get</strong>:</p>
-        <ul>
-          <li><strong>Faster training</strong>: CEAS reduces tokens-to-target via informed β control.</li>
-          <li><strong>Safer updates</strong>: symbolic traces + wrappers enable <strong>hour-scale fixes</strong> without a full retrain.</li>
-          <li><strong>Security by design</strong>: optional geometry-native masking and per-tenant cryptomorphic twins.</li>
-        </ul>
-        <p><strong>Who benefits</strong>: critical infrastructure, national missions, regulated enterprises, and labs seeking <strong>explainable</strong> and <strong>hardened</strong> LLMs.</p>
-      </div>
-    </section>
-
-    <section id="mia-now" aria-labelledby="mia-now-h">
-      <h2 id="mia-now-h">Product brief — MIA: what changes today</h2>
-
-      <div class="grid cols-2">
-        <article class="card">
-          <div class="kicker">Drop-in, no rip-and-replace</div>
-          <p class="lede">Adopt as a software shim: compute <em>invariants</em> (distances, ratios, Hamming counts, cross-ratios) and feed existing controllers or models with those numbers instead of raw coordinates/IDs.</p>
-          <div class="callout"><span class="badge">Is new hardware required?</span> Usually not. Software blocks compute invariants. If hardware acceleration is desired later, FPGAs and even older-node chips compute these features efficiently.</div>
-        </article>
-
-        <article class="card">
-          <div class="kicker">From AI → whole stack</div>
-          <p>Started inside LLMs/transformers and neural nets; now extended to the machine/ISA layer so that CPUs/PLCs can run with the same invariant-first semantics. When the platform runs in this style, everything on it inherits the <strong>twin</strong> property (cryptomorphic, function-identical deployments).</p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Tolerance & uptime for robotics/PLC</div>
-          <ul>
-            <li>Drift-proof control: use distances/angles/ratios and order-free aggregates—<em>not</em> absolute X/Y/Z or sensor IDs.</li>
-            <li>Graceful dropouts via redundant invariants: one probe fails, the control signal persists.</li>
-            <li>Looser fixtures: larger mechanical tolerances without re-teach; fewer stops for recalibration.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Compute without bleeding-edge fabs</div>
-          <p>Invariant evaluation prefers add/shift/XOR/popcount and small LUTs or CORDIC; giant multiplier arrays are optional. Most use-cases do <strong>not</strong> demand sub-100 nm nodes—28–180 nm, FPGAs, or mixed-signal blocks are viable.</p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Security by construction (twins)</div>
-          <p>Inputs, machine state, and outputs transform <em>together</em> under group action (diagonal move). Behavior is preserved while internal encodings differ—per-device/site <strong>twins</strong> for anti-cloning and licensing, compatible with GRAIL-style deployments.</p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Less memory/interconnect pain</div>
-          <p>Many “reorders” compile to <em>address math</em> (orbit-in-place) rather than physical data shuffles—lower traffic, lower energy, simpler scaling.</p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Exactness is testable</div>
-          <ul>
-            <li><strong>Format-true</strong>: reproduce standard int/fp results bit-for-bit (including IEEE-754 flags).</li>
-            <li><strong>Approx + tiny fix-up</strong>: cheap core + ±1 ulp correction LUT → still bit-identical on all cases.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Adopt this week</div>
-          <ol>
-            <li>Pick a multiply-heavy kernel (or a drift-sensitive control loop).</li>
-            <li>Swap raw measurements for invariants (L1/Hamming/cross-ratio/ratios).</li>
-            <li>Wrap the ABI once (encode/decode), keep apps/tests unchanged.</li>
-            <li>Optional: add “orbit-in-place” address transforms for common reorders.</li>
-          </ol>
-          <p class="callout"><span class="badge">RISC-V / PLC</span> Works as a micro-op overlay (<span class="kbd">DISTMUL</span>, <span class="kbd">DISTCMP</span>, <span class="kbd">KERNELACC</span>) or as PLC function blocks (<span class="kbd">DISTCMP</span>, <span class="kbd">RATIO</span>, <span class="kbd">REDUCE</span>, <span class="kbd">INVPID</span>).</p>
-        </article>
-      </div>
-    </section>
-
-    <aside class="card emph-box" id="mia-one-liner" role="note" aria-label="Invariant-first summary">
-      <div class="kicker">Invariant-first compute</div>
-      <p>
-        Replace fragile scalars with <em>group-invariant</em> numbers. Move inputs, machine state, and outputs together; behavior stays fixed while internals vary.
-        Result: runs today in software, accelerates on FPGAs or mature nodes, raises robotic tolerance, and ships as <strong>per-device twins</strong> for security.
-      </p>
-    </aside>
-
-    <!-- Notes -->
-    <section id="notes" aria-labelledby="notes-h">
-      <h2 id="notes-h">Research notes &amp; essays (selected)</h2>
-      <ul>
-        <li>β scaling in large vs small models — “rolling log” metaphor and token/cost scenarios.</li>
-        <li>Operator-theoretic verification — coverage/time/memory certificates.</li>
-        <li>Orbitfold geometry &amp; information geometry — release gates and natural-gradient clamps.</li>
-        <li>Ising-adjacent perspectives — why β≠<span class="math">1/√d<sub>k</sub></span> after initialization.</li>
-      </ul>
-      <p class="callout">Full list: papers, slides, lecture notes, and code are indexed on the <a href="/Research">Research</a> page.</p>
-    </section>
-
-    <!-- Market -->
-    <section id="market" aria-labelledby="market-h">
-      <h2 id="market-h">Market &amp; strategy (opinions)</h2>
-      <p>I discuss AI efficiency shocks and strategic implications for semiconductor competitiveness. These sections are <strong>analysis/opinion</strong>; where numbers are cited, I aim to provide sources or reproduce calculations. I welcome independent critique.</p>
-    </section>
-
-    <!-- Bio -->
-    <section id="bio" aria-labelledby="bio-h">
-      <h2 id="bio-h">Bio</h2>
-      <p>I work at the seam of <strong>geometry, control, and security</strong>. Formation in math/physics/CS; influenced by monastic stillness and service traditions. I view security as <strong>preservation of dignity under uncertainty</strong> and learning as <strong>formation under constraint</strong>.</p>
-    </section>
-
-    <!-- Ethos disclaimer (no order named) -->
-    <section id="ethos-disclaimer" aria-labelledby="ethos-disclaimer-h">
-      <h2 id="ethos-disclaimer-h">Ethos &amp; scope</h2>
-      <div class="card">
-        <p>This site presents personal research and vocation-aligned work. It does not use or trade on any religious order’s name, logo, or endorsement, and it offers no goods or services under such names. Views and materials here are my own.</p>
-      </div>
-    </section>
-
-
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-h">
-      <h2 id="contact-h">Contact</h2>
-      <ul>
-        <li>Email: <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a></li>
-        <li>GitHub: <a href="https://github.com/williamchuang" rel="me">github.com/williamchuang</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/chuang-william">linkedin.com/in/chuang-william</a></li>
-        <li>ORCID: <a href="https://orcid.org/0009-0008-0796-9478">orcid.org/0009-0008-0796-9478</a></li>
-      </ul>
     </section>
 
     <!-- Footer notes -->
     <section id="footer-notes" aria-labelledby="footer-h">
-      <h2 id="footer-h">Footer notes (IP &amp; review)</h2>
-      <p>Some materials relate to an active U.S. provisional filing. Public write-ups are <strong>non-enabling summaries</strong>; technical evaluations proceed under NDA and export-control compliance. I welcome <strong>peer review</strong> and <strong>third-party benchmarking</strong>.</p>
+      <h2 id="footer-h">IP, review, and boundaries</h2>
+      <p>
+        Some materials relate to active or planned U.S. filings. Public descriptions on this site are
+        <strong>non-enabling summaries</strong>. Technical evaluations proceed under NDA and export-control
+        compliance. Independent cryptographic review and red-teaming are welcome under appropriate safeguards.
+      </p>
     </section>
 
   </main>
