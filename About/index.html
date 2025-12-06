@@ -83,6 +83,25 @@
     .subhead { font-size: 1.05rem; color: var(--muted); max-width: 70ch; text-align: center; margin-left: auto; margin-right: auto; }
     .nowrap { white-space: nowrap; }
 
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 80ch;
+      margin: 0.6rem auto;
+      text-align: center;
+    }
+
+    .subtitle.tagline {
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      max-width: 70ch;
+    }
+
+    .content-text {
+      max-width: 80ch;
+      margin: 0.4rem auto;
+    }
+
     /* Top nav */
     nav.top-nav {
       position: sticky; top: 0; z-index: 10;
@@ -195,19 +214,6 @@
       color: var(--muted);
     }
 
-    .subtitle {
-      font-size: 0.98rem;
-      color: var(--muted);
-      max-width: 80ch;
-      margin: 0.6rem auto;
-      text-align: center;
-    }
-
-    .content-text {
-      max-width: 80ch;
-      margin: 0.4rem auto;
-    }
-
     .prayer-card { margin-top: 1rem; }
 
     .footer-links {
@@ -263,6 +269,10 @@
         I build <strong>self-correcting, interpretable transformer systems</strong> that train faster,
         edit safely, and can run inside <strong>geometry-native, twin-capable cryptographic wrappers</strong>.
       </p>
+      <p class="subtitle tagline">
+        Hazing says: <em>“I did it, so you must.”</em><br />
+        Logarchéon chooses stewardship: <em>“I did it, so you don’t have to.”</em>
+      </p>
       <div class="toc" aria-label="Quick links">
         <a href="#one-liner">One-liner</a>
         <a href="#company">Logarchéon</a>
@@ -270,6 +280,7 @@
         <a href="#mia-now">MIA</a>
         <a href="#product">Λ-Stack</a>
         <a href="#bio-full">About</a>
+        <a href="#manifesto">Manifesto</a>
         <a href="#patrons">Patrons</a>
         <a href="#contact">Contact</a>
       </div>
@@ -647,31 +658,6 @@
       </div>
     </section>
 
-    <!-- Research notes -->
-    <section id="notes" aria-labelledby="notes-h">
-      <h2 id="notes-h">Research notes &amp; essays (selected)</h2>
-      <ul>
-        <li>β scaling in large vs small models — “rolling log” metaphor and token/cost scenarios.</li>
-        <li>Operator-theoretic verification — coverage/time/memory certificates.</li>
-        <li>Orbitfold geometry &amp; information geometry — release gates and natural-gradient clamps.</li>
-        <li>Ising-adjacent perspectives — why β≠<span class="math">1/√d<sub>k</sub></span> after initialization.</li>
-      </ul>
-      <p class="callout">
-        Full list: papers, slides, lecture notes, and code are indexed on the
-        <a href="/Research">Research</a> page.
-      </p>
-    </section>
-
-    <!-- Market & strategy (placeholder) -->
-    <section id="market" aria-labelledby="market-h">
-      <h2 id="market-h">Market &amp; strategy (opinions)</h2>
-      <p>
-        I discuss AI efficiency shocks and strategic implications for semiconductor competitiveness. These
-        sections are <strong>analysis/opinion</strong>; where numbers are cited, I aim to provide sources
-        or reproduce calculations. Independent critique is welcome.
-      </p>
-    </section>
-
     <!-- Bio (merged from About page) -->
     <section id="bio-full" aria-labelledby="bio-h">
       <h2 id="bio-h">Vocation &amp; biography</h2>
@@ -729,6 +715,83 @@
 
         <p class="content-text">
           <strong>E-mail:</strong> <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a>
+        </p>
+      </article>
+    </section>
+
+    <!-- Manifesto -->
+    <section id="manifesto" aria-labelledby="manifesto-h">
+      <h2 id="manifesto-h">Logarchéon AI Manifesto</h2>
+      <article class="card emph-box">
+        <p class="subtitle">
+          Hazing says: <em>“I did it, so you must.”</em><br />
+          Logarchéon chooses stewardship: <em>“I did it, so you don’t have to.”</em>
+        </p>
+
+        <h3>1. From hazing to stewardship</h3>
+        <p>
+          Hazing ethics protects status by preserving pain: “I suffered under this system; your suffering is
+          what validates me.” Stewardship ethics protects people: “If I have already paid a high cost to
+          learn something hard, my duty is to lower that cost for others—not to keep them small so I feel big.”
+          Logarchéon is built explicitly on stewardship, not hazing.
+        </p>
+
+        <h3>2. Equal dignity versus pyramids of privilege and luck</h3>
+        <p>
+          Every human person has equal dignity—whether one speaks in the language of human rights or of
+          <em>imago Dei</em>. No one is given a higher-grade soul because of passport, accent, bloodline,
+          or accumulated privilege and luck. When AI allows a truck driver, migrant, or single parent with
+          a local model, basic coding skills, and a good workflow to match the work of an “elite,” that is
+          not a moral failure of AI; it is a moral correction of a rigged game.
+        </p>
+        <p class="callout">
+          <span class="badge">Vocation</span>
+          If one takes seriously <em>tuitio fidei et obsequium pauperum</em>—the defense of the Faith and
+          service of the poor and the sick—then the right use of AI is to <strong>amplify</strong> those
+          at the bottom of the pyramid, not to preserve comfort for those already on top.
+        </p>
+
+        <h3>3. Outer cortex, not distant oracle</h3>
+        <p>
+          Advanced models are treated as an <strong>outer cortex</strong>: a silicon extension of thought and
+          language, not an idol. The question is not whether such outer cortices will exist, but who they
+          will serve. Logarchéon’s answer is simple: your outer cortex should live on your machines, under
+          your keys, in service of your conscience, vocation, and community—not as a remote service reading
+          you from above.
+        </p>
+
+        <h3>4. Tools are not cheating. Dishonesty is.</h3>
+        <p>
+          There are narrow, explicit contexts—exams, sacraments, sworn testimony, specific rituals—where
+          “unaided work” is required. In those places, secretly delegating to a model is cheating because it
+          breaks a clear promise. Outside those contexts, a blanket ban on AI is hazing, not ethics. The
+          meaningful question becomes: not “Did you touch AI?” but “How did you design, steer, and check
+          your stack—and do you stand behind the result?”
+        </p>
+
+        <h3>5. Coding and machine’s-eye literacy for everyone</h3>
+        <p>
+          If you cannot speak the machine’s language, the machine will be used on you, not for you. Basic
+          coding and systems thinking are treated as a new civic literacy: understanding state and feedback,
+          knowing how prompts and APIs shape behavior, and being able to script small agents and pipelines.
+          This is how workers, migrants, parishes, and clinics rule their own machines, instead of being ruled
+          by opaque platforms.
+        </p>
+        <p>
+          When a model is trained or fine-tuned on your corpus, runs on your hardware or trusted enclave, and
+          is steered and reviewed by you, its output is not a foreign ghostwriter; it is your outer cortex.
+          Using it is not plagiarism; it is thinking with your extended mind.
+        </p>
+
+        <h3>6. Commitments</h3>
+        <ul>
+          <li><strong>Stewardship over hazing.</strong> “I did the hard work, so you can start higher and go further.”</li>
+          <li><strong>Private, accountable outer cortex.</strong> Local or λ-secure models where feasible; clear logs and authorship metadata; no mind-mining.</li>
+          <li><strong>Bias toward the bottom of the pyramid.</strong> Priority for workers, migrants, patients, small parishes, and solo founders. If the tools only help those already on top, the design has failed.</li>
+        </ul>
+        <p class="callout">
+          In an age of hybrid minds, no one should be shamed for using an outer cortex, and no one should
+          be denied one because they were born on the wrong side of privilege and luck.
         </p>
       </article>
     </section>
