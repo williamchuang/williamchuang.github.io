@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>William Chuang — Logarchéon</title>
-  <meta name="description" content="Logarchéon wraps the language models you already use in a λ-secure, geometry-native runtime so they can run encrypted-in-use on your own hardware or in your own cloud. Built for national security, critical infrastructure, systemic finance, and high-confidentiality legal and civil environments." />
+  <meta name="description" content="Logarchéon wraps the language models you already use—or trains new λ-native models from scratch—in a geometry-native, λ-secure runtime so they can run encrypted-in-use on your own hardware or in your own cloud. Built for national security, critical infrastructure, systemic finance, and high-confidentiality legal and civil environments." />
 
   <!-- Canonical & Social -->
   <link rel="canonical" href="https://logarcheon.com/">
   <meta property="og:url" content="https://logarcheon.com/">
   <meta property="og:site_name" content="Logarchéon">
   <meta property="og:title" content="William Chuang — Logarchéon" />
-  <meta property="og:description" content="λ-secure private AI and geometry-native cryptographic wrappers for missions that cannot fail. Wrap your existing LLMs in a λ-secure runtime that runs encrypted-in-use on your hardware or cloud tenancy." />
+  <meta property="og:description" content="λ-secure private AI and geometry-native cryptographic wrappers for missions that cannot fail. Wrap your existing LLMs or train λ-native models from scratch so they run encrypted-in-use on your hardware or cloud tenancy." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
   <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
@@ -20,7 +20,7 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0c0f">
 
-  <!-- Fonts (ASCII URLs; visible text uses “Logarchéon”) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
@@ -98,8 +98,8 @@
     .grid { display: grid; gap: 1rem; }
     .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    @media (max-width: 900px){ .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
-
+    @media (max-width: 900px){
+      .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
       h1, .subhead { text-align: left; }
     }
 
@@ -169,7 +169,7 @@
   <!-- Your global CSS (if any) -->
   <link rel="stylesheet" href="/css/main.css">
 
-  <!-- MathJax (no extra polyfill needed in modern browsers) -->
+  <!-- MathJax (for research pages; harmless here) -->
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
@@ -194,14 +194,15 @@
 
   <main class="container">
 
-    <!-- Hero: clear value prop + CTA -->
+    <!-- Hero -->
     <header class="site" aria-labelledby="site-title">
       <div class="eyebrow">Logarchéon · λ-secure AI · high-assurance compute</div>
-      <h1 id="site-title">Turn the models you already trust into λ-secure engines.</h1>
+      <h1 id="site-title">Wrap your models — or train λ-native ones from scratch.</h1>
       <p class="subhead">
-        Logarchéon wraps large language models in a geometry-native, λ-secure runtime so they run
-        encrypted-in-use on <span class="nowrap">your hardware</span> or in <span class="nowrap">your cloud tenancy</span>.
-        You keep the weights, the keys, and the frame; GRAIL provides the shell—designed for national security,
+        Logarchéon either wraps the language models you already use in a geometry-native, λ-secure runtime,
+        or trains new λ-native models from scratch for your domain. In both paths, models run encrypted-in-use
+        on <span class="nowrap">your hardware</span> or in <span class="nowrap">your cloud tenancy</span>.
+        You keep the weights and the keys; GRAIL supplies the shell—designed for national security,
         critical infrastructure, systemic finance, and high-confidentiality law and civil environments.
       </p>
       <div class="toc" aria-label="Quick links">
@@ -217,7 +218,7 @@
       </div>
     </header>
 
-    <!-- Section: Who this is for -->
+    <!-- Who this is for -->
     <section id="for-whom" aria-labelledby="for-whom-h">
       <h2 id="for-whom-h">Who this is for</h2>
       <p class="lede">
@@ -279,13 +280,14 @@
       </div>
     </section>
 
-    <!-- Section: Works with your models -->
+    <!-- Works with your models -->
     <section id="works-with-models" aria-labelledby="works-with-models-h">
-      <h2 id="works-with-models-h">Bring your own models. GRAIL provides the shell.</h2>
+      <h2 id="works-with-models-h">Bring your own models — or commission λ-native ones.</h2>
       <p class="lede">
         Logarchéon does not ask you to throw away the models you already use and trust.
         The λ-secure runtime is designed to <strong>wrap existing LLMs</strong>—open-source or licensed—
-        so they inherit the benefits of GRAIL without a ground-up rebuild.
+        and it can also support <strong>λ-native models trained from scratch</strong> when you need
+        performance and control at the architecture level.
       </p>
 
       <div class="grid cols-3">
@@ -301,36 +303,35 @@
 
         <article class="card">
           <div class="kicker">λ-secure wrapper</div>
-          <h3>One geometry-native shield around many models</h3>
+          <h3>A geometry-native shell around your models</h3>
           <ul>
-            <li>Your models run inside a λ-geometry runtime and private transform
-              <span class="math">T</span> that you control.</li>
-            <li>Training and inference happen in the T-frame, so even copied weights
-              are not a usable canonical twin.</li>
-            <li>Different teams can share a runtime while keeping their own
-              <span class="math">T</span> and data siloed.</li>
+            <li>Your models run inside a λ-geometry runtime under a private geometric key
+              — a secret change of coordinates — that only you control.</li>
+            <li>Training and inference happen in this disguised coordinate system, so even copied weights
+              do not immediately reveal a usable canonical model.</li>
+            <li>Different teams can share a runtime while keeping their own geometric keys and data siloed.</li>
           </ul>
         </article>
 
         <article class="card">
-          <div class="kicker">Keep ownership</div>
-          <h3>Your accounts, your keys, your weights</h3>
+          <div class="kicker">λ-native path</div>
+          <h3>Train from scratch when you need it</h3>
           <ul>
-            <li>Models are pulled into the runtime using <strong>your</strong> cloud accounts and credentials.</li>
-            <li>Logarchéon does not re-host foundation models or request production access.</li>
-            <li>You can unplug the runtime at any time and retain your tuned models and data.</li>
+            <li>For some missions, you may prefer a model trained from the ground up under GRAIL’s geometry.</li>
+            <li>In that case, the geometric structure is built into the model’s architecture instead of added as a separate wrapper.</li>
+            <li>This keeps the security properties while aiming to minimize extra overhead at inference time compared with a pure wrap-only approach.</li>
           </ul>
         </article>
       </div>
 
       <div class="emph-box">
-        <strong>Plain language:</strong> GRAIL is a λ-secure shell for your AI portfolio. 
-        You choose the models; Logarchéon supplies the geometry-native wrapper so they can operate
-        as encrypted-in-use engines under your governance.
+        <strong>Plain language:</strong> GRAIL is a λ-secure shell for your AI portfolio, plus an option to
+        grow λ-native models from scratch. You choose the models and the path; Logarchéon supplies
+        the geometry-native wrapper so they can behave as encrypted-in-use engines under your governance.
       </div>
     </section>
 
-    <!-- Section: Segment map & priority -->
+    <!-- Segment map & priority -->
     <section id="segment-map" aria-labelledby="segment-map-h">
       <h2 id="segment-map-h">Segment map &amp; priority</h2>
       <p class="lede">
@@ -366,7 +367,7 @@
             <tr>
               <td class="rank-col">4</td>
               <td class="segment-col">Critical Infrastructure / OT</td>
-              <td class="role-col">Physical consequences and legacy hardware. Ideal long-term home for MIA hardware/control and invariant-first compute on older nodes.</td>
+              <td class="role-col">Physical consequences and legacy hardware. Ideal long-term home for hardware and control layers and invariant-first compute on older nodes.</td>
             </tr>
             <tr>
               <td class="rank-col">5</td>
@@ -408,57 +409,55 @@
       </div>
     </section>
 
-    <!-- Section: What you get (offers) -->
+    <!-- What you get -->
     <section id="offers" aria-labelledby="offers-h">
       <h2 id="offers-h">What you actually get from Logarchéon</h2>
       <p class="lede">
         This is not generic “AI consulting.” The offerings are opinionated: they assume high-assurance environments,
-        single-GPU constraints for the first deployments, and a zero-knowledge vendor posture. Sandboxes and Tier I missions run on
-        the same λ-secure backbone.
+        single-GPU constraints for the first deployments, and a zero-knowledge vendor posture.
+        Sandboxes and Tier I missions run on the same λ-secure backbone.
       </p>
 
       <div class="grid cols-3">
-        <article class="card" id="lambda-secure-model">
-          <div class="kicker">V1 · λ-secure private model</div>
-          <h3>λ-secure private GPT on a single GPU</h3>
+        <article class="card" id="lambda-native-model">
+          <div class="kicker">Track 1 · λ-secure private models</div>
+          <h3>Private GPT-style models, wrapped or λ-native</h3>
           <ul>
-            <li>A tuned “house model” that runs comfortably on a single RTX-class GPU or modest server.</li>
-            <li>Deployed inside the λ-secure runtime, with your own secret transform
-              <span class="math">T</span> and your documents as the primary signal.</li>
-            <li>Ideal first step for law, internal research, and high-confidentiality teams that want
-              a private assistant they can actually own and explain.</li>
+            <li>Start from a compact or mid-scale base model and tune it inside the λ-secure runtime on your data.</li>
+            <li>Or commission a λ-native model trained from scratch for your domain, where the geometry is built into the architecture rather than added as an external wrapper.</li>
+            <li>Designed to run on a single high-end GPU or modest server, with a clear path to larger deployments as your hardware grows.</li>
           </ul>
           <p class="callout">
             <span class="badge">Outcome</span>
-            A concrete, working λ-secure assistant on your hardware—not a slide deck—proving that
-            encrypted-in-use AI is feasible for your mission on a single machine.
+            A concrete, working λ-secure assistant on your hardware—either a wrapped model you already trust,
+            or a new λ-native model—demonstrating encrypted-in-use AI for your mission on a single machine.
           </p>
         </article>
 
-        <article class="card" id="mia-runtime">
-          <div class="kicker">V2 · Runtime</div>
+        <article class="card" id="lambda-runtime">
+          <div class="kicker">Track 2 · Runtime</div>
           <h3>λ-secure AI runtime for your whole model stack</h3>
           <ul>
             <li>A containerized runtime image that can host <strong>multiple LLMs</strong> under one λ-secure shell.</li>
             <li>Connects to your chosen open-source or licensed models; you bring the weights through
-              your normal deployment pipeline.</li>
+              your normal deployment pipeline and accounts.</li>
             <li>Supports multi-agent workflows, red/blue analysis, and specialty models (code, search,
-              domain-specific LMs) all running in the T-frame.</li>
+              domain-specific LMs) all running in the same disguised coordinate system.</li>
           </ul>
           <p class="callout">
             <span class="badge">Outcome</span>
             A unified λ-secure “control plane” for your AI portfolio, where many models can run under
-            the same governance, logging, and encrypted-in-use semantics.
+            consistent governance, logging, and encrypted-in-use semantics.
           </p>
         </article>
 
         <article class="card" id="hardware-appliance">
-          <div class="kicker">V3 · Future</div>
+          <div class="kicker">Future · Hardware</div>
           <h3>MIA appliance — λ-secure AI box</h3>
           <ul>
-            <li>A small, hardened appliance running the MIA VM and λ-secure runtime on FPGAs / mature-node silicon.</li>
+            <li>A small, hardened appliance running the metric-invariant architecture and λ-secure runtime on FPGAs or mature-node silicon.</li>
             <li>Designed for OT, forward-deployed, and air-gapped settings where “cloud” is not an option.</li>
-            <li>Maintains the same T-frame semantics as your software deployments so policies and proofs transfer.</li>
+            <li>Maintains the same coordinate-hiding semantics as your software deployments so policies and proofs transfer.</li>
           </ul>
           <p class="callout">
             <span class="badge">Outcome</span>
@@ -469,13 +468,13 @@
       </div>
     </section>
 
-    <!-- Section: V1 beachhead personas (law + startups) -->
+    <!-- Beachhead personas -->
     <section id="sandbox-detail" aria-labelledby="sandbox-detail-h">
-      <h2 id="sandbox-detail-h">V1 beachhead: law &amp; privacy-first founders</h2>
+      <h2 id="sandbox-detail-h">Beachhead: law &amp; privacy-first founders</h2>
       <p class="lede">
         Logarchéon’s first deployments focus on environments where confidentiality, single-GPU footprints,
         and fast iteration matter most: law practices and privacy-first startups. These stress-test the
-        λ-secure stack on real workloads, and generate the references needed for higher-assurance missions
+        λ-secure stack on real workloads and generate the references needed for higher-assurance missions
         in national security, defense, and systemic finance.
       </p>
 
@@ -501,7 +500,7 @@
           <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
           <ul>
             <li>You want local or self-hosted LLMs that run on a single GPU or small server, not a sprawling cluster.</li>
-            <li>You are willing to rent cloud GPUs—<em>if</em> the account, keys, and λ-secure transform <span class="math">T</span> stay under your control.</li>
+            <li>You are willing to rent cloud GPUs—<em>if</em> the accounts, keys, and λ-secure runtime stay under your control.</li>
             <li>You need an engine that keeps your IP and tuned weights from becoming someone else’s training signal.</li>
           </ul>
           <p class="callout">
@@ -514,34 +513,34 @@
       </div>
 
       <div class="emph-box">
-        <strong>Staged strategy:</strong> V1 proves the λ-secure stack with law firms and privacy-first teams.
-        V2 extends into regulated enterprise and critical infrastructure. V3 carries the same primitives into
+        <strong>Staged strategy:</strong> first prove the λ-secure stack with law firms and privacy-first teams.
+        Then extend into regulated enterprise and critical infrastructure. Finally, carry the same primitives into
         missions that demand hardware-backed encrypted-in-use compute and cryptomorphic twins at scale.
       </div>
     </section>
 
-    <!-- Section: How it works -->
+    <!-- How it works -->
     <section id="how-it-works" aria-labelledby="how-it-works-h">
       <h2 id="how-it-works-h">How the λ-secure “self-laundromat” works</h2>
       <p class="lede">
-        The core idea is simple: the geometry and machinery come from Logarchéon; the secret frame comes from you.
-        A private transform <span class="math">T</span> (e.g., Lorentz/orthogonal) defines your model’s working coordinates.
+        The core idea is simple: the geometry and machinery come from Logarchéon; the secret coordinate system comes from you.
+        A private geometric key — your own change of basis — defines the coordinates in which your model actually works.
       </p>
 
       <div class="grid cols-3">
         <article class="card">
           <div class="kicker">Step 1</div>
-          <h3>You keep the secret <span class="math">T</span></h3>
+          <h3>You generate a private geometric key</h3>
           <ul>
             <li>You run a setup routine (or the runtime) that embeds your documents or signals into the λ-geometry space.</li>
-            <li>You choose a secret transform <span class="math">T</span> on your side.</li>
-            <li>The system applies <span class="math">T</span> to both the model and your embedded data, producing <span class="math">T·M</span> and <span class="math">T·X</span>.</li>
+            <li>You generate a private geometric key on your side: in practice, a secret change of coordinates for the model and your data.</li>
+            <li>The system produces a transformed model and transformed data that live entirely in this disguised coordinate system.</li>
           </ul>
         </article>
 
         <article class="card">
           <div class="kicker">Step 2</div>
-          <h3>Training happens in the T-frame</h3>
+          <h3>Training happens in the disguised coordinates</h3>
           <ul>
             <li>Training runs either on:
               <ul>
@@ -549,7 +548,7 @@
                 <li>GPUs you rent in your own cloud account, using the λ-secure runtime.</li>
               </ul>
             </li>
-            <li>Only <span class="math">T·M</span> and <span class="math">T·X</span> ever touch that compute environment.</li>
+            <li>Only the transformed model and transformed data ever touch that compute environment.</li>
             <li>Neither Logarchéon nor the cloud provider sees plaintext data or a canonical tuned model.</li>
           </ul>
         </article>
@@ -558,8 +557,8 @@
           <div class="kicker">Step 3</div>
           <h3>Inference stays vendor-blind</h3>
           <ul>
-            <li>You can keep everything in the T-frame for operations, or locally apply <span class="math">T^{-1}</span> if you need canonical outputs.</li>
-            <li>Even if someone copies the VM or model, they obtain only <span class="math">T·M'</span>, not a usable canonical twin.</li>
+            <li>You can keep everything in the disguised coordinates for operations, or reverse the geometric key locally if you need canonical outputs.</li>
+            <li>Even if someone copies the runtime or model, they obtain only a transformed version, not a directly usable twin.</li>
             <li>Standard crypto (disk encryption, TLS, TEEs) sits underneath the λ-geometry layer as defense-in-depth.</li>
           </ul>
         </article>
@@ -567,13 +566,12 @@
 
       <p class="callout">
         <span class="badge">Plain English</span>
-        You get a self-service “encrypted AI laundromat”: your data and model go in wearing your secret transform
-        <span class="math">T</span>; all training and inference happen in that disguise; only you can reverse it—and only if
-        your policy says you should.
+        You get a self-service “encrypted AI laundromat”: your data and model go in wearing your own geometric disguise;
+        all training and inference happen in that disguise; only you can remove it—and only if your policy says you should.
       </p>
     </section>
 
-    <!-- Section: Why this vs. typical "private GPT" -->
+    <!-- Why this is different -->
     <section id="why-different" aria-labelledby="why-different-h">
       <h2 id="why-different-h">Why this is different from typical “private GPT” offerings</h2>
       <div class="grid cols-2">
@@ -592,9 +590,9 @@
             <li><strong>Single-GPU friendly:</strong> Compact and mid-scale λ-secure deployments that work on
               a single RTX-class GPU or modest server, with a clear scaling path as your hardware grows.</li>
             <li><strong>Model-agnostic:</strong> The λ-secure runtime is designed to wrap the LLMs you already
-              rely on—open-source or licensed—so they gain encrypted-in-use behavior without starting from zero.</li>
+              rely on—open-source or licensed—and can also support λ-native models trained from scratch.</li>
             <li><strong>Zero-knowledge vendor stance:</strong> Logarchéon designs the geometry and runtime;
-              you keep <span class="math">T</span>, own the cloud accounts, and control both weights and logs.</li>
+              you keep the geometric keys, own the cloud accounts, and control both weights and logs.</li>
             <li><strong>By-design BYO-cloud:</strong> Everything runs in your AWS/Azure/GCP tenancy or on-prem.
               Production access is your choice; the default is that Logarchéon does not see your workloads.</li>
           </ul>
@@ -602,7 +600,7 @@
       </div>
     </section>
 
-    <!-- Section: Under the hood / credibility -->
+    <!-- Under the hood -->
     <section id="under-the-hood" aria-labelledby="under-the-hood-h">
       <h2 id="under-the-hood-h">Under the hood: CEAS, finite lift, GRAIL, and MIA</h2>
       <p class="lede">
@@ -635,13 +633,13 @@
           <p class="callout">
             <span class="badge">Expectation</span>
             Public write-ups are intentionally non-enabling. Detailed materials are shared under
-            NDA and, where relevant, subject to additional review.
+            NDA and additional review where appropriate.
           </p>
         </article>
       </div>
     </section>
 
-    <!-- Section: About the founder (short) -->
+    <!-- Founder -->
     <section id="founder" aria-labelledby="founder-h">
       <h2 id="founder-h">Who is behind Logarchéon?</h2>
       <div class="card">
@@ -659,7 +657,7 @@
       </div>
     </section>
 
-    <!-- Section: Contact / CTA -->
+    <!-- Contact / CTA -->
     <section id="contact" aria-labelledby="contact-h">
       <h2 id="contact-h">Next steps</h2>
       <div class="card">
@@ -685,7 +683,7 @@
       </div>
     </section>
 
-    <!-- Section: IP / boundaries -->
+    <!-- IP / boundaries -->
     <section id="footer-notes" aria-labelledby="footer-h">
       <h2 id="footer-h">IP, review, and boundaries</h2>
       <p>
