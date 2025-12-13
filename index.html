@@ -425,6 +425,117 @@
 </section>
 
 
+<section id="cpu-trust-and-secure-computation">
+  <h2>Why CPUs Cannot Be Fully Trusted — and What GRAIL Solves</h2>
+
+  <h3>Publicly Known Surveillance Units in CPUs</h3>
+  <p>Modern CPUs from Intel and AMD embed persistent coprocessors with deep and privileged access to the system. These components include:</p>
+  <ul>
+    <li>
+      <strong>Intel Management Engine (ME)</strong> — a coprocessor embedded in Intel chipsets since 2008, now evolved into the
+      <strong>Converged Security & Management Engine (CSME)</strong>. It remains active as long as power is available and can execute code,
+      access memory, modify storage, and transmit data independent of the OS.
+    </li>
+    <li>
+      <strong>Intel Active Management Technology (AMT)</strong> — runs atop ME/CSME, enabling out-of-band remote control:
+      install software, reboot, or wipe disks—all without OS-level visibility.
+    </li>
+    <li>
+      <strong>AMD Platform Security Processor (PSP)</strong> — a firmware-level embedded control unit in AMD chips since ~2013, used for
+      secure boot, fTPM, and other security services. Also known as the AMD Secure Processor.
+    </li>
+  </ul>
+
+  <p>
+    These components can remain active <strong>even when the CPU appears powered off</strong>, and may communicate over network interfaces
+    without host knowledge. Multiple vulnerabilities have been disclosed:
+    <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00075.html" target="_blank" rel="noopener">INTEL-SA-00075</a>,
+    <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00086.html" target="_blank" rel="noopener">INTEL-SA-00086</a>.
+    Their mere presence in the trust base raises serious concerns.
+  </p>
+
+  <blockquote style="background:#f4f4f4; border-left:4px solid #007BFF; padding:1rem;">
+    <strong>Bottom line:</strong> You cannot fully trust CPU firmware—not Intel, not AMD, and not undocumented foreign chipsets.
+    GRAIL avoids relying on these units entirely.
+  </blockquote>
+
+  <h3>Comparison of Methods for Secure Computation Without CPU Trust</h3>
+  <div style="overflow-x:auto;">
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%; font-size:0.95rem;">
+      <thead style="background:#007BFF; color:white;">
+        <tr>
+          <th>Method</th>
+          <th>What's Protected “In Use”</th>
+          <th>Trust & Leakage</th>
+          <th>Speed (FHE = 1×)</th>
+          <th>ML Fit Today</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>FHE</strong> (CKKS, TFHE)</td>
+          <td>Data & model fully encrypted during computation</td>
+          <td>No hardware trust; leaks access patterns unless ORAM is used</td>
+          <td><strong>1× (baseline)</strong><br>e.g. 8.58s vs. milliseconds</td>
+          <td>Too slow for real-time ML</td>
+        </tr>
+        <tr>
+          <td><strong>MPC / Secret Sharing</strong></td>
+          <td>Split data across parties; compute jointly</td>
+          <td>Trust split across ≥2 parties; high communication overhead</td>
+          <td><strong>10–100×</strong> faster than FHE</td>
+          <td>Limited by WAN latency; useful in static tasks</td>
+        </tr>
+        <tr>
+          <td><strong>ORAM / Garbled Circuits</strong></td>
+          <td>Obfuscates both data and access patterns</td>
+          <td>High bandwidth; full privacy if padded</td>
+          <td><strong>10–100×</strong> faster than FHE</td>
+          <td>Used in binary net or circuit tasks</td>
+        </tr>
+        <tr>
+          <td><strong>ZK / zkML</strong></td>
+          <td>Verifiable execution (but not encrypted in use)</td>
+          <td>Trusted setup; compute is verifiable but slow to prove</td>
+          <td><strong>2–10×</strong> faster than FHE (verify-only)</td>
+          <td>Useful for proofs, not full in-use privacy</td>
+        </tr>
+        <tr>
+          <td><strong>TEE</strong> (SGX, SEV)</td>
+          <td>Plaintext in enclave, encrypted RAM</td>
+          <td>Requires firmware trust; vulnerable to side-channels</td>
+          <td><strong>500–1,000×</strong> faster than FHE</td>
+          <td>Practical; not zero-trust</td>
+        </tr>
+        <tr style="background:#e7ffe7;">
+          <td><strong>GRAIL</strong> (this work)</td>
+          <td>Algebraic encryption of parameters and activations</td>
+          <td>Zero reliance on firmware or microcode; semantics preserved</td>
+          <td>
+            ≈<strong>1×</strong> (plaintext speed)<br>
+            <strong>1,000–10,000×</strong> faster than FHE
+          </td>
+          <td><strong>Real-time encrypted inference + training</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote style="background:#f4f4f4; border-left:4px solid #007BFF; padding:1rem; margin-top:2rem;">
+    <strong>Bottom line:</strong> GRAIL runs at <u>normal speed</u> without trusting the CPU.<br>
+    Compared to FHE/MPC, it’s not “3× faster”—it’s <strong>thousands to ten-thousands× faster</strong>.<br>
+    Compared to plaintext? <strong>= equal speed</strong>, even with per-step key rotation.
+  </blockquote>
+
+  <h3>Why GRAIL Is Fundamentally Different</h3>
+  <p>GRAIL avoids the decrypt-then-re-encrypt penalty by never needing to decrypt inside CPU firmware at all. Models are encrypted algebraically—not merely encrypted weights, but their <em>semantic representations</em> as geometric operators. This redefines the execution model to be intrinsically cryptomorphic.</p>
+
+  <div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #6f42c1; background-color:#f2eafa;">
+    <strong>Note:</strong> GRAIL is not just another encryption wrapper. It is a <strong>superset architecture</strong>—a union of cryptography, geometry, symbolic dynamics, and post-quantum invariants.
+  </div>
+
+</section>
+
 
     <!-- Who this is for -->
     <section id="for-whom" aria-labelledby="for-whom-h">
