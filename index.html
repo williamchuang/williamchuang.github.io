@@ -290,309 +290,139 @@
       </div>
     </header>
 
-<a href="#pain-point">Why this exists</a>
+<!-- In‑Use Threat Model (MECE‑merged) -->
+<section id="in-use-threat-model" aria-labelledby="in-use-h">
+  <h2 id="in-use-h">Why this exists: the “in‑use” trust boundary problem</h2>
 
-<!-- NEW: Pain point section (CPU trust / in-use problem) -->
-<section id="pain-point" aria-labelledby="pain-point-h">
-  <h2 id="pain-point-h">Why this exists: the “in-use” leakage problem</h2>
-
+  <!-- A. Definition -->
   <p class="lede">
     Most security stacks protect AI <em>at rest</em> (storage) and <em>in transit</em> (network).
-    Training and inference are different: they are <strong>in-use</strong> operations.
-    “In use” is the moment where models, prompts, and intermediate representations must exist in a form a runtime can operate on—
-    which is where leakage typically happens (logs, endpoints, memory exposure, and firmware-level trust assumptions).
+    Training and inference are different: they are <strong>in‑use</strong> operations.
+    This is the phase where models, prompts, and intermediate representations must exist in operational form inside a runtime.
+    That is where leakage, misuse, and misplaced trust assumptions matter most.
   </p>
 
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">Definitions (used on this page)</div>
-
-    <h3 style="margin-top:.5rem;">What “in use” means</h3>
-    <p class="lede" style="margin-top:.25rem;">
-      “In use” means: the computation is actively running (training or inference), so the system holds sensitive material in memory
-      and manipulates it as numbers (token streams, weights, activations, embeddings, caches, retrieval artifacts).
-      Even if storage and network are encrypted, <strong>in-use exposure</strong> can occur via debugging, telemetry, endpoint compromise,
-      memory scraping, or a broadened trusted computing base.
-    </p>
-
-    <h3 style="margin-top:1.0rem;">What Logarchéon is (and what GRAIL / Λ-Stack mean)</h3>
-    <ul style="margin:.6rem 0 0 1.15rem;">
-      <li><strong>Logarchéon</strong> = the product line and runtime you deploy in your own environment (on-prem or your cloud tenancy).</li>
-      <li><strong>GRAIL</strong> = the security posture and mechanisms inside Logarchéon that reduce “in-use” reuse/leakage and support key-governed operation.</li>
-      <li><strong>Λ-Stack</strong> = the broader architecture around Logarchéon (runtime + governance + hardening patterns) for high-assurance deployment.</li>
-    </ul>
-
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Important framing</span>
-      Logarchéon is designed to reduce operational leakage in real deployments. It does not replace standard controls:
-      access control, disk encryption, TLS, auditing, and endpoint hardening remain mandatory.
+  <div class="card">
+    <div class="kicker">Definition</div>
+    <h3>What “in use” means</h3>
+    <p class="lede">
+      “In use” means active computation: weights instantiated, activations flowing, embeddings cached,
+      and intermediate states manipulated in memory (CPU, GPU, accelerator, and their runtimes).
+      Encryption at rest and TLS do not, by themselves, address this phase.
     </p>
   </div>
 
+  <!-- B. CPU trust boundary -->
   <div class="grid cols-2" style="margin-top:1rem;">
-    <div class="emph-box" style="margin-top:0;">
+    <div class="emph-box">
       <strong>Why “trust the CPU” is not a neutral assumption</strong>
       <p style="margin:.6rem 0 0; color:var(--muted);">
-        Modern platforms commonly include <strong>vendor-managed subsystems</strong> designed for management and security functions.
-        High-assurance buyers treat this class of component as part of the trusted computing base—often without being able to fully audit it.
-        This is not an accusation of malice; it is a standard threat-modeling reality.
+        Modern platforms include vendor‑managed subsystems designed for management and security.
+        These components operate <strong>below the OS</strong> and expand the trusted computing base.
+        This is not an allegation of intent; it is a standard threat‑modeling reality for high‑assurance buyers.
       </p>
 
-      <h3 style="margin-top:1rem;">Intel ME/CSME and Intel AMT (what they are)</h3>
-      <ul style="margin:.6rem 0 0 1.15rem;">
+      <h3 style="margin-top:1rem;">Vendor firmware subsystems (what they are)</h3>
+      <ul>
         <li>
-          <strong>Intel Management Engine (ME)</strong> (and its newer variants such as <strong>CSME</strong>) is firmware running on a
-          dedicated subsystem used for platform management and security functions.
+          <strong>Intel Management Engine (ME / CSME)</strong> — a dedicated microcontroller present in Intel chipsets since ~2008,
+          capable of running code independently of the main CPU, accessing memory, and operating while the system is powered.
         </li>
         <li>
-          <strong>Intel Active Management Technology (AMT)</strong> is an <em>out-of-band</em> remote administration capability available on some platforms
-          (commonly associated with Intel vPro) that operates via this management subsystem.
+          <strong>Intel Active Management Technology (AMT)</strong> — an out‑of‑band remote management capability running on ME
+          (e.g., remote power, provisioning, recovery) on supported platforms.
         </li>
-      </ul>
-
-      <h3 style="margin-top:1rem;">AMD Secure Processor / PSP (what it is)</h3>
-      <ul style="margin:.6rem 0 0 1.15rem;">
         <li>
-          <strong>AMD Platform Security Processor (PSP)</strong> (often referred to as the <strong>AMD Secure Processor</strong>) is a dedicated security subsystem
-          used for functions such as secure boot and platform security services (e.g., fTPM on many systems).
+          <strong>AMD Platform Security Processor (PSP / Secure Processor)</strong> — a dedicated security processor embedded in AMD systems
+          (since ~2013) used for secure boot, key handling, and platform security services.
         </li>
       </ul>
 
       <p style="margin:.75rem 0 0; color:var(--muted);">
-        Public references (descriptive, not accusatory):
+        Descriptive references:
         <a href="https://en.wikipedia.org/wiki/Intel_Management_Engine" target="_blank" rel="noopener">Intel ME/CSME</a>,
         <a href="https://en.wikipedia.org/wiki/Intel_Active_Management_Technology" target="_blank" rel="noopener">Intel AMT</a>,
         <a href="https://en.wikipedia.org/wiki/AMD_Platform_Security_Processor" target="_blank" rel="noopener">AMD PSP</a>.
       </p>
     </div>
 
-    <div class="emph-box" style="margin-top:0; border-left-color: var(--accent-2);">
-      <strong>Capabilities and threat relevance (fact-pattern)</strong>
-
+    <!-- C. Threat evidence -->
+    <div class="emph-box" style="border-left-color: var(--accent-2);">
+      <strong>Threat relevance and evidence</strong>
       <p style="margin:.6rem 0 0; color:var(--muted);">
-        This class of subsystem is relevant because it is explicitly designed to operate <strong>below</strong> the OS in the platform stack.
-        Capabilities vary by vendor and configuration, but commonly include:
+        This class of subsystem is explicitly designed to persist below OS visibility.
+        Historically, attackers value such layers for persistence, invisibility, and control.
       </p>
 
-      <ul style="margin:.6rem 0 0 1.15rem;">
-        <li><strong>Out-of-band administration</strong> (on supported systems): remote power control, inventory, and recovery workflows.</li>
-        <li><strong>Pre-OS / low-level services</strong>: secure boot chains, firmware validation, device identity and key services.</li>
-        <li><strong>Persistence surface</strong>: firmware is long-lived; patching can depend on OEM update pipelines.</li>
-        <li><strong>Misconfiguration and vulnerability risk</strong>: history shows that management/security firmware can accumulate critical bugs over time.</li>
+      <ul>
+        <li><strong>Below‑OS persistence:</strong> firmware‑level footholds can survive OS reinstallation.</li>
+        <li><strong>Out‑of‑band control surface:</strong> management features bypass host‑based defenses.</li>
+        <li><strong>Vulnerability history:</strong> critical bugs have been documented over time.</li>
       </ul>
 
       <p style="margin:.75rem 0 0; color:var(--muted);">
-        Example class signal: Intel AMT had high-impact vulnerabilities (e.g., CVE-2017-5689) in the past.
-        This is not unique to Intel; the general point is that <strong>firmware-scale bugs exist</strong>, and high-assurance designs plan accordingly.
-        References: <a href="https://nvd.nist.gov/vuln/detail/CVE-2017-5689" target="_blank" rel="noopener">NVD CVE-2017-5689</a>.
+        Example signals (non‑exhaustive):
+        Intel advisories
+        <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00075.html" target="_blank" rel="noopener">SA‑00075</a>,
+        <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00086.html" target="_blank" rel="noopener">SA‑00086</a>,
+        and CVE‑2017‑5689
+        (<a href="https://nvd.nist.gov/vuln/detail/CVE-2017-5689" target="_blank" rel="noopener">NVD</a>).
       </p>
 
-      <p class="callout" style="margin:.9rem 0 0;">
+      <p class="callout">
         <span class="badge">Generalization</span>
-        Many modern SoCs (including non-US vendors) may embed comparable management/security subsystems.
-        The fact that a component is <em>less documented publicly</em> does not imply it is absent or inherently trustworthy.
+        Similar management/security subsystems may exist in other SoCs, including less‑documented or foreign chipsets.
+        Lack of documentation does not imply trustworthiness.
       </p>
     </div>
   </div>
 
+  <!-- D. Why FHE / MPC fail -->
   <div class="card" style="margin-top:1rem;">
-    <div class="kicker">What Logarchéon solves (in public terms)</div>
-
-    <h3 style="margin-top:.5rem;">The goal: reduce “in-use” reuse and leakage under buyer governance</h3>
-    <ul style="margin:.6rem 0 0 1.15rem;">
-      <li><strong>Key custody stays with the buyer:</strong> you control keys and policy; deployment can be configured so that key release is gated to an approved runtime boundary.</li>
-      <li><strong>Interface and telemetry discipline:</strong> avoid turning logs/endpoints into an oracle; treat embeddings, caches, and retrieval artifacts as sensitive by default.</li>
-      <li><strong>Blast-radius control:</strong> tenant-unique keys, rotation, and optional compartmented operation (“bulkhead mode”) for extreme sensitivity.</li>
+    <div class="kicker">Why existing cryptographic methods fall short “in use”</div>
+    <h3>FHE, MPC, and related approaches</h3>
+    <ul>
+      <li><strong>FHE:</strong> operates on encrypted scalars; impractical for real‑time, large neural workloads with complex activations.</li>
+      <li><strong>MPC:</strong> requires multiple parties, high bandwidth, and small/static payloads.</li>
+      <li><strong>Runtime reality:</strong> many approaches still require decryption or canonical representations during execution,
+        exposing data to firmware‑level trust boundaries.</li>
     </ul>
-
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Honesty clause</span>
-      High-assurance buyers remain responsible for side-channel and facility risks. For extremely sensitive workloads, operational controls
-      (restricted rooms, EM/physical controls, disciplined power/network handling, and endpoint governance) are part of the system, not an afterthought.
-      Detailed deployment hardening guidance is shared under NDA.
-    </p>
   </div>
 
+  <!-- E. What Logarchéon solves -->
   <div class="card" style="margin-top:1rem;">
-    <div class="kicker">Context</div>
-    <h3>How this differs from FHE/MPC/TEE (careful phrasing)</h3>
-    <p class="lede" style="margin-top:.25rem;">
-      Fully Homomorphic Encryption (FHE) and Multi-Party Computation (MPC) can support secure inference for some neural workloads,
-      but they typically require specialized model adaptations and carry substantial overhead—especially for interactive, large-model pipelines.
-      TEEs/confidential computing can be strong in practice, but they still require careful operational discipline and a realistic view of firmware and side channels.
-      Logarchéon is designed for practical deployments where <strong>governance, keys, and interfaces</strong> determine whether “encrypted-in-use” is meaningful.
+    <div class="kicker">What Logarchéon (GRAIL / Λ‑Stack) changes</div>
+    <ul>
+      <li><strong>No reliance on trusted CPU state:</strong> sensitive representations are not decrypted inside the CPU core.</li>
+      <li><strong>Encrypted‑in‑use semantics:</strong> models are algebraically transformed, including representational semantics.</li>
+      <li><strong>Plaintext‑speed operation:</strong> real‑time training and inference without FHE/MPC overhead.</li>
+      <li><strong>Buyer‑held keys:</strong> governance, instantiation, and blast‑radius control remain under customer custody.</li>
+    </ul>
+
+    <blockquote style="background:#f4f4f4; border-left:4px solid #007BFF; padding:1rem;">
+      <strong>Bottom line:</strong> GRAIL runs at normal speed without trusting CPU firmware.
+      Compared to FHE/MPC, it is orders of magnitude faster.
+      Compared to plaintext, performance is equal—even with frequent or per‑step key rotation.
+    </blockquote>
+  </div>
+
+  <!-- F. Residual risk -->
+  <div class="card" style="margin-top:1rem;">
+    <div class="kicker">Residual risk & buyer responsibility</div>
+    <h3>What this does not eliminate</h3>
+    <p class="lede">
+      No software system eliminates physical, RF, or side‑channel risk.
+      High‑assurance deployments may still require controlled environments
+      (SCIF/EMSEC discipline), power isolation, and strict endpoint governance.
     </p>
 
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Public vs NDA</span>
-      Public pages stay non-enabling. Concrete mechanisms, benchmark methodology, and threat-model proofs are provided under NDA and technical review.
+    <p class="callout">
+      <span class="badge">Responsible deployment reminder</span>
+      Logarchéon reduces “in‑use” exposure and artifact reuse.
+      It does not replace physical security, emissions control, or operational discipline.
     </p>
   </div>
 </section>
-
-
-    <!-- NEW: Pain point section (paper-style, defined terms first) -->
-    <section id="pain-point" aria-labelledby="pain-point-h">
-      <h2 id="pain-point-h">Why this matters: “in use” is where leakage happens</h2>
-      <p class="lede">
-        Most organizations already encrypt data <em>at rest</em> and <em>in transit</em>. The hard part is <strong>in use</strong>:
-        training and inference require data, model parameters, and intermediate representations to exist in operational form inside a runtime.
-        That is where logs, endpoints, memory scraping, and firmware-level trust assumptions become decisive.
-      </p>
-
-      <div class="card">
-        <div class="kicker">Definitions (paper-style)</div>
-        <dl class="defs">
-          <dt>“In use”</dt>
-          <dd>
-            The phase where computation actually happens: parameters are instantiated, activations flow, and intermediate states exist in memory
-            (CPU, GPU, accelerator, and their runtime stacks). “At rest” and “in transit” controls do not address this phase by themselves.
-          </dd>
-
-          <dt>Λ-Stack (Logarchéon)</dt>
-          <dd>
-            The product stack delivered by Logarchéon: the <strong>GRAIL runtime</strong> (geometry-native secure execution), plus optional
-            higher-assurance deployment layers (key custody, audit posture, and—in later phases—hardware embodiments such as MIA).
-          </dd>
-
-          <dt>GRAIL</dt>
-          <dd>
-            Logarchéon’s geometry-native secure execution layer. Publicly: it is the <em>shell</em> that wraps your models and enforces a “customer-held keys and governance”
-            posture. Detailed mechanisms, benchmarks, and proofs are shared under NDA and technical review.
-          </dd>
-
-          <dt>“Customer-held keys gate instantiation”</dt>
-          <dd>
-            A deployment posture where critical artifacts are not meant to be usable from storage alone: keys and policy remain under customer control,
-            and instantiation/execution can be restricted to an approved runtime boundary (including optional attestation / confidential compute where appropriate).
-          </dd>
-        </dl>
-      </div>
-
-      <div class="grid cols-2" style="margin-top:1rem;">
-        <article class="card">
-          <div class="kicker">Fact pattern</div>
-          <h3>Why high-assurance buyers do not treat “trust the CPU” as neutral</h3>
-          <p class="note" style="margin-top:.25rem;">
-            Modern platforms include vendor-managed subsystems with deep privilege. These subsystems are designed for legitimate manageability and security,
-            but they expand the trusted computing base. Even without alleging malice, a rigorous buyer asks:
-            <strong>“If this layer is compromised, what can an attacker do?”</strong>
-          </p>
-
-          <h3 style="margin-top:1rem;">Intel: ME/CSME and AMT (what they are)</h3>
-          <ul>
-            <li>
-              <strong>Intel Management Engine (ME) / Converged Security and Management Engine (CSME):</strong>
-              a separate subsystem on many Intel platforms. Security researchers have highlighted that it operates independently from the main CPU and can run
-              even when a machine is “off” but still powered. (Descriptive reference; not an accusation of intent.)
-              <span class="note">See Intel’s advisory pages and third-party reporting on the ME attack surface.</span>
-            </li>
-            <li>
-              <strong>Intel Active Management Technology (AMT):</strong>
-              an <em>out-of-band</em> remote administration capability available on certain platforms (commonly vPro-class),
-              enabling functions like remote power control and remote management features. In practice, these capabilities are valuable for enterprise IT—and
-              correspondingly attractive if misconfigured or exploited.
-            </li>
-          </ul>
-
-          <h3 style="margin-top:1rem;">AMD: PSP / Secure Processor (what it is)</h3>
-          <ul>
-            <li>
-              <strong>AMD Platform Security Processor (PSP) / AMD Secure Processor (ASP):</strong>
-              a dedicated security processor used for platform trust functions such as secure boot and key handling for security features.
-              Public analyses of AMD’s confidential computing stack describe a separate secure processor involved in key management and memory protection.
-            </li>
-          </ul>
-
-          <p class="callout" style="margin-bottom:0;">
-            <span class="badge">Non-accusatory framing</span>
-            The point is not “vendor evil.” The point is: <strong>complex, privileged firmware exists</strong>, and high-assurance buyers plan for compromise,
-            misconfiguration, and supply-chain uncertainty.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Threat relevance</div>
-          <h3>What attackers try to do with this class of component</h3>
-          <p class="note" style="margin-top:.25rem;">
-            Historically, adversaries target privileged firmware and out-of-band management for three reasons:
-            persistence, invisibility (below OS monitoring), and control channels that bypass host-based defenses.
-            This is a <em>class risk</em>, not a single-vendor claim.
-          </p>
-
-          <ul>
-            <li>
-              <strong>Remote compromise of management features:</strong> Intel has published advisories for vulnerabilities in management/engine firmware
-              that can enable unauthorized access or code execution within that subsystem.
-              (<span class="note">Examples: Intel-SA-00075; Intel-SA-00086.</span>)
-            </li>
-            <li>
-              <strong>Misconfiguration / provisioning weaknesses:</strong> even “legitimate” remote management can become a liability if provisioned incorrectly,
-              if credentials leak, or if network exposure is broader than intended.
-            </li>
-            <li>
-              <strong>Abuse for exfiltration:</strong> threat reporting has documented adversary use of Intel AMT’s Serial-over-LAN capability for data exfiltration in some intrusions.
-            </li>
-            <li>
-              <strong>Below-OS persistence:</strong> attackers value firmware-level footholds because they can survive OS reinstallation and evade many EDR controls.
-            </li>
-          </ul>
-
-          <div class="emph-box" style="margin-top:1rem; border-left-color: var(--accent-2);">
-            <strong>What Logarchéon is solving (plain language)</strong>
-            <ul style="margin:.6rem 0 0 1.15rem;">
-              <li><strong>Minimize “in-use exposure”:</strong> treat prompts, embeddings, hidden states, and logs as first-class attack surface.</li>
-              <li><strong>Customer-held key control:</strong> keys and policy stay with you; instantiation can be gated to an approved runtime boundary.</li>
-              <li><strong>Operational containment:</strong> “no-oracle” discipline, strict telemetry defaults, and optional compartment (“bulkhead”) operation.</li>
-              <li><strong>Defense-in-depth compatibility:</strong> you can layer TEEs / confidential compute where appropriate; Logarchéon does not require you to bet on a single control.</li>
-            </ul>
-            <p class="note" style="margin:.6rem 0 0;">
-              This does not claim side-channels vanish. It claims you can materially reduce what a “storage leak” or “artifact leak” buys an attacker,
-              and you can structure operations so that failure modes have bounded blast radius.
-            </p>
-          </div>
-        </article>
-      </div>
-
-      <div class="card" style="margin-top:1rem;">
-        <div class="kicker">Buyer responsibility (high-assurance reality)</div>
-        <h3>Security is not outsourced to a landing page</h3>
-        <p class="lede" style="margin-top:.25rem;">
-          If your threat model includes nation-state-grade side-channels, you still own physical and emissions security.
-          High-assurance operations often require controlled environments (SCIF/EMSEC/TEMPEST-style discipline), strict device control,
-          and careful handling of power, RF, and peripheral attack surfaces. Logarchéon’s posture is designed to help—but cannot replace—
-          the environment and governance requirements of your mission.
-        </p>
-        <p class="callout" style="margin-bottom:0;">
-          <span class="badge">Operational note</span>
-          For extreme deployments, treat compute nodes as sensitive equipment: controlled rooms, restricted peripherals, minimal telemetry,
-          and explicit acceptance of residual side-channel risk.
-        </p>
-      </div>
-
-      <div class="card" style="margin-top:1rem;">
-        <div class="kicker">Public references (descriptive)</div>
-        <p class="note" style="margin:.3rem 0 0;">
-          These links are provided as public context for the platform-firmware discussion (capabilities and documented vulnerabilities),
-          not as a claim of intent:
-        </p>
-        <ul style="margin:.6rem 0 0 1.15rem;">
-          <li><strong>Intel security advisories:</strong>
-            <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00075.html" target="_blank" rel="noopener">INTEL-SA-00075</a>,
-            <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00086.html" target="_blank" rel="noopener">INTEL-SA-00086</a>.
-          </li>
-          <li><strong>Third-party reporting on ME risk surface:</strong>
-            <a href="https://www.wired.com/story/intel-management-engine-vulnerabilities-pcs-servers-iot/" target="_blank" rel="noopener">Wired coverage of Intel ME vulnerabilities</a>.
-          </li>
-          <li><strong>AMD confidential computing context (Secure Processor role):</strong>
-            <a href="https://www.amd.com/en/developer/sev.html" target="_blank" rel="noopener">AMD SEV overview</a>,
-            <a href="https://cloud.google.com/blog/products/identity-security/amd-secure-encrypted-virtualization-sev/" target="_blank" rel="noopener">Google technical note (AMD secure processor in SEV)</a>.
-          </li>
-          <li><strong>Threat reporting context (AMT capability abuse):</strong>
-            <a href="https://attack.mitre.org/groups/G0068/" target="_blank" rel="noopener">MITRE ATT&CK: PLATINUM (G0068)</a>.
-          </li>
-        </ul>
-      </div>
-    </section>
 
 
 
