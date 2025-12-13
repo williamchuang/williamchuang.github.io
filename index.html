@@ -424,7 +424,8 @@
   </div>
 </section>
 
-<section id="cpu-trust-and-secure-computation">
+
+i<section id="cpu-trust-and-secure-computation">
   <h2>Why CPUs Cannot Be Fully Trusted — and What This Reveals About GRAIL's Capabilities</h2>
 
   <h3>Publicly Known Surveillance Units in CPUs</h3>
@@ -528,10 +529,10 @@
   </div>
 
   <blockquote style="background:#f4f4f4; border-left:4px solid #007BFF; padding:1rem; margin-top:2rem;">
-    <strong>Bottom line:</strong> GRAIL runs at <u>normal speed</u> without trusting the CPU.<br>
-    Compared to FHE/MPC, it’s not “3× faster”—it’s <strong>thousands to ten-thousands× faster</strong>.<br>
-    Compared to plaintext? <strong>= equal speed</strong>, even with per-step key rotation.
-  </blockquote>
+  <strong>Clarification:</strong> GRAIL runs at <u>near-plaintext speed</u> while maintaining algebraic encryption throughout. <br>
+  Compared to FHE or MPC, which often require orders of magnitude more compute, GRAIL is <strong>thousands to ten-thousands× faster</strong> in typical inference or training scenarios. <br>
+  Compared to raw plaintext models in Euclidean space with no security layer, GRAIL introduces modest overhead, but achieves <strong>semantic protection without relying on CPU trust</strong>. Per-step key rotation is supported with minimal cost.
+</blockquote>
 
   <h3>Why GRAIL Avoids the CPU Trust Trap—But Was Not Built For It</h3>
   <p>GRAIL’s ability to bypass CPU trust is not its goal—it is a <em>by-product</em> of its core design: a geometry-native, algebraic execution model that redefines how neural networks represent and operate on information. Because all computation happens over encrypted operator representations, and no decryption occurs inside the CPU, GRAIL naturally avoids firmware-scale threats.</p>
@@ -551,6 +552,11 @@
     <strong>Note:</strong> GRAIL is not merely a CPU-avoidance strategy. It is a <strong>superset framework</strong>—reconciling symbolic entropy, post-quantum cryptography, curved geometry, and algebraic invariance within a unified execution architecture.
   </div>
 </section>
+
+
+
+
+
     <!-- Who this is for -->
     <section id="for-whom" aria-labelledby="for-whom-h">
       <h2 id="for-whom-h">Who this is for</h2>
