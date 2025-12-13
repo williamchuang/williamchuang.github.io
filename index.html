@@ -381,9 +381,9 @@
           <div class="kicker">λ-secure wrapper (V2)</div>
           <h3>A geometry-native shell around your models</h3>
           <ul>
-            <li>Your models run inside a λ-geometry runtime under a private geometric key—a secret change of coordinates—that only you control.</li>
-            <li>Training and inference happen in this disguised coordinate system, so even copied weights do not immediately reveal a usable canonical model.</li>
-            <li>Different teams can share a runtime while keeping their own geometric keys and data siloed.</li>
+            <li>Your models run inside a λ-geometry runtime under customer-held secrets (keys) that only you control.</li>
+            <li>Training and inference happen in a non-canonical internal representation, so copied artifacts are not automatically “drop-in” for your operational system.</li>
+            <li>Different teams can share a runtime while keeping their own secrets and data siloed.</li>
           </ul>
         </article>
 
@@ -393,7 +393,7 @@
           <ul>
             <li>For some missions, you may prefer a model trained from the ground up under GRAIL’s geometry.</li>
             <li>In that case, the geometric structure is built into the model’s architecture instead of added as a separate wrapper.</li>
-            <li>This keeps the security properties while aiming to minimize extra overhead at inference time compared with a pure wrap-only approach.</li>
+            <li>This keeps the security principles while aiming to minimize extra overhead at inference time compared with a pure wrap-only approach.</li>
           </ul>
         </article>
       </div>
@@ -451,7 +451,7 @@
             <tr>
               <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight: 700;">6</td>
               <td style="width:35%; font-weight: 600;">Regulated Enterprise (non-financial)</td>
-              <td style="color: var(--muted);">Energy, pharma, aerospace, advanced manufacturing. Good fit for private GPT and IP protection, but crowded with incumbents.</td>
+              <td style="color: var(--muted);">Energy, pharma, aerospace, advanced manufacturing. Good fit for private GPT and IP protection, audit, and sovereign AI, but crowded with incumbents.</td>
             </tr>
             <tr>
               <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight: 700;">7</td>
@@ -514,7 +514,7 @@
           <ul>
             <li>A containerized runtime image that can host <strong>multiple LLMs</strong> under one λ-secure shell.</li>
             <li>Connects to your chosen open-source or licensed models; you bring the weights through your normal deployment pipeline and accounts.</li>
-            <li>Supports multi-agent workflows, red/blue analysis, and specialty models (code, search, domain-specific LMs) all running in the same disguised coordinate system.</li>
+            <li>Supports multi-agent workflows, red/blue analysis, and specialty models (code, search, domain-specific LMs) all running under consistent governance.</li>
           </ul>
           <p class="callout">
             <span class="badge">Outcome</span>
@@ -526,9 +526,9 @@
           <div class="kicker">Future · Hardware</div>
           <h3>MIA appliance — λ-secure AI box</h3>
           <ul>
-            <li>A small, hardened appliance running the metric-invariant architecture and λ-secure runtime on FPGAs or mature-node silicon.</li>
+            <li>A small, hardened appliance running the invariant-first architecture and λ-secure runtime on FPGAs or mature-node silicon.</li>
             <li>Designed for OT, forward-deployed, and air-gapped settings where “cloud” is not an option.</li>
-            <li>Maintains the same coordinate-hiding semantics as your software deployments so policies and proofs transfer.</li>
+            <li>Maintains the same λ-secure semantics as your software deployments so policies and proofs transfer.</li>
           </ul>
           <p class="callout">
             <span class="badge">Outcome</span>
@@ -592,24 +592,24 @@
     <section id="how-it-works" aria-labelledby="how-it-works-h">
       <h2 id="how-it-works-h">How the λ-secure “self-laundromat” works</h2>
       <p class="lede">
-        The core idea is simple: the geometry and machinery come from Logarchéon; the secret coordinate system comes from you.
-        A private geometric key — your own change of basis — defines the coordinates in which your model actually works.
+        The core idea is simple: the geometry and machinery come from Logarchéon; the secret control comes from you.
+        Customer-held keys define what your system can run, what it can reveal, and what it can export.
       </p>
 
       <div class="grid cols-3">
         <article class="card">
           <div class="kicker">Step 1</div>
-          <h3>You generate a private geometric key</h3>
+          <h3>You generate customer-held secrets (keys)</h3>
           <ul>
             <li>You run a setup routine (or the runtime) that embeds your documents or signals into the λ-geometry space.</li>
-            <li>You generate a private geometric key on your side: in practice, a secret change of coordinates for the model and your data.</li>
-            <li>The system produces a transformed model and transformed data that live entirely in this disguised coordinate system.</li>
+            <li>You generate customer-held secrets on your side that govern how your model and data are represented and used.</li>
+            <li>The system produces transformed artifacts that live entirely under your policy and key custody.</li>
           </ul>
         </article>
 
         <article class="card">
           <div class="kicker">Step 2</div>
-          <h3>Training happens in the disguised coordinates</h3>
+          <h3>Training happens under your keys</h3>
           <ul>
             <li>Training runs either on:
               <ul>
@@ -617,8 +617,8 @@
                 <li>GPUs you rent in your own cloud account, using the λ-secure runtime.</li>
               </ul>
             </li>
-            <li>Only the transformed model and transformed data ever touch that compute environment.</li>
-            <li>Neither Logarchéon nor the cloud provider sees plaintext data or a canonical tuned model.</li>
+            <li>Only transformed artifacts touch that compute environment by default.</li>
+            <li>Neither Logarchéon nor the cloud provider sees plaintext data or your canonical tuned model by default.</li>
           </ul>
         </article>
 
@@ -626,21 +626,21 @@
           <div class="kicker">Step 3</div>
           <h3>Inference stays vendor-blind</h3>
           <ul>
-            <li>You can keep everything in the disguised coordinates for operations, or reverse the geometric key locally if you need canonical outputs.</li>
-            <li>Even if someone copies the runtime or model, they obtain only a transformed version, not a directly usable twin.</li>
-            <li>Standard crypto (disk encryption, TLS, TEEs) sits underneath the λ-geometry layer as defense-in-depth.</li>
+            <li>You can keep operations in transformed form, or export canonical artifacts locally under your policy.</li>
+            <li>If someone steals files without your keys and without operational channels, those artifacts are materially harder to reuse.</li>
+            <li>Standard crypto (disk encryption, TLS, TEEs) sits underneath the λ-secure layer as defense-in-depth.</li>
           </ul>
         </article>
       </div>
 
       <p class="callout">
         <span class="badge">Plain English</span>
-        You get a self-service “encrypted AI laundromat”: your data and model go in wearing your own geometric disguise;
-        all training and inference happen in that disguise; only you can remove it—and only if your policy says you should.
+        You get a self-service “encrypted AI laundromat”: your data and model go in under your keys;
+        training and inference run under your governance; only you can export what matters—and only if your policy says you should.
       </p>
     </section>
 
-    <!-- NEW: Security posture -->
+    <!-- Security posture -->
     <section id="security-posture" aria-labelledby="security-posture-h">
       <h2 id="security-posture-h">Security posture: what is protected, what is required, what is not claimed</h2>
       <p class="lede">
@@ -653,7 +653,8 @@
           <div class="big">Core claim </div>
           <p class="lede" style="margin:0;">
             If an attacker steals only transformed artifacts from storage—numbers with no keys and no operational access—they do not obtain readable data,
-            and they do not obtain a usable interface to replicate your model’s behavior. They can compute “structure,” but structure is not intelligence unless it can be anchored.
+            and they do not obtain a ready-made way to turn those artifacts into mission-relevant “intelligence.”
+            They can compute “structure,” but structure is not intelligence unless it can be anchored.
           </p>
           <p class="callout" style="margin-bottom:0;">
             <span class="badge">Anchor principle</span>
@@ -668,7 +669,7 @@
           <h3>What “stolen artifacts only” means here</h3>
           <ul>
             <li><strong>Attacker has:</strong> read-only access to transformed weights and/or transformed embeddings sitting in storage.</li>
-            <li><strong>Attacker does not have:</strong> your geometric key, plaintext inputs/outputs, IDs/timestamps/labels, or any way to submit queries and observe results.</li>
+            <li><strong>Attacker does not have:</strong> your keys, plaintext inputs/outputs, IDs/timestamps/labels, or any way to submit queries and observe results.</li>
             <li><strong>Key implication:</strong> no oracle. No feedback. No reliable way to test hypotheses.</li>
           </ul>
         </article>
@@ -701,7 +702,7 @@
             <tr>
               <td><strong>Encrypt-at-rest + TLS</strong></td>
               <td>Once inside runtime, embeddings/weights are canonical. Logs/telemetry/debug export often contain usable representations.</td>
-              <td>Leaks are frequently <em>directly reusable</em> without needing “your” secret coordinate system.</td>
+              <td>Leaks are frequently <em>directly reusable</em> without needing customer-held secrets.</td>
             </tr>
             <tr>
               <td><strong>On-prem vendor app</strong></td>
@@ -710,7 +711,7 @@
             </tr>
             <tr>
               <td><strong>Logarchéon (GRAIL posture)</strong></td>
-              <td>Transformed artifacts designed to be non-canonical without customer-held secrets and operational channels.</td>
+              <td>Transformed artifacts designed to be non-canonical without customer-held secrets and without operational channels.</td>
               <td>Exfiltrated artifacts are materially less reusable by default; exploitation tends to require auxiliary leakage.</td>
             </tr>
           </tbody>
@@ -764,8 +765,8 @@
           <h3>Two extra layers buyers actually use</h3>
           <ul>
             <li>
-              <strong>Dimensional padding (optional):</strong> embeddings/models can be carried in a higher-dimensional working representation with removable redundancy.
-              Customers keep the “true” subspace definition; redundancy can be stripped on retrieval under policy. This is sold as <em>defense-in-depth</em>, not as a sole security guarantee.
+              <strong>Removable redundancy (optional):</strong> embeddings/models can be carried in a higher-dimensional working representation with removable redundancy.
+              Customers keep the subspace definition; redundancy can be stripped on retrieval under policy. This is sold as <em>defense-in-depth</em>, not as a sole security guarantee.
             </li>
             <li>
               <strong>Bulkhead mode (compartmented twins):</strong> for extreme sensitivity, customers can train and move workloads in small, isolated increments
@@ -779,199 +780,179 @@
         </article>
       </div>
 
-<div class="card" style="margin-top:1rem;">
-  <div class="kicker">Q&amp;A (operational, not marketing)</div>
-  <h3>Security Q&amp;A</h3>
+      <div class="card" style="margin-top:1rem;">
+        <div class="kicker">Q&amp;A (operational, not marketing)</div>
+        <h3>Security Q&amp;A</h3>
 
-  <div class="qa">
+        <div class="qa">
 
-    <details class="qa-item">
-      <summary>Q: If someone steals the transformed index, can they still cluster it and learn “who is close to whom”?</summary>
-      <div class="qa-body">
-        <p>
-          They can compute numerical relationships inside what they stole. The missing step is what makes it useful:
-          <strong>anchoring</strong> (IDs, labels, timestamps, filenames, provenance) and <strong>operational access</strong>
-          (a compatible way to produce queries and validate hypotheses).
-        </p>
-        <p>
-          Without anchors and without operational access, they can produce patterns, but they cannot convert patterns into
-          client-identifiable or action-driving intelligence.
-        </p>
-        <p><strong>Working rule:</strong> intelligence is not intelligence if you cannot anchor it.</p>
+          <details class="qa-item">
+            <summary>Q: If someone steals the transformed index, can they still cluster it and learn “who is close to whom”?</summary>
+            <div class="qa-body">
+              <p>
+                They can compute numerical relationships inside what they stole. The missing step is what makes it useful:
+                <strong>anchoring</strong> (IDs, labels, timestamps, filenames, provenance) and <strong>operational access</strong>
+                (a compatible way to produce queries and validate hypotheses).
+              </p>
+              <p>
+                Without anchors and without operational access, they can produce patterns, but they cannot convert patterns into
+                client-identifiable or action-driving intelligence.
+              </p>
+              <p><strong>Working rule:</strong> intelligence is not intelligence if you cannot anchor it.</p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: When you say “stolen storage, no interface,” what does “interface” mean?</summary>
+            <div class="qa-body">
+              <p>
+                An <strong>interface</strong> is any channel that lets an attacker test guesses or use the system the way your users do.
+                Examples:
+              </p>
+              <ul>
+                <li><strong>Query UI / API:</strong> “Send a question → get answers, scores, or nearest-neighbor results.”</li>
+                <li><strong>Embedding / indexing pipeline access:</strong> “I can run the same internal steps your system uses to turn a query into a compatible vector.”</li>
+                <li><strong>Verification oracle:</strong> any feedback loop that tells the attacker “your guess was correct” (e.g., outputs match known results).</li>
+              </ul>
+              <p>
+                In the <strong>stolen storage, no interface</strong> case, the attacker has a file dump of transformed artifacts,
+                but <strong>no</strong> ability to run live queries, <strong>no</strong> ability to generate compatible query vectors,
+                and <strong>no</strong> way to validate interpretations.
+              </p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: If the attacker somehow gets the right key/transform, can’t they undo it and recover everything?</summary>
+            <div class="qa-body">
+              <p>
+                If customer-held secrets are truly recovered, then whatever was protected by those secrets is at risk.
+                The remaining question is operational: <strong>what else did the attacker steal besides transformed numbers?</strong>
+              </p>
+              <p>
+                Two common realities matter:
+              </p>
+              <ul>
+                <li>
+                  <strong>Transformed vectors are usually not the original documents.</strong> In typical systems, vectors are derived representations.
+                  Undoing a transform gives you vectors again—still not the PDFs/emails—unless the raw documents were also stolen.
+                </li>
+                <li>
+                  <strong>“Actionable intelligence” still requires anchoring.</strong> If the attacker lacks the mapping from “vector row” to
+                  “document ID / owner / timestamp / location,” then even perfectly recovered vectors may not translate into named, time-bounded intelligence.
+                </li>
+              </ul>
+              <p><strong>Working rule:</strong> if you cannot anchor it, it is not intelligence.</p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: Concrete example (Agency-style): when is “even with the key” still not automatically actionable?</summary>
+            <div class="qa-body">
+              <p>
+                Consider an Agency retrieval system that supports analysts searching a classified corpus.
+                Operationally, such systems almost always separate:
+              </p>
+              <ul>
+                <li><strong>The documents</strong> (stored in a protected repository with access controls),</li>
+                <li><strong>The vector index</strong> (a nearest-neighbor search structure), and</li>
+                <li><strong>A mapping table</strong> that links “row 1,787” in the index to “Doc-ID, compartment, storage path, timestamp, etc.”</li>
+              </ul>
+
+              <h4 style="margin:1rem 0 .25rem;">Case 1: attacker steals only the vector index file</h4>
+              <ul>
+                <li>They can compute relationships like “row 1,787 is close to row 144,000.”</li>
+                <li>But without the mapping table, those rows have no identities, no compartments, no timestamps, and no storage paths.</li>
+                <li>They cannot fetch documents, and they cannot name what they are looking at.</li>
+              </ul>
+
+              <h4 style="margin:1rem 0 .25rem;">Case 2: attacker also obtains customer-held secrets</h4>
+              <ul>
+                <li>They may be able to undo some protections on the index.</li>
+                <li>But they still have “row 1,787,” not “Report AB-1776 / source X / date Y,” unless they also stole the mapping table.</li>
+                <li>They still cannot use the system like an analyst without a query interface and access paths.</li>
+              </ul>
+
+              <h4 style="margin:1rem 0 .25rem;">What makes it truly dangerous</h4>
+              <ul>
+                <li><strong>Anchors leak:</strong> the mapping table leaks (row ↔ doc-ID/path/timestamp), or any joinable metadata leaks.</li>
+                <li><strong>Access leaks:</strong> the attacker gains repository access (storage paths, credentials, or backups).</li>
+                <li><strong>Oracle leaks:</strong> transformed queries leak from endpoints/logs, or the attacker can query a live interface.</li>
+              </ul>
+
+              <p>
+                <strong>Bottom line:</strong> the blast radius is determined by what leaks together:
+                <em>artifacts alone</em> are different from <em>artifacts + anchors + access</em>.
+              </p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: Why isn’t “structure leakage” automatically a breach?</summary>
+            <div class="qa-body">
+              <p>
+                Because “structure” is not a business outcome. It becomes a breach when an attacker can connect it to something real:
+                names, cases, patients, assets, time, or a query interface that lets them validate guesses.
+                This is why Logarchéon treats <strong>metadata containment</strong> and <strong>query-path control</strong> as first-class security requirements.
+              </p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: What does Logarchéon explicitly NOT claim?</summary>
+            <div class="qa-body">
+              <ul>
+                <li><strong>No claim of “semantic secrecy” if you leak metadata.</strong> If IDs, timestamps, labels, filenames, or join keys leak, risk increases by definition.</li>
+                <li><strong>No claim of safety under endpoint compromise.</strong> If transformed query vectors leak from endpoints/logs, you have created an oracle-like channel.</li>
+                <li><strong>No claim that standard cryptography becomes optional.</strong> Disk encryption, TLS, access control, and auditing remain mandatory.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: Can quantum computing “tunnel through” 256-bit keys?</summary>
+            <div class="qa-body">
+              <p>
+                Not in any generic, accepted model of symmetric-key search. The conservative generic quantum advantage is Grover-style speedup
+                (roughly a square-root speedup), which is why the default posture targets <strong>256-bit+</strong> effective entropy.
+                “Tunneling” is not a separate generic shortcut that collapses symmetric-key security.
+              </p>
+              <p class="callout" style="margin:.75rem 0 0;">
+                <strong>Quantum note:</strong> Generic quantum search (Grover) can reduce effective symmetric-key security by roughly half (k → k/2).
+                For this reason, Logarchéon targets 256-bit+ effective entropy to retain ~128-bit-class security even in a conservative quantum model.
+              </p>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: What operational controls are required for the claim to hold?</summary>
+            <div class="qa-body">
+              <ul>
+                <li><strong>Tenant-unique keys + rotation</strong> (limit correlation and blast radius).</li>
+                <li><strong>Keep anchors separate</strong> (mapping tables, provenance metadata, join keys).</li>
+                <li><strong>No embedding/hidden-state export</strong> outside the customer trust boundary (treat transformed representations as sensitive).</li>
+                <li><strong>Harden endpoints</strong> like credentials (least privilege, minimal telemetry, enclaves where appropriate).</li>
+                <li><strong>Strict metadata containment</strong> (IDs/timestamps/labels are often the real leak).</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="qa-item">
+            <summary>Q: If an insider leaks a key, is everything over?</summary>
+            <div class="qa-body">
+              <p>
+                Key leakage is serious. The goal is to avoid “one mistake equals total compromise” via <strong>blast-radius control</strong>:
+                tenant-unique keys, key rotation, and optional <strong>bulkhead mode</strong> (compartmentalized processing for extremely sensitive workloads).
+              </p>
+              <p>
+                Bulkhead mode is the operational analogue of watertight compartments: you can structure processing so that a single compromised key
+                is not automatically a full historical compromise.
+              </p>
+            </div>
+          </details>
+
+        </div>
       </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: When you say “stolen storage, no interface,” what does “interface” mean?</summary>
-      <div class="qa-body">
-        <p>
-          An <strong>interface</strong> is any channel that lets an attacker test guesses or use the system the way your users do.
-          Examples:
-        </p>
-        <ul>
-          <li><strong>Query UI / API:</strong> “Send a question → get answers, scores, or nearest-neighbor results.”</li>
-          <li><strong>Embedding / indexing pipeline access:</strong> “I can run the same internal steps your system uses to turn a query into a compatible vector.”</li>
-          <li><strong>Verification oracle:</strong> any feedback loop that tells the attacker “your guess was correct” (e.g., outputs match known results).</li>
-        </ul>
-        <p>
-          In the <strong>stolen storage, no interface</strong> case, the attacker has a file dump of transformed artifacts,
-          but <strong>no</strong> ability to run live queries, <strong>no</strong> ability to generate compatible query vectors,
-          and <strong>no</strong> way to validate interpretations.
-        </p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: If the attacker somehow gets the right key/transform, can’t they undo it and recover everything?</summary>
-      <div class="qa-body">
-        <p>
-          If the secret transform is truly recovered, then the disguise can be undone for whatever was transformed.
-          The remaining question is operational: <strong>what else did the attacker steal besides transformed numbers?</strong>
-        </p>
-        <p>
-          Two common realities matter:
-        </p>
-        <ul>
-          <li>
-            <strong>Transformed vectors are usually not the original documents.</strong> In typical systems, vectors are derived representations.
-            Undoing the transform gives you vectors again—still not the PDFs/emails—unless the raw documents were also stolen.
-          </li>
-          <li>
-            <strong>“Actionable intelligence” still requires anchoring.</strong> If the attacker lacks the mapping from “vector row” to
-            “document ID / owner / timestamp / location,” then even perfectly recovered vectors may not translate into named, time-bounded intelligence.
-          </li>
-        </ul>
-        <p><strong>Working rule:</strong> if you cannot anchor it, it is not intelligence.</p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: Concrete example (Agency-style): when is “even with the key” still not automatically actionable?</summary>
-      <div class="qa-body">
-        <p>
-          Consider an Agency retrieval system that supports analysts searching a classified corpus.
-          Operationally, such systems almost always separate:
-        </p>
-        <ul>
-          <li><strong>The documents</strong> (stored in a protected repository with access controls),</li>
-          <li><strong>The vector index</strong> (a nearest-neighbor search structure), and</li>
-          <li><strong>A mapping table</strong> that links “row 1,787” in the index to “Doc-ID, compartment, storage path, timestamp, etc.”</li>
-        </ul>
-
-        <h4 style="margin:1rem 0 .25rem;">Case 1: attacker steals only the vector index file</h4>
-        <ul>
-          <li>They can compute relationships like “row 1,787 is close to row 144,000.”</li>
-          <li>But without the mapping table, those rows have no identities, no compartments, no timestamps, and no storage paths.</li>
-          <li>They cannot fetch documents, and they cannot name what they are looking at.</li>
-        </ul>
-
-        <h4 style="margin:1rem 0 .25rem;">Case 2: attacker also obtains the secret transform/key</h4>
-        <ul>
-          <li>They may be able to undo the disguise on the index.</li>
-          <li>But they still have “row 1,787,” not “Report AB-1776 / source X / date Y,” unless they also stole the mapping table.</li>
-          <li>They still cannot use the system like an analyst without a query interface and access paths.</li>
-        </ul>
-
-        <h4 style="margin:1rem 0 .25rem;">What makes it truly dangerous</h4>
-        <ul>
-          <li><strong>Anchors leak:</strong> the mapping table leaks (row ↔ doc-ID/path/timestamp), or any joinable metadata leaks.</li>
-          <li><strong>Access leaks:</strong> the attacker gains repository access (storage paths, credentials, or backups).</li>
-          <li><strong>Oracle leaks:</strong> transformed queries leak from endpoints/logs, or the attacker can query a live interface.</li>
-        </ul>
-
-        <p>
-          <strong>Bottom line:</strong> the blast radius is determined by what leaks together:
-          <em>artifacts alone</em> are different from <em>artifacts + anchors + access</em>.
-        </p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: Optional technical notation (only if you want symbols)—what do the terms mean?</summary>
-      <div class="qa-body">
-        <p>
-          If a reviewer wants notation, we define it explicitly here:
-        </p>
-        <ul>
-          <li><strong>D</strong> = the raw corpus (PDFs, emails, logs, reports).</li>
-          <li><strong>E(·)</strong> = the encoder that turns raw inputs into vectors.</li>
-          <li><strong>X</strong> = the canonical vectors produced by the encoder (the “normal” representation).</li>
-          <li><strong>T</strong> = the customer-held secret transform (the geometric key).</li>
-          <li><strong>X′</strong> = the transformed vectors stored/used by the runtime.</li>
-        </ul>
-        <p>
-          In shorthand: raw data <strong>D</strong> → encoder <strong>E</strong> gives vectors <strong>X</strong>;
-          then secret transform <strong>T</strong> produces stored vectors <strong>X′</strong>.
-        </p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: Why isn’t “structure leakage” automatically a breach?</summary>
-      <div class="qa-body">
-        <p>
-          Because “structure” is not a business outcome. It becomes a breach when an attacker can connect it to something real:
-          names, cases, patients, assets, time, or a query interface that lets them validate guesses.
-          This is why Logarchéon treats <strong>metadata containment</strong> and <strong>query-path control</strong> as first-class security requirements.
-        </p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: What does Logarchéon explicitly NOT claim?</summary>
-      <div class="qa-body">
-        <ul>
-          <li><strong>No claim of “semantic secrecy” if you leak metadata.</strong> If IDs, timestamps, labels, filenames, or join keys leak, risk increases by definition.</li>
-          <li><strong>No claim of safety under endpoint compromise.</strong> If transformed query vectors leak from endpoints/logs, you have created an oracle-like channel.</li>
-          <li><strong>No claim that standard cryptography becomes optional.</strong> Disk encryption, TLS, access control, and auditing remain mandatory.</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: Can quantum computing “tunnel through” 256-bit keys?</summary>
-      <div class="qa-body">
-        <p>
-          Not in any generic, accepted model of symmetric-key search. The conservative generic quantum advantage is Grover-style speedup
-          (roughly a square-root speedup), which is why the default posture targets <strong>256-bit+</strong> effective entropy.
-          “Tunneling” is not a separate generic shortcut that collapses symmetric-key security.
-        </p>
-        <p class="callout" style="margin:.75rem 0 0;">
-          <strong>Quantum note:</strong> Generic quantum search (Grover) can reduce effective symmetric-key security by roughly half (k → k/2).
-          For this reason, Logarchéon targets 256-bit+ effective entropy to retain ~128-bit-class security even in a conservative quantum model.
-        </p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: What operational controls are required for the claim to hold?</summary>
-      <div class="qa-body">
-        <ul>
-          <li><strong>Tenant-unique keys + rotation</strong> (limit correlation and blast radius).</li>
-          <li><strong>Keep anchors separate</strong> (mapping tables, provenance metadata, join keys).</li>
-          <li><strong>No embedding/hidden-state export</strong> outside the customer trust boundary (treat transformed representations as sensitive).</li>
-          <li><strong>Harden endpoints</strong> like credentials (least privilege, minimal telemetry, enclaves where appropriate).</li>
-          <li><strong>Strict metadata containment</strong> (IDs/timestamps/labels are often the real leak).</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: If an insider leaks a key, is everything over?</summary>
-      <div class="qa-body">
-        <p>
-          Key leakage is serious. The goal is to avoid “one mistake equals total compromise” via <strong>blast-radius control</strong>:
-          tenant-unique keys, key rotation, and optional <strong>bulkhead mode</strong> (compartmentalized processing for extremely sensitive workloads).
-        </p>
-        <p>
-          Bulkhead mode is the operational analogue of watertight compartments: you can structure processing so that a single compromised key
-          is not automatically a full historical compromise.
-        </p>
-      </div>
-    </details>
-
-  </div>
-</div>
 
       <div class="emph-box">
         <strong>Bottom line:</strong> Logarchéon’s security posture is not “magic encryption.”
@@ -998,7 +979,7 @@
           <ul>
             <li><strong>Single-GPU friendly:</strong> Compact and mid-scale λ-secure deployments that work on a single RTX-class GPU or modest server, with a clear scaling path as your hardware grows.</li>
             <li><strong>Model-agnostic:</strong> The λ-secure runtime is designed to wrap the LLMs you already rely on—open-source or licensed—and can also support λ-native models trained from scratch.</li>
-            <li><strong>Zero-knowledge vendor stance:</strong> Logarchéon designs the geometry and runtime; you keep the geometric keys, own the cloud accounts, and control both weights and logs.</li>
+            <li><strong>Zero-knowledge vendor stance:</strong> Logarchéon designs the geometry and runtime; you keep the keys, own the cloud accounts, and control both weights and logs.</li>
             <li><strong>By-design BYO-cloud:</strong> Everything runs in your AWS/Azure/GCP tenancy or on-prem. Production access is your choice; the default is that Logarchéon does not see your workloads.</li>
           </ul>
         </article>
@@ -1017,10 +998,10 @@
         <article class="card">
           <div class="kicker">Core pillars</div>
           <ul>
-            <li><strong>CEAS:</strong> critical-entropy attention scaling; treats β as a controlled parameter to cut training steps and improve stability, especially in long-sequence regimes.</li>
-            <li><strong>Finite-machine lift:</strong> decomposes model behavior into cycles and transients (Dunford D+N / PDN) for traceability and safe edit-without-full-retrain.</li>
+            <li><strong>CEAS:</strong> controlled attention scaling aimed at fewer training steps and improved stability, especially in long-sequence regimes.</li>
+            <li><strong>Finite-machine lift:</strong> decomposes model behavior into interpretable components for traceability and safe edit-without-full-retrain.</li>
             <li><strong>GRAIL:</strong> geometry-native secure execution aimed at cryptomorphic (function-identical, weight-distinct) twins and encrypted-in-use computation.</li>
-            <li><strong>MIA:</strong> metric-invariant architecture where inputs, machine state, and outputs move together under group action; suitable for FPGAs and mature-node silicon.</li>
+            <li><strong>MIA:</strong> invariant-first architecture suitable for FPGAs and mature-node silicon.</li>
           </ul>
         </article>
 
