@@ -424,9 +424,8 @@
   </div>
 </section>
 
-
 <section id="cpu-trust-and-secure-computation">
-  <h2>Why CPUs Cannot Be Fully Trusted — and What GRAIL Solves</h2>
+  <h2>Why CPUs Cannot Be Fully Trusted — and What This Reveals About GRAIL's Capabilities</h2>
 
   <h3>Publicly Known Surveillance Units in CPUs</h3>
   <p>Modern CPUs from Intel and AMD embed persistent coprocessors with deep and privileged access to the system. These components include:</p>
@@ -527,15 +526,24 @@
     Compared to plaintext? <strong>= equal speed</strong>, even with per-step key rotation.
   </blockquote>
 
-  <h3>Why GRAIL Is Fundamentally Different</h3>
-  <p>GRAIL avoids the decrypt-then-re-encrypt penalty by never needing to decrypt inside CPU firmware at all. Models are encrypted algebraically—not merely encrypted weights, but their <em>semantic representations</em> as geometric operators. This redefines the execution model to be intrinsically cryptomorphic.</p>
+  <h3>Why GRAIL Avoids the CPU Trust Trap—But Was Not Built For It</h3>
+  <p>GRAIL’s ability to bypass CPU trust is not its goal—it is a <em>by-product</em> of its core design: a geometry-native, algebraic execution model that redefines how neural networks represent and operate on information. Because all computation happens over encrypted operator representations, and no decryption occurs inside the CPU, GRAIL naturally avoids firmware-scale threats.</p>
+
+  <p>
+    GRAIL was originally designed for scientific AI—especially for universal-scale workloads like <strong>Mission Genesis</strong>, the
+    <a href="https://genesis.energy.gov" target="_blank" rel="noopener">U.S. Department of Energy’s national initiative</a>
+    to use AI to accelerate fundamental discovery. Its architecture is fully compatible with both
+    <strong>general relativity (GR)</strong> and <strong>quantum field theory (QFT)</strong>, enabling models to operate across the smallest and largest known physical regimes.
+  </p>
+
+  <p>
+    It supports coordinate transformations across observer frames and physical locations, enabling distributed agents to read and interpret signals without relying on fixed Euclidean representations. Euclidean-space neural models are often mismatched with the curved, relativistic, or quantum nature of the domains they are applied to. GRAIL remedies that by building its framework on geometric categories that are observer-invariant and covariant.
+  </p>
 
   <div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #6f42c1; background-color:#f2eafa;">
-    <strong>Note:</strong> GRAIL is not just another encryption wrapper. It is a <strong>superset architecture</strong>—a union of cryptography, geometry, symbolic dynamics, and post-quantum invariants.
+    <strong>Note:</strong> GRAIL is not merely a CPU-avoidance strategy. It is a <strong>superset framework</strong>—reconciling symbolic entropy, post-quantum cryptography, curved geometry, and algebraic invariance within a unified execution architecture.
   </div>
-
 </section>
-
 
     <!-- Who this is for -->
     <section id="for-whom" aria-labelledby="for-whom-h">
