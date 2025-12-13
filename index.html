@@ -650,7 +650,7 @@
 
       <div class="sec-claim">
         <div class="card">
-          <div class="big">Core claim (tight and defensible)</div>
+          <div class="big">Core claim </div>
           <p class="lede" style="margin:0;">
             If an attacker steals only transformed artifacts from storage—numbers with no keys and no operational access—they do not obtain readable data,
             and they do not obtain a usable interface to replicate your model’s behavior. They can compute “structure,” but structure is not intelligence unless it can be anchored.
@@ -779,80 +779,132 @@
         </article>
       </div>
 
-      <div class="card" style="margin-top:1rem;">
-        <div class="kicker">Q&amp;A (operational, not marketing)</div>
-        <h3>Security Q&amp;A</h3>
+<div class="card" style="margin-top:1rem;">
+  <div class="kicker">Q&amp;A (operational, not marketing)</div>
+  <h3>Security Q&amp;A</h3>
 
-        <div class="qa">
-          <details class="qa-item">
-            <summary>Q: If someone steals the transformed index, can they still cluster it and learn “who is close to whom”?</summary>
-            <div class="qa-body">
-              <p>
-                They can compute numerical relations inside what they stole. The missing step is what makes it useful:
-                <strong>anchoring</strong> (labels/IDs/timestamps/provenance) and <strong>operational access</strong> (a compatible query path).
-                Without those, they can produce patterns but cannot convert patterns into client-identifiable or action-driving intelligence.
-              </p>
-              <p><strong>Working rule:</strong> intelligence is not intelligence if you cannot anchor it.</p>
-            </div>
-          </details>
+  <h3 style="margin-top:1.1rem;">Q&amp;A (security, stated cleanly)</h3>
 
-          <details class="qa-item">
-            <summary>Q: Why isn’t “structure leakage” automatically a breach?</summary>
-            <div class="qa-body">
-              <p>
-                Because “structure” is not a business outcome. It becomes a breach when an attacker can connect it to something real:
-                names, cases, patients, assets, time, or a query interface that lets them validate guesses.
-                This is why Logarchéon treats <strong>metadata containment</strong> and <strong>query-path control</strong> as first-class security requirements.
-              </p>
-            </div>
-          </details>
+  <div class="qa">
 
-          <details class="qa-item">
-            <summary>Q: What does Logarchéon explicitly NOT claim?</summary>
-            <div class="qa-body">
-              <ul>
-                <li><strong>No claim of “semantic secrecy” if you leak metadata.</strong> If IDs, timestamps, labels, or external join keys leak, risk increases—by definition.</li>
-                <li><strong>No claim of safety under endpoint compromise.</strong> If an attacker can extract transformed query vectors from endpoints, they have created an oracle-like channel.</li>
-                <li><strong>No claim that standard cryptography becomes optional.</strong> Disk encryption, TLS, access control, and auditing remain mandatory.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="qa-item">
-            <summary>Q: Can quantum computing “tunnel through” 256-bit keys?</summary>
-            <div class="qa-body">
-              <p>
-                Not in any generic, accepted model of symmetric-key search. The conservative generic quantum advantage is Grover’s algorithm
-                (roughly a square-root speedup), which is why the default posture targets <strong>256-bit+</strong> effective entropy.
-                “Tunneling” is not a separate generic shortcut that collapses symmetric-key security.
-              </p>
-            </div>
-          </details>
-
-          <details class="qa-item">
-            <summary>Q: What operational controls are required for the claim to hold?</summary>
-            <div class="qa-body">
-              <ul>
-                <li><strong>Tenant-unique keys + rotation</strong> (limit correlation and blast radius).</li>
-                <li><strong>No embedding/hidden-state export</strong> outside the customer trust boundary (treat transformed representations as sensitive).</li>
-                <li><strong>Harden endpoints</strong> the way you harden credentials (least privilege, secure enclaves where appropriate, minimal telemetry).</li>
-                <li><strong>Strict metadata containment</strong> (IDs/timestamps/labels are often the real leak).</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="qa-item">
-            <summary>Q: If an insider leaks a key, is everything over?</summary>
-            <div class="qa-body">
-              <p>
-                It depends on how you operate. Logarchéon is designed to support <strong>blast-radius control</strong>:
-                tenant-unique keys, key rotation, and optional <strong>bulkhead mode</strong> where extremely sensitive workloads are processed
-                in compartments. The goal is to avoid “one mistake equals total compromise.”
-              </p>
-            </div>
-          </details>
-        </div>
+    <details class="qa-item">
+      <summary>Q: What if an attacker steals the full transformed index?<span class="badge" style="margin-left:.5rem;">zero-oracle theft</span></summary>
+      <div class="qa-body">
+        <p>
+          Under the assumptions stated for read-only theft (no keys, no plaintext, no IDs/timestamps/labels, no query interface),
+          they do not get readable documents and they do not get a usable “ask questions” capability.
+          They may compute internal numerical relationships, but without <strong>anchors</strong> (provenance/metadata) and without a
+          <strong>compatible query path</strong>, those relationships are not reliably convertible into client-identifiable or operationally actionable intelligence.
+        </p>
+        <p><strong>Working rule:</strong> intelligence is not intelligence if you cannot anchor it.</p>
       </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Q: Does your transform preserve any structure?</summary>
+      <div class="qa-body">
+        <p>
+          Yes. Any system that computes on representations will preserve some internal structure—otherwise your model would not work.
+          The security question is not “does structure exist,” but “can a passive thief <strong>name</strong> that structure (anchors) or <strong>use</strong> it (oracle/query path).”
+          This posture assumes the answer is no.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Q: Why include key-guessing time estimates at all?</summary>
+      <div class="qa-body">
+        <p>
+          For buyers, it clarifies intent: this is a <strong>keyed security posture</strong>, not a policy promise.
+          Brute-force time only becomes directly relevant when an attacker can validate guesses (an oracle).
+          In the “stolen storage, no interface” model, the more important point is: even a guessed key is not automatically useful unless the attacker can operationalize it.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Q: Do similar documents stay similar?</summary>
+      <div class="qa-body">
+        <p>
+          For <strong>authorized computation inside your runtime</strong>, yes—otherwise retrieval and learning would break.
+          The distinction is that “similarity exists” does not imply “an attacker can exploit similarity” without
+          (i) identities/metadata that label the points or (ii) a compatible query path that can generate keyed query vectors.
+        </p>
+        <p style="margin-top:.6rem; color: var(--muted);">
+          Similarity without anchoring is not intelligence.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Q: Why isn’t clustering alone a break?</summary>
+      <div class="qa-body">
+        <p>
+          Clustering is only dangerous when clusters can be <strong>named</strong> and exploited.
+          Under read-only theft with no IDs/timestamps/labels and no interface to test hypotheses,
+          “a cluster exists” does not translate into “this is Client X / Matter Y / Incident Z.”
+        </p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Q: What changes the picture (what breaks the assumptions)?</summary>
+      <div class="qa-body">
+        <p>Three classes of leakage matter:</p>
+        <ul>
+          <li><strong>Anchors:</strong> IDs, timestamps, labels, filenames, or any joinable metadata leaked alongside artifacts.</li>
+          <li><strong>Oracle:</strong> any interface that lets an attacker submit inputs and observe outputs; or any channel that leaks keyed query vectors (endpoints, logs, telemetry).</li>
+          <li><strong>Key failures:</strong> key reuse across tenants, weak entropy, or lack of rotation.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Q: How does “dimensional expansion” add security?<span class="badge" style="margin-left:.5rem;">defense-in-depth</span></summary>
+      <div class="qa-body">
+        <p>
+          It is additive security, not the primary claim. If your canonical representation is <span class="math">d</span>-dimensional (e.g., 256),
+          the runtime can operate in a larger <span class="math">D</span>-dimensional working space (e.g., 2560) where signal and redundancy are mixed
+          under customer-held secrets. A passive thief then faces an extra problem: even before interpretation, they must identify which degrees of freedom
+          matter—without anchors, without known pairs, and without a query path.
+        </p>
+
+        <div class="emph-box" style="margin-top:1rem;">
+          <strong>How this adds security (high-level):</strong>
+          <ul style="margin:.6rem 0 0;">
+            <li><strong>Subspace uncertainty:</strong> offline attackers must guess which degrees of freedom are meaningful.</li>
+            <li><strong>Anchoring resistance:</strong> without labels/IDs, “clusters/outliers” become harder to interpret when the signal is deliberately mixed with plausible structure.</li>
+            <li><strong>Reduced reuse:</strong> even if the thief builds a nearest-neighbor index, it is not reliably queryable without a compatible keyed query path.</li>
+            <li><strong>Blast-radius control:</strong> per-tenant keys + rotation limit how much a single exfiltration can be correlated over time.</li>
+          </ul>
+          <p style="margin:.6rem 0 0; color: var(--muted);">
+            <strong>Boundary:</strong> dimensional expansion is not a substitute for key secrecy and operational controls. It is additive.
+          </p>
+        </div>
+
+        <p style="margin-top:.8rem; color: var(--muted);">
+          Design constraint: redundancy must be plausibly structured and entangled; trivial padding is statistically discoverable.
+        </p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Q: What should we assume about quantum?</summary>
+      <div class="qa-body">
+        <p>
+          For symmetric-key brute-force, the conservative model is Grover-style speedup, which motivates a <strong>256-bit+</strong> target.
+          Quantum changes the margin; it does not replace key discipline or operational containment.
+        </p>
+        <p class="callout" style="margin-bottom:0;">
+          <span class="badge">Quantum note</span>
+          Generic quantum search (Grover) can reduce effective symmetric-key security by roughly half (<span class="math">k → k/2</span>).
+          For this reason, Logarchéon targets <strong>256-bit+</strong> effective entropy to retain ~128-bit-class security even in a conservative quantum model.
+        </p>
+      </div>
+    </details>
+
+  </div>
+</div>
 
       <div class="emph-box">
         <strong>Bottom line:</strong> Logarchéon’s security posture is not “magic encryption.”
