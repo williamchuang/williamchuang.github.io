@@ -466,6 +466,7 @@
           <th>Method</th>
           <th>What's Protected “In Use”</th>
           <th>Trust & Leakage</th>
+          <th>Decryption at CPU Runtime?</th>
           <th>Speed (FHE = 1×)</th>
           <th>ML Fit Today</th>
         </tr>
@@ -475,41 +476,47 @@
           <td><strong>FHE</strong> (CKKS, TFHE)</td>
           <td>Data & model fully encrypted during computation</td>
           <td>No hardware trust; leaks access patterns unless ORAM is used</td>
-          <td><strong>1× (baseline)</strong><br>e.g. 8.58s vs. milliseconds</td>
+          <td><strong>No</strong></td>
+          <td><strong>1×</strong><br>e.g. 8.58s vs. ms</td>
           <td>Too slow for real-time ML</td>
         </tr>
         <tr>
           <td><strong>MPC / Secret Sharing</strong></td>
           <td>Split data across parties; compute jointly</td>
           <td>Trust split across ≥2 parties; high communication overhead</td>
-          <td><strong>10–100×</strong> faster than FHE</td>
-          <td>Limited by WAN latency; useful in static tasks</td>
+          <td><strong>No</strong></td>
+          <td><strong>10–100×</strong></td>
+          <td>WAN latency limits real-time use</td>
         </tr>
         <tr>
           <td><strong>ORAM / Garbled Circuits</strong></td>
-          <td>Obfuscates both data and access patterns</td>
+          <td>Obfuscates data and access patterns</td>
           <td>High bandwidth; full privacy if padded</td>
-          <td><strong>10–100×</strong> faster than FHE</td>
-          <td>Used in binary net or circuit tasks</td>
+          <td><strong>No</strong></td>
+          <td><strong>10–100×</strong></td>
+          <td>Useful for binary/circuit-style tasks</td>
         </tr>
         <tr>
           <td><strong>ZK / zkML</strong></td>
-          <td>Verifiable execution (but not encrypted in use)</td>
-          <td>Trusted setup; compute is verifiable but slow to prove</td>
-          <td><strong>2–10×</strong> faster than FHE (verify-only)</td>
-          <td>Useful for proofs, not full in-use privacy</td>
+          <td>Verifiable execution only</td>
+          <td>Trusted setup; does not protect live runtime</td>
+          <td><strong>Yes</strong> (for proving, not privacy)</td>
+          <td><strong>2–10×</strong> (verify only)</td>
+          <td>Useful for audits, not privacy-preserving training</td>
         </tr>
         <tr>
           <td><strong>TEE</strong> (SGX, SEV)</td>
-          <td>Plaintext in enclave, encrypted RAM</td>
+          <td>Plaintext inside secure enclave; encrypted RAM</td>
           <td>Requires firmware trust; vulnerable to side-channels</td>
+          <td><strong>Yes</strong> (data decrypted inside CPU enclave)</td>
           <td><strong>500–1,000×</strong> faster than FHE</td>
-          <td>Practical; not zero-trust</td>
+          <td>Supports inference & training, but not zero-trust</td>
         </tr>
         <tr style="background:#e7ffe7;">
           <td><strong>GRAIL</strong> (this work)</td>
           <td>Algebraic encryption of parameters and activations</td>
           <td>Zero reliance on firmware or microcode; semantics preserved</td>
+          <td><strong>No</strong> (never decrypted inside CPU)</td>
           <td>
             ≈<strong>1×</strong> (plaintext speed)<br>
             <strong>1,000–10,000×</strong> faster than FHE
@@ -544,7 +551,6 @@
     <strong>Note:</strong> GRAIL is not merely a CPU-avoidance strategy. It is a <strong>superset framework</strong>—reconciling symbolic entropy, post-quantum cryptography, curved geometry, and algebraic invariance within a unified execution architecture.
   </div>
 </section>
-
     <!-- Who this is for -->
     <section id="for-whom" aria-labelledby="for-whom-h">
       <h2 id="for-whom-h">Who this is for</h2>
