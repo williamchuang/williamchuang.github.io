@@ -199,6 +199,42 @@
     table.segment-map td.role-col {
       color: var(--muted);
     }
+
+    /* Security Q&A */
+    details.qa {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: .9rem 1rem;
+      background: rgba(255,255,255,.03);
+    }
+    details.qa + details.qa { margin-top: .75rem; }
+    details.qa summary {
+      cursor: pointer;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      list-style: none;
+    }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary:after {
+      content: "▾";
+      float: right;
+      color: var(--muted);
+    }
+    details.qa[open] summary:after { content: "▴"; }
+
+    table.comp {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+    table.comp th, table.comp td {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: .55rem .35rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    table.comp th { color: var(--muted); font-weight: 800; }
+    .small { font-size: .92rem; color: var(--muted); }
   </style>
 
   <!-- Your global CSS (optional; remove if it causes overrides) -->
@@ -242,6 +278,7 @@
         <a href="#segment-map">Segment map</a>
         <a href="#offers">What you get</a>
         <a href="#how-it-works">How it works</a>
+        <a href="#security-posture">Security</a>
         <a href="#why-different">Why different</a>
         <a href="#under-the-hood">Under the hood</a>
         <a href="#founder">Founder</a>
@@ -604,6 +641,282 @@
         You get a self-service “encrypted AI laundromat”: your data and model go in wearing your own geometric disguise;
         all training and inference happen in that disguise; only you can remove it—and only if your policy says you should.
       </p>
+    </section>
+
+    <!-- Security posture -->
+    <section id="security-posture" aria-labelledby="security-posture-h">
+      <h2 id="security-posture-h">Security posture (Q&amp;A)</h2>
+      <p class="lede">
+        Logarchéon is built for environments where “trust our logs” is not a security model.
+        The posture below states: (i) what is protected, (ii) what is explicitly not claimed,
+        and (iii) what operational controls must hold for the claim to remain true.
+      </p>
+
+      <div class="emph-box">
+        <strong>Anchor principle:</strong> a transformed representation may preserve internal structure for authorized computation,
+        but structure becomes intelligence only when an attacker also has <strong>anchors</strong> (metadata / identities / join keys)
+        or an <strong>operational channel</strong> (a way to generate compatible queries or validate hypotheses).
+      </div>
+
+      <h3>Threat model assumed in this section</h3>
+      <div class="card">
+        <p class="lede" style="margin-bottom:.5rem;">
+          <strong>Zero-Oracle Exfiltration.</strong> An attacker steals <em>only</em> transformed artifacts from storage (e.g., transformed vectors and/or transformed weights),
+          but has no:
+        </p>
+        <ul>
+          <li>plaintext inputs or plaintext outputs,</li>
+          <li>before/after pairs,</li>
+          <li>document IDs, labels, timestamps, author fields, case/matter IDs, patient IDs, asset IDs, or other metadata,</li>
+          <li>query interface (no ability to submit inputs and observe outputs),</li>
+          <li>side channels that provide validation.</li>
+        </ul>
+        <p class="callout">
+          <span class="badge">Plain English</span>
+          Offline read-only possession of transformed numbers, with no way to test guesses against the real system.
+        </p>
+      </div>
+
+      <h3>Comparison: what changes the risk picture</h3>
+      <div class="card">
+        <table class="comp" aria-label="Threat conditions and what they enable">
+          <thead>
+            <tr>
+              <th scope="col">Attacker also has…</th>
+              <th scope="col">What becomes possible</th>
+              <th scope="col">Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nothing extra</strong> (transformed artifacts only)</td>
+              <td>Unsupervised structure may be computed (neighbors/clusters/outliers) but remains unlabeled and non-operational.</td>
+              <td>They cannot reliably tie structure to real clients, events, systems, or identities.</td>
+            </tr>
+            <tr>
+              <td><strong>Anchors</strong> (IDs, timestamps, labels, provenance, join keys)</td>
+              <td>Structure can be mapped to named entities and time windows; cluster narratives become testable.</td>
+              <td>Anchors convert geometry into intelligence (who/when/where).</td>
+            </tr>
+            <tr>
+              <td><strong>Operational channel</strong> (query path, endpoint leakage, oracle)</td>
+              <td>Retrieval and hypothesis testing become practical; a stolen index can become actionable.</td>
+              <td>Operational access is the difference between “artifact theft” and “working exploitation.”</td>
+            </tr>
+            <tr>
+              <td><strong>Both anchors + operational channel</strong></td>
+              <td>Full exploitation becomes plausible, depending on key hygiene and containment.</td>
+              <td>This is where controls (tenant keys, logging policy, endpoint hardening) decide outcomes.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:.75rem;">
+          This table is deliberately explicit: Logarchéon’s strongest posture is against <strong>artifact-only theft</strong>.
+          If you expand the threat model to include anchors or a query path, the mitigations shift toward operational governance.
+        </p>
+      </div>
+
+      <h3>Security Q&amp;A</h3>
+
+      <details class="qa">
+        <summary>Q: If an attacker steals the full transformed index, what do they get?</summary>
+        <div class="small" style="margin-top:.6rem;">
+          They do not get readable plaintext, and they do not get a usable interface to answer real questions the way your users do.
+          They may compute internal numerical relations (e.g., “A is close to B” under the preserved structure), but without anchors
+          and without a compatible query path those relations are not reliably convertible into client-identifiable or operationally
+          actionable intelligence.
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Q: Are you claiming the transformed space is “meaningless”?</summary>
+        <div class="small" style="margin-top:.6rem;">
+          No. A keyed transformation can preserve specific internal relations so authorized training/inference still works.
+          The claim is narrower and stronger: without keys plus anchoring metadata and/or an operational channel,
+          an attacker cannot reliably convert preserved relations into named, time-bounded, decision-grade intelligence.
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Q: Do similar items stay similar?</summary>
+        <div class="small" style="margin-top:.6rem;">
+          For authorized computation running inside the keyed runtime: yes—by design, certain relations are preserved so the system remains functional.
+          For an unauthorized observer with only a stolen dump: “similarity exists” does not imply “exploitation is practical,” because they lack
+          anchoring and validation.
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Q: Why isn’t clustering (or outliers) automatically a breach?</summary>
+        <div class="small" style="margin-top:.6rem;">
+          Clustering and outlier scoring become intelligence only when you can interpret them and test the interpretation.
+          Under the exfiltration-only model, the attacker cannot answer basic questions like “which cluster is which client,”
+          “which outlier is a real incident,” or “what changed and when,” because the needed anchors and verification channels are absent.
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Q: Can a stolen transformed index be used as a retrieval engine?</summary>
+        <div class="small" style="margin-top:.6rem;">
+          Retrieval requires a query vector in the same keyed coordinate system. Under the assumed model, the attacker has no way
+          to generate compatible transformed queries and no oracle to validate guesses. “Index theft becomes retrieval” is therefore
+          a different threat model—one that requires endpoint compromise, insider access, or query leakage.
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Q: What does Logarchéon explicitly not claim?</summary>
+        <div class="small" style="margin-top:.6rem;">
+          It does not claim universal “semantic secrecy” against attackers who also possess metadata, partial labels, or external join keys.
+          It does not claim security against a live oracle (query access) under the same assumptions as pure exfiltration.
+          It does not claim complexity-theory “hardness” as a substitute for operational key hygiene.
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Q: What operational controls are required for the posture to hold?</summary>
+        <div class="small" style="margin-top:.6rem;">
+          Tenant-unique keys and key rotation; strict containment of embeddings/hidden states (no debug dumps, no analytics sinks by default);
+          metadata minimization and segregation; and endpoint hardening (treat query-generation surfaces like credential-bearing systems).
+          These controls prevent anchors and operational channels from accidentally appearing.
+        </div>
+      </details>
+
+      <h3>MECE view: attacker goals vs. what they need</h3>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="kicker">Goal class A</div>
+          <h3>Label groups (“matters”, “cohorts”, “campaigns”)</h3>
+          <ul>
+            <li><strong>They can compute:</strong> unlabeled clusters.</li>
+            <li><strong>They still need:</strong> IDs/timestamps/provenance to attach meaning and validate.</li>
+            <li><strong>Posture:</strong> clusters alone do not identify clients, events, or systems.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Goal class B</div>
+          <h3>Prioritize targets (“hot docs”, “urgent incidents”)</h3>
+          <ul>
+            <li><strong>They can compute:</strong> numerical outliers and graph “bridges.”</li>
+            <li><strong>They still need:</strong> context to distinguish importance from artifacts.</li>
+            <li><strong>Posture:</strong> they can rank weirdness, not mission significance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Goal class C</div>
+          <h3>Link entities (same author/entity/workflow)</h3>
+          <ul>
+            <li><strong>They can compute:</strong> near-duplicates and similarity graphs.</li>
+            <li><strong>They still need:</strong> attribution metadata (who/when/what) to make it actionable.</li>
+            <li><strong>Posture:</strong> similarity without attribution is not operational intelligence.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Goal class D</div>
+          <h3>Use the corpus for retrieval</h3>
+          <ul>
+            <li><strong>They can compute:</strong> nearest neighbors for a given query vector.</li>
+            <li><strong>They still need:</strong> a compatible query path under the same key (or an oracle).</li>
+            <li><strong>Posture:</strong> retrieval becomes relevant only if endpoints leak queries.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Goal class E</div>
+          <h3>Detect change over time (“something happened”)</h3>
+          <ul>
+            <li><strong>They can compute:</strong> drift between dumps.</li>
+            <li><strong>They still need:</strong> timestamps and provenance to attribute drift to real events.</li>
+            <li><strong>Posture:</strong> change without direction is not usable intelligence.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Key takeaway</div>
+          <h3>What turns structure into intelligence</h3>
+          <ul>
+            <li><strong>Anchors:</strong> IDs, timestamps, labels, provenance, join keys.</li>
+            <li><strong>Operational channel:</strong> query access, endpoint leakage, or any oracle.</li>
+            <li><strong>Controls:</strong> keys per tenant, rotation, no embedding export by default, metadata containment, hardened endpoints.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>Comparison: Logarchéon posture vs. common “private GPT” patterns</h3>
+      <div class="card">
+        <table class="comp" aria-label="Security posture comparison table">
+          <thead>
+            <tr>
+              <th scope="col">Pattern</th>
+              <th scope="col">Typical failure mode</th>
+              <th scope="col">Logarchéon posture</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cloud LLM SaaS</strong></td>
+              <td>Data often exists in canonical form inside someone else’s runtime; logging/debug/support creates spill paths.</td>
+              <td>Runs in your tenancy or on-prem; representation is customer-keyed; posture assumes vendor-blind operation by default.</td>
+            </tr>
+            <tr>
+              <td><strong>On-prem “private GPT” vendor stack</strong></td>
+              <td>Still tends to produce canonical embeddings/weights during support, telemetry, or updates.</td>
+              <td>Operational controls emphasize non-export of embeddings/hidden states and tenant-unique keys with rotation.</td>
+            </tr>
+            <tr>
+              <td><strong>DIY local LLM</strong></td>
+              <td>Full control, but you inherit all key management, data handling, and leakage risk without a representation security layer.</td>
+              <td>Defense-in-depth: customer-keyed representation plus standard crypto, plus clear governance controls.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Appendix for technical reviewers (non-enabling)</h3>
+      <div class="card">
+        <details class="qa">
+          <summary>Preserved invariant (high level)</summary>
+          <div class="small" style="margin-top:.6rem;">
+            The runtime uses a keyed transformation designed so that specific internal relations are preserved for authorized computation
+            (so training and inference can proceed in the keyed representation). This section is intentionally non-enabling: it does not
+            specify a unique geometry, parameterization, or construction.
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>What is not claimed</summary>
+          <div class="small" style="margin-top:.6rem;">
+            No claim of “semantic secrecy” against attackers who also obtain anchoring metadata or external join keys.
+            No claim of security against a live oracle or compatible query path under the same assumptions as pure exfiltration.
+            No claim that complexity theory replaces key entropy and key hygiene.
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Residual attack surfaces (what changes the model)</summary>
+          <div class="small" style="margin-top:.6rem;">
+            Risk becomes materially different if (i) anchors leak (IDs/timestamps/provenance), (ii) a query path exists (endpoint leakage, insider access),
+            (iii) an oracle exists (ability to submit inputs and observe outputs), or (iv) keys are reused across tenants/corpora enabling correlation.
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Audit checks (operational controls)</summary>
+          <div class="small" style="margin-top:.6rem;">
+            Confirm tenant-unique keys and rotation; confirm embeddings/hidden states are not exported to analytics or logs by default; confirm metadata
+            minimization and segregation; confirm endpoints and query-generation surfaces are hardened and treated as credential-bearing components.
+          </div>
+        </details>
+      </div>
+
+      <div class="emph-box">
+        <strong>Deck-safe line:</strong>
+        Unsupervised structure may exist in a transformed representation, but without keys, anchors, or a compatible query interface,
+        an attacker cannot convert exfiltrated artifacts into client-identifiable, time-identifiable, or operationally actionable intelligence.
+      </div>
     </section>
 
     <!-- Why this is different -->
