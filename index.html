@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>William Chuang — Logarchéon</title>
-  <meta name="description" content="Logarchéon wraps the language models you already use—or trains new λ-native models from scratch—in a geometry-native, λ-secure runtime so they can run encrypted-in-use on your own hardware or in your own cloud. Built for national security, critical infrastructure, systemic finance, and high-confidentiality legal and civil environments." />
+  <title>Logarchéon — λ-secure private AI runtime (encrypted-in-use)</title>
+  <meta name="description" content="Logarchéon wraps the language models you already use—or commissions λ-native models from scratch—in a geometry-native, λ-secure runtime so they can run encrypted-in-use on your hardware or in your cloud tenancy." />
 
   <!-- Canonical & Social -->
   <link rel="canonical" href="https://logarcheon.com/">
   <meta property="og:url" content="https://logarcheon.com/">
   <meta property="og:site_name" content="Logarchéon">
-  <meta property="og:title" content="William Chuang — Logarchéon" />
-  <meta property="og:description" content="λ-secure private AI and geometry-native cryptographic wrappers for missions that cannot fail. Wrap your existing LLMs or train λ-native models from scratch so they run encrypted-in-use on your hardware or cloud tenancy." />
+  <meta property="og:title" content="Logarchéon — λ-secure private AI runtime (encrypted-in-use)" />
+  <meta property="og:description" content="λ-secure private AI and geometry-native cryptographic wrappers for missions that cannot fail. Wrap your existing LLMs or commission λ-native models from scratch for encrypted-in-use execution on your own hardware or cloud tenancy." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
   <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
@@ -33,15 +33,28 @@
       --card: #161a20;
       --text: #e8ecf2;
       --muted: #a7b0be;
-      --accent: #7dd3fc;  /* cyan-300 */
+      --accent: #7dd3fc;   /* cyan-300 */
       --accent-2: #c084fc; /* violet-400 */
       --ring: rgba(125,211,252,.35);
       --maxw: 1000px;
+
+      /* Link colors (fixes light-mode hover override issue) */
+      --link: var(--accent);
+      --link-hover: var(--accent-2);
+
       color-scheme: dark light;
     }
+
     @media (prefers-color-scheme: light) {
-      :root { --bg:#f9fafb; --surface:#ffffff; --card:#ffffff; --text:#0b1020; --muted:#4b5563; --ring:rgba(99,102,241,.28);}
-      a:hover { color:#4338ca }
+      :root {
+        --bg:#f9fafb;
+        --surface:#ffffff;
+        --card:#ffffff;
+        --text:#0b1020;
+        --muted:#4b5563;
+        --ring:rgba(99,102,241,.28);
+        --link-hover:#4338ca; /* desired hover in light mode */
+      }
     }
 
     html, body { height: 100%; }
@@ -61,7 +74,8 @@
       position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
     .visually-hidden-focusable:focus {
-      position:static; width:auto; height:auto; padding:.5rem .75rem; background:var(--surface); border:1px solid var(--accent); border-radius:.5rem;
+      position:static; width:auto; height:auto; padding:.5rem .75rem;
+      background:var(--surface); border:1px solid var(--accent); border-radius:.5rem;
     }
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
@@ -93,8 +107,24 @@
     p.lede { font-size: 1.05rem; color: var(--muted); max-width: 75ch; }
     p, li { max-width: 80ch; }
 
-    .card { background: linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), color-mix(in oklab, var(--card) 96%, transparent));
-            border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 1.1rem 1.25rem; box-shadow: 0 10px 25px -20px rgba(0,0,0,.6); }
+    /* Fallback backgrounds first (fixes color-mix support gaps) */
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
+    }
+    @supports (background: color-mix(in oklab, white 50%, transparent)) {
+      .card {
+        background: linear-gradient(
+          180deg,
+          color-mix(in oklab, var(--card) 92%, transparent),
+          color-mix(in oklab, var(--card) 96%, transparent)
+        );
+      }
+    }
+
     .grid { display: grid; gap: 1rem; }
     .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
@@ -110,8 +140,8 @@
     .math { font-variant-numeric: lining-nums, tabular-nums; font-weight: 600; }
     .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; background: rgba(255,255,255,.06); padding: .15rem .35rem; border-radius: .4rem; font-size: .9em; border: 1px solid rgba(255,255,255,.1); }
 
-    a { color: var(--accent); text-underline-offset: .2em; }
-    a:hover { color: var(--accent-2); }
+    a { color: var(--link); text-underline-offset: .2em; }
+    a:hover { color: var(--link-hover); }
 
     footer { padding: 3rem 0 4rem; color: var(--muted); }
     .hr { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); border: none; margin: 1.5rem 0; }
@@ -121,19 +151,24 @@
     .toc a { font-size: .85rem; color: var(--muted); border: 1px solid rgba(255,255,255,.1); padding: .25rem .55rem; border-radius: 999px; }
     .toc a:hover { color: var(--text); background: rgba(255,255,255,.06); }
 
-    /* Emphasis box */
+    /* Emphasis box (fixes border-left being overwritten) */
     .emph-box {
-      border-left: 4px solid var(--accent);
-      background: linear-gradient(
-        90deg,
-        color-mix(in oklab, var(--card) 96%, transparent),
-        color-mix(in oklab, var(--card) 92%, transparent)
-      );
+      background: var(--card);
       border: 1px solid rgba(255,255,255,.06);
+      border-left: 4px solid var(--accent);
       border-radius: 14px;
       padding: 1.1rem 1.25rem;
       box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
       margin-top: 1rem;
+    }
+    @supports (background: color-mix(in oklab, white 50%, transparent)) {
+      .emph-box {
+        background: linear-gradient(
+          90deg,
+          color-mix(in oklab, var(--card) 96%, transparent),
+          color-mix(in oklab, var(--card) 92%, transparent)
+        );
+      }
     }
 
     table.segment-map {
@@ -166,11 +201,8 @@
     }
   </style>
 
-  <!-- Your global CSS (if any) -->
+  <!-- Your global CSS (optional; remove if it causes overrides) -->
   <link rel="stylesheet" href="/css/main.css">
-
-  <!-- MathJax (for research pages; harmless here) -->
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -181,13 +213,12 @@
     <nav class="top-nav" aria-label="Primary">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/About">About</a></li>
+        <!-- normalize casing if your server is case-sensitive -->
+        <li><a href="/about">About</a></li>
         <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
         <li><a href="/files/william_resume.pdf">Resume</a></li>
-        <li><a href="/files/William_advanced_mathematics_courses.pdf">Math Courses Taken</a></li>
-        <li><a href="/Research">Research</a></li>
-       <!-- <li><a href="/Teaching">Teaching</a></li>-->
-       <!-- <li><a href="/My%20Schedule">My Schedule</a></li>-->
+        <li><a href="/files/william_advanced_mathematics_courses.pdf">Math Courses Taken</a></li>
+        <li><a href="/research">Research</a></li>
       </ul>
     </nav>
   </header>
@@ -200,7 +231,7 @@
       <h1 id="site-title">Wrap your models — or train λ-native ones from scratch.</h1>
       <p class="subhead">
         Logarchéon either wraps the language models you already use in a geometry-native, λ-secure runtime,
-        or trains new λ-native models from scratch for your domain. In both paths, models run encrypted-in-use
+        or commissions new λ-native models from scratch for your domain. In both paths, models run encrypted-in-use
         on <span class="nowrap">your hardware</span> or in <span class="nowrap">your cloud tenancy</span>.
         You keep the weights and the keys; GRAIL supplies the shell—designed for national security,
         critical infrastructure, systemic finance, and high-confidentiality law and civil environments.
@@ -290,7 +321,13 @@
         performance and control at the architecture level.
       </p>
 
-      <div class="grid cols-3">
+      <div class="emph-box">
+        <strong>V2 vs V1:</strong>
+        <strong>V2 (Exported / wrapper)</strong> is the fastest adoption path for existing models.
+        <strong>V1 (Intrinsic / λ-native)</strong> is a commissioned path for deeper, architecture-level integration under the same λ-secure principles.
+      </div>
+
+      <div class="grid cols-3" style="margin-top:1rem;">
         <article class="card">
           <div class="kicker">Model-agnostic</div>
           <h3>Works with modern LLM families</h3>
@@ -302,19 +339,17 @@
         </article>
 
         <article class="card">
-          <div class="kicker">λ-secure wrapper</div>
+          <div class="kicker">λ-secure wrapper (V2)</div>
           <h3>A geometry-native shell around your models</h3>
           <ul>
-            <li>Your models run inside a λ-geometry runtime under a private geometric key
-              — a secret change of coordinates — that only you control.</li>
-            <li>Training and inference happen in this disguised coordinate system, so even copied weights
-              do not immediately reveal a usable canonical model.</li>
+            <li>Your models run inside a λ-geometry runtime under a private geometric key—a secret change of coordinates—that only you control.</li>
+            <li>Training and inference happen in this disguised coordinate system, so even copied weights do not immediately reveal a usable canonical model.</li>
             <li>Different teams can share a runtime while keeping their own geometric keys and data siloed.</li>
           </ul>
         </article>
 
         <article class="card">
-          <div class="kicker">λ-native path</div>
+          <div class="kicker">λ-native path (V1)</div>
           <h3>Train from scratch when you need it</h3>
           <ul>
             <li>For some missions, you may prefer a model trained from the ground up under GRAIL’s geometry.</li>
@@ -626,7 +661,7 @@
             proofs, and prototypes:
           </p>
           <ul>
-            <li>Visit the <a href="/Research">Research</a> page for notes, slides, and code snippets.</li>
+            <li>Visit the <a href="/research">Research</a> page for notes, slides, and code snippets.</li>
             <li>See my <a href="/files/william_chuang_cv.pdf">CV</a> for academic background and prior work.</li>
             <li>Or email for non-enabling technical briefs and NDA-gated materials where appropriate.</li>
           </ul>
@@ -651,7 +686,7 @@
         </p>
         <p>
           If you want the full story—formation, research, teaching, and vocation—see the
-          <a href="/About">About</a> page, <a href="/Research">Research</a> index, and
+          <a href="/about">About</a> page, <a href="/research">Research</a> index, and
           <a href="/files/william_resume.pdf">resume</a>.
         </p>
       </div>
@@ -702,7 +737,10 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var el = document.getElementById('year');
+      if (el) el.textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
