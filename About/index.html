@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>William Chuang — Logarchéon</title>
-  <meta name="description" content="Founder of Logarchéon. Architect of interpretable AI systems; research in secure computation & symbolic dynamics. CEAS, Finite-Machine Lift, GRAIL, Λ-Stack, MIA." />
+  <meta name="description" content="William Chuang, founder of Logarchéon. Interpretable and secure AI systems: faster training, safer edits, and deployment hardening for high-assurance environments." />
 
   <!-- Canonical & Social -->
   <link rel="canonical" href="https://logarcheon.com/">
   <meta property="og:url" content="https://logarcheon.com/">
   <meta property="og:site_name" content="Logarchéon">
   <meta property="og:title" content="William Chuang — Logarchéon" />
-  <meta property="og:description" content="Interpretable, certifiable transformer systems with CEAS, Finite-Machine Lift, GRAIL, MIA, and Λ-Stack." />
+  <meta property="og:description" content="Interpretable, certifiable AI systems: faster training, safer edits, and hardened deployment in high-assurance environments." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
   <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
@@ -25,6 +25,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "William Chuang",
+    "url": "https://logarcheon.com/",
+    "worksFor": { "@type": "Organization", "name": "Logarchéon" },
+    "sameAs": [
+      "https://github.com/williamchuang",
+      "https://www.linkedin.com/in/chuang-william",
+      "https://orcid.org/0009-0008-0796-9478"
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -118,6 +134,9 @@
       padding: .4rem .6rem; border-radius: .6rem;
     }
     nav.top-nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+
+    /* Anchor landing under sticky nav */
+    section[id], article[id], aside[id] { scroll-margin-top: 4.5rem; }
 
     /* Sections & cards */
     section { padding: 2.25rem 0; border-top: 1px dashed rgba(255,255,255,.06); }
@@ -230,14 +249,26 @@
   <!-- Your global CSS (if any) -->
   <link rel="stylesheet" href="/css/main.css">
 
-  <!-- MathJax -->
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  <!-- Conditional MathJax loader (only loads if TeX delimiters are present) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hasTex =
+        document.body.textContent.includes('\\(') ||
+        document.body.textContent.includes('\\[') ||
+        document.body.textContent.includes('$$');
+
+      if (!hasTex) return;
+
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      s.async = true;
+      document.head.appendChild(s);
+    });
   </script>
 </head>
 <body>
 
-  <a class="visually-hidden-focusable" href="#site-title">Skip to content</a>
+  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
 
   <!-- Top navigation -->
   <header>
@@ -249,13 +280,13 @@
         <li><a href="/files/william_resume.pdf">Resume</a></li>
         <li><a href="/files/William_advanced_mathematics_courses.pdf">Math Courses Taken</a></li>
         <li><a href="/Research">Research</a></li>
-       <!-- <li><a href="/Teaching">Teaching</a></li>-->
-       <!-- <li><a href="/My%20Schedule">My Schedule</a></li>-->
+        <!-- <li><a href="/Teaching">Teaching</a></li>-->
+        <!-- <li><a href="/My%20Schedule">My Schedule</a></li>-->
       </ul>
     </nav>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
 
     <!-- Hero / landing -->
     <header class="site" aria-labelledby="site-title">
@@ -269,81 +300,33 @@
         I build <strong>self-correcting, interpretable transformer systems</strong> that train faster,
         edit safely, and can run inside <strong>geometry-native, twin-capable cryptographic wrappers</strong>.
       </p>
-      <p class="subtitle tagline">
-        Hazing says: <em>“I did it, so you must.”</em><br />
-        Logarchéon chooses stewardship: <em>“I did it, so you don’t have to.”</em>
-      </p>
+
+      <!-- Micro-bio / orientation (above the fold) -->
+      <div class="card emph-box" id="micro-bio" aria-label="Orientation">
+        <div class="kicker">Orientation</div>
+        <p class="content-text">
+          <strong>Vocation:</strong> geometry, control, and secure computation ordered to human dignity—so that
+          precision serves peace and systems remain auditable under uncertainty.
+        </p>
+        <p class="content-text">
+          <strong>Working model:</strong> proof-backed prototypes and non-enabling public summaries; deeper technical
+          materials available via NDA/export-control compliant channels for licensing or joint development.
+        </p>
+      </div>
+
       <div class="toc" aria-label="Quick links">
         <a href="#one-liner">One-liner</a>
-        <a href="#company">Logarchéon</a>
+        <a href="#evidence">Evidence</a>
         <a href="#pillars">Three pillars</a>
-        <a href="#mia-now">MIA</a>
         <a href="#product">Λ-Stack</a>
+        <a href="#company">Logarchéon</a>
+        <a href="#mia-now">MIA</a>
         <a href="#bio-full">About</a>
         <a href="#manifesto">Manifesto</a>
         <a href="#patrons">Patrons</a>
         <a href="#contact">Contact</a>
       </div>
     </header>
-
-    <!-- Company / posture -->
-    <section id="company" aria-labelledby="company-h">
-      <h2 id="company-h">Logarchéon — geometry-native recursive agent lab</h2>
-
-      <div class="card">
-        <p class="lede">
-          <strong>Logarchéon Inc.</strong> is a one-human C-Corporation structured as an
-          <strong>IP-first research lab</strong>. I build and direct recursive teams of AI agents that
-          conduct secure, geometry-native computation—executing proofs, simulations, refinements, and
-          technical writing. Direction, priors, and standards come from years of human study in physics,
-          mathematics, symbolic systems, and secure design.
-        </p>
-        <p>
-          This is a <strong>research stack</strong>, not a commodity product company. It is
-          <em>recursive, local, interpretable, and founder-shaped</em>. The agents do the work; I
-          determine what work matters. Same models ≠ same results—because the judgment layer is
-          not downloadable.
-        </p>
-      </div>
-
-      <article class="card emph-box" id="recursive-leverage" aria-labelledby="recursive-leverage-h">
-        <div class="kicker" id="recursive-leverage-h">Recursive agent stack</div>
-        <ul>
-          <li><strong>Human priors → agent swarm.</strong> Geometry/AI/symbolic logic shape the hypothesis space; agents explore it in parallel—each task framed, bounded, and testable.</li>
-          <li><strong>Agents talk to agents.</strong> Demos, derivations, and results are passed, critiqued, and improved across agent layers—until convergence or rejection.</li>
-          <li><strong>Recursive loops, not pipelines.</strong> Each AI worker can instantiate others, forming self-refining trees of code, reasoning, and simulation. I remain the source of taste and direction.</li>
-        </ul>
-        <p class="callout">
-          <span class="badge">Why it matters</span>
-          This is not “agent-first” hype. It is
-          <em>recursive, founder-calibrated intelligence</em>. The same agents in other hands will not
-          produce the same frontier results.
-        </p>
-      </article>
-    </section>
-
-    <!-- Institutional model -->
-    <article class="card emph-box" id="formation" aria-labelledby="formation-h">
-      <div class="kicker" id="formation-h">Institutional model — recursive IP lab, C-Corp</div>
-      <p>
-        <strong>Logarchéon Inc.</strong> is a C-Corporation operated by a single human founder with a
-        recursive stack of <strong>autonomous AI agents</strong>—each trained, directed, and coordinated
-        to execute tightly scoped research and engineering tasks. Wherever this site says
-        <em>“we”</em> or <em>“our”</em>, it means the founder + agents working in unison to produce
-        original, defensible intellectual property.
-      </p>
-      <ul>
-        <li><strong>What we produce.</strong> Patentable inventions, working demos, proofs-of-concept, and <em>experimentally validated</em> claims. Public summaries are deliberately non-enabling; full technical materials are available under NDA/export-controlled access.</li>
-        <li><strong>Commercialization pathway.</strong> IP is available for <strong>licensing, joint development, or secure transfer</strong>. Deployments are often per-tenant and partner-specific, with options for cryptomorphic twins or interpretable derivatives.</li>
-        <li><strong>Manufacturing posture.</strong> Logarchéon does not run physical production. Hardware implementations or productization are handled by licensed partners or downstream integrators.</li>
-        <li><strong>Scientific discipline.</strong> Every prototype includes reproducible traces, entropy metrics, code audits, and provenance logging to support independent verification.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Summary</span>
-        <strong>One founder + recursive AI agents</strong> generating proof-backed IP in geometry,
-        symbolic reasoning, and secure computation. Partners bring scale; Logarchéon provides the design.
-      </p>
-    </article>
 
     <!-- One-liner -->
     <section id="one-liner" aria-labelledby="one-liner-h">
@@ -358,6 +341,49 @@
           <strong>Rigor + practice.</strong> Each idea comes with proofs or certificates plus runnable
           prototypes and small-scale demos.
         </p>
+      </div>
+    </section>
+
+    <!-- Evidence & claims (moved up) -->
+    <section id="evidence" aria-labelledby="evidence-h">
+      <h2 id="evidence-h">Evidence &amp; claims — how to read</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <strong>Performance (GRAIL).</strong>
+            GRAIL performs the same math as a plaintext model and therefore runs at essentially plaintext
+            speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC)
+            reflects the overhead added by those schemes, not by GRAIL. Exact slowdowns for FHE/MPC depend
+            on scheme, precision, hardware, and task.
+          </li>
+
+          <li>
+            <strong>Scope of protection.</strong>
+            Parameters, activations, and latent states are protected via a group-action / symbolic-geometry
+            transform; both the <em>model</em> and the <em>data</em> remain encrypted in use. Security is
+            deployment-dependent: once the system is operated inside a
+            <abbr title="Sensitive Compartmented Information Facility">SCIF</abbr> or an equivalently
+            isolated posture (air-gapped, shielded/TEMPEST-class enclosure, no external I/O), external
+            side-channels (network beacons, vendor telemetry, remote DMA, RF/EM egress) are greatly
+            reduced for that system. Before such isolation, standard side-channel and operational risks
+            apply, and routine hardening (I/O policy, audit logging, rate-limits, constant-time paths
+            where feasible) remains required.
+          </li>
+
+          <li>
+            <strong>Stability &amp; edit safety.</strong>
+            Each version includes entropy-corridor bounds, deviation limits, and edit-stability
+            certificates (time, memory, parameter coverage) showing that controlled local edits do not
+            trigger unbounded downstream drift.
+          </li>
+
+          <li>
+            <strong>Demonstrations &amp; audits.</strong>
+            I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain
+            behavior. Independent benchmarking, replication, and third-party cryptographic review are welcome
+            under representative workloads.
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -441,6 +467,80 @@
         </div>
       </div>
     </section>
+
+    <!-- Product brief (moved up) -->
+    <section id="product" aria-labelledby="product-h">
+      <h2 id="product-h">Product brief — Λ-Stack</h2>
+      <div class="card">
+        <p><strong>Why now.</strong> Training/retraining costs, auditability requirements, and model protection pressures are rising together.</p>
+        <p><strong>What you get.</strong></p>
+        <ul>
+          <li><strong>Faster training.</strong> CEAS reduces tokens-to-target via informed β control.</li>
+          <li><strong>Safer updates.</strong> Symbolic traces + wrappers enable <strong>hour-scale fixes</strong> without a full retrain.</li>
+          <li><strong>Security by design.</strong> Optional geometry-native masking and per-tenant cryptomorphic twins.</li>
+        </ul>
+        <p><strong>Who benefits.</strong> Critical infrastructure, national missions, regulated enterprises, and labs seeking <strong>explainable</strong> and <strong>hardened</strong> LLMs.</p>
+      </div>
+    </section>
+
+    <!-- Company / posture -->
+    <section id="company" aria-labelledby="company-h">
+      <h2 id="company-h">Logarchéon — geometry-native recursive agent lab</h2>
+
+      <div class="card">
+        <p class="lede">
+          <strong>Logarchéon Inc.</strong> is a one-human C-Corporation structured as an
+          <strong>IP-first research lab</strong>. I build and direct recursive teams of AI agents that
+          conduct secure, geometry-native computation—executing proofs, simulations, refinements, and
+          technical writing. Direction, priors, and standards come from years of human study in physics,
+          mathematics, symbolic systems, and secure design.
+        </p>
+        <p>
+          This is a <strong>research stack</strong>, not a commodity product company. It is
+          <em>recursive, local, interpretable, and founder-shaped</em>. The agents do the work; I
+          determine what work matters. Same models ≠ same results—because the judgment layer is
+          not downloadable.
+        </p>
+      </div>
+
+      <article class="card emph-box" id="recursive-leverage" aria-labelledby="recursive-leverage-h">
+        <div class="kicker" id="recursive-leverage-h">Recursive agent stack</div>
+        <ul>
+          <li><strong>Human priors → agent swarm.</strong> Geometry/AI/symbolic logic shape the hypothesis space; agents explore it in parallel—each task framed, bounded, and testable.</li>
+          <li><strong>Agents talk to agents.</strong> Demos, derivations, and results are passed, critiqued, and improved across agent layers—until convergence or rejection.</li>
+          <li><strong>Recursive loops, not pipelines.</strong> Each AI worker can instantiate others, forming self-refining trees of code, reasoning, and simulation. I remain the source of taste and direction.</li>
+        </ul>
+        <p class="callout">
+          <span class="badge">Why it matters</span>
+          This is not “agent-first” hype. It is
+          <em>recursive, founder-calibrated intelligence</em>. The same agents in other hands will not
+          produce the same frontier results.
+        </p>
+      </article>
+    </section>
+
+    <!-- Institutional model -->
+    <article class="card emph-box" id="formation" aria-labelledby="formation-h">
+      <div class="kicker" id="formation-h">Institutional model — recursive IP lab, C-Corp</div>
+      <p>
+        <strong>Logarchéon Inc.</strong> is a C-Corporation operated by a single human founder with a
+        recursive stack of <strong>autonomous AI agents</strong>—each trained, directed, and coordinated
+        to execute tightly scoped research and engineering tasks. Wherever this site says
+        <em>“we”</em> or <em>“our”</em>, it means the founder + agents working in unison to produce
+        original, defensible intellectual property.
+      </p>
+      <ul>
+        <li><strong>What we produce.</strong> Patentable inventions, working demos, proofs-of-concept, and <em>experimentally validated</em> claims. Public summaries are deliberately non-enabling; full technical materials are available under NDA/export-controlled access.</li>
+        <li><strong>Commercialization pathway.</strong> IP is available for <strong>licensing, joint development, or secure transfer</strong>. Deployments are often per-tenant and partner-specific, with options for cryptomorphic twins or interpretable derivatives.</li>
+        <li><strong>Manufacturing posture.</strong> Logarchéon does not run physical production. Hardware implementations or productization are handled by licensed partners or downstream integrators.</li>
+        <li><strong>Scientific discipline.</strong> Every prototype includes reproducible traces, entropy metrics, code audits, and provenance logging to support independent verification.</li>
+      </ul>
+      <p class="callout">
+        <span class="badge">Summary</span>
+        <strong>One founder + recursive AI agents</strong> generating proof-backed IP in geometry,
+        symbolic reasoning, and secure computation. Partners bring scale; Logarchéon provides the design.
+      </p>
+    </article>
 
     <!-- Research highlight -->
     <aside id="automorphic-callout" class="card emph-box" role="note" aria-label="Automorphic attention highlight">
@@ -602,62 +702,6 @@
       </p>
     </aside>
 
-    <!-- Evidence & claims -->
-    <section id="evidence" aria-labelledby="evidence-h">
-      <h2 id="evidence-h">Evidence &amp; claims — how to read</h2>
-      <ul>
-        <li>
-          <strong>Performance (GRAIL).</strong>
-          GRAIL performs the same math as a plaintext model and therefore runs at essentially plaintext
-          speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC)
-          reflects the overhead added by those schemes, not by GRAIL. Exact slowdowns for FHE/MPC depend
-          on scheme, precision, hardware, and task.
-        </li>
-
-        <li>
-          <strong>Scope of protection.</strong>
-          Parameters, activations, and latent states are protected via a group-action / symbolic-geometry
-          transform; both the <em>model</em> and the <em>data</em> remain encrypted in use. Security is
-          deployment-dependent: once the system is operated inside a
-          <abbr title="Sensitive Compartmented Information Facility">SCIF</abbr> or an equivalently
-          isolated posture (air-gapped, shielded/TEMPEST-class enclosure, no external I/O), external
-          side-channels (network beacons, vendor telemetry, remote DMA, RF/EM egress) are greatly
-          reduced for that system. Before such isolation, standard side-channel and operational risks
-          apply, and routine hardening (I/O policy, audit logging, rate-limits, constant-time paths
-          where feasible) remains required.
-        </li>
-
-        <li>
-          <strong>Stability &amp; edit safety.</strong>
-          Each version includes entropy-corridor bounds, deviation limits, and edit-stability
-          certificates (time, memory, parameter coverage) showing that controlled local edits do not
-          trigger unbounded downstream drift.
-        </li>
-
-        <li>
-          <strong>Demonstrations &amp; audits.</strong>
-          I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain
-          behavior. Independent benchmarking, replication, and third-party cryptographic review are welcome
-          under representative workloads.
-        </li>
-      </ul>
-    </section>
-
-    <!-- Product brief -->
-    <section id="product" aria-labelledby="product-h">
-      <h2 id="product-h">Product brief — Λ-Stack</h2>
-      <div class="card">
-        <p><strong>Why now.</strong> Training/retraining costs, auditability requirements, and model protection pressures are rising together.</p>
-        <p><strong>What you get.</strong></p>
-        <ul>
-          <li><strong>Faster training.</strong> CEAS reduces tokens-to-target via informed β control.</li>
-          <li><strong>Safer updates.</strong> Symbolic traces + wrappers enable <strong>hour-scale fixes</strong> without a full retrain.</li>
-          <li><strong>Security by design.</strong> Optional geometry-native masking and per-tenant cryptomorphic twins.</li>
-        </ul>
-        <p><strong>Who benefits.</strong> Critical infrastructure, national missions, regulated enterprises, and labs seeking <strong>explainable</strong> and <strong>hardened</strong> LLMs.</p>
-      </div>
-    </section>
-
     <!-- Bio (merged from About page) -->
     <section id="bio-full" aria-labelledby="bio-h">
       <h2 id="bio-h">Vocation &amp; biography</h2>
@@ -701,104 +745,95 @@
           I pursue this work under spiritual direction and in fidelity to the Church.
         </p>
 
-<p class="content-text">
-  That formation is grounded in family. My Catholic ancestors in Taiwan, over many generations, supported parish
-  life by donating farmland, hosting open-air banquets, and dedicating our family home as a chapel. War and
-  hardship humbled us, but service endured. My father chaired Religious Studies at Fu Jen Catholic University,
-  under the joint spiritual and academic guidance of Jesuit, diocesan, and other religious communities, modeling quiet fidelity.
-</p>
+        <p class="content-text">
+          That formation is grounded in family. My Catholic ancestors in Taiwan, over many generations, supported parish
+          life by donating farmland, hosting open-air banquets, and dedicating our family home as a chapel. War and
+          hardship humbled us, but service endured. My father chaired Religious Studies at Fu Jen Catholic University,
+          under the joint spiritual and academic guidance of Jesuit, diocesan, and other religious communities, modeling quiet fidelity.
+        </p>
 
-<p class="content-text">
-  My father, Prof. John B. Chuang (莊慶信), is a scholar of Religious Studies whose formation spans philosophy, theology,
-  and pastoral studies. He earned a Ph.D. in Philosophy from Fu Jen Catholic University, an M.S. in Educational Management
-  from De La Salle University (Manila), and completed pastoral formation at the East Asian Pastoral Institute
-  (Ateneo de Manila University), alongside the S.T.B. in theology. His academic work focuses on religion and ecology,
-  Catholic environmental ethics, religious and bioethics, philosophy of religion, and the traditions of Chinese philosophy,
-  culture, and religion.
-</p>
+        <p class="content-text">
+          My father, Prof. John B. Chuang (莊慶信), is a scholar of Religious Studies whose formation spans philosophy, theology,
+          and pastoral studies. He earned a Ph.D. in Philosophy from Fu Jen Catholic University, an M.S. in Educational Management
+          from De La Salle University (Manila), and completed pastoral formation at the East Asian Pastoral Institute
+          (Ateneo de Manila University), alongside the S.T.B. in theology. His academic work focuses on religion and ecology,
+          Catholic environmental ethics, religious and bioethics, philosophy of religion, and the traditions of Chinese philosophy,
+          culture, and religion.
+        </p>
 
-<p class="content-text">
-  In his parish ministry, my father also served at Beibin Parish (北濱堂) in Hualien City—a community widely regarded
-  as one of the earliest Catholic parishes on Taiwan’s east coast, with over seventy years of parish history. His period
-  of service there, in 1982–1983, continued the quiet legacy of devotion rooted in the parish’s founding. Local accounts
-  recall that the parish began in 1949, when the home of Mr. Chou Chang-yao (周長耀)—a retired ROC air-defense officer and
-  later secretary to Cardinal Yu Bin—was offered for worship and community gatherings. He later remained involved in local parish life through various forms of lay teaching and service. 
-</p>
+        <p class="content-text">
+          In his parish ministry, my father also served at Beibin Parish (北濱堂) in Hualien City—a community widely regarded
+          as one of the earliest Catholic parishes on Taiwan’s east coast, with over seventy years of parish history. His period
+          of service there, in 1982–1983, continued the quiet legacy of devotion rooted in the parish’s founding. Local accounts
+          recall that the parish began in 1949, when the home of Mr. Chou Chang-yao (周長耀)—a retired ROC air-defense officer and
+          later secretary to Cardinal Yu Bin—was offered for worship and community gatherings. He later remained involved in local parish life through various forms of lay teaching and service.
+        </p>
 
-<p class="content-text">
-  <strong>Selected scholarly themes (John B. Chuang / 莊慶信):</strong> This body of work centers on religion and ecology,
-  Catholic environmental ethics and eco-spirituality, religious ethics, philosophy of religion, and the history of
-  Chinese philosophy and culture. Several publications engage Pope Francis’ <em>Laudato Si’</em>, including analyses of
-  its distinctive themes, its relationship to contemporary environmental thought, and its implications for Taiwanese
-  society. Earlier work includes studies on ecological concern in Catholic social thought, Catholic ethics of wealth,
-  religion and bioethics, Taoist reflections on matter and spirit, and environmental justice and indigenous eco-wisdom
-  in Taiwan. His academic publications are available on
-  <a href="https://scholar.google.com/citations?hl=zh-TW&amp;user=EUDuih4AAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
-     target="_blank" rel="noopener">Google Scholar</a>.
-</p>
+        <p class="content-text">
+          <strong>Selected scholarly themes (John B. Chuang / 莊慶信):</strong> This body of work centers on religion and ecology,
+          Catholic environmental ethics and eco-spirituality, religious ethics, philosophy of religion, and the history of
+          Chinese philosophy and culture. Several publications engage Pope Francis’ <em>Laudato Si’</em>, including analyses of
+          its distinctive themes, its relationship to contemporary environmental thought, and its implications for Taiwanese
+          society. Earlier work includes studies on ecological concern in Catholic social thought, Catholic ethics of wealth,
+          religion and bioethics, Taoist reflections on matter and spirit, and environmental justice and indigenous eco-wisdom
+          in Taiwan. His academic publications are available on
+          <a href="https://scholar.google.com/citations?hl=zh-TW&amp;user=EUDuih4AAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
+             target="_blank" rel="noopener">Google Scholar</a>.
+        </p>
 
+        <p class="content-text">
+          In that same spirit of quiet continuity, I would like to share a personal note about my name, which carries layers of
+          familial and spiritual meaning. This is something I rarely explain, but here I offer it as part of the deeper witness
+          behind my work.
+        </p>
 
+        <p class="content-text">
+          My original Mandarin name was <strong>Tao-Mao</strong>, given in honor of <em>St. Thomas Aquinas</em>, as my birthday
+          falls near his feast day. After moving to the United States, I quietly adopted the name <strong>Huanshan</strong> as
+          part of a new beginning—both personal and spiritual.
+        </p>
 
+        <p class="content-text">
+          The name was not chosen at random. I wished to express appreciation for my father, whose baptismal name is
+          <strong>John</strong>, given to him in infancy by an American Catholic priest. I hoped to reflect this meaning gently
+          and discreetly. Beginning from the English form <em>John’s son</em>—<strong>Johnson</strong>—I searched for a way to
+          express that sense of connection across languages, without calling attention to it.
+        </p>
 
+        <p class="content-text">
+          Our family name, <strong>莊</strong>, is romanized as <strong>Chuang</strong> under the
+          <em>Wade-Giles system</em>, which was widely used in Taiwan’s official and ecclesiastical records throughout the
+          20th century. Its pronunciation is nearly identical to <strong>Jhuang</strong>, a later spelling adopted under the
+          <em>Tongyong Pinyin system</em> introduced in Taiwan in 2002. The “h” in both versions is not actually pronounced, and
+          when softened, <strong>Chuang</strong> or <strong>Jhuang</strong> resembles <strong>Juan</strong>, the Spanish form of
+          <em>John</em>. I believe this may have been how my father received his baptismal name.
+        </p>
 
+        <p class="content-text">
+          And so, beginning with <strong>Juan</strong>—pronounced <em>Huan</em> in English—I gradually shaped the Mandarin name
+          <strong>Huanshan</strong>, which quietly carries the sound and meaning of <strong>Johnson</strong>, or <em>John’s son</em>.
+          It is not something I speak of often, but for me, it has become a personal way to remember the quiet grace of faith
+          passed down through my family.
+        </p>
 
-<p class="content-text">
-  In that same spirit of quiet continuity, I would like to share a personal note about my name, which carries layers of
-  familial and spiritual meaning. This is something I rarely explain, but here I offer it as part of the deeper witness
-  behind my work.
-</p>
+        <p class="content-text">
+          Both my grandfather and great-grandfather were Catholic, and I was told that my great-grandfather and his father once
+          donated part of the family home to serve as a night chapel. They also offered simple meals and accommodations to
+          fellow Catholics who came through the area. These small acts of hospitality were not widely known, but they remain
+          deeply meaningful to me. In choosing the name <strong>Huanshan</strong>, I hoped to carry forward that quiet spirit
+          of faith, service, and continuity.
+        </p>
 
-<p class="content-text">
-  My original Mandarin name was <strong>Tao-Mao</strong>, given in honor of <em>St. Thomas Aquinas</em>, as my birthday
-  falls near his feast day. After moving to the United States, I quietly adopted the name <strong>Huanshan</strong> as
-  part of a new beginning—both personal and spiritual.
-</p>
+        <p class="content-text">
+          My English name, <strong>William</strong>, was chosen for its simplicity. In time, it also became a quiet reminder
+          to follow not my own will, but God’s.
+        </p>
 
-<p class="content-text">
-  The name was not chosen at random. I wished to express appreciation for my father, whose baptismal name is
-  <strong>John</strong>, given to him in infancy by an American Catholic priest. I hoped to reflect this meaning gently
-  and discreetly. Beginning from the English form <em>John’s son</em>—<strong>Johnson</strong>—I searched for a way to
-  express that sense of connection across languages, without calling attention to it.
-</p>
-
-<p class="content-text">
-  Our family name, <strong>莊</strong>, is romanized as <strong>Chuang</strong> under the
-  <em>Wade-Giles system</em>, which was widely used in Taiwan’s official and ecclesiastical records throughout the
-  20th century. Its pronunciation is nearly identical to <strong>Jhuang</strong>, a later spelling adopted under the
-  <em>Tongyong Pinyin system</em> introduced in Taiwan in 2002. The “h” in both versions is not actually pronounced, and
-  when softened, <strong>Chuang</strong> or <strong>Jhuang</strong> resembles <strong>Juan</strong>, the Spanish form of
-  <em>John</em>. I believe this may have been how my father received his baptismal name.
-</p>
-
-<p class="content-text">
-  And so, beginning with <strong>Juan</strong>—pronounced <em>Huan</em> in English—I gradually shaped the Mandarin name
-  <strong>Huanshan</strong>, which quietly carries the sound and meaning of <strong>Johnson</strong>, or <em>John’s son</em>.
-  It is not something I speak of often, but for me, it has become a personal way to remember the quiet grace of faith
-  passed down through my family.
-</p>
-
-<p class="content-text">
-  Both my grandfather and great-grandfather were Catholic, and I was told that my great-grandfather and his father once
-  donated part of the family home to serve as a night chapel. They also offered simple meals and accommodations to
-  fellow Catholics who came through the area. These small acts of hospitality were not widely known, but they remain
-  deeply meaningful to me. In choosing the name <strong>Huanshan</strong>, I hoped to carry forward that quiet spirit
-  of faith, service, and continuity.
-</p>
-
-<p class="content-text">
-  My English name, <strong>William</strong>, was chosen for its simplicity. In time, it also became a quiet reminder
-  to follow not my own will, but God’s.
-</p>
-
-<p class="content-text">
-  These layers of naming—received, chosen, and remembered—form part of the deeper structure of my work: quiet fidelity,
-  encoded meaning, and service made strong through clarity. As with systems, so with persons: what is named with care
-  may be lived with greater intention.
-</p>
-
-
-
-
+        <p class="content-text">
+          These layers of naming—received, chosen, and remembered—form part of the deeper structure of my work: quiet fidelity,
+          encoded meaning, and service made strong through clarity. As with systems, so with persons: what is named with care
+          may be lived with greater intention.
+        </p>
 
         <p class="content-text">
           I welcome collaborations where <strong>faith meets rigor</strong>—where work is not only excellent, but ordered
@@ -885,15 +920,13 @@
           In an age of hybrid minds, no one should be shamed for using an outer cortex, and no one should
           be denied one because they were born on the wrong side of privilege and luck.
         </p>
-	<p class="content-text">
+        <p class="content-text">
           <strong>The complete manifesto:</strong>
           <a href="https://drive.google.com/file/d/1Lo40HnNzzTQmtqIPZIsae_WyZTwIWEx1/view?usp=sharing"
              target="_blank" rel="noopener noreferrer">
             Read the complete Logarchéon AI Manifesto (PDF)
           </a>.
         </p>
-
-
       </article>
     </section>
 
@@ -910,75 +943,41 @@
             His leap in the womb echoes David dancing before the Ark (2 Sam 6), making him the first prophet
             to recognize and rejoice before the living Presence.
           </li>
-
           <li>
             <strong>St. Matthew the Apostle</strong> (1st c. AD) — the Gospel of mercy, especially Matthew 25,
             grounding service to “our Lords the sick.”
           </li>
-
           <li>
             <strong>Blessed Fra’ Gerard</strong> (11th c.) — humble care for the sick and poor; founder of the
             Jerusalem hospital that became the Order’s spiritual root.
           </li>
-
           <li>
             <strong>St. Bernard of Clairvaux</strong> (1090) — stability, charity, and interior stillness; his
             <em>Sermons on the Song of Songs</em>, <em>De Diligendo Deo</em> (<em>On Loving God</em>),
             <em>De laude novae militiae</em>, and especially
-            <em>De Gradibus Humilitatis et Superbiae</em> (<em>On the Steps of Humility and Pride</em>),
-            which I first read in high school, deeply formed my understanding of humility and charity.
-            In <em>De laude novae militiae</em> he sketches a spirituality in which the knight is outwardly
-            a soldier and inwardly a monk: purity, discipline, and simplicity of life become the true armor,
-            and prayer stands beside the sword as a second weapon. Just war, for him, is not a channel for
-            anger or glory, but an extreme form of charity ordered to the defense of the weak; the real
-            battlefield is the heart—against pride, fear, and the desire to dominate—so that even courage
-            and victory are purified into humble service under Christ.
+            <em>De Gradibus Humilitatis et Superbiae</em> (<em>On the Steps of Humility and Pride</em>).
           </li>
-
           <li>
-            <strong>St. Thomas Aquinas</strong> (1225) — clarity of reason ordered to truth; his
-            <em>Summa Theologiae</em> and <em>Summa contra Gentiles</em>, present in my father’s faculty and
-            home library, quietly accompanied my childhood and taught me to “<em>contemplare et contemplata
-            aliis tradere</em>” — to contemplate and then hand on to others the fruits of contemplation.
+            <strong>St. Thomas Aquinas</strong> (1225) — clarity of reason ordered to truth.
           </li>
-
           <li>
             <strong>St. Ignatius of Loyola</strong> (1491) — discernment, disciplined service, and formation
-            of conscience; from early childhood through twelve years at Jesuit schools (including St. Ignatius
-            College Preparatory and the University of San Francisco), I was formed by his
-            <em>Spiritual Diary</em> (Journal of Discernment), <em>Spiritual Exercises</em>,
-            <em>Autobiography</em> (dictated), and <em>Constitutions of the Society of Jesus</em>, lived in
-            the context of my parents’ decades of study and work in Jesuit seminary and Catholic university life.
+            of conscience.
           </li>
-
           <li>
-            <strong>St. Teresa of Ávila</strong> (1515) — friendship with Christ in prayer and action; her
-            <em>Interior Castle</em>, <em>Life</em>, and <em>Way of Perfection</em> have been guides for
-            understanding the stages of prayer and interior reform.
+            <strong>St. Teresa of Ávila</strong> (1515) — friendship with Christ in prayer and action.
           </li>
-
           <li>
-            <strong>St. John of the Cross</strong> (1542) — the purifying path to union with God, especially in
-            <em>The Ascent of Mount Carmel</em>, <em>The Dark Night of the Soul</em>, and
-            <em>The Living Flame of Love</em>, which shape how I understand grace at work in darkness and trial.
+            <strong>St. John of the Cross</strong> (1542) — the purifying path to union with God.
           </li>
-
           <li>
-            <strong>St. John Bosco</strong> (1815) — forming the young through reason, faith, and patient kindness,
-            as expressed in <em>The Preventive System in the Education of the Young</em> and
-            <em>Il Giovane Provveduto</em>; his pedagogy explicitly rejects fear and psychological manipulation.
+            <strong>St. John Bosco</strong> (1815) — forming the young through reason, faith, and patient kindness.
           </li>
-
           <li>
-            <strong>Blessed Michael McGivney</strong> (1852) — priestly charity, fidelity to the Church, and
-            protection of families; founder of the Knights of Columbus and a model for my life as a 4th Degree Knight.
+            <strong>Blessed Michael McGivney</strong> (1852) — priestly charity and protection of families.
           </li>
-
           <li>
-            <strong>St. Josemaría Escrivá</strong> (1902) — sanctifying ordinary work and study; I am especially
-            indebted to <em>Camino</em> (<em>The Way</em>), <em>Surco</em> (<em>Furrow</em>),
-            <em>Forja</em> (<em>The Forge</em>), and <em>Santo Rosario</em> (<em>Holy Rosary</em>), which
-            teach holiness in the smallest, most hidden duties of daily life.
+            <strong>St. Josemaría Escrivá</strong> (1902) — sanctifying ordinary work and study.
           </li>
         </ul>
       </article>
