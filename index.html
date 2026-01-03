@@ -1751,6 +1751,33 @@
         </details>
 
         <details class="qa-item">
+  <summary>Q: What defense-in-depth options exist beyond key custody and rotation?</summary>
+  <div class="qa-body">
+    <div class="card" style="margin-top:.5rem;">
+      <div class="kicker">Defense-in-depth options</div>
+      <h3>Two extra layers buyers actually use</h3>
+      <ul>
+        <li>
+          <strong>Removable redundancy (optional):</strong> embeddings/models can be carried in a higher-dimensional working
+          representation with removable redundancy. Customers keep the subspace definition; redundancy can be stripped on
+          retrieval under policy. This is sold as <em>defense-in-depth</em>, not as a sole security guarantee.
+        </li>
+        <li>
+          <strong>Bulkhead mode (compartmented twins):</strong> for extreme sensitivity, customers can train and move workloads
+          in small, isolated increments (separate compartments, like a ship). Even under an insider key leak, the exposed portion
+          is bounded to the compartment involved at that step.
+        </li>
+      </ul>
+      <p class="callout" style="margin-bottom:0;">
+        <span class="badge">Blast-radius control</span>
+        The goal is not perfection; it is <strong>bounded damage</strong> under realistic failure modes.
+      </p>
+    </div>
+  </div>
+</details>
+
+
+        <details class="qa-item">
           <summary>Q: What are the most common ways a deployment accidentally breaks its own posture?</summary>
           <div class="qa-body">
             <ul>
