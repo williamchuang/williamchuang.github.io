@@ -55,25 +55,27 @@
       <div class="toc" aria-label="Quick links">
         <a href="#definitions">Definitions</a>
         <a href="#trust-boundary">Why this exists</a>
-        <a href="#for-whom">Who this is for</a>
-        <a href="#works-with-models">Your models</a>
-        <a href="#offers">What you get</a>
+        <a href="#how-it-works">How it works</a>
         <a href="#evaluation-pack">How to evaluate</a>
+        <a href="#security-posture">Security posture</a>
+        <a href="#security-qa">Security Q&amp;A</a>
+        <a href="#under-the-hood">Under the hood</a>
         <a href="#contact">Talk to me</a>
       </div>
 
-      <!-- Paper-style definitions: define terms before using them -->
+      <!-- Definitions -->
       <section id="definitions" aria-labelledby="definitions-h" style="margin-top:1.25rem;">
         <div class="card">
           <div class="kicker">Definitions (used throughout this page)</div>
           <h2 id="definitions-h" style="margin-top:.25rem;">Terms of art</h2>
 
           <ul style="margin:.6rem 0 0 1.15rem;">
-            <li><strong>Encrypted-in-use:</strong> protecting sensitive model/data states during active computation (weights instantiated, activations flowing, intermediates present in memory).</li>
-            <li><strong>GRAIL:</strong> Logarchéon’s geometry-native execution layer for operating on non-canonical (key-governed) internal representations in training/inference.</li>
-            <li><strong>Λ-Stack:</strong> Logarchéon’s deployment and governance stack for key custody, rotation policy, interfaces, and operational controls around GRAIL.</li>
-            <li><strong>Exported wrapper (V2):</strong> a compatibility path that wraps existing runtimes/models (adoption-first).</li>
-            <li><strong>Intrinsic / λ-native (V1):</strong> a commissioned path where geometry is built into the architecture (integration-first).</li>
+            <li><strong>Encrypted-in-use:</strong> protecting sensitive model/data states during active computation (weights instantiated, activations/latents flowing, intermediates present in memory and runtime pipelines).</li>
+            <li><strong>GRAIL:</strong> Logarchéon’s geometry-native execution layer for operating on non-canonical (key-governed) internal representations during training and inference.</li>
+            <li><strong>Λ-Stack:</strong> Logarchéon’s deployment and governance stack for key custody, rotation policy, interface control, and operational controls around GRAIL.</li>
+            <li><strong>V1 — Intrinsic / λ-native GRAIL (NN/LLM):</strong> a commissioned integration path where the geometry is built into the model architecture and training dynamics (integration-first).</li>
+            <li><strong>V2 — Exported wrapper GRAIL (NN/LLM):</strong> a compatibility path that wraps existing models/frameworks so they execute under key-governed, non-canonical internal representations (adoption-first).</li>
+            <li><strong>V3 — Exported-wrapper posture (general-purpose compute):</strong> a wrapper-based containment posture for existing OS/VM/runtime stacks and hardware-adjacent surfaces, extending the same “in-use” discipline beyond AI (compatibility-first).</li>
           </ul>
 
           <p class="callout" style="margin-bottom:0;">
@@ -84,7 +86,7 @@
       </section>
     </header>
 
-    <!-- Unified trust boundary section (single canonical version; no duplication later) -->
+    <!-- Trust boundary -->
     <section id="trust-boundary" aria-labelledby="trust-boundary-h">
       <h2 id="trust-boundary-h">Why this exists: “in use” is where leakage happens</h2>
       <p class="lede">
@@ -92,8 +94,8 @@
         they are <strong>in-use</strong> operations, where intermediate representations exist in operational form inside a runtime.
         This is the phase where endpoints, logs, memory scraping, and firmware-level trust assumptions become decisive.
       </p>
+
       <div class="grid cols-2" style="margin-top:1rem;">
-        <!-- Left: What these subsystems are (paper-style, non-accusatory) -->
         <div class="emph-box">
           <strong>Firmware subsystems below the OS (what they are)</strong>
           <p style="margin:.6rem 0 0; color:var(--muted);">
@@ -145,7 +147,6 @@
           </p>
         </div>
 
-        <!-- Right: Threat relevance and how attackers historically try to abuse the class -->
         <div class="emph-box" style="border-left-color: var(--accent-2);">
           <strong>Threat relevance (why attackers value this class of component)</strong>
           <p style="margin:.6rem 0 0; color:var(--muted);">
@@ -186,17 +187,16 @@
         </div>
       </div>
 
-      <!-- MIA VM / exported wrapper emphasis: beyond LLMs, non-enabling posture -->
       <div class="card" style="margin-top:1rem;">
         <div class="kicker">Important: scope is not “LLMs only”</div>
-        <h3>MIA VM (exported wrapper) and Von Neumann workloads</h3>
+        <h3>V3 (exported-wrapper posture) and Von Neumann workloads</h3>
         <p class="lede" style="margin-top:.25rem;">
           While this page uses AI training/inference as the motivating example, the exported-wrapper approach applies more broadly:
           <strong>most conventional computing</strong> still runs on a <strong>Von Neumann architecture</strong> where “in-use” states
           (memory, caches, intermediate values, runtime artifacts) are the primary leakage surface.
         </p>
         <ul style="margin:.6rem 0 0 1.15rem;">
-          <li><strong>MIA VM (exported wrapper mode):</strong> a deployment posture intended to wrap existing OS/VM/runtime stacks rather than requiring a new machine design.</li>
+          <li><strong>V3 (exported-wrapper posture):</strong> a deployment posture intended to wrap existing OS/VM/runtime stacks rather than requiring a new machine design.</li>
           <li><strong>Objective:</strong> reduce the amount of sensitive computation that ever appears in canonical, reusable plaintext form inside the host runtime.</li>
           <li><strong>Non-enabling policy:</strong> Logarchéon does not publish implementation details that would meaningfully assist reverse engineering or misuse; evaluation materials are shared under NDA for serious reviewers.</li>
         </ul>
@@ -206,7 +206,6 @@
         </p>
       </div>
 
-      <!-- Next: why FHE/MPC/TEEs do not fully solve in-use for modern ML (continue in next chunk) -->
       <div class="card" style="margin-top:1rem;">
         <div class="kicker">Why common “secure computation” approaches still disappoint buyers</div>
         <h3>FHE / MPC / TEEs vs. real-world “in-use” workloads</h3>
@@ -214,6 +213,7 @@
           Buyers often hear “just use FHE” or “just use MPC” or “just use confidential computing.”
           In practice, each option imposes distinct constraints in performance, compatibility, or trust assumptions—especially for modern neural workloads.
         </p>
+
         <div class="grid cols-2" style="margin-top:.75rem;">
           <div class="emph-box" style="margin-top:0;">
             <strong>FHE (Fully Homomorphic Encryption)</strong>
@@ -279,11 +279,11 @@
 
         <div class="card" style="margin-top:1rem;">
           <div class="kicker">What Logarchéon changes</div>
-          <h3>GRAIL + Λ-Stack + exported-wrapper MIA VM (high-level)</h3>
+          <h3>GRAIL + Λ-Stack + V3 exported-wrapper posture (high-level)</h3>
           <ul style="margin:.6rem 0 0 1.15rem;">
             <li><strong>GRAIL (definition):</strong> the geometry-native execution layer that maintains protected semantics during computation.</li>
             <li><strong>Λ-Stack (definition):</strong> the productized runtime stack (key custody, policy gates, operational controls) that makes GRAIL deployable.</li>
-            <li><strong>MIA VM (exported wrapper):</strong> a compatibility posture that wraps existing OS/VM stacks—applicable beyond AI to conventional Von Neumann workloads.</li>
+            <li><strong>V3 (definition):</strong> wrapper-based containment posture for existing OS/VM/runtime stacks—applicable beyond AI to conventional Von Neumann workloads.</li>
           </ul>
           <p style="margin:.75rem 0 0; color:var(--muted);">
             Public materials remain intentionally non-enabling. Serious technical review is supported via NDA-gated briefs and evaluation builds.
@@ -294,451 +294,374 @@
           <strong>Bottom line:</strong> The practical failure mode is not “weak crypto” — it is <strong>in-use exposure</strong> through runtime reality.
           Logarchéon’s posture is to minimize canonical in-use exposure by design, without requiring buyers to trust every firmware layer.
         </blockquote>
+      </div>
+    </section>
 
-      </div> <!-- /card: FHE/MPC/TEE -->
+    <!-- How it works -->
+    <section id="how-it-works" aria-labelledby="how-it-works-h">
+      <h2 id="how-it-works-h">How it works: customer-governed secure execution across AI and conventional computing</h2>
 
-<!-- ===== Definitions (REPLACE your current <ul> in #definitions with this) ===== -->
-<ul style="margin:.6rem 0 0 1.15rem;">
-  <li><strong>Encrypted-in-use:</strong> protecting sensitive model/data states during active computation (weights instantiated, activations/latents flowing, intermediates present in memory and runtime pipelines).</li>
+      <p class="lede">
+        Logarchéon is organized as a versioned deployment stack so buyers can choose adoption speed versus integration depth.
+        All versions share the same governance principle: <strong>customer-held secrets</strong>, explicit <strong>policy gates</strong>,
+        and constrained <strong>interfaces</strong> that reduce accidental “in-use” exposure.
+      </p>
 
-  <li><strong>GRAIL:</strong> Logarchéon’s geometry-native execution layer for operating on non-canonical (key-governed) internal representations during training and inference.</li>
+      <div class="emph-box">
+        <strong>Version map:</strong>
+        V1 = intrinsic GRAIL for NN/LLM · V2 = exported wrapper for NN/LLM · V3 = exported-wrapper posture for OS/VMs and Von Neumann workloads (compatibility-first).
+      </div>
 
-  <li><strong>Λ-Stack:</strong> Logarchéon’s deployment and governance stack for key custody, rotation policy, interface control, and operational controls around GRAIL.</li>
-
-  <li><strong>V1 — Intrinsic / λ-native GRAIL (NN/LLM):</strong> a commissioned integration path where the geometry is built into the model architecture and training dynamics (integration-first).</li>
-
-  <li><strong>V2 — Exported wrapper GRAIL (NN/LLM):</strong> a compatibility path that wraps existing models/frameworks so they execute under key-governed, non-canonical internal representations (adoption-first).</li>
-
-  <li><strong>MIA (V3):</strong> the machine-level invariance architecture that extends the same “in-use” protection posture beyond AI into general-purpose computing on Von Neumann machines (OS/VM/runtime + memory/I/O surfaces).</li>
-
-  <li><strong>V3-1 — Intrinsic MIA VM:</strong> a VM/execution substrate whose internal logic corresponds to the V1 “intrinsic” philosophy (new substrate / integration-first).</li>
-
-  <li><strong>V3-2 — Exported-wrapper MIA:</strong> a wrapper-based containment posture for existing OS/VM stacks and hardware-adjacent surfaces, following the V2 “exported wrapper” philosophy (compatibility-first).</li>
-</ul>
-
-<!-- ===== How it works (REPLACE your entire #how-it-works section with this) ===== -->
-<section id="how-it-works" aria-labelledby="how-it-works-h">
-  <h2 id="how-it-works-h">How it works: V1, V2, V3-1, and V3-2 (one unified workflow)</h2>
-
-  <p class="lede">
-    Logarchéon is structured as a versioned deployment architecture. V1 and V2 cover neural models (NNs/LLMs).
-    V3 extends the same “encrypted-in-use” posture to conventional Von Neumann computing environments.
-    Buyers select the least disruptive path first, then deepen integration only when the mission requires it.
-  </p>
-
-  <div class="emph-box">
-    <strong>Non-enabling posture:</strong> This page describes buyer-facing threat boundaries and deployment posture.
-    Mechanistic details that would meaningfully assist reverse engineering (or misuse) are intentionally not published.
-    Substantiation and evaluation artifacts are provided under NDA for serious technical review.
-  </div>
-
-  <div class="grid cols-2" style="margin-top:1rem;">
-    <article class="card">
-      <div class="kicker">V1 — Intrinsic / λ-native (NN/LLM)</div>
-      <h3>Commissioned integration-first models</h3>
-      <ul>
-        <li><strong>What it is:</strong> models trained from scratch (or deeply refactored) so GRAIL geometry is intrinsic to the architecture and learning dynamics.</li>
-        <li><strong>Why it exists:</strong> maximum integration, strongest long-horizon posture, and the cleanest security/performance envelope for mission-grade deployments.</li>
-        <li><strong>When buyers choose it:</strong> high-assurance programs where architecture-level control is worth the engineering cost.</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <div class="kicker">V2 — Exported wrapper (NN/LLM)</div>
-      <h3>Adoption-first wrapping for existing models</h3>
-      <ul>
-        <li><strong>What it is:</strong> a compatibility wrapper that places existing LLM/NN stacks under a key-governed, non-canonical internal representation.</li>
-        <li><strong>Why it exists:</strong> fastest path to fielding encrypted-in-use training/inference without forcing a from-scratch model program.</li>
-        <li><strong>When buyers choose it:</strong> pilots, sandboxes, and rapid deployments inside customer hardware or customer cloud tenancy.</li>
-      </ul>
-    </article>
-  </div>
-
-  <div class="grid cols-2" style="margin-top:1rem;">
-    <article class="card">
-      <div class="kicker">V3-1 — Intrinsic MIA VM (general-purpose compute)</div>
-      <h3>A new VM substrate (integration-first)</h3>
-      <ul>
-        <li><strong>What it is:</strong> a VM/execution substrate whose internal invariance logic is analogous to V1 (intrinsic), but applied to conventional computation (processes, memory, I/O semantics).</li>
-        <li><strong>Why it exists:</strong> for environments where buyers require a purpose-built substrate rather than wrapping existing stacks.</li>
-        <li><strong>When buyers choose it:</strong> extreme-assurance contexts (e.g., air-gapped, appliance-like deployments) where replacing substrate is acceptable.</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <div class="kicker">V3-2 — Exported-wrapper MIA (general-purpose compute)</div>
-      <h3>Wrap existing OS/VM stacks (compatibility-first)</h3>
-      <ul>
-        <li><strong>What it is:</strong> a wrapper posture that brings existing OS/VM runtimes under the same “non-canonical in-use” discipline—without building a new VM from scratch.</li>
-        <li><strong>Core point:</strong> this is not “LLM-only”; it targets conventional Von Neumann workloads and machine-level leakage surfaces.</li>
-        <li><strong>Adoption benefit:</strong> deployable across existing ecosystems; deepens later only if needed.</li>
-      </ul>
-    </article>
-  </div>
-
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">One operational workflow</div>
-    <h3>Customer-governed secure execution lifecycle</h3>
-    <ol style="margin:.6rem 0 0 1.25rem;">
-      <li><strong>Policy + key custody:</strong> customer generates and holds operational secrets; rotation cadence and export policy are customer-governed.</li>
-      <li><strong>Deployment selection:</strong> choose V2 for rapid NN/LLM wrapping, V1 for intrinsic NN/LLM programs, V3-2 to wrap OS/VM environments, and V3-1 only when a new substrate is required.</li>
-      <li><strong>Interface discipline:</strong> operational interfaces are treated as first-class security surfaces to reduce oracle creation (logs, debug exports, telemetry, and “convenience endpoints”).</li>
-      <li><strong>Staged hardening (V3):</strong> begin at the OS/VM boundary; extend protection downward toward memory and I/O surfaces as required by the mission and environment.</li>
-    </ol>
-
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Formal framing</span>
-      This architecture is designed to support high-assurance evaluations: explicit assumptions, bounded claims, and buyer-controlled governance.
-      Detailed evidence is available under NDA; public materials are intentionally non-enabling.
-    </p>
-  </div>
-</section>
-<section id="evaluation-pack" aria-labelledby="evaluation-pack-h">
-  <h2 id="evaluation-pack-h">How to evaluate (high-assurance buyer workflow)</h2>
-  <p class="lede">Evaluations support due diligence without publishing enabling details. Default posture: buyer-held keys, buyer-owned hardware or buyer cloud tenancy.</p>
-  <div class="grid cols-3" style="margin-top:1rem;">
-    <article class="card"><div class="kicker">Stage 1</div><h3>Threat-model alignment</h3>
-      <ul><li>Define the “in-use” boundary (CPU/GPU/runtime/telemetry).</li><li>Identify what must remain non-canonical in operation.</li><li>Select versions: V1/V2 (NN/LLM), V3-2 (wrapper), V3-1 (intrinsic VM).</li></ul>
-    </article>
-    <article class="card"><div class="kicker">Stage 2</div><h3>Scoped proof-of-capability</h3>
-      <ul><li>Single-machine pilot (one GPU or modest server).</li><li>Buyer-held keys + rotation policy.</li><li>Acceptance criteria tied to your workload.</li></ul>
-    </article>
-    <article class="card"><div class="kicker">Stage 3</div><h3>Independent review</h3>
-      <ul><li>NDA-gated brief + evaluation harness.</li><li>Red-team focus: oracle creation + artifact reuse.</li><li>Hardening guidance: endpoint discipline + EMSEC/ops.</li></ul>
-    </article>
-  </div>
-  <p class="callout"><span class="badge">Procurement clarity</span> Claims are governed by written scope and acceptance criteria. No unbounded promises; no “trust me” assertions.</p>
-</section>
-
-<section id="security-posture" aria-labelledby="security-posture-h">
-  <h2 id="security-posture-h">Security posture (versioned: V1/V2/V3-1/V3-2)</h2>
-  <p class="lede">V1/V2 cover neural models. V3 extends the same customer-governed “in-use” discipline to general-purpose computing on Von Neumann machines.</p>
-
-  <div class="grid cols-2" style="margin-top:1rem;">
-    <article class="card"><div class="kicker">Version map</div><h3>What each version changes</h3>
-      <ul>
-        <li><strong>V1 (Intrinsic GRAIL, NN/LLM):</strong> geometry built into model architecture and learning dynamics.</li>
-        <li><strong>V2 (Exported wrapper, NN/LLM):</strong> wraps existing stacks under key-governed non-canonical representations.</li>
-        <li><strong>V3-1 (Intrinsic MIA VM):</strong> purpose-built VM substrate for extreme-assurance general computing.</li>
-        <li><strong>V3-2 (Exported-wrapper MIA):</strong> wraps existing OS/VM stacks and interfaces (hardware-to-workload compatibility).</li>
-      </ul>
-      <p class="callout" style="margin-bottom:0;"><span class="badge">Non-enabling</span> Public materials are intentionally high-level to avoid enabling reverse engineering; evaluation details are NDA-gated.</p>
-    </article>
-    <article class="card"><div class="kicker">Designed to resist</div><h3>Threats and failure modes</h3>
-      <ul><li><strong>Stolen artifacts:</strong> weights, indices, caches, runtime byproducts.</li><li><strong>Operational reuse:</strong> replay/repurposing in a foreign runtime.</li><li><strong>Oracle creation:</strong> leakage via logs, telemetry, debug endpoints, convenience exports.</li><li><strong>Expanded TCB risk:</strong> environments where firmware layers cannot be fully audited.</li></ul>
-      <p class="callout" style="margin-bottom:0;"><span class="badge">Buyer responsibility</span> Key custody, interface control, and telemetry discipline are mandatory for the posture to hold in practice.</p>
-    </article>
-  </div>
-
-  <div class="emph-box" style="margin-top:1rem;">
-    <strong>Compatibility note (V3-2):</strong> the exported-wrapper MIA posture is designed to integrate with existing operating systems, hypervisors, and runtimes.
-    Deployment placement (user-space, kernel boundary, hypervisor boundary, or adjacent control-plane) is workload-dependent and defined by written acceptance criteria.
-  </div>
-
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">New Q&amp;A (version updates)</div>
-    <h3>Additional questions introduced by V3</h3>
-    <div class="qa">
-      <details class="qa-item">
-        <summary>Q: What is the difference between V3-1 (Intrinsic MIA VM) and V3-2 (Exported-wrapper MIA)?</summary>
-        <div class="qa-body">
-          <p>V3-2 is compatibility-first: it wraps existing OS/VM stacks to reduce canonical “decrypt-then-operate” exposure. V3-1 is integration-first: a purpose-built VM substrate for environments willing to adopt a new execution layer.</p>
-          <ul><li><strong>V3-2:</strong> fastest adoption; leverages existing ecosystems; hardens interfaces and artifact reuse paths.</li><li><strong>V3-1:</strong> maximal control; suited to appliance-like or extreme-assurance deployments.</li></ul>
-        </div>
-      </details>
-
-      <details class="qa-item">
-        <summary>Q: Do we have to replace our OS, hypervisor, or container stack for V3-2?</summary>
-        <div class="qa-body">
-          <p>No. V3-2 is explicitly designed as a wrapper posture so you can keep your existing OS/VM stack and harden “in-use” exposure paths around it. The exact integration boundary is chosen to match your threat model and performance constraints.</p>
-        </div>
-      </details>
-
-      <details class="qa-item">
-        <summary>Q: Does V3 replace V1/V2 for neural models?</summary>
-        <div class="qa-body"><p>No. V1/V2 remain the primary paths for NNs/LLMs. V3 exists to extend the same “in-use” discipline to non-AI workloads where intermediate state (memory/caches/I/O) is the leakage surface.</p></div>
-      </details>
-
-      <details class="qa-item">
-        <summary>Q: Can the exported-wrapper approach cover storage, RAM, and cache layers?</summary>
-        <div class="qa-body"><p>In scope, the objective is system-level containment of sensitive representations across compute and memory surfaces (storage, RAM, caches), subject to deployment constraints and explicit acceptance criteria. Implementation detail is NDA-gated.</p></div>
-      </details>
-
-      <details class="qa-item">
-        <summary>Q: Can V3-2 apply to GPUs and accelerators?</summary>
-        <div class="qa-body"><p>Where accelerators participate in “in-use” state (VRAM, kernel launches, driver queues), the posture is to treat those surfaces as part of the boundary and constrain interfaces accordingly. The exact coverage depends on the accelerator stack and the buyer’s operational constraints.</p></div>
-      </details>
-
-      <details class="qa-item">
-        <summary>Q: How do you prevent generative-AI-assisted reverse engineering of the runtime?</summary>
-        <div class="qa-body"><p>Public documentation is intentionally non-enabling; evaluation builds are NDA-gated; and production deployments are structured so that exfiltrated artifacts alone are not a drop-in, reusable system without customer-held secrets and controlled interfaces.</p></div>
-      </details>
-
-      <details class="qa-item">
-        <summary>Q: What are the most common ways a deployment accidentally breaks its own posture?</summary>
-        <div class="qa-body">
+      <div class="grid cols-2" style="margin-top:1rem;">
+        <article class="card">
+          <div class="kicker">Common control plane (all versions)</div>
+          <h3>Customer custody + policy enforcement</h3>
           <ul>
-            <li><strong>Telemetry overreach:</strong> logging transformed intermediates, debug dumps, or embedding exports.</li>
-            <li><strong>Oracle creation:</strong> exposing a query endpoint that lets attackers validate guesses at scale.</li>
-            <li><strong>Anchor leakage:</strong> leaking joinable metadata (IDs, timestamps, mapping tables) that makes patterns actionable.</li>
-            <li><strong>Key sprawl:</strong> shared credentials, weak rotation discipline, or unmanaged backups of secrets.</li>
+            <li><strong>Key custody:</strong> customer generates and retains operational secrets; vendor does not hold production keys by default.</li>
+            <li><strong>Policy gates:</strong> export, logging, debug, and telemetry are controlled interfaces, not “helpful defaults.”</li>
+            <li><strong>Rotation posture:</strong> keys can rotate per policy cadence to bound correlation and blast radius.</li>
+            <li><strong>Interface discipline:</strong> reduce oracle creation through timing, verbose errors, embedding export, and admin endpoints.</li>
           </ul>
-        </div>
-      </details>
-    </div>
-  </div>
+          <p class="callout" style="margin-bottom:0;">
+            <span class="badge">Procurement language</span>
+            This is a customer-governed execution framework with explicit assumptions and enforceable controls, suitable for high-assurance review.
+          </p>
+        </article>
 
-</section>
-<section id="security-qa" aria-labelledby="security-qa-h">
-  <h2 id="security-qa-h">Security Q&amp;A (operational, not marketing)</h2>
-  <p class="lede">The Q&amp;A below is retained verbatim unless an answer must change due to versioning updates (V1/V2/V3-1/V3-2). New items are appended.</p>
-
-  <div class="qa">
-    <details class="qa-item">
-      <summary>Q: Is this vaporware or a “scam”?</summary>
-      <div class="qa-body">
-        <p>No. The operating rule is simple: <strong>no unbounded promises</strong>, and no fees justified by claims that cannot be tested. Work proceeds through written scope, explicit assumptions, and acceptance criteria.</p>
-        <ul>
-          <li><strong>What is sold:</strong> a bounded deliverable that can be evaluated in the customer’s environment.</li>
-          <li><strong>What is not sold:</strong> belief, vague assurances, or guarantees untethered from deployment conditions.</li>
-          <li><strong>What is public:</strong> non-enabling summaries and clear boundaries.</li>
-          <li><strong>What is NDA-gated:</strong> substantiation and evaluation material appropriate for serious review.</li>
-        </ul>
-        <p>In high-assurance work, credibility is earned the old way: clarity, restraint, and results.</p>
+        <article class="card">
+          <div class="kicker">Deployment envelope</div>
+          <h3>Where it runs</h3>
+          <ul>
+            <li><strong>On-prem:</strong> your hardware, your access governance, your monitoring discipline.</li>
+            <li><strong>BYO cloud tenancy:</strong> GPUs and orchestration in your AWS/Azure/GCP account; you control IAM, logging, and networks.</li>
+            <li><strong>Air-gapped / controlled:</strong> supported as a posture (subject to hardware realities and operational discipline).</li>
+          </ul>
+          <p class="callout" style="margin-bottom:0;">
+            <span class="badge">Boundary</span>
+            Logarchéon reduces “in-use” exposure; it does not replace physical security, EMSEC controls, or endpoint hardening.
+          </p>
+        </article>
       </div>
-    </details>
 
-    <details class="qa-item">
-      <summary>Q: If someone steals the transformed index, can they still cluster it and learn “who is close to whom”?</summary>
-      <div class="qa-body">
-        <p>They can compute numerical relationships inside what they stole. The missing step is what makes it useful: <strong>anchoring</strong> (IDs, labels, timestamps, filenames, provenance) and <strong>operational access</strong> (a compatible way to produce queries and validate hypotheses).</p>
-        <p>Without anchors and without operational access, they can produce patterns, but they cannot convert patterns into client-identifiable or action-driving intelligence.</p>
-        <p><strong>Working rule:</strong> intelligence is not intelligence if you cannot anchor it.</p>
+      <h3 style="margin-top:1.25rem;">V1 and V2 (AI): intrinsic versus exported wrapper</h3>
+      <div class="grid cols-2" style="margin-top:.75rem;">
+        <article class="card">
+          <div class="kicker">V1 · Intrinsic / λ-native GRAIL</div>
+          <h3>Commissioned models with geometry built in</h3>
+          <ul>
+            <li><strong>What it is:</strong> a λ-native architecture path where geometry is part of the model’s internal design.</li>
+            <li><strong>Why choose it:</strong> maximal integration, principled semantics, and tighter control of “canonicalization creep.”</li>
+            <li><strong>Buyer posture:</strong> suited for missions where the model itself is a long-lived sovereign asset.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">V2 · Exported wrapper (NN/LLM)</div>
+          <h3>Adoption-first for existing models and runtimes</h3>
+          <ul>
+            <li><strong>What it is:</strong> a compatibility shell that wraps existing NN/LLM runtimes without requiring a full re-architecture.</li>
+            <li><strong>Why choose it:</strong> fastest path to pilots; preserves existing toolchains and model families.</li>
+            <li><strong>Security intent:</strong> reduce reusable plaintext exposure in “in-use” pipelines via constrained interfaces and protected representations.</li>
+          </ul>
+          <p class="callout" style="margin-bottom:0;">
+            <span class="badge">Non-enabling</span>
+            Public materials are intentionally high-level to avoid enabling replication or reverse engineering.
+          </p>
+        </article>
       </div>
-    </details>
 
-    <details class="qa-item">
-      <summary>Q: When you say “stolen storage, no interface,” what does “interface” mean?</summary>
-      <div class="qa-body">
-        <p>An <strong>interface</strong> is any channel that lets an attacker test guesses or use the system the way your users do.</p>
+      <h3 style="margin-top:1.25rem;">V3 (general-purpose compute): exported-wrapper posture</h3>
+      <div class="card" style="margin-top:.75rem;">
+        <div class="kicker">V3 · Exported-wrapper posture (OS/VM/runtime)</div>
+        <h3>Wrap existing stacks (compatibility-first)</h3>
         <ul>
-          <li><strong>Query UI / API:</strong> “Send a question → get answers, scores, or nearest-neighbor results.”</li>
-          <li><strong>Embedding / indexing pipeline access:</strong> “I can run the same internal steps your system uses to turn a query into a compatible vector.”</li>
-          <li><strong>Verification oracle:</strong> any feedback loop that tells the attacker “your guess was correct” (e.g., outputs match known results).</li>
+          <li><strong>What it is:</strong> a wrapper posture that brings existing OS/VM runtimes under the same “non-canonical in-use” discipline—without building a new substrate from scratch.</li>
+          <li><strong>Core point:</strong> this is not “LLM-only”; it targets conventional Von Neumann workloads and machine-level leakage surfaces.</li>
+          <li><strong>Adoption benefit:</strong> deployable across existing ecosystems; deepens later only if needed.</li>
         </ul>
-        <p>In the <strong>stolen storage, no interface</strong> case, the attacker has a file dump of transformed artifacts, but <strong>no</strong> ability to run live queries, <strong>no</strong> ability to generate compatible query vectors, and <strong>no</strong> way to validate interpretations.</p>
-      </div>
-    </details>
 
-    <details class="qa-item">
-      <summary>Q: If the attacker somehow gets the right key/transform, can’t they undo it and recover everything?</summary>
-      <div class="qa-body">
-        <p>If customer-held secrets are truly recovered, then whatever was protected by those secrets is at risk. The remaining question is operational: <strong>what else did the attacker steal besides transformed numbers?</strong></p>
-        <ul>
-          <li><strong>Transformed vectors are usually not the original documents.</strong> Undoing a transform gives you vectors again—still not the PDFs/emails—unless the raw documents were also stolen.</li>
-          <li><strong>“Actionable intelligence” still requires anchoring.</strong> Without the mapping from “vector row” to “document ID / owner / timestamp / location,” recovered vectors may not translate into named, time-bounded intelligence.</li>
-        </ul>
-        <p><strong>Working rule:</strong> if you cannot anchor it, it is not intelligence.</p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: Concrete example (Agency-style): when is “even with the key” still not automatically actionable?</summary>
-      <div class="qa-body">
-        <p>Operational systems often separate (i) documents, (ii) the vector index, and (iii) a mapping table linking rows to Doc-IDs, compartments, timestamps, etc.</p>
-        <h4 style="margin:1rem 0 .25rem;">Case 1: attacker steals only the vector index file</h4>
-        <ul>
-          <li>They can compute relationships like “row 2,487 is close to row 144,000.”</li>
-          <li>But without the mapping table, those rows have no identities, no timestamps, and no storage paths.</li>
-          <li>They cannot fetch documents, and they cannot name what they are looking at.</li>
-        </ul>
-        <h4 style="margin:1rem 0 .25rem;">Case 2: attacker also obtains customer-held secrets</h4>
-        <ul>
-          <li>They may be able to undo some protections on the index.</li>
-          <li>But they still have “row 1,787,” not “Report AB-1776 / source X / date Y,” unless they also stole the mapping table.</li>
-          <li>They still cannot use the system like an analyst without a query interface and access paths.</li>
-        </ul>
-        <h4 style="margin:1rem 0 .25rem;">What makes it truly dangerous</h4>
-        <ul>
-          <li><strong>Anchors leak:</strong> mapping table or joinable metadata leaks.</li>
-          <li><strong>Access leaks:</strong> attacker gains repository access (paths, creds, backups).</li>
-          <li><strong>Oracle leaks:</strong> attacker can query a live interface or harvest transformed queries from endpoints/logs.</li>
-        </ul>
-        <p><strong>Bottom line:</strong> the blast radius is determined by what leaks together: <em>artifacts alone</em> differ from <em>artifacts + anchors + access</em>.</p>
-      </div>
-    </details>
-  </div>
-</section>
-<section id="security-qa-2" aria-labelledby="security-qa-2-h">
-  <h2 id="security-qa-2-h">Security Q&amp;A (continued)</h2>
-
-  <div class="qa">
-    <details class="qa-item">
-      <summary>Q: Why isn’t “structure leakage” automatically a breach?</summary>
-      <div class="qa-body">
-        <p>Because “structure” is not a business outcome. It becomes a breach when an attacker can connect it to something real: names, cases, patients, assets, time, or a query interface that lets them validate guesses. This is why Logarchéon treats <strong>metadata containment</strong> and <strong>query-path control</strong> as first-class security requirements.</p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: What does Logarchéon explicitly NOT claim?</summary>
-      <div class="qa-body">
-        <ul>
-          <li><strong>No claim of “semantic secrecy” if you leak metadata.</strong> If IDs, timestamps, labels, filenames, or join keys leak, risk increases by definition.</li>
-          <li><strong>No claim of safety under endpoint compromise.</strong> If transformed query vectors leak from endpoints/logs, you have created an oracle-like channel.</li>
-          <li><strong>No claim that standard cryptography becomes optional.</strong> Disk encryption, TLS, access control, and auditing remain mandatory.</li>
-          <li><strong>No claim of “firmware elimination.”</strong> Logarchéon reduces reliance on trusted CPU state; it does not remove vendor firmware subsystems from existence.</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: Can quantum computing “tunnel through” 256-bit keys?</summary>
-      <div class="qa-body">
-        <p>Not in any generic, accepted model of symmetric-key search. The conservative generic quantum advantage is Grover-style speedup (roughly a square-root speedup), which is why the default posture targets <strong>256-bit+</strong> effective entropy. “Tunneling” is not a separate generic shortcut that collapses symmetric-key security.</p>
-        <p class="callout" style="margin:.75rem 0 0;">
-          <strong>Quantum note:</strong> Generic quantum search (Grover) can reduce effective symmetric-key security by roughly half (k → k/2). For this reason, Logarchéon targets 256-bit+ effective entropy to retain ~128-bit-class security even in a conservative quantum model.
+        <p class="callout" style="margin-bottom:0;">
+          <span class="badge">Formal framing</span>
+          This architecture is designed to support high-assurance evaluations: explicit assumptions, bounded claims, and buyer-controlled governance.
+          Detailed evidence is available under NDA; public materials are intentionally non-enabling.
         </p>
       </div>
-    </details>
+    </section>
 
-    <details class="qa-item">
-      <summary>Q: What operational controls are required for the claim to hold?</summary>
-      <div class="qa-body">
-        <ul>
-          <li><strong>Tenant-unique keys + rotation</strong> (limit correlation and blast radius).</li>
-          <li><strong>Keep anchors separate</strong> (mapping tables, provenance metadata, join keys).</li>
-          <li><strong>No embedding/hidden-state export</strong> outside the customer trust boundary (treat transformed representations as sensitive).</li>
-          <li><strong>Harden endpoints</strong> like credentials (least privilege, minimal telemetry, enclaves where appropriate).</li>
-          <li><strong>Strict metadata containment</strong> (IDs/timestamps/labels are often the real leak).</li>
-          <li><strong>Interface discipline:</strong> prevent accidental oracle creation via debug endpoints, verbose logs, or “helpful” admin tooling.</li>
-        </ul>
+    <!-- Evaluation -->
+    <section id="evaluation-pack" aria-labelledby="evaluation-pack-h">
+      <h2 id="evaluation-pack-h">How to evaluate (high-assurance buyer workflow)</h2>
+      <p class="lede">Evaluations support due diligence without publishing enabling details. Default posture: buyer-held keys, buyer-owned hardware or buyer cloud tenancy.</p>
+
+      <div class="grid cols-3" style="margin-top:1rem;">
+        <article class="card">
+          <div class="kicker">Stage 1</div>
+          <h3>Threat-model alignment</h3>
+          <ul>
+            <li>Define the “in-use” boundary (CPU/GPU/runtime/telemetry).</li>
+            <li>Identify what must remain non-canonical in operation.</li>
+            <li>Select versions: V1/V2 (NN/LLM), V3 (exported-wrapper posture).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Stage 2</div>
+          <h3>Scoped proof-of-capability</h3>
+          <ul>
+            <li>Single-machine pilot (one GPU or modest server).</li>
+            <li>Buyer-held keys + rotation policy.</li>
+            <li>Acceptance criteria tied to your workload.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Stage 3</div>
+          <h3>Independent review</h3>
+          <ul>
+            <li>NDA-gated brief + evaluation harness.</li>
+            <li>Red-team focus: oracle creation + artifact reuse.</li>
+            <li>Hardening guidance: endpoint discipline + EMSEC/ops.</li>
+          </ul>
+        </article>
       </div>
-    </details>
 
-    <details class="qa-item">
-      <summary>Q: If an insider leaks a key, is everything over?</summary>
-      <div class="qa-body">
-        <p>Key leakage is serious. The goal is to avoid “one mistake equals total compromise” via <strong>blast-radius control</strong>: tenant-unique keys, key rotation, and optional <strong>bulkhead mode</strong> (compartmentalized processing for extremely sensitive workloads).</p>
-        <p>Bulkhead mode is the operational analogue of watertight compartments: you can structure processing so that a single compromised key is not automatically a full historical compromise.</p>
-      </div>
-    </details>
-
-    <!-- New Q&A for versioning: V1/V2/V3-1/V3-2 -->
-    <details class="qa-item">
-      <summary>Q: What are V1, V2, V3-1, and V3-2 (and why does it matter)?</summary>
-      <div class="qa-body">
-        <ul>
-          <li><strong>V1 (Intrinsic / λ-native GRAIL):</strong> geometry is built into the model architecture; commissioned builds for maximal integration.</li>
-          <li><strong>V2 (Exported wrapper for models):</strong> wraps existing NN/LLM runtimes; adoption-first path.</li>
-          <li><strong>V3-1 (MIA VM, intrinsic logic):</strong> a VM/ISA-level posture aligned with the intrinsic design philosophy for conventional computation.</li>
-          <li><strong>V3-2 (MIA wrapper, exported logic):</strong> wraps existing OS/VMs and conventional workloads at the runtime boundary (compatibility-first).</li>
-        </ul>
-        <p><strong>Why it matters:</strong> the “how you deploy” choice determines adoption time, integration depth, and which parts of your existing stack remain unchanged.</p>
-      </div>
-    </details>
-
-    <details class="qa-item">
-      <summary>Q: Does the V3 MIA wrapper apply only to AI workloads?</summary>
-      <div class="qa-body">
-        <p>No. V3-2 is explicitly framed for <strong>conventional Von Neumann workloads</strong> (processes, OS/VM boundaries, storage/memory/I/O). AI is a motivating case because it concentrates “in-use” secrets; the same leakage logic exists in non-AI computation.</p>
-      </div>
-    </details>
-
-
-  <p class="callout">
-    <span class="badge">Legal note</span>
-    This site is informational and not legal advice. Any deliverable, performance expectation, or security posture is governed solely by a written agreement, including stated assumptions and acceptance criteria.
-  </p>
-</section>
-
-<!-- Versioned "How it Works" (replace your current how-it-works block with this) -->
-<section id="how-it-works" aria-labelledby="how-it-works-h">
-  <h2 id="how-it-works-h">How it works: customer-governed secure execution across AI and conventional computing</h2>
-
-  <p class="lede">
-    Logarchéon is organized as a versioned deployment stack so buyers can choose adoption speed versus integration depth.
-    All versions share the same governance principle: <strong>customer-held secrets</strong>, explicit <strong>policy gates</strong>,
-    and constrained <strong>interfaces</strong> that reduce accidental “in-use” exposure.
-  </p>
-
-  <div class="emph-box">
-    <strong>Version map:</strong>
-    V1 = intrinsic GRAIL for NN/LLM · V2 = exported wrapper for NN/LLM · V3-1 = intrinsic MIA VM for conventional computation ·
-    V3-2 = exported wrapper MIA for OS/VMs and Von Neumann workloads (hardware-adjacent containment posture).
-  </div>
-
-  <div class="grid cols-2" style="margin-top:1rem;">
-    <article class="card">
-      <div class="kicker">Common control plane (all versions)</div>
-      <h3>Customer custody + policy enforcement</h3>
-      <ul>
-        <li><strong>Key custody:</strong> customer generates and retains operational secrets; vendor does not hold production keys by default.</li>
-        <li><strong>Policy gates:</strong> export, logging, debug, and telemetry are controlled interfaces, not “helpful defaults.”</li>
-        <li><strong>Rotation posture:</strong> keys can rotate per policy cadence to bound correlation and blast radius.</li>
-        <li><strong>Interface discipline:</strong> reduce oracle creation through timing, verbose errors, embedding export, and admin endpoints.</li>
-      </ul>
-      <p class="callout" style="margin-bottom:0;">
-        <span class="badge">Procurement language</span>
-        This is a customer-governed execution framework with explicit assumptions and enforceable controls, suitable for high-assurance review.
+      <p class="callout">
+        <span class="badge">Procurement clarity</span>
+        Claims are governed by written scope and acceptance criteria. No unbounded promises; no “trust me” assertions.
       </p>
-    </article>
+    </section>
 
-    <article class="card">
-      <div class="kicker">Deployment envelope</div>
-      <h3>Where it runs</h3>
-      <ul>
-        <li><strong>On-prem:</strong> your hardware, your access governance, your monitoring discipline.</li>
-        <li><strong>BYO cloud tenancy:</strong> GPUs and orchestration in your AWS/Azure/GCP account; you control IAM, logging, and networks.</li>
-        <li><strong>Air-gapped / controlled:</strong> supported as a posture (subject to hardware realities and operational discipline).</li>
-      </ul>
-      <p class="callout" style="margin-bottom:0;">
-        <span class="badge">Boundary</span>
-        Logarchéon reduces “in-use” exposure; it does not replace physical security, EMSEC controls, or endpoint hardening.
-      </p>
-    </article>
-  </div>
+    <!-- Security posture -->
+    <section id="security-posture" aria-labelledby="security-posture-h">
+      <h2 id="security-posture-h">Security posture (versioned: V1/V2/V3)</h2>
+      <p class="lede">V1/V2 cover neural models. V3 extends the same customer-governed “in-use” discipline to general-purpose computing on Von Neumann machines.</p>
 
-  <h3 style="margin-top:1.25rem;">V1 and V2 (AI): intrinsic versus exported wrapper</h3>
-  <div class="grid cols-2" style="margin-top:.75rem;">
-    <article class="card">
-      <div class="kicker">V1 · Intrinsic / λ-native GRAIL</div>
-      <h3>Commissioned models with geometry built in</h3>
-      <ul>
-        <li><strong>What it is:</strong> a λ-native architecture path where geometry is part of the model’s internal design.</li>
-        <li><strong>Why choose it:</strong> maximal integration, principled semantics, and tighter control of “canonicalization creep.”</li>
-        <li><strong>Buyer posture:</strong> suited for missions where the model itself is a long-lived sovereign asset.</li>
-      </ul>
-    </article>
+      <div class="grid cols-2" style="margin-top:1rem;">
+        <article class="card">
+          <div class="kicker">Version map</div>
+          <h3>What each version changes</h3>
+          <ul>
+            <li><strong>V1 (Intrinsic GRAIL, NN/LLM):</strong> geometry built into model architecture and learning dynamics.</li>
+            <li><strong>V2 (Exported wrapper, NN/LLM):</strong> wraps existing stacks under key-governed non-canonical representations.</li>
+            <li><strong>V3 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and interfaces (hardware-to-workload compatibility).</li>
+          </ul>
+          <p class="callout" style="margin-bottom:0;"><span class="badge">Non-enabling</span> Public materials are intentionally high-level to avoid enabling reverse engineering; evaluation details are NDA-gated.</p>
+        </article>
 
-    <article class="card">
-      <div class="kicker">V2 · Exported wrapper (NN/LLM)</div>
-      <h3>Adoption-first for existing models and runtimes</h3>
-      <ul>
-        <li><strong>What it is:</strong> a compatibility shell that wraps existing NN/LLM runtimes without requiring a full re-architecture.</li>
-        <li><strong>Why choose it:</strong> fastest path to pilots; preserves existing toolchains and model families.</li>
-        <li><strong>Security intent:</strong> reduce reusable plaintext exposure in “in-use” pipelines via constrained interfaces and protected representations.</li>
-      </ul>
-      <p class="callout" style="margin-bottom:0;">
-        <span class="badge">Non-enabling</span>
-        Public materials are intentionally high-level to avoid enabling replication or reverse engineering.
-      </p>
-    </article>
-  </div>
-</section>
+        <article class="card">
+          <div class="kicker">Designed to resist</div>
+          <h3>Threats and failure modes</h3>
+          <ul>
+            <li><strong>Stolen artifacts:</strong> weights, indices, caches, runtime byproducts.</li>
+            <li><strong>Operational reuse:</strong> replay/repurposing in a foreign runtime.</li>
+            <li><strong>Oracle creation:</strong> leakage via logs, telemetry, debug endpoints, convenience exports.</li>
+            <li><strong>Expanded TCB risk:</strong> environments where firmware layers cannot be fully audited.</li>
+          </ul>
+          <p class="callout" style="margin-bottom:0;"><span class="badge">Buyer responsibility</span> Key custody, interface control, and telemetry discipline are mandatory for the posture to hold in practice.</p>
+        </article>
+      </div>
 
+      <div class="emph-box" style="margin-top:1rem;">
+        <strong>Compatibility note (V3):</strong> the exported-wrapper posture is designed to integrate with existing operating systems, hypervisors, and runtimes.
+        Deployment placement (user-space, kernel boundary, hypervisor boundary, or adjacent control-plane) is workload-dependent and defined by written acceptance criteria.
+      </div>
+    </section>
+
+    <!-- Security Q&A -->
+    <section id="security-qa" aria-labelledby="security-qa-h">
+      <h2 id="security-qa-h">Security Q&amp;A (operational, not marketing)</h2>
+      <p class="lede">The Q&amp;A below is retained verbatim unless an answer must change due to versioning updates (V1/V2/V3). New items are appended.</p>
+
+      <div class="qa">
+        <details class="qa-item">
+          <summary>Q: Is this vaporware or a “scam”?</summary>
+          <div class="qa-body">
+            <p>No. The operating rule is simple: <strong>no unbounded promises</strong>, and no fees justified by claims that cannot be tested. Work proceeds through written scope, explicit assumptions, and acceptance criteria.</p>
+            <ul>
+              <li><strong>What is sold:</strong> a bounded deliverable that can be evaluated in the customer’s environment.</li>
+              <li><strong>What is not sold:</strong> belief, vague assurances, or guarantees untethered from deployment conditions.</li>
+              <li><strong>What is public:</strong> non-enabling summaries and clear boundaries.</li>
+              <li><strong>What is NDA-gated:</strong> substantiation and evaluation material appropriate for serious review.</li>
+            </ul>
+            <p>In high-assurance work, credibility is earned the old way: clarity, restraint, and results.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: If someone steals the transformed index, can they still cluster it and learn “who is close to whom”?</summary>
+          <div class="qa-body">
+            <p>They can compute numerical relationships inside what they stole. The missing step is what makes it useful: <strong>anchoring</strong> (IDs, labels, timestamps, filenames, provenance) and <strong>operational access</strong> (a compatible way to produce queries and validate hypotheses).</p>
+            <p>Without anchors and without operational access, they can produce patterns, but they cannot convert patterns into client-identifiable or action-driving intelligence.</p>
+            <p><strong>Working rule:</strong> intelligence is not intelligence if you cannot anchor it.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: When you say “stolen storage, no interface,” what does “interface” mean?</summary>
+          <div class="qa-body">
+            <p>An <strong>interface</strong> is any channel that lets an attacker test guesses or use the system the way your users do.</p>
+            <ul>
+              <li><strong>Query UI / API:</strong> “Send a question → get answers, scores, or nearest-neighbor results.”</li>
+              <li><strong>Embedding / indexing pipeline access:</strong> “I can run the same internal steps your system uses to turn a query into a compatible vector.”</li>
+              <li><strong>Verification oracle:</strong> any feedback loop that tells the attacker “your guess was correct” (e.g., outputs match known results).</li>
+            </ul>
+            <p>In the <strong>stolen storage, no interface</strong> case, the attacker has a file dump of transformed artifacts, but <strong>no</strong> ability to run live queries, <strong>no</strong> ability to generate compatible query vectors, and <strong>no</strong> way to validate interpretations.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: If the attacker somehow gets the right key/transform, can’t they undo it and recover everything?</summary>
+          <div class="qa-body">
+            <p>If customer-held secrets are truly recovered, then whatever was protected by those secrets is at risk. The remaining question is operational: <strong>what else did the attacker steal besides transformed numbers?</strong></p>
+            <ul>
+              <li><strong>Transformed vectors are usually not the original documents.</strong> Undoing a transform gives you vectors again—still not the PDFs/emails—unless the raw documents were also stolen.</li>
+              <li><strong>“Actionable intelligence” still requires anchoring.</strong> Without the mapping from “vector row” to “document ID / owner / timestamp / location,” recovered vectors may not translate into named, time-bounded intelligence.</li>
+            </ul>
+            <p><strong>Working rule:</strong> if you cannot anchor it, it is not intelligence.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: Concrete example (Agency-style): when is “even with the key” still not automatically actionable?</summary>
+          <div class="qa-body">
+            <p>Operational systems often separate (i) documents, (ii) the vector index, and (iii) a mapping table linking rows to Doc-IDs, compartments, timestamps, etc.</p>
+            <h4 style="margin:1rem 0 .25rem;">Case 1: attacker steals only the vector index file</h4>
+            <ul>
+              <li>They can compute relationships like “row 2,487 is close to row 144,000.”</li>
+              <li>But without the mapping table, those rows have no identities, no timestamps, and no storage paths.</li>
+              <li>They cannot fetch documents, and they cannot name what they are looking at.</li>
+            </ul>
+            <h4 style="margin:1rem 0 .25rem;">Case 2: attacker also obtains customer-held secrets</h4>
+            <ul>
+              <li>They may be able to undo some protections on the index.</li>
+              <li>But they still have “row 1,787,” not “Report AB-1776 / source X / date Y,” unless they also stole the mapping table.</li>
+              <li>They still cannot use the system like an analyst without a query interface and access paths.</li>
+            </ul>
+            <h4 style="margin:1rem 0 .25rem;">What makes it truly dangerous</h4>
+            <ul>
+              <li><strong>Anchors leak:</strong> mapping table or joinable metadata leaks.</li>
+              <li><strong>Access leaks:</strong> attacker gains repository access (paths, creds, backups).</li>
+              <li><strong>Oracle leaks:</strong> attacker can query a live interface or harvest transformed queries from endpoints/logs.</li>
+            </ul>
+            <p><strong>Bottom line:</strong> the blast radius is determined by what leaks together: <em>artifacts alone</em> differ from <em>artifacts + anchors + access</em>.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: Why isn’t “structure leakage” automatically a breach?</summary>
+          <div class="qa-body">
+            <p>Because “structure” is not a business outcome. It becomes a breach when an attacker can connect it to something real: names, cases, patients, assets, time, or a query interface that lets them validate guesses. This is why Logarchéon treats <strong>metadata containment</strong> and <strong>query-path control</strong> as first-class security requirements.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: What does Logarchéon explicitly NOT claim?</summary>
+          <div class="qa-body">
+            <ul>
+              <li><strong>No claim of “semantic secrecy” if you leak metadata.</strong> If IDs, timestamps, labels, filenames, or join keys leak, risk increases by definition.</li>
+              <li><strong>No claim of safety under endpoint compromise.</strong> If transformed query vectors leak from endpoints/logs, you have created an oracle-like channel.</li>
+              <li><strong>No claim that standard cryptography becomes optional.</strong> Disk encryption, TLS, access control, and auditing remain mandatory.</li>
+              <li><strong>No claim of “firmware elimination.”</strong> Logarchéon reduces reliance on trusted CPU state; it does not remove vendor firmware subsystems from existence.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: Can quantum computing “tunnel through” 256-bit keys?</summary>
+          <div class="qa-body">
+            <p>Not in any generic, accepted model of symmetric-key search. The conservative generic quantum advantage is Grover-style speedup (roughly a square-root speedup), which is why the default posture targets <strong>256-bit+</strong> effective entropy. “Tunneling” is not a separate generic shortcut that collapses symmetric-key security.</p>
+            <p class="callout" style="margin:.75rem 0 0;">
+              <strong>Quantum note:</strong> Generic quantum search (Grover) can reduce effective symmetric-key security by roughly half (k → k/2). For this reason, Logarchéon targets 256-bit+ effective entropy to retain ~128-bit-class security even in a conservative quantum model.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: What operational controls are required for the claim to hold?</summary>
+          <div class="qa-body">
+            <ul>
+              <li><strong>Tenant-unique keys + rotation</strong> (limit correlation and blast radius).</li>
+              <li><strong>Keep anchors separate</strong> (mapping tables, provenance metadata, join keys).</li>
+              <li><strong>No embedding/hidden-state export</strong> outside the customer trust boundary (treat transformed representations as sensitive).</li>
+              <li><strong>Harden endpoints</strong> like credentials (least privilege, minimal telemetry, enclaves where appropriate).</li>
+              <li><strong>Strict metadata containment</strong> (IDs/timestamps/labels are often the real leak).</li>
+              <li><strong>Interface discipline:</strong> prevent accidental oracle creation via debug endpoints, verbose logs, or “helpful” admin tooling.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: If an insider leaks a key, is everything over?</summary>
+          <div class="qa-body">
+            <p>Key leakage is serious. The goal is to avoid “one mistake equals total compromise” via <strong>blast-radius control</strong>: tenant-unique keys, key rotation, and optional <strong>bulkhead mode</strong> (compartmentalized processing for extremely sensitive workloads).</p>
+            <p>Bulkhead mode is the operational analogue of watertight compartments: you can structure processing so that a single compromised key is not automatically a full historical compromise.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: What are V1, V2, and V3 (and why does it matter)?</summary>
+          <div class="qa-body">
+            <ul>
+              <li><strong>V1 (Intrinsic / λ-native GRAIL):</strong> geometry is built into the model architecture; commissioned builds for maximal integration.</li>
+              <li><strong>V2 (Exported wrapper for models):</strong> wraps existing NN/LLM runtimes; adoption-first path.</li>
+              <li><strong>V3 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and conventional workloads at the runtime boundary (compatibility-first).</li>
+            </ul>
+            <p><strong>Why it matters:</strong> the “how you deploy” choice determines adoption time, integration depth, and which parts of your existing stack remain unchanged.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: Does the V3 exported-wrapper posture apply only to AI workloads?</summary>
+          <div class="qa-body">
+            <p>No. V3 is explicitly framed for <strong>conventional Von Neumann workloads</strong> (processes, OS/VM boundaries, storage/memory/I/O). AI is a motivating case because it concentrates “in-use” secrets; the same leakage logic exists in non-AI computation.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: Do we have to replace our OS, hypervisor, or container stack for V3?</summary>
+          <div class="qa-body">
+            <p>No. V3 is explicitly designed as a wrapper posture so you can keep your existing OS/VM stack and harden “in-use” exposure paths around it. The exact integration boundary is chosen to match your threat model and performance constraints.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: Can the exported-wrapper approach cover storage, RAM, and cache layers?</summary>
+          <div class="qa-body">
+            <p>In scope, the objective is system-level containment of sensitive representations across compute and memory surfaces (storage, RAM, caches), subject to deployment constraints and explicit acceptance criteria. Implementation detail is NDA-gated.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: Can V3 apply to GPUs and accelerators?</summary>
+          <div class="qa-body">
+            <p>Where accelerators participate in “in-use” state (VRAM, kernel launches, driver queues), the posture is to treat those surfaces as part of the boundary and constrain interfaces accordingly. The exact coverage depends on the accelerator stack and the buyer’s operational constraints.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: How do you prevent generative-AI-assisted reverse engineering of the runtime?</summary>
+          <div class="qa-body">
+            <p>Public documentation is intentionally non-enabling; evaluation builds are NDA-gated; and production deployments are structured so that exfiltrated artifacts alone are not a drop-in, reusable system without customer-held secrets and controlled interfaces.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Q: What are the most common ways a deployment accidentally breaks its own posture?</summary>
+          <div class="qa-body">
+            <ul>
+              <li><strong>Telemetry overreach:</strong> logging transformed intermediates, debug dumps, or embedding exports.</li>
+              <li><strong>Oracle creation:</strong> exposing a query endpoint that lets attackers validate guesses at scale.</li>
+              <li><strong>Anchor leakage:</strong> leaking joinable metadata (IDs, timestamps, mapping tables) that makes patterns actionable.</li>
+              <li><strong>Key sprawl:</strong> shared credentials, weak rotation discipline, or unmanaged backups of secrets.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
       <p class="callout">
         <span class="badge">Legal note</span>
         This site is informational and not legal advice. Any deliverable, performance expectation, or security posture is governed solely by a written agreement, including stated assumptions and acceptance criteria.
       </p>
-
-
-      <div class="emph-box">
-        <strong>Bottom line:</strong> Logarchéon’s security posture is not “magic encryption.”
-        It is a design that makes stolen artifacts materially less reusable by default—then backs that up with the operational controls
-        that decide whether real-world attackers can convert patterns into anchored, actionable intelligence.
-      </div>
     </section>
 
     <!-- Why this is different -->
@@ -787,11 +710,9 @@
 
         <article class="card">
           <div class="kicker">Where to read more</div>
-          <p>
-            If you are a technical reviewer, cryptographer, or ML researcher and want the math, proofs, and prototypes:
-          </p>
+          <p>If you are a technical reviewer, cryptographer, or ML researcher and want the math, proofs, and prototypes:</p>
           <ul>
-            <li>Visit the <a href="/research">Research</a> page for notes, slides, and code snippets.</li>
+            <li>Visit the <a href="/Research">Research</a> page for notes, slides, and code snippets.</li>
             <li>See my <a href="/files/william_chuang_cv.pdf">CV</a> for academic background and prior work.</li>
             <li>Or email for non-enabling technical briefs and NDA-gated materials where appropriate.</li>
           </ul>
@@ -815,7 +736,7 @@
         </p>
         <p>
           If you want the full story—formation, research, teaching, and vocation—see the
-          <a href="/about">About</a> page, <a href="/research">Research</a> index, and
+          <a href="/About">About</a> page, <a href="/Research">Research</a> index, and
           <a href="/files/william_resume.pdf">resume</a>.
         </p>
       </div>
