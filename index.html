@@ -17,8 +17,303 @@
   <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Keep your existing font + CSS setup here (Inter/Fraunces + <style> + /css/main.css) -->
+  <!-- Keep your existing font + CSS setup here -->
   <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Style polish (safe overrides). If you prefer, move this into /css/main.css -->
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.09);
+      --border: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+
+      /* If your main.css already defines these, that file can override earlier in cascade;
+         these are used as fallbacks here. */
+      --accent: #7c5cff;
+      --accent-2: #30d6c7;
+
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 12px 40px rgba(0,0,0,0.28);
+      --shadow-sm: 0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body{
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, rgba(124,92,255,0.22), transparent 55%),
+        radial-gradient(900px 600px at 90% 0%, rgba(48,214,199,0.18), transparent 50%),
+        linear-gradient(180deg, #0b0c10 0%, #0a0b0f 100%);
+    }
+
+    .container{
+      max-width: 1120px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    header .top-nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,12,16,0.62);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-nav ul{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      align-items: center;
+      padding: 12px 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .top-nav a{
+      text-decoration: none;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+
+    .top-nav a:hover,
+    .top-nav a:focus-visible{
+      color: var(--text);
+      outline: none;
+      background: rgba(255,255,255,0.06);
+    }
+
+    main.container > section,
+    main.container > header.site{
+      margin-top: 44px;
+    }
+    main.container > header.site{
+      margin-top: 26px;
+    }
+
+    h1, h2, h3, h4{ letter-spacing: -0.02em; }
+    h1{
+      font-size: clamp(2rem, 3.4vw, 3.1rem);
+      line-height: 1.08;
+      margin: 12px 0 10px;
+    }
+    h2{
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+      margin: 0 0 10px;
+    }
+    h3{ font-size: 1.15rem; margin: 0 0 8px; }
+    p, li{ line-height: 1.6; }
+
+    .eyebrow{
+      color: rgba(255,255,255,0.68);
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .lede{
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .subhead{
+      max-width: 78ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .toc{
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px 4px 4px;
+      margin-top: 14px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .toc a{
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible{
+      color: var(--text);
+      border-color: rgba(255,255,255,0.20);
+      outline: none;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover,
+    .btn:focus-visible{
+      outline: none;
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .btn.primary{
+      border: 1px solid rgba(124,92,255,0.55);
+      background: linear-gradient(135deg, rgba(124,92,255,0.45), rgba(48,214,199,0.22));
+    }
+
+    .btn.primary:hover,
+    .btn.primary:focus-visible{
+      border-color: rgba(124,92,255,0.75);
+    }
+
+    .card,
+    .emph-box{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .emph-box{ border-left: 4px solid var(--accent); }
+    .emph-box.accent-2{ border-left-color: var(--accent-2); }
+
+    .kicker{
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.68);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .callout{
+      border-radius: var(--radius-sm);
+      background: rgba(124,92,255,0.10);
+      border: 1px solid rgba(124,92,255,0.22);
+      padding: 12px 12px;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .badge{
+      display: inline-block;
+      font-size: 0.82rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+    }
+
+    .grid{ display: grid; gap: 16px; }
+    .grid.cols-2{ grid-template-columns: 1fr 1fr; }
+    .grid.cols-3{ grid-template-columns: 1fr 1fr 1fr; }
+
+    @media (max-width: 980px){
+      .grid.cols-2, .grid.cols-3{ grid-template-columns: 1fr; }
+    }
+
+    .quote{
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.86);
+    }
+
+    .qa{ display: grid; gap: 10px; }
+
+    .qa-item{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+    }
+
+    .qa-item > summary{
+      cursor: pointer;
+      padding: 14px 14px;
+      list-style: none;
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+    }
+
+    .qa-item > summary::-webkit-details-marker{ display: none; }
+
+    .qa-item > summary:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(124,92,255,0.35) inset;
+    }
+
+    .qa-item[open] > summary{
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .qa-body{
+      padding: 14px 14px 16px;
+      color: rgba(255,255,255,0.84);
+    }
+
+    a{ color: rgba(210,200,255,0.92); }
+    a:hover{ color: rgba(255,255,255,0.96); }
+
+    .nowrap{ white-space: nowrap; }
+
+    .hr{ border: 0; border-top: 1px solid var(--border); margin: 18px 0; }
+
+    /* Accessibility helper (kept compatible with your existing class) */
+    .visually-hidden-focusable{
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .visually-hidden-focusable:focus{
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: inline-block;
+      margin: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -27,7 +322,7 @@
   <!-- Top navigation (URLs capitalized per your preference) -->
   <header>
     <nav class="top-nav" aria-label="Primary">
-      <ul>
+      <ul class="container">
         <li><a href="/">Home</a></li>
         <li><a href="/About">About</a></li>
         <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
@@ -52,7 +347,12 @@
         You keep weights and keys; Logarchéon provides the λ-secure execution posture.
       </p>
 
-      <div class="toc" aria-label="Quick links">
+      <div class="actions" aria-label="Primary actions">
+        <a class="btn primary" href="#contact">Request an NDA briefing</a>
+        <a class="btn" href="#evaluation-pack">See evaluation workflow</a>
+      </div>
+
+      <nav class="toc" aria-label="Quick links">
         <a href="#definitions">Definitions</a>
         <a href="#trust-boundary">Why this exists</a>
         <a href="#how-it-works">How it works</a>
@@ -61,24 +361,24 @@
         <a href="#security-qa">Security Q&amp;A</a>
         <a href="#under-the-hood">Under the hood</a>
         <a href="#contact">Talk to me</a>
-      </div>
+      </nav>
 
       <!-- Definitions -->
-      <section id="definitions" aria-labelledby="definitions-h" style="margin-top:1.25rem;">
+      <section id="definitions" aria-labelledby="definitions-h">
         <div class="card">
           <div class="kicker">Definitions (used throughout this page)</div>
-          <h2 id="definitions-h" style="margin-top:.25rem;">Terms of art</h2>
+          <h2 id="definitions-h">Terms of art</h2>
 
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <ul>
             <li><strong>Encrypted-in-use:</strong> protecting sensitive model/data states during active computation (weights instantiated, activations/latents flowing, intermediates present in memory and runtime pipelines).</li>
             <li><strong>GRAIL:</strong> Logarchéon’s geometry-native execution layer for operating on non-canonical (key-governed) internal representations during training and inference.</li>
             <li><strong>Λ-Stack:</strong> Logarchéon’s deployment and governance stack for key custody, rotation policy, interface control, and operational controls around GRAIL.</li>
             <li><strong>V1 — Intrinsic / λ-native GRAIL (NN/LLM):</strong> a commissioned integration path where the geometry is built into the model architecture and training dynamics (integration-first).</li>
             <li><strong>V2 — Exported wrapper GRAIL (NN/LLM):</strong> a compatibility path that wraps existing models/frameworks so they execute under key-governed, non-canonical internal representations (adoption-first).</li>
-            <li><strong>V3 — Exported-wrapper posture (general-purpose compute):</strong> a wrapper-based containment posture for existing OS/VM/runtime stacks and hardware-adjacent surfaces, extending the same “in-use” discipline beyond AI (compatibility-first).</li>
+            <li><strong>V3-2 — Exported-wrapper posture (general-purpose compute):</strong> a wrapper-based containment posture for existing OS/VM/runtime stacks and hardware-adjacent surfaces, extending the same “in-use” discipline beyond AI (compatibility-first).</li>
           </ul>
 
-          <p class="callout" style="margin-bottom:0;">
+          <p class="callout">
             <span class="badge">Scope boundary</span>
             This page is a buyer-facing threat model and deployment posture description. Enabling details, proofs, and benchmarks are shared under NDA for serious technical review.
           </p>
@@ -95,7 +395,7 @@
         This is the phase where endpoints, logs, memory scraping, and firmware-level trust assumptions become decisive.
       </p>
 
-      <div class="grid cols-2" style="margin-top:1rem;">
+      <div class="grid cols-2">
         <div class="emph-box">
           <strong>Firmware subsystems below the OS (what they are)</strong>
           <p style="margin:.6rem 0 0; color:var(--muted);">
@@ -110,7 +410,7 @@
             is an embedded controller inside Intel platforms. It runs independently of the host OS, participates in early boot,
             and remains active whenever the system has standby power available (i.e., “plugged in” states).
           </p>
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <ul>
             <li><strong>Capability class:</strong> execute firmware code below the OS; participate in platform initialization and security services.</li>
             <li><strong>Privilege class:</strong> below-kernel trust position (outside typical host monitoring), expanding the attack surface of “in-use” secrets.</li>
             <li><strong>Why buyers care:</strong> if a subsystem can operate outside OS visibility, it changes how you reason about “who can see plaintext while computing.”</li>
@@ -122,7 +422,7 @@
             on certain business-class systems (commonly associated with vPro platforms). It is designed for remote administration
             (e.g., provisioning, recovery, power control) independent of the host OS.
           </p>
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <ul>
             <li><strong>Capability class:</strong> remote management workflows that do not rely on the OS being healthy or even running.</li>
             <li><strong>Threat relevance:</strong> out-of-band surfaces are attractive for persistence and bypassing host-based defenses.</li>
           </ul>
@@ -133,7 +433,7 @@
             is a dedicated security processor embedded in AMD platforms. It provides services such as secure boot and platform security functions
             (e.g., key handling for firmware-backed features).
           </p>
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <ul>
             <li><strong>Capability class:</strong> platform security services that exist beneath the OS, in firmware-managed components.</li>
             <li><strong>Why buyers care:</strong> security processors can be essential for integrity, but they also widen the “below-OS” trust base.</li>
           </ul>
@@ -147,7 +447,7 @@
           </p>
         </div>
 
-        <div class="emph-box" style="border-left-color: var(--accent-2);">
+        <div class="emph-box accent-2">
           <strong>Threat relevance (why attackers value this class of component)</strong>
           <p style="margin:.6rem 0 0; color:var(--muted);">
             High-assurance buyers treat “below-OS” subsystems as part of the attack surface because they may:
@@ -155,7 +455,7 @@
             The point is <strong>risk posture</strong>, not intent attribution.
           </p>
 
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <ul>
             <li><strong>Persistence:</strong> firmware-layer compromise can survive OS wipe/reimage and defeat “clean install” remediation.</li>
             <li><strong>Invisibility:</strong> host EDR and OS auditing can be blind to below-OS execution contexts.</li>
             <li><strong>Out-of-band surface:</strong> management functionality can create alternate pathways around OS firewalling assumptions.</li>
@@ -189,18 +489,18 @@
 
       <div class="card" style="margin-top:1rem;">
         <div class="kicker">Important: scope is not “LLMs only”</div>
-        <h3>V3 (exported-wrapper posture) and Von Neumann workloads</h3>
+        <h3>V3-2 (exported-wrapper posture) and Von Neumann workloads</h3>
         <p class="lede" style="margin-top:.25rem;">
           While this page uses AI training/inference as the motivating example, the exported-wrapper approach applies more broadly:
           <strong>most conventional computing</strong> still runs on a <strong>Von Neumann architecture</strong> where “in-use” states
           (memory, caches, intermediate values, runtime artifacts) are the primary leakage surface.
         </p>
-        <ul style="margin:.6rem 0 0 1.15rem;">
-          <li><strong>V3 (exported-wrapper posture):</strong> a deployment posture intended to wrap existing OS/VM/runtime stacks rather than requiring a new machine design.</li>
+        <ul>
+          <li><strong>V3-2 (exported-wrapper posture):</strong> a deployment posture intended to wrap existing OS/VM/runtime stacks rather than requiring a new machine design.</li>
           <li><strong>Objective:</strong> reduce the amount of sensitive computation that ever appears in canonical, reusable plaintext form inside the host runtime.</li>
           <li><strong>Non-enabling policy:</strong> Logarchéon does not publish implementation details that would meaningfully assist reverse engineering or misuse; evaluation materials are shared under NDA for serious reviewers.</li>
         </ul>
-        <p class="callout" style="margin-bottom:0;">
+        <p class="callout">
           <span class="badge">Practical framing</span>
           Treat this as a system-level hardening posture for <em>in-use secrecy</em> across AI and non-AI workloads, not a feature tied to one model family.
         </p>
@@ -215,28 +515,28 @@
         </p>
 
         <div class="grid cols-2" style="margin-top:.75rem;">
-          <div class="emph-box" style="margin-top:0;">
+          <div class="emph-box">
             <strong>FHE (Fully Homomorphic Encryption)</strong>
             <p style="margin:.6rem 0 0; color:var(--muted);">
               FHE can, in principle, run certain neural-network operations on ciphertexts. In practice, it often requires
               specialized arithmetic choices (e.g., polynomial approximations for non-linearities), careful circuit budgeting,
               and substantial performance overhead—especially for large, interactive LLM pipelines.
             </p>
-            <ul style="margin:.6rem 0 0 1.15rem;">
+            <ul>
               <li><strong>What it protects:</strong> confidentiality during computation without trusting the host OS/hardware.</li>
               <li><strong>Operational constraint:</strong> large overhead, constrained operator sets, and nontrivial engineering for real-time workloads.</li>
               <li><strong>Common buyer outcome:</strong> feasible for narrow inference tasks; typically not a default drop-in for LLM training or low-latency serving.</li>
             </ul>
           </div>
 
-          <div class="emph-box" style="margin-top:0; border-left-color: var(--accent-2);">
+          <div class="emph-box accent-2">
             <strong>MPC (Multi-Party Computation / Secret Sharing)</strong>
             <p style="margin:.6rem 0 0; color:var(--muted);">
               MPC can support ML inference/training by splitting secrets across parties and computing jointly.
               The trade is that bandwidth, latency, orchestration, and trust assumptions (≥2 parties, honest-majority or similar)
               become first-order constraints.
             </p>
-            <ul style="margin:.6rem 0 0 1.15rem;">
+            <ul>
               <li><strong>What it protects:</strong> no single machine sees the full secret by design.</li>
               <li><strong>Operational constraint:</strong> communication dominates, especially across WAN; multi-party ops increase failure modes.</li>
               <li><strong>Common buyer outcome:</strong> strong in principle, but heavy in deployment complexity for interactive or high-throughput pipelines.</li>
@@ -250,7 +550,7 @@
             Trusted Execution Environments (e.g., SGX, SEV-class) often deliver the best performance, but they do so by placing
             plaintext inside an enclave/VM boundary. This shifts the trust burden to vendor firmware, microcode, and side-channel mitigations.
           </p>
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <ul>
             <li><strong>Strength:</strong> near-plaintext performance for many workloads.</li>
             <li><strong>Trade:</strong> you are explicitly trusting a firmware + microcode stack and managing side-channel risk.</li>
             <li><strong>Buyer reality:</strong> useful when combined with strict endpoint/logging discipline, but not “zero trust.”</li>
@@ -265,12 +565,12 @@
             preprocessing, tokenization, debugging/telemetry, intermediate caches, model export, or “just for performance” fallbacks.
             That is where below-OS trust boundaries and endpoint mistakes become decisive.
           </p>
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <ul>
             <li><strong>Canonicalization creep:</strong> systems “temporarily” decode, log, cache, or export canonical representations.</li>
             <li><strong>Interface/oracle creation:</strong> outputs and timing can become feedback channels in adversarial settings.</li>
             <li><strong>Privileged layers:</strong> hypervisors, firmware subsystems, and administrative tooling expand who can observe state.</li>
           </ul>
-          <p class="callout" style="margin-bottom:0;">
+          <p class="callout">
             <span class="badge">Design goal</span>
             Logarchéon is built to reduce the need for canonical “decrypt-then-compute” patterns in the first place,
             so sensitive representations are not routinely instantiated as reusable plaintext artifacts inside the host runtime.
@@ -279,18 +579,18 @@
 
         <div class="card" style="margin-top:1rem;">
           <div class="kicker">What Logarchéon changes</div>
-          <h3>GRAIL + Λ-Stack + V3 exported-wrapper posture (high-level)</h3>
-          <ul style="margin:.6rem 0 0 1.15rem;">
+          <h3>GRAIL + Λ-Stack + V3-2 exported-wrapper posture (high-level)</h3>
+          <ul>
             <li><strong>GRAIL (definition):</strong> the geometry-native execution layer that maintains protected semantics during computation.</li>
             <li><strong>Λ-Stack (definition):</strong> the productized runtime stack (key custody, policy gates, operational controls) that makes GRAIL deployable.</li>
-            <li><strong>V3 (definition):</strong> wrapper-based containment posture for existing OS/VM/runtime stacks—applicable beyond AI to conventional Von Neumann workloads.</li>
+            <li><strong>V3-2 (definition):</strong> wrapper-based containment posture for existing OS/VM/runtime stacks—applicable beyond AI to conventional Von Neumann workloads.</li>
           </ul>
           <p style="margin:.75rem 0 0; color:var(--muted);">
             Public materials remain intentionally non-enabling. Serious technical review is supported via NDA-gated briefs and evaluation builds.
           </p>
         </div>
 
-        <blockquote style="background:#f4f4f4; border-left:4px solid #007BFF; padding:1rem; margin-top:1rem;">
+        <blockquote class="quote">
           <strong>Bottom line:</strong> The practical failure mode is not “weak crypto” — it is <strong>in-use exposure</strong> through runtime reality.
           Logarchéon’s posture is to minimize canonical in-use exposure by design, without requiring buyers to trust every firmware layer.
         </blockquote>
@@ -309,7 +609,7 @@
 
       <div class="emph-box">
         <strong>Version map:</strong>
-        V1 = intrinsic GRAIL for NN/LLM · V2 = exported wrapper for NN/LLM · V3 = exported-wrapper posture for OS/VMs and Von Neumann workloads (compatibility-first).
+        V1 = intrinsic GRAIL for NN/LLM · V2 = exported wrapper for NN/LLM · V3-2 = exported-wrapper posture for OS/VMs and Von Neumann workloads (compatibility-first).
       </div>
 
       <div class="grid cols-2" style="margin-top:1rem;">
@@ -322,7 +622,7 @@
             <li><strong>Rotation posture:</strong> keys can rotate per policy cadence to bound correlation and blast radius.</li>
             <li><strong>Interface discipline:</strong> reduce oracle creation through timing, verbose errors, embedding export, and admin endpoints.</li>
           </ul>
-          <p class="callout" style="margin-bottom:0;">
+          <p class="callout">
             <span class="badge">Procurement language</span>
             This is a customer-governed execution framework with explicit assumptions and enforceable controls, suitable for high-assurance review.
           </p>
@@ -336,7 +636,7 @@
             <li><strong>BYO cloud tenancy:</strong> GPUs and orchestration in your AWS/Azure/GCP account; you control IAM, logging, and networks.</li>
             <li><strong>Air-gapped / controlled:</strong> supported as a posture (subject to hardware realities and operational discipline).</li>
           </ul>
-          <p class="callout" style="margin-bottom:0;">
+          <p class="callout">
             <span class="badge">Boundary</span>
             Logarchéon reduces “in-use” exposure; it does not replace physical security, EMSEC controls, or endpoint hardening.
           </p>
@@ -363,16 +663,12 @@
             <li><strong>Why choose it:</strong> fastest path to pilots; preserves existing toolchains and model families.</li>
             <li><strong>Security intent:</strong> reduce reusable plaintext exposure in “in-use” pipelines via constrained interfaces and protected representations.</li>
           </ul>
-          <p class="callout" style="margin-bottom:0;">
-            <span class="badge">Non-enabling</span>
-            Public materials are intentionally high-level to avoid enabling replication or reverse engineering.
-          </p>
         </article>
       </div>
 
-      <h3 style="margin-top:1.25rem;">V3 (general-purpose compute): exported-wrapper posture</h3>
+      <h3 style="margin-top:1.25rem;">V3-2 (general-purpose compute): exported-wrapper posture</h3>
       <div class="card" style="margin-top:.75rem;">
-        <div class="kicker">V3 · Exported-wrapper posture (OS/VM/runtime)</div>
+        <div class="kicker">V3-2 · Exported-wrapper posture (OS/VM/runtime)</div>
         <h3>Wrap existing stacks (compatibility-first)</h3>
         <ul>
           <li><strong>What it is:</strong> a wrapper posture that brings existing OS/VM runtimes under the same “non-canonical in-use” discipline—without building a new substrate from scratch.</li>
@@ -380,7 +676,7 @@
           <li><strong>Adoption benefit:</strong> deployable across existing ecosystems; deepens later only if needed.</li>
         </ul>
 
-        <p class="callout" style="margin-bottom:0;">
+        <p class="callout">
           <span class="badge">Formal framing</span>
           This architecture is designed to support high-assurance evaluations: explicit assumptions, bounded claims, and buyer-controlled governance.
           Detailed evidence is available under NDA; public materials are intentionally non-enabling.
@@ -391,7 +687,9 @@
     <!-- Evaluation -->
     <section id="evaluation-pack" aria-labelledby="evaluation-pack-h">
       <h2 id="evaluation-pack-h">How to evaluate (high-assurance buyer workflow)</h2>
-      <p class="lede">Evaluations support due diligence without publishing enabling details. Default posture: buyer-held keys, buyer-owned hardware or buyer cloud tenancy.</p>
+      <p class="lede">
+        Evaluations support due diligence without publishing enabling details. Default posture: buyer-held keys, buyer-owned hardware or buyer cloud tenancy.
+      </p>
 
       <div class="grid cols-3" style="margin-top:1rem;">
         <article class="card">
@@ -400,7 +698,7 @@
           <ul>
             <li>Define the “in-use” boundary (CPU/GPU/runtime/telemetry).</li>
             <li>Identify what must remain non-canonical in operation.</li>
-            <li>Select versions: V1/V2 (NN/LLM), V3 (exported-wrapper posture).</li>
+            <li>Select versions: V1/V2 (NN/LLM), V3-2 (exported-wrapper posture).</li>
           </ul>
         </article>
 
@@ -425,7 +723,7 @@
         </article>
       </div>
 
-      <p class="callout">
+      <p class="callout" style="margin-top:1rem;">
         <span class="badge">Procurement clarity</span>
         Claims are governed by written scope and acceptance criteria. No unbounded promises; no “trust me” assertions.
       </p>
@@ -433,19 +731,20 @@
 
     <!-- Security posture -->
     <section id="security-posture" aria-labelledby="security-posture-h">
-      <h2 id="security-posture-h">Security posture (versioned: V1/V2/V3)</h2>
-      <p class="lede">V1/V2 cover neural models. V3 extends the same customer-governed “in-use” discipline to general-purpose computing on Von Neumann machines.</p>
+      <h2 id="security-posture-h">Security posture (versioned: V1/V2/V3-2)</h2>
+      <p class="lede">
+        V1/V2 cover neural models. V3-2 extends the same customer-governed “in-use” discipline to general-purpose computing on Von Neumann machines.
+      </p>
 
       <div class="grid cols-2" style="margin-top:1rem;">
         <article class="card">
           <div class="kicker">Version map</div>
           <h3>What each version changes</h3>
           <ul>
-            <li><strong>V1 (Intrinsic GRAIL, NN/LLM):</strong> geometry built into model architecture and learning dynamics.</li>
+            <li><strong>V1 (Intrinsic GRAIL, NN/LLM):</strong> geometry built into model architecture and training dynamics.</li>
             <li><strong>V2 (Exported wrapper, NN/LLM):</strong> wraps existing stacks under key-governed non-canonical representations.</li>
-            <li><strong>V3 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and interfaces (hardware-to-workload compatibility).</li>
+            <li><strong>V3-2 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and interfaces (hardware-to-workload compatibility).</li>
           </ul>
-          <p class="callout" style="margin-bottom:0;"><span class="badge">Non-enabling</span> Public materials are intentionally high-level to avoid enabling reverse engineering; evaluation details are NDA-gated.</p>
         </article>
 
         <article class="card">
@@ -457,12 +756,15 @@
             <li><strong>Oracle creation:</strong> leakage via logs, telemetry, debug endpoints, convenience exports.</li>
             <li><strong>Expanded TCB risk:</strong> environments where firmware layers cannot be fully audited.</li>
           </ul>
-          <p class="callout" style="margin-bottom:0;"><span class="badge">Buyer responsibility</span> Key custody, interface control, and telemetry discipline are mandatory for the posture to hold in practice.</p>
+          <p class="callout">
+            <span class="badge">Buyer responsibility</span>
+            Key custody, interface control, and telemetry discipline are mandatory for the posture to hold in practice.
+          </p>
         </article>
       </div>
 
       <div class="emph-box" style="margin-top:1rem;">
-        <strong>Compatibility note (V3):</strong> the exported-wrapper posture is designed to integrate with existing operating systems, hypervisors, and runtimes.
+        <strong>Compatibility note (V3-2):</strong> the exported-wrapper posture is designed to integrate with existing operating systems, hypervisors, and runtimes.
         Deployment placement (user-space, kernel boundary, hypervisor boundary, or adjacent control-plane) is workload-dependent and defined by written acceptance criteria.
       </div>
     </section>
@@ -470,7 +772,9 @@
     <!-- Security Q&A -->
     <section id="security-qa" aria-labelledby="security-qa-h">
       <h2 id="security-qa-h">Security Q&amp;A (operational, not marketing)</h2>
-      <p class="lede">The Q&amp;A below is retained verbatim unless an answer must change due to versioning updates (V1/V2/V3). New items are appended.</p>
+      <p class="lede">
+        The Q&amp;A below is retained verbatim unless an answer must change due to versioning updates (V1/V2/V3-2). New items are appended.
+      </p>
 
       <div class="qa">
         <details class="qa-item">
@@ -570,7 +874,7 @@
           <summary>Q: Can quantum computing “tunnel through” 256-bit keys?</summary>
           <div class="qa-body">
             <p>Not in any generic, accepted model of symmetric-key search. The conservative generic quantum advantage is Grover-style speedup (roughly a square-root speedup), which is why the default posture targets <strong>256-bit+</strong> effective entropy. “Tunneling” is not a separate generic shortcut that collapses symmetric-key security.</p>
-            <p class="callout" style="margin:.75rem 0 0;">
+            <p class="callout" style="margin-top:.75rem;">
               <strong>Quantum note:</strong> Generic quantum search (Grover) can reduce effective symmetric-key security by roughly half (k → k/2). For this reason, Logarchéon targets 256-bit+ effective entropy to retain ~128-bit-class security even in a conservative quantum model.
             </p>
           </div>
@@ -599,28 +903,28 @@
         </details>
 
         <details class="qa-item">
-          <summary>Q: What are V1, V2, and V3 (and why does it matter)?</summary>
+          <summary>Q: What are V1, V2, and V3-2 (and why does it matter)?</summary>
           <div class="qa-body">
             <ul>
               <li><strong>V1 (Intrinsic / λ-native GRAIL):</strong> geometry is built into the model architecture; commissioned builds for maximal integration.</li>
               <li><strong>V2 (Exported wrapper for models):</strong> wraps existing NN/LLM runtimes; adoption-first path.</li>
-              <li><strong>V3 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and conventional workloads at the runtime boundary (compatibility-first).</li>
+              <li><strong>V3-2 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and conventional workloads at the runtime boundary (compatibility-first).</li>
             </ul>
             <p><strong>Why it matters:</strong> the “how you deploy” choice determines adoption time, integration depth, and which parts of your existing stack remain unchanged.</p>
           </div>
         </details>
 
         <details class="qa-item">
-          <summary>Q: Does the V3 exported-wrapper posture apply only to AI workloads?</summary>
+          <summary>Q: Does the V3-2 exported-wrapper posture apply only to AI workloads?</summary>
           <div class="qa-body">
-            <p>No. V3 is explicitly framed for <strong>conventional Von Neumann workloads</strong> (processes, OS/VM boundaries, storage/memory/I/O). AI is a motivating case because it concentrates “in-use” secrets; the same leakage logic exists in non-AI computation.</p>
+            <p>No. V3-2 is explicitly framed for <strong>conventional Von Neumann workloads</strong> (processes, OS/VM boundaries, storage/memory/I/O). AI is a motivating case because it concentrates “in-use” secrets; the same leakage logic exists in non-AI computation.</p>
           </div>
         </details>
 
         <details class="qa-item">
-          <summary>Q: Do we have to replace our OS, hypervisor, or container stack for V3?</summary>
+          <summary>Q: Do we have to replace our OS, hypervisor, or container stack for V3-2?</summary>
           <div class="qa-body">
-            <p>No. V3 is explicitly designed as a wrapper posture so you can keep your existing OS/VM stack and harden “in-use” exposure paths around it. The exact integration boundary is chosen to match your threat model and performance constraints.</p>
+            <p>No. V3-2 is explicitly designed as a wrapper posture so you can keep your existing OS/VM stack and harden “in-use” exposure paths around it. The exact integration boundary is chosen to match your threat model and performance constraints.</p>
           </div>
         </details>
 
@@ -632,7 +936,7 @@
         </details>
 
         <details class="qa-item">
-          <summary>Q: Can V3 apply to GPUs and accelerators?</summary>
+          <summary>Q: Can V3-2 apply to GPUs and accelerators?</summary>
           <div class="qa-body">
             <p>Where accelerators participate in “in-use” state (VRAM, kernel launches, driver queues), the posture is to treat those surfaces as part of the boundary and constrain interfaces accordingly. The exact coverage depends on the accelerator stack and the buyer’s operational constraints.</p>
           </div>
@@ -658,7 +962,7 @@
         </details>
       </div>
 
-      <p class="callout">
+      <p class="callout" style="margin-top:1rem;">
         <span class="badge">Legal note</span>
         This site is informational and not legal advice. Any deliverable, performance expectation, or security posture is governed solely by a written agreement, including stated assumptions and acceptance criteria.
       </p>
@@ -753,12 +1057,10 @@
         </p>
         <ul>
           <li><strong>Email (preferred):</strong>
-            <a href="mailto:founder@logarcheon.com?subject=Logarcheon%20%E2%80%93%20High-assurance%20AI%20inquiry">
-              founder@logarcheon.com
-            </a>
+            <a href="mailto:founder@logarcheon.com?subject=Logarcheon%20%E2%80%93%20High-assurance%20AI%20inquiry">founder@logarcheon.com</a>
           </li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/williamchuang" rel="me">github.com/williamchuang</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chuang-william">linkedin.com/in/chuang-william</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/williamchuang" rel="me" target="_blank" rel="noopener">github.com/williamchuang</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chuang-william" target="_blank" rel="noopener">linkedin.com/in/chuang-william</a></li>
         </ul>
         <p class="callout">
           <span class="badge">Typical starting points</span>
