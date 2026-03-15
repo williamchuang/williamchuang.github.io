@@ -32,7 +32,572 @@ blog: passive
     <section class="research-list">
 
 
+<!-- ===== Identity Friction: Taiwan–Holy See Strategic Memo ===== -->
+<section class="ctq-wrap" id="ctq-taiwan-holysee" aria-labelledby="ctq-taiwan-title">
+<style>
+  #ctq-taiwan-holysee {
+    --ink:#0F2230;--muted:#55657E;--soft:#F6F8FF;--accent:#0B5FFF;
+    --gold:#B8963E;--gold-light:#F5EDD6;--line:#E6ECF7;
+    color:var(--ink);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  #ctq-taiwan-holysee .ctq-hero {
+    background:linear-gradient(160deg,#0F2230 0%,#1a3a5c 55%,#1f4a70 100%);
+    border-radius:14px;padding:30px 28px 26px;margin-bottom:20px;color:#fff;
+    border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden;
+  }
+  #ctq-taiwan-holysee .ctq-hero::before {
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(
+      45deg,transparent,transparent 40px,
+      rgba(184,150,62,.04) 40px,rgba(184,150,62,.04) 41px);
+    pointer-events:none;
+  }
+  #ctq-taiwan-holysee .ctq-cross {
+    font-size:1rem;letter-spacing:.14em;opacity:.65;
+    margin-bottom:10px;display:block;color:#F5EDD6;
+  }
+  #ctq-taiwan-holysee .ctq-title {
+    font-size:1.38rem;font-weight:800;line-height:1.2;
+    margin:0 0 6px;color:#fff;
+  }
+  #ctq-taiwan-holysee .ctq-sub {
+    color:rgba(255,255,255,.75);margin:6px 0 0;
+    font-size:.94rem;line-height:1.55;
+  }
+  #ctq-taiwan-holysee .ctq-badges {
+    display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;
+  }
+  #ctq-taiwan-holysee .ctq-badge {
+    font-size:.77rem;padding:3px 9px;border-radius:999px;
+    background:rgba(255,255,255,.1);color:rgba(255,255,255,.88);
+    border:1px solid rgba(255,255,255,.18);
+  }
+  #ctq-taiwan-holysee .ctq-badge.gold {
+    background:rgba(184,150,62,.25);color:#F5EDD6;
+    border-color:rgba(184,150,62,.4);
+  }
+  #ctq-taiwan-holysee .ctq-card {
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:18px 20px;margin:12px 0;
+  }
+  #ctq-taiwan-holysee .ctq-card h3 {
+    margin:.1rem 0 .6rem;font-size:1.03rem;color:#0b1e5b;font-weight:700;
+  }
+  #ctq-taiwan-holysee .ctq-callout {
+    background:var(--soft);border-left:4px solid var(--accent);
+    padding:13px 15px;border-radius:10px;margin:12px 0;line-height:1.6;
+  }
+  #ctq-taiwan-holysee .ctq-callout.gold {
+    background:var(--gold-light);border-left-color:var(--gold);
+  }
+  #ctq-taiwan-holysee .ctq-callout.devotional {
+    background:#f9f4ff;border-left-color:#7c3aed;
+  }
+  #ctq-taiwan-holysee .ctq-note {
+    background:#fff8e1;border-left:4px solid #f4c20d;
+    padding:11px 13px;border-radius:10px;margin:10px 0;
+    color:#5a420a;font-size:.9rem;line-height:1.55;
+  }
+  #ctq-taiwan-holysee .ctq-list {
+    margin:8px 0 0;padding-left:18px;
+  }
+  #ctq-taiwan-holysee .ctq-list li{margin:.45rem 0;line-height:1.6;}
+  #ctq-taiwan-holysee .ctq-mini {
+    color:var(--muted);font-size:.87rem;margin-top:7px;line-height:1.5;
+  }
+  #ctq-taiwan-holysee .ctq-pill {
+    display:inline-block;font-size:.77rem;padding:2px 8px;border-radius:999px;
+    background:#eef7f1;color:#0a6d47;border:1px solid #d9f0e4;margin-right:.3rem;
+  }
+  #ctq-taiwan-holysee .ctq-link {
+    color:var(--accent);text-decoration:none;font-weight:600;
+  }
+  #ctq-taiwan-holysee .ctq-link:hover{text-decoration:underline;}
+  #ctq-taiwan-holysee .ctq-sep{height:1px;background:var(--line);margin:14px 0;}
+  #ctq-taiwan-holysee .ctq-grid{display:grid;gap:11px;}
+  @media(min-width:820px){
+    #ctq-taiwan-holysee .ctq-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+    #ctq-taiwan-holysee .ctq-grid.cols-2{grid-template-columns:repeat(2,1fr);}
+  }
+  #ctq-taiwan-holysee .stat-box {
+    background:var(--soft);border:1px solid var(--line);
+    border-radius:12px;padding:14px 15px;text-align:center;
+  }
+  #ctq-taiwan-holysee .stat-num {
+    font-size:1.85rem;font-weight:800;color:var(--accent);
+    line-height:1.1;display:block;
+  }
+  #ctq-taiwan-holysee .stat-label {
+    font-size:.79rem;color:var(--muted);margin-top:5px;
+    display:block;line-height:1.45;
+  }
+  #ctq-taiwan-holysee .verdict-strip {
+    background:linear-gradient(90deg,#0F2230,#1a3a5c);
+    color:#fff;border-radius:10px;padding:16px 20px;margin:13px 0;
+    border-left:4px solid var(--gold);
+  }
+  #ctq-taiwan-holysee .verdict-strip p{margin:0;line-height:1.6;}
+  #ctq-taiwan-holysee .verdict-strip strong{color:#F5EDD6;}
+  #ctq-taiwan-holysee blockquote.ctq-pull {
+    margin:12px 0;padding:12px 16px;
+    border-left:4px solid var(--gold);background:var(--gold-light);
+    border-radius:10px;font-style:italic;color:#3d2a00;
+    font-size:.96rem;line-height:1.6;
+  }
+  #ctq-taiwan-holysee .ctq-table-wrap{overflow-x:auto;border-radius:10px;margin:.5rem 0;}
+  #ctq-taiwan-holysee .ctq-table{
+    width:100%;border-collapse:collapse;font-size:.89rem;min-width:480px;
+  }
+  #ctq-taiwan-holysee .ctq-table th{
+    font-weight:700;text-align:left;color:#23324a;
+    padding:8px 10px;border-bottom:2px solid var(--line);background:var(--soft);
+  }
+  #ctq-taiwan-holysee .ctq-table td{
+    padding:8px 10px;vertical-align:top;
+    border-bottom:1px solid var(--line);line-height:1.5;
+  }
+  #ctq-taiwan-holysee .ctq-table tr:last-child td{border-bottom:none;}
+  #ctq-taiwan-holysee .saints-bar {
+    background:linear-gradient(90deg,#f9f4ff,#f0f4ff,#f9f4ff);
+    border:1px solid #ddd5f7;border-radius:12px;
+    padding:13px 16px;margin:12px 0;
+    display:grid;gap:12px;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  }
+  #ctq-taiwan-holysee .saint-name {
+    font-weight:700;font-size:.88rem;color:#4c1d95;
+    display:block;margin-bottom:3px;
+  }
+  #ctq-taiwan-holysee .saint-role {
+    font-size:.81rem;color:#5a4080;line-height:1.45;
+  }
+  #ctq-taiwan-holysee .closing-prayer {
+    background:linear-gradient(135deg,#0F2230,#1a2f4a);
+    color:#fff;border-radius:14px;padding:22px 24px;
+    margin:12px 0;text-align:center;
+    border:1px solid rgba(184,150,62,.3);
+  }
+  #ctq-taiwan-holysee .closing-prayer p{margin:.35rem 0;line-height:1.7;opacity:.9;}
+  #ctq-taiwan-holysee .closing-prayer .prayer-line{
+    font-style:italic;font-size:1rem;color:#F5EDD6;
+  }
+  #ctq-taiwan-holysee .closing-prayer .prayer-attr{
+    font-size:.8rem;opacity:.6;margin-top:10px;display:block;
+  }
+</style>
 
+<div class="ctq-hero">
+  <span class="ctq-cross">✠ &nbsp; A.M.D.G. &nbsp; ✠</span>
+  <h1 class="ctq-title" id="ctq-taiwan-title">
+    Identity Friction, Diplomatic Nomenclature, and Pastoral Strategy:
+    <span style="font-weight:400;font-size:.88em;opacity:.88;">
+      Taiwan in Holy See–PRC Statecraft, 2026–2106
+    </span>
+  </h1>
+  <p class="ctq-sub">
+    A decision-analytic memorandum offered with filial reverence toward the Holy See
+    and in humble service to the Church's mission — written for senior ecclesial
+    and policy principals whose remit includes Taiwan, China, the Holy See,
+    or long-horizon institutional strategy.
+  </p>
+  <div class="ctq-badges">
+    <span class="ctq-badge gold">Working Paper · William Chuang · 14 March 2026</span>
+    <span class="ctq-badge">Taiwan · Holy See · PRC</span>
+    <span class="ctq-badge">Pastoral Strategy</span>
+    <span class="ctq-badge">Civic Identity</span>
+    <span class="ctq-badge">2026–2106 Horizon</span>
+  </div>
+</div>
+
+<!-- CARD 1: PATRONAGE -->
+<article class="ctq-card">
+  <h3>✠ &nbsp; Offered Under the Patronage of Our Lady,
+  Blessed Gerard, and Saint John the Baptist</h3>
+
+  <div class="ctq-callout devotional">
+    This work is offered under the intercession of the three great patrons
+    of the Order of Saint John — in the spirit in which that Order has served
+    the Church for nearly a thousand years: not with the pride of rank,
+    but with the humility of those who understand themselves to be,
+    in the words of the ancient Rule,
+    <em>serfs and servants of the poor and the sick.</em>
+    May whatever is true in these pages be received in that spirit,
+    and whatever is in error be charitably corrected by those
+    whose wisdom and authority surpass the author's own.
+  </div>
+
+  <div class="saints-bar" role="note">
+    <div>
+      <span class="saint-name">Our Lady, Queen of Heaven</span>
+      <span class="saint-role">
+        The Blessed Virgin Mary — model of faithful discipleship and
+        the Order's highest protector. At Cana she directed the servants:
+        <em>"Do whatever he tells you"</em> (John 2:5).
+        She stands as the first evangelist — the one who brought Christ
+        into the world without condition or exception.
+        The missionary challenge this paper addresses begins with her
+        <em>fiat.</em>
+      </span>
+    </div>
+    <div>
+      <span class="saint-name">Blessed Gerard (c. 1040–1120)</span>
+      <span class="saint-role">
+        Founder of the Hospital of Saint John in Jerusalem.
+        A humble lay brother who cared for pilgrims and the sick
+        regardless of nationality, language, or civic identity —
+        seeing in every patient the image of Christ.
+        It is in his spirit of radical universal welcome —
+        welcome that does not first demand that the guest
+        identify themselves in the host's preferred civic category —
+        that this paper finds its pastoral warrant.
+      </span>
+    </div>
+    <div>
+      <span class="saint-name">Saint John the Baptist</span>
+      <span class="saint-role">
+        Patron of the Order and herald of the Incarnation.
+        Sent <em>before</em> the Word to prepare the way and make the
+        paths straight — to attend to the conditions of reception
+        so that when the Lord arrived, the people were ready.
+        His is the logic of the precursor: remove the obstacles,
+        level the ground. That is precisely this paper's analytical task —
+        not to change the Gospel, but to ask honestly whether the
+        Church's public language in Taiwan is preparing the way
+        or inadvertently placing a stumbling block before
+        the sixty-two per cent majority who might otherwise draw near.
+      </span>
+    </div>
+  </div>
+</article>
+
+<!-- CARD 2: WHAT THIS PAPER IS -->
+<article class="ctq-card">
+  <h3>What This Paper Is — and Is Not</h3>
+
+  <div class="ctq-callout gold">
+    This paper is an exercise in ecclesial strategic analysis offered in a
+    spirit of service to the Church's mission. It makes no claim about the
+    Holy See's legal positions or sovereign intentions, which remain the
+    Holy See's own to define. Decision-makers with access to the fuller
+    institutional record are best positioned to determine which options
+    apply to present conditions — and the author defers to that judgment
+    with full sincerity.
+  </div>
+
+  <p>
+    The governing question is not theological — it does not touch doctrine,
+    the sacraments, or papal authority. It is strategic and conditional:
+  </p>
+
+  <blockquote class="ctq-pull">
+    Does the Holy See's current public diplomatic language about Taiwan
+    create a risk to Catholic mission there — and if so, which course
+    of action best protects Taiwan's Catholic community while preserving
+    the Church's engagement with China?
+  </blockquote>
+
+  <p>
+    The paper's analytical fulcrum is the distinction between what the
+    Holy See privately <em>intends</em> by its language — which is legally
+    and canonically significant — and how that language is
+    <em>received on the ground in Taiwan</em>.
+    The two can diverge, and when they do, reception is the pastoral
+    variable that matters.
+  </p>
+</article>
+
+<!-- CARD 3: WHY NOW -->
+<article class="ctq-card" style="border-left:4px solid var(--gold);">
+  <h3>Why This Paper — and Why Now</h3>
+
+  <p>
+    <strong>First, a naming incident.</strong>
+    On 3 July 2025, the Vatican Press Office publicly referred to
+    Taiwan's newly credentialled envoy as
+    <em>"Ambassador of China (Taiwan)"</em> — placing Taiwan inside
+    a Chinese bracket in a formal papal ceremony. Whatever the Holy See
+    privately intends, the signal to Taiwanese audiences is legible:
+    the Church speaks of Taiwan in a Chinese civic register,
+    not a Taiwanese one.
+  </p>
+
+  <p>
+    <strong>Second, a structural reality about the clergy.</strong>
+    Taiwan's Catholic clergy and institutional leadership were
+    historically formed by priests from mainland China, many arriving
+    after 1949. That origin has left a lasting imprint on the Church's
+    language and civic associations. As a result, the less than one per cent
+    of Taiwan's population that is Catholic has high overlap with the
+    approximately <strong>two per cent</strong> who identify as
+    <em>Chinese only</em> — not Taiwanese at all.
+  </p>
+
+  <div class="ctq-callout gold">
+    <strong>This is the mission ceiling the paper addresses.</strong><br><br>
+    <em>傳教</em> — evangelization, the Church's Great Commission
+    to "go and make disciples of all nations" (Matthew 28:19) —
+    is directed <em>outward</em>, toward those not yet within the community.
+    If the Church's civic register aligns primarily with the two per cent
+    who identify as Chinese only, that two per cent is the hard ceiling
+    on natural mission reach. Even broadening to those who hold
+    <em>both</em> a Taiwanese and a Chinese identity (roughly thirty per cent)
+    still leaves the Church speaking past the
+    <strong>sixty-two per cent majority</strong> who identify as Taiwanese
+    only — the primary pool from which any serious growth must come.
+    <br><br>
+    The naming incident was not an isolated technicality.
+    It was a publicly visible confirmation of a deeper structural
+    misalignment that, left unaddressed, converts a generous and faithful
+    community into one whose growth ceiling is set not by the breadth
+    of the Gospel's invitation but by the Church's own public language.
+    That is an avoidable constraint. This paper shows what it would
+    take to remove it.
+  </div>
+</article>
+
+<!-- CARD 4: THREE PRESSURES -->
+<article class="ctq-card">
+  <h3>Three Converging Pressures</h3>
+
+  <p>
+    The paper's <strong>identity-friction model</strong>
+    — where "identity friction" means the reduction in trust and
+    receptivity that occurs when a community perceives the Church's
+    public language as misaligned with their civic self-understanding —
+    rests on three documented facts that compound one another:
+  </p>
+
+  <div class="ctq-grid cols-3" style="margin:14px 0;">
+    <div class="stat-box">
+      <span class="stat-num">62%</span>
+      <span class="stat-label">
+        identify as <em>Taiwanese only</em> — a share rising
+        steadily for thirty years
+        <em>(National Chengchi University, Dec. 2025)</em>
+      </span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">−57%</span>
+      <span class="stat-label">
+        projected decline in Taiwan's working-age population
+        by 2070 — shrinking the pool for catechumens
+        (those preparing for baptism), clergy, and volunteers
+        <em>(Taiwan government projection)</em>
+      </span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">~220,000</span>
+      <span class="stat-label">
+        baptised Catholics in Taiwan — small in number but
+        diplomatically singular: the Holy See is Taiwan's
+        <em>only formal diplomatic partner in Europe</em>
+      </span>
+    </div>
+  </div>
+
+  <div class="ctq-note">
+    <strong>Why model to 2106?</strong>
+    A seminary built today trains priests who serve into the 2060s.
+    Demographic trends established today shape the parish network of 2080.
+    The long horizon is the normal planning window for an institution
+    of the Church's age and permanence — not speculation.
+  </div>
+</article>
+
+<!-- CARD 5: CONTRIBUTIONS -->
+<article class="ctq-card">
+  <h3>What the Paper Contributes</h3>
+  <ul class="ctq-list">
+    <li>
+      <strong>A three-way conceptual distinction</strong> between the
+      Holy See's legal position on Taiwan's sovereignty, its diplomatic
+      terminology (e.g., "China (Taiwan)"), and how that terminology is
+      actually heard by Taiwanese Catholics — three things that must be
+      kept separate for sound institutional reasoning.
+    </li>
+    <li>
+      <strong>Explicit crisis criteria</strong> — three measurable tests
+      (mission reach, public trust, and institutional planning stability)
+      that replace vague alarm with specific thresholds.
+    </li>
+    <li>
+      <strong>A quantitative scenario model</strong> projecting baptisms
+      and total Catholic population under five strategic paths, calibrated
+      to Taiwan's real demographic trajectory across four time horizons.
+    </li>
+    <li>
+      <strong>A complete, non-overlapping solution architecture</strong>
+      covering what the Church should say locally, build institutionally,
+      adjust diplomatically, plan for contingently, and measure over time.
+    </li>
+    <li>
+      <strong>A threshold instrument</strong> answering the decisive
+      question: how large would gains among Catholics in mainland China
+      need to be, and how durably, to justify the quantified costs to
+      Taiwan? The paper gives that number.
+      Whether to act on it requires non-public information only the
+      Holy See possesses — and the author defers entirely to that judgment.
+    </li>
+  </ul>
+</article>
+
+<!-- CARD 6: SCENARIO TABLE -->
+<article class="ctq-card">
+  <h3>Five Strategic Paths at a Glance</h3>
+  <p class="ctq-mini">
+    Losses are relative to the "full protective bundle" baseline.
+    Figures: projected baptised Catholics by 2046 / 2066 / 2106.
+    These are model outputs for orientation — not verdicts on Vatican policy.
+  </p>
+
+  <div class="ctq-table-wrap">
+    <table class="ctq-table">
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>Taiwan cost vs. strongest feasible option</th>
+          <th>Model assessment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Status quo</strong> — no change</td>
+          <td>−49,000 / −85,000 / −105,000 Catholics</td>
+          <td>Highest long-run cost; requires the largest China-side gains to justify</td>
+        </tr>
+        <tr>
+          <td><strong>Semantic repair only</strong> — change local parish language</td>
+          <td>−33,000 / −55,000 / −70,000</td>
+          <td>Slows decline but does not reverse it without deeper investment</td>
+        </tr>
+        <tr>
+          <td><strong>Taiwan-first renewal</strong> — language repair plus seminary formation and institutional investment</td>
+          <td>−13,000 / −24,000 / −30,000</td>
+          <td>Materially improves outcomes; requires only modest China-side evidence to break even</td>
+        </tr>
+        <tr>
+          <td><strong>Full protective bundle</strong> — all of the above plus diplomatic clarification and contingency planning</td>
+          <td>Zero — comparison baseline</td>
+          <td>Strongest protection among near-term feasible options</td>
+        </tr>
+        <tr>
+          <td><strong>Naming evolution</strong> — Holy See gradually shifts public terminology toward "Taiwan"</td>
+          <td>Net <em>gain</em>: +10,000 / +18,000 / +29,000</td>
+          <td>Best Taiwan upside; diplomatic sensitivity with Beijing is the binding constraint</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<!-- CARD 7: CONCLUSION -->
+<article class="ctq-card">
+  <h3>The Paper's Conclusion</h3>
+
+  <div class="verdict-strip">
+    <p>
+      <strong>Protect Taiwan now, while keeping the China channel open.</strong>
+    </p>
+    <p style="opacity:.82;font-size:.93rem;margin-top:7px;">
+      Repair local language. Reinforce Taiwan's Catholic institutions.
+      Clarify that diplomatic labels do not define civic identity.
+      Preserve pastoral engagement with China. Measure whether it is working.
+    </p>
+  </div>
+
+  <p>
+    The Church cannot resolve the military and political pressures
+    shaping cross-strait relations. It can resolve its own communicative
+    misalignment with the sixty-two per cent of Taiwanese who identify as
+    Taiwanese — because that misalignment is <em>avoidable</em> in a way
+    that geopolitical coercion is not.
+  </p>
+
+  <div class="ctq-callout gold">
+    <strong>A note on this paper's spirit.</strong><br><br>
+    The motto of the Order of Saint John —
+    <em>Tuitio fidei et obsequium pauperum</em>,
+    meaning "Defence of the faith and service to the poor and the sick" —
+    has guided the Order's discernment since Blessed Gerard first opened
+    his hospital in Jerusalem. In that tradition, service to the poor
+    begins with knowing who they are, where they stand, and what language
+    they speak. Asking honestly whether the Church's public language is
+    preparing the way or placing an obstacle before those who might
+    draw near is, at its root, a work of that same discernment.<br><br>
+    May Our Lady, who said <em>yes</em> to God on behalf of all humanity,
+    intercede for the Church's mission in Taiwan. May Saint John the Baptist,
+    who spent his life making straight the paths, guide all who read these
+    pages toward whatever action best serves that end.
+    And may Blessed Gerard remind us that the first act of hospitality
+    is to welcome the guest as they are — not as we would prefer them to be.
+  </div>
+</article>
+
+<!-- CARD 8: DOWNLOAD -->
+<article class="ctq-card">
+  <h3>Download</h3>
+  <p>
+    <a class="ctq-link"
+       href="https://drive.google.com/file/d/1QhlxZsDAN5sFvw7YuW0oWU_lKXsGQB2R/view?usp=sharing"
+       target="_blank" rel="noopener">
+      Identity Friction, Diplomatic Nomenclature, and Pastoral Strategy (PDF)
+    </a>
+    <span class="ctq-pill">Working Paper</span>
+    <span class="ctq-pill">William Chuang · 14 March 2026</span>
+  </p>
+  <p class="ctq-mini">
+    Working paper for scholarly and strategic discussion.
+    The author is a Taiwanese Catholic who writes out of genuine concern
+    for the vitality of the Church's mission in Taiwan.
+    Comments, corrections, and institutional engagement
+    are received with gratitude.
+  </p>
+  <div class="ctq-sep"></div>
+  <details>
+    <summary class="ctq-link" style="font-size:.87rem;cursor:pointer;">
+      Show suggested citation (BibTeX)
+    </summary>
+<pre style="white-space:pre-wrap;margin:9px 0 0;background:#f7f9fc;
+border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:11.5px;line-height:1.5;">
+@misc{Chuang_IdentityFriction_2026,
+  title  = {Identity Friction, Diplomatic Nomenclature,
+            and Pastoral Strategy: Taiwan in
+            Holy See--PRC Statecraft, 2026--2106},
+  author = {Chuang, William},
+  year   = {2026},
+  month  = {March},
+  note   = {Working paper for scholarly and strategic discussion},
+  url    = {https://drive.google.com/file/d/
+            1QhlxZsDAN5sFvw7YuW0oWU_lKXsGQB2R/view}
+}
+</pre>
+  </details>
+</article>
+
+<!-- CLOSING PRAYER -->
+<div class="closing-prayer" role="note" aria-label="Closing prayer">
+  <p class="prayer-line">
+    "I can do all things through Christ who strengthens me."
+  </p>
+  <p style="font-size:.83rem;opacity:.65;margin-top:3px;">Philippians 4:13</p>
+  <div style="margin:13px 0;opacity:.28;font-size:1.1rem;">✠ &nbsp; ✠ &nbsp; ✠</div>
+  <p class="prayer-line" style="font-size:.96rem;">
+    Sub tuum praesidium confugimus, Sancta Dei Genetrix —
+  </p>
+  <p style="font-size:.83rem;opacity:.72;font-style:italic;">
+    "We fly to your protection, O Holy Mother of God" —
+    the oldest known Marian prayer, used by the Order of Saint John
+    from its earliest days in Jerusalem.
+  </p>
+  <span class="prayer-attr">
+    ✠ &nbsp; Pro fide — pro utilitate hominum &nbsp; ✠<br>
+    "For the faith — for the service of humanity"
+  </span>
+</div>
+
+</section>
+<!-- ===== END Taiwan–Holy See Memo ===== -->
 
 
 
