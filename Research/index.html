@@ -23,6 +23,13 @@ blog: passive
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['boldsymbol']}
+    }
+  };
+</script>
 
 <!-- ============================================================
      (before the closing </head> tag)
@@ -146,12 +153,28 @@ That paper gave addiction medicine a molecular address for the first time.
 
 <p>
 Focused ultrasound (LIFU) can non-invasively modulate tissue at precisely that address,
-10 cm deep, in a single 20–40 minute outpatient session — with no surgery, no ongoing
-medication, and no adherence requirement after the session ends.
-The WVU Rockefeller Neuroscience Institute has treated 20 patients with compelling
-results. But a serious adverse event in October 2025 exposed a fundamental gap:
-the system had no rigorous mathematical safety framework, and the manufacturer's
-proprietary acoustic parameters made independent verification mathematically impossible.
+10 cm deep, in a single 20-minute outpatient session — with no surgery, no ongoing
+medication, and no adherence requirement after the session ends. The results so far are
+striking. In the peer-reviewed Phase I trial published in <em>Biological Psychiatry</em>
+(Rezai et al., July 2025), participants with severe opioid use disorder — median 14 years
+of heroin/fentanyl use, with multiple prior treatment failures — showed a
+<strong>mean 91% reduction in cue-induced opioid craving</strong> (p&nbsp;&lt;&nbsp;0.0001),
+sustained across the full 90-day follow-up. Median craving scores dropped from 6.9
+to 0.6 on a 10-point scale. <strong>7 of 8 participants were abstinent at 30 days;
+5 of 8 (62.5%) remained abstinent through 90 days, confirmed by urine toxicology.</strong>
+Critically, the same single session also reduced cravings for methamphetamine
+(p&nbsp;&lt;&nbsp;0.002) and cocaine (p&nbsp;&lt;&nbsp;0.02) — substances for which
+<em>no FDA-approved medication treatment currently exists</em>. Resting-state fMRI
+confirmed the mechanism: decreased connectivity between the NAc and reward/cognitive
+regions, exactly the corrupted circuit the 2024 Rockefeller University <em>Science</em>
+paper identified as the target. These outcomes are particularly notable against the
+backdrop of current standard-of-care failure: relapse rates following existing treatment
+for opioid and substance use disorder remain 50–70%, and the CDC recorded
+103,451 overdose deaths in the 12 months ending March 2024 — 70% involving opioids.
+But a serious adverse event in October 2025 exposed a fundamental gap: the system
+had no rigorous mathematical safety framework, and the manufacturer's proprietary
+acoustic parameters made independent verification of what caused the injury
+mathematically impossible.
 </p>
 
 <p>
@@ -190,7 +213,7 @@ as the real-time tri-quantized safety and control engine.
 <p>
 The October 2025 WVU-RNI adverse event (micro-hemorrhages, cerebral edema, loss of
 consciousness) is formally defined as the event
-\(\mathcal{E}_{\mathrm{AE}} = \{\boldsymbol{\theta}_{\mathrm{AE}} \notin \mathcal{S}_{\mathrm{safe}}\}\),
+\(\mathcal{E}_{\mathrm{AE}} = \{\pmb{\theta}_{\mathrm{AE}} \notin \mathcal{S}_{\mathrm{safe}}\}\),
 where \(\mathcal{S}_{\mathrm{safe}} \subset \mathbb{R}^5\) is the five-dimensional
 safety manifold defined by four coupled constraints.
 </p>
