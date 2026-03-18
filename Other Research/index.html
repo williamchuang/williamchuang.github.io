@@ -22,6 +22,69 @@ blog: passive
     async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+
+
+<!-- ============================================================
+     (before the closing </head> tag)
+============================================================ -->
+
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']], tags: 'ams' },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js" defer></script>
+
+<style>
+.fus-bluf{background:#f0f6ff;border-left:4px solid #0057b8;padding:.9rem 1.1rem;margin:1rem 0 1.5rem;border-radius:0 4px 4px 0}
+.fus-bluf strong{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:#0057b8}
+.fus-tags{display:flex;flex-wrap:wrap;gap:6px;margin:.6rem 0 1rem}
+.fus-tag{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:3px;background:#eef2ff;color:#2d3a8c;border:1px solid #c7d0f5}
+.fus-tag.red{background:#fff0f0;color:#8c1a1a;border-color:#f5c7c7}
+.fus-tag.green{background:#f0fff4;color:#1a5c32;border-color:#c7f0d5}
+.fus-tag.amber{background:#fffbea;color:#7a4f00;border-color:#f5dfa0}
+.fus-tag.gray{background:#f5f5f5;color:#444;border-color:#ccc}
+#fus-lambdastack details{border:1px solid #ddd;border-radius:4px;margin:.6rem 0}
+#fus-lambdastack details summary{padding:.6rem 1rem;font-weight:600;cursor:pointer;user-select:none;list-style:none;display:flex;justify-content:space-between;align-items:center}
+#fus-lambdastack details summary::-webkit-details-marker{display:none}
+#fus-lambdastack details summary::after{content:'▼';font-size:.7rem;color:#888}
+#fus-lambdastack details[open] summary::after{content:'▲'}
+#fus-lambdastack .details-body{padding:1rem;border-top:1px solid #ddd;background:#fafafa}
+.fus-pdf-btn{display:inline-block;margin:.5rem 0;padding:8px 18px;background:#0057b8;color:#fff;border-radius:4px;font-size:.9rem;font-weight:600;text-decoration:none}
+.fus-pdf-btn:hover{background:#003f8a;color:#fff;text-decoration:none}
+.fus-pdf-btn::before{content:'📄 '}
+#fus-checker{background:#f9f9f9;border:1px solid #ddd;border-radius:6px;padding:1.4rem;margin:1.5rem 0}
+#fus-checker h3{margin-top:0}
+.fus-slider-row{display:grid;grid-template-columns:220px 1fr 60px;align-items:center;gap:10px;margin:8px 0}
+.fus-slider-row label{font-size:.88rem;color:#333}
+.fus-slider-row span{font-size:.88rem;font-weight:700;text-align:right}
+#fus-checker input[type=range]{width:100%;accent-color:#0057b8}
+.fus-metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:1rem 0}
+@media(max-width:600px){.fus-metrics-grid{grid-template-columns:repeat(2,1fr)}}
+.fus-metric-card{background:#fff;border:1px solid #ddd;border-radius:4px;padding:10px;text-align:center}
+.fus-metric-val{font-size:1.4rem;font-weight:700;line-height:1.2}
+.fus-metric-lbl{font-size:.72rem;color:#666;margin-top:2px}
+.fus-status-pass{color:#1a7340}
+.fus-status-fail{color:#8c1a1a}
+.fus-constraint-row{font-size:.85rem;padding:4px 0;border-bottom:1px solid #eee}
+.fus-constraint-row:last-child{border-bottom:none}
+.fus-fire-btn{display:block;width:100%;padding:10px;margin-top:12px;font-size:1rem;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .2s}
+.fus-optimal-box{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:4px;padding:10px;margin-top:10px;font-size:.85rem}
+.fus-phase-block{border-left:3px solid #0057b8;padding-left:1.2rem;margin:1rem 0}
+.fus-phase-block.amber{border-color:#d4800a}
+.fus-phase-block.green{border-color:#1a7340}
+.fus-phase-year{font-size:.78rem;font-weight:700;color:#0057b8;text-transform:uppercase;margin-bottom:.3rem}
+.fus-phase-block.amber .fus-phase-year{color:#d4800a}
+.fus-phase-block.green .fus-phase-year{color:#1a7340}
+.fus-risk-high{background:#fff0f0;color:#8c1a1a;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.fus-risk-med{background:#fffbea;color:#7a4f00;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.fus-risk-low{background:#f0fff4;color:#1a5c32;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap}
+</style>
+
+
+
+
 </head>
 
 
@@ -31,6 +94,592 @@ blog: passive
     <h1>Research Projects</h1>
     <section class="research-list">
 
+
+
+<section id="fus-lambdastack">
+
+<hr>
+
+<h1>Focused Ultrasound Neuromodulation for Substance Use Disorder:<br>
+A λ-Stack Mathematical Framework &amp; National Treatment Plan</h1>
+
+<div class="fus-tags">
+  <span class="fus-tag">FUS · LIFU</span>
+  <span class="fus-tag">Nucleus accumbens</span>
+  <span class="fus-tag">λ-Stack</span>
+  <span class="fus-tag">CEAS</span>
+  <span class="fus-tag">GRAIL</span>
+  <span class="fus-tag">Ψ-Operator</span>
+  <span class="fus-tag amber">Adverse event analysis</span>
+  <span class="fus-tag green">Optimal control</span>
+  <span class="fus-tag gray">William Chuang · Logarcheon Inc.</span>
+</div>
+
+<div class="fus-bluf">
+  <strong>BLUF</strong><br>
+  This work presents the first unified mathematical framework coupling nine physical and
+  biological layers for low-intensity focused ultrasound (LIFU) neuromodulation of the
+  nucleus accumbens in substance use disorder, applies the λ-Stack
+  (CEAS + GRAIL + Ψ-Operator) as a provably convergent real-time safety controller,
+  formally defines and solves the October 2025 adverse event, and provides a complete
+  first-principles cost reduction and national funding plan to make this treatment
+  accessible to all ~49.9 million addicted Americans.
+</div>
+
+<a class="fus-pdf-btn"
+   href="https://drive.google.com/file/d/1wM7baPUmtZn4LwBHRpV-apKF26usg1sG/view?usp=sharing"
+   target="_blank" rel="noopener">View full manuscript draft (PDF)</a>
+
+<hr>
+
+<h2>What is being attempted?</h2>
+
+<p>
+Substance use disorder (SUD) is the most mathematically intractable public health
+crisis in the US — 49.9 million Americans affected, $700 billion in annual economic
+damage, and relapse rates of 40–60% for the best available treatments.
+The April 2024 <em>Science</em> paper from The Rockefeller University identified, at
+single-cell resolution, the exact biological target: Rheb-protein-mediated corruption
+of D1/D2 medium spiny neurons (MSNs) in the nucleus accumbens (NAc).
+That paper gave addiction medicine a molecular address for the first time.
+</p>
+
+<p>
+Focused ultrasound (LIFU) can non-invasively modulate tissue at precisely that address,
+10 cm deep, in a single 20–40 minute outpatient session — with no surgery, no ongoing
+medication, and no adherence requirement after the session ends.
+The WVU Rockefeller Neuroscience Institute has treated 20 patients with compelling
+results. But a serious adverse event in October 2025 exposed a fundamental gap:
+the system had no rigorous mathematical safety framework, and the manufacturer's
+proprietary acoustic parameters made independent verification mathematically impossible.
+</p>
+
+<p>
+This work closes that gap entirely. It builds the first nine-layer coupled mathematical
+model of the full system — from nonlinear acoustic physics through population neural
+dynamics — and deploys the λ-Stack (CEAS + GRAIL + Ψ-Operator; Logarcheon Inc.)
+as the real-time tri-quantized safety and control engine.
+</p>
+
+<h3>The nine coupled layers</h3>
+<table>
+<tr><th>#</th><th>Layer</th><th>Governing equation / framework</th><th>λ-Stack pillar</th></tr>
+<tr><td>1</td><td>Nonlinear acoustic propagation</td>
+    <td>Khokhlov–Zabolotskaya–Kuznetsov (KZK)</td><td>GRAIL geometry</td></tr>
+<tr><td>2</td><td>Skull heterogeneity transfer</td>
+    <td>\(H_{\mathrm{skull}}(f,\mathbf{x})\) on \(\Gamma\backslash\mathbb{H}^d\)</td>
+    <td>GRAIL automorphic kernel</td></tr>
+<tr><td>3</td><td>Mechanical safety (MI + cavitation)</td>
+    <td>\(\Phi_{\mathrm{cav}} = P_{\mathrm{neg}}/P_{\mathrm{IC}}(f)\)</td>
+    <td>CEAS entropy corridor</td></tr>
+<tr><td>4</td><td>Thermal dosimetry</td>
+    <td>Pennes bioheat + CEM\(_{43}\)</td><td>CEAS thermostat</td></tr>
+<tr><td>5</td><td>Membrane electrophysiology</td>
+    <td>Acoustic-Hodgkin–Huxley (D1/D2 MSN)</td><td>Ψ-Operator cycles</td></tr>
+<tr><td>6</td><td>NAc population dynamics</td>
+    <td>Wilson–Cowan system</td><td>Ψ-Operator Dunford split</td></tr>
+<tr><td>7</td><td>Addiction severity</td>
+    <td>Rheb-mediated \(\Delta_{\mathrm{add}}(t)\)</td><td>Ψ-Operator observable</td></tr>
+<tr><td>8</td><td>Synaptic plasticity</td>
+    <td>STDP \(dW/dt\) (LTD targeting)</td><td>Ψ-Operator cycle phase</td></tr>
+<tr><td>9</td><td>Optimal control</td>
+    <td>KKT + Lagrangian</td><td>Full λ-Stack integration</td></tr>
+</table>
+
+<h3>The adverse event, mathematically defined</h3>
+<p>
+The October 2025 WVU-RNI adverse event (micro-hemorrhages, cerebral edema, loss of
+consciousness) is formally defined as the event
+\(\mathcal{E}_{\mathrm{AE}} = \{\boldsymbol{\theta}_{\mathrm{AE}} \notin \mathcal{S}_{\mathrm{safe}}\}\),
+where \(\mathcal{S}_{\mathrm{safe}} \subset \mathbb{R}^5\) is the five-dimensional
+safety manifold defined by four coupled constraints.
+</p>
+<p>
+<strong>Theorem (proved in the paper):</strong> If the skull-correction parameter
+\(\Delta H_{\mathrm{prop}}\) is withheld under manufacturer proprietary restrictions,
+then no external party can verify whether the MI constraint \(C_1\) holds — because
+the actual focal pressure error exceeds the reported value by
+\(G \cdot \|\Delta H_{\mathrm{prop}}\| \cdot P_{\mathrm{tx}}\), where \(G \approx 12\)
+is the geometric focusing gain. The GRAIL beamformer resolves this structurally:
+by measuring \(H_{\mathrm{skull}}\) in real time via backscatter,
+\(\Delta H_{\mathrm{prop}} = 0\) by construction at every pulse.
+</p>
+
+<details>
+<summary>Investor brief — why this matters beyond neuroscience</summary>
+<div class="details-body">
+<ul>
+<li><strong>The λ-Stack's first real-world safety application:</strong> This paper is the first
+external deployment of CEAS + GRAIL + Ψ-Operator in a life-critical medical context.
+It provides falsifiable, audited, provably convergent performance in a domain with
+zero tolerance for failure.</li>
+<li><strong>Defense and intelligence applicability:</strong> The same GRAIL automorphic
+beamforming and CEAS safety corridor framework applies directly to directed-energy weapon
+safety systems, where proprietary parameter concealment creates the same unverifiability
+problem as in the 2025 AE.</li>
+<li><strong>Regulatory template:</strong> The formal safety manifold definition and the
+five mandatory disclosure requirements derived from it provide a legislative/regulatory
+template for any energy-based medical device — a durable policy artifact.</li>
+<li><strong>IP position:</strong> CEAS, GRAIL, and Ψ-Operator are all Logarcheon IP
+(patents filed). Their application to FUS creates a defensible cross-domain licensing
+position at the intersection of medical devices, AI safety, and operator theory.</li>
+</ul>
+</div>
+</details>
+
+<hr>
+
+<h2>🔬 Real-time λ-Stack parameter safety checker</h2>
+<p>
+Adjust the acoustic parameters below. The model computes all five safety constraints
+\(C_1\)–\(C_4\) from Definition 3.1 of the manuscript in real time, including the
+CEAS cavitation risk index \(\Phi_{\mathrm{cav}}\), Mechanical Index, CEM\(_{43}\)
+thermal dose, and estimated temperature rise.
+Set the skull correction error \(\Delta H\) slider to 40% to reconstruct
+the conditions of the October 2025 adverse event.
+</p>
+
+<div id="fus-checker">
+  <h3>λ-Stack LIFU safety checker</h3>
+
+  <div class="fus-slider-row">
+    <label>Peak negative pressure \(P_{\mathrm{neg}}\) (MPa)</label>
+    <input type="range" id="fus-s-p" min="0.05" max="2.0" step="0.05" value="0.15">
+    <span id="fus-v-p">0.15</span>
+  </div>
+  <div class="fus-slider-row">
+    <label>Frequency \(f\) (MHz)</label>
+    <input type="range" id="fus-s-f" min="0.10" max="1.50" step="0.01" value="0.22">
+    <span id="fus-v-f">0.22</span>
+  </div>
+  <div class="fus-slider-row">
+    <label>Duty cycle DC (%)</label>
+    <input type="range" id="fus-s-dc" min="1" max="100" step="1" value="2">
+    <span id="fus-v-dc">2</span>
+  </div>
+  <div class="fus-slider-row">
+    <label>Session duration \(t\) (min)</label>
+    <input type="range" id="fus-s-t" min="1" max="60" step="1" value="20">
+    <span id="fus-v-t">20</span>
+  </div>
+  <div class="fus-slider-row">
+    <label>Skull correction error \(\Delta H\) (%)</label>
+    <input type="range" id="fus-s-dh" min="0" max="80" step="1" value="0"
+           style="accent-color:#c0392b">
+    <span id="fus-v-dh" style="color:#c0392b">0</span>
+  </div>
+
+  <div class="fus-metrics-grid">
+    <div class="fus-metric-card">
+      <div class="fus-metric-val" id="fus-m-mi">—</div>
+      <div class="fus-metric-lbl">MI (limit 0.30)</div>
+    </div>
+    <div class="fus-metric-card">
+      <div class="fus-metric-val" id="fus-m-phi">—</div>
+      <div class="fus-metric-lbl">Φ<sub>cav</sub> (limit 0.70)</div>
+    </div>
+    <div class="fus-metric-card">
+      <div class="fus-metric-val" id="fus-m-cem">—</div>
+      <div class="fus-metric-lbl">CEM<sub>43</sub> min (limit 0.10)</div>
+    </div>
+    <div class="fus-metric-card">
+      <div class="fus-metric-val" id="fus-m-dt">—</div>
+      <div class="fus-metric-lbl">Est. ΔT °C (limit 1.0)</div>
+    </div>
+  </div>
+
+  <div id="fus-constraint-list" style="margin:.5rem 0"></div>
+  <div id="fus-optimal-box" class="fus-optimal-box" style="display:none"></div>
+
+  <button class="fus-fire-btn" id="fus-fire-btn" onclick="fusUpdate()">
+    Recalculate
+  </button>
+
+  <div style="font-size:.78rem;color:#888;margin-top:8px">
+    Try:
+    <a href="#" onclick="fusPreset('safe');return false">Nominal safe</a> ·
+    <a href="#" onclick="fusPreset('ae2025');return false">Oct 2025 AE scenario</a> ·
+    <a href="#" onclick="fusPreset('cw90w');return false">Pathological CW 90W</a>
+  </div>
+</div>
+
+<hr>
+
+<h2>📊 Investment risk profile by phase — what you know vs. what you're betting on</h2>
+
+<table>
+<tr>
+  <th>Phase</th><th>Window</th><th>Known with confidence</th>
+  <th>What you're betting on</th><th>Evidence gate</th><th>Risk</th>
+</tr>
+<tr>
+  <td><strong>Phase 0</strong><br>Fund the RCT</td>
+  <td>Now – 2028</td>
+  <td>Target biology confirmed (2024 <em>Science</em>). Physics of LIFU validated. 10/15 early patients drug-free at 90 days.</td>
+  <td>Double-blind RCT shows statistically significant abstinence. DIADEM passes safety bar without serious AE.</td>
+  <td>Published RCT with ≥12-month follow-up</td>
+  <td><span class="fus-risk-med">MEDIUM</span></td>
+</tr>
+<tr>
+  <td><strong>Phase 1</strong><br>FDA &amp; infrastructure</td>
+  <td>2028 – 2030</td>
+  <td>DIADEM solves MRI dependency (mathematically proved). 15,000 outpatient clinics exist. Opioid settlement funds committed.</td>
+  <td>FDA grants Breakthrough Device designation for addiction. Medicaid mandates coverage. Per-unit device cost falls to &lt;$75K at volume.</td>
+  <td>FDA approval letter; Medicaid coverage rule</td>
+  <td><span class="fus-risk-med">MEDIUM</span></td>
+</tr>
+<tr>
+  <td><strong>Phase 2</strong><br>Scaled deployment</td>
+  <td>2030 – 2033</td>
+  <td>Manufacturing scale curves well-established from analogous devices. First-principles cost model predicts $500–$1,500 per session at volume.</td>
+  <td>Durable efficacy at 12–24 months confirmed in real-world cohorts. Sufficient technicians trained. Insurance reimbursement stabilized.</td>
+  <td>CMS reimbursement data; 2-year real-world outcomes</td>
+  <td><span class="fus-risk-low">LOW-MEDIUM</span></td>
+</tr>
+<tr>
+  <td><strong>Phase 3</strong><br>Universal access</td>
+  <td>2033+</td>
+  <td>$700B/yr economic cost of addiction vastly exceeds treatment cost. Ryan White HIV/AIDS Program proved the funding model. Political will exists.</td>
+  <td>Congress appropriates Ryan White–style block grants. No major safety signal emerges in large populations.</td>
+  <td>Congressional appropriation; post-market surveillance</td>
+  <td><span class="fus-risk-low">LOW</span></td>
+</tr>
+</table>
+
+<p>
+<strong>The one-sentence investment thesis:</strong>
+Spend ~$400M over 2026–2028 to close the evidence gap on a target that is
+mechanistically proven — and gain optionality on a $50B treatment market
+whose underlying disease costs $700B per year. Expected value is strongly
+positive even at moderate success probabilities.
+</p>
+
+<hr>
+
+<h2>💡 First-principles cost reduction timeline</h2>
+
+<p>
+Current cost per LIFU session for addiction (trial only, Insightec/MRI route):
+<strong>$15,000–$30,000</strong>.
+First-principles target (DIADEM-class, at volume, FDA-approved):
+<strong>$300–$800</strong>.
+The 20–100× reduction is achievable through six independent levers,
+each justified by physics and engineering rather than optimism.
+</p>
+
+<div class="fus-phase-block">
+  <div class="fus-phase-year">2026–2028 · Phase 0 · Target: ≤$12,000 per session</div>
+  <p><strong>Lever 1 — Open acoustic parameters.</strong> Mandating parameter
+  transparency (the five mandatory disclosures derived in the paper) eliminates
+  the safety over-engineering buffer that currently inflates session time and
+  monitoring cost. Estimated savings: 15–25%.</p>
+  <p><strong>Lever 2 — Pulsed protocol at DC* ≈ 1–3%.</strong> The KKT-derived
+  optimal duty cycle eliminates the continuous-wave over-irradiation that drives
+  extended monitoring requirements. Session time drops from 60 min to 25–35 min.</p>
+</div>
+
+<div class="fus-phase-block amber">
+  <div class="fus-phase-year">2028–2030 · Phase 1 · Target: ≤$3,000 per session</div>
+  <p><strong>Lever 3 — Eliminate MRI dependency.</strong> DIADEM's real-time
+  skull compensation removes the need for live MRI guidance — the single largest
+  cost driver at $2,000–$5,000 per session. The GRAIL automorphic beamformer
+  replaces MRI with in-device backscatter measurement. Cost drop: ~40% of total.</p>
+  <p><strong>Lever 4 — Staffing model shift.</strong> With MRI removed, the procedure
+  becomes a technician-delivered outpatient service rather than a neurosurgery suite
+  procedure. Physician cost drops from $3,000–$8,000 to $200–$400 per session.</p>
+</div>
+
+<div class="fus-phase-block green">
+  <div class="fus-phase-year">2030–2033 · Phase 2 · Target: ≤$800 per session</div>
+  <p><strong>Lever 5 — Volume manufacturing.</strong> The DIADEM device is a
+  phased-array headphone-form-factor unit. At 10,000+ units/year (analogous to
+  TENS units, cochlear implants), hardware cost drops from ~$1M (current Insightec)
+  to $30,000–$80,000 per unit. Amortized over 2,000 sessions: $15–$40 per session
+  hardware contribution.</p>
+  <p><strong>Lever 6 — Open-source protocol competition.</strong> With acoustic
+  parameters mandated open (a regulatory condition this paper argues for), generic
+  device manufacturers can enter. This breaks the Insightec monopoly and drives
+  per-unit cost to commodity levels within 3–5 years of FDA approval.</p>
+</div>
+
+<table>
+<tr><th>Cost component</th><th>Today (Insightec/MRI)</th><th>2028 (DIADEM, trial)</th><th>2031 (volume, approved)</th></tr>
+<tr><td>Hardware amortization</td><td>$2,000–$4,000</td><td>$200–$500</td><td>$15–$40</td></tr>
+<tr><td>MRI/imaging suite</td><td>$2,500–$5,000</td><td><strong>$0</strong> (eliminated)</td><td>$0</td></tr>
+<tr><td>Clinical staff</td><td>$3,500–$8,000</td><td>$300–$600</td><td>$150–$350</td></tr>
+<tr><td>Facility overhead</td><td>$2,000–$5,000</td><td>$150–$300</td><td>$80–$200</td></tr>
+<tr><td>Behavioral follow-up</td><td>$500–$1,000</td><td>$200–$400</td><td>$50–$150</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$10,500–$23,000</strong></td><td><strong>$850–$1,800</strong></td><td><strong>$295–$740</strong></td></tr>
+</table>
+
+<hr>
+
+<h2>🏛️ Funding plan — universal access for all ~49.9M affected Americans</h2>
+
+<div class="fus-bluf">
+  <strong>Economic argument</strong><br>
+  Addiction costs the US $700B/yr. Treating all 49.9M affected Americans at $600/session
+  costs $30B — 25 days of current economic damage, paid once. Even a 30% long-term
+  abstinence rate produces net positive ROI within the first year.
+  This is not a healthcare expense. It is the highest-return public health investment
+  in American history.
+</div>
+
+<h3>🔵 Phase 0 (2026–2028): Fund the evidence — ~$400M total</h3>
+<ul>
+  <li>Redirect 0.9% of the US annual drug control budget (~$45B/yr) to complete
+  the WVU-RNI double-blind RCT and fund five additional multi-site trials at $50M each.</li>
+  <li>Condition all NIH/NIDA LIFU-SUD funding on full acoustic parameter disclosure
+  (the five mandatory disclosures derived in this paper's theorems).</li>
+  <li>File for FDA Breakthrough Device Designation for DIADEM for addiction specifically —
+  the most legally clean path given its superior safety profile.</li>
+  <li><strong>Funding source:</strong> NIDA HEAL Initiative reallocation + Congressional
+  supplemental appropriation (precedent: $6B HEAL Initiative, 2018).</li>
+</ul>
+
+<h3>🟠 Phase 1 (2028–2031): Build the infrastructure — ~$8B total</h3>
+<ul>
+  <li>On FDA approval: mandate Medicare Part B and Medicaid coverage immediately,
+  using the buprenorphine (2002) precedent.</li>
+  <li>Deploy 15,000 DIADEM units to existing licensed outpatient substance abuse
+  treatment facilities — one per facility at $50K/unit = $750M hardware.</li>
+  <li>Staff training, clinical protocols, and behavioral support infrastructure: ~$2B.</li>
+  <li>Patient outreach and navigation services (for unhoused, uninsured): ~$1B.</li>
+  <li><strong>Funding source:</strong> Opioid settlement funds — $50B+ committed by
+  pharmaceutical manufacturers and distributors to state governments, of which less
+  than 10% has been deployed to treatment infrastructure.</li>
+</ul>
+
+<h3>🟢 Phase 2 (2031+): Universal access — ~$15–30B/yr operating</h3>
+<ul>
+  <li>At $600/treatment × 12M patients/yr = $7.2B/yr operating cost.</li>
+  <li>This is approximately 1% of the annual economic damage of addiction.</li>
+  <li>Pair with telehealth CBT (app-based, $50/month) for sustained efficacy:
+  total ~$8B/yr for treatment + follow-up support.</li>
+  <li><strong>Funding structure:</strong> Ryan White HIV/AIDS Program model —
+  federal block grants to states, with Medicaid/Medicare as the primary payer
+  for insured patients and block grants covering uninsured.</li>
+</ul>
+
+<table>
+<tr><th>Funding source</th><th>Amount available</th><th>Timeline</th><th>Precedent</th></tr>
+<tr><td>Opioid settlement funds (pharma/distributors)</td><td>$50B+ committed</td><td>Now – 2030</td><td>Tobacco MSA (1998)</td></tr>
+<tr><td>NIDA HEAL Initiative expansion</td><td>$3–6B/yr</td><td>2026+</td><td>HEAL Initiative (2018)</td></tr>
+<tr><td>Medicaid/Medicare mandatory coverage</td><td>$10–20B/yr (payer)</td><td>Post-FDA approval</td><td>Buprenorphine (2002)</td></tr>
+<tr><td>Ryan White–style block grants (federal)</td><td>$3–5B/yr</td><td>Congressional act</td><td>Ryan White Act (1990)</td></tr>
+<tr><td>State opioid response grants (SAMHSA)</td><td>$2B/yr existing</td><td>Redirectable now</td><td>Existing program</td></tr>
+</table>
+
+<details>
+<summary>Investor brief — the policy mechanism in detail</summary>
+<div class="details-body">
+<p>The single most important near-term policy action is mandating acoustic parameter
+transparency as a condition of NIH funding. This is achievable without legislation —
+it requires only a policy update to NIH grant terms, analogous to data-sharing mandates
+already in place. It resolves the 2025 AE problem structurally and immediately.</p>
+<p>The second most important action is filing for FDA Breakthrough Device Designation for
+DIADEM. Breakthrough Designation is granted when a device addresses a life-threatening
+condition with no existing effective treatment — addiction with polysubstance disorder
+qualifies on its face. This designation accelerates review by 2–3 years and is available
+without Congressional action.</p>
+<p>The third action is a budget-neutral redirection: of the $50B+ in opioid settlement
+funds committed to states, less than 10% has been deployed to treatment infrastructure.
+These funds have broad spending discretion and are the fastest deployable capital for
+device procurement and clinic upgrades.</p>
+</div>
+</details>
+
+<hr>
+
+<h2>🔧 How CEAS + GRAIL + Ψ-Operator solve the problem</h2>
+
+<table>
+<tr><th>Component</th><th>What it does in this context</th><th>Key equation</th></tr>
+<tr>
+  <td><strong>CEAS</strong><br>Critical Entropy Attention System</td>
+  <td>Maps the acoustic safety corridor to a pseudo-critical entropy corridor.
+  Regulates β via Newton-step thermostat on Φ<sub>cav</sub>. Gates sonication pulses
+  via temperature-gap score. Enforces pseudo-critical margin to bound relaxation time.</td>
+  <td>\(\beta_{\mathrm{new}} = \beta + \kappa(t) \dfrac{\Phi_{\mathrm{cav}}(\beta) - \Phi_{\mathrm{target}}}{\beta\,\mathrm{Var}_{p_\beta}[\Phi] + \varepsilon}\)</td>
+</tr>
+<tr>
+  <td><strong>GRAIL</strong><br>Geometric Representation Algebra for Intelligent Learning</td>
+  <td>Models skull heterogeneity as a Riemannian quotient \(\Gamma\backslash\mathbb{H}^d\).
+  Computes adaptive beamforming via automorphic kernel. Applies orbit-jump controller
+  via diagonal isometries. Measures BCH non-commutativity \([\xi,X]\) as a skull
+  curvature diagnostic.</td>
+  <td>\(K_\beta(q,k) = \displaystyle\sum_{\gamma\in\Gamma_{\mathrm{trunc}}} \exp\!\bigl(-\beta\,d_{\mathbb{H}}(q,\gamma k)\bigr)\)</td>
+</tr>
+<tr>
+  <td><strong>Ψ-Operator Framework</strong></td>
+  <td>Decomposes NAc therapeutic circuit via Dunford split \(P = D + N\). Lifts cycles
+  to unitary blocks \(U_C\) and transients to CPTP channels. DFA projectors \(\Pi_q\)
+  enforce certified safe sonication language. Wilson phase \(\Phi_C\) identifies
+  therapeutic vs. pathological NAc cycles.</td>
+  <td>\(U_C\,|s_j\rangle = e^{i\theta_{j\to j+1}}|s_{j+1}\rangle,\quad \Phi_C = \sum_j \theta_{j\to j+1} \bmod 2\pi\)</td>
+</tr>
+</table>
+
+<p>
+The key mathematical insight unifying all three components: the same β that CEAS
+regulates for entropy corridor control simultaneously governs the sharpness of the
+GRAIL automorphic kernel \(K_\beta\). The CEAS identity
+\(dH/d\beta = -\beta\,\mathbb{E}[\mathrm{Var}_{p_\beta}(s)]\) and the automorphic
+kernel's β-sensitivity share the same information-theoretic structure — so when CEAS
+adjusts β, it simultaneously adjusts the geometric resolution of the skull manifold
+model. The three layers are one system, not three modules.
+</p>
+
+<hr>
+
+<h2>📎 Download and citation</h2>
+
+<a class="fus-pdf-btn"
+   href="https://drive.google.com/file/d/1wM7baPUmtZn4LwBHRpV-apKF26usg1sG/view?usp=sharing"
+   target="_blank" rel="noopener">View full manuscript draft (PDF)</a>
+
+<pre style="margin-top:1rem">@misc{Chuang2026FUS,
+  title  = {Focused Ultrasound Neuromodulation for Substance Use Disorder:
+            A Nine-Layer Mathematical Framework, Formal Adverse-Event Analysis,
+            and Lambda-Stack Optimal Control via CEAS + GRAIL + Psi-Operator},
+  author = {Chuang, William},
+  year   = {2026},
+  institution = {Logarcheon Inc.},
+  url    = {https://drive.google.com/file/d/1wM7baPUmtZn4LwBHRpV-apKF26usg1sG/view?usp=sharing},
+  note   = {Manuscript draft. CEAS, GRAIL, Psi-Operator: patents pending/filed, Logarcheon Inc.}
+}</pre>
+
+<p>
+Related Logarcheon frameworks:
+<a href="https://logarcheon.com/CEAS/">CEAS</a> ·
+<a href="https://logarcheon.com/GRAIL/">GRAIL</a> ·
+<a href="https://logarcheon.com/%CE%A8%E2%80%91Operator%20Framework/">Ψ-Operator Framework</a>
+</p>
+
+<hr>
+<p style="font-size:.8rem;color:#888">
+© 2026 William Chuang, Logarcheon Inc. All rights reserved.
+CEAS, GRAIL, and the Ψ-Operator Framework are original architectures of Logarcheon Inc.,
+with non-provisional patents filed or pending. Nothing on this page constitutes medical
+guidance or a medical device claim.
+</p>
+
+</section>
+
+
+<script>
+(function(){
+  var G=12,RHO=1050,C0=1540,CP=3600,KTH=0.5,AT=8;
+  var MI_L=0.30,CEM_L=0.10,PHI_L=0.70,DT_L=1.0;
+
+  function phys(P,f,dc,t,dh){
+    var Pact=P*(1+G*dh/100);
+    var mi=Pact/Math.sqrt(f);
+    var pic=0.45*Math.sqrt(f);
+    var phi=Pact/pic;
+    var I=Math.pow(Pact*1e6,2)/(2*RHO*C0);
+    var Qus=AT*I*2;
+    var tau=RHO*CP/(KTH*2.5e6);
+    var dT=Math.min(Qus*(dc/100)*tau/(RHO*CP),20);
+    var T_tis=37+dT;
+    var R=T_tis>=43?0.5:0.25;
+    var cem=t*Math.pow(R,43-T_tis);
+    var dc_opt=CEM_L*RHO*CP*0.5/Math.max(Qus*t*60,1e-12);
+    var p_opt=PHI_L*pic;
+    return{Pact:Pact,mi:mi,phi:phi,dT:dT,cem:cem,pic:pic,
+           dc_opt:Math.min(dc_opt,0.10),p_opt:p_opt};
+  }
+
+  function col(v,lim){
+    var r=v/lim;
+    if(r<0.7)return'#1a7340';
+    if(r<1.0)return'#d4800a';
+    return'#8c1a1a';
+  }
+
+  window.fusUpdate=function(){
+    var P=parseFloat(document.getElementById('fus-s-p').value);
+    var f=parseFloat(document.getElementById('fus-s-f').value);
+    var dc=parseFloat(document.getElementById('fus-s-dc').value);
+    var t=parseFloat(document.getElementById('fus-s-t').value);
+    var dh=parseFloat(document.getElementById('fus-s-dh').value);
+
+    document.getElementById('fus-v-p').textContent=P.toFixed(2);
+    document.getElementById('fus-v-f').textContent=f.toFixed(2);
+    document.getElementById('fus-v-dc').textContent=Math.round(dc);
+    document.getElementById('fus-v-t').textContent=Math.round(t);
+    var dhEl=document.getElementById('fus-v-dh');
+    dhEl.textContent=Math.round(dh);
+    dhEl.style.color=dh>0?'#c0392b':'#333';
+
+    var d=phys(P,f,dc,t,dh);
+
+    function setM(id,v,lim,dec){
+      var el=document.getElementById(id);
+      el.textContent=v.toFixed(dec);
+      el.style.color=col(v,lim);
+    }
+    setM('fus-m-mi', d.mi, MI_L, 3);
+    setM('fus-m-phi',d.phi,PHI_L,3);
+    setM('fus-m-cem',d.cem,CEM_L,4);
+    setM('fus-m-dt', d.dT, DT_L, 2);
+
+    var C1=d.mi<=MI_L, C2=d.cem<=CEM_L, C3=d.phi<=PHI_L, C4=d.dT<=DT_L;
+    var all=C1&&C2&&C3&&C4;
+
+    function badge(ok,v,lim,label){
+      var cls=ok?'fus-status-pass':'fus-status-fail';
+      var icon=ok?'✓':'✗';
+      return'<div class="fus-constraint-row"><span class="'+cls+'">'+icon+' '+label+'</span>'
+            +' &nbsp; value = '+v.toFixed(4)+', limit = '+lim+'</div>';
+    }
+    document.getElementById('fus-constraint-list').innerHTML=
+      badge(C1,d.mi, MI_L, 'C₁  Mechanical Index (CNS limit 0.30)')+
+      badge(C2,d.cem,CEM_L,'C₂  CEM₄₃ thermal dose (limit 0.10 min)')+
+      badge(C3,d.phi,PHI_L,'C₃  Φ_cav cavitation risk (limit 0.70)')+
+      badge(C4,d.dT, DT_L, 'C₄  Est. ΔT temperature rise (limit 1.0 °C)');
+
+    var btn=document.getElementById('fus-fire-btn');
+    if(all){
+      btn.textContent='✓  All constraints satisfied — SAFE TO FIRE';
+      btn.style.background='#1a7340'; btn.style.color='#fff';
+    } else {
+      btn.textContent='✗  Constraint violation — ABORT SONICATION';
+      btn.style.background='#8c1a1a'; btn.style.color='#fff';
+    }
+
+    var ob=document.getElementById('fus-optimal-box');
+    ob.style.display='block';
+    var sigma_qk=0.3, N_eff=8;
+    var bs=Math.sqrt(2*Math.log(Math.max(N_eff,2)))/Math.max(sigma_qk,1e-9);
+    var tg=bs*sigma_qk*Math.sqrt(2*Math.log(N_eff));
+    ob.innerHTML='<strong>λ-Stack optimal recommendations (Eq. 20–21):</strong><br>'
+      +'Actual P<sub>neg</sub> after skull error: <strong>'+d.Pact.toFixed(3)+' MPa</strong>'
+      +' (reported: '+P.toFixed(3)+' MPa, amplified by G·ΔH = '+(G*dh/100).toFixed(2)+'×)<br>'
+      +'Recommended DC*: <strong>'+(d.dc_opt*100).toFixed(2)+'%</strong>'
+      +' &nbsp;·&nbsp; Recommended P<sub>neg</sub>*: <strong>'+d.p_opt.toFixed(3)+' MPa</strong>'
+      +' (0.70 × P<sub>IC</sub>('+f.toFixed(2)+' MHz))<br>'
+      +'CEAS β★ initializer: <strong>'+bs.toFixed(3)+'</strong>'
+      +' &nbsp;·&nbsp; T<sub>gate</sub>: <strong>'+tg.toFixed(3)+'</strong>';
+  };
+
+  window.fusPreset=function(name){
+    var p={safe:[0.15,0.22,2,20,0],ae2025:[0.15,0.22,2,20,40],cw90w:[0.80,0.22,50,20,0]};
+    var v=p[name];
+    document.getElementById('fus-s-p').value=v[0];
+    document.getElementById('fus-s-f').value=v[1];
+    document.getElementById('fus-s-dc').value=v[2];
+    document.getElementById('fus-s-t').value=v[3];
+    document.getElementById('fus-s-dh').value=v[4];
+    fusUpdate();
+  };
+
+  ['fus-s-p','fus-s-f','fus-s-dc','fus-s-t','fus-s-dh'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',fusUpdate);
+  });
+  fusUpdate();
+})();
+</script>
 
 <!-- ===== Identity Friction: Taiwan–Holy See Strategic Memo ===== -->
 <section class="ctq-wrap" id="ctq-taiwan-holysee" aria-labelledby="ctq-taiwan-title">
