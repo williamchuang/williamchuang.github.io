@@ -1,1932 +1,1419 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Logarchéon — Physical ASI Seed Architecture</title>
+<meta name="description" content="Logarchéon proves what Physical ASI requires and builds it. Three necessary components — CEAS, Ψ-operator, GRAIL — grounded in geometry, causal reasoning, and invariant computation. U.S. Patent Pending 64/067,703."/>
+<link rel="canonical" href="https://logarcheon.com/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
 
-  <title>Logarchéon — λ-secure private AI runtime (encrypted-in-use)</title>
-  <meta name="description" content="Logarchéon wraps the language models you already use—or commissions λ-native models from scratch—in a geometry-native, λ-secure runtime so they can run encrypted-in-use on your hardware or in your cloud tenancy." />
+<style>
+/* ── PALETTE ─────────────────────────────────────────────── */
+:root {
+  --navy:       #0a1628;
+  --navy-mid:   #0e1f3a;
+  --navy-light: #162d52;
+  --navy-rim:   #1e3a64;
+  --gold:       #c9a84c;
+  --gold-light: #e2c97e;
+  --gold-dim:   #8c6e2f;
+  --gold-pale:  rgba(201,168,76,0.12);
+  --gold-glow:  rgba(201,168,76,0.06);
+  --cream:      #f5f0e8;
+  --muted:      rgba(245,240,232,0.6);
+  --faint:      rgba(245,240,232,0.35);
+  --border:     rgba(201,168,76,0.18);
+  --border-dim: rgba(201,168,76,0.09);
+}
 
-  <link rel="canonical" href="https://logarcheon.com/" />
-  <meta property="og:url" content="https://logarcheon.com/" />
-  <meta property="og:site_name" content="Logarchéon" />
-  <meta property="og:title" content="Logarchéon — λ-secure private AI runtime (encrypted-in-use)" />
-  <meta property="og:description" content="λ-secure private AI and geometry-native cryptographic wrappers for missions that cannot fail. Wrap existing LLMs or commission λ-native models for encrypted-in-use execution on your own hardware or cloud tenancy." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
-  <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
-  <meta name="twitter:card" content="summary_large_image" />
+/* ── RESET ───────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
 
-  <!-- Keep your existing font + CSS setup here -->
-  <link rel="stylesheet" href="/css/main.css" />
+body {
+  font-family:'Libre Baskerville',Georgia,serif;
+  background: var(--navy);
+  color: var(--cream);
+  line-height:1.65;
+  overflow-x:hidden;
+}
 
-  <!-- Style polish (safe overrides). If you prefer, move this into /css/main.css -->
-  <style>
-    :root{
-      --bg: #0b0c10;
-      --panel: rgba(255,255,255,0.06);
-      --panel-2: rgba(255,255,255,0.09);
-      --border: rgba(255,255,255,0.12);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.72);
+/* ── BACKGROUND TEXTURE ──────────────────────────────────── */
+body::before {
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 600px 800px at 90% 20%, rgba(201,168,76,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 400px 400px at 50% 80%, rgba(201,168,76,0.04) 0%, transparent 50%);
+  pointer-events:none;z-index:0;
+}
 
-      /* If your main.css already defines these, that file can override earlier in cascade;
-         these are used as fallbacks here. */
-      --accent: #7c5cff;
-      --accent-2: #30d6c7;
+/* fine grid overlay */
+body::after {
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;z-index:0;
+}
 
-      --radius: 18px;
-      --radius-sm: 12px;
-      --shadow: 0 12px 40px rgba(0,0,0,0.28);
-      --shadow-sm: 0 10px 24px rgba(0,0,0,0.18);
-    }
+.wrap { position:relative;z-index:1; }
 
-    html { scroll-behavior: smooth; }
+/* ── TYPOGRAPHY ──────────────────────────────────────────── */
+h1,h2,h3,h4 {
+  font-family:'Cormorant Garamond',Georgia,serif;
+  letter-spacing:-0.01em;
+  font-weight:500;
+  color: var(--cream);
+}
 
-    body{
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(124,92,255,0.22), transparent 55%),
-        radial-gradient(900px 600px at 90% 0%, rgba(48,214,199,0.18), transparent 50%),
-        linear-gradient(180deg, #0b0c10 0%, #0a0b0f 100%);
-    }
+.mono {
+  font-family:'DM Mono',monospace;
+  font-weight:300;
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
 
-    .container{
-      max-width: 1120px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+/* ── LAYOUT ──────────────────────────────────────────────── */
+.container {
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 28px;
+}
 
-    header .top-nav{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(11,12,16,0.62);
-      border-bottom: 1px solid var(--border);
-    }
+/* ── NAV ─────────────────────────────────────────────────── */
+.nav {
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(16px);
+  background:rgba(10,22,40,0.85);
+  border-bottom:1px solid var(--border-dim);
+}
 
-    .top-nav ul{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      align-items: center;
-      padding: 12px 0;
-      margin: 0;
-      list-style: none;
-    }
+.nav-inner {
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;
+  max-width:1080px;margin:0 auto;
+}
 
-    .top-nav a{
-      text-decoration: none;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 10px;
-    }
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;
+  font-weight:500;
+  color:var(--gold);
+  text-decoration:none;
+  letter-spacing:0.02em;
+}
 
-    .top-nav a:hover,
-    .top-nav a:focus-visible{
-      color: var(--text);
-      outline: none;
-      background: rgba(255,255,255,0.06);
-    }
+.nav-links {
+  display:flex;gap:6px;list-style:none;flex-wrap:wrap;align-items:center;
+}
 
-    main.container > section,
-    main.container > header.site{
-      margin-top: 44px;
-    }
-    main.container > header.site{
-      margin-top: 26px;
-    }
+.nav-links a {
+  font-family:'DM Mono',monospace;
+  font-size:0.72rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  padding:6px 12px;
+  border-radius:4px;
+  transition:color .2s,background .2s;
+}
 
-    h1, h2, h3, h4{ letter-spacing: -0.02em; }
-    h1{
-      font-size: clamp(2rem, 3.4vw, 3.1rem);
-      line-height: 1.08;
-      margin: 12px 0 10px;
-    }
-    h2{
-      font-size: clamp(1.45rem, 2.2vw, 2rem);
-      margin: 0 0 10px;
-    }
-    h3{ font-size: 1.15rem; margin: 0 0 8px; }
-    p, li{ line-height: 1.6; }
+.nav-links a:hover {
+  color:var(--gold-light);
+  background:var(--gold-glow);
+}
 
-    .eyebrow{
-      color: rgba(255,255,255,0.68);
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
+/* ── HERO ────────────────────────────────────────────────── */
+.hero {
+  padding:100px 0 80px;
+  border-bottom:1px solid var(--border-dim);
+}
 
-    .lede{
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 72ch;
-    }
+.hero-eyebrow {
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:28px;
+}
 
-    .subhead{
-      max-width: 78ch;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+.hero-eyebrow .line {
+  width:48px;height:1px;background:var(--gold);opacity:0.6;
+}
 
-    .toc{
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 10px 4px 4px;
-      margin-top: 14px;
-      -webkit-overflow-scrolling: touch;
-    }
+.patent-badge {
+  font-family:'DM Mono',monospace;
+  font-size:0.7rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold-dim);
+  border:1px solid var(--border);
+  padding:4px 12px;
+  border-radius:2px;
+  background:var(--gold-glow);
+}
 
-    .toc a{
-      white-space: nowrap;
-      text-decoration: none;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-    }
+.hero h1 {
+  font-size:clamp(2.8rem,5vw,4.8rem);
+  line-height:1.06;
+  font-weight:300;
+  max-width:16ch;
+  margin-bottom:10px;
+  color:var(--cream);
+}
 
-    .toc a:hover,
-    .toc a:focus-visible{
-      color: var(--text);
-      border-color: rgba(255,255,255,0.20);
-      outline: none;
-      background: rgba(255,255,255,0.07);
-    }
+.hero h1 em {
+  font-style:italic;
+  color:var(--gold-light);
+}
 
-    .actions{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
+.hero-sub {
+  font-size:clamp(1rem,1.8vw,1.2rem);
+  color:var(--muted);
+  max-width:58ch;
+  margin:20px 0 40px;
+  font-weight:400;
+}
 
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      border-radius: 12px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      box-shadow: var(--shadow-sm);
-    }
+.hero-actions {
+  display:flex;gap:14px;flex-wrap:wrap;
+}
 
-    .btn:hover,
-    .btn:focus-visible{
-      outline: none;
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.22);
-    }
+.btn-primary {
+  font-family:'DM Mono',monospace;
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--navy);
+  background:var(--gold);
+  padding:13px 28px;
+  border-radius:3px;
+  border:none;
+  cursor:pointer;
+  transition:background .2s,transform .15s;
+  display:inline-block;
+}
 
-    .btn.primary{
-      border: 1px solid rgba(124,92,255,0.55);
-      background: linear-gradient(135deg, rgba(124,92,255,0.45), rgba(48,214,199,0.22));
-    }
+.btn-primary:hover {
+  background:var(--gold-light);
+  transform:translateY(-1px);
+}
 
-    .btn.primary:hover,
-    .btn.primary:focus-visible{
-      border-color: rgba(124,92,255,0.75);
-    }
+.btn-secondary {
+  font-family:'DM Mono',monospace;
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--gold);
+  background:transparent;
+  padding:12px 28px;
+  border-radius:3px;
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:background .2s,border-color .2s;
+  display:inline-block;
+}
 
-    .card,
-    .emph-box{
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 18px;
-      box-shadow: var(--shadow-sm);
-    }
+.btn-secondary:hover {
+  background:var(--gold-glow);
+  border-color:rgba(201,168,76,0.4);
+}
 
-    .emph-box{ border-left: 4px solid var(--accent); }
-    .emph-box.accent-2{ border-left-color: var(--accent-2); }
+/* ── THESIS BANNER ───────────────────────────────────────── */
+.thesis {
+  padding:56px 0;
+  border-bottom:1px solid var(--border-dim);
+}
 
-    .kicker{
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.68);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+.thesis-inner {
+  display:grid;grid-template-columns:1fr 3fr;gap:48px;align-items:start;
+}
 
-    .callout{
-      border-radius: var(--radius-sm);
-      background: rgba(124,92,255,0.10);
-      border: 1px solid rgba(124,92,255,0.22);
-      padding: 12px 12px;
-      color: rgba(255,255,255,0.86);
-    }
+.thesis-label {
+  padding-top:4px;
+}
 
-    .badge{
-      display: inline-block;
-      font-size: 0.82rem;
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-right: 10px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-    }
+.thesis-label .mono { display:block;margin-bottom:10px; }
 
-    .grid{ display: grid; gap: 16px; }
-    .grid.cols-2{ grid-template-columns: 1fr 1fr; }
-    .grid.cols-3{ grid-template-columns: 1fr 1fr 1fr; }
+.thesis-rule {
+  width:100%;height:1px;background:linear-gradient(90deg,var(--gold),transparent);
+  margin-top:16px;
+}
 
-    @media (max-width: 980px){
-      .grid.cols-2, .grid.cols-3{ grid-template-columns: 1fr; }
-    }
+.thesis-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,2.5vw,2.1rem);
+  font-weight:300;
+  line-height:1.45;
+  color:var(--cream);
+}
 
-    .quote{
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.86);
-    }
+.thesis-text strong {
+  font-weight:600;
+  color:var(--gold-light);
+}
 
-    .qa{ display: grid; gap: 10px; }
+@media(max-width:700px){
+  .thesis-inner{grid-template-columns:1fr;}
+}
 
-    .qa-item{
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.04);
-      overflow: hidden;
-    }
+/* ── TRIAD ───────────────────────────────────────────────── */
+.triad {
+  padding:80px 0;
+  border-bottom:1px solid var(--border-dim);
+}
 
-    .qa-item > summary{
-      cursor: pointer;
-      padding: 14px 14px;
-      list-style: none;
-      color: rgba(255,255,255,0.88);
-      font-weight: 600;
-    }
+.section-header {
+  display:flex;align-items:baseline;gap:20px;margin-bottom:48px;
+}
 
-    .qa-item > summary::-webkit-details-marker{ display: none; }
+.section-header h2 {
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;
+}
 
-    .qa-item > summary:focus-visible{
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(124,92,255,0.35) inset;
-    }
+.section-header .mono { padding-top:4px; }
 
-    .qa-item[open] > summary{
-      background: rgba(255,255,255,0.06);
-      border-bottom: 1px solid var(--border);
-    }
+.triad-grid {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+}
 
-    .qa-body{
-      padding: 14px 14px 16px;
-      color: rgba(255,255,255,0.84);
-    }
+.triad-card {
+  background:var(--navy-mid);
+  border:1px solid var(--border-dim);
+  padding:36px 32px 40px;
+  position:relative;
+  transition:border-color .3s,background .3s;
+}
 
-    a{ color: rgba(210,200,255,0.92); }
-    a:hover{ color: rgba(255,255,255,0.96); }
+.triad-card::before {
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-dim));
+  opacity:0.5;
+  transition:opacity .3s;
+}
 
-    .nowrap{ white-space: nowrap; }
+.triad-card:hover {
+  background:var(--navy-light);
+  border-color:var(--border);
+}
 
-    .hr{ border: 0; border-top: 1px solid var(--border); margin: 18px 0; }
+.triad-card:hover::before { opacity:1; }
 
-    /* Accessibility helper (kept compatible with your existing class) */
-    .visually-hidden-focusable{
-      position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-    .visually-hidden-focusable:focus{
-      position: static;
-      width: auto;
-      height: auto;
-      padding: 10px 12px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      display: inline-block;
-      margin: 10px;
-    }
-  </style>
+.triad-number {
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.12em;
+  color:var(--gold-dim);
+  margin-bottom:20px;
+  display:block;
+}
+
+.triad-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;
+  font-weight:500;
+  color:var(--gold-light);
+  margin-bottom:6px;
+  line-height:1.1;
+}
+
+.triad-fullname {
+  font-size:0.78rem;
+  color:var(--faint);
+  margin-bottom:20px;
+  font-family:'DM Mono',monospace;
+  letter-spacing:0.04em;
+  font-weight:300;
+}
+
+.triad-desc {
+  font-size:0.92rem;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.triad-necessity {
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;
+  letter-spacing:0.07em;
+  color:var(--gold-dim);
+  border-top:1px solid var(--border-dim);
+  padding-top:16px;
+  margin-top:4px;
+}
+
+.triad-necessity strong { color:var(--gold); }
+
+@media(max-width:860px){
+  .triad-grid{grid-template-columns:1fr;}
+}
+
+/* ── PROOF SECTION ───────────────────────────────────────── */
+.proof {
+  padding:80px 0;
+  border-bottom:1px solid var(--border-dim);
+}
+
+.proof-inner {
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;
+}
+
+.proof-left h2 {
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;
+  margin-bottom:20px;
+}
+
+.proof-left p {
+  color:var(--muted);
+  font-size:0.95rem;
+  margin-bottom:16px;
+  line-height:1.75;
+}
+
+.theorem-box {
+  background:var(--navy-mid);
+  border:1px solid var(--border);
+  border-left:3px solid var(--gold);
+  padding:28px 28px 24px;
+  margin-top:28px;
+  border-radius:1px;
+}
+
+.theorem-box .mono { margin-bottom:14px;display:block; }
+
+.theorem-stmt {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  line-height:1.6;
+  color:var(--cream);
+}
+
+.theorem-stmt em { color:var(--gold-light);font-style:italic; }
+
+.proof-right {
+  display:flex;flex-direction:column;gap:16px;
+}
+
+.proof-item {
+  border:1px solid var(--border-dim);
+  background:var(--navy-mid);
+  padding:20px 22px;
+  position:relative;
+  transition:border-color .25s;
+}
+
+.proof-item:hover { border-color:var(--border); }
+
+.proof-item-num {
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  color:var(--gold-dim);
+  margin-bottom:8px;
+  display:block;
+}
+
+.proof-item-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  color:var(--gold-light);
+  margin-bottom:6px;
+}
+
+.proof-item-desc {
+  font-size:0.84rem;
+  color:var(--faint);
+  line-height:1.6;
+}
+
+@media(max-width:700px){
+  .proof-inner{grid-template-columns:1fr;}
+}
+
+/* ── ORIGIN ──────────────────────────────────────────────── */
+.origin {
+  padding:80px 0;
+  border-bottom:1px solid var(--border-dim);
+}
+
+.origin-inner {
+  display:grid;grid-template-columns:2fr 1fr;gap:60px;align-items:start;
+}
+
+.origin h2 {
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;
+  margin-bottom:16px;
+}
+
+.origin-lede {
+  font-size:1rem;
+  color:var(--muted);
+  max-width:54ch;
+  margin-bottom:28px;
+  line-height:1.75;
+}
+
+.timeline {
+  display:flex;flex-direction:column;gap:0;
+}
+
+.tl-item {
+  display:grid;grid-template-columns:80px 1fr;gap:0;
+  position:relative;
+}
+
+.tl-item:not(:last-child) .tl-right::before {
+  content:'';
+  position:absolute;
+  left:79px;top:28px;bottom:0;
+  width:1px;
+  background:linear-gradient(180deg,var(--gold-dim),transparent);
+  opacity:0.4;
+}
+
+.tl-year {
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;
+  letter-spacing:0.06em;
+  color:var(--gold-dim);
+  padding-top:8px;
+  padding-right:16px;
+  text-align:right;
+}
+
+.tl-right {
+  padding:6px 0 28px 20px;
+  border-left:1px solid var(--border-dim);
+  position:relative;
+}
+
+.tl-right::after {
+  content:'';
+  position:absolute;
+  left:-4px;top:12px;
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--gold);
+  opacity:0.7;
+}
+
+.tl-event {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;
+  color:var(--cream);
+  margin-bottom:4px;
+}
+
+.tl-detail {
+  font-size:0.82rem;
+  color:var(--faint);
+  line-height:1.55;
+}
+
+.origin-right {
+  display:flex;flex-direction:column;gap:12px;
+  padding-top:48px;
+}
+
+.origin-stat {
+  border:1px solid var(--border-dim);
+  background:var(--navy-mid);
+  padding:20px 22px;
+  text-align:center;
+}
+
+.origin-stat .stat-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  color:var(--gold);
+  display:block;
+  line-height:1;
+  margin-bottom:6px;
+}
+
+.origin-stat .stat-label {
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.08em;
+  color:var(--faint);
+  text-transform:uppercase;
+}
+
+@media(max-width:700px){
+  .origin-inner{grid-template-columns:1fr;}
+}
+
+/* ── SECURITY ────────────────────────────────────────────── */
+.security {
+  padding:80px 0;
+  border-bottom:1px solid var(--border-dim);
+}
+
+.security h2 {
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;
+  margin-bottom:8px;
+}
+
+.security-lede {
+  color:var(--muted);font-size:0.95rem;max-width:60ch;margin-bottom:40px;line-height:1.75;
+}
+
+.security-grid {
+  display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:28px;
+}
+
+.sec-card {
+  background:var(--navy-mid);
+  border:1px solid var(--border-dim);
+  padding:28px 28px 24px;
+  transition:border-color .25s;
+}
+
+.sec-card:hover { border-color:var(--border); }
+
+.sec-card h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;
+  color:var(--gold-light);
+  margin-bottom:10px;
+}
+
+.sec-card p {
+  font-size:0.87rem;
+  color:var(--faint);
+  line-height:1.7;
+}
+
+.sec-disclaimer {
+  border:1px solid var(--border-dim);
+  padding:20px 24px;
+  background:var(--navy-mid);
+  font-size:0.83rem;
+  color:var(--faint);
+  line-height:1.65;
+}
+
+.sec-disclaimer strong { color:var(--muted); }
+
+@media(max-width:640px){
+  .security-grid{grid-template-columns:1fr;}
+}
+
+/* ── FOR WHOM ────────────────────────────────────────────── */
+.audience {
+  padding:80px 0;
+  border-bottom:1px solid var(--border-dim);
+}
+
+.audience h2 {
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;
+  margin-bottom:8px;
+}
+
+.audience-lede {
+  color:var(--muted);font-size:0.95rem;max-width:60ch;margin-bottom:40px;line-height:1.75;
+}
+
+.audience-grid {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+}
+
+.audience-card {
+  border:1px solid var(--border-dim);
+  background:var(--navy-mid);
+  padding:28px 24px 28px;
+}
+
+.audience-tier {
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  color:var(--gold-dim);
+  display:block;
+  margin-bottom:10px;
+}
+
+.audience-card h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  color:var(--cream);
+  margin-bottom:12px;
+}
+
+.audience-card ul {
+  list-style:none;
+  display:flex;flex-direction:column;gap:6px;
+}
+
+.audience-card ul li {
+  font-size:0.84rem;
+  color:var(--faint);
+  padding-left:14px;
+  position:relative;
+  line-height:1.55;
+}
+
+.audience-card ul li::before {
+  content:'—';
+  position:absolute;left:0;
+  color:var(--gold-dim);
+  font-size:0.7rem;
+}
+
+@media(max-width:860px){
+  .audience-grid{grid-template-columns:1fr;}
+}
+
+/* ── UNDER THE HOOD ──────────────────────────────────────── */
+.hood {
+  padding:80px 0;
+  border-bottom:1px solid var(--border-dim);
+}
+
+.hood h2 {
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;
+  margin-bottom:8px;
+}
+
+.hood-lede {
+  color:var(--muted);font-size:0.95rem;max-width:60ch;margin-bottom:40px;line-height:1.75;
+}
+
+.hood-grid {
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+}
+
+.hood-card {
+  border:1px solid var(--border-dim);
+  background:var(--navy-mid);
+  padding:28px 28px 28px;
+  transition:border-color .25s;
+}
+
+.hood-card:hover { border-color:var(--border); }
+
+.hood-card h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;
+  color:var(--gold-light);
+  margin-bottom:10px;
+}
+
+.hood-card p, .hood-card li {
+  font-size:0.87rem;
+  color:var(--faint);
+  line-height:1.7;
+}
+
+.hood-card ul {
+  list-style:none;
+  display:flex;flex-direction:column;gap:6px;
+  margin-top:8px;
+}
+
+.hood-card ul li {
+  padding-left:14px;
+  position:relative;
+}
+
+.hood-card ul li::before {
+  content:'→';
+  position:absolute;left:0;
+  color:var(--gold-dim);
+  font-size:0.7rem;
+  top:3px;
+}
+
+@media(max-width:640px){
+  .hood-grid{grid-template-columns:1fr;}
+}
+
+/* ── FOUNDER ─────────────────────────────────────────────── */
+.founder {
+  padding:80px 0;
+  border-bottom:1px solid var(--border-dim);
+}
+
+.founder-inner {
+  display:grid;grid-template-columns:2fr 1fr;gap:60px;
+}
+
+.founder h2 {
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;
+  margin-bottom:20px;
+}
+
+.founder p {
+  font-size:0.95rem;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:14px;
+}
+
+.founder-links {
+  display:flex;flex-direction:column;gap:8px;
+  padding-top:48px;
+}
+
+.founder-link {
+  display:flex;align-items:center;gap:12px;
+  font-family:'DM Mono',monospace;
+  font-size:0.72rem;
+  letter-spacing:0.06em;
+  color:var(--muted);
+  text-decoration:none;
+  padding:12px 16px;
+  border:1px solid var(--border-dim);
+  background:var(--navy-mid);
+  transition:border-color .2s,color .2s;
+}
+
+.founder-link:hover {
+  border-color:var(--border);
+  color:var(--gold-light);
+}
+
+.founder-link .flink-label {
+  color:var(--faint);
+  width:52px;
+  flex-shrink:0;
+}
+
+@media(max-width:700px){
+  .founder-inner{grid-template-columns:1fr;}
+}
+
+/* ── CONTACT ─────────────────────────────────────────────── */
+.contact {
+  padding:80px 0 100px;
+}
+
+.contact-inner {
+  max-width:700px;
+}
+
+.contact h2 {
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:300;
+  margin-bottom:12px;
+}
+
+.contact-lede {
+  font-size:1rem;
+  color:var(--muted);
+  margin-bottom:36px;
+  line-height:1.75;
+}
+
+.contact-box {
+  border:1px solid var(--border);
+  background:var(--navy-mid);
+  padding:36px;
+}
+
+.contact-box h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  font-weight:400;
+  color:var(--gold-light);
+  margin-bottom:16px;
+}
+
+.contact-box p {
+  font-size:0.9rem;
+  color:var(--muted);
+  margin-bottom:20px;
+  line-height:1.7;
+}
+
+.contact-email {
+  display:inline-block;
+  font-family:'DM Mono',monospace;
+  font-size:0.85rem;
+  letter-spacing:0.05em;
+  color:var(--gold);
+  text-decoration:none;
+  border-bottom:1px solid var(--gold-dim);
+  padding-bottom:2px;
+  transition:color .2s,border-color .2s;
+}
+
+.contact-email:hover {
+  color:var(--gold-light);
+  border-color:var(--gold);
+}
+
+.contact-note {
+  margin-top:20px;
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;
+  letter-spacing:0.07em;
+  color:var(--faint);
+  text-transform:uppercase;
+  line-height:1.7;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+  border-top:1px solid var(--border-dim);
+  padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  max-width:1080px;margin:0 auto;
+}
+
+footer p {
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;
+  letter-spacing:0.06em;
+  color:var(--faint);
+}
+
+footer .patent-ref {
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.06em;
+  color:var(--gold-dim);
+}
+
+/* ── ANIMATIONS ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:none;}
+}
+
+.hero-eyebrow{animation:fadeUp .6s ease both;}
+.hero h1{animation:fadeUp .7s .1s ease both;}
+.hero-sub{animation:fadeUp .7s .2s ease both;}
+.hero-actions{animation:fadeUp .7s .3s ease both;}
+
+/* ── DIVIDER ─────────────────────────────────────────────── */
+.gold-rule {
+  width:48px;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  margin-bottom:20px;
+}
+</style>
 </head>
 
 <body>
+<div class="wrap">
 
-
-  <!-- Top navigation (URLs capitalized per your preference) -->
-  <header>
-    <nav class="top-nav" aria-label="Primary">
-      <ul class="container">
-        <li><a href="/">Home</a></li>
-        <li><a href="/About">About</a></li>
-        <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
-        <li><a href="/files/william_resume.pdf">Resume</a></li>
-        <!--<li><a href="/files/William_advanced_mathematics_courses.pdf">Math Courses Taken</a></li>-->
-        <li><a href="/CEAS">CEAS</a></li>
-        <li><a href="/GRAIL">GRAIL</a></li>
-        <li><a href="/Ψ‑Operator Framework">Ψ‑Operator Framework</a></li>
-        <li><a href="/Other Research">Other Research</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="container">
-
-    <!-- Hero -->
-<header class="site" aria-labelledby="site-title">
-  <div class="eyebrow">Logarchéon · high-assurance compute · encrypted-in-use</div>
-
-  <h1 id="site-title">Run sensitive workloads “in use” without betting your threat model on CPU trust.</h1>
-
-  <p class="subhead">
-    Logarchéon is a <strong>λ-secure runtime</strong> that can be deployed in your environment to reduce “in-use” exposure for
-    <strong>private LLM deployments (V2)</strong> and <strong>OS/VM workloads in cloud instances (V3)</strong>.
-    The default posture is buyer-governed: <strong>you hold the keys</strong>, you control logging and interfaces, and the runtime
-    is designed to avoid routine canonical plaintext states during execution.
-    Run it on <span class="nowrap">your hardware</span> or inside <span class="nowrap">your cloud tenancy</span>.
-  </p>
-
-  <div class="actions" aria-label="Primary actions">
-    <a class="btn primary" href="#contact">Request an NDA briefing</a>
-    <a class="btn" href="#evaluation-pack">See evaluation workflow</a>
+<!-- NAV -->
+<header>
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarchéon</a>
+    <ul class="nav-links">
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+      <li><a href="/MIA">MIA</a></li>
+      <li><a href="/Other Research">Other Research</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+      <li><a href="#contact" class="btn-primary" style="font-size:0.72rem;padding:8px 18px;">Contact</a></li>
+    </ul>
   </div>
+</nav>
 </header>
 
-      <nav class="toc" aria-label="Quick links">
-        <a href="#definitions">Definitions</a>
-        <a href="#trust-boundary">Why this exists</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#evaluation-pack">How to evaluate</a>
-        <a href="#security-posture">Security posture</a>
-        <a href="#security-qa">Security Q&amp;A</a>
-        <a href="#under-the-hood">Under the hood</a>
-        <a href="#contact">Talk to me</a>
-      </nav>
+<main>
 
-      <!-- Definitions -->
-      <section id="definitions" aria-labelledby="definitions-h">
-        <div class="card">
-          <div class="kicker">Definitions (used throughout this page)</div>
-          <h2 id="definitions-h">Terms of art</h2>
-
-          <ul>
-            <li><strong>Encrypted-in-use:</strong> protecting sensitive model/data states during active computation (weights instantiated, activations/latents flowing, intermediates present in memory and runtime pipelines).</li>
-            <li><strong>GRAIL:</strong> Logarchéon’s geometry-native execution layer for operating on non-canonical (key-governed) internal representations during training and inference.</li>
-            <li><strong>Λ-Stack:</strong> Logarchéon’s deployment and governance stack for key custody, rotation policy, interface control, and operational controls around GRAIL.</li>
-            <li><strong>V1 — Intrinsic / λ-native GRAIL (NN/LLM):</strong> a commissioned integration path where the geometry is built into the model architecture and training dynamics (integration-first).</li>
-            <li><strong>V2 — Exported wrapper GRAIL (NN/LLM):</strong> a compatibility path that wraps existing models/frameworks so they execute under key-governed, non-canonical internal representations (adoption-first).</li>
-            <li><strong>V3 — Exported-wrapper posture (general-purpose compute):</strong> a wrapper-based containment posture for existing OS/VM/runtime stacks and hardware-adjacent surfaces, extending the same “in-use” discipline beyond AI (compatibility-first).</li>
-          </ul>
-
-          <p class="callout">
-            <span class="badge">Scope boundary</span>
-            This page is a buyer-facing threat model and deployment posture description. Enabling details, proofs, and benchmarks are shared under NDA for serious technical review.
-          </p>
-        </div>
-      </section>
-    </header>
-
-    <!-- Trust boundary -->
-    <section id="trust-boundary" aria-labelledby="trust-boundary-h">
-      <h2 id="trust-boundary-h">Why this exists: “in use” is where leakage happens</h2>
-      <p class="lede">
-        Most security stacks protect AI <em>at rest</em> (storage) and <em>in transit</em> (network). Training and inference are different:
-        they are <strong>in-use</strong> operations, where intermediate representations exist in operational form inside a runtime.
-        This is the phase where endpoints, logs, memory scraping, and firmware-level trust assumptions become decisive.
-      </p>
-
-      <div class="grid cols-2">
-        <div class="emph-box">
-          <strong>Firmware subsystems below the OS (what they are)</strong>
-          <p style="margin:.6rem 0 0; color:var(--muted);">
-            Modern x86 platforms include vendor-managed microcontrollers that operate below the operating system.
-            They are part of the <em>trusted computing base</em> even when you cannot fully audit them.
-            This is not an allegation of intent; it is a standard high-assurance threat-modeling fact.
-          </p>
-
-          <h3 style="margin-top:1rem;">Intel ME / CSME</h3>
-          <p style="margin:.35rem 0 0; color:var(--muted);">
-            The <strong>Intel Management Engine (ME)</strong> (now typically discussed as part of <strong>CSME</strong>)
-            is an embedded controller inside Intel platforms. It runs independently of the host OS, participates in early boot,
-            and remains active whenever the system has standby power available (i.e., “plugged in” states).
-          </p>
-          <ul>
-            <li><strong>Capability class:</strong> execute firmware code below the OS; participate in platform initialization and security services.</li>
-            <li><strong>Privilege class:</strong> below-kernel trust position (outside typical host monitoring), expanding the attack surface of “in-use” secrets.</li>
-            <li><strong>Why buyers care:</strong> if a subsystem can operate outside OS visibility, it changes how you reason about “who can see plaintext while computing.”</li>
-          </ul>
-
-          <h3 style="margin-top:1rem;">Intel AMT (runs on ME, on supported platforms)</h3>
-          <p style="margin:.35rem 0 0; color:var(--muted);">
-            <strong>Intel Active Management Technology (AMT)</strong> is an out-of-band management feature implemented on top of ME/CSME
-            on certain business-class systems (commonly associated with vPro platforms). It is designed for remote administration
-            (e.g., provisioning, recovery, power control) independent of the host OS.
-          </p>
-          <ul>
-            <li><strong>Capability class:</strong> remote management workflows that do not rely on the OS being healthy or even running.</li>
-            <li><strong>Threat relevance:</strong> out-of-band surfaces are attractive for persistence and bypassing host-based defenses.</li>
-          </ul>
-
-          <h3 style="margin-top:1rem;">AMD PSP / Secure Processor</h3>
-          <p style="margin:.35rem 0 0; color:var(--muted);">
-            The <strong>AMD Platform Security Processor (PSP)</strong> (often called the <strong>AMD Secure Processor</strong>)
-            is a dedicated security processor embedded in AMD platforms. It provides services such as secure boot and platform security functions
-            (e.g., key handling for firmware-backed features).
-          </p>
-          <ul>
-            <li><strong>Capability class:</strong> platform security services that exist beneath the OS, in firmware-managed components.</li>
-            <li><strong>Why buyers care:</strong> security processors can be essential for integrity, but they also widen the “below-OS” trust base.</li>
-          </ul>
-
-          <p style="margin:.75rem 0 0; color:var(--muted);">
-            Descriptive references:
-            <a href="https://en.wikipedia.org/wiki/Intel_Management_Engine" target="_blank" rel="noopener">Intel ME/CSME</a>,
-            <a href="https://en.wikipedia.org/wiki/Intel_Active_Management_Technology" target="_blank" rel="noopener">Intel AMT</a>,
-            <a href="https://en.wikipedia.org/wiki/AMD_Platform_Security_Processor" target="_blank" rel="noopener">AMD PSP</a>.
-            (Linked for description; not an allegation of malice.)
-          </p>
-        </div>
-
-        <div class="emph-box accent-2">
-          <strong>Threat relevance (why attackers value this class of component)</strong>
-          <p style="margin:.6rem 0 0; color:var(--muted);">
-            High-assurance buyers treat “below-OS” subsystems as part of the attack surface because they may:
-            (i) persist across OS reinstall, (ii) operate outside host telemetry, and (iii) expose remotely reachable management planes.
-            The point is <strong>risk posture</strong>, not intent attribution.
-          </p>
-
-          <ul>
-            <li><strong>Persistence:</strong> firmware-layer compromise can survive OS wipe/reimage and defeat “clean install” remediation.</li>
-            <li><strong>Invisibility:</strong> host EDR and OS auditing can be blind to below-OS execution contexts.</li>
-            <li><strong>Out-of-band surface:</strong> management functionality can create alternate pathways around OS firewalling assumptions.</li>
-            <li><strong>Exploit pattern (historical):</strong> attackers and red teams target this layer for stealth, durability, and control.</li>
-          </ul>
-
-          <p style="margin:.75rem 0 0; color:var(--muted);">
-            Example public advisories (non-exhaustive):
-            <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00075.html" target="_blank" rel="noopener">Intel SA-00075</a>,
-            <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00086.html" target="_blank" rel="noopener">Intel SA-00086</a>,
-            and CVE context such as
-            <a href="https://nvd.nist.gov/vuln/detail/CVE-2017-5689" target="_blank" rel="noopener">CVE-2017-5689 (NVD)</a>.
-          </p>
-
-          <p class="callout" style="margin-top:.9rem;">
-            <span class="badge">Generalization</span>
-            Similar “below-OS” management/security subsystems can exist in other chipsets and SoCs.
-            The absence of public documentation is not evidence of trustworthiness—only of visibility.
-          </p>
-
-          <div class="card" style="margin-top:1rem;">
-            <div class="kicker">Key buyer implication</div>
-            <p class="lede" style="margin:.35rem 0 0;">
-              If your workload ever requires decrypting sensitive representations inside a conventional runtime,
-              then your threat model must account for <strong>all</strong> privileged layers that could observe that plaintext
-              (firmware subsystems, hypervisors, endpoints, telemetry, and operator error).
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:1rem;">
-        <div class="kicker">Important: scope is not “LLMs only”</div>
-        <h3>V3 (exported-wrapper posture) and Von Neumann workloads</h3>
-        <p class="lede" style="margin-top:.25rem;">
-          While this page uses AI training/inference as the motivating example, the exported-wrapper approach applies more broadly:
-          <strong>most conventional computing</strong> still runs on a <strong>Von Neumann architecture</strong> where “in-use” states
-          (memory, caches, intermediate values, runtime artifacts) are the primary leakage surface.
-        </p>
-        <ul>
-          <li><strong>V3 (exported-wrapper posture):</strong> a deployment posture intended to wrap existing OS/VM/runtime stacks rather than requiring a new machine design.</li>
-          <li><strong>Objective:</strong> reduce the amount of sensitive computation that ever appears in canonical, reusable plaintext form inside the host runtime.</li>
-          <li><strong>Non-enabling policy:</strong> Logarchéon does not publish implementation details that would meaningfully assist reverse engineering or misuse; evaluation materials are shared under NDA for serious reviewers.</li>
-        </ul>
-        <p class="callout">
-          <span class="badge">Practical framing</span>
-          Treat this as a system-level hardening posture for <em>in-use secrecy</em> across AI and non-AI workloads, not a feature tied to one model family.
-        </p>
-      </div>
-
-      <div class="card" style="margin-top:1rem;">
-        <div class="kicker">Why common “secure computation” approaches still disappoint buyers</div>
-        <h3>FHE / MPC / TEEs vs. real-world “in-use” workloads</h3>
-        <p class="lede" style="margin-top:.25rem;">
-          Buyers often hear “just use FHE” or “just use MPC” or “just use confidential computing.”
-          In practice, each option imposes distinct constraints in performance, compatibility, or trust assumptions—especially for modern neural workloads.
-        </p>
-
-        <div class="grid cols-2" style="margin-top:.75rem;">
-          <div class="emph-box">
-            <strong>FHE (Fully Homomorphic Encryption)</strong>
-            <p style="margin:.6rem 0 0; color:var(--muted);">
-              FHE can, in principle, run certain neural-network operations on ciphertexts. In practice, it often requires
-              specialized arithmetic choices (e.g., polynomial approximations for non-linearities), careful circuit budgeting,
-              and substantial performance overhead—especially for large, interactive LLM pipelines.
-            </p>
-            <ul>
-              <li><strong>What it protects:</strong> confidentiality during computation without trusting the host OS/hardware.</li>
-              <li><strong>Operational constraint:</strong> large overhead, constrained operator sets, and nontrivial engineering for real-time workloads.</li>
-              <li><strong>Common buyer outcome:</strong> feasible for narrow inference tasks; typically not a default drop-in for LLM training or low-latency serving.</li>
-            </ul>
-          </div>
-
-          <div class="emph-box accent-2">
-            <strong>MPC (Multi-Party Computation / Secret Sharing)</strong>
-            <p style="margin:.6rem 0 0; color:var(--muted);">
-              MPC can support ML inference/training by splitting secrets across parties and computing jointly.
-              The trade is that bandwidth, latency, orchestration, and trust assumptions (≥2 parties, honest-majority or similar)
-              become first-order constraints.
-            </p>
-            <ul>
-              <li><strong>What it protects:</strong> no single machine sees the full secret by design.</li>
-              <li><strong>Operational constraint:</strong> communication dominates, especially across WAN; multi-party ops increase failure modes.</li>
-              <li><strong>Common buyer outcome:</strong> strong in principle, but heavy in deployment complexity for interactive or high-throughput pipelines.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="emph-box" style="margin-top:1rem;">
-          <strong>TEEs / “Confidential Computing”</strong>
-          <p style="margin:.6rem 0 0; color:var(--muted);">
-            Trusted Execution Environments (e.g., SGX, SEV-class) often deliver the best performance, but they do so by placing
-            plaintext inside an enclave/VM boundary. This shifts the trust burden to vendor firmware, microcode, and side-channel mitigations.
-          </p>
-          <ul>
-            <li><strong>Strength:</strong> near-plaintext performance for many workloads.</li>
-            <li><strong>Trade:</strong> you are explicitly trusting a firmware + microcode stack and managing side-channel risk.</li>
-            <li><strong>Buyer reality:</strong> useful when combined with strict endpoint/logging discipline, but not “zero trust.”</li>
-          </ul>
-        </div>
-
-        <div class="card" style="margin-top:1rem;">
-          <div class="kicker">The buyer-facing pain point</div>
-          <h3>Why “in-use” still breaks typical deployments</h3>
-          <p class="lede" style="margin-top:.25rem;">
-            Even when crypto is strong <em>in theory</em>, real deployments often reintroduce exposure through hybrid steps:
-            preprocessing, tokenization, debugging/telemetry, intermediate caches, model export, or “just for performance” fallbacks.
-            That is where below-OS trust boundaries and endpoint mistakes become decisive.
-          </p>
-          <ul>
-            <li><strong>Canonicalization creep:</strong> systems “temporarily” decode, log, cache, or export canonical representations.</li>
-            <li><strong>Interface/oracle creation:</strong> outputs and timing can become feedback channels in adversarial settings.</li>
-            <li><strong>Privileged layers:</strong> hypervisors, firmware subsystems, and administrative tooling expand who can observe state.</li>
-          </ul>
-          <p class="callout">
-            <span class="badge">Design goal</span>
-            Logarchéon is built to reduce the need for canonical “decrypt-then-compute” patterns in the first place,
-            so sensitive representations are not routinely instantiated as reusable plaintext artifacts inside the host runtime.
-          </p>
-        </div>
-
-        <div class="card" style="margin-top:1rem;">
-          <div class="kicker">What Logarchéon changes</div>
-          <h3>GRAIL + Λ-Stack + V3 exported-wrapper posture (high-level)</h3>
-          <ul>
-            <li><strong>GRAIL (definition):</strong> the geometry-native execution layer that maintains protected semantics during computation.</li>
-            <li><strong>Λ-Stack (definition):</strong> the productized runtime stack (key custody, policy gates, operational controls) that makes GRAIL deployable.</li>
-            <li><strong>V3 (definition):</strong> wrapper-based containment posture for existing OS/VM/runtime stacks—applicable beyond AI to conventional Von Neumann workloads.</li>
-          </ul>
-          <p style="margin:.75rem 0 0; color:var(--muted);">
-            Public materials remain intentionally non-enabling. Serious technical review is supported via NDA-gated briefs and evaluation builds.
-          </p>
-        </div>
-
-        <blockquote class="quote">
-          <strong>Bottom line:</strong> The practical failure mode is not “weak crypto” — it is <strong>in-use exposure</strong> through runtime reality.
-          Logarchéon’s posture is to minimize canonical in-use exposure by design, without requiring buyers to trust every firmware layer.
-        </blockquote>
-      </div>
-    </section>
-
-
-<!-- In-Use Threat Model (MECE-merged, cloud + AI + V3 posture) -->
-<section id="in-use-threat-model" aria-labelledby="in-use-h">
-  <h2 id="in-use-h">Why this exists: the “in-use” trust boundary problem (AI + cloud instances)</h2>
-
-  <!-- A. Definition -->
-  <p class="lede">
-    Most security stacks protect compute <em>at rest</em> (storage) and <em>in transit</em> (network).
-    Modern workloads are different: the decisive exposure happens <strong>in use</strong>,
-    when secrets must exist in operational form inside a runtime—on a workstation, on-prem server, or a cloud instance.
-  </p>
-
-  <div class="card">
-    <div class="kicker">Definition</div>
-    <h3>What “in use” means (beyond “training”)</h3>
-    <p class="lede">
-      “In use” means active computation: weights instantiated, prompts/token streams processed, activations flowing,
-      embeddings cached, intermediate states manipulated in memory (CPU, GPU/VRAM, accelerators, drivers, and their runtimes).
-      This includes <strong>inference on cloud GPUs</strong>, <strong>fine-tuning on rented instances</strong>, and
-      <strong>non-AI workloads</strong> whose sensitive state lives in memory and runtime artifacts.
-      Encryption at rest and TLS do not, by themselves, address this phase.
-    </p>
-  </div>
-
-  <!-- B. Cloud trust boundary -->
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">Cloud reality</div>
-    <h3>Why “we’re in our own cloud account” is not the whole boundary</h3>
-    <p class="lede">
-      In cloud deployments, the workload runs inside a VM/container boundary, but the <strong>hypervisor layer</strong>,
-      <strong>host firmware</strong>, <strong>provider management plane</strong>, and <strong>observability pipeline</strong>
-      can expand who can potentially observe in-use state. This is not a claim of malice—only the standard high-assurance posture:
-      define the boundary by capability, not by organizational comfort.
-    </p>
-    <ul>
-      <li><strong>Hypervisor / host control:</strong> privileged layers outside guest OS visibility can exist by design.</li>
-      <li><strong>Snapshots, crash dumps, and diagnostics:</strong> operational tooling can unintentionally capture sensitive memory state.</li>
-      <li><strong>Telemetry and logging:</strong> “helpful defaults” can create durable artifacts (debug logs, traces, profiling outputs).</li>
-      <li><strong>Accelerator stack:</strong> drivers, kernel launches, and VRAM buffers are part of the in-use surface.</li>
-    </ul>
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Buyer implication</span>
-      If your threat model includes powerful operators (malware, insider risk, supply-chain exposure, or privileged cloud surfaces),
-      then “encrypt at rest + TLS” does not close the in-use gap.
-    </p>
-  </div>
-
-  <!-- C. CPU/firmware trust boundary (local + cloud hosts) -->
-  <div class="grid cols-2" style="margin-top:1rem;">
-    <div class="emph-box">
-      <strong>Why “trust the CPU” is not a neutral assumption</strong>
-      <p style="margin:.6rem 0 0; color:var(--muted);">
-        Modern platforms include vendor-managed subsystems designed for management and security.
-        These components can operate <strong>below the OS</strong> and expand the trusted computing base.
-        This is not an allegation of intent; it is a standard threat-modeling reality for high-assurance buyers—on-prem and in cloud hosts.
-      </p>
-
-      <h3 style="margin-top:1rem;">Vendor firmware subsystems (examples)</h3>
-      <ul>
-        <li>
-          <strong>Intel Management Engine (ME / CSME)</strong> — a dedicated microcontroller present in Intel chipsets since ~2008,
-          capable of running code independently of the host OS and participating in early boot and platform services.
-        </li>
-        <li>
-          <strong>Intel Active Management Technology (AMT)</strong> — an out-of-band remote management capability running on ME
-          (e.g., remote power, provisioning, recovery) on supported platforms.
-        </li>
-        <li>
-          <strong>AMD Platform Security Processor (PSP / Secure Processor)</strong> — a dedicated security processor embedded in AMD systems
-          (since ~2013) used for secure boot, key handling, and platform security services.
-        </li>
-      </ul>
-
-      <p style="margin:.75rem 0 0; color:var(--muted);">
-        Descriptive references:
-        <a href="https://en.wikipedia.org/wiki/Intel_Management_Engine" target="_blank" rel="noopener noreferrer">Intel ME/CSME</a>,
-        <a href="https://en.wikipedia.org/wiki/Intel_Active_Management_Technology" target="_blank" rel="noopener noreferrer">Intel AMT</a>,
-        <a href="https://en.wikipedia.org/wiki/AMD_Platform_Security_Processor" target="_blank" rel="noopener noreferrer">AMD PSP</a>.
-      </p>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <div class="line"></div>
+      <span class="patent-badge">U.S. Patent Pending · 64/067,703</span>
     </div>
+    <h1>We proved what Physical <em>ASI</em> requires.<br>We build it.</h1>
+    <p class="hero-sub">
+      Three components are mathematically necessary for scalable Physical Artificial Superintelligence.
+      Logarchéon proves this and provides the first seed system satisfying all three —
+      grounded in geometry, causal reasoning, and invariant computation.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a technical brief</a>
+      <a href="#proof" class="btn-secondary">Read the proofs</a>
+    </div>
+  </div>
+</section>
 
-    <!-- D. Threat evidence -->
-    <div class="emph-box accent-2">
-      <strong>Threat relevance and evidence</strong>
-      <p style="margin:.6rem 0 0; color:var(--muted);">
-        This class of subsystem is designed to operate below OS visibility.
-        Historically, attackers and red teams value such layers for persistence, invisibility, and control.
-      </p>
-
-      <ul>
-        <li><strong>Below-OS persistence:</strong> firmware-layer compromise can survive OS reinstallation.</li>
-        <li><strong>Out-of-band surface:</strong> remote management features can bypass host-based defenses.</li>
-        <li><strong>Vulnerability history:</strong> critical bugs have been documented over time.</li>
-      </ul>
-
-      <p style="margin:.75rem 0 0; color:var(--muted);">
-        Example signals (non-exhaustive):
-        Intel advisories
-        <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00075.html" target="_blank" rel="noopener noreferrer">SA-00075</a>,
-        <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00086.html" target="_blank" rel="noopener noreferrer">SA-00086</a>,
-        and CVE-2017-5689
-        (<a href="https://nvd.nist.gov/vuln/detail/CVE-2017-5689" target="_blank" rel="noopener noreferrer">NVD</a>).
-      </p>
-
-      <p class="callout" style="margin-bottom:0;">
-        <span class="badge">Generalization</span>
-        Similar management/security subsystems may exist in other SoCs, including less-documented or foreign chipsets.
-        Lack of documentation does not imply trustworthiness.
+<!-- THESIS -->
+<section class="thesis">
+  <div class="container">
+    <div class="thesis-inner">
+      <div class="thesis-label">
+        <span class="mono">Core thesis</span>
+        <div class="thesis-rule"></div>
+      </div>
+      <p class="thesis-text">
+        Scaling grows the machine.
+        <strong>CEAS coordinates it.</strong>
+        <strong>The Ψ-network gives causal operator logic.</strong>
+        <strong>GRAIL gives invariant geometric cognition.</strong>
+        Without all three, you do not have Physical ASI — provably.
       </p>
     </div>
   </div>
-
-  <!-- E. Why FHE / MPC / TEEs disappoint in practice -->
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">Why common “secure computation” methods still disappoint buyers</div>
-    <h3>FHE, MPC, TEEs vs. real-world in-use workloads</h3>
-    <ul>
-      <li><strong>FHE:</strong> powerful in principle, but overhead and operator constraints often block low-latency or large-scale neural pipelines.</li>
-      <li><strong>MPC:</strong> strong confidentiality properties, but multi-party orchestration, bandwidth, and latency dominate operational reality.</li>
-      <li><strong>TEEs / confidential computing:</strong> often the best performance, but they shift trust to firmware/microcode stacks and require side-channel discipline.</li>
-      <li><strong>Runtime reality:</strong> many deployments still reintroduce plaintext through debugging, telemetry, caches, exports, or “temporary” decode steps.</li>
-    </ul>
-  </div>
-
-  <!-- F. What Logarchéon changes (V1/V2/V3) -->
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">What Logarchéon changes</div>
-    <h3>GRAIL + Λ-Stack + V3 (MIA exported-wrapper posture)</h3>
-    <ul>
-      <li><strong>Buyer-held keys:</strong> governance, instantiation, and blast-radius control remain under customer custody.</li>
-      <li><strong>Interface discipline:</strong> export, logging, telemetry, and debug are policy gates—not “helpful defaults.”</li>
-      <li><strong>Non-canonical in-use posture:</strong> reduce the need for canonical “decrypt-then-compute” patterns that create reusable plaintext artifacts.</li>
-      <li><strong>V3 (MIA exported-wrapper posture):</strong> extends the same in-use containment logic to <strong>cloud instances</strong> and
-        <strong>general-purpose compute</strong> across OS/VM/runtime boundaries (not just “training AI”).</li>
-    </ul>
-
-    <blockquote class="quote" style="margin-top:1rem;">
-      <strong>Bottom line:</strong> The practical failure mode is not “weak crypto” — it is <strong>in-use exposure</strong> through runtime reality
-      (firmware layers, hypervisors, telemetry, and operator error). Logarchéon is structured to reduce canonical in-use exposure by design,
-      with evaluation claims bounded by written scope and acceptance criteria.
-    </blockquote>
-  </div>
-
-  <!-- G. Residual risk -->
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">Residual risk & buyer responsibility</div>
-    <h3>What this does not eliminate</h3>
-    <p class="lede">
-      No software system eliminates physical, RF, or side-channel risk.
-      High-assurance deployments may still require controlled environments (SCIF/EMSEC discipline),
-      power isolation, and strict endpoint governance—especially when the adversary model includes sophisticated operators.
-    </p>
-
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Responsible deployment reminder</span>
-      Logarchéon reduces in-use exposure and artifact reuse. It does not replace physical security, emissions control, or operational discipline.
-    </p>
-  </div>
 </section>
 
-<section id="cpu-trust-and-secure-computation" aria-labelledby="cpu-trust-h">
-  <h2 id="cpu-trust-h">Why CPU Trust Is a Hard Assumption — and How V2 vs V3 Change the Boundary</h2>
+<!-- TRIAD -->
+<section class="triad" id="architecture">
+  <div class="container">
+    <div class="section-header">
+      <span class="mono">Three necessary components</span>
+      <h2>The Necessary Seed Architecture</h2>
+    </div>
+    <div class="triad-grid">
 
-  <p class="lede">
-    High-assurance buyers model “in-use” risk by capability: which layers could observe or preserve sensitive state
-    while computation is active. This is true on a laptop, on-prem server, and <strong>cloud instances</strong>
-    (where hypervisors, host tooling, and observability pipelines expand the privileged surface).
-  </p>
-
-  <div class="card">
-    <div class="kicker">Threat-model premise</div>
-    <h3>“Below-OS” subsystems expand the trusted computing base</h3>
-    <p class="lede">
-      Modern platforms include vendor-managed subsystems designed for management and security.
-      They can operate <strong>below the OS</strong> and are often not fully auditable by the workload owner.
-      This is not an allegation of intent; it is a standard threat-modeling reality.
-    </p>
-
-    <h4 style="margin-top:1rem;">Representative examples (publicly documented)</h4>
-    <ul>
-      <li>
-        <strong>Intel Management Engine (ME / CSME)</strong> — an embedded controller in Intel platforms since ~2008,
-        participating in early boot and platform services, operating independently of the host OS.
-      </li>
-      <li>
-        <strong>Intel Active Management Technology (AMT)</strong> — out-of-band management features implemented on top of ME/CSME
-        on supported platforms (e.g., remote provisioning, recovery, power control).
-      </li>
-      <li>
-        <strong>AMD Platform Security Processor (PSP / Secure Processor)</strong> — an embedded security processor in AMD platforms since ~2013,
-        used for secure boot and platform security functions (including key-handling for firmware-backed features).
-      </li>
-    </ul>
-
-    <p style="margin:.75rem 0 0; color:var(--muted);">
-      Descriptive references:
-      <a href="https://en.wikipedia.org/wiki/Intel_Management_Engine" target="_blank" rel="noopener noreferrer">Intel ME/CSME</a>,
-      <a href="https://en.wikipedia.org/wiki/Intel_Active_Management_Technology" target="_blank" rel="noopener noreferrer">Intel AMT</a>,
-      <a href="https://en.wikipedia.org/wiki/AMD_Platform_Security_Processor" target="_blank" rel="noopener noreferrer">AMD PSP</a>.
-    </p>
-
-    <p style="margin:.75rem 0 0;">
-      Example advisories (non-exhaustive):
-      <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00075.html" target="_blank" rel="noopener noreferrer">Intel SA-00075</a>,
-      <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00086.html" target="_blank" rel="noopener noreferrer">Intel SA-00086</a>,
-      and CVE-2017-5689
-      (<a href="https://nvd.nist.gov/vuln/detail/CVE-2017-5689" target="_blank" rel="noopener noreferrer">NVD</a>).
-    </p>
-
-    <blockquote class="quote" style="margin-top:1rem;">
-      <strong>Bottom line:</strong> “Trust the CPU firmware” is not a neutral assumption. On cloud instances, you typically add hypervisor/host
-      layers and provider operational tooling to the privileged surface. A credible posture reduces the need for canonical plaintext “in-use” states,
-      and constrains interfaces that turn artifacts into an oracle.
-    </blockquote>
-  </div>
-
-  <div class="card" style="margin-top:1rem;">
-    <div class="kicker">Cloud-specific extension</div>
-    <h3>Why cloud instances amplify “in-use” exposure if you rely on canonical plaintext</h3>
-    <ul>
-      <li><strong>Hypervisor/host privilege:</strong> guest OS controls do not fully govern the host/hypervisor layer.</li>
-      <li><strong>Snapshots and diagnostics:</strong> crash dumps, snapshots, and support workflows can preserve memory-adjacent state.</li>
-      <li><strong>Observability pipelines:</strong> tracing/profiling/logging defaults can create durable artifacts from transient computation.</li>
-      <li><strong>Accelerator stacks:</strong> GPU drivers, queues, and VRAM surfaces are part of the in-use boundary.</li>
-    </ul>
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Interpretation</span>
-      Cloud is not “insecure,” but it forces explicit answers to: who can snapshot, inspect, or persist in-use state—intentionally or accidentally?
-    </p>
-  </div>
-
-  <h3 style="margin-top:1.25rem;">Comparison: secure computation approaches vs. Logarchéon’s V2 and V3 posture</h3>
-
-  <div class="table-wrap" aria-label="Security computation comparison table">
-    <table class="sec-table">
-      <thead>
-        <tr>
-          <th>Method</th>
-          <th>What’s Protected “In Use”</th>
-          <th>Trust & Leakage</th>
-          <th>Canonical Decryption Inside Host Runtime?</th>
-          <th>Overhead vs plaintext (plaintext = 1×)</th>
-          <th>Speed vs FHE (FHE = 1×)</th>
-          <th>Fit for modern workloads</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td><strong>FHE</strong> (CKKS, TFHE)</td>
-          <td>Data remains encrypted during computation (within supported operator sets)</td>
-          <td>No hardware trust; often leaks access patterns unless paired with ORAM</td>
-          <td><strong>No</strong></td>
-          <td><strong>~10<sup>3</sup>×–10<sup>6</sup>×</strong> (workload-dependent)</td>
-          <td><strong>1×</strong></td>
-          <td>Often impractical for low-latency, large neural pipelines</td>
-        </tr>
-
-        <tr>
-          <td><strong>MPC / Secret Sharing</strong></td>
-          <td>Secrets split across parties; compute jointly</td>
-          <td>Trust split across ≥2 parties; communication dominates</td>
-          <td><strong>No</strong></td>
-          <td><strong>~10×–100×</strong> (common regimes)</td>
-          <td><strong>10–100×</strong></td>
-          <td>Strong security; heavy orchestration and latency for interactive pipelines</td>
-        </tr>
-
-        <tr>
-          <td><strong>ORAM / Garbled Circuits</strong></td>
-          <td>Obfuscates data and/or access patterns under circuit models</td>
-          <td>Bandwidth/latency overhead; strong privacy with padding</td>
-          <td><strong>No</strong></td>
-          <td><strong>~10×–100×</strong></td>
-          <td><strong>10–100×</strong></td>
-          <td>Useful for circuit-style tasks; less natural for large NN training</td>
-        </tr>
-
-        <tr>
-          <td><strong>ZK / zkML</strong></td>
-          <td>Verifiability (proof of correct execution)</td>
-          <td>Does not protect live runtime confidentiality by itself</td>
-          <td><strong>Yes</strong> (for proving, not privacy)</td>
-          <td><strong>N/A</strong></td>
-          <td><strong>2–10×</strong> (verification context)</td>
-          <td>Useful for audits and claims, not “in-use secrecy”</td>
-        </tr>
-
-        <tr>
-          <td><strong>TEE</strong> (SGX, SEV-class)</td>
-          <td>Plaintext inside enclave/VM boundary; encrypted RAM</td>
-          <td>Shifts trust to vendor firmware/microcode + side-channel mitigations</td>
-          <td><strong>Yes</strong></td>
-          <td><strong>~1×–3×</strong></td>
-          <td><strong>500–1,000×</strong> faster than FHE (typical)</td>
-          <td>Practical for many workloads, but not “zero trust”</td>
-        </tr>
-
-        <tr class="row-highlight">
-          <td><strong>GRAIL (V2)</strong><br><span style="color:var(--muted); font-weight:500;">Exported wrapper for NN/LLM</span></td>
-          <td>Reduces canonical/plaintext exposure of model representations during execution</td>
-          <td>Designed to reduce reliance on privileged observation of reusable plaintext artifacts; interfaces are policy-gated</td>
-          <td><strong>Target: No</strong> (posture-defined)</td>
-          <td><strong>Target: small constant-factor</strong> (workload-dependent)</td>
-          <td><strong>Target: orders faster</strong> than FHE for relevant workloads</td>
-          <td><strong>AI-focused</strong>: inference + fine-tuning + training pipelines (evaluation under NDA)</td>
-        </tr>
-
-        <tr class="row-highlight">
-          <td><strong>MIA (V3)</strong><br><span style="color:var(--muted); font-weight:500;">Exported-wrapper posture for OS/VM/runtime</span></td>
-          <td>Extends “non-canonical in-use” discipline to <strong>general-purpose compute</strong> (including cloud instances)</td>
-          <td>Addresses system-level failure modes: telemetry/oracles, artifact reuse, dump/snapshot surfaces, and runtime interfaces</td>
-          <td><strong>Target: minimize canonicalization</strong> (scope-defined)</td>
-          <td><strong>Workload-dependent</strong> (bounded by acceptance criteria)</td>
-          <td><strong>N/A</strong> (posture + wrapper, not an FHE competitor)</td>
-          <td><strong>AI + non-AI</strong>: VM/container workloads, conventional computation, and cloud/on-prem deployments</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <blockquote class="quote" style="margin-top:1rem;">
-    <strong>Clarification:</strong> V2 and V3 address different layers.
-    <strong>V2 (GRAIL)</strong> concentrates on the NN/LLM execution path and its interfaces.
-    <strong>V3 (MIA)</strong> extends the same discipline to OS/VM/runtime boundaries and cloud instance realities
-    (snapshots, diagnostics, observability, and artifact reuse). They are designed to compose under a single governance model:
-    buyer-held keys and policy-gated interfaces, with claims bounded by written scope and acceptance criteria.
-  </blockquote>
-
-  <h3>Why this avoids the “CPU trust trap” as a consequence of the design</h3>
-  <p>
-    The goal is not to make philosophical claims about CPUs; it is to reduce the amount of sensitive state that ever appears
-    as reusable canonical plaintext during active computation, and to prevent “convenience interfaces” (logs, exports, debug endpoints,
-    snapshots) from becoming an oracle. In cloud environments, this means treating hypervisor/host and operational tooling as part of the boundary.
-  </p>
-
-  <div class="note">
-    <strong>Note:</strong> This page is intentionally non-enabling.
-    Detailed substantiation, benchmarks, and coverage specifics (including cloud placement and accelerator interactions)
-    are provided under NDA for serious technical review.
-  </div>
-</section>
-
-
-<!-- Who this is for (updated for V1/V2/V3) -->
-<section id="for-whom" aria-labelledby="for-whom-h">
-  <h2 id="for-whom-h">Who this is for</h2>
-  <p class="lede">
-    Strategically, Logarchéon is built for high-assurance missions: national security, defense and intelligence,
-    critical infrastructure, and systemic finance. Tactically, early deployments also fit environments where a
-    small team can execute quickly: law firms, privacy-first startups, and a small number of high-confidentiality
-    civil organizations.
-  </p>
-
-  <div class="grid cols-3">
-    <article class="card" id="for-core">
-      <div class="kicker">Tier I · Core high-assurance missions</div>
-      <h3>US natsec, defense, IC, and systemic risk</h3>
-      <ul>
-        <li><strong>US national security &amp; defense:</strong> IC agencies, DoD components, and R&amp;D programs that need encrypted-in-use AI, twin deployments, and audit-grade interpretability—plus hardening at the VM/OS boundary.</li>
-        <li><strong>Defense &amp; intel industrial base:</strong> primes and niche defense AI vendors embedding hardened AI into operational systems with explicit threat models and constrained interfaces.</li>
-        <li><strong>Systemic finance &amp; markets:</strong> exchanges, SIFIs, and elite risk/quant shops where model/IP protection, auditability, and sovereign execution environments are first-order requirements.</li>
-        <li><strong>Critical infrastructure / OT:</strong> grid, pipelines, rail, aerospace manufacturing, and industrial control where failure modes are physical, costly, and sometimes irreversible.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Strategic alignment</span>
-        These actors have the strongest overlap with GRAIL/Λ-Stack/MIA: mission risk, appetite for rigorous review,
-        and budgets for non-commodity IP and system-level hardening.
-      </p>
-    </article>
-
-    <article class="card" id="for-regulated">
-      <div class="kicker">Tier II · Regulated expansion</div>
-      <h3>Healthcare, regulated enterprise, and platforms</h3>
-      <ul>
-        <li><strong>High-security healthcare / clinical AI:</strong> PHI-heavy workflows that require tenant isolation, auditability, and strict interface control (including VM/OS posture for cloud/on-prem deployments).</li>
-        <li><strong>Regulated enterprise:</strong> energy, pharma, aerospace, and advanced manufacturing that need IP protection, governance, and controlled “in-use” exposure across both AI and non-AI workloads.</li>
-        <li><strong>Cloud &amp; hardware vendors:</strong> longer-horizon licensing of encrypted-in-use engines, twin-model infrastructure, and invariant-first accelerator strategies.</li>
-        <li><strong>Academic / non-profit labs:</strong> collaboration partners for science-grade AI security and interpretability—often for credibility and research leverage more than near-term revenue.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Role</span>
-        Expansion segments once the core stack is proven; they benefit from the same λ-secure foundation while
-        pushing deployment breadth (cloud instances, VM stacks, and regulated operational envelopes).
-      </p>
-    </article>
-
-    <article class="card" id="for-sandbox">
-      <div class="kicker">Tier III · Sandbox &amp; civil</div>
-      <h3>Law, founders, and high-confidentiality civil orgs</h3>
-      <ul>
-        <li><strong>Law firms &amp; in-house legal:</strong> cannot upload client files to generic LLM APIs; need on-prem or BYO-cloud private AI with a stronger story than “trust our logs,” plus VM/OS boundary discipline.</li>
-        <li><strong>Privacy-first founders &amp; indie teams:</strong> treat their data as the moat; want local or tenant-isolated LLMs without leaking core IP into third-party model stacks.</li>
-        <li><strong>High-confidentiality civil / religious / humanitarian organizations:</strong> religious orders, diocesan structures, professional bodies, and select NGOs requiring sovereign control over internal archives and workflows—often with mixed AI and non-AI workloads.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Why they matter</span>
-        These segments are ideal early sandboxes: shorter cycles, unclassified workloads, and strong privacy instincts that
-        stress-test the stack (including MIA/V3 posture) before it enters more sensitive or systemic domains.
-      </p>
-    </article>
-  </div>
-
-  <div class="emph-box">
-    <strong>Short version:</strong> law firms and startups are not the final destination; they are the proving ground.
-    The long-term home for Logarchéon is high-assurance environments where encrypted-in-use AI and hardened VM/OS boundaries
-    are mission-critical—not marketing.
-  </div>
-</section>
-
-<!-- Works with your models / and your stacks (updated for V1/V2/V3) -->
-<section id="works-with-models" aria-labelledby="works-with-models-h">
-  <h2 id="works-with-models-h">Bring your own models — and keep your stack.</h2>
-  <p class="lede">
-    Logarchéon does not ask you to throw away the models or infrastructure you already use.
-    The stack is designed to (i) <strong>wrap existing NN/LLM runtimes</strong> for encrypted-in-use posture (V2),
-    (ii) support <strong>commissioned λ-native models</strong> when architecture-level integration is required (V1),
-    and (iii) extend the same “non-canonical in-use” discipline to <strong>VM/OS/runtime boundaries</strong> for general-purpose workloads (V3).
-  </p>
-
-  <div class="emph-box">
-    <strong>Version map:</strong>
-    <strong>V2 (GRAIL wrapper)</strong> = adoption-first for existing models ·
-    <strong>V1 (λ-native)</strong> = commissioned integration ·
-    <strong>V3 (MIA posture)</strong> = wrapper posture for VMs/OS/runtime interfaces (AI + non-AI).
-  </div>
-
-  <div class="grid cols-3" style="margin-top:1rem;">
-    <article class="card">
-      <div class="kicker">Model-agnostic (V1/V2)</div>
-      <h3>Works with modern model families</h3>
-      <ul>
-        <li>Start with compact and mid-scale models for single-GPU or modest-server deployments.</li>
-        <li>Scale to larger models using your orchestration as hardware allows.</li>
-        <li>Keep preferred tooling (HF, vLLM, llama.cpp, etc.); the posture is built around your ecosystem.</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <div class="kicker">λ-secure wrapper (V2)</div>
-      <h3>A geometry-native shell around existing NN/LLM runtimes</h3>
-      <ul>
-        <li>Models execute under <strong>customer-held secrets</strong> (keys) and explicit policy gates.</li>
-        <li>Training and inference operate in a <strong>non-canonical internal representation</strong>, reducing “artifact reuse” risk when storage is stolen.</li>
-        <li>Tenant/team separation is supported under the same governance model (keys, rotation, interface control).</li>
-      </ul>
-      <p class="callout" style="margin-bottom:0;">
-        <span class="badge">Boundary</span>
-        V2 focuses on the NN/LLM execution path and its interfaces; it is designed to compose with V3 for system-level hardening.
-      </p>
-    </article>
-
-    <article class="card">
-      <div class="kicker">VM/OS wrapper posture (V3 · MIA)</div>
-      <h3>Harden the runtime boundary for AI and non-AI workloads</h3>
-      <ul>
-        <li>Wrap existing <strong>VM/OS/runtime stacks</strong> (containers, VMs, host interfaces) under “non-canonical in-use” discipline.</li>
-        <li>Constrain high-risk surfaces: logging/telemetry, debug dumps, snapshots, exports, and admin endpoints that can become an oracle.</li>
-        <li>Designed for <strong>cloud instances</strong> and on-prem deployments where hypervisor/host tooling and observability pipelines expand the privileged surface.</li>
-      </ul>
-      <p class="callout" style="margin-bottom:0;">
-        <span class="badge">Why it matters</span>
-        Cloud is viable for high-assurance work only when the VM/OS boundary and artifact lifecycle are governed as first-class security controls.
-      </p>
-    </article>
-  </div>
-
-  <div class="grid cols-2" style="margin-top:1rem;">
-    <article class="card">
-      <div class="kicker">λ-native path (V1)</div>
-      <h3>Commission λ-native models when architecture-level integration matters</h3>
-      <ul>
-        <li>For some missions, you may prefer models trained from the ground up with geometry integrated into architecture and dynamics.</li>
-        <li>This preserves the same governance principles while targeting tighter semantics and reduced “canonicalization creep.”</li>
-        <li>Best suited when the model is a long-lived sovereign asset and the mission justifies deep integration.</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <div class="kicker">Operational reality</div>
-      <h3>Governance is the product</h3>
-      <ul>
-        <li><strong>Buyer-held keys:</strong> default posture is customer custody, with rotation and blast-radius control.</li>
-        <li><strong>Policy-gated interfaces:</strong> exports, telemetry, and debugging are controlled—not convenience defaults.</li>
-        <li><strong>Composable deployment:</strong> V2 (model path) + V3 (system boundary) combine to reduce “in-use” exposure across the stack.</li>
-      </ul>
-    </article>
-  </div>
-
-  <div class="emph-box">
-    <strong>Plain language:</strong> Logarchéon is a λ-secure posture for your AI portfolio (V2/V1) and your runtime boundary (V3).
-    You choose the models and deployment envelope; Logarchéon supplies the geometry-native wrapper, governance stack, and VM/OS posture so the system
-    behaves as an encrypted-in-use engine under your control.
-  </div>
-</section>
-<!-- Segment map & priority (updated for V1/V2/V3 and cloud-instance reality) -->
-<section id="segment-map" aria-labelledby="segment-map-h">
-  <h2 id="segment-map-h">Segment map &amp; priority</h2>
-  <p class="lede">
-    A concise view of the option space. Segments cover Logarchéon’s plausible buyers and are ranked by strategic fit,
-    ability to pay for deep IP, confidentiality needs, and feasibility for a one-person IP lab.
-    Rankings assume the current stack is <strong>versioned</strong>: V2 secures NN/LLM execution paths; V3 (MIA posture)
-    extends the same “in-use” governance to <strong>VM/OS/runtime boundaries</strong> in both on-prem and <strong>cloud instance</strong> deployments.
-  </p>
-
-  <div class="card">
-    <table class="segment-map" aria-label="Segment map and priority">
-      <thead>
-        <tr>
-          <th scope="col">Rank</th>
-          <th scope="col">Segment</th>
-          <th scope="col">Role &amp; why</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">1</td>
-          <td style="width:35%; font-weight:600;">US NatSec / Defense / IC</td>
-          <td style="color: var(--muted);">
-            Core strategic home. Highest mission alignment, deep need for encrypted-in-use AI and strict “artifact lifecycle” control.
-            Strong fit for <strong>V2 (model path)</strong> plus <strong>V3 (VM/OS boundary)</strong> in controlled clouds and on-prem enclaves.
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">2</td>
-          <td style="width:35%; font-weight:600;">Defense &amp; Intel Industrial Base</td>
-          <td style="color: var(--muted);">
-            Primary route into real systems (ISR, EW, C2, secure analytics). Embed runtime posture via primes and niche integrators:
-            <strong>V2</strong> for AI execution and <strong>V3</strong> for VM/container/hypervisor boundary discipline in production stacks.
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">3</td>
-          <td style="width:35%; font-weight:600;">Systemic Finance &amp; Markets</td>
-          <td style="color: var(--muted);">
-            High budgets and strong incentives for audit, privacy, and IP protection. Natural fit for encrypted workflows and
-            governed “in-use” execution, including <strong>cloud instance deployments</strong> where VM snapshots, logging, and ops tooling are major risk surfaces.
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">4</td>
-          <td style="width:35%; font-weight:600;">Critical Infrastructure / OT</td>
-          <td style="color: var(--muted);">
-            Physical consequences and long-lived hardware. Long-term home for hardening at the control-plane boundary and
-            invariant-first compute; <strong>V3 (MIA posture)</strong> is especially relevant because many workloads are not “LLM-shaped.”
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">5</td>
-          <td style="width:35%; font-weight:600;">High-security Healthcare / Clinical AI</td>
-          <td style="color: var(--muted);">
-            PHI-heavy and safety-critical decisions. Benefits from encrypted-in-use execution and strict interface governance
-            (V2 + V3), but timing is later due to procurement and regulatory complexity.
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">6</td>
-          <td style="width:35%; font-weight:600;">Regulated Enterprise (non-financial)</td>
-          <td style="color: var(--muted);">
-            Energy, pharma, aerospace, advanced manufacturing. Strong need for IP protection and sovereign execution
-            (often BYO-cloud), but crowded with incumbents; differentiation relies on <strong>explicit threat-model posture</strong> (V2/V3) rather than generic “private GPT.”
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">7</td>
-          <td style="width:35%; font-weight:600;">Law Firms &amp; Legal Ecosystem</td>
-          <td style="color: var(--muted);">
-            Near-term sandbox. Clear confidentiality norms and visible pain around public LLM APIs.
-            Good early pilots for <strong>tenant-isolated BYO-cloud instances</strong> with strong logging/export controls (V2) and VM/OS posture (V3).
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">8</td>
-          <td style="width:35%; font-weight:600;">Privacy-paranoid Startups / Indies</td>
-          <td style="color: var(--muted);">
-            Developer sandbox. Excellent feedback for single-GPU and BYO-cloud workflows, but low budgets.
-            Useful to stress-test usability of <strong>V2/V3 governance</strong> without making it the long-term revenue core.
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">9</td>
-          <td style="width:35%; font-weight:600;">High-confidentiality Civil / Religious / NGOs</td>
-          <td style="color: var(--muted);">
-            Opportunistic and curated. Aligns with ethical/humanitarian constraints; useful testbeds for sovereign document AI and
-            strict artifact governance—often with mixed AI and non-AI workloads where <strong>V3</strong> matters as much as V2.
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">10</td>
-          <td style="width:35%; font-weight:600;">Cloud &amp; Hardware Vendors</td>
-          <td style="color: var(--muted);">
-            Long-term platform licensing: hardened runtimes, invariant-first accelerators, and “twin-model” infrastructure.
-            High upside once patents, reference deployments, and independent review exist; not a first customer segment for a one-person lab.
-          </td>
-        </tr>
-        <tr>
-          <td style="width:2.5rem; font-variant-numeric: tabular-nums; font-weight:700;">11</td>
-          <td style="width:35%; font-weight:600;">Academic / Non-Profit Research Labs</td>
-          <td style="color: var(--muted);">
-            Collaboration and credibility. Valuable for science, external review, and λ-Stack research leverage—typically not the direct revenue driver.
-            Fit improves when evaluation harnesses are mature and NDA workflows are streamlined.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-<!-- What you get (updated for V1/V2/V3, cloud instances, and MIA posture) -->
-<section id="offers" aria-labelledby="offers-h">
-  <h2 id="offers-h">What you actually get from Logarchéon</h2>
-  <p class="lede">
-    This is not generic “AI consulting.” The offerings are opinionated: they assume high-assurance threat models,
-    single-GPU or modest-server constraints for early deployments, and a zero-knowledge vendor posture by default.
-    Sandboxes and Tier I missions run on the same λ-secure backbone—versioned as <strong>V1/V2/V3</strong>.
-  </p>
-
-  <div class="grid cols-3">
-    <article class="card" id="lambda-native-model">
-      <div class="kicker">Track 1 · V1/V2 · λ-secure private models</div>
-      <h3>Private GPT-style models, wrapped or λ-native</h3>
-      <ul>
-        <li>
-          <strong>V2 (wrapper):</strong> start from a compact or mid-scale base model and tune it inside the λ-secure runtime on your data,
-          preserving your existing tooling and model family where feasible.
-        </li>
-        <li>
-          <strong>V1 (λ-native):</strong> commission a model trained from scratch for your domain where the geometry and learning dynamics are
-          built into the architecture (integration-first, maximal control).
-        </li>
-        <li>
-          Designed to run on <strong>your hardware</strong> or in <strong>your cloud tenancy</strong> (BYO-cloud instances),
-          with a clear scaling path as your GPU footprint grows.
-        </li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Outcome</span>
-        A concrete, working λ-secure assistant on your hardware or cloud instances—either a wrapped model you already trust,
-        or a new λ-native model—demonstrating encrypted-in-use AI under buyer-held governance.
-      </p>
-    </article>
-
-    <article class="card" id="lambda-runtime">
-      <div class="kicker">Track 2 · V2/V3 · Runtime &amp; governance</div>
-      <h3>λ-secure runtime for your whole stack: models + instances</h3>
-      <ul>
-        <li>
-          A deployment-ready runtime envelope designed to host <strong>multiple models</strong> under a single governance posture.
-        </li>
-        <li>
-          <strong>V2 (models):</strong> wrap NN/LLM execution paths so sensitive representations are less likely to appear as reusable canonical artifacts.
-        </li>
-        <li>
-          <strong>V3 (MIA posture):</strong> extend “in-use” discipline to <strong>VM/OS/runtime boundaries</strong> in both on-prem and cloud-instance deployments
-          (snapshot risk, logging surfaces, admin planes, and artifact lifecycle control).
-        </li>
-        <li>
-          Supports multi-agent workflows, red/blue analysis, and specialty models (code, search, domain LMs) under consistent policy gates.
-        </li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Outcome</span>
-        A unified λ-secure control plane for your AI portfolio and runtime placement (on-prem or BYO-cloud),
-        with explicit keys, policy gates, and interface discipline suitable for high-assurance review.
-      </p>
-    </article>
-
-    <article class="card" id="hardware-appliance">
-      <div class="kicker">Future · Hardware</div>
-      <h3>MIA appliance — λ-secure compute box (AI + non-AI)</h3>
-      <ul>
-        <li>
-          A hardened appliance path targeting invariant-first compute on FPGAs and/or mature-node silicon.
-        </li>
-        <li>
-          Designed for OT, forward-deployed, and controlled environments where “cloud” is not an option
-          (or is an unacceptable trust boundary).
-        </li>
-        <li>
-          Maintains the same governance and “in-use” posture so policies, evidence, and operational controls transfer from software deployments.
-        </li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Outcome</span>
-        A physical λ-secure endpoint you can rack, power, and integrate where hardware-grade assurance and controlled operations are mandatory.
-      </p>
-    </article>
-  </div>
-
-  <div class="emph-box" style="margin-top:1rem;">
-    <strong>Plain language:</strong> V2 secures the model execution path; V3 secures the instance boundary (VM/OS/runtime) where cloud and ops risk often live.
-    V1 is the deeper “from-scratch” option when architecture-level integration is worth it.
-  </div>
-</section>
-
-<!-- Beachhead personas (updated for BYO-cloud and V3 posture) -->
-<section id="sandbox-detail" aria-labelledby="sandbox-detail-h">
-  <h2 id="sandbox-detail-h">Beachhead: law &amp; privacy-first founders</h2>
-  <p class="lede">
-    Early deployments focus on environments where confidentiality, single-GPU footprints, and fast iteration matter:
-    law practices and privacy-first teams. These stress-test the λ-secure stack in real deployments and generate the references
-    needed for higher-assurance programs in national security, defense, critical infrastructure, and systemic finance.
-  </p>
-
-  <div class="grid cols-2">
-    <article class="card" id="for-law">
-      <div class="kicker">Sandbox A · Law firms &amp; in-house legal</div>
-      <h3>“We can’t upload privileged material to random LLM APIs.”</h3>
-      <ul>
-        <li>Client confidentiality, privilege, and bar ethics make public LLM APIs a non-starter.</li>
-        <li>
-          You need tools that live <strong>on your hardware</strong> or in <strong>your cloud tenancy</strong>,
-          with a defensible story about logs, exports, and operational interfaces.
-        </li>
-        <li>
-          You want more than “we trust the vendor” when explaining risk to partners, clients, and insurers—especially when workloads run on cloud instances.
-        </li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Why this segment first</span>
-        Law has crisp, high-stakes confidentiality constraints and can adopt a single-GPU λ-secure assistant quickly.
-        It also surfaces <strong>V3-style risks</strong> early (cloud snapshots, admin planes, logging defaults), producing cleaner case studies for regulated enterprise and government.
-      </p>
-    </article>
-
-    <article class="card" id="for-startups">
-      <div class="kicker">Sandbox B · Privacy-first founders &amp; small teams</div>
-      <h3>“Our data is the moat; we refuse to send it to Big Tech models.”</h3>
-      <ul>
-        <li>You want local or self-hosted LLMs that run on a single GPU or small server, not a sprawling cluster.</li>
-        <li>
-          You are willing to rent cloud GPUs—<em>if</em> the accounts, keys, and runtime posture remain under your control
-          (BYO-cloud instances, buyer-held keys, explicit logging/export policy).
-        </li>
-        <li>
-          You need an engine that constrains artifact reuse and reduces accidental “canonicalization” in debug/telemetry steps.
-        </li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Why this segment first</span>
-        Privacy-first founders move fast and are close to tooling. They are ideal partners to harden the
-        <strong>V2 (model wrapper)</strong> and <strong>V3 (instance boundary posture)</strong> before presenting the same primitives to higher-assurance programs.
-      </p>
-    </article>
-  </div>
-
-  <div class="emph-box">
-    <strong>Staged strategy:</strong> prove V2/V3 in fast sandboxes (law + privacy-first teams). Expand into regulated enterprise and infrastructure.
-    Then carry the same governance primitives into missions that demand hardware-backed encrypted-in-use compute and cryptomorphic twins at scale.
-  </div>
-</section>
-
-
-    <!-- How it works -->
-    <section id="how-it-works" aria-labelledby="how-it-works-h">
-      <h2 id="how-it-works-h">How it works: customer-governed secure execution across AI and conventional computing</h2>
-
-      <p class="lede">
-        Logarchéon is organized as a versioned deployment stack so buyers can choose adoption speed versus integration depth.
-        All versions share the same governance principle: <strong>customer-held secrets</strong>, explicit <strong>policy gates</strong>,
-        and constrained <strong>interfaces</strong> that reduce accidental “in-use” exposure.
-      </p>
-
-      <div class="emph-box">
-        <strong>Version map:</strong>
-        V1 = intrinsic GRAIL for NN/LLM · V2 = exported wrapper for NN/LLM · V3 = exported-wrapper posture for OS/VMs and Von Neumann workloads (compatibility-first).
-      </div>
-
-      <div class="grid cols-2" style="margin-top:1rem;">
-        <article class="card">
-          <div class="kicker">Common control plane (all versions)</div>
-          <h3>Customer custody + policy enforcement</h3>
-          <ul>
-            <li><strong>Key custody:</strong> customer generates and retains operational secrets; vendor does not hold production keys by default.</li>
-            <li><strong>Policy gates:</strong> export, logging, debug, and telemetry are controlled interfaces, not “helpful defaults.”</li>
-            <li><strong>Rotation posture:</strong> keys can rotate per policy cadence to bound correlation and blast radius.</li>
-            <li><strong>Interface discipline:</strong> reduce oracle creation through timing, verbose errors, embedding export, and admin endpoints.</li>
-          </ul>
-          <p class="callout">
-            <span class="badge">Procurement language</span>
-            This is a customer-governed execution framework with explicit assumptions and enforceable controls, suitable for high-assurance review.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Deployment envelope</div>
-          <h3>Where it runs</h3>
-          <ul>
-            <li><strong>On-prem:</strong> your hardware, your access governance, your monitoring discipline.</li>
-            <li><strong>BYO cloud tenancy:</strong> GPUs and orchestration in your AWS/Azure/GCP account; you control IAM, logging, and networks.</li>
-            <li><strong>Air-gapped / controlled:</strong> supported as a posture (subject to hardware realities and operational discipline).</li>
-          </ul>
-          <p class="callout">
-            <span class="badge">Boundary</span>
-            Logarchéon reduces “in-use” exposure; it does not replace physical security, EMSEC controls, or endpoint hardening.
-          </p>
-        </article>
-      </div>
-
-      <h3 style="margin-top:1.25rem;">V1 and V2 (AI): intrinsic versus exported wrapper</h3>
-      <div class="grid cols-2" style="margin-top:.75rem;">
-        <article class="card">
-          <div class="kicker">V1 · Intrinsic / λ-native GRAIL</div>
-          <h3>Commissioned models with geometry built in</h3>
-          <ul>
-            <li><strong>What it is:</strong> a λ-native architecture path where geometry is part of the model’s internal design.</li>
-            <li><strong>Why choose it:</strong> maximal integration, principled semantics, and tighter control of “canonicalization creep.”</li>
-            <li><strong>Buyer posture:</strong> suited for missions where the model itself is a long-lived sovereign asset.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">V2 · Exported wrapper (NN/LLM)</div>
-          <h3>Adoption-first for existing models and runtimes</h3>
-          <ul>
-            <li><strong>What it is:</strong> a compatibility shell that wraps existing NN/LLM runtimes without requiring a full re-architecture.</li>
-            <li><strong>Why choose it:</strong> fastest path to pilots; preserves existing toolchains and model families.</li>
-            <li><strong>Security intent:</strong> reduce reusable plaintext exposure in “in-use” pipelines via constrained interfaces and protected representations.</li>
-          </ul>
-        </article>
-      </div>
-
-      <h3 style="margin-top:1.25rem;">V3 (general-purpose compute): exported-wrapper posture</h3>
-      <div class="card" style="margin-top:.75rem;">
-        <div class="kicker">V3 · Exported-wrapper posture (OS/VM/runtime)</div>
-        <h3>Wrap existing stacks (compatibility-first)</h3>
-        <ul>
-          <li><strong>What it is:</strong> a wrapper posture that brings existing OS/VM runtimes under the same “non-canonical in-use” discipline—without building a new substrate from scratch.</li>
-          <li><strong>Core point:</strong> this is not “LLM-only”; it targets conventional Von Neumann workloads and machine-level leakage surfaces.</li>
-          <li><strong>Adoption benefit:</strong> deployable across existing ecosystems; deepens later only if needed.</li>
-        </ul>
-
-        <p class="callout">
-          <span class="badge">Formal framing</span>
-          This architecture is designed to support high-assurance evaluations: explicit assumptions, bounded claims, and buyer-controlled governance.
-          Detailed evidence is available under NDA; public materials are intentionally non-enabling.
+      <div class="triad-card">
+        <span class="triad-number">01 / 03</span>
+        <div class="triad-name">CEAS</div>
+        <div class="triad-fullname">Critical Entropy Attention Scaling</div>
+        <p class="triad-desc">
+          A nonlocal collective control variable φ(t) that reduces effective computation-graph diameter
+          to o(diam G<sub>N</sub>), solving the coordination bottleneck that prevents local-only architectures
+          from achieving Physical ASI. Grounded in AdS thermodynamics and the Hawking–Page phase transition.
+          Initializes β via a single forward-pass measurement.
         </p>
-      </div>
-    </section>
-
-    <!-- Evaluation -->
-    <section id="evaluation-pack" aria-labelledby="evaluation-pack-h">
-      <h2 id="evaluation-pack-h">How to evaluate (high-assurance buyer workflow)</h2>
-      <p class="lede">
-        Evaluations support due diligence without publishing enabling details. Default posture: buyer-held keys, buyer-owned hardware or buyer cloud tenancy.
-      </p>
-
-      <div class="grid cols-3" style="margin-top:1rem;">
-        <article class="card">
-          <div class="kicker">Stage 1</div>
-          <h3>Threat-model alignment</h3>
-          <ul>
-            <li>Define the “in-use” boundary (CPU/GPU/runtime/telemetry).</li>
-            <li>Identify what must remain non-canonical in operation.</li>
-            <li>Select versions: V1/V2 (NN/LLM), V3 (exported-wrapper posture).</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Stage 2</div>
-          <h3>Scoped proof-of-capability</h3>
-          <ul>
-            <li>Single-machine pilot (one GPU or modest server).</li>
-            <li>Buyer-held keys + rotation policy.</li>
-            <li>Acceptance criteria tied to your workload.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Stage 3</div>
-          <h3>Independent review</h3>
-          <ul>
-            <li>NDA-gated brief + evaluation harness.</li>
-            <li>Red-team focus: oracle creation + artifact reuse.</li>
-            <li>Hardening guidance: endpoint discipline + EMSEC/ops.</li>
-          </ul>
-        </article>
+        <div class="triad-necessity">
+          <strong>Necessity:</strong> local-only architectures require T<sub>N</sub> = Ω(N<sup>1/d</sup>) → ∞.
+          No amount of parameter scaling removes this. A CEAS-class NCM is forced.
+        </div>
       </div>
 
-      <p class="callout" style="margin-top:1rem;">
-        <span class="badge">Procurement clarity</span>
-        Claims are governed by written scope and acceptance criteria. No unbounded promises; no “trust me” assertions.
-      </p>
-    </section>
-
-    <!-- Security posture -->
-    <section id="security-posture" aria-labelledby="security-posture-h">
-      <h2 id="security-posture-h">Security posture (versioned: V1/V2/V3)</h2>
-      <p class="lede">
-        V1/V2 cover neural models. V3 extends the same customer-governed “in-use” discipline to general-purpose computing on Von Neumann machines.
-      </p>
-
-      <div class="grid cols-2" style="margin-top:1rem;">
-        <article class="card">
-          <div class="kicker">Version map</div>
-          <h3>What each version changes</h3>
-          <ul>
-            <li><strong>V1 (Intrinsic GRAIL, NN/LLM):</strong> geometry built into model architecture and training dynamics.</li>
-            <li><strong>V2 (Exported wrapper, NN/LLM):</strong> wraps existing stacks under key-governed non-canonical representations.</li>
-            <li><strong>V3 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and interfaces (hardware-to-workload compatibility).</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Designed to resist</div>
-          <h3>Threats and failure modes</h3>
-          <ul>
-            <li><strong>Stolen artifacts:</strong> weights, indices, caches, runtime byproducts.</li>
-            <li><strong>Operational reuse:</strong> replay/repurposing in a foreign runtime.</li>
-            <li><strong>Oracle creation:</strong> leakage via logs, telemetry, debug endpoints, convenience exports.</li>
-            <li><strong>Expanded TCB risk:</strong> environments where firmware layers cannot be fully audited.</li>
-          </ul>
-          <p class="callout">
-            <span class="badge">Buyer responsibility</span>
-            Key custody, interface control, and telemetry discipline are mandatory for the posture to hold in practice.
-          </p>
-        </article>
+      <div class="triad-card">
+        <span class="triad-number">02 / 03</span>
+        <div class="triad-name">Ψ-Operator</div>
+        <div class="triad-fullname">Causal Operator Framework</div>
+        <p class="triad-desc">
+          A family of maps Ψ<sub>α</sub> : X × U × C → X with causal semantics distinguishing
+          P(Y|X) from P(Y|do(X=x)), a finite-state lift P = D + N from the geodesic-flow
+          spectral decomposition on ℍ²/Γ, Fourier projectors on cycles, and certified
+          deviation bounds for safe behavioral editing without retraining.
+        </p>
+        <div class="triad-necessity">
+          <strong>Necessity:</strong> two causal models can agree on all observations yet
+          disagree on interventions. Purely correlational systems cannot identify
+          intervention-sensitive behaviors regardless of training data volume.
+        </div>
       </div>
 
-      <div class="emph-box" style="margin-top:1rem;">
-        <strong>Compatibility note (V3):</strong> the exported-wrapper posture is designed to integrate with existing operating systems, hypervisors, and runtimes.
-        Deployment placement (user-space, kernel boundary, hypervisor boundary, or adjacent control-plane) is workload-dependent and defined by written acceptance criteria.
+      <div class="triad-card">
+        <span class="triad-number">03 / 03</span>
+        <div class="triad-name">GRAIL</div>
+        <div class="triad-fullname">Geometric Representation Algebra for Intelligent Learning</div>
+        <p class="triad-desc">
+          Computations generated from group-preserved invariants I(gq, gk) = I(q, k),
+          replacing Euclidean dot products to guarantee exact orbit-consistent generalization
+          across infinite isometry groups. Produces infinite families of cryptographically
+          distinct but functionally identical twin models. Root insight: 2009–2010 GR study.
+        </p>
+        <div class="triad-necessity">
+          <strong>Necessity:</strong> for infinite Lie group G, finite data samples finitely
+          many points on each orbit Gx. Without invariant primitives, exact orbit generalization
+          is impossible regardless of data volume.
+        </div>
       </div>
-    </section>
 
-    <!-- Security Q&A -->
-    <section id="security-qa" aria-labelledby="security-qa-h">
-      <h2 id="security-qa-h">Security Q&amp;A (operational, not marketing)</h2>
-      <p class="lede">
-        The Q&amp;A below is retained verbatim unless an answer must change due to versioning updates (V1/V2/V3). New items are appended.
-      </p>
-
-      <div class="qa">
-        <details class="qa-item">
-          <summary>Q: Is this vaporware or a “scam”?</summary>
-          <div class="qa-body">
-            <p>No. The operating rule is simple: <strong>no unbounded promises</strong>, and no fees justified by claims that cannot be tested. Work proceeds through written scope, explicit assumptions, and acceptance criteria.</p>
-            <ul>
-              <li><strong>What is sold:</strong> a bounded deliverable that can be evaluated in the customer’s environment.</li>
-              <li><strong>What is not sold:</strong> belief, vague assurances, or guarantees untethered from deployment conditions.</li>
-              <li><strong>What is public:</strong> non-enabling summaries and clear boundaries.</li>
-              <li><strong>What is NDA-gated:</strong> substantiation and evaluation material appropriate for serious review.</li>
-            </ul>
-            <p>In high-assurance work, credibility is earned the old way: clarity, restraint, and results.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: If someone steals the transformed index, can they still cluster it and learn “who is close to whom”?</summary>
-          <div class="qa-body">
-            <p>They can compute numerical relationships inside what they stole. The missing step is what makes it useful: <strong>anchoring</strong> (IDs, labels, timestamps, filenames, provenance) and <strong>operational access</strong> (a compatible way to produce queries and validate hypotheses).</p>
-            <p>Without anchors and without operational access, they can produce patterns, but they cannot convert patterns into client-identifiable or action-driving intelligence.</p>
-            <p><strong>Working rule:</strong> intelligence is not intelligence if you cannot anchor it.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: When you say “stolen storage, no interface,” what does “interface” mean?</summary>
-          <div class="qa-body">
-            <p>An <strong>interface</strong> is any channel that lets an attacker test guesses or use the system the way your users do.</p>
-            <ul>
-              <li><strong>Query UI / API:</strong> “Send a question → get answers, scores, or nearest-neighbor results.”</li>
-              <li><strong>Embedding / indexing pipeline access:</strong> “I can run the same internal steps your system uses to turn a query into a compatible vector.”</li>
-              <li><strong>Verification oracle:</strong> any feedback loop that tells the attacker “your guess was correct” (e.g., outputs match known results).</li>
-            </ul>
-            <p>In the <strong>stolen storage, no interface</strong> case, the attacker has a file dump of transformed artifacts, but <strong>no</strong> ability to run live queries, <strong>no</strong> ability to generate compatible query vectors, and <strong>no</strong> way to validate interpretations.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: If the attacker somehow gets the right key/transform, can’t they undo it and recover everything?</summary>
-          <div class="qa-body">
-            <p>If customer-held secrets are truly recovered, then whatever was protected by those secrets is at risk. The remaining question is operational: <strong>what else did the attacker steal besides transformed numbers?</strong></p>
-            <ul>
-              <li><strong>Transformed vectors are usually not the original documents.</strong> Undoing a transform gives you vectors again—still not the PDFs/emails—unless the raw documents were also stolen.</li>
-              <li><strong>“Actionable intelligence” still requires anchoring.</strong> Without the mapping from “vector row” to “document ID / owner / timestamp / location,” recovered vectors may not translate into named, time-bounded intelligence.</li>
-            </ul>
-            <p><strong>Working rule:</strong> if you cannot anchor it, it is not intelligence.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: Concrete example (Agency-style): when is “even with the key” still not automatically actionable?</summary>
-          <div class="qa-body">
-            <p>Operational systems often separate (i) documents, (ii) the vector index, and (iii) a mapping table linking rows to Doc-IDs, compartments, timestamps, etc.</p>
-            <h4 style="margin:1rem 0 .25rem;">Case 1: attacker steals only the vector index file</h4>
-            <ul>
-              <li>They can compute relationships like “row 2,487 is close to row 144,000.”</li>
-              <li>But without the mapping table, those rows have no identities, no timestamps, and no storage paths.</li>
-              <li>They cannot fetch documents, and they cannot name what they are looking at.</li>
-            </ul>
-            <h4 style="margin:1rem 0 .25rem;">Case 2: attacker also obtains customer-held secrets</h4>
-            <ul>
-              <li>They may be able to undo some protections on the index.</li>
-              <li>But they still have “row 2,487,” not “Report AB-1776 / source X / date Y,” unless they also stole the mapping table.</li>
-              <li>They still cannot use the system like an analyst without a query interface and access paths.</li>
-            </ul>
-            <h4 style="margin:1rem 0 .25rem;">What makes it truly dangerous</h4>
-            <ul>
-              <li><strong>Anchors leak:</strong> mapping table or joinable metadata leaks.</li>
-              <li><strong>Access leaks:</strong> attacker gains repository access (paths, creds, backups).</li>
-              <li><strong>Oracle leaks:</strong> attacker can query a live interface or harvest transformed queries from endpoints/logs.</li>
-            </ul>
-            <p><strong>Bottom line:</strong> the blast radius is determined by what leaks together: <em>artifacts alone</em> differ from <em>artifacts + anchors + access</em>.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: Why isn’t “structure leakage” automatically a breach?</summary>
-          <div class="qa-body">
-            <p>Because “structure” is not a business outcome. It becomes a breach when an attacker can connect it to something real: names, cases, patients, assets, time, or a query interface that lets them validate guesses. This is why Logarchéon treats <strong>metadata containment</strong> and <strong>query-path control</strong> as first-class security requirements.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: What does Logarchéon explicitly NOT claim?</summary>
-          <div class="qa-body">
-            <ul>
-              <li><strong>No claim of “semantic secrecy” if you leak metadata.</strong> If IDs, timestamps, labels, filenames, or join keys leak, risk increases by definition.</li>
-              <li><strong>No claim of safety under endpoint compromise.</strong> If transformed query vectors leak from endpoints/logs, you have created an oracle-like channel.</li>
-              <li><strong>No claim that standard cryptography becomes optional.</strong> Disk encryption, TLS, access control, and auditing remain mandatory.</li>
-              <li><strong>No claim of “firmware elimination.”</strong> Logarchéon reduces reliance on trusted CPU state; it does not remove vendor firmware subsystems from existence.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: Can quantum computing “tunnel through” 256-bit keys?</summary>
-          <div class="qa-body">
-            <p>Not in any generic, accepted model of symmetric-key search. The conservative generic quantum advantage is Grover-style speedup (roughly a square-root speedup), which is why the default posture targets <strong>256-bit+</strong> effective entropy. “Tunneling” is not a separate generic shortcut that collapses symmetric-key security.</p>
-            <p class="callout" style="margin-top:.75rem;">
-              <strong>Quantum note:</strong> Generic quantum search (Grover) can reduce effective symmetric-key security by roughly half (k → k/2). For this reason, Logarchéon targets 256-bit+ effective entropy to retain ~128-bit-class security even in a conservative quantum model.
-            </p>
-          </div>
-        </details>
-
-        <details class="qa-item" id="entropy-context">
-  <summary>Q: What does “256-bit+” actually buy us (brute-force context)?</summary>
-  <div class="qa-body">
-    <p class="lede">
-      This is an <strong>illustrative</strong> brute-force table for an <em>offline</em> attacker who can try
-      <span class="math">10<sup>18</sup></span> guesses/second. Real-world failures are usually dominated by
-      <strong>key theft</strong>, <strong>endpoint compromise</strong>, or <strong>oracle creation</strong>—not raw key search.
-    </p>
-
-    <div class="table-wrap">
-      <table class="sec-table" aria-label="Illustrative brute-force times table">
-        <thead>
-          <tr>
-            <th scope="col">Effective entropy</th>
-            <th scope="col">Expected brute-force time</th>
-            <th scope="col">Deployment posture</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>128-bit</strong></td>
-            <td>~ 5.39 × 10<sup>12</sup> years</td>
-            <td>Already beyond brute force in practice; still may be insufficient margin for long-lived, multi-tenant, high-assurance postures.</td>
-          </tr>
-          <tr>
-            <td><strong>192-bit</strong></td>
-            <td>~ 9.95 × 10<sup>31</sup> years</td>
-            <td>Conservative option for long-lived deployments.</td>
-          </tr>
-          <tr>
-            <td><strong>256-bit+</strong> <span class="badge">default target</span></td>
-            <td><strong>~ 1.83 × 10<sup>51</sup> years</strong></td>
-            <td>Margin for worst-case assumptions, long retention periods, and compartmented multi-tenant governance.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="callout" style="margin-bottom:0;">
-      <span class="badge">Quantum note</span>
-      Generic quantum search (Grover-style) yields an approximate square-root speedup, often summarized as
-      <span class="math">k → k/2</span> for symmetric-key brute-force. This is one reason high-assurance deployments
-      default to <strong>256-bit+</strong> effective entropy.
-    </p>
-  </div>
-</details>
-
-
-        <details class="qa-item">
-          <summary>Q: What operational controls are required for the claim to hold?</summary>
-          <div class="qa-body">
-            <ul>
-              <li><strong>Tenant-unique keys + rotation</strong> (limit correlation and blast radius).</li>
-              <li><strong>Keep anchors separate</strong> (mapping tables, provenance metadata, join keys).</li>
-              <li><strong>No embedding/hidden-state export</strong> outside the customer trust boundary (treat transformed representations as sensitive).</li>
-              <li><strong>Harden endpoints</strong> like credentials (least privilege, minimal telemetry, enclaves where appropriate).</li>
-              <li><strong>Strict metadata containment</strong> (IDs/timestamps/labels are often the real leak).</li>
-              <li><strong>Interface discipline:</strong> prevent accidental oracle creation via debug endpoints, verbose logs, or “helpful” admin tooling.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: If an insider leaks a key, is everything over?</summary>
-          <div class="qa-body">
-            <p>Key leakage is serious. The goal is to avoid “one mistake equals total compromise” via <strong>blast-radius control</strong>: tenant-unique keys, key rotation, and optional <strong>bulkhead mode</strong> (compartmentalized processing for extremely sensitive workloads).</p>
-            <p>Bulkhead mode is the operational analogue of watertight compartments: you can structure processing so that a single compromised key is not automatically a full historical compromise.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: What are V1, V2, and V3 (and why does it matter)?</summary>
-          <div class="qa-body">
-            <ul>
-              <li><strong>V1 (Intrinsic / λ-native GRAIL):</strong> geometry is built into the model architecture; commissioned builds for maximal integration.</li>
-              <li><strong>V2 (Exported wrapper for models):</strong> wraps existing NN/LLM runtimes; adoption-first path.</li>
-              <li><strong>V3 (Exported-wrapper posture):</strong> wraps existing OS/VM/runtime stacks and conventional workloads at the runtime boundary (compatibility-first).</li>
-            </ul>
-            <p><strong>Why it matters:</strong> the “how you deploy” choice determines adoption time, integration depth, and which parts of your existing stack remain unchanged.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: Does the V3 exported-wrapper posture apply only to AI workloads?</summary>
-          <div class="qa-body">
-            <p>No. V3 is explicitly framed for <strong>conventional Von Neumann workloads</strong> (processes, OS/VM boundaries, storage/memory/I/O). AI is a motivating case because it concentrates “in-use” secrets; the same leakage logic exists in non-AI computation.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: Do we have to replace our OS, hypervisor, or container stack for V3?</summary>
-          <div class="qa-body">
-            <p>No. V3 is explicitly designed as a wrapper posture so you can keep your existing OS/VM stack and harden “in-use” exposure paths around it. The exact integration boundary is chosen to match your threat model and performance constraints.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: Can the exported-wrapper approach cover storage, RAM, and cache layers?</summary>
-          <div class="qa-body">
-            <p>In scope, the objective is system-level containment of sensitive representations across compute and memory surfaces (storage, RAM, caches), subject to deployment constraints and explicit acceptance criteria. Implementation detail is NDA-gated.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: Can V3 apply to GPUs and accelerators?</summary>
-          <div class="qa-body">
-            <p>Where accelerators participate in “in-use” state (VRAM, kernel launches, driver queues), the posture is to treat those surfaces as part of the boundary and constrain interfaces accordingly. The exact coverage depends on the accelerator stack and the buyer’s operational constraints.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-          <summary>Q: How do you prevent generative-AI-assisted reverse engineering of the runtime?</summary>
-          <div class="qa-body">
-            <p>Public documentation is intentionally non-enabling; evaluation builds are NDA-gated; and production deployments are structured so that exfiltrated artifacts alone are not a drop-in, reusable system without customer-held secrets and controlled interfaces.</p>
-          </div>
-        </details>
-
-        <details class="qa-item">
-  <summary>Q: What defense-in-depth options exist beyond key custody and rotation?</summary>
-  <div class="qa-body">
-    <div class="card" style="margin-top:.5rem;">
-      <div class="kicker">Defense-in-depth options</div>
-      <h3>Two extra layers buyers actually use</h3>
-      <ul>
-        <li>
-          <strong>Removable redundancy (optional):</strong> embeddings/models can be carried in a higher-dimensional working
-          representation with removable redundancy. Customers keep the subspace definition; redundancy can be stripped on
-          retrieval under policy. This is sold as <em>defense-in-depth</em>, not as a sole security guarantee.
-        </li>
-        <li>
-          <strong>Bulkhead mode (compartmented twins):</strong> for extreme sensitivity, customers can train and move workloads
-          in small, isolated increments (separate compartments, like a ship). Even under an insider key leak, the exposed portion
-          is bounded to the compartment involved at that step.
-        </li>
-      </ul>
-      <p class="callout" style="margin-bottom:0;">
-        <span class="badge">Blast-radius control</span>
-        The goal is not perfection; it is <strong>bounded damage</strong> under realistic failure modes.
-      </p>
     </div>
   </div>
-</details>
+</section>
 
-
-        <details class="qa-item">
-          <summary>Q: What are the most common ways a deployment accidentally breaks its own posture?</summary>
-          <div class="qa-body">
-            <ul>
-              <li><strong>Telemetry overreach:</strong> logging transformed intermediates, debug dumps, or embedding exports.</li>
-              <li><strong>Oracle creation:</strong> exposing a query endpoint that lets attackers validate guesses at scale.</li>
-              <li><strong>Anchor leakage:</strong> leaking joinable metadata (IDs, timestamps, mapping tables) that makes patterns actionable.</li>
-              <li><strong>Key sprawl:</strong> shared credentials, weak rotation discipline, or unmanaged backups of secrets.</li>
-            </ul>
-          </div>
-        </details>
-      </div>
-
-      <p class="callout" style="margin-top:1rem;">
-        <span class="badge">Legal note</span>
-        This site is informational and not legal advice. Any deliverable, performance expectation, or security posture is governed solely by a written agreement, including stated assumptions and acceptance criteria.
-      </p>
-    </section>
-
-    <!-- Why this is different -->
-    <section id="why-different" aria-labelledby="why-different-h">
-      <h2 id="why-different-h">Why this is different from typical “private GPT” offerings</h2>
-      <div class="grid cols-2">
-        <article class="card">
-          <div class="kicker">Common patterns</div>
-          <ul>
-            <li><strong>Cloud LLM SaaS:</strong> Data is “protected by policy,” but runs in plaintext inside someone else’s stack.</li>
-            <li><strong>On-prem legal/enterprise AI:</strong> Runs inside your network, but the vendor still sees a canonical model and often plaintext data when supporting you.</li>
-            <li><strong>DIY local LLMs:</strong> Full control, but you own all the complexity and there is no formal obfuscation or twin-deployment story.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Logarchéon’s posture</div>
-          <ul>
-            <li><strong>Single-GPU friendly:</strong> Compact and mid-scale λ-secure deployments that work on a single RTX-class GPU or modest server, with a clear scaling path as your hardware grows.</li>
-            <li><strong>Model-agnostic:</strong> The λ-secure runtime is designed to wrap the LLMs you already rely on—open-source or licensed—and can also support λ-native models trained from scratch.</li>
-            <li><strong>Zero-knowledge vendor stance:</strong> Logarchéon designs the geometry and runtime; you keep the keys, own the cloud accounts, and control both weights and logs.</li>
-            <li><strong>By-design BYO-cloud:</strong> Everything runs in your AWS/Azure/GCP tenancy or on-prem. Production access is your choice; the default is that Logarchéon does not see your workloads.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Under the hood -->
-    <section id="under-the-hood" aria-labelledby="under-the-hood-h">
-      <h2 id="under-the-hood-h">Under the hood: CEAS, finite lift, GRAIL, and MIA</h2>
-      <p class="lede">
-        The landing page is simple on purpose. Underneath, the stack draws on original work in geometry, symbolic dynamics,
-        and secure computation. The emphasis is: interpretable dynamics, encrypted-in-use execution, and invariant-first hardware.
-      </p>
-
-      <div class="grid cols-2">
-        <article class="card">
-          <div class="kicker">Core pillars</div>
-          <ul>
-            <li><strong>CEAS:</strong> controlled attention scaling aimed at fewer training steps and improved stability, especially in long-sequence regimes.</li>
-            <li><strong>Finite-machine lift:</strong> decomposes model behavior into interpretable components for traceability and safe edit-without-full-retrain.</li>
-            <li><strong>GRAIL:</strong> geometry-native secure execution aimed at cryptomorphic (function-identical, weight-distinct) twins and encrypted-in-use computation.</li>
-            <li><strong>MIA:</strong> invariant-first architecture suitable for FPGAs and mature-node silicon.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Where to read more</div>
-          <p>If you are a technical reviewer, cryptographer, or ML researcher and want the math, proofs, and prototypes:</p>
-          <ul>
-            <li>Visit the <a href="/Research">Research</a> page for notes, slides, and code snippets.</li>
-            <li>See my <a href="/files/william_chuang_cv.pdf">CV</a> for academic background and prior work.</li>
-            <li>Or email for non-enabling technical briefs and NDA-gated materials where appropriate.</li>
-          </ul>
-          <p class="callout">
-            <span class="badge">Expectation</span>
-            Public write-ups are intentionally non-enabling. Detailed materials are shared under NDA and additional review where appropriate.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Founder -->
-    <section id="founder" aria-labelledby="founder-h">
-      <h2 id="founder-h">Who is behind Logarchéon?</h2>
-      <div class="card">
+<!-- PROOF -->
+<section class="proof" id="proof">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="proof-left">
+        <div class="gold-rule"></div>
+        <span class="mono" style="display:block;margin-bottom:16px;">Formal results</span>
+        <h2>Proved, not asserted</h2>
         <p>
-          I’m <strong>William Huanshan Chuang</strong>, a mathematician and founder of Logarchéon Inc.,
-          a one-human C-Corporation structured as an IP-first research lab. My work sits at the seam
-          of geometry, control, cryptography, and AI. I use recursive teams of AI agents to explore design space;
-          proofs, counterexamples, and national-security ethics decide which ideas survive.
+          The necessity claims are not marketing. They are theorems with proofs,
+          grounded in graph theory, causal identifiability, and orbit coverage.
+          Each component addresses an independent obstruction. No pair of two
+          resolves all three.
         </p>
         <p>
-          If you want the full story—formation, research, teaching, and vocation—see the
-          <a href="/About">About</a> page, <a href="/Research">Research</a> index, and
-          <a href="/files/william_resume.pdf">resume</a>.
+          The no-go theorem shows that local-only update architectures on bounded-degree
+          physical substrates cannot achieve the latency required for Physical ASI on
+          Class-G (globally coupled) problem families. This obstruction is unconditional:
+          it does not assume any hardware limit and is not removed by scaling.
         </p>
+        <div class="theorem-box">
+          <span class="mono">Triadic Necessity Theorem</span>
+          <p class="theorem-stmt">
+            Any physically realizable sequence of systems qualifying as scalable
+            Physical ASI must contain mechanisms equivalent to
+            <em>CEAS-class nonlocal coordination</em>,
+            <em>Ψ-class causal operator inference</em>, and
+            <em>GRAIL-class invariant geometric representation</em>.
+            The three requirements are independent.
+          </p>
+        </div>
       </div>
-    </section>
+      <div class="proof-right">
+        <div class="proof-item">
+          <span class="proof-item-num">Theorem · No-Go</span>
+          <div class="proof-item-title">Local-Only Physical ASI is Impossible</div>
+          <p class="proof-item-desc">
+            Local update rule + physical substrate + Class-G task requirements → contradiction.
+            Proved via the finite dependency cone and diameter lower bound T<sub>N</sub> ≥ Ω(N<sup>1/d</sup>).
+          </p>
+        </div>
+        <div class="proof-item">
+          <span class="proof-item-num">Theorem · NCM Necessity</span>
+          <div class="proof-item-title">CEAS-Class Mechanism is Necessary</div>
+          <p class="proof-item-desc">
+            Physical ASI ⟹ some architecture achieving diam(G<sup>eff</sup><sub>N</sub>) = o(diam G<sub>N</sub>).
+            Entailed by the ASI definition and physical substrate. Not an additional assumption.
+          </p>
+        </div>
+        <div class="proof-item">
+          <span class="proof-item-num">Proposition · Causal Necessity</span>
+          <div class="proof-item-title">Ψ-Class Layer is Necessary</div>
+          <p class="proof-item-desc">
+            By causal identifiability: two SCMs can agree on P(Y|X) while disagreeing on
+            P(Y|do(X=x)). Finite observational data cannot resolve intervention-sensitive tasks.
+          </p>
+        </div>
+        <div class="proof-item">
+          <span class="proof-item-num">Theorem · Orbit Necessity</span>
+          <div class="proof-item-title">GRAIL-Class Layer is Necessary</div>
+          <p class="proof-item-desc">
+            For infinite Lie group G, finite training data samples finitely many points per orbit Gx.
+            Without invariant primitives, exact orbit-consistent generalization is impossible
+            regardless of data volume.
+          </p>
+        </div>
+        <div class="proof-item">
+          <span class="proof-item-num">Theorem · Sufficiency</span>
+          <div class="proof-item-title">Conditional Architecture-Class Sufficiency</div>
+          <p class="proof-item-desc">
+            GRAIL + Ψ + CEAS + memory + planning + verification + embodiment + RSI
+            ⟹ Physical ASI candidate. Conditional architecture-class sufficiency;
+            not a claim of present empirical achievement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact / CTA -->
-    <section id="contact" aria-labelledby="contact-h">
-      <h2 id="contact-h">Next steps</h2>
-      <div class="card">
-        <p class="lede">
-          If you work in national security, defense, systemic finance, critical infrastructure, or run a high-confidentiality
-          environment—and you want private AI that respects both your threat model and your conscience—the next step is simple:
-          start a quiet conversation. The same applies if you are a law firm or privacy-first founder who wants to be an early sandbox.
+<!-- ORIGIN -->
+<section class="origin" id="origin">
+  <div class="container">
+    <div class="origin-inner">
+      <div>
+        <div class="gold-rule"></div>
+        <span class="mono" style="display:block;margin-bottom:16px;">Intellectual genealogy</span>
+        <h2>A single origin in AdS/CFT</h2>
+        <p class="origin-lede">
+          All three components were conceived during independent study of the
+          Anti-de Sitter / Conformal Field Theory correspondence —
+          before transformers, before word embeddings, before modern AI tools.
+          The root insight predates the attention mechanism by years.
         </p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2009–10</div>
+            <div class="tl-right">
+              <div class="tl-event">General relativity study → GRAIL root insight</div>
+              <div class="tl-detail">All physical observables must be written in tensors. Neural dot products q<sup>⊤</sup>k are coordinate-dependent and must be replaced by metric-invariant I(gq, gk) = I(q, k).</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2011+</div>
+            <div class="tl-right">
+              <div class="tl-event">AdS/CFT study → CEAS and Ψ-network conception</div>
+              <div class="tl-detail">Kerson Huang's spin-lattice physics, Ginsparg's CFT (Hawking–Page transition), and Landau's multi-method analytics. Möbius/Lorentz maps + automorphic functions + geodesic flow → Ψ D+N split.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">Masters</div>
+            <div class="tl-right">
+              <div class="tl-event">Poincaré series thesis → infinite GRAIL candidates</div>
+              <div class="tl-detail">Averaging any kernel K(q,k) over the group Γ produces a Γ-invariant inner product. Canonical construction of the full GRAIL invariant family.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2023–25</div>
+            <div class="tl-right">
+              <div class="tl-event">Formal integration → triadic Physical ASI architecture</div>
+              <div class="tl-detail">102-page lecture notes, 8 rederived proofs, Tier-A Colab working embodiment. U.S. provisional patent filed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="origin-right">
+        <div class="origin-stat">
+          <span class="stat-num">2009</span>
+          <span class="stat-label">Root conception<br>predates transformers</span>
+        </div>
+        <div class="origin-stat">
+          <span class="stat-num">102</span>
+          <span class="stat-label">Pages of proved<br>lecture notes</span>
+        </div>
+        <div class="origin-stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Independent necessity<br>obstructions proved</span>
+        </div>
+        <div class="origin-stat">
+          <span class="stat-num" style="font-size:1.3rem;">64/067,703</span>
+          <span class="stat-label">U.S. Patent<br>Pending</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security" id="security">
+  <div class="container">
+    <div class="gold-rule"></div>
+    <span class="mono" style="display:block;margin-bottom:16px;">Λ-secure runtime · V1 / V2 / V3</span>
+    <h2>Encrypted-in-use deployment</h2>
+    <p class="security-lede">
+      The seed architecture includes a λ-secure runtime for deployments requiring encrypted-in-use
+      computation. Buyer-held keys. Policy-gated interfaces. No canonical plaintext during execution.
+      Runs on your hardware or in your cloud tenancy.
+    </p>
+    <div class="security-grid">
+      <div class="sec-card">
+        <h3>V1 — λ-native models</h3>
+        <p>Geometry built into model architecture and training dynamics from the ground up.
+        Maximal integration. Principled semantics. Tighter control of canonicalization creep.
+        For long-lived sovereign AI assets.</p>
+      </div>
+      <div class="sec-card">
+        <h3>V2 — Exported wrapper (NN/LLM)</h3>
+        <p>Adoption-first path. Wraps existing models and runtimes without full re-architecture.
+        Fastest path to pilots. Reduces reusable plaintext exposure in in-use pipelines
+        via constrained interfaces and protected representations.</p>
+      </div>
+      <div class="sec-card">
+        <h3>V3 — VM/OS/runtime posture</h3>
+        <p>Extends the same non-canonical in-use discipline to OS/VM/runtime boundaries
+        for general-purpose compute — not just AI. Covers cloud instances, on-prem deployments,
+        hypervisor surfaces, and artifact lifecycle control.</p>
+      </div>
+      <div class="sec-card">
+        <h3>Why FHE/MPC/TEEs fall short</h3>
+        <p>FHE: 10³–10⁶× overhead, impractical for large neural pipelines.
+        MPC: communication dominates, latency dominates.
+        TEEs: shift trust to vendor firmware, not zero-trust.
+        All reintroduce plaintext through telemetry, caches, or debug steps.</p>
+      </div>
+    </div>
+    <div class="sec-disclaimer">
+      <strong>Scope boundary:</strong> Public materials are intentionally non-enabling.
+      Detailed substantiation, benchmarks, and evaluation specifics are provided under NDA
+      for serious technical review. All claims are bounded by written scope and acceptance criteria.
+      No unbounded promises.
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience" id="audience">
+  <div class="container">
+    <div class="gold-rule"></div>
+    <span class="mono" style="display:block;margin-bottom:16px;">Who this is for</span>
+    <h2>High-assurance missions</h2>
+    <p class="audience-lede">
+      The long-term home for Logarchéon is environments where Physical ASI architecture
+      and encrypted-in-use AI are mission-critical — not marketing.
+    </p>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <span class="audience-tier">Tier I · Core</span>
+        <h3>US NatSec / Defense / IC</h3>
         <ul>
-          <li><strong>Email (preferred):</strong>
-            <a href="mailto:founder@logarcheon.com?subject=Logarcheon%20%E2%80%93%20High-assurance%20AI%20inquiry">founder@logarcheon.com</a>
-          </li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/williamchuang" rel="me" target="_blank" rel="noopener">github.com/williamchuang</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chuang-william" target="_blank" rel="noopener">linkedin.com/in/chuang-william</a></li>
+          <li>IC agencies and DoD components needing encrypted-in-use AI</li>
+          <li>Defense and intel industrial base embedding hardened AI into operational systems</li>
+          <li>Systemic finance and critical infrastructure with physical failure modes</li>
         </ul>
-        <p class="callout">
-          <span class="badge">Typical starting points</span>
-          A 30–45 minute briefing on your mission, privacy constraints, and hardware; then a scoped, single-GPU proof-of-concept (under NDA)
-          that lives on your hardware or in your own cloud tenancy.
+      </div>
+      <div class="audience-card">
+        <span class="audience-tier">Tier II · Expansion</span>
+        <h3>Research grants &amp; regulated enterprise</h3>
+        <ul>
+          <li>DARPA / IARPA / ONR — SBIR/STTR for Physical ASI research</li>
+          <li>Healthcare, pharma, aerospace requiring IP protection and sovereign execution</li>
+          <li>Cloud and hardware vendors licensing encrypted-in-use runtime</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <span class="audience-tier">Tier III · Sandbox</span>
+        <h3>Law, founders &amp; civil orgs</h3>
+        <ul>
+          <li>Law firms that cannot upload privileged material to public LLM APIs</li>
+          <li>Privacy-first founders treating their data as the moat</li>
+          <li>High-confidentiality civil and humanitarian organizations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNDER THE HOOD -->
+<section class="hood" id="under-the-hood">
+  <div class="container">
+    <div class="gold-rule"></div>
+    <span class="mono" style="display:block;margin-bottom:16px;">Under the hood</span>
+    <h2>The stack in plain language</h2>
+    <p class="hood-lede">
+      The page is simple on purpose. Underneath, the work draws on original results in geometry,
+      spectral theory, statistical physics, and causal inference.
+    </p>
+    <div class="hood-grid">
+      <div class="hood-card">
+        <h3>Core research pillars</h3>
+        <ul>
+          <li>CEAS: attention scaling via entropy-temperature control and finite-size criticality</li>
+          <li>Ψ-operator: finite-state lift, Dunford D+N split, Fourier projectors, causal Pearl integration</li>
+          <li>GRAIL: hyperbolic-length product, automorphic activation, isometry-twin construction</li>
+          <li>Biological corridor: T<sub>c</sub> ≈ 31.7°C for cortex, six-factor correction formula</li>
+        </ul>
+      </div>
+      <div class="hood-card">
+        <h3>Where to read more</h3>
+        <p>Technical reviewers, cryptographers, and ML researchers who want the mathematics, proofs, and working code:</p>
+        <ul>
+          <li><a href="/Research" style="color:var(--gold);text-decoration:none;">Research page</a> — lecture notes, slides, Colab notebook</li>
+          <li><a href="/CEAS" style="color:var(--gold);text-decoration:none;">CEAS</a>, <a href="/GRAIL" style="color:var(--gold);text-decoration:none;">GRAIL</a>, <a href="/Ψ-Operator-Framework" style="color:var(--gold);text-decoration:none;">Ψ-Operator</a> — component pages</li>
+          <li><a href="/files/william_chuang_cv.pdf" style="color:var(--gold);text-decoration:none;">CV</a> — academic background and prior work</li>
+          <li>Email for NDA-gated technical briefs and evaluation materials</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="container">
+    <div class="founder-inner">
+      <div>
+        <div class="gold-rule"></div>
+        <span class="mono" style="display:block;margin-bottom:16px;">Who is behind Logarchéon</span>
+        <h2>William Huanshan Chuang</h2>
+        <p>
+          Mathematician and sole founder of Logarchéon Inc., a one-human C-Corporation
+          structured as an IP-first research lab. The work sits at the seam of geometry,
+          control, statistical physics, and artificial intelligence.
+        </p>
+        <p>
+          All three components of the Physical ASI seed architecture were conceived during
+          independent study of the AdS/CFT correspondence — before transformers,
+          before word embeddings, and before modern AI tools. The root insight predating
+          all modern attention mechanisms dates to 2009–2010 study of general relativity.
+        </p>
+        <p>
+          AI tools (Claude, ChatGPT) were used to verify proofs and accelerate documentation
+          under human direction. All core claims, mathematical structures, and inventive concepts
+          are human-originated. All patent claims are human work.
         </p>
       </div>
-    </section>
+      <div class="founder-links">
+        <a href="mailto:founder@logarcheon.com" class="founder-link">
+          <span class="flink-label">Email</span>
+          founder@logarcheon.com
+        </a>
+        <a href="/files/william_chuang_cv.pdf" class="founder-link">
+          <span class="flink-label">CV</span>
+          Academic background
+        </a>
+        <a href="/files/william_resume.pdf" class="founder-link">
+          <span class="flink-label">Resume</span>
+          Professional background
+        </a>
+        <a href="https://github.com/williamchuang" target="_blank" rel="noopener" class="founder-link">
+          <span class="flink-label">GitHub</span>
+          github.com/williamchuang
+        </a>
+        <a href="https://www.linkedin.com/in/chuang-william" target="_blank" rel="noopener" class="founder-link">
+          <span class="flink-label">LinkedIn</span>
+          linkedin.com/in/chuang-william
+        </a>
+        <a href="/About" class="founder-link">
+          <span class="flink-label">About</span>
+          Formation and vocation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- IP / boundaries -->
-    <section id="footer-notes" aria-labelledby="footer-h">
-      <h2 id="footer-h">IP, review, and boundaries</h2>
-      <p>
-        Some materials relate to active or planned U.S. filings. Public descriptions on this site are
-        <strong>non-enabling summaries</strong>. Technical evaluations proceed under NDA and additional
-        compliance review where appropriate. Independent cryptographic review and red-teaming are welcome under
-        appropriate safeguards and with attention to national-security implications.
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="gold-rule"></div>
+      <span class="mono" style="display:block;margin-bottom:16px;">Next steps</span>
+      <h2>Start a quiet conversation.</h2>
+      <p class="contact-lede">
+        If you work in national security, defense, research, or high-assurance compute —
+        or if you want to evaluate the Physical ASI seed architecture under NDA —
+        the starting point is simple.
       </p>
-    </section>
+      <div class="contact-box">
+        <h3>Request a technical brief</h3>
+        <p>
+          A 30–45 minute briefing on your mission and constraints, followed by a
+          scoped proof-of-concept on your hardware or in your cloud tenancy.
+          Claims are bounded by written scope and acceptance criteria.
+          No unbounded promises.
+        </p>
+        <a href="mailto:founder@logarcheon.com?subject=Logarch%C3%A9on%20%E2%80%94%20Technical%20brief%20request" class="contact-email">
+          founder@logarcheon.com
+        </a>
+        <div class="contact-note">
+          NDA available · Non-enabling public materials · Evaluation under written scope<br>
+          U.S. Patent Pending 64/067,703 · Some materials subject to U.S. export regulations
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </main>
+</main>
 
-  <footer class="container">
-    <hr class="hr"/>
-    <p>© <span id="year"></span> William Chuang · Logarchéon. All rights reserved.</p>
-  </footer>
+<footer class="wrap">
+  <div style="max-width:1080px;margin:0 auto;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--border-dim);">
+    <p style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--faint);">
+      © <span id="yr"></span> William Chuang · Logarchéon Inc. All rights reserved.
+    </p>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.06em;color:var(--gold-dim);">
+      U.S. Patent Pending 64/067,703
+    </span>
+  </div>
+</footer>
 
-  <script>
-    (function () {
-      var el = document.getElementById('year');
-      if (el) el.textContent = new Date().getFullYear();
-    })();
-  </script>
+</div><!-- /wrap -->
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
