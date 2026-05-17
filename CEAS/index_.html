@@ -1,244 +1,60 @@
-<!doctype html>
+---
+layout: default
+title: Critical Entropy Attention System
+home: passive
+cv: passive
+projects: passive
+Research: active
+blog: passive
+---
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>CEAS — Critical Entropy Attention System · Logarchéon</title>
-<meta name="description" content="CEAS keeps attention entropy in a critical corridor via a physics-grounded β thermostat. Provably reduces training cost, provably improves convergence. Patent 63/813,617."/>
-<link rel="canonical" href="https://logarcheon.com/CEAS"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-MathJax = {
-  tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']] },
-  options: { skipHtmlTags: ['script','noscript','style','textarea'] }
-};
-</script>
-<style>
-:root{
-  --navy:#0a1628;--navy-mid:#0e1f3a;--navy-light:#162d52;--navy-rim:#1e3a64;
-  --gold:#c9a84c;--gold-light:#e2c97e;--gold-dim:#a07d3a;
-  --gold-pale:rgba(201,168,76,0.14);--gold-glow:rgba(201,168,76,0.07);
-  --cream:#f5f0e8;
-  --body:#e8e2d8;
-  --muted:#c8c0b0;
-  --faint:#8a8070;
-  --border:rgba(201,168,76,0.25);--border-dim:rgba(201,168,76,0.11);
-  --section-gap:5rem;
-  /* Dark-theme boxes */
-  --box-blue:rgba(18,45,95,0.75);
-  --box-green:rgba(12,48,28,0.75);
-  --box-amber:rgba(80,50,5,0.7);
-  --box-red:rgba(80,14,20,0.7);
-  --box-insight:rgba(8,24,52,0.9);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Libre Baskerville',Georgia,serif;
-  background:var(--navy);color:var(--cream);
-  line-height:1.72;overflow-x:hidden;
-}
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:
-    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
-    radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,0.05) 0%,transparent 55%);
-}
-body::after{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
-  background-size:80px 80px;
-}
-.wrap{position:relative;z-index:1}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Critical Entropy Attention System - William Chuang</title>
+  <link rel="stylesheet" href="/css/main.css">
 
-/* Typography */
-h1,h2,h3,h4,h5{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:-0.01em;font-weight:500;color:var(--cream);line-height:1.2;}
-.mono{font-family:'DM Mono',monospace;font-weight:300;font-size:0.76rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);}
-a{color:var(--gold);text-decoration:none;}
-a:hover{color:var(--gold-light);text-decoration:underline;}
-code,pre{font-family:'DM Mono',monospace;font-size:0.82rem;background:var(--navy-mid);padding:0.15em 0.4em;border-radius:3px;color:var(--cream);}
-pre{padding:1.2rem 1.4rem;overflow-x:auto;border:1px solid var(--border-dim);border-radius:6px;}
-strong{color:var(--cream);font-weight:700;}
-em{font-style:italic;}
-.MathJax{color:var(--cream) !important;}
-
-/* Nav */
-nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dim);padding:0 28px;}
-.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--gold-light);letter-spacing:0.02em;}
-.nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);text-decoration:none;}
-
-/* Layout */
-.container{max-width:1060px;margin:0 auto;padding:0 28px;}
-.page-layout{display:grid;grid-template-columns:210px 1fr;gap:4rem;align-items:start;padding:4rem 28px 6rem;max-width:1060px;margin:0 auto;}
-
-/* TOC */
-.toc-sidebar{position:sticky;top:74px;border-left:1px solid var(--border);padding-left:1.4rem;}
-.toc-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem;}
-.toc-list{list-style:none;display:flex;flex-direction:column;gap:0.25rem;}
-.toc-link{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.05em;color:var(--body);padding:0.25rem 0;display:block;border-left:2px solid transparent;margin-left:-1.5rem;padding-left:1.3rem;transition:color 0.2s,border-color 0.2s;}
-.toc-link:hover{color:var(--gold);border-color:var(--gold);text-decoration:none;}
-
-/* Hero */
-.page-hero{border-bottom:1px solid var(--border-dim);padding:3.5rem 0 2.5rem;}
-.page-hero .breadcrumb{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.6rem;}
-.page-hero h1{font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;max-width:22ch;margin-bottom:1rem;}
-.page-hero h1 em{font-style:italic;color:var(--gold-light);}
-.hero-desc{color:var(--body);font-size:1.05rem;max-width:60ch;line-height:1.75;margin-bottom:1.5rem;}
-.hero-badges{display:flex;gap:0.8rem;flex-wrap:wrap;margin-bottom:1.5rem;}
-.hero-badge{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:0.3rem 0.75rem;border-radius:2px;background:var(--gold-pale);}
-.hero-eq{font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--muted);border-left:2px solid var(--gold-dim);padding-left:1rem;margin:1rem 0;}
-
-/* Section structure */
-.page-section{margin-bottom:var(--section-gap);}
-.section-header{display:flex;align-items:baseline;gap:1.2rem;border-bottom:1px solid var(--border-dim);padding-bottom:0.9rem;margin-bottom:2.2rem;}
-.section-num{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--muted);}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--gold-light);}
-.section-body h3{font-size:1.25rem;font-weight:500;color:var(--cream);margin:2.2rem 0 0.7rem;border-left:2px solid var(--gold-dim);padding-left:0.85rem;}
-.section-body h4{font-size:1.08rem;font-weight:500;color:var(--gold-light);margin:1.6rem 0 0.5rem;}
-.section-body h5{font-family:'DM Mono',monospace;font-size:0.76rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);margin:1.2rem 0 0.4rem;}
-.section-body p{color:var(--body);margin-bottom:0.9rem;max-width:72ch;line-height:1.75;}
-.section-body ul,.section-body ol{color:var(--body);padding-left:1.5rem;margin-bottom:0.9rem;}
-.section-body li{margin-bottom:0.35rem;}
-
-/* Tables */
-.section-body table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:0.88rem;overflow-x:auto;display:block;}
-.section-body th{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);padding:0.55rem 0.85rem;text-align:left;background:var(--navy-light);white-space:nowrap;}
-.section-body td{color:var(--body);border-bottom:1px solid var(--border-dim);padding:0.5rem 0.85rem;vertical-align:top;}
-.section-body tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
-
-/* Box types (all dark-theme safe) */
-.box-insight{background:var(--box-insight);border-left:3px solid var(--gold);border-radius:3px;padding:1rem 1.2rem;margin:1.2rem 0;}
-.box-insight *{color:var(--cream) !important;}
-.box-blue{background:var(--box-blue);border:1px solid rgba(80,140,255,0.3);border-radius:3px;padding:1rem 1.2rem;margin:1rem 0;}
-.box-blue *{color:var(--cream) !important;}
-.box-amber{background:var(--box-amber);border:1px solid rgba(200,150,40,0.4);border-radius:3px;padding:1rem 1.2rem;margin:1rem 0;}
-.box-amber *{color:var(--cream) !important;}
-.box-formula{background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:4px;padding:1.2rem 1.4rem;margin:1rem 0;text-align:center;}
-
-/* Equation display */
-.eq-display{background:var(--navy-mid);border-left:2px solid var(--gold-dim);padding:0.9rem 1.2rem;margin:1rem 0;border-radius:0 3px 3px 0;overflow-x:auto;}
-
-/* Note cards (papers) */
-.note-card{background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-radius:4px;padding:1.2rem 1.4rem;margin:1rem 0;transition:border-color 0.2s;}
-.note-card:hover{border-color:var(--border);}
-.note-card h4{margin-top:0;font-size:1.0rem;color:var(--cream);}
-.note-card .note-meta{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--faint);margin-bottom:0.5rem;}
-.note-card p{font-size:0.9rem;margin-bottom:0.5rem;color:var(--body);}
-
-/* PDF link */
-.pdf-btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--gold-pale);border:1px solid var(--border);color:var(--cream);padding:0.4rem 0.9rem;border-radius:3px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.05em;margin:0.4rem 0.4rem 0.4rem 0;transition:background 0.2s;text-decoration:none;}
-.pdf-btn:hover{background:rgba(201,168,76,0.22);border-color:var(--gold);color:var(--cream);text-decoration:none;}
-.pdf-icon{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;color:var(--gold);border:1px solid var(--gold-dim);padding:0.1rem 0.28rem;border-radius:2px;}
-
-/* Savings projection highlight */
-.savings-highlight{font-family:'DM Mono',monospace;font-size:1.3rem;color:var(--gold-light);display:inline-block;margin:0.3rem 0;}
-
-/* Divider */
-hr.section-divider{border:none;border-top:1px solid var(--border-dim);margin:2.5rem 0;}
-
-/* Footer */
-footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;color:var(--faint);text-align:center;}
-
-/* Inline old-style elements that need override */
-.section-body [style*="color:#"] { color:var(--body) !important; }
-.section-body [style*="background:#f"],
-.section-body [style*="background: #f"],
-.section-body [style*="background:var(--navy-mid)"],
-.section-body [style*="background:var(--navy-mid)"] {
-  background:var(--box-blue) !important;
-  color:var(--cream) !important;
-}
-.section-body [style*="background:#f"] *,
-.section-body [style*="background:var(--navy-mid)"] * {
-  color:var(--cream) !important;
-}
-
-/* Responsive */
-@media(max-width:860px){
-  .page-layout{grid-template-columns:1fr;gap:2rem;padding:2rem 20px 4rem;}
-  .toc-sidebar{display:none;}
-}
-</style>
+  <!-- MathJax for inline and display math -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
+
+
 <body>
-<div class="wrap">
 
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Logarch&eacute;on</a>
-    <ul class="nav-links">
-      <li><a href="/CEAS" class="active">CEAS</a></li>
-      <li><a href="/GRAIL">GRAIL</a></li>
-      <li><a href="/Research">&Psi;-Operator</a></li>
-      <li><a href="/MIA">MIA</a></li>
-      <li><a href="/#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  <main class="container">
+    <h1>Research Project:</h1>
+    <section class="research-list">
 
-<div class="container">
-  <div class="page-hero">
-    <div class="breadcrumb">
-      <a href="/" style="color:var(--faint);">Logarch&eacute;on</a>
-      <span style="color:var(--faint);">/</span>
-      <span>CEAS</span>
-    </div>
-    <h1>Critical Entropy<br><em>Attention System</em></h1>
-    <p class="hero-desc">
-      CEAS replaces the fixed attention temperature&nbsp;&beta;&thinsp;=&thinsp;1/&radic;d<sub>k</sub>
-      with a physics-grounded thermostat that keeps attention entropy inside a
-      <em>critical corridor</em> throughout training.
-      The result is steadier convergence, fewer wasted updates, and
-      compounding compute savings that grow with model scale.
-    </p>
-    <div class="hero-eq">
-      dH/d&beta; = &minus;&beta;&thinsp;&middot;&thinsp;Var<sub>p</sub>[s]
-      &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
-      the entropy&ndash;temperature identity that underlies the entire controller
-    </div>
-    <div class="hero-badges">
-      <span class="hero-badge">U.S. Patent 63/813,617 (CEAS primary)</span>
-      <span class="hero-badge">64/067,703 (Physical ASI / GRAIL)</span>
-      <span class="hero-badge">Provisional stage &middot; In development</span>
-    </div>
-  </div>
-</div>
 
-<div class="page-layout">
-  <aside class="toc-sidebar">
-    <div class="toc-label">Sections</div>
-    <ul class="toc-list">
-      <li><a href="#foundations" class="toc-link">Foundations</a></li>
-<li><a href="#controller" class="toc-link">The Controller</a></li>
-<li><a href="#advanced" class="toc-link">Advanced Control</a></li>
-<li><a href="#hardware" class="toc-link">Hardware Substrate</a></li>
-<li><a href="#related" class="toc-link">Related Work</a></li>
-<li><a href="#origin" class="toc-link">Research Origin</a></li>
-<li><a href="#bibliography" class="toc-link">Bibliography</a></li>
-    </ul>
-  </aside>
-  <main>
+<!-- Optional: enable only if your site doesn't already load MathJax -->
+<!--
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+-->
 
-<section class="page-section" id="foundations">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title">Foundations</h2>
-  </div>
-  <div class="section-body">
 
-<p>
-    Attention assigns weights from scores. β acts like temperature: higher β concentrates weights; lower β spreads them.
-    CEAS monitors spread and nudges β so attention stays inside a target band that is empirically stable for training and aligned with the model’s pseudo-critical regime.
+
+<section class="blurb" id="ceas-intro">
+  <h1>Critical Entropy Attention System (CEAS)</h1>
+  <p class="lede">
+    CEAS runs attention with a <em>thermostat</em>. Instead of a fixed constant, a single knob—attention temperature <span aria-label="beta">β</span>—is adjusted so attention is neither too diffuse nor too frozen. The aim: steadier training, fewer wasted updates, and more reliable decisions.
   </p>
+
+  <div class="callout" role="note" aria-label="Plain-English summary" style="border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;margin:1rem 0;">
+    <strong>Plain English:</strong>
+    “Entropy” here means how spread out attention weights are. High entropy = spread over many options; low entropy = focused on a few.
+    CEAS keeps that spread inside a healthy band (an <em>entropy corridor</em>) by turning the β knob up or down.
+  </div>
+
+<h2>What the “C” means</h2>
 <p>
   <em>Notation:</em> let <span aria-label="L sub corr">\(L_{\text{corr}}\)</span> denote the correlation length (instead of the conventional \( \xi \)).
   “Critical” refers to <em>critical phenomena</em>: the regime where the system’s effective correlation length grows without bound—informally, a small local change influences the whole system.
@@ -246,13 +62,45 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
   On finite machines this manifests as a <em>pseudo-critical</em> regime with a large but finite \( L_{\text{corr}} \) (near “blow-up,” yet bounded by model/context size).
   As model scale grows, finite-size effects shrink and the pseudo-critical behavior approaches the textbook limit.
 </p>
-<ul>
+
+  <h2>What problem this solves</h2>
+  <ul>
     <li><strong>Fixed scaling is brittle.</strong> The textbook \(1/\sqrt{d_k}\) assumes one setting fits every head, layer, and dataset.</li>
     <li><strong>Instability at the extremes.</strong> Too broad → noisy gradients; too sharp → stalled learning. Both waste compute.</li>
     <li><strong>Targeted balance.</strong> CEAS keeps attention in the region where small score changes carry useful information.</li>
   </ul>
-<p>
-    
+
+  <h2>How CEAS works (conceptually)</h2>
+  <p>
+    Attention assigns weights from scores. β acts like temperature: higher β concentrates weights; lower β spreads them.
+    CEAS monitors spread and nudges β so attention stays inside a target band that is empirically stable for training and aligned with the model’s pseudo-critical regime.
+  </p>
+
+  <h2>What runs in practice</h2>
+  <ul>
+    <li><strong>Pick a corridor.</strong> Choose a head-wise entropy or effective-competitor band that keeps learning stable.</li>
+    <li><strong>Automate β.</strong> A one-step controller adjusts β online; a closed-form initializer provides a principled starting point.</li>
+    <li><strong>Scale with size.</strong> Larger models make the pseudo-critical behavior more pronounced, improving the controller’s leverage.</li>
+  </ul>
+
+  <h2>Investor takeaway</h2>
+  <ul>
+    <li><strong>Single, physics-grounded control knob:</strong> β is set by data dispersion and competition, not just embedding dimension.</li>
+    <li><strong>Compute discipline:</strong> Keeping entropy in a critical band reduces noisy updates and improves convergence stability.</li>
+    <li><strong>Production ready:</strong> Minimal code changes; complements standard optimizers and schedulers.</li>
+  </ul>
+
+  <p style="margin-top:1rem;color:#555;font-size:.95rem;">
+    <em>Note:</em> CEAS is under active development. Patent pending.
+  </p>
+</section>
+
+
+<section class="blurb" id="why-ceas-works">
+  <h2>Why CEAS Works — A Physicist’s Case for Investors</h2>
+
+  <p>
+    CEAS predates the following primers; they are included only as accessible context on shared math:
     <a href="https://www.youtube.com/watch?v=iqVeZ70muyw" target="_blank" rel="noopener noreferrer">Canonical Ensemble → Linear Regression</a> and
     <a href="https://www.youtube.com/watch?v=tJcQ7sasNKs" target="_blank" rel="noopener noreferrer">Entropy → Loss (KL → NLL)</a>.
   </p>
@@ -266,13 +114,13 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     CEAS applies this locally so β functions as an operational temperature knob.
   </aside>
 
-  <h4>Critical-region operation</h4>
+  <h3>Critical-region operation</h3>
   <p>
     The controller centers operation near the model’s pseudo-critical regime where information per update is maximized.
     A low-order (Landau-style) expansion is accurate enough here to steer β; as models scale up, the critical signatures and gains become more apparent.
   </p>
 
-  <h4>Objective alignment</h4>
+  <h3>Objective alignment</h3>
   <p>
     Training with negative log-likelihood equals minimizing KL divergence to data; in Gaussian settings this reduces to ordinary least squares.
     Managing β therefore directly manages the gap to data: sharper when evidence is clear, broader when it is not.
@@ -281,31 +129,10 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
 
 <section class="blurb" id="operational-control">
-<ul>
-    <li><strong>Single, physics-grounded control knob:</strong> β is set by data dispersion and competition, not just embedding dimension.</li>
-    <li><strong>Compute discipline:</strong> Keeping entropy in a critical band reduces noisy updates and improves convergence stability.</li>
-    <li><strong>Production ready:</strong> Minimal code changes; complements standard optimizers and schedulers.</li>
-  </ul>
+  <h2>Operational Control — Initialization, Update, and Thresholds</h2>
 
-  <p style="margin-top:1rem;color:var(--body);font-size:.95rem;">
-    <em>Note:</em> CEAS is under active development. Patent pending.
-  </p>
-</section>
-
-
-<section class="blurb" id="why-ceas-works">
-
-  </div>
-</section>
-
-<section class="page-section" id="controller">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">The Controller</h2>
-  </div>
-  <div class="section-body">
-<h4>Closed-form initializer (“final address”)</h4>
-  <div style="border-left:4px solid #0b5fff;background:var(--box-blue);padding:1rem;border-radius:8px;">
+  <h3>Closed-form initializer (“final address”)</h3>
+  <div style="border-left:4px solid #0b5fff;background:#f6f8ff;padding:1rem;border-radius:8px;">
     <p>
       Near the high-entropy regime, a principled starting value is
     </p>
@@ -319,7 +146,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     </p>
   </div>
 
-  <h4>One-step controller (online β tuning)</h4>
+  <h3>One-step controller (online β tuning)</h3>
   <p>
     A Newton-style update drives β toward the target band while the representation shifts:
   </p>
@@ -328,11 +155,11 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
       \boxed{\beta_{\text{new}}=\beta+\frac{H(\beta)-H_{\text{target}}}{\beta\,\mathrm{Var}_{p_\beta}[s]+\varepsilon}}
     \]
   </p>
-  <p style="color:var(--body);margin-top:.5rem;">
+  <p style="color:#555;margin-top:.5rem;">
     Use a small \(\varepsilon>0\) for numerical safety. The same rule can be written with \(\log N_{\mathrm{eff}}\).
   </p>
 
-  <h4>Where \(\beta^\star\) comes from (6 + 1)</h4>
+  <h3>Where \(\beta^\star\) comes from (6 + 1)</h3>
   <ul>
     <li><strong>KL/entropy constraint:</strong> match a target divergence or entropy drop from uniform.</li>
     <li><strong>Extreme-value gap:</strong> scale to the expected top-score gap \(\sim \sigma\sqrt{2\ln N_{\mathrm{eff}}}\).</li>
@@ -343,7 +170,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     <li><strong>+1 control:</strong> the Newton update above maintains the corridor in real time.</li>
   </ul>
 
-  <h4>Decision boundary for gating</h4>
+  <h3>Decision boundary for gating</h3>
   <aside class="callout" style="margin-top:.25rem;">
     <strong>Freeze / gating condition:</strong>
     treat a head as decisively non-uniform once
@@ -353,18 +180,22 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     Below this boundary, keep exploration; above it, permit pruning or confidence-weighted updates.
   </aside>
 
-  
-  </div>
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Stable learning:</strong> β adapts to data dispersion and head-wise competition around the pseudo-critical point.</li>
+    <li><strong>Efficient compute:</strong> Less time in low-information regimes; fewer wasted updates.</li>
+    <li><strong>Predictable scaling:</strong> Larger models show stronger critical signatures, improving controllability and returns.</li>
+  </ul>
 </section>
 
-<section class="page-section" id="advanced">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Advanced Control</h2>
-  </div>
-  <div class="section-body">
-
-<p class="mt-2 text-slate-600 leading-relaxed">
+<section id="ceas-controller" aria-labelledby="ceas-controller-title" class="relative scroll-mt-24 py-10">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <!-- Title + Lede -->
+    <header class="mb-6">
+      <h2 id="ceas-controller-title" class="text-2xl font-semibold tracking-tight text-slate-900">
+        Retuned β-Thermostat + Entropy Gating (aggressive early, safe late)
+      </h2>
+      <p class="mt-2 text-slate-600 leading-relaxed">
         This controller accelerates entry into the useful regime (the <em>entropy corridor</em>) and continuously
         skips low-information work, while keeping a safe margin from pseudo-critical slowdowns. It is designed to
         drop cleanly into a standard Transformer training loop.
@@ -373,7 +204,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- Objectives callout -->
     <aside role="note" aria-label="Objectives" class="rounded-xl border border-blue-200 bg-blue-50/60 p-4 sm:p-5 mb-8">
-      <h4 class="mb-2 text-base font-semibold text-slate-900">Objectives</h4>
+      <h3 class="mb-2 text-base font-semibold text-slate-900">Objectives</h3>
       <ul class="list-disc pl-5 space-y-1 text-slate-700">
         <li><strong>Warm-up savings:</strong> reach the entropy corridor quickly without overshoot.</li>
         <li><strong>Steady-state savings:</strong> prune low-information tokens/heads continuously.</li>
@@ -382,11 +213,11 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
       </ul>
     </aside>
 
-    <h4 class="text-xl font-semibold text-slate-900 mb-4">Controller Design</h4>
+    <h3 class="text-xl font-semibold text-slate-900 mb-4">Controller Design</h3>
 
     <!-- A) Faster relaxation -->
     <section aria-labelledby="faster-relaxation" class="mb-8">
-      <h5 id="faster-relaxation" class="text-lg font-semibold text-slate-900 mb-2">A) Faster relaxation into the corridor</h5>
+      <h4 id="faster-relaxation" class="text-lg font-semibold text-slate-900 mb-2">A) Faster relaxation into the corridor</h4>
       <p class="text-slate-700">Replace the unit-gain Newton step with a <em>gain-scheduled</em> update:</p>
       <div class="mt-3 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800">
         <div>\[
@@ -410,7 +241,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- B) Critical margin -->
     <section aria-labelledby="critical-margin" class="mb-8">
-      <h5 id="critical-margin" class="text-lg font-semibold text-slate-900 mb-2">B) “Don’t get stuck near critical” margin</h5>
+      <h4 id="critical-margin" class="text-lg font-semibold text-slate-900 mb-2">B) “Don’t get stuck near critical” margin</h4>
       <p class="text-slate-700">
         Use a correlation-length proxy (custom symbol) and hold a minimum gap from the pseudo-critical point:
       </p>
@@ -429,7 +260,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- C) Gating -->
     <section aria-labelledby="gating" class="mb-8">
-      <h5 id="gating" class="text-lg font-semibold text-slate-900 mb-2">C) Selective early gating, relaxed later</h5>
+      <h4 id="gating" class="text-lg font-semibold text-slate-900 mb-2">C) Selective early gating, relaxed later</h4>
       <p class="text-slate-700">
         Gate by a dimensionless temperature-gap score \( T = \beta\,\sigma_{qk}\,\sqrt{2\ln N_{\mathrm{eff}}} \).
       </p>
@@ -456,7 +287,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- D) Guardrails -->
     <section aria-labelledby="guardrails" class="mb-10">
-      <h5 id="guardrails" class="text-lg font-semibold text-slate-900 mb-2">D) Guardrails (quality first)</h5>
+      <h4 id="guardrails" class="text-lg font-semibold text-slate-900 mb-2">D) Guardrails (quality first)</h4>
       <ul class="list-disc pl-5 space-y-1 text-slate-700">
         <li>Pruning floors: keep at least \(m_{\min}\) tokens/sequence (e.g., 16–32) and at least \(h_{\min}\)
           heads/layer (e.g., 2–4).</li>
@@ -467,9 +298,9 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- Integrated Cost Model -->
     <section aria-labelledby="cost-model" class="mb-10">
-      <h4 id="cost-model" class="text-xl font-semibold text-slate-900 mb-3">
+      <h3 id="cost-model" class="text-xl font-semibold text-slate-900 mb-3">
         Integrated Cost Model (with pseudo-critical effects)
-      </h4>
+      </h3>
 
       <p class="text-slate-700 font-medium">Baseline cost:</p>
       <div class="mt-2 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800">
@@ -507,7 +338,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- Projected Savings Table -->
     <section aria-labelledby="projected-savings" class="mb-10">
-      <h5 id="projected-savings" class="text-lg font-semibold text-slate-900 mb-3">Projected Savings (typical runs)</h5>
+      <h4 id="projected-savings" class="text-lg font-semibold text-slate-900 mb-3">Projected Savings (typical runs)</h4>
       <div class="overflow-x-auto rounded-lg border border-slate-200">
         <table class="w-full text-left text-sm">
           <thead class="bg-slate-50 text-slate-700">
@@ -567,7 +398,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- Drop-In Defaults -->
     <section aria-labelledby="drop-in-defaults" class="mb-8">
-      <h4 id="drop-in-defaults" class="text-xl font-semibold text-slate-900 mb-3">Drop-In Defaults</h4>
+      <h3 id="drop-in-defaults" class="text-xl font-semibold text-slate-900 mb-3">Drop-In Defaults</h3>
       <ul class="list-disc pl-5 space-y-1 text-slate-700">
         <li><strong>Targets:</strong> \(H_{\text{target}}=\log N_{\mathrm{eff}}-1.1\) (tighten to −1.3 if stable).
           EMA windows: 64 steps for \(H\), 128 for \(\sigma_{qk}\).</li>
@@ -602,22 +433,22 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     #entropy-first-controller h3 { font-size:1.125rem; margin-top:1.25rem; }
     #entropy-first-controller h4 { font-size:1rem; margin-top:.75rem; }
     #entropy-first-controller p { margin:.5rem 0 1rem; color:var(--muted); }
-    #entropy-first-controller .lede { color:var(--body); font-size:1.05rem; line-height:1.6; }
+    #entropy-first-controller .lede { color:#334155; font-size:1.05rem; line-height:1.6; }
     #entropy-first-controller .callout { border-left:4px solid var(--accent); background:var(--soft); padding:0.9rem 1rem; border-radius:10px; margin:.9rem 0; }
-    #entropy-first-controller .callout.bottomline { background:var(--box-blue); }
-    #entropy-first-controller .symbols { color:var(--body); font-size:.95rem; margin-top:.5rem; }
+    #entropy-first-controller .callout.bottomline { background:#eef5ff; }
+    #entropy-first-controller .symbols { color:#3b4758; font-size:.95rem; margin-top:.5rem; }
     #entropy-first-controller .stacked { display:grid; gap:.25rem; }
     #entropy-first-controller ul, #entropy-first-controller ol { padding-left:1.2rem; margin:.4rem 0 1rem; }
     #entropy-first-controller li { margin:.25rem 0; }
     #entropy-first-controller .knobs > li { margin:.6rem 0 1rem; }
     #entropy-first-controller .knobs h4 { margin:0 0 .25rem; font-weight:600; color:#0f172a; }
     #entropy-first-controller .kbits { margin:.25rem 0 .4rem; }
-    #entropy-first-controller .eq { background:var(--box-blue); border:1px solid #e5e7eb; padding:.6rem .7rem; border-radius:.6rem; color:#0f172a; overflow-x:auto; }
+    #entropy-first-controller .eq { background:#f8fafc; border:1px solid #e5e7eb; padding:.6rem .7rem; border-radius:.6rem; color:#0f172a; overflow-x:auto; }
     #entropy-first-controller table { width:100%; border-collapse:collapse; font-size:.95rem; }
-    #entropy-first-controller thead th { text-align:left; border-bottom:1px solid #dbe3ef; padding:.55rem; color:var(--body); background:var(--box-blue); position:sticky; top:0; }
+    #entropy-first-controller thead th { text-align:left; border-bottom:1px solid #dbe3ef; padding:.55rem; color:#334155; background:#f8fbff; position:sticky; top:0; }
     #entropy-first-controller tbody td { border-bottom:1px solid #eef2f9; padding:.55rem; color:#253140; }
     #entropy-first-controller .twrap { overflow-x:auto; border:1px solid #e6ecf7; border-radius:.6rem; }
-    #entropy-first-controller .note { font-size:.92rem; color:var(--muted); }
+    #entropy-first-controller .note { font-size:.92rem; color:#475569; }
     #entropy-first-controller .kbd { font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:.92em; }
     @media (max-width:640px) {
       #entropy-first-controller h2 { font-size:1.25rem; }
@@ -626,7 +457,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
       #entropy-first-controller table, #entropy-first-controller tbody, #entropy-first-controller tr, #entropy-first-controller td { display:block; width:100%; }
       #entropy-first-controller tbody tr { border-bottom:1px solid #eef2f9; }
       #entropy-first-controller tbody td { display:flex; justify-content:space-between; gap:.75rem; }
-      #entropy-first-controller tbody td::before { content:attr(data-th); font-weight:600; color:var(--body); }
+      #entropy-first-controller tbody td::before { content:attr(data-th); font-weight:600; color:#334155; }
     }
     @media (prefers-color-scheme: dark) {
       #entropy-first-controller { --ink:#e5e7eb; --muted:#b6c0d2; --line:#263243; --soft:#0b1220; }
@@ -640,65 +471,82 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
   </style>
 
   <header>
-<hr style="border:none;border-top:1px solid var(--border-dim);margin:2.5rem 0;">
-<p class="lede">Extending the same entropy/critical‑control lens beyond the attention temperature β—to learning rate, batch size, regularization, smoothing/dropout, and gating—compounds the gains. The result is a defensible path to <strong>≥50% end‑to‑end training savings</strong> at LLM scale while meeting the same validation target.</p>
+    <h2 id="entropy-title">Beyond β: An Entropy‑First Training Controller (toward ≥50% savings)</h2>
+    <p class="lede">Extending the same entropy/critical‑control lens beyond the attention temperature β—to learning rate, batch size, regularization, smoothing/dropout, and gating—compounds the gains. The result is a defensible path to <strong>≥50% end‑to‑end training savings</strong> at LLM scale while meeting the same validation target.</p>
   </header>
 
-  <h4>2) Multi‑knob controller</h4>
+  <h3>1) Integrated cost model</h3>
+  <p>Decompose baseline training into warm‑up (before entering the corridor) and steady‑state:</p>
+
+  <div class="callout" role="note" aria-label="Integrated cost model">
+    <div class="stacked">
+      <div>Baseline cost (normalized units):</div>
+      <div class="eq">\[ \text{Cost}_{\text{base}} = \underbrace{W}_{\text{warm-up share}} + \underbrace{(1-W)}_{\text{steady}}. \]</div>
+      <div>With control and pruning:</div>
+      <div class="eq">\[ \text{Cost}_{\text{ctrl}} = \underbrace{\frac{1-\bar\chi_{\rm warm}}{s_{\rm warm}}\,W}_{\substack{\text{fewer steps \&}\\\text{fewer tokens (warm-up)}}} + \underbrace{\frac{1-\bar\chi_{\rm steady}}{s_{\rm steady}}\,(1-W)}_{\substack{\text{fewer tokens (steady)}\\\text{+ faster relaxation}}}. \]</div>
+      <div>Savings:</div>
+      <div class="eq">\[ \boxed{\text{Save}=1-\text{Cost}_{\text{ctrl}}} \]</div>
+    </div>
+    <p class="symbols"><span class="kbd">W</span> = warm‑up share of baseline steps (typ. 0.25–0.35 at LLM scale); <span class="kbd">\(\bar\chi_{\rm warm},\,\bar\chi_{\rm steady}\)</span> = average pruned fraction (tokens/heads) from gating; <span class="kbd">\(s_{\rm warm},\,s_{\rm steady}\)</span> = step‑count speedups from better relaxation (including bounded critical slowing down).</p>
+  </div>
+
+  <p>A workable target mix to clear 50% at LLM scale: \(W\!\approx\!0.30,\;\bar\chi_{\rm warm}\!\approx\!0.30,\;\bar\chi_{\rm steady}\!\approx\!0.20,\; s_{\rm warm}\!\gtrsim\!2.3,\;s_{\rm steady}\!\gtrsim\!1.25\). These thresholds are achieved when multiple knobs are governed by the same entropy/critical controller—not β alone.</p>
+
+  <h3>2) Multi‑knob controller</h3>
   <p>Each knob is assigned (i) a local observable, (ii) a target band, and (iii) a one‑step update (Newton/PI style), with a <em>pseudo‑critical margin</em> to avoid \(\tau\!\sim\!\zeta_{\rm CE}^{\,z}\) blowups.</p>
 
   <ol class="knobs">
     <li>
-      <h5>Attention temperature β (CEAS core)</h5>
+      <h4>Attention temperature β (CEAS core)</h4>
       <p class="kbits"><em>Observable:</em> attention entropy \(H\) (or \(N_{\rm eff}=e^H\)).</p>
       <p class="kbits"><em>Update:</em> gain‑scheduled Newton step on \(H\) toward \(H_{\text{target}}\).</p>
       <p class="kbits"><em>Margin:</em> keep \(u=\tfrac{|\beta-\beta_c|}{\beta_c}\ge u_{\min}\) so \(\zeta_{\rm CE}\) and \(\tau\) remain finite.</p>
     </li>
     <li>
-      <h5>Learning rate \(\eta\) (critical‑damping target)</h5>
+      <h4>Learning rate \(\eta\) (critical‑damping target)</h4>
       <p class="kbits"><em>Observable:</em> trust ratio \(\rho=\eta\,\lambda_{\max}(H_\theta)\) (or a curvature proxy via EMA).</p>
       <p class="kbits"><em>Target:</em> \(\rho\in[\rho_{\min},\rho_{\max}]\) (e.g., 0.02–0.08).</p>
       <p class="kbits"><em>Update:</em> \(\eta\leftarrow \eta\,\exp\!\big(\kappa_\eta(\rho^{*}-\rho)\big)\).</p>
     </li>
     <li>
-      <h5>Batch size \(B\) (constant gradient‑noise scale)</h5>
+      <h4>Batch size \(B\) (constant gradient‑noise scale)</h4>
       <p class="kbits"><em>Observable:</em> GNS proxy \(g\) via online gradient variance.</p>
       <p class="kbits"><em>Target:</em> \(g\approx g^{*}\).</p>
       <p class="kbits"><em>Update:</em> \(B\leftarrow B\cdot \exp\!\big(\kappa_B(g/g^{*}-1)\big)\) with hardware caps.</p>
     </li>
     <li>
-      <h5>Weight decay \(\lambda_{\rm wd}\) (spectral/entropy regularizer)</h5>
+      <h4>Weight decay \(\lambda_{\rm wd}\) (spectral/entropy regularizer)</h4>
       <p class="kbits"><em>Observable:</em> parameter spectral norm or parameter‑entropy \(H(\theta)\).</p>
       <p class="kbits"><em>Target:</em> keep \(H(\theta)\) in band (avoid collapse/explosion).</p>
       <p class="kbits"><em>Update:</em> \(\lambda_{\rm wd}\leftarrow \lambda_{\rm wd}+\kappa_\lambda\big(H^{*}-H(\theta)\big)\).</p>
     </li>
     <li>
-      <h5>Label smoothing / dropout \(p\) (mutual‑information cap)</h5>
+      <h4>Label smoothing / dropout \(p\) (mutual‑information cap)</h4>
       <p class="kbits"><em>Observable:</em> logits entropy \(H_{\rm logit}\) or calibration error.</p>
       <p class="kbits"><em>Target:</em> maintain a high‑entropy band early; anneal later.</p>
       <p class="kbits"><em>Update:</em> \(p\leftarrow \text{sched}(t)\) to keep \(H_{\rm logit}\!\to\!H_{\rm logit}^{*}\).</p>
     </li>
     <li>
-      <h5>Token/head gating (work pruning)</h5>
+      <h4>Token/head gating (work pruning)</h4>
       <p class="kbits"><em>Observable:</em> temperature‑gap score \(T=\beta\,\sigma_{qk}\sqrt{2\ln N_{\rm eff}}\).</p>
       <p class="kbits"><em>Target:</em> schedule \(T_{\text{gate}}(t)\) high early, relaxing later.</p>
       <p class="kbits"><em>Rule:</em> keep tokens with \(T\ge T_{\text{gate}}\) or top‑\(q\) per head; freeze heads on persistently low entropy.</p>
     </li>
     <li>
-      <h5>Pseudo‑critical margin (applies to all)</h5>
+      <h4>Pseudo‑critical margin (applies to all)</h4>
       <p class="kbits">Define a custom correlation‑length proxy \(\zeta_{\rm CE}(\beta)=1/\big(\max(u,u_{\min})\big)^{\nu}\) (with \(\nu\in[0.5,1]\)).</p>
       <p class="kbits">Enforce \(u\ge u_{\min}\) by capping updates. This bounds \(\tau\propto \zeta_{\rm CE}^{\,z}\) and prevents critical slowing‑down from erasing the gains.</p>
     </li>
   </ol>
 
-  <h4>3) Why the gains compound</h4>
+  <h3>3) Why the gains compound</h3>
   <ul>
     <li><strong>Multiplicative warm‑up reduction.</strong> Typical factors when each knob is steered to an information‑optimal band: \(s_{\rm warm}^{(\beta)}\sim 1.5\! -\! 1.8,\; s_{\rm warm}^{(\eta)}\sim 1.2\! -\! 1.4,\; s_{\rm warm}^{(B)}\sim 1.1\! -\! 1.2,\; s_{\rm warm}^{(\text{reg})}\sim 1.05\! -\! 1.15\). Product \(s_{\rm warm}\approx 2.2\! -\! 3.0\) is common.</li>
     <li><strong>Steady‑state keeps paying.</strong> Even when textbook \(1/\sqrt{d_k}\) lands closer to the corridor at huge scale, non‑zero \(\bar\chi_{\rm steady}\) (gating) and tempered \(\eta,B\) reduce steps by another 15–35%.</li>
     <li><strong>Critical behavior helps—if the margin is enforced.</strong> Larger models sit nearer to pseudo‑criticality (better coupling), so smaller β changes propagate farther; the explicit \(u_{\min}\) gap prevents \(\tau\) blowups.</li>
   </ul>
 
-  <h4>4) What to expect (projected ranges)</h4>
+  <h3>4) What to expect (projected ranges)</h3>
   <div class="twrap" role="region" aria-label="Projected savings table">
     <table>
       <thead>
@@ -757,7 +605,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
   </div>
   <p class="note">Projections are end‑to‑end token‑update savings to the same validation target, under a bounded‑\(\tau\) regime.</p>
 
-  <h4>5) Minimal drop‑in updates (beyond β)</h4>
+  <h3>5) Minimal drop‑in updates (beyond β)</h3>
   <ul>
     <li><strong>Curvature‑aware learning rate:</strong> maintain \(\rho=\eta\,\widehat{\lambda}_{\max}\in[0.02,0.08]\) via an EMA of top‑eigenvalue proxies (e.g., light power‑iteration every \(N\) steps).</li>
     <li><strong>GNS‑scheduled batch:</strong> track gradient variance per layer; increase \(B\) when \(g>g^{*}\) (too noisy), decrease when \(g&lt;g^{*}\) (wasting compute).</li>
@@ -770,29 +618,29 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     <strong>Bottom line:</strong> β alone already delivers substantial gains. Bringing learning rate, batch size, smoothing/regularization, and principled gating under the same entropy/critical controller pushes the compound step‑reduction and pruning high enough to cross the ≥50% line—while staying a controlled distance from the pseudo‑critical point.
   </aside>
   
-  <h4>6) MaxEnt add‑on: architecture & initialization</h4>
+  <h3>6) MaxEnt add‑on: architecture & initialization</h3>
   <p>Extend the entropy/critical‑control lens to <em>structural</em> hyper‑parameters as well: matrix sizes (<span class="kbd">d_model</span>, <span class="kbd">d_k</span>, <span class="kbd">d_ff</span>), number of heads <span class="kbd">H</span>, attention pattern/positional scheme, activation parameters, and initialization scales. The Maximum Entropy (MaxEnt) principle selects the least‑assumptive configuration consistent with constraints (compute, memory, stability, and the corridor targets), reducing over‑/under‑provisioned work before training even starts.</p>
 
   <ol class="knobs">
     <li>
-      <h5>(A) Initialization scales (per layer)</h5>
+      <h4>(A) Initialization scales (per layer)</h4>
       <p class="kbits">Choose weight std. <span class="kbd">σ<sub>w</sub></span> so the temperature <span class="kbd">T = β·σ<sub>qk</sub>·√(2·ln N<sub>eff</sub>)</span> starts near a target band <span class="kbd">T*</span> at step 0, while keeping variance propagation and kurtosis within bounds. This places layers closer to the entropy corridor from the first updates.</p>
     </li>
     <li>
-      <h5>(B) Matrix sizes & heads</h5>
+      <h4>(B) Matrix sizes & heads</h4>
       <p class="kbits">Evaluate a small, tile‑friendly catalog of tuples <span class="kbd">(H, d_k, d_ff, d_model)</span> with measured cost (FLOPs/memory) and a corridor‑utility score (how well per‑head N<sub>eff</sub> stays in band for moderate β). Select via a softmax/Lagrange trade‑off between cost and utility, then fix the best tuple before training.</p>
     </li>
     <li>
-      <h5>(C) Activation/normalization parameters</h5>
+      <h4>(C) Activation/normalization parameters</h4>
       <p class="kbits">Maintain an output‑entropy band <span class="kbd">H(f(x))</span> using a tiny PI controller on activation parameters (and a sensible layer‑norm ε), plus a spectral‑radius cap to avoid heavy‑tail gradients.</p>
     </li>
     <li>
-      <h5>(D) Attention pattern / positional scheme</h5>
+      <h4>(D) Attention pattern / positional scheme</h4>
       <p class="kbits">Pick among rotary / learned / ALiBi / local patterns by the same cost–utility criterion, favoring options that keep early‑layer N<sub>eff</sub> high at fixed compute.</p>
     </li>
   </ol>
 
-  <h4>7) Updated projections with MaxEnt (structural)</h4>
+  <h3>7) Updated projections with MaxEnt (structural)</h3>
   <div class="twrap" role="region" aria-label="Updated savings with MaxEnt">
     <table>
       <thead>
@@ -842,18 +690,9 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
 <!-- ===== EFFECT OF MODEL SIZE ON β SCALING DYNAMICS ===== -->
 <section id="beta-scaling-metaphor" class="research-list" aria-label="Model β Scaling and Rolling Log Analogy">
+  <h2>β Scaling in Large vs Small Models — Rolling Log Metaphor</h2>
 
-  </div>
-</section>
-
-<section class="page-section" id="hardware">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">Hardware Substrate</h2>
-  </div>
-  <div class="section-body">
-
-<p>
+  <p>
     Imagine your model as an ancient stone structure that you want to preserve. You wish to relocate it to a more optimal position — not instantly, but gradually, using physical means.
   </p>
 
@@ -946,7 +785,9 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
 <!-- ===== Estimated Cost & Compute Savings: GPT-Scale Models ===== -->
 <section id="budget-savings-analysis" class="research-list" aria-label="Cost and GPU Impact: Scaling Benefits of β Prediction">
-<p>
+  <h2>Estimated Cost & Compute Savings with β‑Scaling Optimization</h2>
+
+  <p>
     Based on observed behavior across model scales, the β‑range prediction method allows token savings by a factor of <strong>𝓛</strong>. 
     We assume <strong>effective training throughput = 200 TFLOP/s per GPU</strong> and model-specific baseline token budgets:
   </p>
@@ -963,7 +804,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
   <table class="data-table" style="width:100%; border-collapse: collapse; margin-bottom: 1.5rem;">
     <thead>
-      <tr style="background:var(--box-blue);">
+      <tr style="background:#f4f4f4;">
         <th style="padding:6px;">Model</th>
         <th style="padding:6px;">Tokens</th>
         <th style="padding:6px;">Baseline GPU‑Hours</th>
@@ -1026,7 +867,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
   <hr>
 
-  <h4 style="margin-top:1.5rem;">Wall-Clock Equivalence: GPU Count to Match Training Time</h4>
+  <h3 style="margin-top:1.5rem;">Wall-Clock Equivalence: GPU Count to Match Training Time</h3>
 
   <p>Assume a baseline GPU count <code>G<sub>base</sub></code>. With token compression by <strong>𝓛</strong>, you can maintain same wall-clock time using:</p>
 
@@ -1062,7 +903,8 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
 <!-- ===== CEAS–Ising NPU Architecture — Strategic Disclosure Summary ===== -->
 <section id="ceas-npu-summary" class="research-list" aria-label="CEAS–Ising NPU vs Classical GPU">
-<hr style="border:none;border-top:1px solid var(--border-dim);margin:2.5rem 0;">
+  <h2>CEAS–Ising NPU vs Classical GPU: Architecting Intelligence Beyond the Digital Regime</h2>
+
 <div class="key-insight" style="margin-top:1rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f8f9fa;">
   <strong>BLUF:</strong>
   At <em>thermodynamic criticality</em>, model-wide coordination emerges without centralized compute,
@@ -1082,7 +924,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     This disclosure marks a strategic pre‑publication aligned with the protection and ongoing development of a U.S. provisional patent filing. It is released under a deliberate IP positioning protocol and should be interpreted as a limited, non‑enabling public summary consistent with <strong>37 CFR §1.211–1.213</strong> (provisional treatment), <strong>Festo doctrine carveouts</strong>, and standard publication-to-filing interval guidance.
   </p>
 
-  <h4>Systemic Discontinuity: A Summary Comparison</h4>
+  <h3>Systemic Discontinuity: A Summary Comparison</h3>
 
   <p>
     Below is a formal comparative matrix designed to illustrate the architectural discontinuity between traditional GPU-based AI systems and CEAS–Ising-based computation. This is not a performance table—it is a structural redefinition:
@@ -1140,7 +982,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     </tbody>
   </table>
 
-  <h4>Functional Equivalence Mapping</h4>
+  <h3>Functional Equivalence Mapping</h3>
   <p>This table expresses how conventional transformer components map to CEAS–Ising physical structures, enabling cross‑domain interpretability and cross‑licensing clarity.</p>
 
   <table style="width:100%; border-collapse:collapse;">
@@ -1178,7 +1020,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
     </tbody>
   </table>
 
-  <h4>Strategic Framing and Intellectual Property Notice</h4>
+  <h3>Strategic Framing and Intellectual Property Notice</h3>
   <p>
     This page constitutes a non-enabling disclosure intended for policy and technological community awareness, not full reproduction. The underlying design—including CEAS memory architecture, β-flow coupling, and metastable symbolic operators—is subject to an active U.S. <strong>provisional patent filing</strong> and may enter the <strong>dual-use (EAR/ITAR) classification domain</strong>. Discussions regarding technology transfer, licensing, joint venture structuring, or classified adaptation will require:
   </p>
@@ -1198,17 +1040,8 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
 
 <article>
-
-  </div>
-</section>
-
-<section class="page-section" id="related">
-  <div class="section-header">
-    <span class="section-num">05</span>
-    <h2 class="section-title">Related Work</h2>
-  </div>
-  <div class="section-body">
-<p>
+  <h2>Critical Scaling in Hyperbolic Attention Mechanisms</h2>
+  <p>
     This project presents a comprehensive, mathematically rigorous framework for hyperbolic attention mechanisms in transformer architectures, linking them to statistical mechanics, spectral theory, and fractal geometry. It offers an explicit derivation of the critical inverse temperature \( \beta_c(\delta, \kappa, \mathcal{T}) \) in terms of fractal dimension \( \delta \), curvature \( \kappa \), and topological connectivity \( \mathcal{T} \).
   </p>
   <p>
@@ -1236,30 +1069,22 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
     <!-- Inserted Content: ALL Centered -->
     <section class="research-journey centered-content">
-  </div>
-</section>
+      <h2>Advancing Transformer Efficiency Through Dynamic Scaling Factors: My Research Journey</h2>
 
-<section class="page-section" id="origin">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <h2 class="section-title">Research Origin</h2>
-  </div>
-  <div class="section-body">
-
-<h4>Introduction</h4>
+      <h3>Introduction</h3>
       <p>
         The transformer architecture has revolutionized deep learning, powering state-of-the-art large language models (LLMs) such as GPT-4. However, the reliance on brute computational power to scale these models presents significant challenges, including high costs and inefficiency. My research focuses on dynamically optimizing the scaling factor \(\beta\) in transformers to improve efficiency and accuracy. This journey has been both challenging and rewarding, and I am proud to share the progress I have made.
       </p>
       <hr class="divider">
 
-      <h4>Timeline and Research Progress</h4>
+      <h3>Timeline and Research Progress</h3>
       <div class="timeline">
 
 
 
 
 <div class="timeline-item">
-  <h5>Early Encounters with the Ising Model</h5>
+  <h4>Early Encounters with the Ising Model</h4>
   <ul>
    <li>
   In 2008, I implemented my first Ising model code in a computational physics course using Fortran 99, taught by Dr. Chi-Ning Chen at NDHU. This experience introduced me to computational techniques in statistical physics and laid the foundation for my later studies of the model.
@@ -1325,7 +1150,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 
 
         <div class="timeline-item">
-          <h5>December 2022 – January 2023</h5>
+          <h4>December 2022 – January 2023</h4>
           <ul>
             <li>Began investigating the role of the scaling factor \(\beta\) in self-attention mechanisms.</li>
             <li>Developed theoretical foundations inspired by statistical mechanics and optimization theory to dynamically adjust \(\beta\).</li>
@@ -1333,7 +1158,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
         </div>
 
         <div class="timeline-item">
-          <h5>September 2023</h5>
+          <h4>September 2023</h4>
           <ul>
             <li>Drafted the first version of my research paper, focusing on the theoretical basis and moderate empirical results to maintain credibility while avoiding overstatements.</li>
           </ul>
@@ -1342,7 +1167,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
         <div class="timeline-item">
 
         <div class="timeline-item">
-          <h5>December 2023</h5>
+          <h4>December 2023</h4>
           <ul>
             <li><strong>RTG Presentation</strong>: Presented a preliminary version of my work at the RTG seminar at the University of Arizona.
               <ul>
@@ -1354,7 +1179,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
         </div>
 
 <div class="timeline-item">
-  <h5>October 30, 2024</h5>
+  <h4>October 30, 2024</h4>
   <ul>
     <li><strong>Export Office Rejection</strong>:
       <ul>
@@ -1383,14 +1208,14 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 </div>
 
         <div class="timeline-item">
-          <h5>December 2024</h5>
+          <h4>December 2024</h4>
           <ul>
             <li>Published the work on <strong>ResearchGate</strong> to ensure accessibility and transparency. While ResearchGate has a smaller reach than arXiv, it allowed me to share my results with the academic community.</li>
           </ul>
         </div>
 
         <div class="timeline-item">
-          <h5>January 2025</h5>
+          <h4>January 2025</h4>
           <ul>
             <li>Preparing further refinements to the paper, incorporating additional experimental results and practical implications to submit to alternative venues.</li>
           </ul>
@@ -1398,7 +1223,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
       </div>
       <hr class="divider">
 
-      <h4>Key Contributions</h4>
+      <h3>Key Contributions</h3>
       <ol>
         <li>
           <strong>Dynamic Scaling Factor Optimization</strong>:
@@ -1426,8 +1251,9 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
       <hr class="divider">
 
 <section id="landau-preface">
-<hr style="border:none;border-top:1px solid var(--border-dim);margin:2.5rem 0;">
-<!-- English Translation Only -->
+  <h2>Landau’s 1940 Preface</h2>
+
+  <!-- English Translation Only -->
   <div class="english-text">
     <p><strong>Theoretical Physics Course · Mechanics</strong></p>
     <p>
@@ -1465,7 +1291,8 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 </section>
 
 <section id="landau-connection">
-<p>
+  <h2>Relevance of Landau’s 1940 Preface to My Research</h2>
+  <p>
   I find Landau’s perspective in his <em>1940 Preface to Theoretical Physics Course</em> particularly resonant with the challenges in large-scale machine learning today. My academic path, spanning mathematics, physics, and computer science, allows me to appreciate how Landau’s emphasis on identifying key parameters and simplifying complex systems parallels the efficient training of transformer architectures. His insight—that theory provides a guiding framework but requires the isolation and rigorous examination of the most critical factors to achieve practical, approximate solutions—is especially relevant to machine learning, where computational resources are finite and model complexity can be immense.
   </p>
 
@@ -1496,21 +1323,13 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 </section>
 
 <section id="ising-deep-learning">
+  <h2>Connecting the Ising Model to Deep Learning and Transformers</h2>
 
-  </div>
-</section>
-
-<section class="page-section" id="bibliography">
-  <div class="section-header">
-    <span class="section-num">07</span>
-    <h2 class="section-title">Bibliography</h2>
-  </div>
-  <div class="section-body">
-<p>
+  <p>
     The mathematical and theoretical connections between the Ising model, spin-glass systems, and modern deep learning architectures like transformers have been well-studied. The following notable works highlight these connections, providing a foundation for understanding the equivalence or similarity between these systems:
   </p>
 
-  <h4>Key Papers and Abstracts</h4>
+  <h3>Key Papers and Abstracts</h3>
   <ol>
     <li>
       <strong>"The Loss Surfaces of Multilayer Networks" (2015)</strong>  
@@ -1583,18 +1402,4 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
   </footer>-->
 </body>
 </html>
-  </div>
-</section>
-  </main>
-</div>
 
-<footer>
-  &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc.
-  All rights reserved. &middot;
-  Patent Applications: 63/813,617 (CEAS) &middot; 64/067,703 (Physical ASI/GRAIL) &middot; Provisional stage.
-</footer>
-
-</div>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
-</body>
-</html>
