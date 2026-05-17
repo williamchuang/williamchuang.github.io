@@ -1,237 +1,59 @@
-<!doctype html>
+---
+layout: default
+title: GRAIL
+home: passive
+cv: passive
+projects: passive
+Research: active
+blog: passive
+---
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>GRAIL — Geometric Representation Algebra for Intelligent Learning · Logarchéon</title>
-<meta name="description" content="GRAIL encodes neural computation over curved manifolds. Geometric error correction, cryptographic twin models, automorphic attention, and observer-centric quantum gravity."/>
-<link rel="canonical" href="https://logarcheon.com/GRAIL"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-MathJax = {
-  tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']] },
-  options: { skipHtmlTags: ['script','noscript','style','textarea'] }
-};
-</script>
-<style>
-:root{
-  --navy:#0a1628;--navy-mid:#0e1f3a;--navy-light:#162d52;--navy-rim:#1e3a64;
-  --gold:#c9a84c;--gold-light:#e2c97e;--gold-dim:#a07d3a;
-  --gold-pale:rgba(201,168,76,0.14);--gold-glow:rgba(201,168,76,0.07);
-  --cream:#f5f0e8;
-  --body:#e8e2d8;
-  --muted:#c8c0b0;
-  --faint:#8a8070;
-  --border:rgba(201,168,76,0.25);--border-dim:rgba(201,168,76,0.11);
-  --section-gap:5rem;
-  --box-blue:rgba(18,45,95,0.75);
-  --box-green:rgba(12,48,28,0.75);
-  --box-amber:rgba(80,50,5,0.7);
-  --box-red:rgba(80,14,20,0.7);
-  --box-insight:rgba(8,24,52,0.9);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Libre Baskerville',Georgia,serif;background:var(--navy);color:var(--cream);line-height:1.72;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,0.05) 0%,transparent 55%);}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);background-size:80px 80px;}
-.wrap{position:relative;z-index:1}
-h1,h2,h3,h4,h5{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:-0.01em;font-weight:500;color:var(--cream);line-height:1.2;}
-.mono{font-family:'DM Mono',monospace;font-weight:300;font-size:0.76rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);}
-a{color:var(--gold);text-decoration:none;}
-a:hover{color:var(--gold-light);text-decoration:underline;}
-code,pre{font-family:'DM Mono',monospace;font-size:0.82rem;background:var(--navy-mid);padding:0.15em 0.4em;border-radius:3px;color:var(--cream);}
-pre{padding:1.2rem 1.4rem;overflow-x:auto;border:1px solid var(--border-dim);border-radius:6px;}
-strong{color:var(--cream);font-weight:700;}
-em{font-style:italic;}
-.MathJax{color:var(--cream) !important;}
-nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dim);padding:0 28px;}
-.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--gold-light);letter-spacing:0.02em;}
-.nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);text-decoration:none;}
-.container{max-width:1060px;margin:0 auto;padding:0 28px;}
-.page-layout{display:grid;grid-template-columns:210px 1fr;gap:4rem;align-items:start;padding:4rem 28px 6rem;max-width:1060px;margin:0 auto;}
-.toc-sidebar{position:sticky;top:74px;border-left:1px solid var(--border);padding-left:1.4rem;}
-.toc-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem;}
-.toc-list{list-style:none;display:flex;flex-direction:column;gap:0.25rem;}
-.toc-link{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.05em;color:var(--body);padding:0.25rem 0;display:block;border-left:2px solid transparent;margin-left:-1.5rem;padding-left:1.3rem;transition:color 0.2s,border-color 0.2s;}
-.toc-link:hover{color:var(--gold);border-color:var(--gold);text-decoration:none;}
-.page-hero{border-bottom:1px solid var(--border-dim);padding:3.5rem 0 2.5rem;}
-.page-hero .breadcrumb{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.6rem;}
-.page-hero h1{font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;max-width:24ch;margin-bottom:1rem;}
-.page-hero h1 em{font-style:italic;color:var(--gold-light);}
-.hero-desc{color:var(--body);font-size:1.05rem;max-width:62ch;line-height:1.75;margin-bottom:1.5rem;}
-.hero-eq{font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--muted);border-left:2px solid var(--gold-dim);padding-left:1rem;margin:1rem 0;line-height:1.8;}
-.hero-badges{display:flex;gap:0.8rem;flex-wrap:wrap;margin-bottom:1.5rem;}
-.hero-badge{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:0.3rem 0.75rem;border-radius:2px;background:var(--gold-pale);}
-.page-section{margin-bottom:var(--section-gap);}
-.section-header{display:flex;align-items:baseline;gap:1.2rem;border-bottom:1px solid var(--border-dim);padding-bottom:0.9rem;margin-bottom:2.2rem;}
-.section-num{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--muted);}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--gold-light);}
-.section-body h3{font-size:1.25rem;font-weight:500;color:var(--cream);margin:2.2rem 0 0.7rem;border-left:2px solid var(--gold-dim);padding-left:0.85rem;}
-.section-body h4{font-size:1.08rem;font-weight:500;color:var(--gold-light);margin:1.6rem 0 0.5rem;}
-.section-body h5{font-family:'DM Mono',monospace;font-size:0.76rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);margin:1.2rem 0 0.4rem;}
-.section-body p{color:var(--body);margin-bottom:0.9rem;max-width:72ch;line-height:1.75;}
-.section-body ul,.section-body ol{color:var(--body);padding-left:1.5rem;margin-bottom:0.9rem;}
-.section-body li{margin-bottom:0.35rem;}
-.section-body table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:0.87rem;overflow-x:auto;display:block;}
-.section-body th{font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);padding:0.55rem 0.85rem;text-align:left;background:var(--navy-light);white-space:nowrap;}
-.section-body td{color:var(--body);border-bottom:1px solid var(--border-dim);padding:0.5rem 0.85rem;vertical-align:top;}
-.section-body tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
-/* Force dark-theme on all inline-styled boxes */
-.section-body [style*="background"]{color:var(--cream) !important;}
-.section-body [style*="background"] *{color:var(--cream) !important;}
-/* Override any remaining light theme inline styles */
-.section-body [style*="var(--box-blue)"],.section-body [style*="var(--navy-mid)"]{color:var(--cream) !important;}
-/* CTQ Langlands custom elements */
-.ctq-sub{color:var(--muted);font-size:1rem;margin-bottom:0.8rem;}
-.ctq-badges{display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.8rem 0 1.5rem;}
-.ctq-badge{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid var(--border);padding:0.2rem 0.6rem;border-radius:2px;color:var(--muted);background:var(--gold-pale);}
-.ctq-card{background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-radius:4px;padding:1.2rem 1.4rem;margin:1rem 0;}
-.ctq-card h4{margin-top:0;color:var(--cream);}
-.ctq-callout{background:var(--box-insight);border-left:3px solid var(--gold-dim);padding:0.9rem 1.2rem;margin:0.8rem 0;border-radius:0 3px 3px 0;}
-.ctq-callout *{color:var(--cream) !important;}
-.ctq-mini{font-size:0.92rem;color:var(--body);}
-.ctq-note{background:rgba(25,40,80,0.6);border:1px solid rgba(100,140,220,0.3);padding:0.8rem 1.1rem;margin:0.8rem 0;border-radius:3px;font-size:0.9rem;}
-.ctq-note *{color:var(--cream) !important;}
-.ctq-table{width:100%;border-collapse:collapse;font-size:0.88rem;margin:1rem 0;}
-.ctq-table th{font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);padding:0.5rem 0.8rem;text-align:left;background:var(--navy-light);}
-.ctq-table td{color:var(--body);border-bottom:1px solid var(--border-dim);padding:0.5rem 0.8rem;vertical-align:top;}
-/* PDF button */
-.pdf-btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--gold-pale);border:1px solid var(--border);color:var(--cream);padding:0.4rem 0.9rem;border-radius:3px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.05em;margin:0.4rem 0.4rem 0.4rem 0;transition:background 0.2s;text-decoration:none;}
-.pdf-btn:hover{background:rgba(201,168,76,0.22);border-color:var(--gold);color:var(--cream);text-decoration:none;}
-footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;color:var(--faint);text-align:center;}
-@media(max-width:860px){.page-layout{grid-template-columns:1fr;gap:2rem;padding:2rem 20px 4rem;}.toc-sidebar{display:none;}}
-/* Ensure details/summary readable */
-details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} summary:hover{color:var(--gold);}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Project: GRAIL - William Chuang</title>
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- MathJax for inline and display math -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
+
+
 <body>
-<div class="wrap">
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Logarch&eacute;on</a>
-    <ul class="nav-links">
-      <li><a href="/CEAS">CEAS</a></li>
-      <li><a href="/GRAIL" class="active">GRAIL</a></li>
-      <li><a href="/Research">&Psi;-Operator</a></li>
-      <li><a href="/MIA">MIA</a></li>
-      <li><a href="/#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-<div class="container">
-  <div class="page-hero">
-    <div class="breadcrumb">
-      <a href="/" style="color:var(--faint);">Logarch&eacute;on</a>
-      <span style="color:var(--faint);">/</span>
-      <span>GRAIL</span>
-    </div>
-    <h1>Geometric Representation<br><em>Algebra for Intelligent Learning</em></h1>
-    <p class="hero-desc">
-      GRAIL replaces Euclidean inner products with group-invariant metric primitives on curved manifolds,
-      giving neural architectures geometric error correction, cryptographic twin models,
-      and a principled route to observer-centric quantum gravity.
-      The fundamental invariance: I(g&thinsp;&middot;&thinsp;q,&thinsp;g&thinsp;&middot;&thinsp;k) = I(q,k) for all g in the isometry group G.
-    </p>
-    <div class="hero-eq">
-      d<sub>M</sub>(&phi;q, &phi;k) = d<sub>M</sub>(q, k)&nbsp;&nbsp;&forall;&thinsp;&phi; &isin; G
-      &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
-      the invariance from which geometry, security, and physics all follow
-    </div>
-    <div class="hero-badges">
-      <span class="hero-badge">U.S. Patent 64/067,703 (Physical ASI/GRAIL)</span>
-      <span class="hero-badge">63/773,441 (Hyperbolic Framework)</span>
-      <span class="hero-badge">Provisional stage &middot; In development</span>
-    </div>
-  </div>
-</div>
-<div class="page-layout">
-  <aside class="toc-sidebar">
-    <div class="toc-label">Sections</div>
-    <ul class="toc-list">
-      <li><a href="#foundations" class="toc-link">Foundations</a></li>
-<li><a href="#security" class="toc-link">Security &amp; Twins</a></li>
-<li><a href="#ctq" class="toc-link">CTQ Langlands</a></li>
-<li><a href="#implementation" class="toc-link">Implementation</a></li>
-<li><a href="#theory" class="toc-link">Theory</a></li>
-<li><a href="#applications" class="toc-link">Applications</a></li>
-<li><a href="#reference" class="toc-link">Origin &amp; Reference</a></li>
-    </ul>
-  </aside>
-  <main>
 
-<section class="page-section" id="foundations">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title">Foundations</h2>
-  </div>
-  <div class="section-body">
-<p class="note">
-    This research originated one year ago and remains under active development toward more advanced progress.
-    Patent applications: 64/067,703 (Physical ASI Seed/GRAIL) &middot; 63/773,441 (Hyperbolic Framework). Provisional stage.
-  </p>
-
-  <h3>What is GRAIL?</h3>
-  <p>
-    GRAIL formalizes learning as geometry. It introduces a representation algebra on (pseudo-)Riemannian
-    manifolds—particularly Minkowski and hyperbolic models—so that optimization, symmetry, and security
-    can be reasoned about with group actions, orbits, and invariant distances.
-  </p>
-
-  <h3>Key ideas at a glance</h3>
-  <ul>
-    <li><strong>Gradient–symmetry interplay.</strong> In general geometries, group actions need not commute with gradient descent; this reshapes optimization paths and landscapes.</li>
-    <li><strong>When commutativity returns.</strong> Under isometric symmetries on Riemannian manifolds with invariant loss, gradient flow is equivariant and commutes with those symmetries.</li>
-    <li><strong>Secure-by-geometry.</strong> Time-varying Lorentz/Möbius actions on parameters and data enable real-time, non-malleable encryption aligned with model inference.</li>
-    <li><strong>Autoencoders as dynamical systems.</strong> Fixed points, orbits, and hyperbolic distances structure compression, transfer, and reconstruction guarantees.</li>
-  </ul>
-
-  <h3>Mathematical backbone</h3>
-  <p>
-    Let \(G\) act isometrically on \((\mathcal{M},\langle\cdot,\cdot\rangle)\) with \(\mathcal{L}(g\!\cdot\!\theta)=\mathcal{L}(\theta)\).
-    Then the gradient field is \(G\)-equivariant:
-    \[
-      d(g)_\theta\big(\nabla \mathcal{L}(\theta)\big)=\nabla \mathcal{L}(g\!\cdot\!\theta),
-    \]
-    so gradient flow \(\Phi_t\) and isometries commute: \(g\!\cdot\!\Phi_t(\theta)=\Phi_t(g\!\cdot\!\theta)\).
-    Departures from these hypotheses (e.g., adaptive preconditioners, regularizers, stochasticity) generally break commutativity and can be exploited to navigate landscapes.
-  </p>
-
-  <h3>Why this matters</h3>
-  <p>
-    By treating learning as geometry, GRAIL unifies optimization, symmetry, and cryptography:
-    it yields principled invariances when desired and controlled non-commutativity when beneficial,
-    with direct routes to secure, real-time, model-aligned encryption.
-  </p>
-
-  <p>
-    <a class="cta" href="https://drive.google.com/file/d/1b4MsNssiyuZTsf3ucsWDrDjzbW35e-g_/view?usp=sharing" target="_blank" rel="noopener">
-      Read the GRAIL draft (PDF)
-    </a>
-  </p>
-</section>
+  <main class="container">
+    <h1>Research Project: Geometric Representation Algebra for Intelligent Learning (GRAIL)</h1>
+    <section class="research-list">
 
 
-<!-- ===== Lambda Stack Inverse Capability Overview ===== -->
-<section id="lambda-stack-inversion" class="research-section" aria-label="Lambda Stack Inverse Mapping Uniqueness">
-  
-  </div>
-</section>
+<!-- Optional: enable only if your site doesn't already load MathJax -->
+<!--
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+-->
 
-<section class="page-section" id="security">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Security &amp; Twin Models</h2>
-  </div>
-  <div class="section-body">
-<div style="margin-top:1.25rem; padding:1rem; border-left:3px solid #5b9fff; background:var(--box-blue);">
+
+
+
+
+
+
+
+
+<section id="grail-cpu-trustless" style="font-family:sans-serif; padding:2rem; line-height:1.6; max-width:1000px; margin:auto;">
+
+  <h2 style="font-size:1.8rem;">GRAIL: Trustless, Fast, and Secure Neural Computation</h2>
+
+
+<div style="margin-top:1.25rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f0f8ff;">
   <strong>BLUF:</strong> GRAIL runs at full native speed and <strong>requires no CPU or cloud trust</strong>—a decisive advantage over all known encrypted ML methods. Unlike systems that must decrypt or emulate over ciphertext, GRAIL directly parses encrypted inputs and parameters through model layers with <em>no runtime slowdown</em>.<br><br>
 
   <strong>Deployment Note:</strong> As with any cryptographic protocol, security assumes that model training and encryption occur on secure or air-gapped devices, <em>prior</em> to inference-time execution. Once encrypted, models and inputs remain opaque to untrusted CPUs throughout usage.
@@ -239,7 +61,23 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
 
 
-
+<details style="margin-bottom:1.5rem; border-left:4px solid #007BFF; padding-left:1rem;">
+    <summary style="cursor:pointer; font-weight:bold; font-size:1.1rem;">What is GRAIL?</summary>
+    <p><strong>GRAIL (Geometric Representation Algebra for Intelligent Learning)</strong> is a universal meta-architecture for geometry-based neural computation.</p>
+    <ul>
+      <li>Encodes neural computation as algebraic operations over curved manifolds (e.g., <em>hyperbolic, Lorentzian, modular</em>), generalizing learning beyond Euclidean space.</li>
+      <li>Supports a vast space of implementations: <strong>geometric, symbolic, entropic, and cryptographic</strong>.</li>
+      <li>Inner product methods are just a narrow subclass—GRAIL enables <em>nonlinear, non-symmetric, non-metric</em> operations via automorphic kernels and symbolic-entropic dynamics.</li>
+      <li>Enables post-quantum obfuscation, symbolic attention, and native encryption using group-theoretic and categorical constructs.</li>
+      <li><strong>Training regimes:</strong>
+        <ol>
+          <li>Backprop-compatible curved-space layers</li>
+          <li>Non-differentiable symbolic kernels (e.g., Langlands layers, monodromic flows) trained via fixed-point or categorical dynamics</li>
+        </ol>
+      </li>
+      <li>Satisfies: generalized geometric axioms, symmetry group closure, nonlinear operator composition, and categorical consistency.</li>
+    </ul>
+  </details>
 
 
   <p><strong>Tagline:</strong> <em>With GRAIL, you don’t need to trust the CPU.</em></p>
@@ -254,18 +92,21 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <li><strong>Performance:</strong> GRAIL runs at <strong>native speed</strong>. Compared to FHE or MPC? It’s not just “3× faster”—it’s <strong>1,000× to 10,000× faster</strong>.</li>
   </ul>
 
-<blockquote style="background:var(--box-blue); border-left:3px solid #5b9fff; padding:1rem; margin:2rem 0;">
+<blockquote style="background:#f4f4f4; border-left:4px solid #007BFF; padding:1rem; margin:2rem 0;">
   <strong>Bottom line:</strong> GRAIL runs at <u>normal speed</u> without trusting the CPU.<br>
   Compared to FHE/MPC, it’s not “3× faster”—it’s <strong>thousands to ten-thousands× faster</strong>.<br>
   Compared to plaintext? <strong>= equal speed</strong>, even with frequent or per-step key rotation.
-</blockquote><p>These embedded coprocessors are well-documented and raise legitimate concerns for users requiring full CPU-level privacy:</p>
+</blockquote>
+
+  <h3>Publicly Known Surveillance Units in CPUs</h3>
+  <p>These embedded coprocessors are well-documented and raise legitimate concerns for users requiring full CPU-level privacy:</p>
   <ul>
     <li><strong>Intel:</strong> <a href="https://en.wikipedia.org/wiki/Intel_Management_Engine?utm_source=chatgpt.com" target="_blank"><strong>Intel Management Engine (ME)</strong></a> — now part of the <strong>Converged Security & Management Engine (CSME)</strong>.</li>
     <li><strong>AMD:</strong> <a href="https://en.wikipedia.org/wiki/AMD_Platform_Security_Processor?utm_source=chatgpt.com" target="_blank"><strong>Platform Security Processor (PSP)</strong></a> — aka AMD Secure Processor.</li>
   </ul>
   <p><em>These are low-level vendor-controlled systems with privileged access—potential vectors for surveillance or remote compromise. GRAIL avoids relying on them entirely.</em></p>
 
-  <h4>Comparison of Methods for Secure Computation Without CPU Trust</h4>
+  <h3>Comparison of Methods for Secure Computation Without CPU Trust</h3>
   <div style="overflow-x:auto;">
     <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%; font-size:0.95rem;">
       <thead style="background:#007BFF; color:white;">
@@ -313,7 +154,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
           <td><strong>500–1,000×</strong> faster than FHE</td>
           <td>Widely deployed; not trustless</td>
         </tr>
-        <tr style="background:var(--box-blue);">
+        <tr style="background:#e7ffe7;">
           <td><strong>GRAIL</strong> (this work)</td>
           <td>Parameters, activations, and latents are algebraically encrypted via geometry/operator representations</td>
           <td>No hardware trust; strong semantic protection using group theory, symbolic entropy, and automorphic logic</td>
@@ -332,7 +173,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
 
 <!-- Additional Emphasis -->
-<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #6f42c1; background:var(--box-blue);">
+<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #6f42c1; background-color:#f2eafa;">
 <p>
   <strong>Note:</strong> The comparison with FHE or MPC is just <strong>one small corner</strong> of GRAIL's capabilities. GRAIL is not merely an encryption layer—it is a <strong>superset architecture</strong> that unifies cryptographic, geometric, symbolic, and post-quantum computation into a single coherent neural framework.
 </p>
@@ -340,11 +181,11 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
 <!-- ===== USE CASE: GRAIL CRYPTOGRAPHIC TWINS ===== -->
 <section id="grail-cryptographic-twins" aria-label="GRAIL: Cryptographically Equivalent Twin Models">
-  <div style="margin-top:1.5rem; padding:1rem; border-left:3px solid #5b9fff; background:var(--box-blue); border-radius:6px;">
+  <div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f0f8ff; border-radius:6px;">
 
-    <h5 style="margin:0 0 .5rem; font-size:1.15rem; color:var(--body);">
+    <h4 style="margin:0 0 .5rem; font-size:1.15rem; color:#003366;">
       Use Case: Generating Cryptographically Equivalent Twin Models
-    </h5>
+    </h4>
 
     <p style="margin:.5rem 0 1rem;">
       One of GRAIL’s most powerful properties is its ability to produce an
@@ -363,7 +204,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     </ul>
 
     <!-- Nested insight panel -->
-    <div style="margin-top:1.25rem; padding:1.1rem; background:var(--box-blue); border-left:5px solid #ffc107; border-radius:6px; font-size:1rem; line-height:1.6;">
+    <div style="margin-top:1.25rem; padding:1.1rem; background:#fffbea; border-left:5px solid #ffc107; border-radius:6px; font-size:1rem; line-height:1.6;">
       <strong style="color:#8a6d3b; font-size:1.05rem;">Expanded Insight</strong>
 
       <p style="margin:.5rem 0 0;">
@@ -418,7 +259,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <!-- /Nested insight panel -->
 
     <p style="margin:1rem 0 0; font-size:1.03rem;">
-      <strong style="color:var(--body);">Outcome:</strong>
+      <strong style="color:#0056b3;">Outcome:</strong>
       A single model becomes a generator of <strong>functionally identical, geometrically distinct, and physically invariant cryptographic twins</strong>,
       enabling secure inference in a relativistically consistent cryptographic landscape.
     </p>
@@ -431,16 +272,8 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
 
   <div class="ctq-hero">
-  </div>
-</section>
-
-<section class="page-section" id="ctq">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Critical-Tri-Quantized Langlands</h2>
-  </div>
-  <div class="section-body">
-<p class="ctq-sub">A learning–theoretic route to emergent quantum gravity: geometry (automorphic), information (Galois/DFA), and thermodynamics (Selberg–Huber) fused by a critical-entropy thermostat.</p>
+    <h1 class="ctq-title">Critical–Tri–Quantized Langlands: Automorphic Attention, Galois/DFA, and Motivic Thermodynamics at CEAS Criticality</h1>
+    <p class="ctq-sub">A learning–theoretic route to emergent quantum gravity: geometry (automorphic), information (Galois/DFA), and thermodynamics (Selberg–Huber) fused by a critical-entropy thermostat.</p>
     <div class="ctq-badges">
       <span class="ctq-badge">Automorphic kernels</span>
       <span class="ctq-badge">Hyperbolic attention \( \mathbb H^2 \) (current)</span>
@@ -453,7 +286,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
   </div>
 
   <article class="ctq-card">
-    <h4>Abstract (plain language)</h4>
+    <h3>Abstract (plain language)</h3>
     <p>
       I construct an attention mechanism that natively lives on hyperbolic geometry and uses automorphic (Maass-type) kernels. A critical-entropy controller (CEAS) regulates the inverse temperature \( \beta \) so that attention entropy hovers near a pseudo-critical point. Within this setting, the classic Langlands triad is realized <em>inside</em> a neural operator:
       <em>automorphic</em> \( \leftrightarrow \) <em>Galois</em> \( \leftrightarrow \) <em>motive</em>.
@@ -475,7 +308,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
       <strong>Geometry notice.</strong> The current diagnostics and Selberg/prime-geodesic proxies are <em>2D-specific</em> (surface quotients \( \mathrm{PSL}(2,\mathbb Z)\backslash\mathbb H^2 \)). The \( \mathbb H^d \) roadmap (for \( d=3,4 \)) replaces these with lattices in \( SO^+(d,1) \) and higher-dimensional hyperbolic weights.
     </div>
 
-    <h4>Synthesis at a glance</h4>
+    <h3>Synthesis at a glance</h3>
     <div class="ctq-table-wrap" role="region" aria-label="Synthesis table">
       <table class="ctq-table">
         <thead>
@@ -505,7 +338,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
     <div class="ctq-sep"></div>
 
-    <h4>Operational signatures</h4>
+    <h3>Operational signatures</h3>
     <ul class="ctq-list">
       <li><strong>Non-commutativity field \( [\xi,X](t) \):</strong> BCH two-path probe → input-projected Gram eigenvalues (first layers).</li>
       <li><strong>Effective spectrum \( \lambda_{\mathrm{eff}}(t) \):</strong> from probe energies \( E(t) \), \( \lambda_{\mathrm{eff}}(t)\!\approx\! -\,\frac{d}{dt}\log E(t) \); bands narrow under CEAS.</li>
@@ -514,14 +347,14 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
     <div class="ctq-sep"></div>
 
-    <h4>Download &amp; cite</h4>
+    <h3>Download &amp; cite</h3>
     <p>
       <a class="ctq-link" href="https://drive.google.com/file/d/1XLZKuXL6of--CfMzcVMQHTW0zW-YLurn/view?usp=sharing" target="_blank" rel="noopener">Download the PDF</a>
       <span class="ctq-pill">Lecture Notes (Draft)</span>
     </p>
     <details>
       <summary class="ctq-link">Show suggested citation (BibTeX)</summary>
-<pre style="white-space:pre-wrap;margin:8px 0 0;background:var(--box-blue);border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
+<pre style="white-space:pre-wrap;margin:8px 0 0;background:#f7f9fc;border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
 @misc{CTQLanglands,
   title  = {Critical--Tri--Quantized Langlands:
             Automorphic Attention, Galois/DFA, and Motivic Thermodynamics at CEAS Criticality},
@@ -535,7 +368,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
   </article>
 
   <article class="ctq-card">
-    <h4>Quick orientation</h4>
+    <h3>Quick orientation</h3>
     <div class="ctq-kv">
       <div>Geometry</div>
       <div>Tokens on \( \mathbb H^2 \) (Poincaré disk/UHP); logits include hyperbolic heat distance</div>
@@ -551,7 +384,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
   </article>
 
   <article class="ctq-card">
-    <h4>One-line logit (schematic)</h4>
+    <h3>One-line logit (schematic)</h3>
     <div class="ctq-mini">
       \[
       \underbrace{\langle q(x_i),k(x_j)\rangle}_{\text{content}}
@@ -565,7 +398,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
 <!-- Yoneda: probes determine heads -->
 <article class="ctq-card" id="yoneda">
-  <h4>Yoneda viewpoint: probes &rarr; heads</h4>
+  <h3>Yoneda viewpoint: probes &rarr; heads</h3>
   <p class="ctq-mini">
     I treat each head as a covariant fiber functor
     \( \widehat{\mathrm{Head}}_\beta:\mathsf{Rep}(\Gamma)\!\to\!\mathsf{Hilb}_{\mathrm{fe}} \),
@@ -582,20 +415,20 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     So a small family of probes \( \{h_{V_a}\} \) suffices to recover the head on a dense class of tests.
   </div>
 
-  <h5 class="ctq-mini">Practical probes</h5>
+  <h4 class="ctq-mini">Practical probes</h4>
   <ul class="ctq-list">
     <li>Pick a finite tensor–dual generating set \( \mathcal G=\{V_a\} \) (e.g., standard rep, its dual, and a few low tensor powers).</li>
     <li>Log the fibers \( \widehat{\mathrm{Head}}_\beta(V_a) \) during diagnostics; these are exactly the “features on probes.”</li>
     <li>(Optional) Coend reconstruction: \( \displaystyle \mathcal H_\beta^{\mathrm{rec}}=\int^{V} V^\vee\!\otimes \widehat{\mathrm{Head}}_\beta(V) \), then pass to \( \Gamma \)-coinvariants to recover \( \mathcal H_\beta \).</li>
   </ul>
 
-  <h5 class="ctq-mini">Hecke &amp; DFA as natural maps</h5>
+  <h4 class="ctq-mini">Hecke &amp; DFA as natural maps</h4>
   <ul class="ctq-list">
     <li><strong>Hecke naturality:</strong> postcomposing \( \eta:h_V\!\Rightarrow\!\widehat{\mathrm{Head}}_\beta \) with \( \eta^{(n)} \) corresponds to applying \( T_n \) on the \( \mathcal H_\beta \)-factor of \( \widehat{\mathrm{Head}}_\beta(V) \).</li>
     <li><strong>DFA compliance:</strong> the comparison \( \widehat{\mathrm{Head}}_\beta\!\Rightarrow\!\mathsf T_{\mathrm{DFA}}\widehat{\mathrm{Head}}_\beta \) is natural in \(V\); stable heads land in the invariant image.</li>
   </ul>
 
-  <h5 class="ctq-mini">Physics link (CTQ gravity)</h5>
+  <h4 class="ctq-mini">Physics link (CTQ gravity)</h4>
   <ul class="ctq-list">
     <li><strong>Observer–probe principle:</strong> the measured BCH spectrum and \( \lambda_{\mathrm{eff}}(t) \) are functions of a small probe set \( \mathcal G \).</li>
     <li><strong>Gauge invariance:</strong> functorial invariants (Hecke spectra, heat trace, BCH functionals) match GR’s “physics = invariants” ethos.</li>
@@ -604,14 +437,14 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
 <!-- Twin verification (cryptographic twins via Yoneda) -->
 <article class="ctq-card" id="twin-check">
-  <h4>Twin verification via Yoneda (cryptographic twins)</h4>
+  <h3>Twin verification via Yoneda (cryptographic twins)</h3>
   <p class="ctq-mini">
     Two heads \( \widehat{\mathrm{Head}}_\beta \) and \( \widehat{\mathrm{Head}}'_\beta \) are <em>cryptographic twins</em> if there is a unitary monoidal natural isomorphism
     \( \eta:\widehat{\mathrm{Head}}_\beta \Rightarrow \widehat{\mathrm{Head}}'_\beta \)
     that intertwines all Hecke maps and respects the DFA comparison.
   </p>
 
-  <h5 class="ctq-mini">Checklist (finite generator test)</h5>
+  <h4 class="ctq-mini">Checklist (finite generator test)</h4>
   <ul class="ctq-ticks">
     <li><strong>Choose generators:</strong> fix a tensor–dual generating set \( \mathcal G=\{V_a\} \subset \mathsf{Rep}(\Gamma) \).</li>
     <li><strong>Fiber match:</strong> find unitary maps \( \theta_{V_a}: \widehat{\mathrm{Head}}_\beta(V_a) \!\to\! \widehat{\mathrm{Head}}'_\beta(V_a) \) (use unitary Procrustes on the logged features).</li>
@@ -626,7 +459,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     \( \eta:\widehat{\mathrm{Head}}_\beta \Rightarrow \widehat{\mathrm{Head}}'_\beta \).
   </div>
 
-  <h5 class="ctq-mini">Invariants to compare (should match for twins)</h5>
+  <h4 class="ctq-mini">Invariants to compare (should match for twins)</h4>
   <ul class="ctq-list">
     <li>Hecke spectra: eigenvalues of \( \{\eta^{(n)}\} \) on each \( \widehat{\mathrm{Head}}_\beta(V_a) \).</li>
     <li>Heat trace / spectral action proxies: \( \mathrm{Tr}(e^{-tL_\beta}) \), \( \lambda_{\mathrm{eff}}(t) \).</li>
@@ -634,7 +467,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <li>DFA invariants: dimension of the DFA-invariant subspace and its stability under CEAS.</li>
   </ul>
 
-  <h5 class="ctq-mini">Notes</h5>
+  <h4 class="ctq-mini">Notes</h4>
   <ul class="ctq-list">
     <li><strong>\( \mathbb H^2 \) vs \( \mathbb H^d \):</strong> the Yoneda test is geometry-agnostic; only the kernel/trace proxies change when moving to \( d=3,4 \).</li>
     <li><strong>WMAP checkpoints:</strong> I pick \( \mathcal G \) to reflect the symmetries seen by the hyperbolic sampler; matching fibers on \( \mathcal G \) aligns models across runs.</li>
@@ -645,7 +478,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 <!-- NEW: Orbit–jump controller (automorphic shortcut) -->
 <!-- NEW: Orbit–jump (diagonal action on weights + data) -->
 <article class="ctq-card" id="orbit-jump">
-  <h4>Orbit–jump: diagonal isometries on <em>weights</em> and <em>data</em></h4>
+  <h3>Orbit–jump: diagonal isometries on <em>weights</em> and <em>data</em></h3>
 
   <p class="ctq-mini">
     Core idea: map models along orbits of a symmetry group. Apply a single isometry
@@ -675,7 +508,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     \(\varphi\) lies in the normalizer/commensurator of \(\Gamma\).
   </div>
 
-  <h5 class="ctq-mini">What this framework solves</h5>
+  <h4 class="ctq-mini">What this framework solves</h4>
   <ul class="ctq-list">
     <li><strong>Symmetry-preserving model transport:</strong> Transports neural models along a group orbit by preserving the forward map via
       isometry-invariant distances and conjugation of the automorphic group action.</li>
@@ -684,14 +517,14 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <li><strong>Bypasses NP-hard extraction:</strong> Avoids discovering invariances (which is NP-hard); instead, directly acts using known symmetry structure.</li>
   </ul>
 
-  <h5 class="ctq-mini">How this circumvents NP-hardness</h5>
+  <h4 class="ctq-mini">How this circumvents NP-hardness</h4>
   <ul class="ctq-list">
     <li>Does not search for hidden group structure; assumes group is known.</li>
     <li>Applies geometric group theory and differentiable mappings to transform model weights and data directly.</li>
     <li>Preserves function through invariant metrics and conjugation of automorphic group action.</li>
   </ul>
 
-  <h4>Orbit–Jump Controller: Automorphic Shortcuts for Training</h4>
+  <h3>Orbit–Jump Controller: Automorphic Shortcuts for Training</h3>
   <p class="ctq-mini">
     Use DFA + Langlands diagnostics to select isometries \( \varphi\in\mathrm{Isom}(\mathbb H^d) \) that <em>leap</em> across basins where standard gradient steps stall.
     Non-commutativity turns symmetry into an optimization step.
@@ -713,7 +546,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     </div>
   </div>
 
-  <h5 class="ctq-mini">Orbit–Jump Recipe</h5>
+  <h4 class="ctq-mini">Orbit–Jump Recipe</h4>
   <ul class="ctq-list">
     <li><strong>Parameterize isometries.</strong> In \( \mathbb H^d \): \( \varphi(\xi)=\exp(\sum_a \xi_a J_a)\in SO^+(d,1) \) (boosts+rotations). In \( \mathbb H^2 \): \( \varphi(\xi)\in PSL(2,\mathbb R) \).</li>
     <li><strong>Collect state features.</strong> Yoneda probes; CEAS stats \( H(\beta),\tfrac{dH}{d\beta},\mathcal K(\beta) \); Selberg/Huber (heat-trace fit, spectral bands, \( \lambda_{\rm eff}(t) \)); DFA cycle spectrum and \( \mathrm{KL}(P_{\rm DFA}\,\|\,P_{\rm auto}) \); small-prime Hecke checks.</li>
@@ -731,7 +564,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <li><strong>Apply jump.</strong> Push \( (q,k)\leftarrow(\varphi q,\varphi k) \); update \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \); shift DFA coupler consistently; resume CEAS-regulated training.</li>
   </ul>
 
-<h5 class="ctq-mini">Timeline of relevant complexity results</h5>
+<h4 class="ctq-mini">Timeline of relevant complexity results</h4>
 <div class="ctq-table-wrap">
   <table class="ctq-table">
     <thead>
@@ -791,7 +624,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
 
 
-<h5 class="ctq-mini">Distinction from prior work</h5>
+<h4 class="ctq-mini">Distinction from prior work</h4>
   <ul class="ctq-list">
     <li><strong>Not an equivariant network:</strong> Does not enforce equivariance by architectural constraints; operates post-training via orbit-preserving isometries.</li>
     <li><strong>Not parameter-only symmetry:</strong> Unlike neuron permutation or scaling twins, this method moves both model and data with conjugated group kernel.</li>
@@ -807,15 +640,15 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <strong>Exact twins.</strong> Conjugation keeps equality to round-off. If \( \varphi \) lies in the normalizer/commensurator of \( \Gamma \), the truncated list is unchanged up to relabeling.
   </div>
 
-  <h5 class="ctq-mini">Safety guards</h5>
+  <h4 class="ctq-mini">Safety guards</h4>
   <ul class="ctq-list">
     <li>Early-reject \( \varphi \) if \( \mathcal J \) worsens beyond tolerance.</li>
     <li>Trust region on Lie-algebra step size to avoid degeneracy.</li>
     <li>Periodic Yoneda naturality checks to certify twinhood.</li>
   </ul>
 
-  <h5 class="ctq-mini">Pseudo-loop</h5>
-  <pre style="white-space:pre-wrap;margin:8px 0 0;background:var(--box-blue);border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
+  <h4 class="ctq-mini">Pseudo-loop</h4>
+  <pre style="white-space:pre-wrap;margin:8px 0 0;background:#f7f9fc;border:1px solid #e6e8ee;border-radius:8px;padding:10px;font-size:12.5px;">
 for step in training:
   train k SGD steps with CEAS
   if step % T == 0:
@@ -826,7 +659,7 @@ for step in training:
       Γ_trunc  = φ*·Γ_trunc·(φ*)^{-1}
   </pre>
 
-  <h5 class="ctq-mini">Relation to Fourier Neural Operators (FNO)</h5>
+  <h4 class="ctq-mini">Relation to Fourier Neural Operators (FNO)</h4>
   <ul class="ctq-list">
     <li><strong>Beats:</strong> curved/quotient domains \( \Gamma\backslash\mathbb H \) and arithmetic/automorphic tasks; native kernels + Selberg/Huber control; orbit-jumps exploit GD–symmetry non-commutativity.</li>
     <li><strong>FNO wins:</strong> flat, periodic PDE boxes (FFT \( O(N\log N) \), strong resolution-invariance).</li>
@@ -838,7 +671,7 @@ for step in training:
 
   <!-- NEW: Seven bridges -> EH action -->
   <article class="ctq-card" id="bridges-eh">
-    <h4>Seven bridges → Einstein–Hilbert action</h4>
+    <h3>Seven bridges → Einstein–Hilbert action</h3>
     <p class="ctq-mini">
       The bridges carry positive/Lorentzian observations onto a negatively curved, \( \Gamma \)-automorphic stage where Laplace-type analysis is valid.
       They supply: (i) <em>automorphy</em>, (ii) a <em>Laplace-type generator</em> with a well-behaved heat trace, and (iii) <em>scale separation</em>.
@@ -858,7 +691,7 @@ for step in training:
 
   <!-- NEW: Milestones & status -->
 <article class="ctq-card">
-  <h4>Milestones</h4>
+  <h3>Milestones</h3>
   <ul class="ctq-list">
     <li><strong>Spectral–thermodynamic coefficient match.</strong>
       Derive Einstein-like equations from the CEAS free energy and fit 
@@ -879,7 +712,7 @@ for step in training:
 </article>
 
   <article class="ctq-card" aria-label="Reproducibility">
-    <h4>Reproducibility</h4>
+    <h3>Reproducibility</h3>
     <p class="ctq-mini">
       Diagnostics run on a trained <em>GRAILAttention</em> (with optional DFA).
       If the WMAP V-band FITS is absent locally, a synthetic hyperbolic sampler reproduces the reported spectra using the same code path.
@@ -887,7 +720,7 @@ for step in training:
   </article>
 
   <article class="ctq-card" aria-label="H^d roadmap">
-    <h4>Roadmap: \( \mathbb H^d \) ( \(d=3,4\) )</h4>
+    <h3>Roadmap: \( \mathbb H^d \) ( \(d=3,4\) )</h3>
     <ul class="ctq-list ctq-mini">
       <li>Switch to the Poincaré <em>ball</em> distance (dimension-agnostic) in the kernel.</li>
       <li>Replace \( \mathrm{PSL}(2,\mathbb Z) \) proxies with lattices in \( SO^+(d,1) \); new generators and length extractors.</li>
@@ -901,7 +734,7 @@ for step in training:
 
 <!-- NEW: Metric-invariant algebra (d_M as the primitive) -->
 <article class="ctq-card" id="metric-algebra">
-  <h4>Metric-invariant algebra: replace scalar products by \( d_M \)</h4>
+  <h3>Metric-invariant algebra: replace scalar products by \( d_M \)</h3>
   <p class="ctq-mini">
     The core idea extends far beyond automorphic kernels. Replace scalar products everywhere with a
     <em>Riemannian (or pseudo-Riemannian) metric distance</em> \(d_M(\cdot,\cdot)\) on a manifold \( (M,g) \)
@@ -923,7 +756,7 @@ for step in training:
     <em>diagonal</em> action \( (q_i,k_j;x)\mapsto(\varphi q_i,\varphi k_j;\varphi x) \).
   </div>
 
-  <h5 class="ctq-mini">Twin models without automorphy</h5>
+  <h4 class="ctq-mini">Twin models without automorphy</h4>
   <p class="ctq-mini">
     If a forward map \(\mathcal F\) depends only on metric distances and shared readouts,
     \[
@@ -934,7 +767,7 @@ for step in training:
     <span class="ctq-pill">function-identical twins</span> — <em>no automorphy needed</em>.
   </p>
 
-  <h5 class="ctq-mini">Examples of metric primitives</h5>
+  <h4 class="ctq-mini">Examples of metric primitives</h4>
   <ul class="ctq-list">
     <li><strong>Metric kernels:</strong> \(e^{-\beta d_M}\), \(1/(1+\alpha d_M)\), \((d_M+\epsilon)^{-p}\), truncated/polynomial expansions.</li>
     <li><strong>Distance matrices as logits:</strong> \(S_{ij}=F(d_M(q_i,k_j))\) followed by softmax/normalization.</li>
@@ -949,7 +782,7 @@ for step in training:
     \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
   </div>
 
-  <h5 class="ctq-mini">Practical guardrails</h5>
+  <h4 class="ctq-mini">Practical guardrails</h4>
   <ul class="ctq-list">
     <li>Ensure every non-metric feature that influences logits (biases, normalizers) is transformed consistently; otherwise twinhood can break.</li>
     <li>For Minkowski/pseudo-Riemannian settings, choose the appropriate invariant (e.g., Lorentz interval) and restrict to the proper isometry subgroup (e.g., \(SO^+(d,1)\)).</li>
@@ -959,7 +792,7 @@ for step in training:
 
 
 <article class="ctq-card" id="novelty-claim">
-  <h4>Novelty &amp; claim (to the best of current knowledge)</h4>
+  <h3>Novelty &amp; claim (to the best of current knowledge)</h3>
   <div class="ctq-callout">
     <strong>Claim.</strong>
     This framework provides, to the best of current knowledge, the first repeatedly tested method that
@@ -1002,7 +835,7 @@ for step in training:
 <article class="ctq-note" role="note" aria-label="Beyond scalar computation"> <strong>Beyond scalar computation.</strong> The diagonal-isometry framework extends beyond neural architectures. Any computational system—classical or Turing-complete—can be embedded in a curved manifold \( (M, g) \) by replacing scalar multiplications with invariant functions \(F(I(q,k))\), where \(I\) is preserved by a known group action \(g\). Model instructions, register values, memory contents, and data inputs are all treated as vector points \(p_i \in M\), and transported together via diagonal group action: \[ (p_i;x) \mapsto (g\,p_i;\,g\,x) \] This yields functionally identical machines or programs under geometric transport. Thus, even legacy OS architectures or classical machines can be upgraded to curvature-aware, symmetry-transportable systems before the rise of AI-native substrates. </article>
 
 
-  <h5 class="ctq-mini">What is—and isn’t—being claimed</h5>
+  <h4 class="ctq-mini">What is—and isn’t—being claimed</h4>
   <ul class="ctq-list">
     <li><strong>Bypass, not contradiction.</strong> The classical NP-hardness (post-hoc discovery of hidden invariances) is not contradicted. The framework <em>assumes a known symmetry group</em> and provides a constructive <em>transport</em> along its orbits.</li>
     <li><strong>In-loop optimization, not just transport.</strong> Beyond producing exact twins, the framework includes an
@@ -1014,7 +847,7 @@ for step in training:
     <li><strong>Evidence.</strong> Empirically validated across repeated experiments; forward equality follows from invariance of the chosen scalar (distance or other \(I\)) and, in the automorphic case, from the relabeling \( \gamma\mapsto \varphi\gamma\varphi^{-1} \).</li>
   </ul>
 
-  <h5 class="ctq-mini">Suggested formal naming</h5>
+  <h4 class="ctq-mini">Suggested formal naming</h4>
   <ul class="ctq-list">
     <li><em>Gauge-Lifted Neural Transport via Invariant Orbit Geometry</em></li>
     <li><em>Invariant-Lifted Model Transport under Symmetric Geometries</em></li>
@@ -1034,7 +867,7 @@ for step in training:
 
 
 <article class="ctq-card" id="independence">
-  <h4>Independence & research context</h4>
+  <h3>Independence & research context</h3>
   <p class="ctq-mini">
     This project is an independent effort developed outside a university setting. The work spans physics,
     mathematics, statistics, and AI/CS, and proceeded independently because prior academic roles did not
@@ -1063,7 +896,7 @@ for step in training:
     Engagement is prioritized where these standards can be upheld without dilution.
   </div>
 
-  <h5 class="ctq-mini">Provenance &amp; transparency</h5>
+  <h4 class="ctq-mini">Provenance &amp; transparency</h4>
   <ul class="ctq-list">
     <li><strong>Public record:</strong> first public GitHub commit for this line of work on
       <em>Oct 8, 2023</em> (see project repository).</li>
@@ -1085,24 +918,47 @@ for step in training:
 
 
 <article class="ctq-card" id="personal-path">
-  
-  </div>
-</section>
+  <h3>Personal Path and Strategic Motivation</h3>
+  <p class="ctq-mini">
+    According to verified library records, independent study in special and general relativity began as early as third grade (K–3), forming the earliest seed of a long-term intellectual mission.
+    Since approximately 2003–2004, the pursuit of quantum gravity has been the principal objective—navigated through autodidactic rigor and sustained despite prolonged side tracks undertaken to secure necessary financial and logistical stability.
+  </p>
 
-<section class="page-section" id="implementation">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">Implementation</h2>
+  <div class="ctq-callout">
+    <strong>Formative Influences</strong>
+    <ul class="ctq-list">
+      <li>
+        Initiated direction through a translated edition of Lee Smolin’s <em>Three Roads to Quantum Gravity</em>, translated by
+        <a class="ctq-link" href="https://en.wikipedia.org/wiki/Hong-Yee_Chiu" target="_blank" rel="noopener">Dr. Hong-Yee Chiu</a>—
+        a NASA astrophysicist and
+        <a class="ctq-link" href="https://en.wikipedia.org/wiki/List_of_Cosmos_Club_members" target="_blank" rel="noopener">Cosmos Club member</a>
+        whose career spanned elite scientific, national, and diplomatic circles.
+      </li>
+      <li>
+        During undergraduate physics coursework, posed an early question that anticipated later developments in CEAS: 
+        why physical laws were written in perfectly clean formulaic form with no perturbation—e.g., why Coulomb’s inverse-square law lacked an &epsilon;-term. 
+        When presented to Professor Chia-Liang Cheng, this line of inquiry foreshadowed the entropy-based variational structure at the heart of CEAS. 
+        The intuitive notion of embedding controlled deviation directly into physical law (e.g., modifying Maxwell to Proca via &epsilon;) ultimately inspired the core
+        idea of scalable entropy adjustment in high-dimensional learning systems.
+      </li>
+    </ul>
   </div>
-  <div class="section-body">
-<p class="lede">
+</article>
+
+
+
+
+<section id="grail-dfa-wmap">
+  <header>
+    <h2>GRAIL × DFA on WMAP — Implementation Overview</h2>
+    <p class="lede">
       Geometry-aware attention on the Poincaré disk, stabilized with automorphic gates and a DFA coupler, applied to the 9-year WMAP V-band temperature map.
     </p>
     <p><a href="https://drive.google.com/file/d/1crgQsea0dTulbl-oGNykAnMyxnSMVuCV/view?usp=sharing" target="_blank" rel="noopener">PDF (notes & diagnostics)</a></p>
   </header>
 
   <section>
-    <h4>What this does</h4>
+    <h3>What this does</h3>
     <ul>
       <li><strong>GRAILAttention:</strong> attention logits combine content similarity and hyperbolic geometry on the Poincaré disk.</li>
       <li><strong>Automorphic gates:</strong> Poincaré-series averaging and small-prime Hecke operators commute with the geometry and narrow spectral spread.</li>
@@ -1112,7 +968,7 @@ for step in training:
   </section>
 
   <section>
-    <h4>Logit model (schematic)</h4>
+    <h3>Logit model (schematic)</h3>
     <p>
       The attention logits decompose as:
     </p>
@@ -1132,7 +988,7 @@ for step in training:
   </section>
 
   <section>
-    <h4>Included components</h4>
+    <h3>Included components</h3>
     <ul>
       <li><code>GrailScalarModel</code> wrapper for <code>attn</code> + scalar <code>readout</code>.</li>
       <li><code>DFACoupler</code> with <code>projector</code>, <code>log</code>, or <code>cptp</code> modes.</li>
@@ -1143,7 +999,7 @@ for step in training:
   </section>
 
   <section>
-    <h4>Quick start (minimal)</h4>
+    <h3>Quick start (minimal)</h3>
     <pre><code class="language-python">from grail_dfa import run_qg_diagnostics
 
 # Option A: load from a saved .pt
@@ -1156,9 +1012,9 @@ run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
   </section>
 
   <section>
-    <h4>What the diagnostics report</h4>
+    <h3>What the diagnostics report</h3>
 
-    <h5>1) BCH / commutator spectrum \([\xi, X]\)</h5>
+    <h4>1) BCH / commutator spectrum \([\xi, X]\)</h4>
     <p>
       Compares a one-step gradient update with and without an infinitesimal isometry
       \(\Gamma_\varepsilon\). The resulting layer deltas are projected to the \(4\times 4\) input and
@@ -1166,20 +1022,20 @@ run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
       planar rotation.
     </p>
 
-    <h5>2) Selberg/Huber effective spectrum</h5>
+    <h4>2) Selberg/Huber effective spectrum</h4>
     <p>
       Estimates \(\lambda_{\mathrm{eff}}(t)\approx -\frac{d}{dt}\log E(t)\) from probe energies.
       A narrow operating band appears nearly flat in \(t\); spread indicates band-mixing.
     </p>
 
-    <h5>3) Prime-geodesic proxies</h5>
+    <h4>3) Prime-geodesic proxies</h4>
     <p>
       Uses the seeded family \(ST^n\) (\(\ell = 2\,\cosh^{-1}(n/2)\)) to compute cumulative counts,
       a Patterson–Sullivan slope proxy \(\hat\delta\), and simple hyperbolic sums that mirror
       the hyperbolic portion of the trace formula.
     </p>
 
-    <h5>4) Mirzakhani-style growth proxy</h5>
+    <h4>4) Mirzakhani-style growth proxy</h4>
     <p>
       Fits \(\log N(L)-L \sim \hat\alpha \log L\) over a short window as a coarse indicator of a
       polynomial prefactor. With seeded hyperbolics, early counts are sparse and the slope can be negative.
@@ -1187,7 +1043,7 @@ run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
   </section>
 
   <section>
-    <h4>Interpretation at a glance</h4>
+    <h3>Interpretation at a glance</h3>
     <ul>
       <li><strong>Non-commutativity:</strong> persistent rank-2 modes indicate a rotation-sensitive pathway (often largest in <code>v</code>).</li>
       <li><strong>Effective spectrum:</strong> reduced bandwidth in \(\lambda_{\mathrm{eff}}(t)\) correlates with better geometric consistency.</li>
@@ -1196,7 +1052,7 @@ run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
   </section>
 
   <section>
-    <h4>Extend</h4>
+    <h3>Extend</h3>
     <ul>
       <li>Increase Poincaré depth (<code>gamma_wordlen</code>, <code>gamma_cap</code>) and enable Hecke \(\{2,3,5\}\) to narrow bands.</li>
       <li>Replace seeded \(ST^n\) with BFS over generators for richer geodesics and a steadier \(\hat\delta\).</li>
@@ -1208,7 +1064,10 @@ run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
 
 
 
-<section id="grail-triquantized"><hr style="border:none;border-top:1px solid var(--border-dim);margin:2rem 0"><p>
+<section id="grail-triquantized">
+  <h2>Tri-Quantized GRAIL on Curved Spacetimes</h2>
+
+  <p>
     I cast attention as a group-convolution / automorphic operator on a
     <em>curved spacetime or symmetry manifold</em> (Riemannian or Lorentzian),
     optionally a quotient \(X_\Gamma=\Gamma\backslash X\) where \(X\simeq G/K\) is a coset geometry.
@@ -1234,7 +1093,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
     (Lorentz boosts/rotations on relativistic backgrounds, rotations on spheres, translations/rotations on Euclidean phases, etc.).
   </p>
 
-  <h4>How to use it: a quick start (4 steps)</h4>
+  <h3>How to use it: a quick start (4 steps)</h3>
   <ol>
     <li>
       <strong>Probe bank.</strong>
@@ -1269,7 +1128,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
     </li>
   </ol>
 
-  <h4>Tri-quantization (one-line Rosetta)</h4>
+  <h3>Tri-quantization (one-line Rosetta)</h3>
   <ul>
     <li><em>GRAIL (flow).</em> Non-commutativity \( [\xi,X] \) measured by a BCH loop \(\Rightarrow\) optimization curvature; normalize by an effective \( \hbar_{\mathrm{eff}} \) from gradient diffusion.</li>
     <li><em>DFA (discrete).</em> Cycle blocks with \(T_CS_C=\omega S_CT_C\) and Wilson phases \(\Phi_C\) (block-local \(U(1)\) charges); transients as CPTP maps.</li>
@@ -1278,7 +1137,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
 
   <p>
     <a href="https://drive.google.com/file/d/1WXCpzU_DigjhoMMXwIVVOHQq5DuC7DaK/view?usp=sharing" target="_blank" rel="noopener">
-      Open the notes (Google Drive)
+      📄 Open the notes (Google Drive)
     </a>
   </p>
 
@@ -1300,14 +1159,16 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
 
 
 <section id="grail-performance">
-  <div class="kicker">GRAIL (no CEAS)</div><hr style="border:none;border-top:1px solid var(--border-dim);margin:2rem 0"><p class="lede">
+  <div class="kicker">GRAIL (no CEAS)</div>
+  <h2>Does it slow training?</h2>
+  <p class="lede">
     Short answer: <strong>not much</strong>. The extra geometry (log/exp maps and a hyperbolic distance)
     is <em>linear</em> in sequence length and width, while attention remains the dominant cost.
   </p>
 
   <div class="grid" style="margin-top:1rem">
     <div class="card">
-      <h4>Where any overhead comes from</h4>
+      <h3>Where any overhead comes from</h3>
       <ul>
         <li><span class="pill">Maps</span> One <code>log_o</code> + one <code>exp_o</code> per block: \(O(BS\,d)\).</li>
         <li><span class="pill">Distance</span> Minkowski dot + \(\operatorname{acosh}\) inside attention logits: same tensor shapes as vanilla attention.</li>
@@ -1320,7 +1181,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
     </div>
 
     <div class="card">
-      <h4>Keep it fast (simple tweaks)</h4>
+      <h3>Keep it fast (simple tweaks)</h3>
       <ul>
         <li>Fuse to <em>one</em> <code>log_o</code> at block entry and <em>one</em> <code>exp_o</code> at exit.</li>
         <li>Batch Minkowski dots with <code>einsum</code>/<code>bmm</code> (hits tensor cores).</li>
@@ -1331,7 +1192,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
     </div>
 
     <div class="card">
-      <h4>Smallest working example</h4>
+      <h3>Smallest working example</h3>
       <p>
         A compact transformer with hyperbolic attention learns 3-token string reversal to 100% in ~1 minute
         on a single GPU. It demonstrates the framework end-to-end (curved token space, curved activations,
@@ -1346,7 +1207,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
     </div>
   </div>
 
-  <h4 style="margin-top:1.25rem">Bottom line</h4>
+  <h3 style="margin-top:1.25rem">Bottom line</h3>
   <ul>
     <li><strong>GRAIL without CEAS ≈ vanilla + a small constant factor</strong> (single-digit to ~20% in typical regimes).</li>
     <li>As \(S\) and \(d\) grow, attention’s \(O(BHS^2d)\) cost overwhelms the manifold’s \(O(BSd)\) extras.</li>
@@ -1355,7 +1216,9 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
 </section>
 
 <section id="grail-transformer-mwe">
-  <div class="kicker">GRAIL × DFA</div><hr style="border:none;border-top:1px solid var(--border-dim);margin:2rem 0"><p class="lede">
+  <div class="kicker">GRAIL × DFA</div>
+  <h1>Near-Minimal GRAIL Transformer on \(\mathbb{H}^d\)</h1>
+  <p class="lede">
     This is a <em>near-minimal working example</em> of the <strong>GRAIL</strong> framework on a transformer encoder that learns short strings.
     Tokens live on the hyperboloid \(\mathbb{H}^d\), attention uses hyperbolic distances, and outputs remain on the manifold via \(\exp_o/\log_o\).
     Despite having ~396 parameters, it solves the 3-token reverse task with perfect accuracy.
@@ -1363,7 +1226,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
 
   <div class="grid" style="margin-top:1rem">
     <div class="card">
-      <h4>Why this matters</h4>
+      <h3>Why this matters</h3>
       <ul>
         <li><strong>Curved domain & codomain:</strong> inputs and predictions both lie on \(\mathbb{H}^d\), matching tree-like/ultrametric structure.</li>
         <li><strong>Hyperbolic attention:</strong> logits are \(-d_{\mathbb{H}}^2/\tau\) between \(\exp_o(\text{queries})\) and \(\exp_o(\text{keys})\).</li>
@@ -1376,7 +1239,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
     </div>
 
     <div class="card">
-      <h4>Objective (symbols defined)</h4>
+      <h3>Objective (symbols defined)</h3>
       <p class="muted">
         \(B\): batch size, \(S\): sequence length, \(d\): tangent dim, \(C\): tokens, \(Y\): outputs on \(\mathbb{H}^d\), \(U=\log_o(Y)\), 
         \(P_c\): prototypes, \(T=\log_o(P_y)\), temperature \(\tau_{\text{cls}}\), weight \(\lambda\).
@@ -1396,7 +1259,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
     </div>
 
     <div class="card">
-      <h4>Result</h4>
+      <h3>Result</h3>
       <pre style="white-space:pre-wrap;margin:0;font-size:0.9rem;">
 Epoch 54: val_acc = 1.000
 Final test accuracy: 1.000
@@ -1411,7 +1274,7 @@ Final test accuracy: 1.000
     </div>
 
     <div class="card">
-      <h4>Takeaway</h4>
+      <h3>Takeaway</h3>
       <p>
         This compact setup demonstrates the end-to-end mechanics of GRAIL on a transformer: curved token geometry, curvature-aware attention, 
         and manifold-preserving heads. It’s intentionally minimal so the geometric pieces (and how they interact) are easy to inspect and extend.
@@ -1419,7 +1282,7 @@ Final test accuracy: 1.000
     </div>
   </div>
 
-  <h3 style="margin-top:2rem">Notes & PDF</h3>
+  <h2 style="margin-top:2rem">Notes & PDF</h2>
   <p class="muted">
     For a concise write-up with equations and code snippets, see:
     <a href="https://drive.google.com/file/d/1CzGHDlAd30qol0pB3mCg2nYz28ODm5rP/view?usp=sharing" target="_blank" rel="noopener">
@@ -1430,12 +1293,15 @@ Final test accuracy: 1.000
 
 
 <section id="sgd-lorentz-commutator">
-  <div class="kicker">GRAIL × DFA — experiment</div><hr style="border:none;border-top:1px solid var(--border-dim);margin:2rem 0"><p class="lede">
+  <div class="kicker">GRAIL × DFA — experiment</div>
+  <h2>Operational Test of Non-Commutativity: SGD vs Lorentz Transformation</h2>
+
+  <p class="lede">
     I run a contrapositive probe to test whether a tiny SGD step \(e^{-\eta X}\) commutes with a Lorentz action \(\Gamma_L\) applied to inputs and the first layer of a small autoencoder on the hyperboloid. If they commuted, swapping the order would leave parameters unchanged up to higher-order terms; instead I measure a clear first-order drift.
   </p>
 
   <div class="card">
-    <h4>The two one-step paths</h4>
+    <h3>The two one-step paths</h3>
     <div class="eq">
       \[
         \textbf{Path A: }\ \theta_A = e^{-\eta X}(\theta)
@@ -1450,7 +1316,7 @@ Final test accuracy: 1.000
 
   <div class="grid" style="margin-top:1rem">
     <div class="card">
-      <h4>What I measure</h4>
+      <h3>What I measure</h3>
       <div class="eq">
         \[
           \Delta_{\theta}^{\mathrm{norm}}=\frac{\lVert \theta_B-\theta_A\rVert}{\eta\,\varepsilon},
@@ -1463,7 +1329,7 @@ Final test accuracy: 1.000
 
 ```
 <div class="card">
-  <h4>Controls</h4>
+  <h3>Controls</h3>
   <ul>
     <li>\(\varepsilon=0\): no transform \(\Rightarrow\) drifts \(\approx 0\).</li>
     <li>\(\eta=0\): push–pull \(\Gamma_{L^{-1}}\Gamma_L\) leaves parameters unchanged.</li>
@@ -1472,7 +1338,7 @@ Final test accuracy: 1.000
 </div>
 
 <div class="card">
-  <h4>What happens in practice</h4>
+  <h3>What happens in practice</h3>
   <ul>
     <li>After a short warm-up, \(\Delta_{\theta}^{\mathrm{norm}}\) is consistently &gt; 0 (often order \(4\!-\!15\) for small \(\eta,\varepsilon\)).</li>
     <li>\(\Delta_{\mathcal L}^{\mathrm{norm}}\) is smaller (single-step MSE hardly moves) but detectable and scales with \(\eta\varepsilon\).</li>
@@ -1483,7 +1349,7 @@ Final test accuracy: 1.000
 
   </div>
 
-  <h4 style="margin-top:2rem">Notes (PDF)</h4>
+  <h3 style="margin-top:2rem">Notes (PDF)</h3>
   <p>
     For the write-up with derivations, macros, and the exact precomposition rule:
     <a href="https://drive.google.com/file/d/1rCWCOj6mXCpCs094icIa1z80g3MNhH_7/view?usp=sharing" target="_blank" rel="noopener">
@@ -1491,7 +1357,7 @@ Final test accuracy: 1.000
     </a>.
   </p>
 
-  <h4 style="margin-top:2rem">Why this matters</h4>
+  <h3 style="margin-top:2rem">Why this matters</h3>
   <ul>
     <li>Quantifies symmetry obstruction via an observable bracket proxy, \([\xi,X]\).</li>
     <li>Portable audit: swap in other groups/optimizers and reuse the same test.</li>
@@ -1501,145 +1367,12 @@ Final test accuracy: 1.000
 
 
 <section id="extended-notes" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
-  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:var(--body);">
+  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
     GRAIL × DFA
   </div>
-  </div>
-</section>
+  <h1 style="line-height:1.2;margin:.25rem 0 0;">Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
 
-<section class="page-section" id="theory">
-  <div class="section-header">
-    <span class="section-num">05</span>
-    <h2 class="section-title">Theory</h2>
-  </div>
-  <div class="section-body">
-<p style="font-size:1.05rem;color:var(--body);margin:.6rem 0 1.1rem;">
-    <strong>GRAIL</strong> (Geometric Representation Algebra for Intelligent Learning) treats optimization as geometry:
-    the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\). The failure of a symmetry action \(\xi\)
-    to commute with a gradient step \(X=\nabla\mathcal L\) is measured by the Lie bracket \([\xi,X]\).
-    <strong>DFA quantization</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language,
-    cycle components lift to unitary blocks \(U_C\), and transients lift to CPTP channels.
-  </p>
-
-  <p style="color:var(--body);font-size:.95rem;margin-top:.25rem;">
-     Primary notes (PDF):
-    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
-      GRAIL × DFA Lecture Notes
-    </a>.
-  </p>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
-    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">Core Idea</h4>
-      <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
-      <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
-      \[
-        e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
-        = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
-      \]
-      <ul style="margin:.4rem 0 0 1rem;">
-        <li>\([\xi,X]=0\) → symmetry and descent commute (equivariance).</li>
-        <li>\([\xi,X]\neq 0\) → curvature-like obstruction that reshapes training dynamics.</li>
-      </ul>
-    </div>
-
-    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">DFA Layer (Symbolic Quantization)</h4>
-      <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
-      <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
-      \[
-        U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
-        \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
-      \]
-      <p style="color:var(--body);font-size:.95rem;">Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
-    </div>
-
-    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">Quantum-like Optimization Geometry</h4>
-      <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
-      <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
-      \[
-        \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
-        \qquad \hbar_{\text{eff}} := 2D.
-      \]
-      <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
-    </div>
-
-    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">Observer-Centric Quantum Gravity (Stance)</h4>
-      <ul style="margin:.4rem 0 0 1rem;">
-        <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
-        <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
-        <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
-      </ul>
-      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
-      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
-    </div>
-  </div>
-
-  <h3 style="margin-top:2rem;">At-a-Glance Equations</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
-    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:var(--body);margin-bottom:.25rem;">Curvature (gauge view)</div>
-      \[
-        \Omega = dA + A\wedge A,\qquad
-        [D_v, D_w]\Phi = \Omega(v,w)\cdot \Phi.
-      \]
-      <p style="color:var(--body);font-size:.95rem;">Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
-    </div>
-    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:var(--body);margin-bottom:.25rem;">Projection–Symmetry</div>
-      \[
-        [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
-      \]
-      <p style="color:var(--body);font-size:.95rem;">DFA can preserve or deliberately break a symmetry, by design.</p>
-    </div>
-    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:var(--body);margin-bottom:.25rem;">Finite Heisenberg–Weyl (per cycle)</div>
-      \[
-        T_C S_C = \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
-      \]
-      <p style="color:var(--body);font-size:.95rem;">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
-    </div>
-  </div>
-
-  <h3 style="margin-top:2rem;">What This Enables</h3>
-  <ul style="margin:.6rem 0 0 1rem;">
-    <li><strong>Auditability:</strong> unitary checks on cycles, Choi positivity/trace-preservation on transients, projector–symmetry commutators, micro-causality/light-cone diagnostics.</li>
-    <li><strong>Security knobs:</strong> group-keyed permutations on code indices; DFA as a syntax firewall for outputs.</li>
-    <li><strong>Falsifiability:</strong> distinct physics domains should induce distinct latent curvatures and cycle-phase spectra; failure to separate is evidence against the thesis.</li>
-  </ul>
-
-  <h3 style="margin-top:2rem;">Status & Links</h3>
-  <p style="color:var(--body);">
-    This introduction summarizes the current direction. The program was first written in 2024 and continues to evolve in 2025.
-    Notes (PDF):
-    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
-      GRAIL × DFA as Dual Quantization: Toward an Observer-Centric Quantum Gravity
-    </a>.
-  </p>
-</section>
-
-
-
-
-
-
-<section id="grail-intro">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-
-  <style>
-    #grail-intro { max-width: 880px; margin: 2rem auto; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--body); }
-    #grail-intro h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 0.25rem; }
-    #grail-intro h2 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; }
-    #grail-intro .tag { display:inline-block; font-size: .85rem; background:var(--box-blue); color:var(--body); border:1px solid #c7d2fe; border-radius: 999px; padding:.15rem .6rem; margin-left:.5rem; vertical-align: middle;}
-    #grail-intro p { margin: .75rem 0; }
-    #grail-intro .cta { display:inline-block; margin-top:1rem; padding:.6rem .9rem; border-radius:.5rem; border:1px solid #d1d5db; text-decoration:none; color:var(--body); background:var(--navy-mid); }
-    #grail-intro .cta:hover { background:var(--box-blue); }
-    #grail-intro code { background:var(--box-blue); padding:.15rem .35rem; border-radius:.25rem; }
-    #grail-intro .note { font-size:.9rem; color:#4b5563; }
-  </style><hr style="border:none;border-top:1px solid var(--border-dim);margin:2rem 0"><p style="font-size:1.05rem;color:var(--body);margin:.6rem 0 1.1rem;">
+  <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
     This installment deepens the <em>observer-centric</em> program. It couples
     <strong>GRAIL’s optimization-as-geometry</strong> (optimizer as a connection \(A\), curvature \(\Omega=dA{+}A\wedge A\))
     and <strong>DFA quantization</strong> (projectors \(\Pi_q\), cycle unitaries \(U_C\), transient CPTP maps)
@@ -1648,7 +1381,7 @@ Final test accuracy: 1.000
     spectral certification—without contradicting QM/QFT/GR when interpreted as a meta-theory of inference.
   </p>
 
-  <p style="color:var(--body);font-size:.95rem;margin-top:.25rem;">
+  <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
     Full PDF:
     <a href="https://drive.google.com/file/d/1kQMZDSQKCOqd_ag6tz1Xjs3hFjTIVKm8/view?usp=sharing" target="_blank" rel="noopener">
       Extended Lecture Notes (Lie/Gauge + RMT Twins)
@@ -1657,7 +1390,7 @@ Final test accuracy: 1.000
 
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
     <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">What’s new here</h4>
+      <h3 style="margin-top:0;">What’s new here</h3>
       <ul style="margin:.4rem 0 0 1rem;">
         <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow:
           \[
@@ -1673,7 +1406,7 @@ Final test accuracy: 1.000
     </div>
 
     <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">Core equations</h4>
+      <h3 style="margin-top:0;">Core equations</h3>
       <div style="margin:.4rem 0 .2rem;">Gauge curvature & covariant flows</div>
       \[
         \Omega = dA + A\wedge A,\qquad [D_v,D_w]\Phi = \Omega(v,w)\cdot \Phi.
@@ -1696,7 +1429,7 @@ Final test accuracy: 1.000
     </div>
 
     <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">Why RMT?</h4>
+      <h3 style="margin-top:0;">Why RMT?</h3>
       <ul style="margin:.4rem 0 0 1rem;">
         <li><strong>Twin certification:</strong> spectra must match along symmetry orbits.</li>
         <li><strong>Stability margins:</strong> bulk edges/gaps predict conditioning.</li>
@@ -1706,7 +1439,7 @@ Final test accuracy: 1.000
     </div>
 
     <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
-      <h4 style="margin-top:0;">How to use</h4>
+      <h3 style="margin-top:0;">How to use</h3>
       <ol style="margin:.4rem 0 0 1rem;">
         <li>Insert DFA projectors \(\Pi_q\); add \(\mathcal L_{\text{DFA}}\).</li>
         <li>Quantize hidden states; get SCCs; form \(P=D+N\); lift \(U_C\), \(\Phi\).</li>
@@ -1717,7 +1450,7 @@ Final test accuracy: 1.000
     </div>
   </div>
 
-  <h3 style="margin-top:2rem;">Reading roadmap</h3>
+  <h2 style="margin-top:2rem;">Reading roadmap</h2>
   <ul style="margin:.4rem 0 0 1rem;">
     <li><strong>Lie/BCH + covariant optimizer</strong>: operational commutator loops.</li>
     <li><strong>DFA quantization</strong>: Dunford split; cycle unitary & CPTP lifts.</li>
@@ -1725,7 +1458,7 @@ Final test accuracy: 1.000
     <li><strong>Appendices</strong>: pseudocode, proof sketches, audits, effective-\(\hbar\).</li>
   </ul>
 
-  <p style="color:var(--body);font-size:.95rem;margin-top:1rem;">
+  <p style="color:#666;font-size:.95rem;margin-top:1rem;">
     This remains an inference-level theory: spacetime is not quantized here; geometry emerges from Fisher structure over observer ensembles.
   </p>
 </section>
@@ -1735,22 +1468,197 @@ Final test accuracy: 1.000
 
 
 <section id="intro" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
-  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:var(--body);">
+  <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
     GRAIL × DFA
   </div>
+
+  <h1 style="line-height:1.2;margin:.25rem 0 0;">Dual Quantization for an Observer-Centric Physics Engine</h1>
+
+  <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+    <strong>GRAIL</strong> (Geometric Representation Algebra for Intelligent Learning) treats optimization as geometry:
+    the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\). The failure of a symmetry action \(\xi\)
+    to commute with a gradient step \(X=\nabla\mathcal L\) is measured by the Lie bracket \([\xi,X]\).
+    <strong>DFA quantization</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language,
+    cycle components lift to unitary blocks \(U_C\), and transients lift to CPTP channels.
+  </p>
+
+  <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+    Single-author project. Originally drafted in 2024; under active development in 2025.
+    A non-provisional patent has been filed. Full notes (PDF):
+    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+      GRAIL × DFA Lecture Notes
+    </a>.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Core Idea</h3>
+      <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
+      <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
+      \[
+        e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
+        = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
+      \]
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li>\([\xi,X]=0\) → symmetry and descent commute (equivariance).</li>
+        <li>\([\xi,X]\neq 0\) → curvature-like obstruction that reshapes training dynamics.</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">DFA Layer (Symbolic Quantization)</h3>
+      <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
+      <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
+      \[
+        U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
+        \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
+      \]
+      <p style="color:#666;font-size:.95rem;">Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Quantum-like Optimization Geometry</h3>
+      <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
+      <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
+      \[
+        \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
+        \qquad \hbar_{\text{eff}} := 2D.
+      \]
+      <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
+    </div>
+
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <h3 style="margin-top:0;">Observer-Centric Quantum Gravity (Stance)</h3>
+      <ul style="margin:.4rem 0 0 1rem;">
+        <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
+        <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
+        <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
+      </ul>
+      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
+      <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
+    </div>
   </div>
+
+  <h2 style="margin-top:2rem;">At-a-Glance Equations</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Curvature (gauge view)</div>
+      \[
+        \Omega = dA + A\wedge A,\qquad
+        [D_v, D_w]\Phi = \Omega(v,w)\cdot \Phi.
+      \]
+      <p style="color:#666;font-size:.95rem;">Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
+    </div>
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Projection–Symmetry</div>
+      \[
+        [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
+      \]
+      <p style="color:#666;font-size:.95rem;">DFA can preserve or deliberately break a symmetry, by design.</p>
+    </div>
+    <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Finite Heisenberg–Weyl (per cycle)</div>
+      \[
+        T_C S_C = \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
+      \]
+      <p style="color:#666;font-size:.95rem;">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:2rem;">What This Enables</h2>
+  <ul style="margin:.6rem 0 0 1rem;">
+    <li><strong>Auditability:</strong> unitary checks on cycles, Choi positivity/trace-preservation on transients, projector–symmetry commutators, micro-causality/light-cone diagnostics.</li>
+    <li><strong>Security knobs:</strong> group-keyed permutations on code indices; DFA as a syntax firewall for outputs.</li>
+    <li><strong>Falsifiability:</strong> distinct physics domains should induce distinct latent curvatures and cycle-phase spectra; failure to separate is evidence against the thesis.</li>
+  </ul>
+
+  <h2 style="margin-top:2rem;">Status & Links</h2>
+  <p style="color:#444;">
+    This introduction summarizes the current direction. The program was first written in 2024 and continues to evolve in 2025.
+    A non-provisional patent has been filed. For the full technical development, see the PDF:
+    <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+      GRAIL × DFA as Dual Quantization: Toward an Observer-Centric Quantum Gravity
+    </a>.
+  </p>
 </section>
 
-<section class="page-section" id="applications">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <h2 class="section-title">Applications</h2>
-  </div>
-  <div class="section-body">
-<h3>The Core Question</h3>
+
+
+
+
+
+<section id="grail-intro">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <style>
+    #grail-intro { max-width: 880px; margin: 2rem auto; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; }
+    #grail-intro h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 0.25rem; }
+    #grail-intro h2 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; }
+    #grail-intro .tag { display:inline-block; font-size: .85rem; background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; border-radius: 999px; padding:.15rem .6rem; margin-left:.5rem; vertical-align: middle;}
+    #grail-intro p { margin: .75rem 0; }
+    #grail-intro .cta { display:inline-block; margin-top:1rem; padding:.6rem .9rem; border-radius:.5rem; border:1px solid #d1d5db; text-decoration:none; color:#111827; background:#fff; }
+    #grail-intro .cta:hover { background:#f9fafb; }
+    #grail-intro code { background:#f3f4f6; padding:.15rem .35rem; border-radius:.25rem; }
+    #grail-intro .note { font-size:.9rem; color:#4b5563; }
+  </style>
+
+  <h1>GRAIL: Geometric Representation Algebra for Intelligent Learning
+    <span class="tag">ongoing—original draft written a year ago</span>
+  </h1>
+
+  <p class="note">
+    This research originated one year ago and remains under active development toward more advanced progress.
+    A non-provisional patent has been filed for the core ideas.
+  </p>
+
+  <h2>What is GRAIL?</h2>
+  <p>
+    GRAIL formalizes learning as geometry. It introduces a representation algebra on (pseudo-)Riemannian
+    manifolds—particularly Minkowski and hyperbolic models—so that optimization, symmetry, and security
+    can be reasoned about with group actions, orbits, and invariant distances.
+  </p>
+
+  <h2>Key ideas at a glance</h2>
+  <ul>
+    <li><strong>Gradient–symmetry interplay.</strong> In general geometries, group actions need not commute with gradient descent; this reshapes optimization paths and landscapes.</li>
+    <li><strong>When commutativity returns.</strong> Under isometric symmetries on Riemannian manifolds with invariant loss, gradient flow is equivariant and commutes with those symmetries.</li>
+    <li><strong>Secure-by-geometry.</strong> Time-varying Lorentz/Möbius actions on parameters and data enable real-time, non-malleable encryption aligned with model inference.</li>
+    <li><strong>Autoencoders as dynamical systems.</strong> Fixed points, orbits, and hyperbolic distances structure compression, transfer, and reconstruction guarantees.</li>
+  </ul>
+
+  <h2>Mathematical backbone</h2>
+  <p>
+    Let \(G\) act isometrically on \((\mathcal{M},\langle\cdot,\cdot\rangle)\) with \(\mathcal{L}(g\!\cdot\!\theta)=\mathcal{L}(\theta)\).
+    Then the gradient field is \(G\)-equivariant:
+    \[
+      d(g)_\theta\big(\nabla \mathcal{L}(\theta)\big)=\nabla \mathcal{L}(g\!\cdot\!\theta),
+    \]
+    so gradient flow \(\Phi_t\) and isometries commute: \(g\!\cdot\!\Phi_t(\theta)=\Phi_t(g\!\cdot\!\theta)\).
+    Departures from these hypotheses (e.g., adaptive preconditioners, regularizers, stochasticity) generally break commutativity and can be exploited to navigate landscapes.
+  </p>
+
+  <h2>Why this matters</h2>
+  <p>
+    By treating learning as geometry, GRAIL unifies optimization, symmetry, and cryptography:
+    it yields principled invariances when desired and controlled non-commutativity when beneficial,
+    with direct routes to secure, real-time, model-aligned encryption.
+  </p>
+
+  <p>
+    <a class="cta" href="https://drive.google.com/file/d/1b4MsNssiyuZTsf3ucsWDrDjzbW35e-g_/view?usp=sharing" target="_blank" rel="noopener">
+      Read the GRAIL draft (PDF)
+    </a>
+  </p>
+</section>
+
+
+<!-- ===== Lambda Stack Inverse Capability Overview ===== -->
+<section id="lambda-stack-inversion" class="research-section" aria-label="Lambda Stack Inverse Mapping Uniqueness">
+  <h2>The Core Question</h2>
   <p><strong>Why can’t standard transformers or physics-informed neural networks (PINNs)<sup id="footnote-pinn">[1]</sup> learn the inverse map</strong> \( g_{\mu\nu}(x,t) \to T_{\mu\nu}(x,t) \) <strong>from a goal state?</strong></p>
 
-  <h4>Summary Answer</h4>
+  <h3>Summary Answer</h3>
   <p>
     Because standard transformers and PINNs are built to solve <em>forward problems</em>—they simulate what happens given a source (e.g., \( T_{\mu\nu} \)), not how to construct a source to achieve a desired effect (e.g., \( g_{\mu\nu} \)).
   </p>
@@ -1773,7 +1681,7 @@ Final test accuracy: 1.000
     …can trace these conditions backwards in a constrained, interpretable, and physically-valid way.
   </p>
 
-  <h4>Why Standard Transformers Can’t Do It</h4>
+  <h3>Why Standard Transformers Can’t Do It</h3>
   <ul>
     <li>
       <strong>1. No Operator Inversion</strong>
@@ -1804,7 +1712,7 @@ Final test accuracy: 1.000
     </li>
   </ul>
 
-  <h4>Why Physics-Informed Neural Networks (PINNs) Also Can’t Do It</h4>
+  <h3>Why Physics-Informed Neural Networks (PINNs) Also Can’t Do It</h3>
   <ul>
     <li>
       <strong>1. Forward PDE Solvers</strong>
@@ -1833,7 +1741,7 @@ Final test accuracy: 1.000
     </li>
   </ul>
 
-  <h4>Inversion ≠ Regression</h4>
+  <h3>Inversion ≠ Regression</h3>
   <p>
     Yes, you could try to train a standard neural net or PINN to approximate the inverse map:
     \[ g_{\mu\nu}(x,t) \mapsto T_{\mu\nu}(x,t) \]
@@ -1851,7 +1759,7 @@ Final test accuracy: 1.000
     <strong>Only λ‑stack supports invertible symbolic flows with mode decomposition and real-world interpretability.</strong>
   </p>
 
-  <h4>λ‑Stack Uniqueness</h4>
+  <h3>λ‑Stack Uniqueness</h3>
   <table>
     <thead>
       <tr>
@@ -1871,7 +1779,7 @@ Final test accuracy: 1.000
     </tbody>
   </table>
 
-  <h4>Final Takeaway</h4>
+  <h3>Final Takeaway</h3>
   <p>
     <strong>Standard transformers learn forward patterns.</strong><br>
     <strong>PINNs solve forward physics problems.</strong><br>
@@ -1893,47 +1801,8 @@ Final test accuracy: 1.000
 
 
 <article>
-  </div>
-</section>
-
-<section class="page-section" id="reference">
-  <div class="section-header">
-    <span class="section-num">07</span>
-    <h2 class="section-title">Origin &amp; Reference</h2>
-  </div>
-  <div class="section-body">
-<h4>Personal Path and Strategic Motivation</h4>
-  <p class="ctq-mini">
-    According to verified library records, independent study in special and general relativity began as early as third grade (K–3), forming the earliest seed of a long-term intellectual mission.
-    Since approximately 2003–2004, the pursuit of quantum gravity has been the principal objective—navigated through autodidactic rigor and sustained despite prolonged side tracks undertaken to secure necessary financial and logistical stability.
-  </p>
-
-  <div class="ctq-callout">
-    <strong>Formative Influences</strong>
-    <ul class="ctq-list">
-      <li>
-        Initiated direction through a translated edition of Lee Smolin’s <em>Three Roads to Quantum Gravity</em>, translated by
-        <a class="ctq-link" href="https://en.wikipedia.org/wiki/Hong-Yee_Chiu" target="_blank" rel="noopener">Dr. Hong-Yee Chiu</a>—
-        a NASA astrophysicist and
-        <a class="ctq-link" href="https://en.wikipedia.org/wiki/List_of_Cosmos_Club_members" target="_blank" rel="noopener">Cosmos Club member</a>
-        whose career spanned elite scientific, national, and diplomatic circles.
-      </li>
-      <li>
-        During undergraduate physics coursework, posed an early question that anticipated later developments in CEAS: 
-        why physical laws were written in perfectly clean formulaic form with no perturbation—e.g., why Coulomb’s inverse-square law lacked an &epsilon;-term. 
-        When presented to Professor Chia-Liang Cheng, this line of inquiry foreshadowed the entropy-based variational structure at the heart of CEAS. 
-        The intuitive notion of embedding controlled deviation directly into physical law (e.g., modifying Maxwell to Proca via &epsilon;) ultimately inspired the core
-        idea of scalable entropy adjustment in high-dimensional learning systems.
-      </li>
-    </ul>
-  </div>
-</article>
-
-
-
-
-<section id="grail-dfa-wmap">
-  <header><hr style="border:none;border-top:1px solid var(--border-dim);margin:2rem 0"><p>
+  <h2>Geometry of \( \mathbb{H}^n \): Foundations, Group Actions, and Quotient Constructions</h2>
+  <p>
     This pedagogically motivated exposition builds a rigorous, example-rich framework for understanding the geometry of \( n \)-dimensional hyperbolic space \( \mathbb{H}^n \), with emphasis on its model structures, isometry groups, and the manifold and orbifold topology of the quotient \( \Gamma \backslash \mathbb{H}^n \).
     Designed for advanced students and early researchers, the document integrates foundational geometric definitions, topological underpinnings, and group-theoretic dynamics into a coherent and visually supported progression.
   </p>
@@ -1966,15 +1835,4 @@ Final test accuracy: 1.000
   </footer>-->
 </body>
 </html>
-  </div>
-</section>
-  </main>
-</div>
-<footer>
-  &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc. All rights reserved.
-  &middot; Patent Applications: 64/067,703 &middot; 63/773,441 &middot; 63/881,657 &middot; Provisional stage.
-</footer>
-</div>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+
