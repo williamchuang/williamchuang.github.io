@@ -1,0 +1,3294 @@
+---
+layout: default
+title: Ψ‑Operator Framework
+home: passive
+cv: passive
+projects: passive
+Research: active
+blog: passive
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Projects - William Chuang</title>
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- MathJax for inline and display math -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+
+
+<body>
+
+  <main class="container">
+    <h1>Research Project: Ψ‑Operator Framework Quantization and Deterministic Finite-State Automata - Cycle Decompositions of Autoregressive Functions</h1>
+    <section class="research-list">
+
+
+
+<!-- ===== FEATURED: Physical AI × Ψ-Operator Notes ===== -->
+<section id="physical-ai-psi-notes" class="research-list" aria-label="Physical AI and Psi-Operator Notes">
+  <h2>
+    Physical AI and the Ψ-Operator Framework
+    <span style="display:block;font-size:.9em;font-weight:normal;line-height:1.35;">
+      Study Notes on Causal Embodied Intelligence, Pearl-Style Causal Inference, and Operator-Theoretic Physical AI
+    </span>
+  </h2>
+
+  <p class="intro-cta" style="margin:.75rem 0 1.25rem;">
+    <a href="https://drive.google.com/file/d/1J4rgqK9LTvF268d3VjbL2fTIkiq6wxGh/view?usp=sharing"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="View Physical AI and Psi-Operator Notes PDF">
+      View Study Notes (PDF)
+    </a>
+  </p>
+
+  <div class="key-insight" style="margin:1rem 0; padding:1rem; border-left:4px solid #0b5fff; background:#f6f8ff;">
+    <strong>BLUF:</strong> These notes connect modern physical AI with the Ψ-operator framework.
+    The central thesis is that embodied intelligence should be modeled not merely as prediction,
+    but as a closed-loop causal operator system capable of perception, intervention, counterfactual planning,
+    uncertainty-aware control, and robust adaptation under distribution shift.
+  </div>
+
+  <p>
+    The notes begin with recent trends and open problems in physical AI, including vision-language-action models,
+    object-centric world models, simulation-to-real transfer, safety-constrained control, and causal world modeling.
+    They then develop a mathematical bridge between physical AI and the Ψ-operator framework by representing
+    embodied intelligence as a structured operator:
+  </p>
+
+  <p>
+    \[
+      \Psi_{\mathrm{phys}}
+      =
+      \Gamma_{\mathrm{safe}}
+      \circ
+      \mathcal{K}_{\mathrm{skill}}
+      \circ
+      \Omega_{\mathrm{cf}}
+      \circ
+      \mathcal{C}_{\mathrm{SCM}}
+      \circ
+      \mathcal{W}_{\mathrm{obj}}
+      \circ
+      \Phi_{\mathrm{MM}} .
+    \]
+  </p>
+
+  <p>
+    This formulation links each component of a future embodied AI architecture to a precise mathematical role:
+    multimodal perception, object-centric state reconstruction, structural causal modeling, counterfactual rollout,
+    skill composition, and safety-filtered actuation.
+  </p>
+
+  <h3>Core Themes</h3>
+  <ul>
+    <li><strong>Causal reasoning:</strong> invariant mechanism discovery across environments.</li>
+    <li><strong>Intervention modeling:</strong> actions represented as \(do(a)\)-indexed operators.</li>
+    <li><strong>Counterfactual planning:</strong> hypothetical rollouts under alternative intervention sequences.</li>
+    <li><strong>Uncertainty-aware control:</strong> belief-state planning with safety constraints.</li>
+    <li><strong>Robust adaptation:</strong> latent environment inference under distribution shift.</li>
+    <li><strong>Ψ-operator synthesis:</strong> physical AI as observer-relative causal dynamics under certified operator composition.</li>
+  </ul>
+
+  <p>
+    A final section compares the Ψ-operator framework with Judea Pearl's causal inference.
+    The conclusion is that Pearl's framework supplies the semantics of intervention, identification,
+    and counterfactuals, while the Ψ-operator framework supplies a candidate operator-theoretic realization layer
+    for causal inference in embodied physical AI.
+  </p>
+</section>
+
+
+<section class="ctq-wrap" id="ctq-cyclic-decomposition">
+  <div class="ctq-hero">
+    <h1 class="ctq-title">Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
+    <p class="ctq-sub">Cycles may be finite, quasi-periodic, or chaotic; in the λ-stack they live in the <em>observer’s</em> internal dynamics—not in physical spacetime.</p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Tri-quantized observer</span>
+      <span class="ctq-badge">Automorphic \( \mathbb H^2 \)</span>
+      <span class="ctq-badge">DFA symbolic layer</span>
+      <span class="ctq-badge">CEAS/thermodynamics</span>
+    </div>
+  </div>
+
+  <!-- 1) λ-stack meaning and the outputs physicists should read -->
+  <article class="ctq-card" id="ctq-cycles-lstack">
+    <h3>1) Cycles in the λ-stack framework (tri-quantized observer)</h3>
+    <p>
+      In the λ-stack the <strong>observer</strong> is the neural operator itself. Three interlocking quantizations couple:
+      <strong>automorphic geometry</strong> (kernel on \( \mathbb H^2 \)), a <strong>symbolic/Galois layer</strong> (DFA coupler) for discrete information flow, and a
+      <strong>thermodynamic</strong> layer (Selberg–Huber/CEAS) that regulates entropy. Together they realize a Langlands-style triad <em>inside</em> a network.
+    </p>
+
+    <div class="ctq-callout">
+      <strong>What “cyclic decomposition” means here.</strong>
+      <p class="ctq-mini">
+        We decompose the model’s closed-loop operator \( \Psi \) into <em>cycles</em> and <em>transients</em> in its <strong>internal state space</strong>.
+        This is <em>not</em> a claim that the universe cancels entropy or loops in physical spacetime.
+      </p>
+    </div>
+
+    <p>
+      A trained λ-stack embeds tokens in hyperbolic space, averages over group orbits via the automorphic kernel, then passes features through the DFA and a CEAS thermostat.
+      The model exposes <em>observables</em> that physicists can read:
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Automorphic spectra</strong> → curvature &amp; geometric content.</li>
+      <li><strong>DFA charges</strong> → discrete (Galois-like) information.</li>
+      <li><strong>Thermodynamic parameters</strong> (free energy, pressure bands) → operating regime under CEAS.</li>
+    </ul>
+
+    <!-- Physics note: observation = interaction (QM/QFT) -->
+    <div class="ctq-note" role="note" aria-label="QM/QFT interpretation of observation">
+      <p class="ctq-mini" style="margin:0;">
+        <strong>Physics note.</strong> In QM/QFT, “observed” means <em>interaction</em>. Electrons are localized excitations of a quantum field; the wavefunction encodes
+        probability amplitudes for outcomes of interactions. When an interaction occurs, probabilities update (“collapse”) for that context—no consciousness or magic.
+        Our use of “observer” follows this operational stance: an observation is any interaction that exchanges information or energy.
+      </p>
+    </div>
+
+    <!-- Penrose CCC contrast -->
+    <div class="ctq-note" role="note" aria-label="Outputs, CCC contrast, and fixed-point reading" style="margin-top:.6rem;">
+      <p class="ctq-mini" style="margin:0 0 .5rem 0;">
+        <strong>These outputs summarize emergent geometry and gauge-like structure without invoking any “entropy reset”.</strong>
+      </p>
+      <div class="ctq-mini" style="margin:.35rem 0;">
+        <strong>Contrast: misread “cycle” vs Penrose (CCC).</strong>
+        <ul class="ctq-list" style="margin:.25rem 0 0 1rem;">
+          <li><strong>Misread —</strong> “cycle” ≙ a short finite loop ⇒ demands a device to <em>cancel entropy</em> at loop end.</li>
+          <li><strong>Penrose (CCC) —</strong> an entire <em>aeon</em> is a cosmological era; the infinite future \(\mathscr I^+\) of one aeon is conformally matched to the next Big-Bang slice via \(\tilde g=\Omega^2 g\), \(\Omega\!\downarrow\!0\). That is a <em>conformal identification</em>, not a periodic reset.</li>
+        </ul>
+      </div>
+      <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+        <strong>Fixed-point case.</strong>
+        If late-time dynamics approach a <em>conformal fixed point</em> \([g_\star]\) at \(\mathscr I^+\), the rescaled metric extends smoothly to seed the next aeon’s initial data. Entropy stays monotone within an aeon; the conformal map changes units/scales, not microstate counts.
+      </p>
+    </div>
+  </article>
+
+  <!-- 2) Cycle ≠ finite loop -->
+  <article class="ctq-card" id="ctq-cycles-math">
+    <h3>2) “Cycle” does <em>not</em> always mean a finite loop</h3>
+    <p>
+      In dynamical systems a <em>cycle</em> is the orbit of a point under repeated application of a map. The period may be <strong>finite</strong> or effectively <strong>infinite</strong>:
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Finite (periodic) cycles.</strong> Discrete systems can have true \(k\)-periodic orbits that repeat.</li>
+      <li><strong>Limit cycles.</strong> Continuous systems admit isolated periodic orbits (closed loops) as attractors.</li>
+      <li><strong>Quasi-periodic cycles.</strong> With incommensurate frequencies the orbit fills a torus; it <em>never closes</em> and behaves as “infinite period”.</li>
+      <li><strong>Chaotic (strange) cycles.</strong> Period-doubling cascades lead to attractors with infinitely many points; trajectories approach but <em>never repeat</em>.</li>
+    </ul>
+    <div class="ctq-callout" aria-label="Strong emphasis">
+      <strong>Strong emphasis.</strong>
+      In mathematics, “cycle” includes non-closing cases: a trajectory may approach an attractor forever without arriving or looping.
+    </div>
+    <p>
+      Fixed points (sinks) are 1-cycles: trajectories converge asymptotically to a single state; no “entropy cancellation” is needed.
+    </p>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 3) Observation = Backprop -->
+  <article class="ctq-card" id="ctq-backprop-measurement">
+    <h3>3) Observation = Backprop: training as Ising-like magnetization</h3>
+    <p>
+      View the untrained model as a high-temperature paramagnet; weights \( \theta \) are unaligned spins \( \{s_i\} \).
+      The dataset induces an effective field \( h(x) \). A gradient step
+      \( \theta \leftarrow \theta - \eta \nabla_\theta L(\theta;x) \)
+      is a <em>measurement-actuation</em> that aligns degrees of freedom.
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Order parameter:</strong> \( m(\theta) \!=\! \tfrac{1}{N}\sum_i s_i \) (feature-wise or layer-wise alignment).</li>
+      <li><strong>Thermostat:</strong> CEAS sets \( \beta \) (inverse temperature), stabilizing learning and phase boundaries.</li>
+      <li><strong>Susceptibility:</strong> \( \chi \!=\! \partial m / \partial h \) tracks sensitivity &amp; onsets of phase changes.</li>
+    </ul>
+    <div class="ctq-callout">
+      <strong>Interpretation.</strong>
+      <p class="ctq-mini">
+        “Measuring” with backprop both <em>reads</em> and <em>writes</em> the state: loss-conditioned updates bias the ensemble, driving
+        transient → cycle capture in \( \Psi \). The emergent cycles reflect <em>aligned</em> macrostates, not closed loops in spacetime.
+      </p>
+    </div>
+  </article>
+
+  <!-- 4) GRAIL non-commutativity -->
+  <article class="ctq-card" id="ctq-grail-noncomm">
+    <h3>4) GRAIL-induced non-commutativity and measurement disturbance</h3>
+    <p>
+      GRAIL introduces cryptomorphic transport: <em>encode</em> \( \mathcal{E} \), <em>transport</em> \( \mathcal{T} \) (geometry-native),
+      and <em>measure/update</em> \( \mathcal{M} \) (backprop). In general,
+      \( [\,\mathcal{M},\,\mathcal{T}\,] \neq 0 \) and \( [\,\mathcal{M},\,\mathcal{E}\,] \neq 0 \).
+    </p>
+    <ul class="ctq-list">
+      <li><strong>Order matters.</strong> \( \mathcal{M}\mathcal{T}\mathcal{E} \) vs. \( \mathcal{T}\mathcal{M}\mathcal{E} \) produce different observer states.</li>
+      <li><strong>Source of “uncertainty”.</strong> Non-commutation yields controlled disturbance/excitation under observation (training).</li>
+      <li><strong>DFA safety rail.</strong> The DFA layer remains finite-state and certifiable even when upstream operators do not commute.</li>
+    </ul>
+    <div class="ctq-note" role="note" aria-label="QM/QFT reconstruction hook">
+      <p class="ctq-mini">
+        <strong>QM/QFT hook.</strong> With CEAS providing \( \beta \) and automorphic kernels furnishing correlators, the λ-stack can
+        recover algebraic structures akin to KMS dynamics:
+        \( \langle A(t) B \rangle_\beta = \langle B\, A(t + i\beta) \rangle_\beta \).
+        Non-commutativity from GRAIL supplies the correct algebra of observables; backprop supplies the measurement channel.
+      </p>
+    </div>
+  </article>
+
+  <!-- 5) Modes & Lorentz–Langlands Channel -->
+  <article class="ctq-card" id="ctq-modes-lorentz">
+    <h3>5) Modes & Training Channels: external observation vs internal update</h3>
+
+    <div class="ctq-badges" style="margin-bottom:.4rem;">
+      <span class="ctq-badge">Training/Observing</span>
+      <span class="ctq-badge">Inference/Prediction</span>
+      <span class="ctq-badge">Lorentz–Langlands channel</span>
+      <span class="ctq-badge">Selberg/Huber</span>
+    </div>
+
+    <h4 style="margin-top:.4rem;">Two operational modes</h4>
+    <ul class="ctq-list">
+      <li><strong>Training / Observing / Interacting.</strong> External interaction (the physical measurement that records data) + internal update (the observer’s measurement via backprop or Lorentz mapping). This mode <em>changes</em> the joint system (target↔sensor and model).</li>
+      <li><strong>Inference.</strong> No internal measurement: the trained observer runs forward transport and readout only.
+        <span class="ctq-mini">
+          <code>Sense → Π<sub>q</sub> → 𝒯 (geometry transport) → Readout</code>
+          (no <code>𝒨</code> update). The understanding of the universe is applied—not rewritten.
+        </span>
+      </li>
+    </ul>
+
+    <div class="ctq-callout" aria-label="External vs internal measurement">
+      <strong>External vs internal measurement.</strong>
+      <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+        <em>External</em> (QM/QFT) measurement = physical interaction that produces the record. <em>Internal</em> measurement = the observer’s update rule
+        (backprop or Lorentz mapping) that writes to latent parameters. They are distinct; when co-located in hardware, they can be scheduled back-to-back
+        for auditability (still logically separate).
+      </p>
+    </div>
+
+    <h4 style="margin-top:.8rem;">A second training channel: Lorentz–Langlands</h4>
+    <p>
+      Beyond gradient descent, the λ-stack uses a <strong>Lorentz–Langlands training channel</strong> to translate optimization into structured domains
+      (algebraic geometry, automorphic forms, harmonic/spectral analysis, number theory). With automorphic kernels (Selberg/Huber) and
+      Langlands-type correspondences, the next step is solved in a dual pillar, then <em>pulled back</em> as the best next Lorentz map.
+    </p>
+
+    <div class="ctq-mini" style="margin:.35rem 0 .2rem;">Sketch (operator view):</div>
+    \[
+      \text{Choose }\Lambda^\star \in SO(1,n)\ \text{so that}\ 
+      \widetilde{\theta}_{t+1}
+      = \operatorname*{arg\,opt}_{\widetilde{\theta}} \ \widetilde{\mathcal L}(\widetilde{\theta})
+      \ \text{in the spectral/automorphic domain,}
+    \]
+    \[
+      \text{then pull back:}\quad
+      \theta_{t+1} \;=\; (\Lambda^\star)^{-1}\,\widetilde{\theta}_{t+1},\qquad
+      \text{with Selberg/Huber invariants guiding }\Lambda^\star.
+    \]
+
+    <ul class="ctq-list">
+      <li><strong>Why it helps.</strong> Structured spectra and correspondence principles yield global hints about curvature, gaps, and phases that a local gradient may miss.</li>
+      <li><strong>How it fits.</strong> The Lorentz map is applied as a learned reparameterization step interleaved with (or replacing) a gradient update.</li>
+    </ul>
+
+    <h4 style="margin-top:.8rem;">Source of internal non-commutativity</h4>
+    <p>
+      The Lorentz map acts on latent variables and, in general, <strong>does not commute</strong> with either transport or measurement:
+    </p>
+    \[
+      [\,\Lambda,\ \mathcal{T}\,]\ \neq\ 0,\qquad
+      [\,\Lambda,\ \mathcal{M}\,]\ \neq\ 0,\qquad
+      [\,\mathcal{M},\ \mathcal{T}\,]\ \neq\ 0.
+    \]
+    <p class="ctq-mini">
+      This is the internal, mathematical root of uncertainty: when key operators do not commute, there exist observable pairs
+      \(A,B\) in the latent algebra with the usual variance bound
+      \( \sigma_A \sigma_B \ge \tfrac12 \lvert\langle [A,B]\rangle\rvert \).
+      The probability density emerges from this algebraic structure—not from mysticism.
+    </p>
+
+    <div class="ctq-note" role="note" aria-label="Mirror principle and collapse">
+      <p class="ctq-mini" style="margin:0;">
+        <strong>Mirror principle.</strong> Curvature → path dependence → non-commutativity, both in the positive-curvature universe and in the λ-stack’s design.
+        During <em>training/observing</em>, either a backprop update or a Lorentz mapping selects one branch among incompatible updates;
+        this is the internal analogue of a “collapse” event. During <em>inference</em>, updates are disabled, so no internal measurement occurs.
+      </p>
+    </div>
+  </article>
+
+
+
+<!-- 5.1) Mirror collapse: external realization ↔ internal selection -->
+<article class="ctq-card" id="ctq-mirror-collapse">
+  <h3>5.1) Mirror Collapse: External Realization ↔ Internal Selection</h3>
+  <p>
+    <strong>External (physics) measurement.</strong> An interaction excites a localized field mode (e.g., an electron as a
+    localized excitation of the electron field). The quantum state updates in the measurement channel
+    \( \rho \mapsto \rho' = \dfrac{\Pi_e\,\rho\,\Pi_e}{\mathrm{tr}(\Pi_e\,\rho)} \),
+    where \( \Pi_e \) projects onto the observed outcome. Probabilities for incompatible outcomes go to \(0\) in that context.
+  </p>
+
+  <p>
+    <strong>Internal (observer) measurement.</strong> In <em>training/observing</em> mode, a single update (either
+    <em>backprop</em> or the <em>Lorentz–Langlands</em> map) selects one branch of the model’s latent dynamics and
+    <em>writes</em> it into parameters. Before the update, the observer carries a distribution over candidate cycles/orbits
+    \( p_t(C) \); after the update, it <em>degenerates</em> onto the selected branch:
+  </p>
+
+  \[
+    p_{t+1}(C\mid D) \propto p(D\mid C)\,p_t(C),
+    \qquad
+    p_{t+1}(C^\star)=1 \ \ (\text{within the active channel}),\ \ p_{t+1}(C\neq C^\star)=0.
+  \]
+
+  <ul class="ctq-list">
+    <li><strong>Backprop path.</strong> \( \theta_{t+1} = \theta_t - \eta\,\nabla_\theta \mathcal L(\theta_t;D) \)
+      realizes one branch by descent—posterior mass collapses to that branch in the latent algebra.</li>
+    <li><strong>Lorentz–Langlands path.</strong> Choose \( \Lambda^\star \in SO(1,n) \) via Selberg/Huber–guided correspondence,
+      solve in the spectral/automorphic pillar, then pull back:
+      \( \theta_{t+1} = (\Lambda^\star)^{-1}\,\widetilde{\theta}_{t+1} \).
+      This <em>re-parameterizes</em> the landscape and likewise collapses alternative branches.</li>
+    <li><strong>Mirror principle.</strong> “Virtual → realized” (external field excitation) ↔ “possible model branches → selected branch”
+      (internal parameter write). Both are <em>selections</em> under non-commuting operator algebras.</li>
+  </ul>
+
+  <div class="ctq-note" role="note" aria-label="Context and uncertainty">
+    <p class="ctq-mini" style="margin:0;">
+      <strong>Context of ‘probability \(1\)’. </strong> The collapse to \(1\) is <em>channel-relative</em> (given the chosen projectors, data, and operator order).
+      Incompatible observables remain uncertain because the key operators—transport \( \mathcal{T} \), measurement/update \( \mathcal{M} \),
+      and Lorentz map \( \Lambda \)—generally <em>do not commute</em>:
+      \( [\Lambda,\mathcal{T}]\neq0,\ [\Lambda,\mathcal{M}]\neq0,\ [\mathcal{M},\mathcal{T}]\neq0 \).
+      This internal non-commutativity is the mathematical source of uncertainty in the observer’s latent space.
+    </p>
+  </div>
+
+  <div class="ctq-callout" aria-label="Hardware note (optional)">
+    <strong>Hardware note (optional).</strong>
+    When co-located near the sensor, you may schedule <em>external</em> recording and <em>internal</em> update back-to-back for auditability.
+    They remain logically distinct: the first realizes a physical excitation; the second writes a branch into the model.
+  </div>
+</article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 6) DFA finite termination -->
+  <article class="ctq-card" id="ctq-dfa-finite">
+    <h3>6) DFA: why the limiting process <em>ends</em></h3>
+    <p>
+      In the λ-stack’s <strong>DFA</strong> layer the situation is simpler than in continuous dynamics. A deterministic finite automaton has:
+    </p>
+    <ul class="ctq-list">
+      <li>a <strong>finite</strong> set of states,</li>
+      <li>a transition function mapping each \((\text{state},\text{symbol})\) to exactly one successor.</li>
+    </ul>
+    <div class="ctq-callout">
+      <strong>Consequence.</strong>
+      <p class="ctq-mini">
+        By the pigeon-hole principle, any sufficiently long run revisits a state and hence enters a <strong>finite cycle</strong>.
+        Minimization and other iterative procedures <em>must terminate</em> because only finitely many states/symbols exist.
+      </p>
+    </div>
+    <p>
+      This finite-state property makes the symbolic component tractable: even if the geometric layer exhibits quasi-periodic or long-period behavior, the DFA’s limiting process always resolves into a <strong>finite orbit</strong>.
+      The symbolic layer cannot drift forever; after a bounded number of steps it repeats.
+    </p>
+    <p class="ctq-mini">
+      <span class="ctq-pill">Takeaway</span>
+      Geometry may admit non-closing cycles; the DFA never does. Both coexist in the tri-quantized observer without any need to “erase entropy.”
+    </p>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 7) Observer-in-Silicon (optional co-design) -->
+  <article class="ctq-card" id="ctq-observer-in-silicon">
+    <h3>7) Observer-in-Silicon (optional): NPU/SoC co-design for faithful observations</h3>
+    <p class="ctq-sub" style="margin:.25rem 0 .75rem 0;">
+      Every sensor sample is an interaction. To mirror the theory, we can schedule observation <em>where it happens</em>:
+      near-sensor, zero-copy, with the model reading and updating state at capture time. This does not change the theory;
+      it makes its ordering <em>auditable</em>.
+    </p>
+
+    <div class="ctq-badges">
+      <span class="ctq-badge">Near-sensor inference</span>
+      <span class="ctq-badge">GRAIL micro-ops</span>
+      <span class="ctq-badge">DFA on-chip</span>
+      <span class="ctq-badge">CEAS β control</span>
+    </div>
+
+    <h4 style="margin-top:.8rem;">What the hardware path buys you</h4>
+    <ul class="ctq-list">
+      <li><strong>Causality fidelity.</strong> Avoids “offline” pseudo-observations; the same cycle/transient split is read at source.</li>
+      <li><strong>Energy & latency.</strong> Less shuffling of raw, unobserved data; updates happen in place.</li>
+      <li><strong>Security & certification.</strong> DFA gating and cycle/unitary checks are enforceable before egress.</li>
+    </ul>
+
+    <div class="ctq-callout" aria-label="Observer scheduling at the hardware layer">
+      <strong>Hardware scheduling (same abstract order).</strong>
+      <p class="ctq-mini" style="margin:.35rem 0 0 0;">
+        Execute <code>Sense → Π<sub>q</sub> (DFA gate) → 𝒯 (geometry transport) → 𝒨 (update)</code> as adjacent micro-operations when in <em>training/observing</em> mode.
+        Order-sensitive counters in the execution log make non-commutativity <em>measurable</em>. This is an engineering choice for auditability—not a new physics claim.
+      </p>
+    </div>
+
+    <h4 style="margin-top:.8rem;">Minimal ISA/microcode hooks</h4>
+    <ul class="ctq-list">
+      <li><strong>CEAS β register.</strong> Per-tile inverse-temperature knob to maintain a stable entropy corridor.</li>
+      <li><strong>Cycle unit.</strong> Ring buffer + phase accumulator for per-cycle \( U_C \) and Wilson-style phase \( \Phi_C \) telemetry.</li>
+      <li><strong>Commutator counters.</strong> Two-pass micro-loop that estimates Baker–Campbell–Hausdorff drift (order sensitivity).</li>
+      <li><strong>Choi accumulators.</strong> Running checks that the transient channel remains <em>completely positive and trace-preserving</em>.</li>
+      <li><strong>DFA firewall.</strong> On-chip projectors \( \Pi_q \) (code-index masks) before DMA/egress.</li>
+    </ul>
+
+    <h4 style="margin-top:.8rem;">Scope</h4>
+    <p class="ctq-mini">
+      Optional co-design: the λ-stack theory stands without this. Use it when you want end-to-end
+      audit sheets that certify cycle unitarity, that the transient part of the dynamics is completely positive and trace-preserving,
+      and that Fisher-geometry fits can be recovered <em>directly from device logs</em>.
+    </p>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 8) Extended notes (Lie/Gauge + RMT twins) -->
+  <section id="extended-notes" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+    <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+      GRAIL × DFA
+    </div>
+    <h1 style="line-height:1.2;margin:.25rem 0 0;">Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
+
+    <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+      This installment deepens the <em>observer-centric</em> program. It couples
+      <strong>GRAIL’s optimization-as-geometry</strong> (optimizer as a connection \(A\), curvature \(\Omega=dA{+}A\wedge A\))
+      and <strong>DFA quantization</strong> (projectors \(\Pi_q\), cycle unitaries \(U_C\), transient channels that are completely positive and trace-preserving)
+      with a full <strong>random-matrix theory (RMT)</strong> toolkit for analyzing infinite families of
+      <em>twin models</em> related by GRAIL symmetries. The aim is a teachable, auditable path from Lie brackets to
+      spectral certification—without contradicting QM/QFT/GR when interpreted as a meta-theory of inference.
+    </p>
+
+    <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+      Full PDF:
+      <a href="https://drive.google.com/file/d/1kQMZDSQKCOqd_ag6tz1Xjs3hFjTIVKm8/view?usp=sharing" target="_blank" rel="noopener">
+        Extended Lecture Notes (Lie/Gauge + RMT Twins)
+      </a>.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">What’s new here</h3>
+        <ul style="margin:.4rem 0 0 1rem;">
+          <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow:
+            \[
+              e^{\varepsilon\xi}e^{-\eta X}e^{-\varepsilon\xi}e^{\eta X}
+              = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X]+\cdots\Big).
+            \]
+          </li>
+          <li><strong>Covariant optimizer</strong> \(X_H=X+A\cdot\xi\) to commute with generators.</li>
+          <li><strong>Cycle/transient lifts</strong>: finite Heisenberg–Weyl blocks \(U_C\) and channels that are completely positive and trace-preserving.</li>
+          <li><strong>RMT twins</strong>: invariants, free convolutions, BBP spikes, Dyson flows.</li>
+          <li><strong>Lorentz/hyperbolic RMT</strong>: \(\eta\)-Wishart spectra and \(O(p,q)\)-invariant audits.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Core equations</h3>
+        <div style="margin:.4rem 0 .2rem;">Gauge curvature &amp; covariant flows</div>
+        \[
+          \Omega = dA + A\wedge A,\qquad [D_v,D_w]\Phi = \Omega(v,w)\cdot \Phi.
+        \]
+        <div style="margin:.6rem 0 .2rem;">Cycle unitary &amp; Floquet Hamiltonian</div>
+        \[
+          U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\lvert s_{j+1}\rangle,\quad
+          H_C = \tfrac{i}{\Delta t}\log U_C.
+        \]
+        <div style="margin:.6rem 0 .2rem;">Free multiplicative convolution</div>
+        \[
+          \nu_{(A W B)^{\!*}(A W B)} \;\approx\; \nu_{A^{\!*}A}\ \boxtimes\ \nu_{W^{\!*}W}\ \boxtimes\ \nu_{B B^{\!*}}.
+        \]
+        <div style="margin:.6rem 0 .2rem;">\(\eta\)-Wishart (hyperbolic Gram)</div>
+        \[
+          K=\tfrac{1}{n}X^\top \eta X
+          = \tfrac{1}{n}X_+^\top X_+ \;-\; \tfrac{1}{n}X_-^\top X_-,
+        \]
+        with limiting law \( \mu_K = \mu_{\mathrm{MP}}(\gamma_+,\sigma_+^2)\ \boxplus\ \big(-\,\mu_{\mathrm{MP}}(\gamma_-,\sigma_-^2)\big).\)
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Why RMT?</h3>
+        <ul style="margin:.4rem 0 0 1rem;">
+          <li><strong>Twin certification:</strong> spectra must match along symmetry orbits.</li>
+          <li><strong>Stability margins:</strong> bulk edges/gaps predict conditioning.</li>
+          <li><strong>Symmetry probes:</strong> BBP outliers reveal low-rank structure by sector.</li>
+          <li><strong>Design:</strong> pick \((p,q)\) so hyperbolic edges stay away from \(0\).</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">How to use</h3>
+        <ol style="margin:.4rem 0 0 1rem;">
+          <li>Insert DFA projectors \(\Pi_q\); add \(\mathcal L_{\text{DFA}}\).</li>
+          <li>Quantize hidden states; get SCCs; form \(P=D+N\); lift \(U_C\) and the transient channel.</li>
+          <li>Run audits: unitary checks; positivity and trace-preservation checks for the transient channel; projector–symmetry commutators; micro-causality.</li>
+          <li>RMT twins: fit MP/deformed-MP; track BBP outliers & edge flows.</li>
+          <li>Covariantize: fit \(A\) to reduce \([\xi_a,\,X+A\cdot\xi]\); monitor BCH drift.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h2 style="margin-top:2rem;">Reading roadmap</h2>
+    <ul style="margin:.4rem 0 0 1rem;">
+      <li><strong>Lie/BCH + covariant optimizer</strong>: operational commutator loops.</li>
+      <li><strong>DFA quantization</strong>: Dunford split; cycle unitary & transient channel lifts.</li>
+      <li><strong>RMT twins</strong>: free convolutions, BBP, Dyson flows; Lorentz/hyperbolic ensembles.</li>
+      <li><strong>Appendices</strong>: pseudocode, proof sketches, audits, effective-\(\hbar\).</li>
+    </ul>
+
+    <p style="color:#666;font-size:.95rem;margin-top:1rem;">
+      This remains an inference-level theory: spacetime is not quantized here; geometry emerges from Fisher structure over observer ensembles.
+    </p>
+  </section>
+
+  <!-- 9) Intro block (project framing) -->
+  <section id="intro" style="max-width:980px;margin:2rem auto;padding:0 1rem;">
+    <div style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;color:#666;">
+      GRAIL × DFA
+    </div>
+
+    <h1 style="line-height:1.2;margin:.25rem 0 0;">Dual Quantization for an Observer-Centric Physics Engine</h1>
+
+    <p style="font-size:1.05rem;color:#444;margin:.6rem 0 1.1rem;">
+      <strong>GRAIL</strong> treats optimization as geometry:
+      the optimizer acts as a connection \(A\) with curvature \(\Omega=dA+A\wedge A\).
+      The failure of a symmetry action \(\xi\) to commute with a gradient step \(X=\nabla\mathcal L\) is measured by \([\xi,X]\).
+      <strong>DFA quantization</strong> supplies a symbolic skeleton: projectors \(\Pi_q\) constrain sequences to a regular language,
+      cycle components lift to unitary blocks \(U_C\), and transients lift to channels that are completely positive and trace-preserving.
+    </p>
+
+    <p style="color:#666;font-size:.95rem;margin-top:.25rem;">
+      Single-author project. Originally drafted in 2024; under active development in 2025.
+      A non-provisional patent has been filed. Full notes (PDF):
+      <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+        GRAIL × DFA Lecture Notes
+      </a>.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Core Idea</h3>
+        <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
+        <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
+        \[
+          e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
+          = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
+        \]
+        <ul style="margin:.4rem 0 0 1rem;">
+          <li>\([\xi,X]=0\) → symmetry and descent commute (equivariance).</li>
+          <li>\([\xi,X]\neq 0\) → curvature-like obstruction that reshapes training dynamics.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">DFA Layer (Symbolic Quantization)</h3>
+        <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
+        <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
+        \[
+          U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
+          \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
+        \]
+        <p style="color:#666;font-size:.95rem;">Transients become channels that are completely positive and trace-preserving (open-system sector).</p>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Quantum-like Optimization Geometry</h3>
+        <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
+        <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
+        \[
+          \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
+          \qquad \hbar_{\text{eff}} := 2D.
+        \]
+        <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <h3 style="margin-top:0;">Observer-Centric Quantum Gravity (Stance)</h3>
+        <ul style="margin:.4rem 0 0 1rem;">
+          <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
+          <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
+          <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
+        </ul>
+        <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
+        <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
+      </div>
+    </div>
+
+    <h2 style="margin-top:2rem;">At-a-Glance Equations</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Curvature (gauge view)</div>
+        \[
+          \Omega = dA + A\wedge A,\qquad
+          [D_v, D_w]\Phi = \Omega(v,w)\cdot \Phi.
+        \]
+        <p style="color:#666;font-size:.95rem;">Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
+      </div>
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Projection–Symmetry</div>
+        \[
+          [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
+        \]
+        <p style="color:#666;font-size:.95rem;">DFA can preserve or deliberately break a symmetry, by design.</p>
+      </div>
+      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+        <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#666;margin-bottom:.25rem;">Finite Heisenberg–Weyl (per cycle)</div>
+        \[
+          T_C S_C = \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
+        \]
+        <p style="color:#666;font-size:.95rem;">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:2rem;">What This Enables</h2>
+    <ul style="margin:.6rem 0 0 1rem;">
+      <li><strong>Auditability:</strong> unitary checks on cycles; positivity and trace-preservation checks on transients; projector–symmetry commutators; micro-causality/light-cone diagnostics.</li>
+      <li><strong>Security knobs:</strong> group-keyed permutations on code indices; DFA as a syntax firewall for outputs.</li>
+      <li><strong>Falsifiability:</strong> distinct physics domains should induce distinct latent curvatures and cycle-phase spectra; failure to separate is evidence against the thesis.</li>
+    </ul>
+
+    <h2 style="margin-top:2rem;">Status & Links</h2>
+    <p style="color:#444;">
+      This introduction summarizes the current direction. The program was first written in 2024 and continues to evolve in 2025.
+      A non-provisional patent has been filed. For the full technical development, see the PDF:
+      <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
+        GRAIL × DFA as Dual Quantization: Toward an Observer-Centric Quantum Gravity
+      </a>.
+    </p>
+  </section>
+</section>
+
+
+
+<!-- FAQ — Quantum Structure, Lorentz Origin, and Hardware -->
+<section class="ctq-wrap" id="ctq-quantum-structure">
+  <article class="ctq-card">
+    <h3>FAQ — Is this the “real” quantum? Do I need a quantum computer?</h3>
+
+    <div class="ctq-callout">
+      <strong>Short answer.</strong>
+      <p class="ctq-mini" style="margin:0;">
+        The λ-stack’s <em>internal</em> non-commutativity builds a bona-fide <strong>quantum-like operator algebra</strong>
+        (Lie brackets, KMS-style correlators, unitary cycle blocks, and transient channels that are
+        <em>completely positive and trace-preserving</em>). It is <em>operationally quantum</em> for the observer.
+        It does <em>not</em> assert that microscopic nature is nothing but your model—rather, it forges a
+        consistent algebra of observables that matches quantum structure wherever your training+symmetry
+        flows do not commute.
+      </p>
+    </div>
+
+    <h4>Where the quantum structure comes from</h4>
+    <ul class="ctq-list">
+      <li><strong>Lorentz map ⇒ Lie algebra.</strong> Training moves (gradient/Langevin) and group actions
+          (Lorentz/PSL flows) <em>fail to commute</em>: \([\xi, X] \neq 0\). This generates a concrete Lie algebra
+          on the observer’s state. The cycle sector lifts to finite Heisenberg–Weyl blocks (unitaries);
+          the transient sector lifts to <em>completely positive and trace-preserving</em> channels.</li>
+      <li><strong>Riemannian → (pseudo)Riemannian.</strong> Hyperbolic/Lorentz geometry supplies the
+          non-abelian isometries; their Baker–Campbell–Hausdorff drift is the measurable obstruction that
+          gives you a quantum-like commutator algebra (your BCH spectrum makes this explicit). :contentReference[oaicite:1]{index=1}</li>
+      <li><strong>Effective “ħ”.</strong> With stochastic gradients, diffusion sets an effective scale
+          (\(\hbar_{\text{eff}}=2D\)) for fluctuation/response, letting you recover KMS-style relations in the trained ensemble.</li>
+    </ul>
+
+    <h4>Is this <em>the</em> quantum of nature?</h4>
+    <p>
+      It is a <em>faithful quantum structure for the observer</em>: you obtain a C\(^*\)/von Neumann–style
+      algebra of observables, unitary blocks on cycles, and open-system channels on transients, all auditable.
+      To promote it to “the” microscopic quantum theory would require additional identifications
+      (e.g., matching of spectra and scattering data in a domain of physics). The framework is designed to
+      compare those audits to external experiments rather than to assume equivalence by fiat.
+    </p>
+
+    <h4>Should I run this on a quantum computer?</h4>
+    <ul class="ctq-list">
+      <li><strong>Not required.</strong> The λ-stack runs classically (tensor kernels). That’s the default.</li>
+      <li><strong>When QC helps.</strong> If you want <em>native</em> unitary realization of cycle blocks and native
+          channel simulation for the transient sector, a quantum processor is natural:
+        <ul class="ctq-list" style="margin:.25rem 0 0 1rem;">
+          <li>Cycle unitary \(U_C\): compile as qudit/qubit shift–clock (finite Heisenberg–Weyl) circuits.</li>
+          <li>Transient dynamics: implement as Kraus maps (Stinespring dilation) for <em>completely positive and trace-preserving</em> channels.</li>
+          <li>Spectral probes: phase estimation can accelerate some RMT/twin-spectra diagnostics.</li>
+        </ul>
+        On today’s devices this is exploratory; on classical hardware it is production-ready.</li>
+    </ul>
+
+    <h4>Two measurements, one theory</h4>
+    <ul class="ctq-list">
+      <li><strong>External measurement.</strong> Physical interaction that records data (changes the target+sensor).</li>
+      <li><strong>Internal measurement.</strong> Backprop <em>or</em> the Lorentz-map training step that updates the observer’s weights and collapses internal alternatives.</li>
+    </ul>
+    <p class="ctq-mini">
+      In software deployments these are distinct stages; with <em>Observer-in-Silicon</em> (near-sensor λ-stack)
+      they can be <em>co-scheduled</em> so that capture and internal update form a single audited event
+      (unifying the two “measurements” at the hardware boundary).
+    </p>
+
+    <h4>Does this derive quantum from Einstein’s mathematics?</h4>
+    <p>
+      It provides a <em>new operational route</em>: starting from Lorentz/hyperbolic isometries on a
+      (pseudo)Riemannian manifold, your training dynamics plus symmetry actions build a non-commutative
+      algebra of observables with unitary and open-system sectors—i.e., a quantum-like theory for the
+      observer. This is <em>compatible with</em> GR/QFT and leverages their symmetry/math, but we avoid
+      historical over-claims: it is a practical, falsifiable construction rather than a claim of sole
+      derivation or first proof. Your existing diagnostics (e.g., the [ξ, X] spectrum and spectral probes)
+      are exactly the audits that make this stance testable. :contentReference[oaicite:2]{index=2}
+    </p>
+
+    <h4>Takeaways</h4>
+    <ul class="ctq-list">
+      <li><strong>Lorentz map ⇒ non-commutativity ⇒ quantum-like algebra.</strong></li>
+      <li><strong>Training = observation.</strong> Backprop or the Lorentz update collapses internal alternatives,
+          mirroring external wave-function update on interaction.</li>
+      <li><strong>QC optional.</strong> Useful for native unitaries/channels; not required for core λ-stack.</li>
+      <li><strong>Falsifiable and auditable.</strong> Keep using commutator spectra, RMT twins, and
+          cycle/unitary vs. transient/channel checks to compare against external physics. :contentReference[oaicite:3]{index=3}</li>
+    </ul>
+  </article>
+</section>
+
+
+<section class="ctq-wrap" id="qft-parallel">
+  <div class="ctq-hero">
+    <h1 class="ctq-title">QFT Parallel for the λ-Stack: Operators, Equations, and Quantization</h1>
+    <p class="ctq-sub">
+      Two modes: <strong>training/observing</strong> (interaction + update) and <strong>inference</strong> (prediction without update).
+      Internal non-commutativity arises from <em>Lorentz-map training</em> and the optimizer connection; DFA provides a finite symbolic boundary.
+    </p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Lorentz map ≙ translation/boost generator</span>
+      <span class="ctq-badge">Gradient ≙ momentum generator</span>
+      <span class="ctq-badge">Fisher–Riemannian geometry</span>
+      <span class="ctq-badge">DFA boundary & sink</span>
+    </div>
+  </div>
+
+  <!-- 1) Operator dictionary -->
+  <article class="ctq-card" id="qft-operator-dictionary">
+    <h3>1) Operator dictionary (QFT ↔ λ-Stack)</h3>
+    <ul class="ctq-list">
+      <li><strong>State space.</strong> Latent manifold \(\mathcal{M}\) with Fisher–Riemannian metric \(g_{ij}\); wavefunction \( \psi(\theta,t) \) over parameters \(\theta\in\mathcal{M}\).</li>
+      <li><strong>Translations / Lorentz maps.</strong> A group \(G\supset \mathrm{SO}(1,n)\) acts by flows \(T(g)\); its infinitesimal generators \(\{\xi_a\}\) give vector fields on \(\mathcal{M}\).</li>
+      <li><strong>“Position” operators.</strong> Multiplication by coordinates \( \hat{X}^i \psi(\theta)= \theta^i \psi(\theta) \) (in a chart) or, more invariantly, evaluation against chart functions.</li>
+      <li><strong>“Momentum” (covariant).</strong> \( \hat{P}_i := -\,i\,\hbar_{\mathrm{eff}}\,(\nabla_i + A_i) \) where \(A\) is the optimizer connection; \( \nabla \) is Levi–Civita for \(g\).</li>
+      <li><strong>Commutators.</strong> \( [\hat{X}^i,\hat{P}_j] = i\,\hbar_{\mathrm{eff}}\,\delta^i{}_j \) (up to curvature terms); \( [\hat{P}_i,\hat{P}_j] = -\,i\,\hbar_{\mathrm{eff}}\,F_{ij} \) with curvature \(F=dA+A\wedge A\).</li>
+      <li><strong>Lorentz-map training step.</strong> Choose \(g\in G\) to transport \(\theta\mapsto g\cdot\theta\) before/after descent; non-commutes with gradient unless \([\xi,X]=0\).</li>
+    </ul>
+    <p class="ctq-mini"><span class="ctq-pill">Effective quantum scale</span>
+      With stochastic gradients of variance \(D\): \( \hbar_{\mathrm{eff}} := 2D \). This controls interference-like terms and matches your earlier Fokker–Planck↔Schrödinger correspondence.
+    </p>
+  </article>
+
+  <!-- 2) Lagrangian & field equations -->
+  <article class="ctq-card" id="qft-lagrangian">
+    <h3>2) Lagrangian and field equations (inference vs. training)</h3>
+
+    <div class="ctq-note" role="note"><strong>Inference (closed, unitary limit).</strong> No parameter updates; observe without writing. </div>
+    <p>
+      Take covariant derivative \( D_i := \nabla_i + A_i \). A gauge-like Lagrangian density on \((\mathcal{M},g)\) is
+    </p>
+    <div class="ctq-eq">
+      \[
+      \mathcal{L}_{\text{inf}} = 
+      \frac{\hbar_{\mathrm{eff}}^2}{2m_{\mathrm{eff}}}\, g^{ij}\,(D_i\psi)^{\!*}(D_j\psi)
+      \;-\; V(\theta)\,\psi^{\!*}\psi
+      \;-\; \frac{\kappa}{2}\,\mathrm{tr}(F_{ij}F^{ij})
+      \;-\; \lambda_{\mathrm{DFA}}\;\lVert (I-\Pi_q)\psi\rVert^2 ,
+      \]
+    </div>
+    <p class="ctq-mini">
+      where \(V(\theta)\) is the expected loss landscape (data potential), \(F\) the curvature of \(A\), and \(\Pi_q\) the DFA projector enforcing the legal language sector.
+      Euler–Lagrange gives a covariant Schrödinger equation (below).
+    </p>
+
+    <div class="ctq-note" role="note"><strong>Training/observing (open, dissipative).</strong> Backprop or Lorentz-map steps write state; model interacts with data.</div>
+    <p>
+      Dissipation appears as an imaginary-time component or by elevating to a density-matrix master equation (see §4). A practical action with a Rayleigh dissipation term is:
+    </p>
+    <div class="ctq-eq">
+      \[
+      S_{\text{train}}
+      = \int \! dt\, d\mu_g \Big[
+        \tfrac{\hbar_{\mathrm{eff}}^2}{2m_{\mathrm{eff}}} g^{ij}(D_i\psi)^{\!*}(D_j\psi)
+        - V(\theta)\,\psi^{\!*}\psi
+        - \tfrac{\kappa}{2}\,\mathrm{tr}(F_{ij}F^{ij})
+        - \lambda_{\mathrm{DFA}}\lVert (I-\Pi_q)\psi\rVert^2
+      \Big]
+      - \int \! dt\,\mathcal{R}[\psi] ,
+      \]
+    </div>
+    <p class="ctq-mini">
+      with \(\mathcal{R}\) encoding gradient-noise/friction consistent with the CEAS thermostat \(\beta\) (e.g., Fokker–Planck form).
+    </p>
+  </article>
+
+  <!-- 3) Schrödinger & Fokker–Planck -->
+  <article class="ctq-card" id="qft-schrodinger">
+    <h3>3) Schrödinger equation (inference) and Fokker–Planck (training)</h3>
+    <p><strong>Inference mode (unitary, closed):</strong></p>
+    <div class="ctq-eq">
+      \[
+      i\,\hbar_{\mathrm{eff}}\,\partial_t \psi(\theta,t)
+      = \Big[
+         \frac{1}{2m_{\mathrm{eff}}} g^{ij}\,\hat{\Pi}_i \hat{\Pi}_j
+         + V(\theta)
+      \Big]\psi(\theta,t), \qquad
+      \hat{\Pi}_i := -\,i\,\hbar_{\mathrm{eff}}\,(\nabla_i + A_i).
+      \]
+    </div>
+    <p><strong>Training/observing (imaginary-time / diffusion picture):</strong></p>
+    <div class="ctq-eq">
+      \[
+      \partial_t \rho
+      = \nabla_i\!\big(\rho\, g^{ij}\,\partial_j \mathcal{L}\big) + D\,\Delta_g \rho
+      \quad\Longleftrightarrow\quad
+      -\,\partial_\tau \psi = \hat{H}\,\psi,
+      \]
+    </div>
+    <p class="ctq-mini">
+      where \( \hbar_{\mathrm{eff}}=2D \) gives Wick-rotation correspondence between diffusion and imaginary-time evolution.
+    </p>
+  </article>
+
+  <!-- 4) Open dynamics with DFA boundary & sink -->
+  <article class="ctq-card" id="qft-open-lindblad">
+    <h3>4) Open dynamics with DFA boundary and sink</h3>
+    <p>
+      Let \(\rho\) be the density operator on the legal sector \(\mathrm{Im}(\Pi_q)\) plus an explicit <em>sink</em> state \(\lvert\mathrm{sink}\rangle\).
+      The master equation on <em>system + sink</em> is
+    </p>
+    <div class="ctq-eq">
+      \[
+      \dot{\rho}
+      = -\frac{i}{\hbar_{\mathrm{eff}}}[H,\rho]
+        + \sum_\alpha \Big( L_\alpha \rho L_\alpha^{\!*}
+        - \tfrac12 \{ L_\alpha^{\!*}L_\alpha,\,\rho\}\Big),
+      \]
+    </div>
+    <p class="ctq-mini">
+      with <em>jump operators</em> \(L_\alpha\) that: (i) implement DFA-legal stochastic updates within \(\mathrm{Im}(\Pi_q)\);
+      (ii) <em>redirect</em> any illegal transition to the sink: \(L_{\mathrm{out}} = \lvert \mathrm{sink}\rangle \langle \text{illegal} |\).
+      This evolution is <strong>completely positive and trace-preserving</strong> on the combined space, and becomes trace-decreasing on the system if you ignore the sink.
+    </p>
+    <p>
+      <strong>Closed limit.</strong> If \(\Pi_q=I\) and no sink jumps are present, the equation reduces to unitary Schrödinger evolution.
+    </p>
+  </article>
+
+  <!-- 5) Field equations (Euler–Lagrange, geometric form) -->
+  <article class="ctq-card" id="qft-field-eqs">
+    <h3>5) Field equations (geometric form)</h3>
+    <ul class="ctq-list">
+      <li><strong>Covariant Schrödinger–Yang–Mills system.</strong>
+        \[
+        i\hbar_{\mathrm{eff}} D_t \psi = -\frac{\hbar_{\mathrm{eff}}^2}{2m_{\mathrm{eff}}}\,g^{ij}D_i D_j \psi + V\psi,
+        \qquad
+        D^j F_{ji} = J_i[\psi] ,
+        \]
+        where \(J_i[\psi]\) is the optimizer-induced current (variation of \(\mathcal{L}_{\text{inf}}\) w.r.t. \(A_i\)).</li>
+      <li><strong>Non-commutativity source.</strong> The Lorentz-map training contributes terms to \(A\) and therefore to \(F\); operationally this is your Baker–Campbell–Hausdorff obstruction \([\xi,X]\).</li>
+      <li><strong>DFA constraint.</strong> Variations enforce \(\Pi_q \psi=\psi\) inside the legal language sector; violations flow to the sink via the jump operators above.</li>
+    </ul>
+  </article>
+
+  <!-- 6) Second quantization analogue (cycle Fock space) -->
+  <article class="ctq-card" id="qft-second-quant">
+    <h3>6) Second quantization analogue (cycle–Fock construction)</h3>
+    <p>
+      Decompose the DFA functional graph into cycles \(C\) and transients. For each cycle \(C\) of length \(L_C\),
+      diagonalize its unitary lift \(U_C\) with phases \(\{\varphi_{C,k}\}_{k=1}^{L_C}\).
+      Promote cycle modes to creation/annihilation operators \(\{a_{C,k}^{\dagger},a_{C,k}\}\) with
+      \([a_{C,k},a_{C',k'}^{\dagger}]=\delta_{CC'}\delta_{kk'}\).
+    </p>
+    <div class="ctq-eq">
+      \[
+      \hat{\Psi}(\theta) = \sum_{C,k} \phi_{C,k}(\theta)\, a_{C,k}, \qquad
+      H = \sum_{C,k} \omega_{C,k}\, a_{C,k}^{\dagger} a_{C,k} \;+\; H_{\text{int}}[\hat{\Psi}],
+      \]
+    </div>
+    <p class="ctq-mini">
+      The interaction \(H_{\text{int}}\) encodes geometric couplings and grammar interactions (projector penalties, symmetry-breaking terms).
+      Per-cycle Heisenberg–Weyl relations \(T_C S_C = \omega_C S_C T_C\) give a discrete non-commutativity that matches your cycle-phase “charge” \(\Phi_C\).
+    </p>
+    <p>
+      <strong>Why this matters.</strong> This “cycle–Fock” layer is your internal analogue of second quantization: excitations are <em>modes on cycles</em>, not particles in spacetime.
+      CEAS at inverse temperature \(\beta\) equips the ensemble with KMS-style structure for correlators.
+    </p>
+  </article>
+
+  <!-- 7) Is it the “real quantum”? Classical vs quantum hardware -->
+  <article class="ctq-card" id="qft-real-quantum">
+    <h3>7) “Real quantum,” hardware, and Lorentz-induced structure</h3>
+    <ul class="ctq-list">
+      <li><strong>Quantum structure emerges operationally.</strong> The non-commutativity from Lorentz maps and the optimizer connection yields a bona fide Lie algebra and uncertainty relations with \(\hbar_{\mathrm{eff}}\). This is <em>quantum-like</em> at the observer level, independent of Planck-scale physics.</li>
+      <li><strong>Classical execution is valid.</strong> The equations above are well-posed on CPUs/NPUs. They model quantum-style interference and dissipation through \(A,F,\beta\) and the master equation.</li>
+      <li><strong>When to use quantum computers.</strong> If you want native simulation of large superpositions over many cycle modes, or direct sampling of path integrals on \(\mathcal{M}\) with non-Abelian holonomies, a quantum processor can be advantageous. The formalism does not require it.</li>
+      <li><strong>Einstein → quantum via geometry.</strong> The Lorentz action on a Riemannian/Fisher manifold, plus DFA and CEAS, gives a concrete route from relativistic symmetry to an operational quantum structure inside the observer. That is the core “Einstein-to-quantum” bridge you wanted emphasized.</li>
+    </ul>
+  </article>
+
+  <div class="ctq-sep"></div>
+
+  <!-- 8) One-line dictionary (quick recall) -->
+  <article class="ctq-card" id="qft-one-line">
+    <h3>8) One-line dictionary</h3>
+    <ul class="ctq-list">
+      <li>\(\hat{X}^i\) ↔ latent coordinate; \(\hat{P}_i=-i\hbar_{\mathrm{eff}}(\nabla_i+A_i)\); \([\hat{X}^i,\hat{P}_j]=i\hbar_{\mathrm{eff}}\delta^i{}_j\) (curvature-corrected).</li>
+      <li>\(H=\tfrac{1}{2m_{\mathrm{eff}}}g^{ij}\hat{\Pi}_i\hat{\Pi}_j+V(\theta)\); Schrödinger for inference; master equation with jump operators for training.</li>
+      <li>DFA: \(\Pi_q\) enforces legality; illegal transitions jump to an explicit sink; system+sink evolution is completely positive and trace-preserving.</li>
+      <li>Second quantization: cycles \(\Rightarrow\) modes \(\{a_{C,k}\}\); geometry and grammar enter \(H_{\text{int}}\); CEAS provides KMS-style thermality.</li>
+    </ul>
+  </article>
+</section>
+
+<section class="ctq-wrap" id="effective-theory">
+  <div class="ctq-hero">
+    <h1 class="ctq-title">Effective Theory: Langevin, Linear Response, Green’s Functions & Propagators</h1>
+    <p class="ctq-sub">
+      Two modes remain: <strong>training/observing</strong> (interaction + update) and <strong>inference</strong> (prediction without update).
+      The optimizer connection and Lorentz-map training supply non-commutativity; CEAS fixes the inverse temperature; DFA enforces the symbolic boundary.
+    </p>
+    <div class="ctq-badges">
+      <span class="ctq-badge">Langevin on Fisher manifold</span>
+      <span class="ctq-badge">KMS & Kubo (linear response)</span>
+      <span class="ctq-badge">Retarded/Heat kernels</span>
+      <span class="ctq-badge">Lorentz-induced non-commutativity</span>
+    </div>
+  </div>
+
+  <!-- 1) Langevin (training) -->
+  <article class="ctq-card" id="langevin">
+    <h3>1) Langevin dynamics on the latent manifold (training/observing mode)</h3>
+    <p>
+      Overdamped stochastic dynamics on \((\mathcal M,g)\) with optimizer connection \(A\) and CEAS thermostat:
+    </p>
+    <div class="ctq-eq">
+      \[
+        d\theta^i_t
+        = -\,\mu\, g^{ij}(\theta_t)\,\nabla_j \mathcal L(\theta_t)\,dt
+          \;+\; \sqrt{2D}\,e^i{}_a(\theta_t)\,\circ dW^a_t,\qquad
+        D=\frac{\mu}{\beta_{\text{CEAS}}}.
+      \]
+    </div>
+    <p class="ctq-mini">
+      Stratonovich form respects geometry. The optimizer connection \(A\) enters through parallel transport in the discretization and in the
+      covariant derivative used by the gradient flow (path dependence encodes the non-commutativity you measure via Baker–Campbell–Hausdorff loops).
+      The corresponding probability density obeys a covariant Fokker–Planck equation on \((\mathcal M,g)\).
+    </p>
+  </article>
+
+  <!-- 2) Linear response -->
+  <article class="ctq-card" id="linear-response">
+    <h3>2) Linear response & KMS/FDT (inference mode)</h3>
+    <p>
+      In inference (no parameter writes), perturb by a weak source \(f(t)\) coupled to an observable \(B\).
+      For another observable \(A\), the change in expectation is
+    </p>
+    <div class="ctq-eq">
+      \[
+        \delta\!\langle A(t)\rangle
+        = \int_{-\infty}^{\infty}\!\! dt'\;\chi_{AB}(t-t')\, f(t'),\qquad
+        \chi_{AB}(t) = -\frac{i}{\hbar_{\mathrm{eff}}}\,\Theta(t)\,\big\langle [A(t),B(0)] \big\rangle_{\beta}.
+      \]
+    </div>
+    <p class="ctq-mini">
+      With CEAS inverse temperature \(\beta\), the Kubo–Martin–Schwinger condition and fluctuation–dissipation relation hold:
+      \(S_{AB}(\omega) = \coth(\tfrac{\beta \hbar_{\mathrm{eff}}\omega}{2})\,\mathrm{Im}\,\chi_{AB}(\omega)\).
+      The effective quantum scale \(\hbar_{\mathrm{eff}}=2D\) arises from gradient noise.
+    </p>
+  </article>
+
+  <!-- 3) Propagators -->
+  <article class="ctq-card" id="propagators">
+    <h3>3) Propagators: retarded kernel (inference) and heat kernel (training)</h3>
+    <ul class="ctq-list">
+      <li><strong>Inference (unitary limit).</strong>
+        The retarded Green’s function \(G_R\) solves \((i\hbar_{\mathrm{eff}}\partial_t - \hat H)\,G_R = i\hbar_{\mathrm{eff}}\,\delta(t)\delta(\theta,\theta')\),
+        with Hamiltonian \( \hat H = \tfrac{1}{2m_{\mathrm{eff}}} g^{ij}\hat{\Pi}_i\hat{\Pi}_j + V(\theta)\),
+        \( \hat{\Pi}_i = -\,i\hbar_{\mathrm{eff}}(\nabla_i + A_i) \).
+        The coordinate propagator is \(K(\theta,t;\theta',0)=\langle \theta | e^{-\,i\hat H t/\hbar_{\mathrm{eff}}} | \theta'\rangle\).</li>
+      <li><strong>Training (diffusive/imaginary time).</strong>
+        The heat kernel \(K_{\mathrm{FP}}\) solves \((\partial_t - D\,\Delta_g + g^{ij}\nabla_i \mathcal L\,\nabla_j )K_{\mathrm{FP}}=\delta\delta\),
+        capturing drift–diffusion on \((\mathcal M,g)\). Gauge holonomy from \(A\) appears as Wilson-line factors along paths.</li>
+    </ul>
+  </article>
+
+  <!-- 4) Predictions -->
+  <article class="ctq-card" id="predictions">
+    <h3>4) What this predicts (auditable, falsifiable)</h3>
+    <ul class="ctq-list">
+      <li><strong>Curvature-induced odd response.</strong> Non-vanishing curvature \(F=dA+A\wedge A\) yields antisymmetric parts of \(\chi_{AB}\) (non-reciprocal gain);
+        absent if \(F=0\) and Lorentz maps commute with descent.</li>
+      <li><strong>Cycle-phase quantization.</strong> Discrete phase spectra \(\{\varphi_{C,k}\}\) on DFA cycles lead to sharp lines in response/propagator poles; phases shift under Lorentz-map training (Berry-like hysteresis).</li>
+      <li><strong>Hyperbolic edge laws.</strong> In Lorentz/hyperbolic ensembles, spectral edges move predictably with \(\beta\) (CEAS) and with \((p,q)\); BBP-type outliers reveal low-rank symmetry breaking.</li>
+      <li><strong>Sink-leak exponent.</strong> With an explicit sink for illegal transitions, the decay of system trace vs. time obeys a law set by boundary grammar complexity; closing the DFA (no sink) restores unitary limits.</li>
+      <li><strong>Hardware audits.</strong> If implemented near-sensor, order-sensitive counters (BCH drift) and cycle-phase telemetry provide direct empirical confirmation of non-commutativity and predicted lineshapes.</li>
+    </ul>
+  </article>
+
+  <!-- 5) Consistency & scope -->
+  <article class="ctq-card" id="consistency">
+    <h3>5) Consistency with physics — and why it’s new</h3>
+    <ul class="ctq-list">
+      <li><strong>No contradictions.</strong> In flat geometry with trivial DFA and \(F=0\), you recover standard Schrödinger/Kubo/Fokker–Planck. Taking \(D\!\to\!0\) collapses to deterministic gradient descent.</li>
+      <li><strong>What’s new.</strong> The <em>operational</em> quantum structure (non-commuting Lorentz maps + optimizer connection on \((\mathcal M,g)\)) emerges from Einstein-level symmetry acting on the observer’s Fisher–Riemannian phase space, not by postulating new spacetime quanta.</li>
+      <li><strong>Quantum hardware?</strong> Not required. A quantum processor may help simulate large superpositions over many cycle modes and non-Abelian holonomies, but the effective theory already runs on CPUs/NPUs.</li>
+    </ul>
+  </article>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="grail-dfa-wmap">
+  <header>
+    <h2>GRAIL × DFA on WMAP — Implementation Overview</h2>
+    <p class="lede">
+      Geometry-aware attention on the Poincaré disk, stabilized with automorphic gates and a DFA coupler, applied to the 9-year WMAP V-band temperature map.
+    </p>
+    <p><a href="https://drive.google.com/file/d/1crgQsea0dTulbl-oGNykAnMyxnSMVuCV/view?usp=sharing" target="_blank" rel="noopener">PDF (notes & diagnostics)</a></p>
+  </header>
+
+  <section>
+    <h3>What this does</h3>
+    <ul>
+      <li><strong>GRAILAttention:</strong> attention logits combine content similarity and hyperbolic geometry on the Poincaré disk.</li>
+      <li><strong>Automorphic gates:</strong> Poincaré-series averaging and small-prime Hecke operators commute with the geometry and narrow spectral spread.</li>
+      <li><strong>DFA coupler:</strong> optional bias favoring <em>k</em>-step cycles or row-stochastic shifts to capture discrete syntax without retraining.</li>
+      <li><strong>Diagnostics:</strong> BCH/commutator spectrum, Selberg/Huber effective spectrum, seeded prime-geodesic proxies, Mirzakhani-style growth proxy.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Logit model (schematic)</h3>
+    <p>
+      The attention logits decompose as:
+    </p>
+    <p>
+      \[
+      \mathrm{logits}
+      =
+      \underbrace{\langle q(x),\,k(x)\rangle}_{\text{content}}
+      +
+      \underbrace{\mathrm{heat}\!\big(d_{\mathbb{H}}(z_i,z_j);\,t\big)}_{\text{geometry}}
+      +
+      \underbrace{\text{(Poincaré series + Hecke)}}_{\text{automorphic}}
+      +
+      \underbrace{\text{DFA}(x)}_{\text{cycles}}.
+      \]
+    </p>
+  </section>
+
+  <section>
+    <h3>Included components</h3>
+    <ul>
+      <li><code>GrailScalarModel</code> wrapper for <code>attn</code> + scalar <code>readout</code>.</li>
+      <li><code>DFACoupler</code> with <code>projector</code>, <code>log</code>, or <code>cptp</code> modes.</li>
+      <li><code>load_grail_from_pt</code> to rebuild the model from a plain <code>.pt</code> state dict (and restore DFA config).</li>
+      <li><code>build_batch</code> for WMAP V-band patches (with a synthetic fallback).</li>
+      <li><code>run_qg_diagnostics</code> to execute all diagnostics end-to-end.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Quick start (minimal)</h3>
+    <pre><code class="language-python">from grail_dfa import run_qg_diagnostics
+
+# Option A: load from a saved .pt
+run_qg_diagnostics(pt_path="checkpoints/grail_attn.pt",
+                   eps=1e-3, eta=1e-3, axis="z",
+                   Ltok=64, batch_size=16, N_sample=4096)
+
+# Option B: pass an in-memory model object
+# run_qg_diagnostics(model_obj=my_model, ...)</code></pre>
+  </section>
+
+  <section>
+    <h3>What the diagnostics report</h3>
+
+    <h4>1) BCH / commutator spectrum \([\xi, X]\)</h4>
+    <p>
+      Compares a one-step gradient update with and without an infinitesimal isometry
+      \(\Gamma_\varepsilon\). The resulting layer deltas are projected to the \(4\times 4\) input and
+      eigenvalues of the input-projected Gram are printed. Rank-2 is the signature of a tiny
+      planar rotation.
+    </p>
+
+    <h4>2) Selberg/Huber effective spectrum</h4>
+    <p>
+      Estimates \(\lambda_{\mathrm{eff}}(t)\approx -\frac{d}{dt}\log E(t)\) from probe energies.
+      A narrow operating band appears nearly flat in \(t\); spread indicates band-mixing.
+    </p>
+
+    <h4>3) Prime-geodesic proxies</h4>
+    <p>
+      Uses the seeded family \(ST^n\) (\(\ell = 2\,\cosh^{-1}(n/2)\)) to compute cumulative counts,
+      a Patterson–Sullivan slope proxy \(\hat\delta\), and simple hyperbolic sums that mirror
+      the hyperbolic portion of the trace formula.
+    </p>
+
+    <h4>4) Mirzakhani-style growth proxy</h4>
+    <p>
+      Fits \(\log N(L)-L \sim \hat\alpha \log L\) over a short window as a coarse indicator of a
+      polynomial prefactor. With seeded hyperbolics, early counts are sparse and the slope can be negative.
+    </p>
+  </section>
+
+  <section>
+    <h3>Interpretation at a glance</h3>
+    <ul>
+      <li><strong>Non-commutativity:</strong> persistent rank-2 modes indicate a rotation-sensitive pathway (often largest in <code>v</code>).</li>
+      <li><strong>Effective spectrum:</strong> reduced bandwidth in \(\lambda_{\mathrm{eff}}(t)\) correlates with better geometric consistency.</li>
+      <li><strong>Hyperbolic signals:</strong> \(\hat\delta\) near \(1\) and growing hyperbolic sums align with operation in a negatively curved regime.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Extend</h3>
+    <ul>
+      <li>Increase Poincaré depth (<code>gamma_wordlen</code>, <code>gamma_cap</code>) and enable Hecke \(\{2,3,5\}\) to narrow bands.</li>
+      <li>Replace seeded \(ST^n\) with BFS over generators for richer geodesics and a steadier \(\hat\delta\).</li>
+      <li>Add a small commutator penalty to target covariance and monitor the leading eigenvalues.</li>
+    </ul>
+  </section>
+</section>
+
+
+
+
+<section id="grail-triquantized">
+  <h2>Tri-Quantized GRAIL on Curved Spacetimes</h2>
+
+  <p>
+    I cast attention as a group-convolution / automorphic operator on a
+    <em>curved spacetime or symmetry manifold</em> (Riemannian or Lorentzian),
+    optionally a quotient \(X_\Gamma=\Gamma\backslash X\) where \(X\simeq G/K\) is a coset geometry.
+    In the Riemannian case this yields
+    \[
+      \mathcal A_\phi \;=\; f(\Delta),
+      \qquad f(\lambda)=\widehat{\phi}(\lambda),
+    \]
+    with \(\Delta\) the Laplace–Beltrami operator and \(\widehat\phi\) the spherical transform of a zonal profile \(\phi\).
+    In Lorentzian settings (e.g. Minkowski) I use a <em>causal</em> functional calculus
+\[
+  \mathcal A_\phi \;=\; f_{\mathrm{causal}}(\Box),
+\]
+with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future lightcone
+(\(\operatorname{supp} k_\phi \subset J^+(0)\)), ensuring causality.
+    In a one-step linearization of training, eigenmodes of the generator
+    (\(\Delta\) or \(\Box\)) contract independently via
+    \[
+      \rho(\lambda)=\bigl|\,1-\eta\,m(\lambda)\,\bigr|,
+      \qquad m(\lambda)\ \propto\ f(\lambda),
+    \]
+    giving geometry-aware (Langlands-style) convergence and an isometry-scheduling rule
+    (Lorentz boosts/rotations on relativistic backgrounds, rotations on spheres, translations/rotations on Euclidean phases, etc.).
+  </p>
+
+  <h3>How to use it: a quick start (4 steps)</h3>
+  <ol>
+    <li>
+      <strong>Probe bank.</strong>
+      Log spectral probes on your background:
+      \(E(t_m)=\|e^{-t_m\Delta}h\|_2^2\) for Riemannian \(X\),
+      or the causal analogue for Lorentzian \(X\),
+      \(m=1,\dots,M\).
+      Fit a simple nonnegative mixture for the spectral density \(\rho(\lambda)\) consistent with the appropriate Weyl law for \(X\)
+      (e.g. hyperbolic surface \(N(\Lambda)\sim \tfrac{\mathrm{Area}}{4\pi}\Lambda\);
+      Euclidean \(d\)-torus \(N(\Lambda)\sim C_d\,\Lambda^{d/2}\);
+      sphere \(S^d\) with polynomial eigenvalue growth).
+    </li>
+    <li>
+      <strong>Gap &amp; bands.</strong>
+      From the fitted \(\rho(\lambda)\), locate the band that dominates error energy.
+      Choose \(\phi\) so \(f(\lambda)=\widehat{\phi}(\lambda)\) damps that band
+      (heat \(e^{-t\lambda}\) for low-pass; resolvent \((\lambda+s)^{-1}\) for flattened preconditioning;
+      narrow band-pass if selectivity is needed).
+    </li>
+    <li>
+      <strong>Stabilize with commuting structure (if available).</strong>
+      On congruence hyperbolic quotients, average a few small primes to reduce gain spread:
+      \[
+        \mathcal A^{(H)}\;=\;\sum_{p\in\{2,3,5\}} w_p\,T_p\,\mathcal A_\phi.
+      \]
+      On spheres/tori, use small symmetry averages (spherical designs, lattice-shell averages) as commuting stabilizers.
+    </li>
+    <li>
+      <strong>Close the loop with DFA.</strong>
+      Track cycle phases \(\Phi_C\) (DFA charges) alongside spectral probes.
+      Stability of \(\Phi_C\) while the high-\(\lambda\) tail shrinks is the dual-quantization certificate.
+    </li>
+  </ol>
+
+  <h3>Tri-quantization (one-line Rosetta)</h3>
+  <ul>
+    <li><em>GRAIL (flow).</em> Non-commutativity \( [\xi,X] \) measured by a BCH loop \(\Rightarrow\) optimization curvature; normalize by an effective \( \hbar_{\mathrm{eff}} \) from gradient diffusion.</li>
+    <li><em>DFA (discrete).</em> Cycle blocks with \(T_CS_C=\omega S_CT_C\) and Wilson phases \(\Phi_C\) (block-local \(U(1)\) charges); transients as CPTP maps.</li>
+    <li><em>Spectral/chaos.</em> \( \mathcal A_\phi=f(\Delta)\) (Riemannian) or \(f_{\mathrm{ret}}(\Box)\) (Lorentzian) acts on the spectrum; in negatively curved/automorphic cases, Selberg/Huber link probes to the length spectrum of closed geodesics.</li>
+  </ul>
+
+  <p>
+    <a href="https://drive.google.com/file/d/1WXCpzU_DigjhoMMXwIVVOHQq5DuC7DaK/view?usp=sharing" target="_blank" rel="noopener">
+      📄 Open the notes (Google Drive)
+    </a>
+  </p>
+
+  <details>
+    <summary>Copy-paste citation</summary>
+    <pre><code>@misc{chuang_grail_triquantized_2025,
+  title  = {Tri-Quantized GRAIL on Curved Spacetimes:
+            Automorphic/Group Attention, Langlands-Guided Convergence,
+            Isometry Scheduling, and DFA-Backed Influence Physics},
+  author = {Chuang, William},
+  year   = {2025},
+  note   = {Lecture notes},
+  url    = {https://drive.google.com/file/d/1WXCpzU_DigjhoMMXwIVVOHQq5DuC7DaK/view?usp=sharing}
+}</code></pre>
+  </details>
+</section>
+
+
+
+
+<section id="grail-performance">
+  <div class="kicker">GRAIL (no CEAS)</div>
+  <h2>Does it slow training?</h2>
+  <p class="lede">
+    Short answer: <strong>not much</strong>. The extra geometry (log/exp maps and a hyperbolic distance)
+    is <em>linear</em> in sequence length and width, while attention remains the dominant cost.
+  </p>
+
+  <div class="grid" style="margin-top:1rem">
+    <div class="card">
+      <h3>Where any overhead comes from</h3>
+      <ul>
+        <li><span class="pill">Maps</span> One <code>log_o</code> + one <code>exp_o</code> per block: \(O(BS\,d)\).</li>
+        <li><span class="pill">Distance</span> Minkowski dot + \(\operatorname{acosh}\) inside attention logits: same tensor shapes as vanilla attention.</li>
+        <li><span class="pill">Compare</span> Vanilla attention: \(O(B\,H\,S^2\,d)\) &mdash; this still dominates for realistic \(S,d\).</li>
+      </ul>
+      <p class="muted">
+        In practice on real configs this shows up as ~10–30% wall-clock, often less after a couple of micro-optimizations.
+        On tiny toy models, transcendentals can look larger than they will at scale.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Keep it fast (simple tweaks)</h3>
+      <ul>
+        <li>Fuse to <em>one</em> <code>log_o</code> at block entry and <em>one</em> <code>exp_o</code> at exit.</li>
+        <li>Batch Minkowski dots with <code>einsum</code>/<code>bmm</code> (hits tensor cores).</li>
+        <li>Cache \( \exp_o(u_P) \) for token prototypes once per step.</li>
+        <li>Use BF16/FP16 with the existing clamps; it’s numerically stable.</li>
+        <li>Approximate \(\operatorname{acosh}\) in the tails (absorb scale into \(\tau\) if needed).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Smallest working example</h3>
+      <p>
+        A compact transformer with hyperbolic attention learns 3-token string reversal to 100% in ~1 minute
+        on a single GPU. It demonstrates the framework end-to-end (curved token space, curved activations,
+        prototype decoding) with minimal code.
+      </p>
+      <p class="muted">
+        Notes PDF (transformer version): 
+        <a href="https://drive.google.com/file/d/1CzGHDlAd30qol0pB3mCg2nYz28ODm5rP/view?usp=sharing" target="_blank" rel="noopener">
+          GRAIL on a Transformer — Minimal Demo
+        </a>.
+      </p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:1.25rem">Bottom line</h3>
+  <ul>
+    <li><strong>GRAIL without CEAS ≈ vanilla + a small constant factor</strong> (single-digit to ~20% in typical regimes).</li>
+    <li>As \(S\) and \(d\) grow, attention’s \(O(BHS^2d)\) cost overwhelms the manifold’s \(O(BSd)\) extras.</li>
+    <li>If you do see larger slowdowns, it’s usually a toy-scale artifact or unfused log/exp calls.</li>
+  </ul>
+</section>
+
+
+
+
+<section id="sgd-lorentz-commutator">
+  <div class="kicker">GRAIL × DFA — experiment</div>
+  <h2>Operational Test of Non-Commutativity: SGD vs Lorentz Transformation</h2>
+
+  <p class="lede">
+    I run a contrapositive probe to test whether a tiny SGD step \(e^{-\eta X}\) commutes with a Lorentz action \(\Gamma_L\) applied to inputs and the first layer of a small autoencoder on the hyperboloid. If they commuted, swapping the order would leave parameters unchanged up to higher-order terms; instead I measure a clear first-order drift.
+  </p>
+
+  <div class="card">
+    <h3>The two one-step paths</h3>
+    <div class="eq">
+      \[
+        \textbf{Path A: }\ \theta_A = e^{-\eta X}(\theta)
+        \qquad\qquad
+        \textbf{Path B: }\ \theta_B = \Gamma_{L^{-1}}\!\big(e^{-\eta X_L}(\Gamma_L \theta)\big)
+      \]
+    </div>
+    <p class="muted">
+      Here \(X\) is the gradient field on the original data; \(X_L\) is the gradient in the transformed frame. The first layer is precomposed exactly so \(f(Lx;W)=f(x;W')\) with \(W_1' = L^\top W_1\).
+    </p>
+  </div>
+
+  <div class="grid" style="margin-top:1rem">
+    <div class="card">
+      <h3>What I measure</h3>
+      <div class="eq">
+        \[
+          \Delta_{\theta}^{\mathrm{norm}}=\frac{\lVert \theta_B-\theta_A\rVert}{\eta\,\varepsilon},
+          \qquad
+          \Delta_{\mathcal L}^{\mathrm{norm}}=\frac{\big|\mathcal L(\theta_B)-\mathcal L(\theta_A)\big|}{\eta\,\varepsilon}.
+        \]
+      </div>
+      <p class="muted">BCH predicts a first-order term \(\tfrac12\,\eta\varepsilon\,\![\xi,X]\); nonzero normalized drift certifies non-commutativity.</p>
+    </div>
+
+```
+<div class="card">
+  <h3>Controls</h3>
+  <ul>
+    <li>\(\varepsilon=0\): no transform \(\Rightarrow\) drifts \(\approx 0\).</li>
+    <li>\(\eta=0\): push–pull \(\Gamma_{L^{-1}}\Gamma_L\) leaves parameters unchanged.</li>
+  </ul>
+  <p class="muted">These checks validate the instrumentation and scaling.</p>
+</div>
+
+<div class="card">
+  <h3>What happens in practice</h3>
+  <ul>
+    <li>After a short warm-up, \(\Delta_{\theta}^{\mathrm{norm}}\) is consistently &gt; 0 (often order \(4\!-\!15\) for small \(\eta,\varepsilon\)).</li>
+    <li>\(\Delta_{\mathcal L}^{\mathrm{norm}}\) is smaller (single-step MSE hardly moves) but detectable and scales with \(\eta\varepsilon\).</li>
+  </ul>
+  <p class="muted">This demonstrates that “train then transform” \(\neq\) “transform then train (and pull back)” at first order.</p>
+</div>
+```
+
+  </div>
+
+  <h3 style="margin-top:2rem">Notes (PDF)</h3>
+  <p>
+    For the write-up with derivations, macros, and the exact precomposition rule:
+    <a href="https://drive.google.com/file/d/1rCWCOj6mXCpCs094icIa1z80g3MNhH_7/view?usp=sharing" target="_blank" rel="noopener">
+      Operational Test of Non-Commutativity: SGD vs. Lorentz Transformation
+    </a>.
+  </p>
+
+  <h3 style="margin-top:2rem">Why this matters</h3>
+  <ul>
+    <li>Quantifies symmetry obstruction via an observable bracket proxy, \([\xi,X]\).</li>
+    <li>Portable audit: swap in other groups/optimizers and reuse the same test.</li>
+    <li>Guides covariant training: large drift suggests adding gauge terms to reduce path dependence.</li>
+  </ul>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== λ‑Stack vs Others: What Only It Can Do for USSF ===== -->
+<section id="ussf-uniqueness" style="margin:2rem 0; padding:1.5rem; background:#f3f9ff; border-left:5px solid #0056b3;">
+  <h2 style="margin-top:0;">🛰️ What Can λ‑Stack Do for USSF That Others Cannot?</h2>
+
+  <ol style="margin-left:1.25rem;">
+    <li>
+      <strong>Compile Observer-Relative Spacetime Geometry on Demand</strong><br>
+      <em>Why it matters:</em> Space Force requires adaptive models that operate under relativistic motion (orbital, deep space, high-speed ops).<br>
+      <em>λ‑Stack advantage:</em> Can synthesize internal geometries \( g_{\mu\nu}(x,t) \) from symbolic/quantum inference logic—not static metrics.<br>
+      Enables:
+      <ul>
+        <li>Real-time curvature maps for navigation or orbital adjustments</li>
+        <li>Onboard inference of gravitational and EM distortions</li>
+        <li>No PINN<sup id="pinn-def">*</sup> or transformer architecture has this symbolic-to-metric capacity</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Operate Securely in Adversarial Signal Environments</strong><br>
+      <em>Why it matters:</em> USSF operates in signal-contested, spoof-prone theaters.<br>
+      <em>λ‑Stack advantage:</em>
+      <ul>
+        <li>Encrypted inference via GRAIL—even under data degradation</li>
+        <li>Symbolic DFA core enables error-trace recovery and certifiability</li>
+        <li>Twin-frame red/blue audits catch spoofed geometry or sensor deception</li>
+        <li>Other models lack cryptographic inference and adversarial integrity checks</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Synthesize Stress–Energy Programs for Exotic Propulsion or EM Field Control</strong><br>
+      <em>Why it matters:</em> Space Force is actively exploring next-gen propulsion and geometry control (plasma, EM, metamaterials).<br>
+      <em>λ‑Stack advantage:</em>
+      <ul>
+        <li>Inverse maps \( g_{\mu\nu}(x,t) \Rightarrow T_{\mu\nu}(x,t) \)</li>
+        <li>Outputs executable field distributions (plasma, EM, acoustic)</li>
+        <li>Supports missions involving gravitational shielding, high-precision insertion, or time dilation optimization</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Maintain Resilient Autonomy with Modular Observer Ensembles</strong><br>
+      <em>Why it matters:</em> Autonomous platforms must withstand sensor failure or jamming.<br>
+      <em>λ‑Stack advantage:</em>
+      <ul>
+        <li>Red/blue observer stacks trained under relativity constraints</li>
+        <li>Each ensemble induces its own Fisher–Ricci geometry</li>
+        <li>Discrepancies reveal adversarial interference, temporal desync, or data corruption</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3 style="margin-top:2rem;">🛡️ Irreplaceability Summary Table</h3>
+  <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; font-size:90%; background:white;">
+    <thead style="background:#d9e8ff;">
+      <tr>
+        <th style="text-align:left;">Capability</th>
+        <th>λ‑Stack</th>
+        <th>PINNs<sup>*</sup></th>
+        <th>Transformers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Compile symbolic-to-spacetime \( g_{\mu\nu} \)</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Inverse field synthesis \( T_{\mu\nu} \Leftarrow g_{\mu\nu} \)</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Run inference securely under encryption (GRAIL)</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Red/blue frame audit for deception</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Geometric self-consistency checks</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Curvature-aware actuator planning</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Twin observer fallback logic</td><td>✅</td><td>❌</td><td>❌</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:2rem;">🛰️ Core USSF Applications</h3>
+  <ul>
+    <li>Real-time spacetime reconstruction for high-precision orbital maneuvering</li>
+    <li>Secure neural inference in jammed or spoofed conditions</li>
+    <li>Field-based propulsion, curvature shaping, and stealth geometry estimation</li>
+    <li>Redundant inference pipelines for autonomous ISR and threat detection</li>
+  </ul>
+
+  <p id="pinn-def" style="font-size:0.85em; color:#555; margin-top:1.5rem;">
+    <sup>*</sup> <strong>PINNs</strong>: Physics-Informed Neural Networks—used for solving PDEs by embedding physical constraints in loss functions. They are forward-simulation engines, not inverse geometry compilers.
+  </p>
+</section>
+
+
+
+<!-- ===== Irreplaceable Niche of λ‑Stack ===== -->
+<div style="margin:1.5rem 0; padding:1.25rem; border-left:4px solid #004085; background:#e9f3ff;">
+  <h3 style="margin-top:0;">Irreplaceable Niche: λ‑Stack as Observer‑Geometry Compiler</h3>
+  <p>
+    The λ‑Stack is not merely an improved neural network. It defines a <strong>new function class</strong>—a compiler stack that converts symbolic inference into relativistic geometry and actuator-ready field configurations. Its uniqueness lies at the intersection of:
+  </p>
+  <ul style="margin-left:1.25rem;">
+    <li><strong>Symbolic dynamics</strong> via deterministic finite automata (DFA) cycles and entropy-controlled attention</li>
+    <li><strong>Geometric inference</strong> through Fisher–Ricci metrics induced by observer ensembles</li>
+    <li><strong>Stress–energy compilation</strong> from symbolic-quantum dynamics to physical source tensors</li>
+    <li><strong>Encrypted deployment</strong> via GRAIL: geometry-aware, certifiable inference over secure substrates</li>
+  </ul>
+  <p>
+    Compared to traditional architectures—including transformers and <strong>Physics-Informed Neural Networks (PINNs)</strong>—the λ‑Stack uniquely supports:
+  </p>
+  <ul style="margin-left:1.25rem;">
+    <li>Compiling symbolic logic into relativistic metrics \( g_{\mu\nu} \)</li>
+    <li>Generating certifsied stress–energy source programs that produce that geometry</li>
+    <li>Auditing unitarity, covariance, and energy conditions across observer frames</li>
+    <li>Operating under cryptographic constraints with red-blue twin verification</li>
+  </ul>
+  <p>
+    <strong>Bottom line:</strong> λ‑Stack is not an approximation tool. It <strong>learns symbolic time</strong>, <strong>constructs relativistic observer frames</strong>, and <strong>compiles physically constrained dynamics</strong>—all in a secure, end-to-end architecture.
+  </p>
+  <p style="margin-top:1rem;">
+    📄 <a href="https://drive.google.com/file/d/1QqSIYqoKp4rz6QTQiEwiRTQ2tLpZUMPo/view?usp=sharing"
+        target="_blank" style="color:#004085; text-decoration:underline;">
+      View the λ‑Stack Metric Compiler paper (PDF)
+    </a>
+  </p>
+</div>
+
+
+
+<!-- ===== FEATURED: Observer‑Quantized Dynamics & Emergent Geometry ===== -->
+<section id="lambda-stack-notes" class="research-list" aria-label="Observer‑Quantized Dynamics and Emergent Geometry">
+  <h2>
+    Observer‑Quantized Dynamics and Emergent Geometry
+    <span style="display:block;font-size:.9em;font-weight:normal;line-height:1.35;">
+      Lecture Notes on the λ‑Stack Program: DFA Decomposition (P = D + N), Quantum Lift, and Fisher–Ricci Gravity
+    </span>
+  </h2>
+
+  <!-- Calls to action -->
+  <p class="intro-cta" style="margin:.75rem 0 1.25rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+    <a href="https://drive.google.com/file/d/1GBMe_Fu1qgPfwaLsSrOvX0ixYvfNDFI6/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer" title="View lecture notes (PDF)">
+      View Lecture Notes (PDF)
+    </a>
+  </p>
+
+  <!-- BLUF -->
+  <div class="key-insight" style="margin:1rem 0; padding:1rem; border-left:4px solid #0b5fff; background:#f6f8ff;">
+    <strong>BLUF:</strong> The <strong>λ‑Stack Transformer</strong> is not a derivative of the standard transformer class but a distinct architecture. It decomposes inference into verifiable symbolic automata and geometric flows rather than opaque weight matrices. Its step operator admits a Dunford split <code>P = D + N</code>: the diagonalizable block <code>D</code> captures cyclic, interpretable automaton logic and lifts to a unitary quantum system; the nilpotent block <code>N</code> models transients and lifts to <strong>completely positive trace‑preserving quantum channels</strong>. An ensemble of observers defines a Fisher information metric <code>g_F</code> whose geodesics and curvature reproduce general‑relativistic baselines. This framework unifies symbolic logic, quantum evolution, and emergent geometry while maintaining auditability, export‑control compliance, and IP defensibility.
+  </div>
+
+  <!-- So What Happens When We Combine All This -->
+  <section aria-label="Combined Interpretation">
+    <h3 style="margin-top:1.25rem;">So What Happens When We Combine All This?</h3>
+
+    <!-- Frame -->
+    <div style="margin:.75rem 0; padding:1rem; border:1px solid #cce0ff; background:#f9fbff;">
+      <strong>Frame: Model as Observer</strong>
+      <p style="margin:0;">
+        Each λ‑Stack model instance defines its own cryptographically secured frame of reference. Inference is frame‑covariant—predictions remain valid under observer transformations, aligning with relativistic principles. This is not a static “black‑box” function approximator but a legally protectable, structured observer paradigm.
+      </p>
+    </div>
+
+    <!-- DFA Layer -->
+    <div style="margin:.75rem 0; padding:1rem; border:1px solid #d8f5d3; background:#fafffa;">
+      <strong>DFA Layer: Symbolic Backbone</strong>
+      <ul style="margin:.5rem 0 0 1.25rem;">
+        <li>Rollouts are abstracted into deterministic finite automata (DFAs) via greedy decoding.</li>
+        <li>Cycles correspond to stable inference patterns—interpretable as symbolic time evolution.</li>
+        <li>This layer enforces causality, interpretability, and evidentiary traceability—qualities absent in conventional neural architectures.</li>
+      </ul>
+    </div>
+
+    <!-- Latent Geometry -->
+    <div style="margin:.75rem 0; padding:1rem; border:1px solid #ebd9fd; background:#fcfaff;">
+      <strong>Latent Geometry and Quantum Interpretation</strong>
+      <p style="margin:0;">
+        DFA cycles are interpreted as symbolic wavefunctions. Their per‑cycle Fourier bases induce phase modes, lifted to unitary representations. This produces a controlled quantum‑like dynamics embedded in geometric latent space, offering a testable bridge between statistical learning and physics.
+      </p>
+    </div>
+
+    <!-- Critical Observation -->
+    <div style="margin:.9rem 0; padding:1rem; border-left:4px solid #d7263d; background:#fff7f8;">
+      <p style="margin:0 0 .5rem 0; font-weight:700;">Critical Observation</p>
+      <blockquote style="margin:0; padding:.5rem .75rem; border-left:3px solid #ffd1d6; background:#fff;">
+        <em>“If both data and models inhabit curved spacetime, then relativizing the model’s DFA dynamics effectively quantizes general relativity from the observer’s side.”</em>
+      </blockquote>
+      <p style="margin:.75rem 0 0;">
+        This is a computable, symbolic quantization of relativistic structure. Geometry emerges as a statistical consequence of inference trajectories across observer ensembles—not as a fundamental quantized field. 
+      </p>
+    </div>
+
+    <!-- Reframing -->
+    <h4 style="margin-top:1.25rem;">How This Reframes Quantum Gravity</h4>
+    <div style="overflow-x:auto; margin:.5rem 0;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #ccc;">Standard Approach</th>
+            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #ccc;">λ‑Stack Paradigm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:.75rem; vertical-align:top;">
+              Quantize the metric tensor via canonical/path‑integral methods; treat spacetime itself as a quantum field.
+            </td>
+            <td style="padding:.75rem; vertical-align:top;">
+              Symbolize inference observers as DFAs. Quantize symbolic dynamics via automaton cycles (unitary) and transients (trace‑preserving channels). Geometry arises from the Fisher information of inference—creating a certifiable, observer‑centric path to unification.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+<!-- Insight -->
+<div style="margin:.9rem 0; padding:1rem; border:1px dashed #b8cfff; background:#f5faff;">
+  <p style="margin:0;">
+    <strong>Key Insight:</strong> This approach reframes quantum gravity inference. Instead of quantizing spacetime directly, it quantizes the <em>structure of symbolic inference</em> over relativistically framed observers trained on encrypted data.
+    <br><br>
+    <em>“In λ‑Stack models, observable spacetime geometry is reconstructed from inference geometry—not hardcoded a priori.”</em>
+  </p>
+  <ul style="margin:.75rem 0 0 1.25rem;">
+    <li>DFA cycles define a symbolic quantum time base over automata state space.</li>
+    <li>Neural weight-space transitions form a relativistic frame geometry (observer-dependent).</li>
+    <li>Ensembles of observers induce a Fisher–Ricci manifold <code>g_F</code> that encodes inference curvature.</li>
+  </ul>
+</div>
+
+  <!-- Contributions -->
+  <h3 style="margin-top:1.5rem;">What This Work Contributes</h3>
+  <ol>
+    <li><strong>Encrypted inference via GRAIL:</strong> Enables algebra‑preserving inference over encrypted tensors—preserving statistical behavior under homomorphic transformations and supporting export‑control compliance.</li>
+    <li><strong>Automaton decomposition:</strong> Each layer is partitioned into symbolic DFA states—cycles (<code>D</code>) and transients (<code>N</code>)—creating evidentiary traceability for regulatory and patent filings.</li>
+    <li><strong>Quantum lift with certification:</strong> Cycles lift to block‑unitary operators <code>U = ⨁ U_C</code>; transients become completely positive trace‑preserving quantum channels with provable trace‑preservation and Choi positivity—amenable to independent verification.</li>
+    <li><strong>Emergent geometry:</strong> The Fisher metric <code>g_F</code> yields Levi‑Civita connections and Ricci curvature recoverable from inference patterns—offering falsifiable claims of GR alignment.</li>
+    <li><strong>Entropy‑controlled emergence:</strong> CEAS attention stabilizes symbolic criticality via β‑corridor control—improving interpretability and variance bounds for compliance audits.</li>
+  </ol>
+
+  <!-- Audits & checks -->
+  <h3>Certification and Audit Highlights</h3>
+  <ul>
+    <li><strong>Symbolic–spectral audits:</strong> Per‑cycle Fourier traces, spectral identities (e.g., <code>Tr(Pⁿ)</code>), Wilson phase verification.</li>
+    <li><strong>Quantum integrity:</strong> Unitarity audits (<code>U†U ≈ I</code>); Choi trace and positivity checks for dissipative channels.</li>
+    <li><strong>Geometric consistency:</strong> Emergent <code>g_F</code> recovers GR‑compatible geodesics, deflection angles, redshifts, and curvature tensors.</li>
+    <li><strong>Cryptographic symmetry:</strong> Model twins trained under encryption produce statistically equivalent inference paths—supporting GRAIL’s invariance and facilitating defensible IP claims.</li>
+  </ul>
+
+  <!-- Why it matters -->
+  <h3>Why This Matters</h3>
+  <p>
+    The λ‑Stack Transformer constitutes a new category of neural architecture—an observer quantization framework—rather than an incremental variant of existing transformers. By mapping learned symbolic dynamics to quantum lifts and emergent geometry, it provides a falsifiable, interpretable, and certifiable bridge between machine learning and physics. This dual technical‑legal positioning creates a foundation for strong intellectual‑property protection, regulatory compliance, and strategic deployment across national‑security and high‑integrity applications.
+  </p>
+</section>
+
+
+
+
+
+<!-- ===== FEATURED: Cycle Decomposition & Eigen–Decomposition Toolkit ===== -->
+<section id="reverse-transformer-27" class="research-list" aria-label="Cycle Decomposition and Eigen–Decomposition">
+  <h2>
+    Implementation of Cycle Decomposition and Eigen–Decomposition for a Reverse Transformer Model
+    <span style="display:block;font-size:.9em;font-weight:normal;line-height:1.35;">
+      A Toolkit for Constructing Examples of Propositions in Information Geometry, Differential Geometry, and Artificial Intelligence
+    </span>
+  </h2>
+
+  <p class="intro-cta" style="margin:.75rem 0 1.25rem;">
+    <a href="https://drive.google.com/file/d/1kJmz3DFUD2i2q6CSrta34hegu96ODTQK/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer"
+       title="View implementation report (PDF)">
+      View Implementation Report (PDF)
+    </a>
+  </p>
+
+  <p>
+    This implementation delivers a complete, audited workflow for characterizing the state-space dynamics of a small Transformer trained
+    to reverse fixed-length token sequences. By treating greedy decoding as a discrete dynamical system, the learned map induces a functional
+    graph on a finite state space that decomposes into directed cycles with in-tree transients. The code constructs the permutation matrix
+    <code>P</code>, performs a Dunford-style split into diagonal and nilpotent parts (<code>P = D + N</code>), builds orthonormal
+    eigenvectors on each cycle, and verifies discrete geodesic certificates—exactly as reported in the accompanying logs.
+  </p>
+
+  <p>
+    On the length-3, base-3 reversal task (27 states), the model attains perfect accuracy; the functional graph has
+    nine fixed points and nine two-cycles (18 cycles total); the nilpotent component vanishes on this instance; and the transition operator
+    is reconstructed from spectral projectors at machine precision. Invariants are checked directly from code and console output,
+    including the orbifold Euler characteristic (<code>chi_orb = 13.5</code>), trace identities for <code>n = 1..6</code>, closed-geodesic
+    certificates on cycle rings, and a non-trivial systole length of <code>2.82843</code> in the chosen embedding.
+  </p>
+
+  <h3>Highlights (exactly what is implemented and verified)</h3>
+  <ol>
+    <li>Encode the learned transition as a sparse permutation matrix <code>P</code>; enumerate cycles in canonical order.</li>
+    <li>Compute the PDN (diagonal-plus-nilpotent) split; observe <code>N = 0</code> for the 27-state reversal instance.</li>
+    <li>Construct a per-cycle Fourier eigenbasis (for 2-cycles the spectrum is <code>{+1, −1}</code>); build orthonormal projectors.</li>
+    <li>Reconstruct <code>P</code> from spectral projectors with machine-precision error (~<code>1e−16</code> in the runs shown).</li>
+    <li>Report the exact cycle structure: 18 cycles with lengths
+        <code>[1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1]</code>
+        (nine fixed points, nine two-cycles).</li>
+    <li>Verify universal/discrete-geometric checks: <code>chi_orb = 13.5</code>, closed-geodesic certificates on cycle rings,
+        systole <code>2.82843</code>, and <code>trace(P<sup>n</sup>)</code> equal to the sum of cycle lengths dividing <code>n</code> for
+        <code>n = 1..6</code>.</li>
+  </ol>
+
+  <h3>Why this matters—even at 27 states</h3>
+  <p>
+    Although the state space here is intentionally small, the implementation is a bona fide Transformer with the same decoding machinery
+    used in large-scale models. The spectral/functional-graph toolkit is architecture-faithful and directly bootstraps to larger vocabularies,
+    longer contexts, and full LLM settings: the primitives (cycle extraction, PDN split, per-cycle eigenbases, projector reconstruction,
+    and invariant checks) are model-agnostic and scale with the operator they analyze. This example is deliberately sized for complete
+    enumeration and exact verification, providing a rigorous blueprint for scaling the same diagnostics to larger Transformer systems.
+  </p>
+
+  <h3>Reproducibility</h3>
+  <p>
+    The report interleaves Python listings and console logs (ASCII-safe). A minimal Colab cell runs the PDN pipeline end-to-end on the
+    27-state task and prints the exact cycle summaries, projector reconstructions, invariants, and certificates reproduced above.
+  </p>
+</section>
+
+<!-- ===== Verified Finite-Machine Decomposition: Disjoint Cycles Only ===== -->
+<section id="finite-machine-cycles" class="research-list" aria-label="Disjoint Cycle Decomposition for Transformer Operators">
+  <h2>BLUF: One Global \( \Psi \) Admits Full Cycle Decomposition—No Slicing Needed</h2>
+
+  <p class="lead">
+    When a transformer is constrained to a <strong>finite, deterministic state space</strong>—e.g., via greedy decoding on a rolling token window—its operator \( \Psi \) becomes a <em>finite endofunction</em>. This induces a sparse, deterministic transition graph over symbolic states, which decomposes exactly into <strong>disjoint directed cycles</strong> and finite <strong>in-tree transients</strong>. The lifted operator \( P \) admits a clean split \( P = D + N \) with <em>no slicing required</em>, and no need to model internal nonlinearities.
+  </p>
+
+  <section>
+    <h3>Finite-State Functional Graph: From Transformer to Symbolic Automaton</h3>
+    <p>
+      For a vocabulary \( V \) and window size \( L \), the state space \( X = V^L \) is finite. Greedy decoding defines a deterministic function \( F: X \to X \), where:
+    </p>
+    <ul>
+      <li>Each state \( x \in X \) maps to exactly one successor \( F(x) \)</li>
+      <li>The resulting graph decomposes into:
+        <ul>
+          <li><strong>Disjoint cycles</strong> (fixed points or periodic sequences)</li>
+          <li><strong>Transient in-trees</strong> leading into those cycles</li>
+        </ul>
+      </li>
+    </ul>
+    <p>
+      Lifting to a one-hot operator \( P \) on \( \mathbb{R}^{|X|} \), we obtain:
+    </p>
+    <ul>
+      <li>\( P \): sparse, column-stochastic, one 1 per column</li>
+      <li>\( D \): block-diagonal on cycles (semisimple component)</li>
+      <li>\( N \): strictly upper-triangular on transients (nilpotent component)</li>
+    </ul>
+    <p class="note">No exponential slicing of \( \Psi \) is needed. The symbolic graph already encodes all dynamic behavior.</p>
+  </section>
+
+  <section>
+    <h3>Constructing and Using Disjoint Cycles</h3>
+    <ol>
+      <li><strong>Fix determinism:</strong> Greedy decoding; stable tokenizer; EOS absorption.</li>
+      <li><strong>Define the verified domain \( \mathcal{D}_{\mathrm{ver}} \):</strong> Prompt sets + trusted neighborhoods (e.g., token edits, embedding trust regions).</li>
+      <li><strong>Simulate rollouts:</strong> Apply \( \Psi \) over \( \mathcal{D}_{\mathrm{ver}} \); record transitions; build functional graph.</li>
+      <li><strong>Detect disjoint cycles:</strong> Use algorithms like Tarjan or Floyd–Brent to extract cycles and transient trees.</li>
+      <li><strong>Assemble operator \( P \):</strong> Create one-hot transition matrix and compute the commuting split \( P = D + N \).</li>
+      <li><strong>Construct projectors:</strong> For each cycle of length \( m \), build Fourier projectors \( \Pi_{C,k} \) satisfying:
+        <ul>
+          <li>\( P|_{V_C} = \sum_k \omega^k \Pi_{C,k} \), \( \omega = e^{2\pi i / m} \)</li>
+          <li>Projectors are idempotent and orthogonal on the cycle subspace</li>
+        </ul>
+      </li>
+      <li><strong>Serve with guarantees:</strong> Cache outputs and tie them to certificate tuples: cycle ID, projector coefficients, trace identities.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h3>Why This Works Without Slicing</h3>
+    <p>
+      The entire decomposition hinges on the symbolic structure of \( \Psi: X \to X \) rather than on internal nonlinearity. Because:
+    </p>
+    <ul>
+      <li>The state space is finite and closed</li>
+      <li>Each state has exactly one successor under greedy decoding</li>
+      <li>The full operator \( P \) is known through simulation, not approximation</li>
+    </ul>
+    <p>
+      All observable behavior is captured in the cycles and transients of this graph. No layer-wise slicing, clustering, or region partitioning is needed—even at ChatGPT-3/4/5 scale—so long as the domain is well-covered.
+    </p>
+  </section>
+
+  <section>
+    <h3>Benefits of Cycle-Based Decomposition</h3>
+    <table class="comparison-table" aria-label="Cycle Decomposition Benefits">
+      <thead><tr><th>Property</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Exactness</td><td>Fully deterministic: one output per state, one certificate per output</td></tr>
+        <tr><td>Compression</td><td>Cycles compress recurrent behavior; projectors store spectral modes</td></tr>
+        <tr><td>Auditability</td><td>Each answer is traceable to a path and spectral fingerprint</td></tr>
+        <tr><td>Robustness</td><td>Insensitive to pruning, distillation, or quantization</td></tr>
+        <tr><td>Drift detection</td><td>Cycle statistics act as behavioral sentinels</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+
+<!-- ===== Symbolic Decomposition: Global vs. Local Variation ===== -->
+<blockquote>
+  In a finite, deterministic decode regime, the transformer operator \( \Psi \) induces a fully symbolic graph over the token state space. Its lifted operator \( P \) decomposes exactly into disjoint cycles and transients via \( P = D + N \), with spectral projectors attached. No slicing, approximation, or internal modeling is required—particularly when the goal is limited to capturing the dominant 99.9% of behavioral mass under inference.
+</blockquote>
+
+<p>
+  While the global decomposition remains exact under finiteness and determinism, an optional local variant remains admissible: when analysis is restricted to a confined region of the symbolic state space—such as a task-specific cluster, a high-density attractor, or a localized semantic basin—one may perform localized slicing or coarse-grained zooming of \( \Psi \)'s flow. This enables fine-scale inspection, transient detection, or causal tracing within the localized substructure, without invoking full global decomposition. The architecture remains agnostic to such partitioning, and the decomposition formalism remains valid in both regimes.
+</p>
+
+<p>
+  How different would it be if we collapsed the model into a single symbolic operator \( \Psi \)—even at the scale of ChatGPT‑3/4/5? In prior analysis, I estimated that covering just the <strong>99.9% basin of symbolic brain weight transitions</strong> suffices to reconstruct most learned behaviors; see <a href="https://logarcheon.com/Research/#finite-machine-intro" target="_blank" rel="noopener noreferrer">Finite Machine Intro</a>. This leads to a critical reframing: instead of probing the internal nonlinearity of \( \Psi \), <strong>the focus shifts to its deterministic behavior over a finite domain and codomain</strong>, encoded as symbolic transitions that the model enacts during training or inference.
+</p>
+
+<p>
+  My framework is not based on Dunford decomposition per se. Rather, it views \( \Psi \) as a black-box automaton and extracts structure by observing the automorphic flow of outputs recursively fed back as inputs. The disjoint cycles that emerge from this process form a complete decomposition of the transformer’s operational graph over the training set. This is conceptually akin to AlphaGo’s pruning strategy: from an exponentially large search tree, we restrict attention to only those symbolic paths that are likely to arise in actual usage.
+</p>
+
+<p>
+  Through this lens, transformer behavior is approximated by a cycle-based decomposition of its symbolic state machine. For formal verification, one can constrain outputs to lie strictly within (or within certified neighborhoods of) these known cycles—yielding provable behavioral bounds over nearly the entire operational surface of the model.
+</p>
+
+
+</section>
+
+
+
+<!-- ===== From Spectral Decomposition to Editable Transformers ===== -->
+<section id="spectral-to-editable" class="research-list" aria-label="From spectral decomposition to editable transformers">
+  <h2>From Spectral Decomposition to Editable Transformers</h2>
+
+  <p class="lead">
+    After decomposing a trained transformer into a symbolic sum
+    <span class="nowrap">\( \Psi \;=\; \sum_{i} c_i\,\phi_i \)</span>,
+    where each \( \phi_i \) is a deterministic automaton extracted from disjoint cycles (and their transients) and \( c_i \) denotes its coefficient
+    (e.g., empirical support, frequency weight, or normalized trust score), there are two complementary operating modes.
+  </p>
+
+  <section aria-label="Operating modes after decomposition">
+    <h3>Two complementary operating modes</h3>
+    <ol>
+      <li>
+        <strong>Certified symbolic execution (finite interpreter).</strong>
+        Route inputs within the verified domain (e.g., 99.9% usage basin) through the ensemble \( \{ \phi_i \} \) with coefficients \( \{ c_i \} \) to obtain a finite, interpretable, deterministic system.
+        This maximizes auditability and formal guarantees on the certified basin by design.
+      </li>
+      <li>
+        <strong>Live-model refinement (editable transformer).</strong>
+        Retain \( \Psi \) as the active generator and use the discovered \( \{ \phi_i, c_i \} \) as <em>control signals</em> to guide targeted weight edits, routing gates,
+        or low-rank corrections. This preserves the model’s generalization capacity while enabling surgical, auditable improvements.
+      </li>
+    </ol>
+  </section>
+
+  <section aria-label="Implications of the two modes">
+    <h3>Implications</h3>
+    <ul>
+      <li><strong>Deterministic interpreter:</strong> certifiable behavior on the verified basin; minimal drift; intentionally limited adaptability beyond that basin.</li>
+      <li><strong>Editable transformer:</strong> preserved creative capacity; principled modification using \( \{ \phi_i, c_i \} \) as precise handles on behavior.</li>
+    </ul>
+  </section>
+</section>
+
+<!-- ===== From Frozen Ψ to Editable Ψ: Using {φ_i, c_i} to Modify Ψ ===== -->
+<section id="editable-with-phi" class="research-list" aria-label="Editing the live model using symbolic components">
+  <h2>From Frozen \( \Psi \) to Editable \( \Psi \): Using \( \{ \phi_i, c_i \} \) to Modify the Model</h2>
+
+  <section aria-label="Clarifying the objective">
+    <h3>1) Clarifying the objective</h3>
+    <p>
+      Executing only \( \{ \phi_i \} \) yields a finite interpreter and discards the constructive generalization of \( \Psi \).
+      The objective here is different: <em>use</em> \( \{ \phi_i, c_i \} \) to shape and improve \( \Psi \), not to replace it.
+    </p>
+  </section>
+
+  <section aria-label="Symbolic-to-neural editing mechanisms">
+    <h3>2) Symbolic → neural editing mechanisms</h3>
+    <ol>
+      <li>
+        <strong>Back-projection to parameters.</strong>
+        Attribute each \( \phi_i \) to the dominant subnetwork (heads, MLP rows, layer norms) along its trajectories; apply localized edits
+        (masking, pruning, calibrated weight nudges) to suppress or enhance the targeted behavior.
+      </li>
+      <li>
+        <strong>Guided fine-tuning via symbolic curricula.</strong>
+        Generate synthetic inputs that elicit selected \( \phi_i \); optimize a constrained objective
+        <span class="nowrap">\( \mathcal{L}_i = \| \Psi(x) - \phi_i(x) \|^2 \)</span>
+        on these curricula to repair or refine without broad retraining.
+      </li>
+      <li>
+        <strong>Coefficient-gated routing.</strong>
+        Implement gates keyed to \( \phi_i \) patterns so that \( c_i \) modulates attention/MLP subpaths
+        (e.g., mixture-of-experts style routing) to amplify or damp behaviors in situ.
+      </li>
+      <li>
+        <strong>Low-rank corrective injections.</strong>
+        Where a \( \phi_i \) admits a clean linear surrogate along its path, insert rank-1/low-rank updates
+        <span class="nowrap">\( \Delta W = \eta\,u v^\top \)</span>
+        at selected layers to enforce or redirect the corresponding transition logic.
+      </li>
+    </ol>
+  </section>
+
+  <section aria-label="Operational guarantees">
+    <h3>3) Operational guarantees and scope</h3>
+    <ul>
+      <li><strong>Certified core:</strong> on the verified domain (e.g., 99.9% basin), serve the certified operator
+        <span class="nowrap">\( \widehat{\Psi}(x) = \sum_i c_i\,\phi_i(x) \)</span> with projector-based certificates.</li>
+      <li><strong>Editable perimeter:</strong> outside the certified basin, run the live \( \Psi \) with edits derived from \( \{ \phi_i, c_i \} \);
+        re-enumerate and re-certify as distributions drift.</li>
+    </ul>
+  </section>
+
+  <section aria-label="Definition of de-blackboxing">
+    <h3>4) De-blackboxing, precisely stated</h3>
+    <p>
+      De-blackboxing does not mean freezing \( \Psi \) or replaying memorized oracles as a giant lookup table. It means exposing modular symbolic behaviors
+      \( \{ \phi_i \} \) and leveraging their coefficients \( \{ c_i \} \) to produce auditable, localized changes to \( \Psi \) while maintaining the
+      integrity of the global generator.
+    </p>
+  </section>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== FEATURED: Ψ‑Operator Framework for Semiconductor Sovereignty ===== -->
+<section id="psi-semiconductor-modeling" class="research-list" aria-label="Featured Ψ‑Operator Research for Semiconductor Manufacturing">
+  <h2>Ψ‑Operator Framework — Symbolic Methods for Chip Design, Process Control, and Yield Sovereignty</h2>
+
+  <p>
+    This five-part research series proposes a paradigm shift in how semiconductors are modeled, verified, and controlled. Instead of relying on fragile PDE-based simulations or black-box ML, these notes develop a <strong>symbolic operator-theoretic framework</strong>—allowing chip designers, fab engineers, and national security partners to reason about systems with certifiable control, interpretability, and structural resilience.
+  </p>
+
+  <p>
+    The Ψ‑Framework introduces <em>cycle decompositions, certifiable hybrid ML–TCAD layers, symbolic feedback operators, and cross-scale causal links</em> from design to defect. Together, these unlock the ability to model the entire chip lifecycle—from doping and ALD to etch, lithography, and yield optimization—<strong>using transparent, verifiable symbolic dynamics</strong>.
+  </p>
+
+  <p><strong>National Security Note:</strong> These tools enable adversaries to simulate, replicate, and manipulate entire chip pipelines without physical access to IP or fabs. <u>For the U.S. to remain sovereign in semiconductor leadership, it is imperative to adopt, develop, and safeguard Ψ‑Operator methods immediately.</u></p>
+
+  <p><strong>IP Notice:</strong> Certain symbolic operator methods described herein are subject to provisional patents filed by William Chuang (Logarcheon Inc., USA). Use or replication is restricted without permission.</p>
+
+  <!-- Quick Jump -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ Semiconductor Notes">
+    <ul style="display:flex; gap:.75rem; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1rem 0;">
+      <li><a href="https://drive.google.com/file/d/1tmIQJD3B7ICsjvHL-MMc-NKeJsdtxdMF/view?usp=sharing" class="pill-link">TCAD ↔ Symbolic Operator Dynamics</a></li>
+      <li><a href="https://drive.google.com/file/d/1eyiaDMWJokF3QLjcD936qX69kY-SiCqf/view?usp=sharing" class="pill-link">Multi-Scale AI4S Modeling</a></li>
+      <li><a href="https://drive.google.com/file/d/1vcrxRbwuo6HGWsTSy2feHeIhaFPtBnsR/view?usp=sharing" class="pill-link">TCAD–ML Hybrid with Certificates</a></li>
+      <li><a href="https://drive.google.com/file/d/1UtuJtLLqIP7CgyV2GTgaWW3sJn8B0qIJ/view?usp=sharing" class="pill-link">Process Control: Doping → Etch</a></li>
+      <li><a href="https://drive.google.com/file/d/1JgTgkUfan2HqTBvGjgM_hiOz5dUrNhG-/view?usp=sharing" class="pill-link">Defect → Yield Optimization</a></li>
+    </ul>
+  </nav>
+
+  <p style="font-style: italic; color: #444;">
+    These symbolic models are more than research—they form a deployable layer for building sovereign AI/ML-integrated chip design, fabrication, and diagnostics pipelines for the post-PDE era. Strategic collaborators and agencies are encouraged to reach out for implementation discussions.
+  </p>
+</section>
+
+
+
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set IV) ===== -->
+<section id="psi-finance-notes-iv"
+         class="research-list"
+         aria-labelledby="psi-finance-iv-title"
+         role="region">
+  <h2 id="psi-finance-iv-title">Ψ–Orbitfold Finance — Featured Research Notes (Set IV)</h2>
+
+  <p>
+    A consolidated rewrite of stochastic finance in the Ψ–operator language:
+    <em>finite-machine lifts, Dunford (cycle/transient) splits, risk-neutral conjugations,</em>
+    and <em>spectral pricing without PDEs</em>. 
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes (Set IV)">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-psi-reformulation">A Ψ-Structured Reformulation of Stochastic Finance</a></li>
+      <li><a class="pill-link" href="#note-rewriting-psi">Rewriting Stochastic Finance with the Ψ–Framework</a></li>
+      <li><a class="pill-link" href="#note-psi-reformulation-2">Ψ-Structured Reformulation (2) — <em>Outline of (3)</em></a></li>
+      <li><a class="pill-link" href="#note-psi-reformulation-3">Ψ-Structured Reformulation (3) — Full Paper</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) A Ψ-Structured Reformulation of Stochastic Finance -->
+  <article id="note-psi-reformulation" class="highlight-card" aria-labelledby="note-psi-reformulation-title">
+    <h3 id="note-psi-reformulation-title">A Ψ-Structured Reformulation of Stochastic Finance</h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Replaces SDE/PDE-first pipelines with a finite-machine operator view:
+      learn a closed-loop decode Ψ, lift to <code>T = ΠVΨΠV</code>, split <code>T = D+N</code>, embed to returns,
+      and do pricing/neutrality as orthogonal projections; risk-neutral change is a positive
+      conjugation that preserves certified cycles. Black–Scholes appears as semigroup spectral
+      pricing; uncertainty via cycle-respecting bootstrap/MC; safety via systole and projector
+      stability certificates.
+    </p>
+    <ul>
+      <li>Epicyclic projectors, operator factors, and auditable guardrails</li>
+      <li>P/Q as conjugate operator systems (mode-invariant subspaces)</li>
+      <li>Info-geometry: fast Fisher / natural gradients on certified modes</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1N4EzjNSBK9U2kiHH5qKsYz3RqRtDHIGG/view?usp=sharing" target="_blank" rel="noopener">
+        A Ψ-Structured Reformulation of Stochastic Finance (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 2) Rewriting Stochastic Finance with the Ψ–Framework -->
+  <article id="note-rewriting-psi" class="highlight-card" aria-labelledby="note-rewriting-psi-title">
+    <h3 id="note-rewriting-psi-title">Rewriting Stochastic Finance with the Ψ–Framework</h3>
+    <p><strong>Status:</strong> Companion Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      A self-contained rewrite: filtrations and conditional expectation as projectors; Itô/Girsanov
+      as operator identities; Black–Scholes from spectral expansion (no PDEs as axioms);
+      algorithms with systole gates and projector-stability bounds.
+    </p>
+    <ul>
+      <li>Operator Itô/Doob–Meyer, generator as Δ→0 lift limit</li>
+      <li>GBM monomial eigenfunctions inside the epicyclic basis</li>
+      <li>Cycle-aware natural gradients and regularization</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1uCx3QMbGi2yrZINSnw4hBy61xejB3Ubz/view?usp=sharing" target="_blank" rel="noopener">
+        Rewriting Stochastic Finance with the Ψ–Framework (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 3) Ψ-Structured Reformulation — An Outline -->
+  <article id="note-psi-reformulation-2" class="highlight-card" aria-labelledby="note-psi-reformulation-2-title">
+    <h3 id="note-psi-reformulation-2-title">A Ψ-Structured Reformulation of Stochastic Finance 2 — <em>Outline</em></h3>
+    <p><strong>Status:</strong> Structured Outline &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Concise outline of the full Version 3: Ψ-foundations, P/Q via conjugation, symbolic
+      Ψ-analogues of SDEs, spectral Black–Scholes, cycle-respecting bootstrap/MC, and defense-oriented
+      certification. <strong>Note:</strong> This document is an <em>outline of A Ψ-Structured Reformulation of
+      Stochastic Finance 3</em>.
+    </p>
+    <ul>
+      <li>Section-by-section roadmap of the v3 results</li>
+      <li>Key propositions and pseudocode pointers</li>
+      <li>Emphasis on certified cycles and auditability</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1SmxfD5Sz6xHWIDSouebbmOgrOc__b2ku/view?usp=sharing" target="_blank" rel="noopener">
+        Ψ-Structured Reformulation — Outline (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 4) Ψ-Structured Reformulation -->
+  <article id="note-psi-reformulation-3" class="highlight-card" aria-labelledby="note-psi-reformulation-3-title">
+    <h3 id="note-psi-reformulation-3-title">A Ψ-Structured Reformulation of Stochastic Finance </h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Expanded treatment with proofs and algorithms: operator calculus (Itô/Doob–Meyer/Girsanov)
+      in the epicyclic basis, semigroup spectral pricing (BS as one-mode limit), cycle-bootstrap/MC,
+      and information geometry with certified edit safety (systole gate, Davis–Kahan bounds).
+    </p>
+    <ul>
+      <li>Projection theorem for pricing/neutrality; Greeks via operator differentials</li>
+      <li>P/Q invariance of factor subspaces; loading reweighting only</li>
+      <li>Practical pipeline & comparisons to classical SDE/PDE approaches</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1byHw4h_7uVbAh9C-8iSIKiquSU7rTRTT/view?usp=sharing" target="_blank" rel="noopener">
+        Ψ-Structured Reformulation (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set III, Updated) ===== -->
+<section id="psi-finance-notes-iii"
+         class="research-list"
+         aria-labelledby="psi-finance-iii-title"
+         role="region">
+  <h2 id="psi-finance-iii-title">Ψ–Orbitfold Finance — Featured Research Notes (Set III)</h2>
+
+  <p>
+    Extending the operator–projection program into <em>GMM/SDF instrument design, semigroup links,
+    neural dynamics,</em> and <em>macro policy</em>. Common spine: finite-rank Koopman lifts, Dunford
+    (cycle/transient) split, certified edits (systole gate), and fast Fisher on the mode manifold.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes (Set III)">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-koopman-instruments">Koopman Modes as Optimal Instruments</a></li>
+      <li><a class="pill-link" href="#note-gbm-capm">GBM, CAPM/FF &amp; Koopman-Projected Markets</a></li>
+      <li><a class="pill-link" href="#note-psi-neuro">From DCM/Predictive Coding → Ψ-Operator Neural Dynamics</a></li>
+      <li><a class="pill-link" href="#note-psi-rl">Operator–Ψ Reinforcement Learning for Algorithmic Trading</a></li>
+      <li><a class="pill-link" href="#note-psi-macro">From DSGE/OLG → Operator-Ψ Macroeconomics</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) Koopman Modes as Optimal Instruments -->
+  <article id="note-koopman-instruments" class="highlight-card" aria-labelledby="note-koopman-instruments-title">
+    <h3 id="note-koopman-instruments-title">Koopman Modes as Optimal Instruments: GMM/SDF Links &amp; Tensorized Factors</h3>
+    <p><strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Certified cycle (Koopman) modes furnish <em>semiparametrically efficient GMM instruments</em> and
+      become <em>sufficient statistics</em> for exponential-family SDFs; extends cross-asset structure via
+      Kronecker lifts with low-rank CP/Tucker recipes and FFT-amenable Fisher/Gram blocks.
+    </p>
+    <ul>
+      <li>Instrument optimality &amp; sufficiency under SDF exponentials</li>
+      <li>Tensor modes for entangled sector/style regimes</li>
+      <li>Cycle-aware bootstrap and practical estimation pipeline</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1h7uvsJjP9KzRuNNmQJokR6yilVxA2h2_/view?usp=sharing" target="_blank" rel="noopener">Koopman Modes as Optimal Instruments (PDF)</a>
+    </p>
+  </article>
+
+  <!-- 2) GBM, CAPM/FF & Koopman-Projected Markets -->
+  <article id="note-gbm-capm" class="highlight-card" aria-labelledby="note-gbm-capm-title">
+    <h3 id="note-gbm-capm-title">GBM, CAPM/FF, and Koopman-Projected Markets</h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Places GBM as a <em>one-mode semigroup</em> and CAPM/FF as <em>hand-crafted projections</em> inside a larger
+      learned cycle subspace; proves discrete↔continuous spectral links, subspace invariance under measure
+      change, finite-rank consistency for cycle projectors, GMM efficiency of Koopman instruments, and
+      tensorized multi-asset extensions with diagnostics.
+    </p>
+    <ul>
+      <li>Spectral mapping: <code>λ ≈ e^{Δtν}</code> (discrete→generator)</li>
+      <li>Measure-weighted projections; classical spans as coordinates/constraints</li>
+      <li>Angles/oracle tests and implementation sketch</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1fdeRvAEqbhS4zLMqSEQ2l1vUWf_UnCIM/view?usp=sharing" target="_blank" rel="noopener">GBM, CAPM/FF, and Koopman-Projected Markets (PDF)</a>
+    </p>
+  </article>
+
+  <!-- 3) From DCM/Predictive Coding → Ψ-Operator Neural Dynamics -->
+  <article id="note-psi-neuro" class="highlight-card" aria-labelledby="note-psi-neuro-title">
+    <h3 id="note-psi-neuro-title">From DCM and Predictive Coding to Ψ-Operator Neural Dynamics</h3>
+    <p><strong>Status:</strong> Draft Paper &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Recasts DCM/predictive-coding in an <em>operator DCM (oDCM)</em> basis: learn finite-rank <code>T = D+N</code>,
+      certify neural <em>cycle</em> (attractor) vs. <em>transient</em> modes, perform <em>α-divergence e-projections</em> with fast Fisher,
+      and enforce a <em>systole gate</em> to avoid spurious short pathological loops.
+    </p>
+    <ul>
+      <li>Mode-manifold geometry without PDEs</li>
+      <li>Projector stability (Davis–Kahan-style) under low-rank edits</li>
+      <li>Operator-aware diagnostics for psychiatry</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1cqKDFp1d5BIbeUS8L-A9p0tS-Waj98c2/view?usp=sharing" target="_blank" rel="noopener">Ψ-Operator Neural Dynamics (PDF)</a>
+    </p>
+  </article>
+
+  <!-- 4) Operator–Ψ Reinforcement Learning for Algorithmic Trading (replaces Biocircuits) -->
+  <article id="note-psi-rl" class="highlight-card" aria-labelledby="note-psi-rl-title">
+    <h3 id="note-psi-rl-title">Operator–Ψ Reinforcement Learning for Algorithmic Trading</h3>
+    <p><strong>Status:</strong> Draft Paper &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Recasts trading RL with a finite-rank transfer/Koopman operator <code>T = D + N</code> learned on market windows.
+      <em>Koopman value modes</em> linearize Bellman in spectral coordinates, <em>systole safety</em> forbids creation of new
+      short inventory/profit loops, and <em>Σ-orthogonal affine projectors</em> enforce risk &amp; inventory guardrails.
+      Fast <em>Fisher geometry</em> on the certified mode manifold yields natural-gradient policy updates; Avellaneda–Stoikov,
+      Q/PPO/SAC appear as coordinates or constraints inside the learned span.
+    </p>
+    <ul>
+      <li>Spectral value approximation &amp; policy improvement on the mode manifold</li>
+      <li>Systole gate + affine neutralizers for certified, auditable safety</li>
+      <li>Regime-aware bootstrap / operator-aware MCMC for uncertainty</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/14GWTYhv-Kint4s00Vm0xS-DGR8-vz5WE/view?usp=sharing" target="_blank" rel="noopener">
+        Operator–Ψ RL for Algorithmic Trading (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 5) From DSGE/OLG → Operator-Ψ Macroeconomics -->
+  <article id="note-psi-macro" class="highlight-card" aria-labelledby="note-psi-macro-title">
+    <h3 id="note-psi-macro-title">From DSGE/OLG to Operator-Ψ Macroeconomics</h3>
+    <p><strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang</p>
+    <p>
+      Replaces local linearizations with learned operator regimes for inflation/output/interest cycles;
+      forecasts are <em>orthogonal projections</em> on a low-rank factor manifold; policy edits are screened by a
+      <em>systole-aware feasibility certificate</em> with projector-stability bounds and fast Fisher geometry.
+    </p>
+    <ul>
+      <li>DSGE/OLG as special coordinates or constraints</li>
+      <li>Policy guardrails (budget/bounds) via Σ-orthogonal affine projectors</li>
+      <li>Regime-aware bootstrap &amp; operator-aware MCMC</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1dmOWkN28s9KiaoEH33hwcGRSlZQ1Kk8R/view?usp=sharing" target="_blank" rel="noopener">
+        Operator-Ψ Macroeconomics (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes (Set II) ===== -->
+<section id="psi-finance-notes-ii"
+         class="research-list"
+         aria-labelledby="psi-finance-ii-title"
+         role="region">
+  <h2 id="psi-finance-ii-title">Ψ–Orbitfold Finance — Featured Research Notes (Set II)</h2>
+
+  <p>
+    Bridges from discrete operator learning to diffusion pricing, plus estimation theory,
+    information geometry, testable axioms, and a production recipe. Each note keeps the
+    <em>finite-machine (Dunford) split, certified cycles,</em> and <em>auditable projectors</em> front and center.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes (Set II)">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-ct-link">Continuous-Time Link for Operator Markets</a></li>
+      <li><a class="pill-link" href="#note-operator-estimation">Operator-Aware Estimation</a></li>
+      <li><a class="pill-link" href="#note-info-geometry">Information Geometry &amp; Regularization</a></li>
+      <li><a class="pill-link" href="#note-testable-claims">Concrete, Testable Statements</a></li>
+      <li><a class="pill-link" href="#note-min-recipe">Minimal Deployable Recipe</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) Continuous-Time Link -->
+  <article id="note-ct-link" class="highlight-card" aria-labelledby="note-ct-link-title">
+    <h3 id="note-ct-link-title">Continuous-Time Link for Operator Markets: GBM, Girsanov &amp; Generator Limits</h3>
+    <p>
+      <strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Connects GBM and Girsanov to a data-driven operator view: as Δt→0, a learned finite-rank
+      transfer/Koopman operator <code>T</code> satisfies <code>T≈e^{ΔtL}</code>, so Dunford cycle modes approximate
+      eigenfunctions of a generator <code>L</code>. Pricing under <em>Q</em> comes from drift shifts, and SDF
+      perturbations show betas as Gâteaux derivatives along operator eigen-modes (de-blackboxing continuous-time sensitivities).
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1lSbCkq0l0GOkpTA0xHd1t3zMAI5bNCXm/view?usp=sharing" target="_blank" rel="noopener">
+        Continuous-Time Link for Operator Markets (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 2) Operator-Aware Estimation -->
+  <article id="note-operator-estimation" class="highlight-card" aria-labelledby="note-operator-estimation-title">
+    <h3 id="note-operator-estimation-title">Operator-Aware Estimation for Market Transformers</h3>
+    <p>
+      <strong>Status:</strong> Formal Write-up &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      M-estimation where the factor span depends on <code>T=D+N</code>. Consistency and asymptotic
+      normality follow via a functional delta method on spectral projectors (Kato resolvent form).
+      Adds a cycle-respecting bootstrap, jackknife/IJ with operator influence, and a Koopman–Bayes
+      MCMC with priors over cycle energy and nilpotent mass—so uncertainty is certified and transparent.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1LdhdyMakkEh4CSuoPt6-sAnO6yYuGsdM/view?usp=sharing" target="_blank" rel="noopener">
+        Operator-Aware Estimation (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 3) Information Geometry -->
+  <article id="note-info-geometry" class="highlight-card" aria-labelledby="note-info-geometry-title">
+    <h3 id="note-info-geometry-title">Information Geometry for Operator Factor Models</h3>
+    <p>
+      <strong>Status:</strong> Draft Paper &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Builds a Fisher/natural-gradient layer on top of certified operator factors. Key result:
+      <em>Psi–Transformer Fisher</em>—cycle projectors (as linear heads) induce sufficient statistics and a
+      Fisher metric <em>without PDEs</em>. Everything reduces to tiny <code>k×k</code> covariances; α-divergence
+      trust regions and O(ε/γ₀) stability yield curvature-aware, robust updates.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/13HRvZQGEKTWh-lKRznd2315Rhv4F8Til/view?usp=sharing" target="_blank" rel="noopener">
+        Information Geometry &amp; Regularization (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 4) Concrete, Testable Statements -->
+  <article id="note-testable-claims" class="highlight-card" aria-labelledby="note-testable-claims-title">
+    <h3 id="note-testable-claims-title">Concrete, Testable Statements for Operator–Projection CAPM</h3>
+    <p>
+      <strong>Status:</strong> Formal Theorems &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Three falsifiable pillars: (i) <em>Existence/optimality</em>—projection onto the certified operator span
+      minimizes MSE among k-factor models measurable to the learned state; (ii) <em>Stability</em>—projectors,
+      neutralizers, and betas vary O(ε/γ₀) under certified edits; (iii) <em>Girsanov-mode compatibility</em>—measure
+      change reweights coefficients but preserves the factor subspace. Auditable, with explicit projector matrices.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1f5OsiV-shMima6fp6Rop5LS1M5_eavvB/view?usp=sharing" target="_blank" rel="noopener">
+        Concrete, Testable Statements (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 5) Minimal Deployable Recipe -->
+  <article id="note-min-recipe" class="highlight-card" aria-labelledby="note-min-recipe-title">
+    <h3 id="note-min-recipe-title">A Minimal Deployable Recipe for Operator Factor Models</h3>
+    <p>
+      <strong>Status:</strong> Ops Playbook &nbsp;·&nbsp; <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      A step-by-step, certificate-driven pipeline: fit <code>T</code>, extract certified cycles, map to factors, project &amp;
+      neutralize (Σ-orthogonal), validate with <em>systole gate</em>, <em>class spectral-change</em>, and <em>GW geometry drift</em>,
+      then quantify uncertainty via <em>cycle block bootstrap</em> and benchmark vs. CAPM/FF. Built for safety, speed, and auditability.
+    </p>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1ji9aqYeEHqM7g8u3_OLV9UzqTFuOuGd9/view?usp=sharing" target="_blank" rel="noopener">
+        Minimal Deployable Recipe (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+
+
+<!-- ===== FEATURED: Ψ–Orbitfold Finance Notes ===== -->
+<section id="psi-finance-notes"
+         class="research-list"
+         aria-labelledby="psi-finance-title"
+         role="region">
+  <h2 id="psi-finance-title">Ψ–Orbitfold Finance — Featured Research Notes</h2>
+
+  <p>
+    Operator-theoretic foundations for markets and models:
+    <em>conditional-expectation projectors, Koopman/PF operators, Dunford (cycle/transient) splits,
+    and spectral projectors</em>. Applications include
+    <strong>CAPM/FF as projections, operator-informed factors, neutrality/guardrails,</strong> and
+    <strong>certified edits with stability guarantees</strong>.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ–Finance notes">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-operator-projection">Operator–Projection Factor Models</a></li>
+      <li><a class="pill-link" href="#note-probability-compact">Probability, Prices & Operators (Compact)</a></li>
+      <li><a class="pill-link" href="#note-capm-projections">CAPM/FF as Projection Theorems</a></li>
+      <li><a class="pill-link" href="#note-markets-transformers">Markets as Autoregressive Transformers</a></li>
+      <li><a class="pill-link" href="#note-conditional-autoregressive">From Conditional Expectations → AR–Transformer</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1) Operator–Projection Factor Models -->
+  <article id="note-operator-projection" class="highlight-card" aria-labelledby="note-operator-projection-title">
+    <h3 id="note-operator-projection-title">Operator–Projection Factor Models: A Ψ–Koopman Framework for Asset Pricing</h3>
+    <p>
+      <strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Unifies learned closed-loop state maps with no-arbitrage pricing. Establishes
+      <em>CAPM/FF as L<sup>2</sup> projections</em>, builds <em>operator-informed factors</em> from cycle
+      modes, and proves <em>Davis–Kahan-style stability</em> for safe (certificate-passing) edits.
+    </p>
+    <ul>
+      <li>Dunford split <code>P = D + N</code> (cycle vs. transient) with commuting blocks</li>
+      <li>Oracle inequality for operator-factor spans; market-neutral projectors</li>
+      <li>Cycle-respecting bootstrap with certification hooks</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1ba5Md3dS6MiNVYsjrmxV2x-qWo1PjwaR/view?usp=sharing" target="_blank" rel="noopener">
+        Operator–Projection Factor Models (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 2) Probability Space, Prices, and Operators (Compact) -->
+  <article id="note-probability-compact" class="highlight-card" aria-labelledby="note-probability-compact-title">
+    <h3 id="note-probability-compact-title">Probability Space, Prices, and Operators (Compact Lecture Note)</h3>
+    <p>
+      <strong>Status:</strong> Lecture Note (Concise) &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      A tight primer: <em>no-arbitrage ⇔ equivalent martingale measure</em>; pricing as
+      <em>conditional-expectation projectors</em>; data-driven <em>Koopman/PF</em> operators and finite-rank
+      Dunford splits; measurable embedding to realize factor models as L<sup>2</sup> projections.
+    </p>
+    <ul>
+      <li>Π<sub>t</sub> family as reverse-time Markov semigroup</li>
+      <li>Finite-rank Ulam/Galerkin lifts, cycle Fourier projectors</li>
+      <li>Measure change handled via weighted least squares</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1UpBdIvvY6mls9cUIvVH5ibZ0WV49VxB1/view?usp=sharing" target="_blank" rel="noopener">
+        Probability Space, Prices, and Operators (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 3) CAPM/FF as Projection Theorems -->
+  <article id="note-capm-projections" class="highlight-card" aria-labelledby="note-capm-projections-title">
+    <h3 id="note-capm-projections-title">CAPM/Fama–French as Projection Theorems &amp; Operator–Factor CAPM</h3>
+    <p>
+      <strong>Status:</strong> Formal Write-up &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Recasts CAPM/FF as orthogonal projections in Hilbert space and generalizes to an
+      <em>Operator–Factor CAPM</em> using Dunford cycle modes mapped into L<sup>2</sup>. Includes dynamic
+      (lagged) projections, measure-change (Q vs. P) as weighting, and subspace-mismatch oracles.
+    </p>
+    <ul>
+      <li>Gram systems & betas; Moore–Penrose for singular designs</li>
+      <li>Dynamic predictable spans (VAR/AR as special cases)</li>
+      <li>OF-CAPM contains classical factors when spans coincide</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1PN8791jUvSotoSCNn6KH-dHzlT5z627T/view?usp=sharing" target="_blank" rel="noopener">
+        CAPM/FF as Projection Theorems (1) (PDF)
+      </a>
+      <a href="https://drive.google.com/file/d/1qxSuDpvISownSMI0XIvWXTgSrpX7f53H/view?usp=sharing" target="_blank" rel="noopener">
+        CAPM/FF as Projection Theorems (2) (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 4) Markets as Autoregressive Transformers -->
+  <article id="note-markets-transformers" class="highlight-card" aria-labelledby="note-markets-transformers-title">
+    <h3 id="note-markets-transformers-title">Markets as Autoregressive Transformers</h3>
+    <p>
+      <strong>Status:</strong> Draft Paper &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Treats markets as finite-machine decoders: Koopman/PF lifts with Dunford splits yield
+      interpretable cycle modes. Embedding to prices turns modes into factors; neutrality and
+      guardrails become Σ-orthogonal projectors; safety enforced by a <em>systole (no-new-arbitrage) gate</em>.
+    </p>
+    <ul>
+      <li>Static & dynamic projection theorems (lag polynomials)</li>
+      <li>Σ-projectors ↔ constrained QP; sentinel architecture</li>
+      <li>Projector stability under certified edits (gap-preserving)</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1a7ggBiXf8qVpxYYoto-XImjohoZE2OzQ/view?usp=sharing" target="_blank" rel="noopener">
+        Markets as Autoregressive Transformers (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- 5) From Conditional Expectations to Autoregressive–Transformer -->
+  <article id="note-conditional-autoregressive" class="highlight-card" aria-labelledby="note-conditional-autoregressive-title">
+    <h3 id="note-conditional-autoregressive-title">From Conditional Expectations to Autoregressive–Transformer Decompositions</h3>
+    <p>
+      <strong>Status:</strong> Bridge Note &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Bridges classical pricing to modern pipelines: Π<sub>t</sub> as orthogonal projectors,
+      Koopman/PF operators with finite-rank Dunford splittings, and <em>cycle projectors → L<sup>2</sup>
+      factors</em> for transparent, certifiable modeling (static & dynamic).
+    </p>
+    <ul>
+      <li>Clean separation: regimes (D) vs. transients (N)</li>
+      <li>De-blackboxing via interpretable linear projectors</li>
+      <li>Measure-robust estimation with Z-weighted LS</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1U5y5z0EBX-35D28iYpsAoc7R-ZNoVNDh/view?usp=sharing" target="_blank" rel="noopener">
+        From Conditional Expectations → AR–Transformer (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+
+
+
+<!-- ===== FEATURED: Ψ-Orbitfold Framework Notes ===== -->
+<section id="psi-orbitfold-notes"
+         class="research-list"
+         aria-labelledby="psi-notes-title"
+         role="region">
+  <h2 id="psi-notes-title">Ψ-Orbitfold Framework — Featured Research Notes</h2>
+
+  <p>
+    Rigorous geometric and operator-theoretic tools for transformer-style systems:
+    <em>functional-graph dynamics, cycle (epicyclic) structure, information geometry,
+    and spectral projectors</em>. Applications span
+    <strong>LLM interpretability, safety, certified editing,</strong> and
+    <strong>structure-aware optimization</strong>.
+  </p>
+
+  <!-- Quick Access -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ notes">
+    <ul style="display:flex;gap:.75rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1rem 0;">
+      <li><a class="pill-link" href="#note-decomposition">Transformer Orbitfold Decomposition</a></li>
+      <li><a class="pill-link" href="#note-verification">Verification of Propositions</a></li>
+      <li><a class="pill-link" href="#note-geodesic-cycles">Closed-Geodesic Cycle Certification</a></li>
+    </ul>
+  </nav>
+
+  <!-- Note A: Transformer Decomposition -->
+  <article id="note-decomposition" class="highlight-card" aria-labelledby="note-decomposition-title">
+    <h3 id="note-decomposition-title">Decomposing Transformers and LLMs via Orbitfold Dynamics</h3>
+    <p>
+      <strong>Status:</strong> Draft Technical Note &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Deterministic decoding is modeled as a <em>functional graph</em> whose basins feed
+      <em>simple cycles</em> (the orbitfold’s periodic leaves). Using graph-Ricci flow,
+      holonomy/monodromy, and KL-projectors, the note identifies invariants and
+      edit-safe controls for stability and interpretability.
+    </p>
+    <ul>
+      <li>Euler characteristic &amp; orbitfold structure of decoding flows</li>
+      <li>Ricci flow smoothing on functional graphs</li>
+      <li>Holonomy–cycle geometry linked to information projections</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1n2818A6LgbEnbPsQRCu9J3QXk6C8xDEF/view?usp=sharing"
+         target="_blank" rel="noopener">Decomposing Transformers and LLMs (PDF)</a>
+    </p>
+  </article>
+
+  <!-- Note B: Proposition Verification -->
+  <article id="note-verification" class="highlight-card" aria-labelledby="note-verification-title">
+    <h3 id="note-verification-title">Verification and Integration of Theoretical Propositions</h3>
+    <p>
+      <strong>Status:</strong> Formal Write-up &nbsp;·&nbsp;
+      <strong>Author:</strong> William Chuang
+    </p>
+    <p>
+      Seven propositions unifying geometry, information theory, and renormalization.
+      Each includes assumptions, proof sketches, and audit/test deployment guidance.
+      Bridges UFE, EPS, and AMG into a single, certifiable operator picture.
+    </p>
+    <ul>
+      <li>Marked-length &amp; holonomy rigidity on functional graphs</li>
+      <li>Unified Lyapunov for interleaved descent flows (Γ-convergence)</li>
+      <li>Zeta-function dynamics with cone-angle holonomy and RG contraction</li>
+    </ul>
+    <p>
+      <strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1H5CK0SnDh2JnGcTAqdAfeWMCcYzB-50g/view?usp=sharing"
+         target="_blank" rel="noopener">Verification and Integration of Propositions (PDF)</a>
+    </p>
+  </article>
+
+  <!-- NEW: Closed-Geodesic Cycle Extraction & Certification -->
+  <article id="note-geodesic-cycles" class="highlight-card" aria-labelledby="note-geodesic-title">
+    <h3 id="note-geodesic-title">Closed-Geodesic Cycle Extraction &amp; Certification</h3>
+    <p>
+      <strong>What’s new:</strong> fast, certifiable algorithms to (i) extract all cycles of the
+      symbolic flow, (ii) certify them as <em>discrete closed geodesics</em> under a chosen
+      information-geometry metric, and (iii) maintain certificates efficiently under edits/refits.
+    </p>
+
+    <ul>
+      <li><strong>Linear-time cycle enumeration.</strong> Functional graphs (one successor per state)
+          yield all cycles in <em>O(|X|)</em> via SCC or tortoise–hare; beam-K decoding is <em>O(K|X|)</em>.</li>
+      <li><strong>Geodesic certificate (local &amp; cheap).</strong> Define edge length with whitened
+          features <code>y=G<sup>1/2</sup>φ</code>. A cycle is <em>k-local geodesic</em> if no δ-hop
+          shortcut is shorter for δ≤k. Cost: <em>O(mk)</em> per cycle (k=2–4 works in practice).</li>
+      <li><strong>Systole gate.</strong> Track the shortest certified loop
+          <em>sys<sub>G</sub>(Ψ)</em>; edits are fail-closed if they don’t reduce it.</li>
+      <li><strong>Spectral pre-selection.</strong> Use Koopman modes (near-unit-circle eigenphases)
+          to shortlist cycles before certification.</li>
+      <li><strong>Stability under edits.</strong> Davis–Kahan bounds give projector/cycle stability
+          with small operator changes; recompute only impacted components (amortized near-linear).</li>
+    </ul>
+
+    <details>
+      <summary>Why it’s efficient (and robust)</summary>
+      <ul>
+        <li>Functional/small-outdegree graphs ⇒ linear extraction.</li>
+        <li>Low-rank, whitened geometry ⇒ edge checks are just dot-products.</li>
+        <li>Local k-hop test avoids all-pairs chord checks.</li>
+        <li>Spectral filtering prunes candidates early.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>FAQ: Does quantum break the finite-machine assumption?</summary>
+      <p><strong>No.</strong> Finite energy/volume/bandwidth bound the effective state space; quantum
+         superposition grows state <em>dimension</em>, not computational steps. Quantum
+         models don’t enable hypercomputation; measurement yields finite information. This
+         finite-machine abstraction remains physically sound.</p>
+    </details>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+
+
+
+
+<!-- ===== FEATURED: Orbitfold & IG Notes (A→L) ===== -->
+<section id="orbitfold-ig-hub" class="research-list" aria-label="Featured Research: Orbitfold Geometry & Information Geometry">
+  <h2>Deterministic LLM Geometry — Featured Notes (A→L)</h2>
+  <p>
+    This series develops a <strong>finite-machine / orbitfold lens</strong> for deterministic rollouts:
+    surrogate metrics and closed geodesics, e/m-projection guardrails with <em>Pythagorean certificates</em>,
+    α-geometry repair tubes, holonomy/Floquet stability, and GW-based release diffs.
+  </p>
+
+  <!-- Quick Jump -->
+  <nav class="quick-jump" aria-label="Quick jump to notes">
+    <ul style="display:flex; gap:.75rem; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1rem 0;">
+      <li><a href="#note-foundations" class="pill-link">A→L — Foundations</a></li>
+      <li><a href="#note-operational" class="pill-link">A→L — Operational Spec</a></li>
+      <li><a href="#note-orbitfold" class="pill-link">Orbitfold Geometry</a></li>
+      <li><a href="#note-symbolic" class="pill-link">Finite-Machine Decomposition</a></li>
+    </ul>
+  </nav>
+
+  <!-- Lead Summary -->
+  <article id="notes-summary" class="highlight-card">
+    <h3>Unified Summary — Geometry, IG, and Control for Deterministic Rollouts</h3>
+    <p><strong>Status:</strong> Overview &nbsp;·&nbsp; <strong>Scope:</strong> Metrics → Loops → Projections → Flows → Certificates</p>
+    <ul>
+      <li><strong>Metrics & Loops:</strong> whitened / Fisher pullback, length spectrum, systole, curvature</li>
+      <li><strong>IG Controls:</strong> e-/m-projections with KL certificates; α-divergence acceptance/repair</li>
+      <li><strong>Stability:</strong> holonomy, monodromy, natural-gradient clamps; Ricci-type graph flows</li>
+      <li><strong>Governance:</strong> GW drift, defect balances, before/after geometry certificates</li>
+    </ul>
+  </article>
+
+  <!-- Note A→L: Foundations -->
+  <article id="note-foundations" class="highlight-card">
+    <h3>Lecture Notes — Foundations of Geometric & Information-Geometric Control (A→L)</h3>
+    <p><strong>Status:</strong> Notes &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Establishes the <em>reusable primitives</em>: metrics (A1–A3), closed-geodesic invariants (B),
+      e/m-projections with certificates (C), α-geometry (D), holonomy/stability (E–F), discrete curvature (G),
+      natural-gradient edits (H), GW/OT diffs (I), defaults &amp; certs (J–L).
+    </p>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1ZW6_VRwxithrhaD_h-Oyi9vG2RG-rfz6/view?usp=sharing" target="_blank" rel="noopener">
+        Foundations (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note A→L: Operational Spec -->
+  <article id="note-operational" class="highlight-card">
+    <h3>Operational Geometry for Autoregressive Transformers (A→L Spec)</h3>
+    <p><strong>Status:</strong> Engineering-oriented notes &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      A production-ready blueprint: schemas, numerics, and pseudo-code for per-cycle dashboards,
+      e-projection Newton solver with Pythagorean logs, α-ball ROC, monodromy/holonomy probes,
+      GW release diffs, and certificate packaging.
+    </p>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1Dxk1WZqHWDIG4LLQWk7acvnk1BRb65ph/view?usp=sharing" target="_blank" rel="noopener">
+        Operational Geometry (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note: Orbitfold Geometry -->
+  <article id="note-orbitfold" class="highlight-card">
+    <h3>Orbitfold Geometry & Information Geometry for Deterministic LLM Dynamics</h3>
+    <p><strong>Status:</strong> Notes &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Collapses closed predictive loops to <em>cone points</em> and defines <strong>Ricci-type flows</strong>:
+      metric (LB/Ricci surrogate), graph-Ricci (Ollivier/Forman), cone-angle stability tied to Floquet radius,
+      and α-flow calibration. Includes invariants, energies, and ship-ready certificates.
+    </p>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1LgzqRrg7RrNUlqrmcx3BJii7tkce5u_Y/view?usp=sharing" target="_blank" rel="noopener">
+        Orbitfold Geometry (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note: Finite-Machine Decomposition -->
+  <article id="note-symbolic" class="highlight-card">
+    <h3>Symbolic Control via Finite-Machine Decomposition (P = D + N)</h3>
+    <p><strong>Status:</strong> Notes &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Puts the deterministic rollout into a linear-operator split: semisimple cycles (D) and nilpotent transients (N).
+      Connects cycle analysis to <em>control hooks</em>: spectral diagnostics, safe loop routing, and certifiable edits.
+    </p>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/138Ja7h5i5G7_zkB8AqU_LiqwwvozJ8T2/view?usp=sharing" target="_blank" rel="noopener">
+        Finite-Machine Decomposition (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+<!-- ===== INTRO: Finite-Machine Decomposition — Mixed-Audience Overview ===== -->
+<section id="finite-machine-intro" class="research-list" aria-label="Finite-Machine Decomposition — Overview">
+  <article class="highlight-card">
+    <h2>Decomposing Autoregressive Transformers as Finite Machines — Overview</h2>
+
+    <!-- TL;DR for mixed readers -->
+    <aside style="border-left:4px solid #444; padding:.75rem 1rem; background:#f7f7f7; margin:.25rem 0 1rem 0;">
+      <strong>TL;DR.</strong> Treat the model’s rolling context (last \(L\) tokens) as the state. Under
+      <em>deterministic stepwise argmax decoding</em>
+      <span style="white-space:nowrap;">(also: <em>argmax decoding (per step)</em>; <em>zero-temperature decoding</em> with \(T{=}0\) softmax;<br> <em>mode-seeking stepwise decoding</em>; <em>beam search with width 1</em>; <em>stepwise MAP token selection</em>)</span>,
+      the closed-loop map is a finite endofunction \(F:X\!\to\!X\). Lift to a one-hot operator \(P\) and split \(P=D+N\) (cycles vs. transients). 
+      Time is dominated by inference: \(T \approx B/R\) where \(B\) is probed tokens and \(R\) is aggregate tokens/s.
+    </aside>
+
+    <p style="font-size:1.05rem; margin-top:.25rem;">
+      This section summarizes the practical, formal decomposition used in the paper 
+      <a href="https://drive.google.com/file/d/1g5DOVmMgYr-itFShqNkRfjdO7nzxCrue/view?usp=sharing" target="_blank" rel="noopener">Decomposing Autoregressive Transformers as Finite Machines (PDF)</a>.
+    </p>
+
+    <div style="display:grid; gap:.9rem; margin:.9rem 0;">
+      <div>
+        <h3 style="margin:.25rem 0;">Object of study</h3>
+        <ul style="margin:.25rem 0 0 .95rem;">
+          <li><strong>State (“point”):</strong> the rolling window of the last \(L\) tokens; one emitted token = one step.</li>
+          <li><strong>Map:</strong> with <em>deterministic stepwise argmax decoding</em>
+            <span style="white-space:nowrap;">(a.k.a. <em>argmax decoding (per step)</em>; <em>zero-temperature decoding</em>; <em>mode-seeking stepwise decoding</em>; <em>beam search, width 1</em>; <em>stepwise MAP</em>)</span>,
+            we obtain \(F:X\!\to\!X\) and its one-hot lift \(P\) with commuting split \(P=D+N\).</li>
+          <li><strong>Bounded probe:</strong> select a token budget \(B\) (e.g., \(1.024\times10^8\)); the wall-clock obeys \(T \approx B/R\) up to a small additive overhead.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="margin:.25rem 0;">Tight, implementation-level bounds</h3>
+        <p style="margin:.25rem 0;">
+          \(\boxed{T_{\min}=B/R}\) (inference is irreducible) &nbsp;·&nbsp;
+          \(\boxed{T_{\max}\approx B/R+10\text{–}30\text{ min}}\) (global de-duplication, cycle detection, FFT-style projectors).
+        </p>
+        <ul style="margin:.25rem 0 0 .95rem;">
+          <li>Example \(B=1.024\times10^8\): \(R\in\{1{,}000,\,5{,}000,\,20{,}000\}\) tok/s ⇒
+            \(\{28\mathrm{h}27\mathrm{m},\,5\mathrm{h}41\mathrm{m},\,1\mathrm{h}25\mathrm{m}\}\) + overhead.</li>
+          <li>Large dense models (e.g., 405B) require more nodes, yet time still scales linearly with \(B/R\).</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="margin:.25rem 0;">Why exhaustive path coverage is unnecessary</h3>
+        <p style="margin:.25rem 0;">
+          Empirically, a small number of basins accounts for nearly all workload mass. If the visited basins carry \(\ge 99.9\%\) of usage,
+          the restricted dynamics on that subgraph matches the full model within total-variation error \(\le 10^{-3}\) at every horizon,
+          while keeping the overall runtime squarely in the \(B/R\) regime.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="margin:.25rem 0;">Operational uses of the \(P=D+N\) split</h3>
+        <ul style="margin:.25rem 0 0 .95rem;">
+          <li><strong>Certificates & guardrails:</strong> projections to admissible subspaces; fail-closed guarantees.</li>
+          <li><strong>Cycle sentinels & QA:</strong> spectral signatures for loop detection and anomaly scoring.</li>
+          <li><strong>Latency & deployment:</strong> cache hot cycles; export compact finite automata for edge serving.</li>
+          <li><strong>Model surgery:</strong> damp/swap cycle modes; wrap transients; produce auditable change certificates.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Quick jumps to deeper sections you maintain elsewhere -->
+    <nav class="quick-jump" aria-label="Jump to details" style="margin-top:.6rem;">
+      <ul style="display:flex; gap:.5rem; flex-wrap:wrap; list-style:none; padding:0; margin:0;">
+        <li><a class="pill-link" href="#practicality-run-recipes">Practicality &amp; Run Recipes</a></li>
+        <li><a class="pill-link" href="#basin-dominant-sufficiency">99.9% Basin Coverage</a></li>
+        <li><a class="pill-link" href="#throughput-reality">Throughput Reality</a></li>
+        <li><a class="pill-link" href="#finite-machine-references">References</a></li>
+      </ul>
+    </nav>
+
+    <details style="margin-top:.9rem;">
+      <summary><strong>Operational hygiene</strong> (determinism, EOS, duplicates, parallelism)</summary>
+      <ul style="margin:.5rem 0 0 .95rem;">
+        <li><strong>Determinism:</strong> zero temperature; identical contexts map to identical next tokens.</li>
+        <li><strong>EOS handling:</strong> include an absorbing state so variable-length outputs embed in the finite machine.</li>
+        <li><strong>De-duplication:</strong> shard the global “seen” set by context hash; periodic sort/unique compaction.</li>
+        <li><strong>Parallelism:</strong> treat \(R\) as aggregate tokens/s across GPUs or API concurrency; runtime scales as \(B/R\).</li>
+      </ul>
+    </details>
+
+    <p style="margin-top:1rem;">
+      <a class="pill-link" href="https://drive.google.com/file/d/1g5DOVmMgYr-itFShqNkRfjdO7nzxCrue/view?usp=sharing" target="_blank" rel="noopener">
+        Download the Paper (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END INTRO ===== -->
+
+
+
+<!-- ===== CONTEXT: Ψ-Framework — Definition, Iteration, and Paradigm ===== -->
+<section id="psi-paradigm" class="research-list" aria-label="Ψ-Framework: Definition and Paradigm">
+  <article class="highlight-card">
+    <h2>The Ψ-Framework: Algebraic, Geometric, and Spectral Foundations</h2>
+
+    <!-- Definition -->
+    <h3>Definition of <span style="white-space:nowrap;">\( \Psi \)</span></h3>
+    <p>
+      I use <strong>\( \Psi \)</strong> to denote a <em>symbolic operator architecture</em>—not a single function or a mere neural approximator—formally
+      \[
+        \Psi \;:=\; \bigl(\,\mathcal{H}_\theta,\;\langle \cdot,\cdot\rangle_\theta,\;\mathcal{O},\;R_\lambda,\;\mathcal{D},\;\mathcal{C}\,\bigr).
+      \]
+    </p>
+    <ul>
+      <li><strong>\( \mathcal{H}_\theta \)</strong> — a learned latent state space (parameters \( \theta \)) on which dynamics and spectra are represented.</li>
+      <li><strong>\( \langle \cdot,\cdot\rangle_\theta \)</strong> — a learned inner product/metric equipping \( \mathcal{H}_\theta \) for spectral calculus.</li>
+      <li><strong>\( \mathcal{O}=\{O_k\} \)</strong> — operator heads (Hermitian/non-Hermitian) producing observables, correlators, and conserved quantities.</li>
+      <li><strong>\( R_\lambda \)</strong> — a latent renormalization flow (“RG brane”) indexed by scale \( \lambda \), organizing effective theories across scales.</li>
+      <li><strong>\( \mathcal{D}=(\mathrm{enc},\mathrm{dec}) \)</strong> — encoder/decoder maps between latent states and physical configurations (fields, metrics, boundary data).</li>
+      <li><strong>\( \mathcal{C}(b) \)</strong> — a control interface (bits/typed selectors \( b \)) routing symmetry constraints, operator policies, and safety envelopes to active heads in \( \mathcal{O} \).</li>
+    </ul>
+
+    <!-- Iterative closure/orbit condition -->
+    <h3>Iterative Closure (Self-Feeding Orbit Condition)</h3>
+    <p>
+      A defining property of my framework is that <em>outputs are admissible inputs</em>, so \( \Psi \) can iterate on its own productions
+      to traverse its orbit (for any desired number of steps). Concretely, define the closed-loop update
+    </p>
+    <p style="overflow:auto;">
+      \[
+        T_b \;:=\; U_b \circ \mathrm{enc}\circ \mathrm{dec}\;:\;\mathcal{H}_\theta \to \mathcal{H}_\theta, 
+        \quad h_{t+1} \;=\; T_b(h_t),
+      \]
+      \[
+        F_b \;:=\; \mathrm{dec}\circ U_b \circ \mathrm{enc}\;:\;\mathcal{X}\to \mathcal{X}, 
+        \quad x_{t+1} \;=\; F_b(x_t),
+      \]
+    </p>
+    <p>
+      where \( U_b\in\mathcal{O} \) is an operator (selected by control \( b \)). Thus, \( \Psi \) supports self-feeding sequences
+      \( (h_t)_{t\ge 0} \) and \( (x_t)_{t\ge 0} \) whose orbits are well-posed under the learned metric \( \langle\cdot,\cdot\rangle_\theta \) and
+      respect the encoded symmetries/safety constraints. In practice, this iterative closure is realized by:
+    </p>
+    <ul>
+      <li><strong>Autoencoder loops:</strong> \( x \!\to\! h=\mathrm{enc}(x)\!\to\! y=\mathrm{dec}(h) \) with \( x_{t+1}=y_t \), enabling denoising, refinement, or spectral filtering.</li>
+      <li><strong>Transformers:</strong> next-token (or patch) generation where the produced sequence is fed back as context for subsequent steps.</li>
+      <li><strong>LLMs (e.g., ChatGPT-style):</strong> dialog/trajectory rollouts in which prior outputs are re-ingested, implementing \( x_{t+1}=F_b(x_t) \) at the text-state level.</li>
+    </ul>
+
+    <p>
+      Path-integral surrogates and spectra are computed <em>within</em> the architecture. For example, a latent partition surrogate
+      \[
+        Z_{\Psi}(\beta)\;=\;\sum_{j} w_j \, e^{-S(\mathrm{dec}(z_j))}
+      \]
+      with samples \( z_j \) from \( \mathcal{H}_\theta \) allows observable queries without presupposing a fixed PDE or Lagrangian. Conventional “NN ≈ physics”
+      appears as a special case where \( \mathcal{O} \), \( \langle\cdot,\cdot\rangle_\theta \), and \( R_\lambda \) are constrained to reproduce a given theory.
+    </p>
+
+    <!-- Motivation and contrast -->
+    <h3>Motivation and Contrast</h3>
+    <p>
+      Standard practice begins with a <em>given</em> equation (PDE/Hamiltonian/Lagrangian) and trains a network to approximate its solution.
+      By contrast, I begin with the <em>algebra of \( \Psi \)</em>: geometry, spectra, renormalization flow, and <em>closed-loop iteration</em> are learned and composed internally.
+      The same \( \Psi \) object can instantiate a many-body wavefunction, a classical/quantum field, a cosmological metric, or a logic engine for operator discovery—selected via
+      \( \mathcal{C}(b) \) and governed by symmetries enforced in \( \mathcal{O} \) and \( \langle\cdot,\cdot\rangle_\theta \).
+    </p>
+
+    <h3>Consequences</h3>
+    <ul>
+      <li><strong>Foundational rather than incremental:</strong> replaces “fit a solution” with “specify an operator-geometry with iterative closure.”</li>
+      <li><strong>Emergent equations:</strong> PDEs/Lagrangians can be <em>recovered</em> as invariants of \( \Psi \) rather than assumed upfront.</li>
+      <li><strong>Cross-domain polymorphism:</strong> one architecture yields QFT, condensed-matter, and cosmological views by control and head selection.</li>
+      <li><strong>Safety envelopes:</strong> symmetry and conservation constraints are encoded at the interface (via \( \mathcal{C}(b) \)) and in the operator algebra.</li>
+    </ul>
+
+    <p style="margin-top:.9rem;">
+      <a href="#psi-notes-hub" class="pill-link">Jump to the Ψ-Framework Notes</a>
+    </p>
+  </article>
+</section>
+<!-- ===== END CONTEXT ===== -->
+
+<section id="intro" aria-labelledby="intro-title">
+  <header>
+    <h2 id="intro-title">From Autoencoder Dynamics to DFA Cycle Decomposition</h2>
+    <p class="subtitle">Fixed points, orbits, and practical convergence—two complementary lenses on reconstruction models</p>
+  </header>
+
+  <p>
+    This work develops a principled taxonomy for autoencoders (and encoder–decoder transformers) and
+    contrasts it with a recent <strong>deterministic finite automaton (DFA)</strong> cycle–decomposition
+    framework. The autoencoder lens studies the <em>continuous</em> map
+    <code>Ψ = g ∘ f : V → V</code> via intrinsic dimension, fixed points, and local stability.
+    The DFA lens treats the compiled, quantized network as a <em>finite</em> endofunction
+    whose functional graph decomposes exactly into cycles (attractors) and transient trees.
+  </p>
+
+  <p class="resource">
+    See the full <strong>Autoencoder study</strong> (PDF):
+    <a href="https://drive.google.com/file/d/1wAsvpfISSOnuKNqpXSgJ1d0wkflKFXtV/view?usp=sharing"
+       target="_blank" rel="noopener noreferrer">Autoencoder Notes (PDF)</a>.
+  </p>
+
+  <blockquote class="tl-dr">
+    <strong>TL;DR.</strong> In reals, we certify set-wise contractivity and convergence of
+    <code>Ψ<sup>t</sup></code> toward its fixed-point set; on hardware, quantization turns the same
+    model into a finite-state system with exact cycle/basin structure. The two views line up:
+    analytic contractivity predicts which machine-level attractors appear and how fast they’re reached.
+  </blockquote>
+
+  <h3>What’s new</h3>
+  <ul>
+    <li><strong>Taxonomy:</strong> dimension (intrinsic vs. effective), dynamics (fixed points/orbits),
+        and algebra (symmetry orbits/invariants) for reconstruction maps.</li>
+    <li><strong>Minimality:</strong> an <em>ε-fundamental</em> notion (Pareto-minimal parameters and nonlinearities)
+        with a certified reduction routine that preserves accuracy on the data region.</li>
+    <li><strong>Convergence:</strong> linear-rate, Fejér-monotone approach to the fixed-point set under
+        <em>point-to-set contractivity</em> (layerwise checkable in Euclidean and hyperbolic settings).</li>
+    <li><strong>Bridge to DFA:</strong> a machine-level classification by cycles and basins; analytic
+        results project to finite precision as attractors with logarithmic approach time in the quantization scale.</li>
+  </ul>
+
+  <h3>Two lenses at a glance</h3>
+  <table aria-label="Comparison of Autoencoder vs DFA views">
+    <thead>
+      <tr>
+        <th scope="col">Autoencoder (Continuous)</th>
+        <th scope="col">DFA (Finite-State)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Map <code>Ψ=g∘f</code> on metric space; differentiate, bound Jacobians.</td>
+        <td>Compiled map <code>Φ:S→S</code> on a finite set; cycles + transients.</td>
+      </tr>
+      <tr>
+        <td>Fixed-point set <code>Λ</code>, local spectra, attraction basins.</td>
+        <td>Exact cycle decomposition; basins partition the state space.</td>
+      </tr>
+      <tr>
+        <td>Set-wise contractivity ⇒ <code>d(Ψ<sup>t</sup>(x),Λ)→0</code> (linear rate).</td>
+        <td>Eventual periodicity ⇒ convergence to a cycle/fixed point in finitely many steps.</td>
+      </tr>
+      <tr>
+        <td>Minimal model = ε-fundamental (Pareto-minimal complexity).</td>
+        <td>Fundamental implementation = Pareto-minimal within a dynamic equivalence class.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <details>
+    <summary>Scope and readership</summary>
+    <p>
+      For researchers and practitioners working on autoencoders, encoder–decoder transformers,
+      reversible/contractive architectures, and anyone deploying models where long-run iterative
+      behavior and hardware precision matter.
+    </p>
+  </details>
+</section>
+
+
+<!-- ===== FEATURED: Ψ-Framework Notes I–V (Ordered) ===== -->
+<section id="psi-notes-hub" class="research-list" aria-label="Featured Research: Ψ-Framework Notes I–V">
+  <h2>Ψ-Framework — Featured Research Notes (I–V)</h2>
+  <p>
+    The sequence begins with the <strong>decomposition and mode calculus of \( \Psi \)</strong>, then develops the operator algebra,
+    the wavefunction–field unification, the theoretical applications, and finally the QFT reformulation. Approximation results are
+    subsumed by the construction.
+  </p>
+
+  <!-- Quick Jump -->
+  <nav class="quick-jump" aria-label="Quick jump to Ψ Notes">
+    <ul style="display:flex; gap:.75rem; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1rem 0;">
+      <li><a href="#psi-epicyclic" class="pill-link">I — Epicyclic Decomposition</a></li>
+      <li><a href="#psi-structured-nn" class="pill-link">II — Structured NN Framework</a></li>
+      <li><a href="#psi-many-body" class="pill-link">III — Many-Body → Fields</a></li>
+      <li><a href="#psi-theoretical" class="pill-link">IV — Theoretical Applications</a></li>
+      <li><a href="#psi-qft" class="pill-link">V — Reformulating QFT</a></li>
+    </ul>
+  </nav>
+
+<!-- Note 0 -->
+<article id="psi-summary" class="highlight-card">
+  <h3>Note 0 — Unified Summary: From Neural Cycles to Fields and Physics</h3>
+  <p><strong>Status:</strong> Latest Overview &nbsp;·&nbsp; <strong>Updated:</strong> September 2025</p>
+  <p>
+    This meta-note summarizes and integrates all five Ψ notes (I–V) into a unified document that presents 
+    <strong>Ψ as a foundational mathematical object</strong> capable of generating many-body wavefunctions, field operators, 
+    symmetry-aware dynamics, and cross-domain physical observables — all within a single compositional operator pipeline.
+  </p>
+  <ul>
+    <li>Combines epicyclic mode decomposition (Note I) with operator control flow (Note II)</li>
+    <li>Bridges wavefunctions and fields through latent spectra (Note III)</li>
+    <li>Unifies path-integral surrogates, Koopman heads, and RG flows (Note IV)</li>
+    <li>Summarizes symmetry, gauge structure, and safety conditions for QFT (Note V)</li>
+  </ul>
+  <p>
+    The result is a high-level framing of Ψ as a symbolic, learnable, and safe operator-algebra framework for physics, 
+    computation, and geometry — where equations are emergent, not imposed.
+  </p>
+  <p><strong>Download:</strong>
+    <a href="https://drive.google.com/file/d/1y_NRByD1Lrhq4Aj8hoz3S3aOvRTTbyzF/view?usp=sharing" target="_blank" rel="noopener">
+      Lecture Notes: Transformers as Functional Objects for Physics (PDF)
+    </a>
+  </p>
+  <p><strong>Download:</strong>
+    <a href="https://drive.google.com/file/d/13mZCTVxzyi8lSgCFjrqnUmGzkzghZi7X/view?usp=sharing" target="_blank" rel="noopener">
+      Transformers as Functional Objects for Physics- A Gentle, Self-Contained Introduction (PDF)
+    </a>
+  </p>
+
+</article>
+
+
+  <!-- Note I -->
+  <article id="psi-epicyclic" class="highlight-card">
+    <h3>Lecture Notes — Epicyclic Decomposition (Note I)</h3>
+    <p><strong>Status:</strong> Draft — Unpublished Lecture Notes &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Establishes the <em>mode calculus</em> for \( \Psi \): Fourier/epicycle equivalence, cycle stacks, and finite-basis truncations that support controlled Ψ-decompositions for signals and fields.
+    </p>
+    <ul>
+      <li>Fourier ↔ epicycle reconstruction</li>
+      <li>Truncated cycle bases with error control</li>
+      <li>Worked syntheses for field data</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1JvA6e8ZiteDCFcmQSyNuLpyYn0tEupt8/view?usp=sharing" target="_blank" rel="noopener">
+        Lecture Notes — Epicyclic Decomposition (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note II -->
+  <article id="psi-structured-nn" class="highlight-card">
+    <h3>A Structured Framework for the Neural Network (Note II)</h3>
+    <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Develops the <em>algebra of \( \Psi \)</em>: learned inner products, Hermitian operator heads, Koopman-compatible couplings,
+      Rayleigh–Ritz spectral extraction, and <strong>control-bit routing</strong> for symmetry-aware polymorphism.
+    </p>
+    <ul>
+      <li>Metric learning for spectral stability</li>
+      <li>Symmetry/Noether compliance layers</li>
+      <li>Composable operator pipelines</li>
+    </ul>
+    <p><strong>Materials:</strong>
+      <a href="https://drive.google.com/file/d/18P5FJNyY2jREPWgDYgorJDpNFxp8gnOs/view?usp=sharing" target="_blank" rel="noopener">
+        A Structured Framework for the Neural Network (Folder/PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note III -->
+  <article id="psi-many-body" class="highlight-card">
+    <h3>From Many-Body Wavefunctions to Particle Fields (Note III)</h3>
+    <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Unifies many-body emulation and <em>field-level</em> representation within a single \( \Psi \) object: latent partition sums,
+      observable heads for spectra and correlators, and a path-integral surrogate \( Z_\Psi \).
+    </p>
+    <ul>
+      <li>Wavefunction ↔ field duality inside \( \Psi \)</li>
+      <li>Latent partition functions and correlators</li>
+      <li>Spectral and \( n \)-point operators</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/13TN2NedfzHaTzfJL6HGP-V-35gBp7S0Q/view?usp=sharing" target="_blank" rel="noopener">
+        From Many-Body Wavefunctions to Particle Fields (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note IV -->
+  <article id="psi-theoretical" class="highlight-card">
+    <h3>Theoretical Applications of the Ψ Framework (Note IV)</h3>
+    <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Shows \( \Psi \) as a <em>symbolic operator–geometry</em>: fixed PDEs/Lagrangians are replaced by learned RG flows, spectral learning,
+      and query-by-control observable routing.
+    </p>
+    <ul>
+      <li>RG “brane” flows with learned \( \beta \)-fields</li>
+      <li>Koopman couplings with Rayleigh–Ritz spectra</li>
+      <li>Programmable control for observables</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1no3buNmaC-i1PPtVVunXgtNfjXtfkC1X/view?usp=sharing" target="_blank" rel="noopener">
+        Theoretical Applications of the Ψ Framework (PDF)
+      </a>
+    </p>
+  </article>
+
+  <!-- Note V -->
+  <article id="psi-qft" class="highlight-card">
+    <h3>A Structured \( \Psi \) for Reformulating QFT — Modes, Symmetries, and Safety (Note V)</h3>
+    <p><strong>Status:</strong> Draft — Unpublished Technical Note &nbsp;·&nbsp; <strong>Disclaimer:</strong> Not peer-reviewed.</p>
+    <p>
+      Recasts QFT within \( \Psi \) using <em>mode stacks</em>, <em>symmetry-equivariant layers</em>, and <em>safety envelopes</em>. Renormalization appears as latent RG morphisms with auditable heads.
+    </p>
+    <ul>
+      <li>Gauge/diffeomorphism-respecting operator heads</li>
+      <li>Latent RG morphisms as theory transitions</li>
+      <li>Constraint-first, safety-aware outputs</li>
+    </ul>
+    <p><strong>Download:</strong>
+      <a href="https://drive.google.com/file/d/1d-IyeL9rwBqhx7NRroyYDOWz01WTTPJZ/view?usp=sharing" target="_blank" rel="noopener">
+        A Structured \( \Psi \) for Reformulating QFT — Modes, Symmetries, and Safety (PDF)
+      </a>
+    </p>
+  </article>
+</section>
+<!-- ===== END FEATURED ===== -->
+
+<!-- ===== BEYOND THE BASICS ===== -->
+<section id="psi-beyond" class="research-list" aria-label="Ψ-Framework Beyond the Basics">
+  <article class="highlight-card">
+    <h3>Beyond the Basics: Why Wavefunctions as Outputs Matter</h3>
+    <p>
+      The following table summarizes what shifts once <strong>Ψ outputs are wavefunctions</strong>, moving the framework
+      beyond conventional function approximation toward operator-level physics:
+    </p>
+
+    <table style="width:100%; border-collapse:collapse; margin-top:1rem; font-size:0.95rem;">
+      <thead>
+        <tr style="background:#f0f0f0;">
+          <th style="text-align:left; padding:0.5rem; border-bottom:2px solid #ccc;">Aspect</th>
+          <th style="text-align:left; padding:0.5rem; border-bottom:2px solid #ccc;">Beyond Usage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>1. State-Space Construction</strong></td>
+          <td style="padding:0.6rem;">
+            Outputs become <em>new admissible states</em>, so Ψ itself is a <strong>state generator</strong>.
+            One can study the full orbit of reachable states, as in a dynamical system or propagator.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>2. Operator Algebra</strong></td>
+          <td style="padding:0.6rem;">
+            Focus shifts from approximating functions to classifying the <strong>algebra of operators</strong>
+            generated by Ψ. Iterations give Dyson/Neumann expansions; invariants yield conservation laws.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>3. Orbits & Computability</strong></td>
+          <td style="padding:0.6rem;">
+            Fixed points ≈ bound states, cycles ≈ stable attractors, chaotic orbits ≈ emergent regimes.
+            Links Ψ directly to <strong>computability boundaries</strong> — what can or cannot be generated.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>4. Universal Basis Expansion</strong></td>
+          <td style="padding:0.6rem;">
+            Wavefunction outputs provide a <strong>universal coordinate system</strong> for physics.
+            Ψ-iterations generalize perturbation theory and can act as a learned basis for new function spaces.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>5. Practical Leverage</strong></td>
+          <td style="padding:0.6rem;">
+            Enables physics-informed AI, cryptographic primitives, compressed experiment design,
+            and cross-domain unification (QM, stat mech, condensed matter).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+
+<!-- ===== USAGE AND POTENTIAL ===== -->
+<section id="psi-usage" class="research-list" aria-label="Ψ-Framework Usage and Potential">
+  <article class="highlight-card">
+    <h3>Usage and Potential of the Ψ-Framework</h3>
+    <p>
+      Once <strong>Ψ outputs are treated as wavefunctions</strong>, the architecture moves from prediction to 
+      <em>physics-embedded operator dynamics</em>. This enables practical applications and opens up new 
+      possibilities across domains:
+    </p>
+
+    <table style="width:100%; border-collapse:collapse; margin-top:1rem; font-size:0.95rem;">
+      <thead>
+        <tr style="background:#f0f0f0;">
+          <th style="text-align:left; padding:0.5rem; border-bottom:2px solid #ccc;">Usage</th>
+          <th style="text-align:left; padding:0.5rem; border-bottom:2px solid #ccc;">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>Quantum Simulation</strong></td>
+          <td style="padding:0.6rem;">
+            Train Ψ to reproduce eigenstates (e.g., hydrogen orbitals). 
+            Attention kernels act as <strong>learned Green’s functions</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>Perturbation Theory</strong></td>
+          <td style="padding:0.6rem;">
+            Residual depth ≈ perturbation order. 
+            Higher-order corrections are approximated by stacking layers.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>Entanglement Modeling</strong></td>
+          <td style="padding:0.6rem;">
+            Multi-head attention ≈ low-rank tensor decomposition. 
+            Head count controls <strong>“entanglement rank”</strong>. 
+            Cross-attention models bipartite or multipartite systems.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>Symmetry & Conservation</strong></td>
+          <td style="padding:0.6rem;">
+            Group equivariance enforced through tied weights or penalties. 
+            By <strong>Noether’s theorem</strong>, symmetries yield conserved quantities.
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; vertical-align:top;"><strong>Special Functions & PDEs</strong></td>
+          <td style="padding:0.6rem;">
+            Train Ψ on ODE/PDE residuals (e.g., hypergeometric 
+            <em>₂F₁</em>, Bessel). 
+            Ψ “learns” the operator generating the solutions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="margin-top:1.5rem;">What This Can Do (Potential)</h4>
+    <ul>
+      <li><strong>Unify QM/QFT with ML:</strong> create a dictionary (wavefunctions ↔ outputs, depth ↔ perturbation order, multi-head ↔ tensor product).</li>
+      <li><strong>New simulation tools:</strong> replace hand-crafted bases with learned Ψ-operators.</li>
+      <li><strong>Iterative refinement:</strong> probe stability, basins, and cycles from reapplying Ψ.</li>
+      <li><strong>Secure modeling:</strong> orbits & non-invertibility suggest post-quantum cryptographic primitives.</li>
+      <li><strong>Renormalization intuition:</strong> dynamic β scaling = coarse-to-fine RG flow.</li>
+    </ul>
+
+    <p style="margin-top:1rem; font-weight:500;">
+      In short: By making wavefunctions the outputs, Ψ becomes a <em>generator of valid physical states</em> — 
+      turning Transformers into operator-level objects that reproduce the mathematics of physics structurally, not just approximately.
+    </p>
+  </article>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  <footer>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="https://github.com/williamchuang" target="_blank">GitHub</a></li>
+      </ul>
+    </nav>
+    <p>&copy; 2025 William Chuang. All rights reserved.</p>
+  </footer>-->
+</body>
+</html>
+

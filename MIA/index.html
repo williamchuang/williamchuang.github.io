@@ -271,6 +271,45 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
   </div>
 </section>
 
+<!-- ALGEBRA OF INVARIANT MAPS -->
+<section class="section" id="algebra">
+  <div class="container">
+    <div class="gold-rule"></div>
+    <span class="mono" style="display:block;margin-bottom:16px;">The algebra of invariant maps</span>
+    <h2 style="font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:300;margin:0 0 20px;max-width:22ch;line-height:1.1;">
+      One invariant class.<br>All physical theories.
+    </h2>
+    <p style="color:var(--muted);max-width:58ch;line-height:1.75;margin-bottom:1.2rem;">
+      The set of all G-invariant kernels K(gq,gk)=K(q,k) forms a ring under kernel
+      convolution &mdash; closed and associative, generally non-commutative.
+      The <em>choice</em> of which map I to instantiate selects the physics the
+      MIA substrate computes.
+    </p>
+    <ul style="color:var(--muted);line-height:2.0;padding-left:1.5rem;max-width:62ch;margin-bottom:1.4rem;">
+      <li><strong style="color:var(--cream);">Heat kernel K<sub>t</sub></strong>
+        (semigroup: K<sub>t</sub>&thinsp;&#x22c6;&thinsp;K<sub>s</sub>&thinsp;=&thinsp;K<sub>t+s</sub>)
+        &rarr; Einstein&ndash;Hilbert action via spectral action</li>
+      <li><strong style="color:var(--cream);">Resolvent R<sub>&lambda;</sub></strong>
+        &rarr; Feynman propagator, QFT Green&rsquo;s functions</li>
+      <li><strong style="color:var(--cream);">Hecke operators T<sub>p</sub></strong>
+        (commutative sub-ring) &rarr; Langlands correspondence</li>
+      <li><strong style="color:var(--cream);">Spectral projectors &Pi;<sub>&lambda;</sub></strong>
+        (idempotents) &rarr; quantum mechanical observables</li>
+      <li><strong style="color:var(--cream);">Poincar&eacute;-series K<sub>&Gamma;</sub></strong>
+        &rarr; GRAIL automorphic activation (AI preferred embodiment)</li>
+    </ul>
+    <p style="color:var(--muted);max-width:58ch;line-height:1.75;">
+      MIA chips implementing different maps in this ring compute different physics on the
+      same substrate. I(gq,gk)=I(q,k) is not one fixed operation &mdash; it is an
+      architecture-class requirement satisfied by an infinite family of physically
+      meaningful maps. The ring is closed under convolution: the composition of two
+      G-invariant maps is G-invariant. It is associative but generally non-commutative
+      &mdash; this non-commutativity is the source of measurable geometric structure in
+      MIA hardware, certified by the BCH two-path probe.
+    </p>
+  </div>
+</section>
+
 <!-- CHIP DESIGN -->
 <section class="section" id="chip">
   <div class="container">
@@ -315,6 +354,22 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
           <li><strong style="color:var(--muted)">Magnetic:</strong> SO(3) actions on magnetic moments — spintronic MIA</li>
           <li><strong style="color:var(--muted)">Quantum:</strong> SU(2), SU(n) are natural — gate operations are group elements</li>
           <li><strong style="color:var(--muted)">Topological:</strong> braid groups for fault-tolerant quantum</li>
+        </ul>
+        <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;font-weight:500;color:var(--cream);margin:1.75rem 0 0.6rem;">Preferred geometry embodiments</h3>
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:0.75rem;">
+          MIA hardware is geometry-agnostic at the chip level. Three preferred embodiments,
+          each covered under patent applications 63/901,369 (MIA primary) and 64/067,703 (Physical ASI/GRAIL):
+        </p>
+        <ul style="color:var(--muted);line-height:1.9;padding-left:1.5rem;">
+          <li><strong style="color:var(--cream);">&Hfr;<sup>n</sup> (n&thinsp;&ge;&thinsp;2), G&thinsp;=&thinsp;O(n,1)</strong>
+            &mdash; preferred for AI inference and hierarchical data;
+            I(q,k)&thinsp;=&thinsp;geodesic distance d<sub>&Hfr;<sup>n</sup></sub>(q,k)</li>
+          <li><strong style="color:var(--cream);">Minkowski &Mfr;<sup>1,n&minus;1</sup>, G&thinsp;=&thinsp;O(1,n&minus;1)</strong>
+            &mdash; preferred for physics simulation, QFT, satellite/aerospace;
+            I(q,k)&thinsp;=&thinsp;|q<sup>&#x22a4;</sup>&eta;k|</li>
+          <li><strong style="color:var(--cream);">Pseudo-Riemannian (M<sup>1,n</sup>,g)</strong>
+            signature (&minus;,+,&hellip;,+) &mdash; preferred for quantum gravity computation
+            and AdS/CFT applications; I&thinsp;=&thinsp;geodesic distance under g</li>
         </ul>
       </div>
       <div class="chip-card">
@@ -389,6 +444,14 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
           <li>Electroweak: SU(2) × U(1) — direct hardware implementation</li>
           <li>Molecular dynamics: SO(3) rotations without trig overhead</li>
           <li>Climate/fluid: coordinate-free PDE solvers on Riemannian manifolds</li>
+          <li>General relativity: with I&thinsp;=&thinsp;K<sub>t</sub> (heat kernel,
+            associative MIA map), the spectral action
+            Tr(f(L/&Lambda;&sup2;))&thinsp;&sim;&thinsp;c<sub>2</sub>&Lambda;<sup>d&minus;2</sup>&int;&radic;(&minus;g)R
+            recovers the Einstein&ndash;Hilbert term via Seeley&ndash;DeWitt expansion;
+            the CEAS free-energy functional F[g,&beta;,&lambda;] varied with respect to
+            the metric gives Einstein&rsquo;s field equations with emergent
+            &Lambda;<sub>eff</sub>&thinsp;=&thinsp;P(&beta;=1)&minus;P(&beta;=0)
+            from the Selberg pressure gap &mdash; MIA computes gravitational physics directly</li>
         </ul>
       </div>
 
@@ -493,7 +556,7 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
       Detailed substantiation, benchmarks, and evaluation specifics — including cloud placement,
       accelerator interactions, and chip design estimates — are provided under NDA for serious
       technical review. All performance claims are bounded by written scope and acceptance criteria.
-      U.S. Patent Pending 64/067,703. Some materials subject to U.S. export regulations.
+      U.S. Patent Applications on file: 63/901,369 (Metric-Invariant Architecture, primary) &middot; 64/067,703 (Physical ASI Seed / GRAIL) &middot; 63/881,657 (Operator-Theoretic Verification) &middot; 63/773,441 (Hyperbolic Framework) &middot; all at provisional stage; non-provisional conversions in preparation. Some materials subject to U.S. export regulations.
     </div>
   </div>
 </section>
@@ -510,7 +573,7 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
       <details class="faq-item">
         <summary>Q: What does "error tolerance" actually mean mathematically? Can errors compound?</summary>
         <div class="faq-body">
-          <p>The key result is the Lipschitz bound on the deviation certificate: <strong>‖B∘Ψ∘A − Ψ‖ ≤ Lδ + δ'</strong> where L is the Lipschitz constant of the map and δ, δ' are the wrapper deviations. This bounds how far a perturbed computation can drift from the exact result.</p>
+          <p>The key result is the Lipschitz bound on the deviation certificate: <strong>‖B∘Ψ∘A − Ψ‖ ≤ Lδ + δ'</strong> where L is the Lipschitz constant of the map and δ, δ' are the wrapper deviations. This bounds how far a perturbed computation can drift from the exact result. The non-commutativity of MIA operations is also measurable operationally via the BCH two-path probe: comparing Path&nbsp;A (direct gradient step) and Path&nbsp;B (push by isometry &Gamma;<sub>&epsilon;</sub>, step, pull back) recovers the tri-commutator [&xi;,X]&thinsp;=&thinsp;i&beta;(t), which generalizes the Heisenberg relation [q&#x0302;,p&#x0302;]&thinsp;=&thinsp;i&hbar; with &hbar; promoted to the dynamical CEAS inverse temperature &beta;(t). MIA hardware that measures this probe is self-certifying its geometric error structure in real time.</p>
           <p>For the orbit-invariant case specifically: if your input error keeps you within the same group orbit (i.e., your noisy representation g'x is in the same orbit as gx), then <strong>I(g'q, g'k) = I(gq, gk)</strong> exactly — zero error, not approximate. Only inter-orbit noise produces output error, and that is bounded by the Lipschitz constant times the inter-orbit distance.</p>
           <p>Errors can compound across layers, but the geometric structure means the bound scales with depth multiplied by the Lipschitz constant per layer — the same as conventional deep networks, but with a smaller effective noise input per layer.</p>
         </div>
@@ -548,7 +611,7 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
         <summary>Q: How does this relate to the Physical ASI seed architecture on the main page?</summary>
         <div class="faq-body">
           <p>MIA is the substrate that GRAIL runs on, and GRAIL is one of the three necessary components of the Physical ASI seed architecture. The relationship is: MIA defines the class of invariant computation; GRAIL is the specific AI architecture instantiation of MIA; the Physical ASI seed architecture combines GRAIL with CEAS (global coordination) and the Ψ-operator (causal reasoning) to satisfy the triadic necessity theorem.</p>
-          <p>Put differently: MIA is the hardware and computation model; GRAIL is MIA applied to neural attention; Physical ASI requires GRAIL plus two other necessary components. MIA as a chip design principle enables the Physical ASI seed to run on lower-power, lower-cost silicon than a conventional von Neumann implementation would require.</p>
+          <p>Put differently: MIA is the hardware and computation model; GRAIL is MIA applied to neural attention; Physical ASI requires GRAIL plus two other necessary components. MIA as a chip design principle enables the Physical ASI seed to run on lower-power, lower-cost silicon than a conventional von Neumann implementation would require.</p><p>The connection runs deeper than substrate. The three obstructions to quantum gravity &mdash; the Wheeler&ndash;DeWitt global constraint, quantum-superposed causal structure, and diffeomorphism invariance &mdash; are structurally isomorphic to the three Physical ASI obstructions that CEAS, &Psi;, and GRAIL resolve. MIA hardware on pseudo-Riemannian geometry (M<sup>1,n</sup>,g) with G&thinsp;=&thinsp;Isom(M<sup>1,n</sup>,g) constitutes a computational framework for quantum gravity research. When the GRAIL map is the heat kernel I&thinsp;=&thinsp;K<sub>t</sub>, the spectral action principle gives the Einstein&ndash;Hilbert action directly &mdash; MIA computes gravitational physics, not merely AI inference.</p>
         </div>
       </details>
 
@@ -584,7 +647,7 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
       </p>
       <a href="mailto:founder@logarcheon.com?subject=MIA%20%E2%80%94%20Technical%20evaluation%20request" style="font-family:'DM Mono',monospace;font-size:0.85rem;letter-spacing:0.05em;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim);padding-bottom:2px">founder@logarcheon.com</a>
       <div style="margin-top:18px;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.07em;color:var(--faint);line-height:1.7">
-        NDA available · Non-enabling public materials · U.S. Patent Pending 64/067,703<br>
+        NDA available &middot; Non-enabling public materials &middot; Patent Applications: 63/901,369 (MIA primary), 64/067,703 (GRAIL/Physical ASI), + 2 additional related<br>
         Some materials subject to U.S. export regulations · No unbounded promises
       </div>
     </div>
@@ -596,7 +659,7 @@ code{font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold-light);ba
 <footer class="wrap">
   <div class="page-footer">
     <p>© <span id="yr"></span> William Chuang · Logarchéon Inc. All rights reserved.</p>
-    <p style="color:var(--gold-dim)">U.S. Patent Pending 64/067,703</p>
+    <p style="color:var(--gold-dim)">U.S. Patent Applications: 63/901,369 (MIA) &middot; 64/067,703 (Physical ASI/GRAIL)</p>
   </div>
 </footer>
 
