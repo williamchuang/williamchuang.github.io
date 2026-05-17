@@ -167,6 +167,34 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
   .page-layout{grid-template-columns:1fr;gap:2rem;padding:2rem 20px 4rem;}
   .toc-sidebar{display:none;}
 }
+
+/* Tailwind class overrides for dark-theme — using attribute substring selectors */
+/* Text colors */
+[class~="text-slate-900"] { color: var(--cream) !important; }
+[class~="text-slate-800"] { color: var(--body) !important; }
+[class~="text-slate-700"] { color: var(--body) !important; }
+[class~="text-slate-600"] { color: var(--muted) !important; }
+/* Backgrounds */
+[class~="bg-slate-50"]  { background: var(--navy-mid) !important; }
+[class~="bg-slate-100"] { background: var(--navy-mid) !important; }
+[class*="bg-blue-50"]   { background: var(--box-blue) !important; }
+/* Borders */
+[class~="border-slate-200"] { border-color: var(--border-dim) !important; }
+[class~="border-blue-200"]  { border-color: var(--border)     !important; }
+/* Divide */
+[class~="divide-slate-200"] > * + * { border-top-color: var(--border-dim) !important; }
+/* All children of any element with a slate-50/100 or blue-50 bg class */
+[class~="bg-slate-50"] *,
+[class~="bg-slate-100"] *,
+[class*="bg-blue-50"] * { color: var(--cream) !important; }
+/* thead with bg-slate-50 class */
+thead[class~="bg-slate-50"],
+thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color: var(--gold) !important; }
+
+/* Force readable colors on ALL inline-styled tables inside sections */
+.section-body table th { color: var(--gold) !important; background: var(--navy-light) !important; border-color: var(--border) !important; }
+.section-body table td { color: var(--body) !important; border-color: var(--border-dim) !important; }
+.section-body table tr[style*="border-bottom"] { border-color: var(--border-dim) !important; }
 </style>
 </head>
 <body>
@@ -596,46 +624,70 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 <section id="entropy-first-controller" aria-labelledby="entropy-title" class="blurb">
   <!-- Scoped styles: safe to paste anywhere; affects only #entropy-first-controller -->
   <style>
-    #entropy-first-controller { --ink:#0f2230; --muted:#55657e; --line:#e6ecf7; --soft:#f6f8ff; --accent:#0b5fff; color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    #entropy-first-controller h2, #entropy-first-controller h3, #entropy-first-controller h4 { line-height:1.15; margin:0 0 .5rem; }
-    #entropy-first-controller h2 { font-size:1.5rem; letter-spacing:-0.01em; }
-    #entropy-first-controller h3 { font-size:1.125rem; margin-top:1.25rem; }
-    #entropy-first-controller h4 { font-size:1rem; margin-top:.75rem; }
-    #entropy-first-controller p { margin:.5rem 0 1rem; color:var(--muted); }
-    #entropy-first-controller .lede { color:var(--body); font-size:1.05rem; line-height:1.6; }
-    #entropy-first-controller .callout { border-left:4px solid var(--accent); background:var(--soft); padding:0.9rem 1rem; border-radius:10px; margin:.9rem 0; }
-    #entropy-first-controller .callout.bottomline { background:var(--box-blue); }
-    #entropy-first-controller .symbols { color:var(--body); font-size:.95rem; margin-top:.5rem; }
-    #entropy-first-controller .stacked { display:grid; gap:.25rem; }
-    #entropy-first-controller ul, #entropy-first-controller ol { padding-left:1.2rem; margin:.4rem 0 1rem; }
-    #entropy-first-controller li { margin:.25rem 0; }
-    #entropy-first-controller .knobs > li { margin:.6rem 0 1rem; }
-    #entropy-first-controller .knobs h4 { margin:0 0 .25rem; font-weight:600; color:#0f172a; }
-    #entropy-first-controller .kbits { margin:.25rem 0 .4rem; }
-    #entropy-first-controller .eq { background:var(--box-blue); border:1px solid #e5e7eb; padding:.6rem .7rem; border-radius:.6rem; color:#0f172a; overflow-x:auto; }
-    #entropy-first-controller table { width:100%; border-collapse:collapse; font-size:.95rem; }
-    #entropy-first-controller thead th { text-align:left; border-bottom:1px solid #dbe3ef; padding:.55rem; color:var(--body); background:var(--box-blue); position:sticky; top:0; }
-    #entropy-first-controller tbody td { border-bottom:1px solid #eef2f9; padding:.55rem; color:#253140; }
-    #entropy-first-controller .twrap { overflow-x:auto; border:1px solid #e6ecf7; border-radius:.6rem; }
-    #entropy-first-controller .note { font-size:.92rem; color:var(--muted); }
-    #entropy-first-controller .kbd { font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:.92em; }
-    @media (max-width:640px) {
-      #entropy-first-controller h2 { font-size:1.25rem; }
-      #entropy-first-controller .lede { font-size:1rem; }
-      #entropy-first-controller thead { display:none; }
-      #entropy-first-controller table, #entropy-first-controller tbody, #entropy-first-controller tr, #entropy-first-controller td { display:block; width:100%; }
-      #entropy-first-controller tbody tr { border-bottom:1px solid #eef2f9; }
-      #entropy-first-controller tbody td { display:flex; justify-content:space-between; gap:.75rem; }
-      #entropy-first-controller tbody td::before { content:attr(data-th); font-weight:600; color:var(--body); }
+    /* entropy-first-controller: dark-theme native, no media query needed */
+    #entropy-first-controller {
+      color: var(--body);
+      font-family: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
     }
-    @media (prefers-color-scheme: dark) {
-      #entropy-first-controller { --ink:#e5e7eb; --muted:#b6c0d2; --line:#263243; --soft:#0b1220; }
-      #entropy-first-controller .eq { background:#0f172a; border-color:#1f2a3a; color:#e5e7eb; }
-      #entropy-first-controller .callout { background:#0b1220; border-left-color:#6aa4ff; }
-      #entropy-first-controller .callout.bottomline { background:#0d1426; }
-      #entropy-first-controller thead th { background:#0d1424; border-bottom-color:#22314a; color:#cbd5e1; }
-      #entropy-first-controller tbody td { border-bottom-color:#1e293b; color:#dbe5f3; }
-      #entropy-first-controller .note { color:#c2cbe0; }
+    #entropy-first-controller h2, #entropy-first-controller h3, #entropy-first-controller h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.15; margin: 0 0 .5rem; color: var(--cream);
+    }
+    #entropy-first-controller h2 { font-size: 1.4rem; letter-spacing: -0.01em; }
+    #entropy-first-controller h3 { font-size: 1.15rem; margin-top: 1.25rem; color: var(--cream); }
+    #entropy-first-controller h4 { font-size: 1rem; margin-top: .75rem; color: var(--gold-light); }
+    #entropy-first-controller p { margin: .5rem 0 1rem; color: var(--body); }
+    #entropy-first-controller .lede { color: var(--body); font-size: 1.05rem; line-height: 1.6; }
+    #entropy-first-controller .callout {
+      border-left: 3px solid var(--gold);
+      background: var(--box-insight);
+      padding: 0.9rem 1rem; border-radius: 4px; margin: .9rem 0;
+    }
+    #entropy-first-controller .callout * { color: var(--cream) !important; }
+    #entropy-first-controller .callout.bottomline { background: rgba(8,24,52,0.95); }
+    #entropy-first-controller .symbols { color: var(--body); font-size: .95rem; margin-top: .5rem; }
+    #entropy-first-controller .stacked { display: grid; gap: .25rem; }
+    #entropy-first-controller ul, #entropy-first-controller ol { padding-left: 1.2rem; margin: .4rem 0 1rem; color: var(--body); }
+    #entropy-first-controller li { margin: .25rem 0; color: var(--body); }
+    #entropy-first-controller .knobs > li { margin: .6rem 0 1rem; }
+    #entropy-first-controller .knobs h4 { margin: 0 0 .25rem; font-weight: 600; color: var(--gold-light); }
+    #entropy-first-controller .kbits { margin: .25rem 0 .4rem; }
+    #entropy-first-controller .eq {
+      background: var(--navy-mid);
+      border: 1px solid var(--border-dim);
+      padding: .6rem .7rem; border-radius: .6rem;
+      color: var(--cream); overflow-x: auto;
+    }
+    #entropy-first-controller table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    #entropy-first-controller thead th {
+      text-align: left; border-bottom: 1px solid var(--border);
+      padding: .55rem; color: var(--gold); background: var(--navy-light);
+    }
+    #entropy-first-controller tbody td {
+      border-bottom: 1px solid var(--border-dim);
+      padding: .55rem; color: var(--body);
+    }
+    #entropy-first-controller tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    #entropy-first-controller .twrap {
+      overflow-x: auto;
+      border: 1px solid var(--border-dim); border-radius: .6rem;
+    }
+    #entropy-first-controller .note { font-size: .92rem; color: var(--muted); }
+    #entropy-first-controller .kbd {
+      font-family: 'DM Mono', ui-monospace, monospace;
+      font-size: .92em; color: var(--gold-light);
+    }
+    @media (max-width: 640px) {
+      #entropy-first-controller h2 { font-size: 1.2rem; }
+      #entropy-first-controller .lede { font-size: 1rem; }
+      #entropy-first-controller thead { display: none; }
+      #entropy-first-controller table,
+      #entropy-first-controller tbody,
+      #entropy-first-controller tr,
+      #entropy-first-controller td { display: block; width: 100%; }
+      #entropy-first-controller tbody tr { border-bottom: 1px solid var(--border-dim); }
+      #entropy-first-controller tbody td { display: flex; justify-content: space-between; gap: .75rem; }
+      #entropy-first-controller tbody td::before { content: attr(data-th); font-weight: 600; color: var(--gold-light); }
     }
   </style>
 
@@ -875,7 +927,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
   <table style="border-collapse: collapse; margin-top: 1em; width: 100%;">
     <thead>
-      <tr style="border-bottom: 2px solid #000;">
+      <tr style="border-bottom: 2px solid var(--gold-dim);">
         <th style="text-align:left; padding:6px;">Model Size</th>
         <th style="text-align:left; padding:6px;">Rolling Log Radius (Learning Rate)</th>
         <th style="text-align:left; padding:6px;">Observed β Shift After 3 Min</th>
@@ -885,7 +937,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
       </tr>
     </thead>
     <tbody>
-      <tr style="border-bottom: 1px solid #ccc;">
+      <tr style="border-bottom: 1px solid var(--border-dim);">
         <td style="padding:6px;">Tiny (9K params)</td>
         <td style="padding:6px;"><code>1e-3</code> (medium-radius logs)</td>
         <td style="padding:6px;">Yes </td>
@@ -893,7 +945,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
         <td style="padding:6px;">~3–5 minutes</td>
         <td style="padding:6px;">1 GPU</td>
       </tr>
-      <tr style="border-bottom: 1px solid #ccc;">
+      <tr style="border-bottom: 1px solid var(--border-dim);">
         <td style="padding:6px;">Small GPT (~14M params)</td>
         <td style="padding:6px;"><code>1e-4</code> (narrow-radius logs)</td>
         <td style="padding:6px;">Very slow shift</td>
@@ -906,9 +958,9 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 
 <table style="border-collapse: collapse; width: 100%; font-size: 15px;">
   <thead>
-    <tr style="background-color: #f2f2f2;">
-      <th style="text-align:left; padding:8px; border-bottom: 2px solid #ccc;">Concept</th>
-      <th style="text-align:left; padding:8px; border-bottom: 2px solid #ccc;">Metaphor Component</th>
+    <tr style="background-color: var(--navy-light);">
+      <th style="text-align:left; padding:8px; border-bottom: 1px solid var(--border);">Concept</th>
+      <th style="text-align:left; padding:8px; border-bottom: 1px solid var(--border);">Metaphor Component</th>
     </tr>
   </thead>
   <tbody>
@@ -1063,7 +1115,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 <!-- ===== CEAS–Ising NPU Architecture — Strategic Disclosure Summary ===== -->
 <section id="ceas-npu-summary" class="research-list" aria-label="CEAS–Ising NPU vs Classical GPU">
 <hr style="border:none;border-top:1px solid var(--border-dim);margin:2.5rem 0;">
-<div class="key-insight" style="margin-top:1rem; padding:1rem; border-left:4px solid #007BFF; background-color:#f8f9fa;">
+<div class="key-insight" style="margin-top:1rem; padding:1rem; border-left:4px solid #5b9fff; background:var(--box-insight);">
   <strong>BLUF:</strong>
   At <em>thermodynamic criticality</em>, model-wide coordination emerges without centralized compute,
   enabling dense model logic to manifest with <strong>sublinear hardware growth</strong>.
@@ -1091,9 +1143,9 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
   <table style="width:100%; border-collapse:collapse; margin-bottom:1rem;">
     <thead>
       <tr>
-        <th style="text-align:left; padding:6px; border-bottom:2px solid #555;">Feature</th>
-        <th style="text-align:left; padding:6px; border-bottom:2px solid #555;">Classical GPU Systems</th>
-        <th style="text-align:left; padding:6px; border-bottom:2px solid #555;">CEAS–Ising NPUs</th>
+        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">Feature</th>
+        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">Classical GPU Systems</th>
+        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">CEAS–Ising NPUs</th>
       </tr>
     </thead>
     <tbody>
@@ -1146,8 +1198,8 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
   <table style="width:100%; border-collapse:collapse;">
     <thead>
       <tr>
-        <th style="text-align:left; padding:6px; border-bottom:2px solid #555;">Transformer Component</th>
-        <th style="text-align:left; padding:6px; border-bottom:2px solid #555;">CEAS–Ising Realization</th>
+        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">Transformer Component</th>
+        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">CEAS–Ising Realization</th>
       </tr>
     </thead>
     <tbody>
