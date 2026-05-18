@@ -259,7 +259,200 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <div class="paper-links" style="margin-top:0.5rem;">
       <a href="https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-report.pdf" class="link-btn" style="font-size:0.65rem;" target="_blank">SAMHSA 2024 NSDUH</a>
       <a href="https://doi.org/10.1016/j.biopsych.2025.01.001" class="link-btn" style="font-size:0.65rem;" target="_blank">Rezai et al. 2025 (DOI)</a>
-      <a href="https://www.cdc.gov/nchs/products/databriefs/db549.htm" class="link-btn" style="font-size:0.65rem;" target="_blank">CDC Overdose Data Brief</a>
+      <a href="https://www.cdc.gov/nchs/products/databriefs/db549.htm" class="link-btn" style="font-size:0.65rem;" target="_blank"
+  <!-- LIFU Safety Parameter Explorer -->
+  <div id="fus-checker" style="background:var(--navy-mid);border:1px solid var(--border);border-left:4px solid var(--gold-dim);border-radius:0 6px 6px 0;padding:1.4rem 1.6rem;margin:1.2rem 0;">
+    <h3 style="margin-top:0;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold-light);margin-bottom:0.2rem;">LIFU Safety Parameter Explorer</h3>
+    <p style="font-size:0.82rem;color:var(--muted);margin:0 0 1rem;font-family:'DM Mono',monospace;letter-spacing:0.05em;">Interactive — adjust parameters; constraints update in real time</p>
+
+    <!-- Presets -->
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <button onclick="fusPreset('safe')"   style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Conservative</button>
+      <button onclick="fusPreset('ae2025')" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Rezai 2025 ± skull error</button>
+      <button onclick="fusPreset('cw90w')" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border-dim);background:var(--navy-light);color:var(--faint);border-radius:3px;cursor:pointer;">Preset: High-pressure (violation)</button>
+    </div>
+
+    <!-- Sliders -->
+    <div style="display:grid;gap:0.6rem;margin-bottom:1rem;">
+      <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
+        <label style="font-size:0.85rem;color:var(--body);">P<sub>neg</sub> (MPa)</label>
+        <input type="range" id="fus-s-p" min="0.05" max="1.20" step="0.01" value="0.15" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-p" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">0.15</span>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
+        <label style="font-size:0.85rem;color:var(--body);">Frequency (MHz)</label>
+        <input type="range" id="fus-s-f" min="0.10" max="2.00" step="0.01" value="0.22" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-f" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">0.22</span>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
+        <label style="font-size:0.85rem;color:var(--body);">Duty cycle (%)</label>
+        <input type="range" id="fus-s-dc" min="1" max="100" step="1" value="2" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-dc" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">2</span>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
+        <label style="font-size:0.85rem;color:var(--body);">Sonication time (min)</label>
+        <input type="range" id="fus-s-t" min="1" max="60" step="1" value="20" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-t" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">20</span>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
+        <label style="font-size:0.85rem;color:var(--body);">Skull thickness error (%)</label>
+        <input type="range" id="fus-s-dh" min="0" max="60" step="1" value="0" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-dh" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">0</span>
+      </div>
+    </div>
+
+    <!-- Metric tiles -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-bottom:1rem;">
+      <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">MI</div>
+        <div id="fus-m-mi" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 0.30</div>
+      </div>
+      <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">Φ_cav</div>
+        <div id="fus-m-phi" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 0.70</div>
+      </div>
+      <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">CEM₄₃</div>
+        <div id="fus-m-cem" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 0.10 min</div>
+      </div>
+      <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">ΔT (°C)</div>
+        <div id="fus-m-dt" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 1.0 °C</div>
+      </div>
+    </div>
+
+    <!-- Constraint list -->
+    <div id="fus-constraint-list" style="font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.9;margin-bottom:0.9rem;"></div>
+
+    <!-- Fire/abort button -->
+    <div id="fus-fire-btn" style="font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.06em;padding:0.6rem 1rem;border-radius:3px;margin-bottom:0.9rem;text-align:center;"></div>
+
+    <!-- λ-Stack optimal box -->
+    <div id="fus-optimal-box" style="display:none;font-size:0.82rem;color:var(--body);background:rgba(8,24,52,0.7);border:1px solid var(--border-dim);padding:0.8rem 1rem;border-radius:4px;line-height:1.8;"></div>
+  </div>
+
+  <script>
+  (function(){
+    var G=12,RHO=1050,C0=1540,CP=3600,KTH=0.5,AT=8;
+    var MI_L=0.30,CEM_L=0.10,PHI_L=0.70,DT_L=1.0;
+
+    function phys(P,f,dc,t,dh){
+      var Pact=P*(1+G*dh/100);
+      var mi=Pact/Math.sqrt(f);
+      var pic=0.45*Math.sqrt(f);
+      var phi=Pact/pic;
+      var I=Math.pow(Pact*1e6,2)/(2*RHO*C0);
+      var Qus=AT*I*2;
+      var tau=RHO*CP/(KTH*2.5e6);
+      var dT=Math.min(Qus*(dc/100)*tau/(RHO*CP),20);
+      var T_tis=37+dT;
+      var R=T_tis>=43?0.5:0.25;
+      var cem=t*Math.pow(R,43-T_tis);
+      var dc_opt=CEM_L*RHO*CP*0.5/Math.max(Qus*t*60,1e-12);
+      var p_opt=PHI_L*pic;
+      return{Pact:Pact,mi:mi,phi:phi,dT:dT,cem:cem,pic:pic,
+             dc_opt:Math.min(dc_opt,0.10),p_opt:p_opt};
+    }
+
+    function col(v,lim){
+      var r=v/lim;
+      if(r<0.7)return'#4cc9b0';
+      if(r<1.0)return'#e2c97e';
+      return'#e07070';
+    }
+
+    window.fusUpdate=function(){
+      var P=parseFloat(document.getElementById('fus-s-p').value);
+      var f=parseFloat(document.getElementById('fus-s-f').value);
+      var dc=parseFloat(document.getElementById('fus-s-dc').value);
+      var t=parseFloat(document.getElementById('fus-s-t').value);
+      var dh=parseFloat(document.getElementById('fus-s-dh').value);
+
+      document.getElementById('fus-v-p').textContent=P.toFixed(2);
+      document.getElementById('fus-v-f').textContent=f.toFixed(2);
+      document.getElementById('fus-v-dc').textContent=Math.round(dc);
+      document.getElementById('fus-v-t').textContent=Math.round(t);
+      var dhEl=document.getElementById('fus-v-dh');
+      dhEl.textContent=Math.round(dh);
+      dhEl.style.color=dh>0?'#e07070':'var(--gold)';
+
+      var d=phys(P,f,dc,t,dh);
+
+      function setM(id,v,lim,dec){
+        var el=document.getElementById(id);
+        el.textContent=v.toFixed(dec);
+        el.style.color=col(v,lim);
+      }
+      setM('fus-m-mi', d.mi, MI_L,3);
+      setM('fus-m-phi',d.phi,PHI_L,3);
+      setM('fus-m-cem',d.cem,CEM_L,4);
+      setM('fus-m-dt', d.dT, DT_L,2);
+
+      var C1=d.mi<=MI_L,C2=d.cem<=CEM_L,C3=d.phi<=PHI_L,C4=d.dT<=DT_L;
+      var all=C1&&C2&&C3&&C4;
+
+      function badge(ok,v,lim,label){
+        var color=ok?'#4cc9b0':'#e07070';
+        var icon=ok?'✓':'✗';
+        return'<div style="color:'+color+'">'+icon+' '+label
+              +' &nbsp;<span style="color:var(--muted)">value = '+v.toFixed(4)+', limit = '+lim+'</span></div>';
+      }
+      document.getElementById('fus-constraint-list').innerHTML=
+        badge(C1,d.mi, MI_L, 'C₁  Mechanical Index (CNS limit 0.30)')+
+        badge(C2,d.cem,CEM_L,'C₂  CEM₄₃ thermal dose (limit 0.10 min)')+
+        badge(C3,d.phi,PHI_L,'C₃  Φ_cav cavitation risk (limit 0.70)')+
+        badge(C4,d.dT, DT_L, 'C₄  Est. ΔT temperature rise (limit 1.0 °C)');
+
+      var btn=document.getElementById('fus-fire-btn');
+      if(all){
+        btn.textContent='✓  All constraints satisfied — SAFE TO FIRE';
+        btn.style.background='rgba(76,201,176,0.15)';
+        btn.style.border='1px solid #4cc9b0';
+        btn.style.color='#4cc9b0';
+      } else {
+        btn.textContent='✗  Constraint violation — ABORT SONICATION';
+        btn.style.background='rgba(224,112,112,0.15)';
+        btn.style.border='1px solid #e07070';
+        btn.style.color='#e07070';
+      }
+
+      var ob=document.getElementById('fus-optimal-box');
+      ob.style.display='block';
+      var sigma_qk=0.3,N_eff=8;
+      var bs=Math.sqrt(2*Math.log(Math.max(N_eff,2)))/Math.max(sigma_qk,1e-9);
+      var tg=bs*sigma_qk*Math.sqrt(2*Math.log(N_eff));
+      ob.innerHTML='<strong style="color:var(--gold-light)">λ-Stack optimal recommendations (Eq. 20–21):</strong><br>'
+        +'Actual P<sub>neg</sub> after skull error: <strong>'+d.Pact.toFixed(3)+' MPa</strong>'
+        +' (reported: '+P.toFixed(3)+' MPa, amplified by G·ΔH = '+(G*dh/100).toFixed(2)+'×)<br>'
+        +'Recommended DC*: <strong>'+(d.dc_opt*100).toFixed(2)+'%</strong>'
+        +' &nbsp;·&nbsp; Recommended P<sub>neg</sub>*: <strong>'+d.p_opt.toFixed(3)+' MPa</strong>'
+        +' (0.70 × P<sub>IC</sub>('+f.toFixed(2)+' MHz))<br>'
+        +'CEAS β★ initializer: <strong>'+bs.toFixed(3)+'</strong>'
+        +' &nbsp;·&nbsp; T<sub>gate</sub>: <strong>'+tg.toFixed(3)+'</strong>';
+    };
+
+    window.fusPreset=function(name){
+      var p={safe:[0.15,0.22,2,20,0],ae2025:[0.15,0.22,2,20,40],cw90w:[0.80,0.22,50,20,0]};
+      var v=p[name];
+      document.getElementById('fus-s-p').value=v[0];
+      document.getElementById('fus-s-f').value=v[1];
+      document.getElementById('fus-s-dc').value=v[2];
+      document.getElementById('fus-s-t').value=v[3];
+      document.getElementById('fus-s-dh').value=v[4];
+      fusUpdate();
+    };
+
+    document.addEventListener('DOMContentLoaded',function(){
+      fusUpdate();
+    });
+  })();
+  </script>
+
+>CDC Overdose Data Brief</a>
     </div>
   </div>
 
