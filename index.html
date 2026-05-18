@@ -1266,9 +1266,15 @@ footer .patent-ref {
           <strong style="color:var(--body);">Note on independence.</strong>
           The Physical ASI seed does not require AdS/CFT as a runtime dependency.
           The autoregressive fixed-point structure of the Ψ-operator guarantees 
-          convergence on any finite machine — by Brouwer’s fixed-point theorem,
-          a continuous self-map on a compact domain has a fixed point,
-          and the machine halts.
+          convergence on any finite machine via two complementary results.
+          Brouwer’s fixed-point theorem guarantees that a continuous self-map
+          on a compact domain has a fixed point — existence.
+          Knuth’s TAOCP Vol. 1 §1.1 supplies the halting guarantee:
+          on a finite state space Q, any deterministic sequence must revisit
+          a state within |Q| steps (pigeonhole principle),
+          so the machine either halts or cycles;
+          the contracting autoregressive map rules out cycling,
+          leaving only halting. The machine is finite; it halts.
           AdS/CFT was the intellectual origin of the geometric insight;
           it is not a load-bearing assumption of the architecture.
           The framework is compatible with — and was validated against —
