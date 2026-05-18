@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>William Chuang — Logarchéon</title>
+  <meta name="description" content="William Chuang, founder of Logarchéon. Interpretable and secure AI systems: faster training, safer edits, and deployment hardening for high-assurance environments." />
+
+  <!-- Canonical & Social -->
+  <link rel="canonical" href="https://logarcheon.com/">
+  <meta property="og:url" content="https://logarcheon.com/">
+  <meta property="og:site_name" content="Logarchéon">
+  <meta property="og:title" content="William Chuang — Logarchéon" />
+  <meta property="og:description" content="Interpretable, certifiable AI systems: faster training, safer edits, and hardened deployment in high-assurance environments." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
+  <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0c0f">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "William Chuang",
+    "url": "https://logarcheon.com/",
+    "worksFor": { "@type": "Organization", "name": "Logarchéon" },
+    "sameAs": [
+      "https://github.com/williamchuang",
+      "https://www.linkedin.com/in/chuang-william",
+      "https://orcid.org/0009-0008-0796-9478"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --surface: #111317;
+      --card: #161a20;
+      --text: #e8ecf2;
+      --muted: #a7b0be;
+      --accent: #7dd3fc;  /* cyan-300 */
+      --accent-2: #c084fc; /* violet-400 */
+      --ring: rgba(125,211,252,.35);
+      --maxw: 1000px;
+      color-scheme: dark light;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:#f9fafb;
+        --surface:#ffffff;
+        --card:#ffffff;
+        --text:#0b1020;
+        --muted:#4b5563;
+        --ring:rgba(99,102,241,.28);
+      }
+      a:hover { color:#4338ca }
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1200px 600px at 10% -5%, rgba(125,211,252,.08), transparent 50%),
+        radial-gradient(1400px 700px at 110% 10%, rgba(192,132,252,.08), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    /* Accessibility */
+    .visually-hidden-focusable {
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .visually-hidden-focusable:focus {
+      position:static; width:auto; height:auto; padding:.5rem .75rem;
+      background:var(--surface); border:1px solid var(--accent); border-radius:.5rem;
+    }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* Shell */
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 2rem 1.25rem; }
+    header.site { padding: 3rem 0 1rem; }
+
+    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-weight: 600; color: var(--muted); font-size: .8rem; }
+    h1 { font-family: Fraunces, Georgia, 'Times New Roman', serif; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 4vw, 3rem); margin: .25rem 0 .25rem; }
+    .subhead { font-size: 1.05rem; color: var(--muted); max-width: 70ch; text-align: center; margin-left: auto; margin-right: auto; }
+    .nowrap { white-space: nowrap; }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 80ch;
+      margin: 0.6rem auto;
+      text-align: center;
+    }
+
+    .subtitle.tagline {
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      max-width: 70ch;
+    }
+
+    .content-text {
+      max-width: 80ch;
+      margin: 0.4rem auto;
+    }
+
+    /* Top nav */
+    nav.top-nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    nav.top-nav ul {
+      list-style: none; margin: 0; padding: .7rem 1rem;
+      display: flex; gap: .75rem; align-items: center; flex-wrap: wrap;
+    }
+    nav.top-nav a {
+      color: var(--muted); text-decoration: none; font-weight: 600; font-size: .92rem;
+      padding: .4rem .6rem; border-radius: .6rem;
+    }
+    nav.top-nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+
+    /* Anchor landing under sticky nav */
+    section[id], article[id], aside[id] { scroll-margin-top: 4.5rem; }
+
+    /* Sections & cards */
+    section { padding: 2.25rem 0; border-top: 1px dashed rgba(255,255,255,.06); }
+    section:first-of-type { border-top: none; }
+    h2 {
+      font-family: Fraunces, Georgia, 'Times New Roman', serif;
+      font-weight: 800; letter-spacing: -0.01em;
+      font-size: clamp(1.4rem, 2.6vw, 2rem); margin: 0 0 .75rem;
+    }
+    h3 { font-weight: 800; letter-spacing: -.01em; font-size: 1.1rem; margin: 1.25rem 0 .25rem; }
+    p.lede { font-size: 1.05rem; color: var(--muted); max-width: 75ch; }
+    p, li { max-width: 80ch; }
+
+    .card {
+      background: linear-gradient(180deg,
+        color-mix(in oklab, var(--card) 92%, transparent),
+        color-mix(in oklab, var(--card) 96%, transparent)
+      );
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
+    }
+
+    .grid { display: grid; gap: 1rem; }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    @media (max-width: 900px) {
+      .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+    }
+
+    .callout {
+      border-left: 3px solid var(--accent);
+      padding-left: .9rem; margin: 1rem 0; color: var(--muted);
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .8rem; color: var(--muted);
+      padding: .25rem .55rem; background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08); border-radius: 999px;
+    }
+    .kicker {
+      color: var(--muted); font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; font-size: .78rem;
+    }
+
+    .math { font-variant-numeric: lining-nums, tabular-nums; font-weight: 600; }
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background: rgba(255,255,255,.06); padding: .15rem .35rem; border-radius: .4rem;
+      font-size: .9em; border: 1px solid rgba(255,255,255,.1);
+    }
+
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:hover { color: var(--accent-2); }
+
+    footer { padding: 3rem 0 4rem; color: var(--muted); }
+    .hr {
+      height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      border: none; margin: 1.5rem 0;
+    }
+
+    /* TOC chips */
+    .toc {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 0;
+      justify-content: center;
+    }
+    .toc a {
+      font-size: .85rem; color: var(--muted);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: .25rem .55rem; border-radius: 999px;
+      text-decoration: none;
+    }
+    .toc a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+
+    /* Emphasis box */
+    .emph-box {
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--card) 96%, transparent),
+        color-mix(in oklab, var(--card) 92%, transparent)
+      );
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
+      margin-top: 1rem;
+    }
+
+    blockquote {
+      margin: 1rem 0; padding-left: 1rem;
+      border-left: 3px solid rgba(255,255,255,.18);
+      color: var(--muted);
+    }
+
+    .prayer-card { margin-top: 1rem; }
+
+    .footer-links {
+      list-style: none; padding: 0; margin: 0 0 0.5rem 0;
+      display: flex; flex-wrap: wrap; gap: .75rem;
+    }
+    .footer-links a { font-size: .9rem; }
+
+    @media (max-width: 640px) {
+      header.site { padding-top: 2.25rem; }
+    }
+  </style>
+
+  <!-- Your global CSS (if any) -->
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- Conditional MathJax loader (only loads if TeX delimiters are present) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hasTex =
+        document.body.textContent.includes('\\(') ||
+        document.body.textContent.includes('\\[') ||
+        document.body.textContent.includes('$$');
+
+      if (!hasTex) return;
+
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      s.async = true;
+      document.head.appendChild(s);
+    });
+  </script>
+</head>
+<body>
+
+  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
+
+  <!-- Top navigation -->
+  <header>
+    <nav class="top-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/About">About</a></li>
+        <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+        <li><a href="/files/william_resume.pdf">Resume</a></li>
+        <li><a href="/files/William_advanced_mathematics_courses.pdf">Math Courses Taken</a></li>
+        <li><a href="/Research">Research</a></li>
+        <!-- <li><a href="/Teaching">Teaching</a></li>-->
+        <!-- <li><a href="/My%20Schedule">My Schedule</a></li>-->
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+
+    <!-- Hero / landing -->
+    <header class="site" aria-labelledby="site-title">
+      <div class="eyebrow">Founder, Logarchéon</div>
+      <h1 id="site-title">William Chuang</h1>
+      <p class="subhead">
+        Architect of interpretable AI systems · Researcher in secure computation &amp;
+        <span class="nowrap">symbolic dynamics</span>
+      </p>
+      <p class="subtitle">
+        I build <strong>self-correcting, interpretable transformer systems</strong> that train faster,
+        edit safely, and can run inside <strong>geometry-native, twin-capable cryptographic wrappers</strong>.
+      </p>
+
+      <!-- Micro-bio / orientation (above the fold) -->
+      <div class="card emph-box" id="micro-bio" aria-label="Orientation">
+        <div class="kicker">Orientation</div>
+        <p class="content-text">
+          <strong>Vocation:</strong> geometry, control, and secure computation ordered to human dignity—so that
+          precision serves peace and systems remain auditable under uncertainty.
+        </p>
+        <p class="content-text">
+          <strong>Working model:</strong> proof-backed prototypes and non-enabling public summaries; deeper technical
+          materials available via NDA/export-control compliant channels for licensing or joint development.
+        </p>
+      </div>
+
+      <div class="toc" aria-label="Quick links">
+        <a href="#one-liner">One-liner</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#pillars">Three pillars</a>
+        <a href="#product">Λ-Stack</a>
+        <a href="#company">Logarchéon</a>
+        <a href="#mia-now">MIA</a>
+        <a href="#bio-full">About</a>
+        <a href="#manifesto">Manifesto</a>
+        <a href="#patrons">Patrons</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <!-- One-liner -->
+    <section id="one-liner" aria-labelledby="one-liner-h">
+      <h2 id="one-liner-h">One-liner</h2>
+      <div class="card">
+        <p>
+          I build <strong>interpretable, certifiable transformer systems</strong> that train faster, edit
+          safely, and can run inside <strong>secure, geometry-native cryptographic wrappers</strong>.
+        </p>
+        <p class="callout">
+          <span class="badge">Goal</span>
+          <strong>Rigor + practice.</strong> Each idea comes with proofs or certificates plus runnable
+          prototypes and small-scale demos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Evidence & claims (moved up) -->
+    <section id="evidence" aria-labelledby="evidence-h">
+      <h2 id="evidence-h">Evidence &amp; claims — how to read</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <strong>Performance (GRAIL).</strong>
+            GRAIL performs the same math as a plaintext model and therefore runs at essentially plaintext
+            speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC)
+            reflects the overhead added by those schemes, not by GRAIL. Exact slowdowns for FHE/MPC depend
+            on scheme, precision, hardware, and task.
+          </li>
+
+          <li>
+            <strong>Scope of protection.</strong>
+            Parameters, activations, and latent states are protected via a group-action / symbolic-geometry
+            transform; both the <em>model</em> and the <em>data</em> remain encrypted in use. Security is
+            deployment-dependent: once the system is operated inside a
+            <abbr title="Sensitive Compartmented Information Facility">SCIF</abbr> or an equivalently
+            isolated posture (air-gapped, shielded/TEMPEST-class enclosure, no external I/O), external
+            side-channels (network beacons, vendor telemetry, remote DMA, RF/EM egress) are greatly
+            reduced for that system. Before such isolation, standard side-channel and operational risks
+            apply, and routine hardening (I/O policy, audit logging, rate-limits, constant-time paths
+            where feasible) remains required.
+          </li>
+
+          <li>
+            <strong>Stability &amp; edit safety.</strong>
+            Each version includes entropy-corridor bounds, deviation limits, and edit-stability
+            certificates (time, memory, parameter coverage) showing that controlled local edits do not
+            trigger unbounded downstream drift.
+          </li>
+
+          <li>
+            <strong>Demonstrations &amp; audits.</strong>
+            I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain
+            behavior. Independent benchmarking, replication, and third-party cryptographic review are welcome
+            under representative workloads.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Three pillars -->
+    <section id="pillars" aria-labelledby="pillars-h">
+      <h2 id="pillars-h">Three pillars — what they are and what they provide</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="kicker">1) Efficiency (CEAS)</div>
+          <ul>
+            <li>
+              <strong>What it is.</strong>
+              CEAS (Critical Entropy Attention System) is a control-theoretic attention scaling scheme
+              that treats the scaling factor as an explicit inverse temperature
+              <span class="math">β</span> and keeps attention entropy inside a target corridor.
+            </li>
+            <li>
+              <strong>What it provides.</strong>
+              Fewer steps-to-target and more stable training—especially on long-context or brittle setups.
+              Instead of a fixed <span class="math">1/\sqrt{d_k}</span> guess, CEAS actively steers
+              attention away from over-sharp and over-flat regimes and surfaces entropy/energy diagnostics
+              you can monitor and audit.
+            </li>
+            <li>
+              <strong>How / when you use it.</strong>
+              Drop it in where you would normally hard-code attention scaling: during pre-training,
+              fine-tuning, or domain adaptation when training budget and numerical stability matter.
+              It can run in a “search then clamp” mode (early β search, then fixed) or a lightweight
+              online-control mode with entropy feedback.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="kicker">2) Interpretability (Finite-Machine Lift)</div>
+          <ul>
+            <li>
+              <strong>What it is.</strong>
+              Finite-Machine Lift is a procedure that takes the closed-loop behavior of a trained model
+              and lifts it to a finite operator <span class="math">P = D + N</span>, decomposed into
+              cycles (<span class="math">D</span>) and transients (<span class="math">N</span>), with
+              runtime sentinels and cycle projectors.
+            </li>
+            <li>
+              <strong>What it provides.</strong>
+              Symbolic traces of how the system actually behaves, stable subspaces in which local edits
+              can be made, and <strong>edit-without-retrain</strong> guarantees: you can patch logic or
+              behavior while bounding deviation on a protected manifold instead of paying for a full retrain.
+            </li>
+            <li>
+              <strong>How / when you use it.</strong>
+              Apply it to a model that is already trained and deployed (or about to be deployed) when you
+              need explainability, post-hoc audits, or targeted fixes: safety-critical updates, policy
+              changes, red-team findings, or compliance-driven edits.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="kicker">3) Security &amp; Substrate Portability (GRAIL → MIA)</div>
+          <ul>
+            <li>
+              <strong>What it is.</strong>
+              GRAIL → MIA is a security and substrate-portability layer that centers computation on
+              <em>invariants of groups</em> and diagonal transport: inputs, machine state, and outputs
+              move together under group action, while internal encodings remain flexible and non-unique.
+            </li>
+            <li>
+              <strong>What it provides.</strong>
+              <strong>Cryptomorphic twins</strong> (weight-distinct, function-identical deployments),
+              hardware freedom (runs in software today, accelerates on FPGAs or mature nodes later), and
+              a reduced attack surface: stealing one instance does not give a unique blueprint for all others.
+            </li>
+            <li>
+              <strong>How / when you use it.</strong>
+              Bring it in at the deployment and systems layer when models or controllers must run in regulated,
+              high-assurance, or IP-sensitive environments. Start with software-only shims; move to ISA/PLC
+              overlays or custom blocks when you want higher throughput or per-device twin hardening.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product brief (moved up) -->
+    <section id="product" aria-labelledby="product-h">
+      <h2 id="product-h">Product brief — Λ-Stack</h2>
+      <div class="card">
+        <p><strong>Why now.</strong> Training/retraining costs, auditability requirements, and model protection pressures are rising together.</p>
+        <p><strong>What you get.</strong></p>
+        <ul>
+          <li><strong>Faster training.</strong> CEAS reduces tokens-to-target via informed β control.</li>
+          <li><strong>Safer updates.</strong> Symbolic traces + wrappers enable <strong>hour-scale fixes</strong> without a full retrain.</li>
+          <li><strong>Security by design.</strong> Optional geometry-native masking and per-tenant cryptomorphic twins.</li>
+        </ul>
+        <p><strong>Who benefits.</strong> Critical infrastructure, national missions, regulated enterprises, and labs seeking <strong>explainable</strong> and <strong>hardened</strong> LLMs.</p>
+      </div>
+    </section>
+
+    <!-- Company / posture -->
+    <section id="company" aria-labelledby="company-h">
+      <h2 id="company-h">Logarchéon — geometry-native recursive agent lab</h2>
+
+      <div class="card">
+        <p class="lede">
+          <strong>Logarchéon Inc.</strong> is a one-human C-Corporation structured as an
+          <strong>IP-first research lab</strong>. I build and direct recursive teams of AI agents that
+          conduct secure, geometry-native computation—executing proofs, simulations, refinements, and
+          technical writing. Direction, priors, and standards come from years of human study in physics,
+          mathematics, symbolic systems, and secure design.
+        </p>
+        <p>
+          This is a <strong>research stack</strong>, not a commodity product company. It is
+          <em>recursive, local, interpretable, and founder-shaped</em>. The agents do the work; I
+          determine what work matters. Same models ≠ same results—because the judgment layer is
+          not downloadable.
+        </p>
+      </div>
+
+      <article class="card emph-box" id="recursive-leverage" aria-labelledby="recursive-leverage-h">
+        <div class="kicker" id="recursive-leverage-h">Recursive agent stack</div>
+        <ul>
+          <li><strong>Human priors → agent swarm.</strong> Geometry/AI/symbolic logic shape the hypothesis space; agents explore it in parallel—each task framed, bounded, and testable.</li>
+          <li><strong>Agents talk to agents.</strong> Demos, derivations, and results are passed, critiqued, and improved across agent layers—until convergence or rejection.</li>
+          <li><strong>Recursive loops, not pipelines.</strong> Each AI worker can instantiate others, forming self-refining trees of code, reasoning, and simulation. I remain the source of taste and direction.</li>
+        </ul>
+        <p class="callout">
+          <span class="badge">Why it matters</span>
+          This is not “agent-first” hype. It is
+          <em>recursive, founder-calibrated intelligence</em>. The same agents in other hands will not
+          produce the same frontier results.
+        </p>
+      </article>
+    </section>
+
+    <!-- Institutional model -->
+    <article class="card emph-box" id="formation" aria-labelledby="formation-h">
+      <div class="kicker" id="formation-h">Institutional model — recursive IP lab, C-Corp</div>
+      <p>
+        <strong>Logarchéon Inc.</strong> is a C-Corporation operated by a single human founder with a
+        recursive stack of <strong>autonomous AI agents</strong>—each trained, directed, and coordinated
+        to execute tightly scoped research and engineering tasks. Wherever this site says
+        <em>“we”</em> or <em>“our”</em>, it means the founder + agents working in unison to produce
+        original, defensible intellectual property.
+      </p>
+      <ul>
+        <li><strong>What we produce.</strong> Patentable inventions, working demos, proofs-of-concept, and <em>experimentally validated</em> claims. Public summaries are deliberately non-enabling; full technical materials are available under NDA/export-controlled access.</li>
+        <li><strong>Commercialization pathway.</strong> IP is available for <strong>licensing, joint development, or secure transfer</strong>. Deployments are often per-tenant and partner-specific, with options for cryptomorphic twins or interpretable derivatives.</li>
+        <li><strong>Manufacturing posture.</strong> Logarchéon does not run physical production. Hardware implementations or productization are handled by licensed partners or downstream integrators.</li>
+        <li><strong>Scientific discipline.</strong> Every prototype includes reproducible traces, entropy metrics, code audits, and provenance logging to support independent verification.</li>
+      </ul>
+      <p class="callout">
+        <span class="badge">Summary</span>
+        <strong>One founder + recursive AI agents</strong> generating proof-backed IP in geometry,
+        symbolic reasoning, and secure computation. Partners bring scale; Logarchéon provides the design.
+      </p>
+    </article>
+
+    <!-- Research highlight -->
+    <aside id="automorphic-callout" class="card emph-box" role="note" aria-label="Automorphic attention highlight">
+      <div class="kicker">Research highlight</div>
+      <p>
+        I construct an attention mechanism that natively lives on <strong>hyperbolic geometry</strong>
+        and uses <strong>automorphic (Maass-type) kernels</strong>. A critical-entropy controller (CEAS)
+        regulates the inverse temperature so that attention entropy hovers near a pseudo-critical point.
+      </p>
+      <p>
+        <span class="nowrap">Within this setting, the classic Langlands triad is realized inside a neural operator:</span>
+        <span class="nowrap">automorphic</span> ⟷ <span class="nowrap">Galois</span> ⟷ <span class="nowrap">motive</span>.
+      </p>
+      <p class="callout">
+        <span class="badge">Note</span>
+        MIA/GRAIL use <em>invariants of groups</em> with diagonal transport of inputs, machine state, and outputs
+        — not equivariance of inputs alone.
+      </p>
+    </aside>
+
+    <!-- Overview -->
+    <section id="overview" aria-labelledby="overview-h">
+      <h2 id="overview-h">Overview</h2>
+      <p class="lede">
+        I design at the intersection of <strong>geometry, control, and security</strong>. Recent work treats
+        attention temperature <span class="math">β</span> as a controllable parameter; lifts trained models into
+        <strong>finite operators</strong> for certified edit-without-retrain; and develops MIA (GRAIL-derived),
+        a metric-invariant architecture where <em>invariants of groups</em> drive computation. Inputs, machine
+        state, and outputs transform together (diagonal action), preserving behavior while enabling
+        <strong>cryptomorphic twin</strong> deployments. Adoption starts in AI and extends to the ISA/system
+        layer without new hardware; software shims compute invariants today, with optional FPGA or older-node
+        acceleration later.
+      </p>
+    </section>
+
+    <!-- MIA -->
+    <section id="mia-now" aria-labelledby="mia-now-h">
+      <h2 id="mia-now-h">MIA — what it is and what it provides</h2>
+
+      <article class="card">
+        <div class="kicker">Summary — what / what for / how</div>
+        <ul>
+          <li>
+            <strong>What it is.</strong>
+            MIA (Metric-Invariant Architecture) is an
+            <strong>invariant-first compute style</strong>: decisions are made from group-invariant
+            quantities (distances, ratios, Hamming counts, cross-ratios, etc.), and inputs, machine
+            state, and outputs transform together (diagonal action) under group symmetries.
+          </li>
+          <li>
+            <strong>What it provides.</strong>
+            Stable behavior across coordinate changes and reparameterizations; per-device or per-tenant
+            <strong>cryptomorphic twins</strong>; better tolerance for noise, drift, and fixture slop;
+            and an easier path to move the same logic across CPUs, PLCs, FPGAs, or mature-node ASICs
+            without constant re-teaching.
+          </li>
+          <li>
+            <strong>How / when you use it.</strong>
+            Start by inserting MIA as a <em>software shim</em> around one kernel or control loop:
+            compute invariants, feed the existing controller/model, and compare tolerance, uptime,
+            and attack surface. When you see the gains, you migrate more subsystems or push the pattern
+            down into the ISA/PLC level for higher throughput and stronger per-device twin guarantees.
+          </li>
+        </ul>
+      </article>
+
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="kicker">Drop-in, no rip-and-replace</div>
+          <p class="lede">
+            Adopt as a software shim: compute <em>invariants</em> (distances, ratios, Hamming counts,
+            cross-ratios) and feed existing controllers or models with those numbers instead of raw
+            coordinates/IDs.
+          </p>
+          <div class="callout">
+            <span class="badge">Is new hardware required?</span>
+            Usually not. Software blocks compute invariants. If hardware acceleration is desired later,
+            FPGAs and even older-node chips compute these features efficiently.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="kicker">From AI → whole stack</div>
+          <p>
+            Started inside LLMs/transformers and neural nets; now extended to the machine/ISA layer so that
+            CPUs/PLCs can run with the same invariant-first semantics. When the platform runs in this style,
+            everything on it inherits the <strong>twin</strong> property (cryptomorphic, function-identical
+            deployments).
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Tolerance &amp; uptime for robotics/PLC</div>
+          <ul>
+            <li>Drift-proof control: use distances/angles/ratios and order-free aggregates—<em>not</em> absolute X/Y/Z or sensor IDs.</li>
+            <li>Graceful dropouts via redundant invariants: one probe fails, the control signal persists.</li>
+            <li>Looser fixtures: larger mechanical tolerances without re-teach; fewer stops for recalibration.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Compute without bleeding-edge fabs</div>
+          <p>
+            Invariant evaluation prefers add/shift/XOR/popcount and small LUTs or CORDIC; giant multiplier
+            arrays are optional. Most use-cases do <strong>not</strong> demand sub-100 nm nodes—28–180 nm,
+            FPGAs, or mixed-signal blocks are viable.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Security by construction (twins)</div>
+          <p>
+            Inputs, machine state, and outputs transform <em>together</em> under group action (diagonal move).
+            Behavior is preserved while internal encodings differ—per-device/site <strong>twins</strong> for
+            anti-cloning and licensing, compatible with GRAIL-style deployments.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Less memory/interconnect pain</div>
+          <p>
+            Many “reorders” compile to <em>address math</em> (orbit-in-place) rather than physical data
+            shuffles—lower traffic, lower energy, simpler scaling.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Exactness is testable</div>
+          <ul>
+            <li><strong>Format-true</strong>: reproduce standard int/fp results bit-for-bit (including IEEE-754 flags).</li>
+            <li><strong>Approx + tiny fix-up</strong>: cheap core + ±1 ulp correction LUT → still bit-identical on all cases.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Adopt this week</div>
+          <ol>
+            <li>Pick a multiply-heavy kernel (or a drift-sensitive control loop).</li>
+            <li>Swap raw measurements for invariants (L1/Hamming/cross-ratio/ratios).</li>
+            <li>Wrap the ABI once (encode/decode), keep apps/tests unchanged.</li>
+            <li>Optional: add “orbit-in-place” address transforms for common reorders.</li>
+          </ol>
+          <p class="callout">
+            <span class="badge">RISC-V / PLC</span>
+            Works as a micro-op overlay (<span class="kbd">DISTMUL</span>, <span class="kbd">DISTCMP</span>, <span class="kbd">KERNELACC</span>)
+            or as PLC function blocks (<span class="kbd">DISTCMP</span>, <span class="kbd">RATIO</span>, <span class="kbd">REDUCE</span>, <span class="kbd">INVPID</span>).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <aside class="card emph-box" id="mia-one-liner" role="note" aria-label="Invariant-first summary">
+      <div class="kicker">Invariant-first compute</div>
+      <p>
+        Replace fragile scalars with <em>group-invariant</em> numbers. Move inputs, machine state, and
+        outputs together; behavior stays fixed while internals vary. Result: runs today in software,
+        accelerates on FPGAs or mature nodes, raises robotic tolerance, and ships as
+        <strong>per-device twins</strong> for security.
+      </p>
+    </aside>
+
+
+<!-- Bio (merged from About page) -->
+<section id="bio-full" aria-labelledby="bio-h">
+  <h2 id="bio-h">Vocation &amp; biography</h2>
+  <article class="card">
+    <p class="subtitle">
+      Founder, Logarchéon · Architect of self-correcting, interpretable AI systems · Researcher in secure
+      computation &amp; symbolic dynamics
+    </p>
+
+    <p class="content-text">
+      I design at the intersection of geometry, learning, and secure systems—where form reveals function and
+      structure encodes meaning. My research seeks mathematically grounded architectures built on symmetry,
+      topology, and spectral dynamics, oriented to the common good and the dignity of the human person. Core
+      applications include interpretable machine learning, privacy-preserving compute, and humanitarian resilience.
+    </p>
+
+    <p class="content-text">
+      Recent projects include transformers governed by Möbius flows and Lie symmetries; Langlands-dual attention
+      layers for structured reasoning; and cryptographic primitives based on modular trace zeta functions and
+      symbolic entropy compression. These are not mere technical novelties—they are durable frameworks intended
+      to preserve coherence and interpretability in adversarial environments.
+    </p>
+
+    <p class="content-text">
+      I treat mathematical rigor as an act of fidelity. Security is not merely defense; it is the protection of
+      dignity under uncertainty. Learning is not only optimization; it is formation through symmetry and disciplined
+      constraint. My work is shaped by physics and number theory and, no less, by a habit of interior stillness.
+    </p>
+
+    <p class="content-text">
+      As the founder of <strong>Logarchéon</strong> (launching 2025), I develop decision-support frameworks for
+      open-source analysis, cognitive modeling, and secure signal fusion in public-interest and humanitarian
+      contexts. These systems are built so that precision serves peace and information upholds truth, with ethical
+      safeguards consistent with human dignity and responsible stewardship.
+    </p>
+
+    <p class="content-text">
+      My philosophical and spiritual formation is guided by the Cistercian practice of quiet, the Jesuit discipline
+      of service through intellect, and the Order of Malta’s
+      <em>tuitio fidei et obsequium pauperum</em>—the defense of the Faith and service to the poor and the sick.
+      I pursue this work under spiritual direction and in fidelity to the Church.
+    </p>
+
+    <p class="content-text">
+      That formation is grounded in family. My Catholic ancestors in Taiwan, over many generations, supported parish
+      life by donating farmland, hosting open-air banquets, and dedicating our family home as a chapel. War and
+      hardship humbled us, but service endured.
+    </p>
+
+    <p class="content-text">
+     My grandfather and great-grandfather were Catholic, and in our family’s memory—and in local tradition—they and
+     my great-great-grandfather helped offer one house from our family estate to serve as a church in our county,
+     during a period when my great-grandfather was serving in local county leadership before World War II. The act
+     was simple and practical: a place for worship, hospitality, and ordinary parish life.
+    </p>
+
+
+    <p class="content-text">
+      My father, Prof. John B. Chuang (莊慶信), was baptized in infancy and received much of his formation within the life
+      of the Church. After elementary school he entered a petit séminaire, later continued in major seminary formation,
+      and went on to pursue advanced philosophical study. He earned a Ph.D. in Philosophy at Fu Jen Catholic University,
+      and later served in Catholic higher education under the shared guidance of diocesan leadership and multiple
+      religious communities.
+    </p>
+
+    <p class="content-text">
+      His academic work focuses on religion and ecology, Catholic environmental ethics, religious ethics and bioethics,
+      philosophy of religion, and the traditions of Chinese philosophy, culture, and religion.
+    </p>
+
+    <p class="content-text">
+      In parish life, he also served at Beibin Parish (北濱堂) in Hualien City, one of the earliest Catholic communities on
+      Taiwan’s east coast. His period of service there (1982–1983) took place while the Diocese of Hualien was shepherded by
+      Bishop Paul Shan Kuo-hsi, S.J. (單國璽), who was later created a cardinal and elevated to the College of Cardinals. Local accounts record that
+      the parish’s beginnings trace to 1949, when the home of Mr. Chou Chang-yao (周長耀)—a retired ROC air-defense officer
+      who later served as secretary to Cardinal Paul Yu Bin (于斌)—was made available for worship and community gatherings.
+      <strong>These historical notes are based on publicly available sources (diocesan/parish community accounts and other open references).</strong>
+    </p>
+
+
+    <p class="content-text">
+      During his philosophical formation at Fu Jen Catholic University, my father studied under several senior teachers who
+      helped shape both his intellectual discipline and his spiritual seriousness. Among them were Professor Yan (嚴靈峯 /
+      嚴明傑), Archbishop Luo Guang (羅光), who encouraged careful reading in classical sources (including the <em>Shan Hai Jing</em>,
+      《山海經》), and Professor Xiang (項退結), who served as his Ph.D. thesis advisor. Their influence contributed to the
+      careful style of thought and moral responsibility that has marked his teaching and service.
+    </p>
+
+    <p class="content-text">
+      As a child, I occasionally accompanied my father on visits to Professor Yan. I was not part of their conversations, but
+      the tone of those visits stayed with me: seriousness of conscience, restraint in speech, and a quiet steadiness. Even
+      without explanations, I learned that integrity is often formed slowly, through example more than words. In a similar
+      spirit of quiet kindness, Professor Xiang (項退結) and his family were generous to us as well; over the years, his son
+      passed on many books and reference volumes to me, along with a few boyhood keepsakes, and those gifts helped shape my
+      early habits of reading and study.
+    </p>
+
+    <p class="content-text">
+      <strong>Note on surnames (a historical aside):</strong> I later came across a tradition in Chinese surname history that I
+      found interesting. In some genealogical and clan accounts, 莊 (Chuang/Zhuang) and 嚴 (Yan) are treated as historically
+      connected. One strand links both surnames to the lineage associated with King Zhuang of Chu (楚莊王), one of the Spring
+      and Autumn “Five Hegemons.” Another strand is tied to Eastern Han name taboos: it is said that, to avoid the personal
+      name of Emperor Ming of Han (漢明帝, 劉莊), many families surnamed 莊 adopted 嚴 instead; the scholar Yan Ziling (嚴子陵 /
+      嚴光) is often cited as a well-known example in later tradition. After the Wei–Jin period, some branches reportedly
+      reverted to 莊 while others remained 嚴, which helps explain sayings such as “莊嚴本一家” and the existence of “莊嚴宗親會.”
+      I mention this only as a historical curiosity, not as a claim about any specific family relationship.
+    </p>
+
+
+    <p class="content-text">
+      <strong>Selected scholarly themes (John B. Chuang / 莊慶信):</strong> This body of work centers on religion and ecology,
+      Catholic environmental ethics and eco-spirituality, religious ethics, philosophy of religion, and the history of
+      Chinese philosophy and culture. Several publications engage Pope Francis’ <em>Laudato Si’</em>, including analyses of
+      its distinctive themes, its relationship to contemporary environmental thought, and its implications for Taiwanese
+      society. Earlier work includes studies on ecological concern in Catholic social thought, Catholic ethics of wealth,
+      religion and bioethics, Taoist reflections on matter and spirit, and environmental justice and indigenous eco-wisdom
+      in Taiwan. His academic publications are available on
+      <a href="https://scholar.google.com/citations?hl=zh-TW&amp;user=EUDuih4AAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
+         target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
+
+    <p class="content-text">
+      In a similar way, my own formation was shaped by Catholic educational communities over many years—first through
+      St. Ignatius School and later through Jesuit university study—before I carried that discipline into technical work.
+      In total, this accounts for more than a decade of continuous enrollment, not counting the earlier years when our
+      family lived in the Fu Jen campus environment and Catholic university life quietly shaped the rhythms of home.
+    </p>
+
+    <p class="content-text">
+      In that same spirit of quiet continuity, I would like to share a personal note about my name, which carries layers of
+      familial and spiritual meaning. This is something I rarely explain, but here I offer it as part of the deeper witness
+      behind my work.
+    </p>
+
+    <p class="content-text">
+      My original Mandarin name was <strong>Tao-Mao</strong>, given in honor of <em>St. Thomas Aquinas</em>, as my birthday
+      falls near his feast day. After moving to the United States, I quietly adopted the name <strong>Huanshan</strong> as
+      part of a new beginning—both personal and spiritual.
+    </p>
+
+    <p class="content-text">
+      The name was not chosen at random. I wished to express appreciation for my father, whose baptismal name is
+      <strong>John</strong>, given to him in infancy by an American Catholic priest. I hoped to reflect this meaning gently
+      and discreetly. Beginning from the English form <em>John’s son</em>—<strong>Johnson</strong>—I searched for a way to
+      express that sense of connection across languages, without calling attention to it.
+    </p>
+
+    <p class="content-text">
+      Our family name, <strong>莊</strong>, is romanized as <strong>Chuang</strong> under the <em>Wade-Giles system</em>,
+      which was widely used in Taiwan’s official and ecclesiastical records throughout the 20th century. Its pronunciation
+      is nearly identical to <strong>Jhuang</strong>, a later spelling adopted under the <em>Tongyong Pinyin system</em>
+      introduced in Taiwan in 2002. The “h” in both versions is not actually pronounced, and when softened,
+      <strong>Chuang</strong> or <strong>Jhuang</strong> resembles <strong>Juan</strong>, the Spanish form of <em>John</em>.
+      I believe this may have been how my father received his baptismal name.
+    </p>
+
+    <p class="content-text">
+      And so, beginning with <strong>Juan</strong>—pronounced <em>Huan</em> in English—I gradually shaped the Mandarin name
+      <strong>Huanshan</strong>, which quietly carries the sound and meaning of <strong>Johnson</strong>, or
+      <em>John’s son</em>. It is not something I speak of often, but for me, it has become a personal way to remember the
+      quiet grace of faith passed down through my family.
+    </p>
+
+    <p class="content-text">
+      Both my grandfather and great-grandfather were Catholic, and I was told that my great-grandfather and his father once
+      donated part of the family home to serve as a night chapel. They also offered simple meals and accommodations to
+      fellow Catholics who came through the area. These small acts of hospitality were not widely known, but they remain
+      deeply meaningful to me. In choosing the name <strong>Huanshan</strong>, I hoped to carry forward that quiet spirit
+      of faith, service, and continuity.
+    </p>
+
+    <p class="content-text">
+      My English name, <strong>William</strong>, was chosen for its simplicity. In time, it also became a quiet reminder
+      to follow not my own will, but God’s.
+    </p>
+
+    <p class="content-text">
+      These layers of naming—received, chosen, and remembered—form part of the deeper structure of my work: quiet fidelity,
+      encoded meaning, and service made strong through clarity. As with systems, so with persons: what is named with care
+      may be lived with greater intention.
+    </p>
+
+    <p class="content-text">
+      I welcome collaborations where <strong>faith meets rigor</strong>—where work is not only excellent, but ordered
+      to charity and truth for the good of neighbor.
+    </p>
+
+    <p class="content-text">
+      <strong>E-mail:</strong> <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a>
+    </p>
+  </article>
+</section>
+
+
+    <!-- Manifesto -->
+    <section id="manifesto" aria-labelledby="manifesto-h">
+      <h2 id="manifesto-h">Logarchéon AI Manifesto</h2>
+      <article class="card emph-box">
+        <p class="subtitle">
+          Hazing says: <em>“I did it, so you must.”</em><br />
+          Logarchéon chooses stewardship: <em>“I did it, so you don’t have to.”</em>
+        </p>
+
+        <h3>1. From hazing to stewardship</h3>
+        <p>
+          Hazing ethics protects status by preserving pain: “I suffered under this system; your suffering is
+          what validates me.” Stewardship ethics protects people: “If I have already paid a high cost to
+          learn something hard, my duty is to lower that cost for others—not to keep them small so I feel big.”
+          Logarchéon is built explicitly on stewardship, not hazing.
+        </p>
+
+        <h3>2. Equal dignity versus pyramids of privilege and luck</h3>
+        <p>
+          Every human person has equal dignity—whether one speaks in the language of human rights or of
+          <em>imago Dei</em>. No one is given a higher-grade soul because of passport, accent, bloodline,
+          or accumulated privilege and luck. When AI allows a truck driver, migrant, or single parent with
+          a local model, basic coding skills, and a good workflow to match the work of an “elite,” that is
+          not a moral failure of AI; it is a moral correction of a rigged game.
+        </p>
+        <p class="callout">
+          <span class="badge">Vocation</span>
+          If one takes seriously <em>tuitio fidei et obsequium pauperum</em>—the defense of the Faith and
+          service of the poor and the sick—then the right use of AI is to <strong>amplify</strong> those
+          at the bottom of the pyramid, not to preserve comfort for those already on top.
+        </p>
+
+        <h3>3. Outer cortex, not distant oracle</h3>
+        <p>
+          Advanced models are treated as an <strong>outer cortex</strong>: a silicon extension of thought and
+          language, not an idol. The question is not whether such outer cortices will exist, but who they
+          will serve. Logarchéon’s answer is simple: your outer cortex should live on your machines, under
+          your keys, in service of your conscience, vocation, and community—not as a remote service reading
+          you from above.
+        </p>
+
+        <h3>4. Tools are not cheating. Dishonesty is.</h3>
+        <p>
+          There are narrow, explicit contexts—exams, sacraments, sworn testimony, specific rituals—where
+          “unaided work” is required. In those places, secretly delegating to a model is cheating because it
+          breaks a clear promise. Outside those contexts, a blanket ban on AI is hazing, not ethics. The
+          meaningful question becomes: not “Did you touch AI?” but “How did you design, steer, and check
+          your stack—and do you stand behind the result?”
+        </p>
+
+        <h3>5. Coding and machine’s-eye literacy for everyone</h3>
+        <p>
+          If you cannot speak the machine’s language, the machine will be used on you, not for you. Basic
+          coding and systems thinking are treated as a new civic literacy: understanding state and feedback,
+          knowing how prompts and APIs shape behavior, and being able to script small agents and pipelines.
+          This is how workers, migrants, parishes, and clinics rule their own machines, instead of being ruled
+          by opaque platforms.
+        </p>
+        <p>
+          When a model is trained or fine-tuned on your corpus, runs on your hardware or trusted enclave, and
+          is steered and reviewed by you, its output is not a foreign ghostwriter; it is your outer cortex.
+          Using it is not plagiarism; it is thinking with your extended mind.
+        </p>
+
+        <h3>6. Commitments</h3>
+        <ul>
+          <li><strong>Stewardship over hazing.</strong> “I did the hard work, so you can start higher and go further.”</li>
+          <li><strong>Private, accountable outer cortex.</strong> Local or λ-secure models where feasible; clear logs and authorship metadata; no mind-mining.</li>
+          <li><strong>Bias toward the bottom of the pyramid.</strong> Priority for workers, migrants, patients, small parishes, and solo founders. If the tools only help those already on top, the design has failed.</li>
+        </ul>
+        <p class="callout">
+          In an age of hybrid minds, no one should be shamed for using an outer cortex, and no one should
+          be denied one because they were born on the wrong side of privilege and luck.
+        </p>
+        <p class="content-text">
+          <strong>The complete manifesto:</strong>
+          <a href="https://drive.google.com/file/d/1Lo40HnNzzTQmtqIPZIsae_WyZTwIWEx1/view?usp=sharing"
+             target="_blank" rel="noopener noreferrer">
+            Read the complete Logarchéon AI Manifesto (PDF)
+          </a>.
+        </p>
+      </article>
+    </section>
+
+    <!-- Patrons & influences -->
+    <section id="patrons" aria-labelledby="patrons-h">
+      <h2 id="patrons-h">Patrons &amp; influences</h2>
+      <article class="card">
+        <p>Gratitude for the saints whose lives and writings shape my work and prayer:</p>
+        <ul>
+          <li>
+            <strong>St. John the Baptist</strong> (1st c. BC) — witness, repentance, and preparation; at the
+            Visitation (Lk 1:39–45) he already rejoices before Christ hidden in Mary, the New Ark of the
+            Covenant who carries the Word made flesh, the true Bread of Life, and the eternal High Priest.
+            His leap in the womb echoes David dancing before the Ark (2 Sam 6), making him the first prophet
+            to recognize and rejoice before the living Presence.
+          </li>
+          <li>
+            <strong>St. Matthew the Apostle</strong> (1st c. AD) — the Gospel of mercy, especially Matthew 25,
+            grounding service to “our Lords the sick.”
+          </li>
+          <li>
+            <strong>Blessed Fra’ Gerard</strong> (11th c.) — humble care for the sick and poor; founder of the
+            Jerusalem hospital that became the Order’s spiritual root.
+          </li>
+          <li>
+            <strong>St. Bernard of Clairvaux</strong> (1090) — stability, charity, and interior stillness; his
+            <em>Sermons on the Song of Songs</em>, <em>De Diligendo Deo</em> (<em>On Loving God</em>),
+            <em>De laude novae militiae</em>, and especially
+            <em>De Gradibus Humilitatis et Superbiae</em> (<em>On the Steps of Humility and Pride</em>).
+          </li>
+          <li>
+            <strong>St. Thomas Aquinas</strong> (1225) — clarity of reason ordered to truth.
+          </li>
+          <li>
+            <strong>St. Ignatius of Loyola</strong> (1491) — discernment, disciplined service, and formation
+            of conscience.
+          </li>
+          <li>
+            <strong>St. Teresa of Ávila</strong> (1515) — friendship with Christ in prayer and action.
+          </li>
+          <li>
+            <strong>St. John of the Cross</strong> (1542) — the purifying path to union with God.
+          </li>
+          <li>
+            <strong>St. John Bosco</strong> (1815) — forming the young through reason, faith, and patient kindness.
+          </li>
+          <li>
+            <strong>Blessed Michael McGivney</strong> (1852) — priestly charity and protection of families.
+          </li>
+          <li>
+            <strong>St. Josemaría Escrivá</strong> (1902) — sanctifying ordinary work and study.
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Daily Prayer -->
+    <section class="prayer-card blurb" id="daily-prayer" aria-labelledby="malta-prayer-title">
+      <h2 class="title" id="malta-prayer-title">Daily Prayer</h2>
+      <article class="card">
+        <blockquote class="content-text">
+          <p>
+            Lord Jesus, thou hast seen fit to enlist me for thy service among the Knights and Dames of
+            Saint John of Jerusalem. I humbly entreat thee, through the intercession of the Most Holy
+            Virgin of Philermo, of Saint John the Baptist, Blessed Gerard, and all the Saints and
+            blesseds of our Order, to keep me faithful to the traditions of our Order.
+          </p>
+          <p>
+            Be it mine to practice and defend the Catholic, the Apostolic, the Roman faith against the
+            enemies of religion; be it mine to practice charity towards my neighbors, especially the
+            poor and the sick.
+          </p>
+          <p>
+            Give me the strength I need to carry out this my resolve, forgetful of myself, learning ever
+            from the Holy Gospel a spirit of deep and generous Christian devotion, striving ever to
+            promote God’s glory, the world’s peace, and all that may benefit the Order of Saint John
+            of Jerusalem. <em>Amen.</em>
+          </p>
+        </blockquote>
+      </article>
+    </section>
+
+    <!-- Ethos disclaimer -->
+    <section id="ethos-disclaimer" aria-labelledby="ethos-disclaimer-h">
+      <h2 id="ethos-disclaimer-h">Ethos &amp; scope</h2>
+      <div class="card">
+        <p>
+          This site presents personal research and vocation-aligned work. It does not use or trade on
+          any religious order’s name, logo, or endorsement, and it offers no goods or services under
+          such names. Views and materials here are my own.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <ul>
+        <li>Email: <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a></li>
+        <li>GitHub: <a href="https://github.com/williamchuang" rel="me">github.com/williamchuang</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/chuang-william">linkedin.com/in/chuang-william</a></li>
+        <li>ORCID: <a href="https://orcid.org/0009-0008-0796-9478">orcid.org/0009-0008-0796-9478</a></li>
+      </ul>
+    </section>
+
+    <!-- Footer notes -->
+    <section id="footer-notes" aria-labelledby="footer-h">
+      <h2 id="footer-h">Footer notes (IP &amp; review)</h2>
+      <p>
+        Some materials relate to an active U.S. provisional filing. Public write-ups are
+        <strong>non-enabling summaries</strong>; technical evaluations proceed under NDA and
+        export-control compliance. I welcome <strong>peer review</strong> and
+        <strong>third-party benchmarking</strong>.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <hr class="hr" />
+    <ul class="footer-links">
+      <li><a href="https://github.com/williamchuang">GitHub</a></li>
+    </ul>
+    <p>© <span id="year"></span> William Chuang · Logarchéon. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

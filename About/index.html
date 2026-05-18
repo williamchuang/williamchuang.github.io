@@ -1,1112 +1,1117 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About — William Chuang · Logarchéon</title>
+<meta name="description" content="William Huanshan Chuang, M.S., M.A. — founder of Logarchéon Inc., researcher in AI architecture and Indo-Pacific international law and security, member of the Order of Malta and Knight of Columbus."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
+  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
+  --section-gap:4rem;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Libre Baskerville",Georgia,serif;
+  background:var(--navy); color:var(--cream);
+  line-height:1.75; overflow-x:hidden;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 600px 800px at 88% 25%,rgba(201,168,76,0.04) 0%,transparent 55%);
+}
+body::after {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.wrap { position:relative; z-index:1; }
 
-  <title>William Chuang — Logarchéon</title>
-  <meta name="description" content="William Chuang, founder of Logarchéon. Interpretable and secure AI systems: faster training, safer edits, and deployment hardening for high-assurance environments." />
+/* Typography */
+h1,h2,h3,h4 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; color:var(--cream); line-height:1.2; letter-spacing:-0.01em; }
+a { color:var(--gold); text-decoration:none; }
+a:hover { color:var(--gold-light); text-decoration:underline; }
+p { margin-bottom:1rem; color:var(--body); }
+p:last-child { margin-bottom:0; }
+.mono { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
 
-  <!-- Canonical & Social -->
-  <link rel="canonical" href="https://logarcheon.com/">
-  <meta property="og:url" content="https://logarcheon.com/">
-  <meta property="og:site_name" content="Logarchéon">
-  <meta property="og:title" content="William Chuang — Logarchéon" />
-  <meta property="og:description" content="Interpretable, certifiable AI systems: faster training, safer edits, and hardened deployment in high-assurance environments." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://logarcheon.com/img/og-card.jpg" />
-  <meta property="og:image:alt" content="Logarchéon — geometry-native AI and secure computation" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0c0f">
+/* Nav */
+nav.site-nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(10,22,40,0.97); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-dim); padding:0 28px;
+}
+.nav-inner { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:54px; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.25rem; font-weight:500; color:var(--gold-light); letter-spacing:0.02em; }
+.nav-links { display:flex; gap:1.8rem; list-style:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+.nav-links a:hover,.nav-links a.active { color:var(--gold); text-decoration:none; }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+/* Page layout */
+.page-wrap { max-width:1060px; margin:0 auto; padding:0 28px 6rem; }
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "William Chuang",
-    "url": "https://logarcheon.com/",
-    "worksFor": { "@type": "Organization", "name": "Logarchéon" },
-    "sameAs": [
-      "https://github.com/williamchuang",
-      "https://www.linkedin.com/in/chuang-william",
-      "https://orcid.org/0009-0008-0796-9478"
-    ]
-  }
-  </script>
+/* Hero */
+.hero {
+  padding:4rem 0 3rem;
+  border-bottom:1px solid var(--border-dim);
+  margin-bottom:3.5rem;
+}
+.hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem; display:flex; align-items:center; gap:0.6rem; }
+.hero-grid { display:grid; grid-template-columns:1fr 260px; gap:3rem; align-items:start; }
+.hero-left h1 { font-size:clamp(2.4rem,4.5vw,4rem); font-weight:300; margin-bottom:0.6rem; }
+.hero-left h1 em { font-style:italic; color:var(--gold-light); }
+.hero-left .title-line { font-family:"DM Mono",monospace; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:1.4rem; }
+.hero-left .lead { font-size:1.05rem; line-height:1.8; color:var(--body); max-width:58ch; }
+.hero-badges { display:flex; flex-wrap:wrap; gap:0.55rem; margin-top:1.6rem; }
+.badge {
+  font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase;
+  color:var(--gold); border:1px solid var(--border); padding:0.3rem 0.7rem; border-radius:2px;
+  background:var(--gold-pale);
+}
+.hero-right { padding-top:0.5rem; }
+.identity-card {
+  background:rgba(14,31,58,0.75); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.5rem;
+}
+.identity-card h4 { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:0.9rem; }
+.identity-card ul { list-style:none; display:grid; gap:0.5rem; }
+.identity-card li { color:var(--body); font-size:0.88rem; line-height:1.5; padding-left:1.1rem; position:relative; }
+.identity-card li::before { content:"—"; position:absolute; left:0; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:0.7rem; }
 
-  <style>
-    :root {
-      --bg: #0b0c0f;
-      --surface: #111317;
-      --card: #161a20;
-      --text: #e8ecf2;
-      --muted: #a7b0be;
-      --accent: #7dd3fc;  /* cyan-300 */
-      --accent-2: #c084fc; /* violet-400 */
-      --ring: rgba(125,211,252,.35);
-      --maxw: 1000px;
-      color-scheme: dark light;
-    }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg:#f9fafb;
-        --surface:#ffffff;
-        --card:#ffffff;
-        --text:#0b1020;
-        --muted:#4b5563;
-        --ring:rgba(99,102,241,.28);
-      }
-      a:hover { color:#4338ca }
-    }
+/* Section */
+.section { margin-bottom:var(--section-gap); }
+.section-header { display:flex; align-items:baseline; gap:1.2rem; border-bottom:1px solid var(--border-dim); padding-bottom:0.9rem; margin-bottom:2rem; }
+.section-num { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
 
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(1200px 600px at 10% -5%, rgba(125,211,252,.08), transparent 50%),
-        radial-gradient(1400px 700px at 110% 10%, rgba(192,132,252,.08), transparent 50%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
-      line-height: 1.6;
-      font-size: 17px;
-    }
+/* Prose blocks */
+.prose { max-width:70ch; }
+.prose p { color:var(--body); }
+.prose p + p { margin-top:0.9rem; }
+.prose strong { color:var(--cream); }
 
-    /* Accessibility */
-    .visually-hidden-focusable {
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .visually-hidden-focusable:focus {
-      position:static; width:auto; height:auto; padding:.5rem .75rem;
-      background:var(--surface); border:1px solid var(--accent); border-radius:.5rem;
-    }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Two-column prose */
+.prose-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
 
-    /* Shell */
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 2rem 1.25rem; }
-    header.site { padding: 3rem 0 1rem; }
+/* Research programme card */
+.programme-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.6rem; margin-bottom:1.2rem;
+  border-left:3px solid var(--gold-dim);
+  transition:border-color 0.2s;
+}
+.programme-card:hover { border-left-color:var(--gold); }
+.programme-card h3 { font-size:1.05rem; color:var(--cream); margin-bottom:0.35rem; }
+.programme-card .card-meta { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.5rem; }
+.programme-card .card-meta span::after { content:" ·"; margin-left:0.25rem; }
+.programme-card .card-meta span:last-child::after { content:""; }
+.programme-card p { color:var(--body); font-size:0.9rem; line-height:1.7; margin-bottom:0; }
 
-    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-weight: 600; color: var(--muted); font-size: .8rem; }
-    h1 { font-family: Fraunces, Georgia, 'Times New Roman', serif; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 4vw, 3rem); margin: .25rem 0 .25rem; }
-    .subhead { font-size: 1.05rem; color: var(--muted); max-width: 70ch; text-align: center; margin-left: auto; margin-right: auto; }
-    .nowrap { white-space: nowrap; }
+/* Collaborator card */
+.collab-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border);
+  border-radius:4px; padding:1.6rem 1.8rem; margin-bottom:1.5rem;
+}
+.collab-card h3 { font-size:1.2rem; color:var(--cream); margin-bottom:0.25rem; }
+.collab-card .collab-title { font-size:0.9rem; color:var(--gold-light); margin-bottom:1rem; font-style:italic; }
+.collab-card p { color:var(--body); font-size:0.92rem; line-height:1.72; margin-bottom:0.75rem; }
+.collab-card p:last-child { margin-bottom:0; }
+.collab-credentials { list-style:none; display:grid; gap:0.4rem; margin-top:0.8rem; }
+.collab-credentials li { color:var(--body); font-size:0.88rem; padding-left:1.1rem; position:relative; }
+.collab-credentials li::before { content:"✓"; position:absolute; left:0; color:var(--gold); font-size:0.7rem; }
 
-    .subtitle {
-      font-size: 0.98rem;
-      color: var(--muted);
-      max-width: 80ch;
-      margin: 0.6rem auto;
-      text-align: center;
-    }
+/* Tech identity cards */
+.tech-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.2rem; }
+.tech-card {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.1rem 1.3rem;
+}
+.tech-card h4 { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+.tech-card p { color:var(--muted); font-size:0.84rem; line-height:1.6; margin-bottom:0; }
 
-    .subtitle.tagline {
-      font-size: 0.9rem;
-      margin-top: 0.8rem;
-      max-width: 70ch;
-    }
+/* Manifesto pull-quote */
+.pull-quote {
+  border-left:3px solid var(--gold-dim); padding:1.1rem 1.4rem;
+  margin:1.5rem 0; background:rgba(14,31,58,0.5); border-radius:0 4px 4px 0;
+  font-style:italic; color:var(--body); font-size:0.97rem; line-height:1.75;
+}
+.pull-quote cite { display:block; font-style:normal; margin-top:0.5rem; font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); }
 
-    .content-text {
-      max-width: 80ch;
-      margin: 0.4rem auto;
-    }
+/* Faith section */
+.cross { color:var(--gold-dim); font-size:1rem; margin:0 0.3rem; }
+.patron-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
+.patron-card { background:rgba(14,31,58,0.5); border:1px solid var(--border-dim); border-radius:4px; padding:1rem 1.2rem; }
+.patron-card h4 { font-size:0.97rem; color:var(--cream); margin-bottom:0.3rem; }
+.patron-card p { color:var(--muted); font-size:0.83rem; line-height:1.6; margin-bottom:0; }
+.daily-prayer { background:rgba(14,31,58,0.7); border:1px solid var(--border-dim); border-radius:4px; padding:1.4rem 1.6rem; margin-top:1.4rem; font-size:0.9rem; color:var(--body); line-height:1.8; font-style:italic; }
+.daily-prayer .prayer-source { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin-top:0.8rem; display:block; font-style:normal; }
 
-    /* Top nav */
-    nav.top-nav {
-      position: sticky; top: 0; z-index: 10;
-      background: color-mix(in oklab, var(--bg) 80%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    nav.top-nav ul {
-      list-style: none; margin: 0; padding: .7rem 1rem;
-      display: flex; gap: .75rem; align-items: center; flex-wrap: wrap;
-    }
-    nav.top-nav a {
-      color: var(--muted); text-decoration: none; font-weight: 600; font-size: .92rem;
-      padding: .4rem .6rem; border-radius: .6rem;
-    }
-    nav.top-nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+/* Contact */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-top:1rem; }
+.contact-item { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; }
+.contact-item .label { color:var(--faint); text-transform:uppercase; letter-spacing:0.1em; font-size:0.62rem; display:block; margin-bottom:0.2rem; }
+.contact-item a,.contact-item span { color:var(--body); }
+.contact-item a:hover { color:var(--gold-light); }
 
-    /* Anchor landing under sticky nav */
-    section[id], article[id], aside[id] { scroll-margin-top: 4.5rem; }
+/* Footer */
+footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--faint); text-align:center; }
 
-    /* Sections & cards */
-    section { padding: 2.25rem 0; border-top: 1px dashed rgba(255,255,255,.06); }
-    section:first-of-type { border-top: none; }
-    h2 {
-      font-family: Fraunces, Georgia, 'Times New Roman', serif;
-      font-weight: 800; letter-spacing: -0.01em;
-      font-size: clamp(1.4rem, 2.6vw, 2rem); margin: 0 0 .75rem;
-    }
-    h3 { font-weight: 800; letter-spacing: -.01em; font-size: 1.1rem; margin: 1.25rem 0 .25rem; }
-    p.lede { font-size: 1.05rem; color: var(--muted); max-width: 75ch; }
-    p, li { max-width: 80ch; }
-
-    .card {
-      background: linear-gradient(180deg,
-        color-mix(in oklab, var(--card) 92%, transparent),
-        color-mix(in oklab, var(--card) 96%, transparent)
-      );
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: 14px;
-      padding: 1.1rem 1.25rem;
-      box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
-    }
-
-    .grid { display: grid; gap: 1rem; }
-    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    @media (max-width: 900px) {
-      .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
-    }
-
-    .callout {
-      border-left: 3px solid var(--accent);
-      padding-left: .9rem; margin: 1rem 0; color: var(--muted);
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .8rem; color: var(--muted);
-      padding: .25rem .55rem; background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08); border-radius: 999px;
-    }
-    .kicker {
-      color: var(--muted); font-weight: 700; text-transform: uppercase;
-      letter-spacing: .12em; font-size: .78rem;
-    }
-
-    .math { font-variant-numeric: lining-nums, tabular-nums; font-weight: 600; }
-    .kbd {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      background: rgba(255,255,255,.06); padding: .15rem .35rem; border-radius: .4rem;
-      font-size: .9em; border: 1px solid rgba(255,255,255,.1);
-    }
-
-    a { color: var(--accent); text-underline-offset: .2em; }
-    a:hover { color: var(--accent-2); }
-
-    footer { padding: 3rem 0 4rem; color: var(--muted); }
-    .hr {
-      height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
-      border: none; margin: 1.5rem 0;
-    }
-
-    /* TOC chips */
-    .toc {
-      display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 0;
-      justify-content: center;
-    }
-    .toc a {
-      font-size: .85rem; color: var(--muted);
-      border: 1px solid rgba(255,255,255,.1);
-      padding: .25rem .55rem; border-radius: 999px;
-      text-decoration: none;
-    }
-    .toc a:hover { color: var(--text); background: rgba(255,255,255,.06); }
-
-    /* Emphasis box */
-    .emph-box {
-      border-left: 4px solid var(--accent);
-      background: linear-gradient(
-        90deg,
-        color-mix(in oklab, var(--card) 96%, transparent),
-        color-mix(in oklab, var(--card) 92%, transparent)
-      );
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: 14px;
-      padding: 1.1rem 1.25rem;
-      box-shadow: 0 10px 25px -20px rgba(0,0,0,.6);
-      margin-top: 1rem;
-    }
-
-    blockquote {
-      margin: 1rem 0; padding-left: 1rem;
-      border-left: 3px solid rgba(255,255,255,.18);
-      color: var(--muted);
-    }
-
-    .prayer-card { margin-top: 1rem; }
-
-    .footer-links {
-      list-style: none; padding: 0; margin: 0 0 0.5rem 0;
-      display: flex; flex-wrap: wrap; gap: .75rem;
-    }
-    .footer-links a { font-size: .9rem; }
-
-    @media (max-width: 640px) {
-      header.site { padding-top: 2.25rem; }
-    }
-  </style>
-
-  <!-- Your global CSS (if any) -->
-  <link rel="stylesheet" href="/css/main.css">
-
-  <!-- Conditional MathJax loader (only loads if TeX delimiters are present) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const hasTex =
-        document.body.textContent.includes('\\(') ||
-        document.body.textContent.includes('\\[') ||
-        document.body.textContent.includes('$$');
-
-      if (!hasTex) return;
-
-      const s = document.createElement('script');
-      s.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      s.async = true;
-      document.head.appendChild(s);
-    });
-  </script>
+/* Responsive */
+@media(max-width:820px) {
+  .hero-grid { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .prose-grid { grid-template-columns:1fr; }
+  .patron-grid { grid-template-columns:1fr; }
+}
+@media(max-width:520px) {
+  .tech-grid { grid-template-columns:1fr; }
+}
+</style>
 </head>
 <body>
+<div class="wrap">
 
-  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarch&eacute;on</a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">About</a></li>
+      <li><a href="/Research">Research</a></li>
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/MIA">MIA</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- Top navigation -->
-  <header>
-    <nav class="top-nav" aria-label="Primary">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/About">About</a></li>
-        <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
-        <li><a href="/files/william_resume.pdf">Resume</a></li>
-        <li><a href="/files/William_advanced_mathematics_courses.pdf">Math Courses Taken</a></li>
-        <li><a href="/Research">Research</a></li>
-        <!-- <li><a href="/Teaching">Teaching</a></li>-->
-        <!-- <li><a href="/My%20Schedule">My Schedule</a></li>-->
-      </ul>
-    </nav>
-  </header>
+<div class="page-wrap">
 
-  <main id="main" class="container">
-
-    <!-- Hero / landing -->
-    <header class="site" aria-labelledby="site-title">
-      <div class="eyebrow">Founder, Logarchéon</div>
-      <h1 id="site-title">William Chuang</h1>
-      <p class="subhead">
-        Architect of interpretable AI systems · Researcher in secure computation &amp;
-        <span class="nowrap">symbolic dynamics</span>
+<!-- ═══════════════════════════════════════ HERO ══════════════════════════════════ -->
+<header class="hero">
+  <div class="breadcrumb">
+    <span>Logarch&eacute;on Inc.</span>
+    <span style="color:var(--border);">/</span>
+    <span>About</span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <h1>William<br><em>Huanshan Chuang</em></h1>
+      <p class="title-line">M.S., M.A. &nbsp;·&nbsp; Founder, Logarch&eacute;on Inc. &nbsp;·&nbsp; Greater Tucson Area</p>
+      <p class="lead">
+        Independent researcher and founder working at the convergence of
+        AI architecture, international law, and Indo-Pacific security.
+        I build auditable, physically-grounded AI systems and conduct
+        long-horizon research in lawfare, financial statecraft,
+        and civilizational succession doctrine—under a single vocation:
+        precision in service of peace, and systems that remain
+        accountable under uncertainty.
       </p>
-      <p class="subtitle">
-        I build <strong>self-correcting, interpretable transformer systems</strong> that train faster,
-        edit safely, and can run inside <strong>geometry-native, twin-capable cryptographic wrappers</strong>.
-      </p>
-
-      <!-- Micro-bio / orientation (above the fold) -->
-      <div class="card emph-box" id="micro-bio" aria-label="Orientation">
-        <div class="kicker">Orientation</div>
-        <p class="content-text">
-          <strong>Vocation:</strong> geometry, control, and secure computation ordered to human dignity—so that
-          precision serves peace and systems remain auditable under uncertainty.
-        </p>
-        <p class="content-text">
-          <strong>Working model:</strong> proof-backed prototypes and non-enabling public summaries; deeper technical
-          materials available via NDA/export-control compliant channels for licensing or joint development.
-        </p>
+      <div class="hero-badges">
+        <span class="badge">Physical ASI Seed &nbsp;· &nbsp;Patent 64/067,703</span>
+        <span class="badge">9+ Patent Applications &nbsp;· &nbsp;2025</span>
+        <span class="badge">4th Degree K of C &nbsp;· &nbsp;Fr. McGivney Assembly</span>
+        <span class="badge">Auxiliary &amp; Provisional Member, Order of Malta</span>
+        <span class="badge">Phoenix Committee on Foreign Relations</span>
+        <span class="badge">Indo-Pacific Lawfare Research &nbsp;· &nbsp;2026</span>
       </div>
-
-      <div class="toc" aria-label="Quick links">
-        <a href="#one-liner">One-liner</a>
-        <a href="#evidence">Evidence</a>
-        <a href="#pillars">Three pillars</a>
-        <a href="#product">Λ-Stack</a>
-        <a href="#company">Logarchéon</a>
-        <a href="#mia-now">MIA</a>
-        <a href="#bio-full">About</a>
-        <a href="#manifesto">Manifesto</a>
-        <a href="#patrons">Patrons</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </header>
-
-    <!-- One-liner -->
-    <section id="one-liner" aria-labelledby="one-liner-h">
-      <h2 id="one-liner-h">One-liner</h2>
-      <div class="card">
-        <p>
-          I build <strong>interpretable, certifiable transformer systems</strong> that train faster, edit
-          safely, and can run inside <strong>secure, geometry-native cryptographic wrappers</strong>.
-        </p>
-        <p class="callout">
-          <span class="badge">Goal</span>
-          <strong>Rigor + practice.</strong> Each idea comes with proofs or certificates plus runnable
-          prototypes and small-scale demos.
-        </p>
-      </div>
-    </section>
-
-    <!-- Evidence & claims (moved up) -->
-    <section id="evidence" aria-labelledby="evidence-h">
-      <h2 id="evidence-h">Evidence &amp; claims — how to read</h2>
-      <div class="card">
+    </div>
+    <div class="hero-right">
+      <div class="identity-card">
+        <h4>Credentials at a glance</h4>
         <ul>
-          <li>
-            <strong>Performance (GRAIL).</strong>
-            GRAIL performs the same math as a plaintext model and therefore runs at essentially plaintext
-            speed. Any comparison to fully homomorphic encryption (FHE) or multi-party computation (MPC)
-            reflects the overhead added by those schemes, not by GRAIL. Exact slowdowns for FHE/MPC depend
-            on scheme, precision, hardware, and task.
-          </li>
-
-          <li>
-            <strong>Scope of protection.</strong>
-            Parameters, activations, and latent states are protected via a group-action / symbolic-geometry
-            transform; both the <em>model</em> and the <em>data</em> remain encrypted in use. Security is
-            deployment-dependent: once the system is operated inside a
-            <abbr title="Sensitive Compartmented Information Facility">SCIF</abbr> or an equivalently
-            isolated posture (air-gapped, shielded/TEMPEST-class enclosure, no external I/O), external
-            side-channels (network beacons, vendor telemetry, remote DMA, RF/EM egress) are greatly
-            reduced for that system. Before such isolation, standard side-channel and operational risks
-            apply, and routine hardening (I/O policy, audit logging, rate-limits, constant-time paths
-            where feasible) remains required.
-          </li>
-
-          <li>
-            <strong>Stability &amp; edit safety.</strong>
-            Each version includes entropy-corridor bounds, deviation limits, and edit-stability
-            certificates (time, memory, parameter coverage) showing that controlled local edits do not
-            trigger unbounded downstream drift.
-          </li>
-
-          <li>
-            <strong>Demonstrations &amp; audits.</strong>
-            I show real-time control of the inverse-temperature parameter β and verified edit-without-retrain
-            behavior. Independent benchmarking, replication, and third-party cryptographic review are welcome
-            under representative workloads.
-          </li>
+          <li>M.S. Mathematics, University of Arizona</li>
+          <li>M.A. Mathematics, San Francisco State University</li>
+          <li>Theoretical physics, National Taiwan University &amp; National Dong Hwa University (1st in cohort)</li>
+          <li>Founder &amp; sole researcher, Logarcheon Inc. (est. 2024)</li>
+          <li>Active Indo-Pacific IR/IL research programme (pre-publication)</li>
+          <li>ORCID: <a href="https://orcid.org/0009-0008-0796-9478" target="_blank">0009-0008-0796-9478</a></li>
         </ul>
       </div>
-    </section>
+    </div>
+  </div>
+</header>
 
-    <!-- Three pillars -->
-    <section id="pillars" aria-labelledby="pillars-h">
-      <h2 id="pillars-h">Three pillars — what they are and what they provide</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <div class="kicker">1) Efficiency (CEAS)</div>
-          <ul>
-            <li>
-              <strong>What it is.</strong>
-              CEAS (Critical Entropy Attention System) is a control-theoretic attention scaling scheme
-              that treats the scaling factor as an explicit inverse temperature
-              <span class="math">β</span> and keeps attention entropy inside a target corridor.
-            </li>
-            <li>
-              <strong>What it provides.</strong>
-              Fewer steps-to-target and more stable training—especially on long-context or brittle setups.
-              Instead of a fixed <span class="math">1/\sqrt{d_k}</span> guess, CEAS actively steers
-              attention away from over-sharp and over-flat regimes and surfaces entropy/energy diagnostics
-              you can monitor and audit.
-            </li>
-            <li>
-              <strong>How / when you use it.</strong>
-              Drop it in where you would normally hard-code attention scaling: during pre-training,
-              fine-tuning, or domain adaptation when training budget and numerical stability matter.
-              It can run in a “search then clamp” mode (early β search, then fixed) or a lightweight
-              online-control mode with entropy feedback.
-            </li>
-          </ul>
+<!-- ═══════════════════════════════════════ §1 LOGARCHEON ══════════════════════════ -->
+<section class="section" id="logarcheon">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Logarch&eacute;on Inc.</h2>
+  </div>
+
+  <div class="prose-grid">
+    <div class="prose">
+      <p>
+        Logarch&eacute;on Inc. is an independent C-Corporation research laboratory
+        structured around a single human founder and a recursive stack of autonomous
+        AI agents. It is an IP-first operation: what it produces is patentable
+        invention, working demonstrations, and experimentally validated claims—not
+        commodity software or consulting deliverables.
+      </p>
+      <p>
+        The laboratory&rsquo;s primary research identity has evolved from an
+        encryption-centric framing toward the <strong>Physical ASI Seed</strong>
+        as the founding concept: U.S. Provisional Patent 64/067,703, which defines
+        a physically-grounded architecture for general artificial intelligence
+        rooted in thermodynamic first principles, symbolic operator theory,
+        and geometric computation. This seed underlies the entire portfolio—
+        CEAS, GRAIL, MIA, and the Ψ-operator framework—and re-positions
+        Logarch&eacute;on not as a cryptography company but as a
+        <em>geometry-native recursive intelligence laboratory</em>.
+      </p>
+      <div style="margin:1.8rem 0;padding:1.4rem 1.6rem;background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;">
+        <h3 style="font-size:1.15rem;color:var(--gold-light);margin-bottom:1rem;font-family:'Cormorant Garamond',serif;">The Name</h3>
+
+        <p style="color:var(--body);font-size:0.93rem;line-height:1.8;margin-bottom:1rem;">
+          The name was coined from a single verse read in Greek:
+        </p>
+
+        <div style="background:rgba(8,24,52,0.8);border:1px solid var(--border);border-radius:3px;padding:1rem 1.3rem;margin-bottom:1.2rem;text-align:center;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--cream);margin-bottom:0.4rem;font-style:italic;">
+            &Epsilon;&nu; <strong style="color:var(--gold-light);">&alpha;&rho;&chi;&eta;&#774;</strong> &eta;&nu; &omicron;
+            <strong style="color:var(--gold-light);">&Lambda;&omicron;&gamma;&omicron;&sigmaf;</strong>
+          </p>
+          <p style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;">
+            John 1:1 &mdash; in the beginning was the word
+          </p>
+          <p style="color:var(--body);font-size:0.88rem;margin-bottom:0;">
+            &ldquo;In the <strong>beginning</strong> [<em>arch&#275;</em>] was the <strong>Word</strong> [<em>Logos</em>].&rdquo;
+          </p>
         </div>
 
-        <div class="card">
-          <div class="kicker">2) Interpretability (Finite-Machine Lift)</div>
-          <ul>
-            <li>
-              <strong>What it is.</strong>
-              Finite-Machine Lift is a procedure that takes the closed-loop behavior of a trained model
-              and lifts it to a finite operator <span class="math">P = D + N</span>, decomposed into
-              cycles (<span class="math">D</span>) and transients (<span class="math">N</span>), with
-              runtime sentinels and cycle projectors.
-            </li>
-            <li>
-              <strong>What it provides.</strong>
-              Symbolic traces of how the system actually behaves, stable subspaces in which local edits
-              can be made, and <strong>edit-without-retrain</strong> guarantees: you can patch logic or
-              behavior while bounding deviation on a protected manifold instead of paying for a full retrain.
-            </li>
-            <li>
-              <strong>How / when you use it.</strong>
-              Apply it to a model that is already trained and deployed (or about to be deployed) when you
-              need explainability, post-hoc audits, or targeted fixes: safety-critical updates, policy
-              changes, red-team findings, or compliance-driven edits.
-            </li>
-          </ul>
+        <p style="color:var(--body);font-size:0.93rem;line-height:1.8;margin-bottom:1rem;">
+          All three elements of the name were extracted simultaneously from this verse
+          and its immediate Johannine context &mdash; the verse did not merely illustrate
+          a name already chosen; it generated it:
+        </p>
+
+        <p style="color:var(--body);font-size:0.93rem;line-height:1.8;margin-bottom:0.5rem;">
+          <strong style="color:var(--cream);">Log&ndash;</strong> &nbsp;&mdash;&nbsp;
+          <strong>Logos</strong> (&Lambda;&omicron;&gamma;&omicron;&sigmaf;), the Word:
+          directly from John 1:1.
+          John 8:12: &ldquo;I am the light of the world.&rdquo;
+          Genesis 1:3: &ldquo;God <em>said</em>, Let there be light.&rdquo;
+          The Word precedes the light; the light points back to the Word.
+        </p>
+
+        <p style="color:var(--body);font-size:0.93rem;line-height:1.8;margin-bottom:0.5rem;">
+          <strong style="color:var(--cream);">&ndash;arch&ndash;</strong> &nbsp;&mdash;&nbsp;
+          <strong>Archē</strong> (&alpha;&rho;&chi;&eta;&#774;, <em>arch&#275;</em>),
+          the first word of John 1:1 in Greek:
+          <em>&ldquo;In the <strong>beginning</strong>&rdquo;</em> &mdash;
+          meaning beginning, first principle, origin.
+          The same root as archangel, architect, archive.
+          And simultaneously <strong>Ark</strong> (Latin <em>arca</em>):
+          three arks nested &mdash; Noah&rsquo;s ark (<em>arca Noe</em>),
+          the Ark of the Covenant (<em>arca foederis</em>),
+          and Mary as the new Ark of the Covenant, type of the Church.
+          The <em>h</em> holds both readings open.
+          (<em>Arch&#275;</em>, ἀρχή, is a different word from ἄρχων,
+          <em>arch&#333;n</em> &mdash; ruler or magistrate &mdash;
+          a different vowel, a different meaning entirely.)
+        </p>
+
+        <p style="color:var(--body);font-size:0.93rem;line-height:1.8;margin-bottom:1rem;">
+          <strong style="color:var(--cream);">&ndash;eon</strong> &nbsp;&mdash;&nbsp;
+          <strong>Aiōn</strong> (&alpha;&iota;&omega;&#769;&nu;, <em>ai&omicron;n</em>):
+          age, era, eternity &mdash; the eternal Word, the span of all time.
+          It also resonates with <strong>covenant</strong>: each ark is a vessel
+          of God&rsquo;s abiding promise, and the Ark of the Covenant
+          (<em>arca foederis</em>) bears the word covenant at its heart.
+        </p>
+
+        <p style="color:var(--body);font-size:0.93rem;line-height:1.8;margin-bottom:1rem;">
+          The same verse that generated the name also contains
+          the full arc of the theology behind it.
+          John 1:1 opens, as Genesis 1:1 does, with <em>In the beginning</em> (ἀρχή) &mdash;
+          the Word (<em>Logos</em>) was there before all things;
+          through the Word came light (John 1:3&ndash;5);
+          the Word became flesh and <em>dwelt among us</em> (John 1:14) &mdash;
+          the eternal tabernacling, the true Ark among his people,
+          through all ages (<em>ai&omicron;n</em>).
+        </p>
+
+        <p style="color:var(--gold-dim);font-size:0.85rem;line-height:1.8;margin-bottom:0;font-family:'DM Mono',monospace;letter-spacing:0.04em;border-top:1px solid var(--border-dim);padding-top:0.8rem;">
+          <strong style="color:var(--gold-light);">Log</strong>
+          (Logos &mdash; the Word) &nbsp;+&nbsp;
+          <strong style="color:var(--gold-light);">arch</strong>
+          (Arch&#275; &mdash; the Beginning &nbsp;/&nbsp; Arca &mdash; the Ark) &nbsp;+&nbsp;
+          <strong style="color:var(--gold-light);">eon</strong>
+          (Ai&omicron;n &mdash; Eternity &nbsp;/&nbsp; Covenant)
+          <br>
+          <span style="color:var(--faint);">
+          All three from one verse &mdash; John 1:1 in Greek &mdash; founded 2025.
+          </span>
+        </p>
+      </div>
+
+      <p>
+        Alongside the AI architecture programme, Logarch&eacute;on now carries
+        a co-equal identity in <strong>international relations and international law
+        research</strong>, under the banner Indo-Pacific Lawfare Research. This dual identity—AI architecture and IR/IL
+        scholarship—is not a diversification; it is a single vocation expressed
+        in two registers.
+      </p>
+    </div>
+    <div>
+      <div class="tech-grid" style="grid-template-columns:1fr;">
+        <div class="tech-card">
+          <h4>Research identity &mdash; AI Architecture</h4>
+          <p>Physical ASI Seed (patent 64/067,703); CEAS entropy-controlled attention; GRAIL geometry-native representation algebra; MIA metric-invariant architecture; Ψ-operator symbolic framework. 9+ patent applications filed 2025.</p>
         </div>
-
-        <div class="card">
-          <div class="kicker">3) Security &amp; Substrate Portability (GRAIL → MIA)</div>
-          <ul>
-            <li>
-              <strong>What it is.</strong>
-              GRAIL → MIA is a security and substrate-portability layer that centers computation on
-              <em>invariants of groups</em> and diagonal transport: inputs, machine state, and outputs
-              move together under group action, while internal encodings remain flexible and non-unique.
-            </li>
-            <li>
-              <strong>What it provides.</strong>
-              <strong>Cryptomorphic twins</strong> (weight-distinct, function-identical deployments),
-              hardware freedom (runs in software today, accelerates on FPGAs or mature nodes later), and
-              a reduced attack surface: stealing one instance does not give a unique blueprint for all others.
-            </li>
-            <li>
-              <strong>How / when you use it.</strong>
-              Bring it in at the deployment and systems layer when models or controllers must run in regulated,
-              high-assurance, or IP-sensitive environments. Start with software-only shims; move to ISA/PLC
-              overlays or custom blocks when you want higher throughput or per-device twin hardening.
-            </li>
-          </ul>
+        <div class="tech-card">
+          <h4>Research identity &mdash; IR/IL</h4>
+          <p>Indo-Pacific security architecture; international law; financial statecraft; structured analytic tradecraft (KAC, ACH, MECE, ICD&nbsp;203). Active programme under way; details disclosed upon publication.</p>
+        </div>
+        <div class="tech-card">
+          <h4>Operating model</h4>
+          <p>Human founder sets direction and standards. Recursive AI agent stack executes proofs, simulations, and technical writing. Public materials are non-enabling summaries; full technical materials available under NDA and export-control compliance.</p>
         </div>
       </div>
-    </section>
-
-    <!-- Product brief (moved up) -->
-    <section id="product" aria-labelledby="product-h">
-      <h2 id="product-h">Product brief — Λ-Stack</h2>
-      <div class="card">
-        <p><strong>Why now.</strong> Training/retraining costs, auditability requirements, and model protection pressures are rising together.</p>
-        <p><strong>What you get.</strong></p>
-        <ul>
-          <li><strong>Faster training.</strong> CEAS reduces tokens-to-target via informed β control.</li>
-          <li><strong>Safer updates.</strong> Symbolic traces + wrappers enable <strong>hour-scale fixes</strong> without a full retrain.</li>
-          <li><strong>Security by design.</strong> Optional geometry-native masking and per-tenant cryptomorphic twins.</li>
-        </ul>
-        <p><strong>Who benefits.</strong> Critical infrastructure, national missions, regulated enterprises, and labs seeking <strong>explainable</strong> and <strong>hardened</strong> LLMs.</p>
-      </div>
-    </section>
-
-    <!-- Company / posture -->
-    <section id="company" aria-labelledby="company-h">
-      <h2 id="company-h">Logarchéon — geometry-native recursive agent lab</h2>
-
-      <div class="card">
-        <p class="lede">
-          <strong>Logarchéon Inc.</strong> is a one-human C-Corporation structured as an
-          <strong>IP-first research lab</strong>. I build and direct recursive teams of AI agents that
-          conduct secure, geometry-native computation—executing proofs, simulations, refinements, and
-          technical writing. Direction, priors, and standards come from years of human study in physics,
-          mathematics, symbolic systems, and secure design.
-        </p>
-        <p>
-          This is a <strong>research stack</strong>, not a commodity product company. It is
-          <em>recursive, local, interpretable, and founder-shaped</em>. The agents do the work; I
-          determine what work matters. Same models ≠ same results—because the judgment layer is
-          not downloadable.
-        </p>
-      </div>
-
-      <article class="card emph-box" id="recursive-leverage" aria-labelledby="recursive-leverage-h">
-        <div class="kicker" id="recursive-leverage-h">Recursive agent stack</div>
-        <ul>
-          <li><strong>Human priors → agent swarm.</strong> Geometry/AI/symbolic logic shape the hypothesis space; agents explore it in parallel—each task framed, bounded, and testable.</li>
-          <li><strong>Agents talk to agents.</strong> Demos, derivations, and results are passed, critiqued, and improved across agent layers—until convergence or rejection.</li>
-          <li><strong>Recursive loops, not pipelines.</strong> Each AI worker can instantiate others, forming self-refining trees of code, reasoning, and simulation. I remain the source of taste and direction.</li>
-        </ul>
-        <p class="callout">
-          <span class="badge">Why it matters</span>
-          This is not “agent-first” hype. It is
-          <em>recursive, founder-calibrated intelligence</em>. The same agents in other hands will not
-          produce the same frontier results.
-        </p>
-      </article>
-    </section>
-
-    <!-- Institutional model -->
-    <article class="card emph-box" id="formation" aria-labelledby="formation-h">
-      <div class="kicker" id="formation-h">Institutional model — recursive IP lab, C-Corp</div>
-      <p>
-        <strong>Logarchéon Inc.</strong> is a C-Corporation operated by a single human founder with a
-        recursive stack of <strong>autonomous AI agents</strong>—each trained, directed, and coordinated
-        to execute tightly scoped research and engineering tasks. Wherever this site says
-        <em>“we”</em> or <em>“our”</em>, it means the founder + agents working in unison to produce
-        original, defensible intellectual property.
-      </p>
-      <ul>
-        <li><strong>What we produce.</strong> Patentable inventions, working demos, proofs-of-concept, and <em>experimentally validated</em> claims. Public summaries are deliberately non-enabling; full technical materials are available under NDA/export-controlled access.</li>
-        <li><strong>Commercialization pathway.</strong> IP is available for <strong>licensing, joint development, or secure transfer</strong>. Deployments are often per-tenant and partner-specific, with options for cryptomorphic twins or interpretable derivatives.</li>
-        <li><strong>Manufacturing posture.</strong> Logarchéon does not run physical production. Hardware implementations or productization are handled by licensed partners or downstream integrators.</li>
-        <li><strong>Scientific discipline.</strong> Every prototype includes reproducible traces, entropy metrics, code audits, and provenance logging to support independent verification.</li>
-      </ul>
-      <p class="callout">
-        <span class="badge">Summary</span>
-        <strong>One founder + recursive AI agents</strong> generating proof-backed IP in geometry,
-        symbolic reasoning, and secure computation. Partners bring scale; Logarchéon provides the design.
-      </p>
-    </article>
-
-    <!-- Research highlight -->
-    <aside id="automorphic-callout" class="card emph-box" role="note" aria-label="Automorphic attention highlight">
-      <div class="kicker">Research highlight</div>
-      <p>
-        I construct an attention mechanism that natively lives on <strong>hyperbolic geometry</strong>
-        and uses <strong>automorphic (Maass-type) kernels</strong>. A critical-entropy controller (CEAS)
-        regulates the inverse temperature so that attention entropy hovers near a pseudo-critical point.
-      </p>
-      <p>
-        <span class="nowrap">Within this setting, the classic Langlands triad is realized inside a neural operator:</span>
-        <span class="nowrap">automorphic</span> ⟷ <span class="nowrap">Galois</span> ⟷ <span class="nowrap">motive</span>.
-      </p>
-      <p class="callout">
-        <span class="badge">Note</span>
-        MIA/GRAIL use <em>invariants of groups</em> with diagonal transport of inputs, machine state, and outputs
-        — not equivariance of inputs alone.
-      </p>
-    </aside>
-
-    <!-- Overview -->
-    <section id="overview" aria-labelledby="overview-h">
-      <h2 id="overview-h">Overview</h2>
-      <p class="lede">
-        I design at the intersection of <strong>geometry, control, and security</strong>. Recent work treats
-        attention temperature <span class="math">β</span> as a controllable parameter; lifts trained models into
-        <strong>finite operators</strong> for certified edit-without-retrain; and develops MIA (GRAIL-derived),
-        a metric-invariant architecture where <em>invariants of groups</em> drive computation. Inputs, machine
-        state, and outputs transform together (diagonal action), preserving behavior while enabling
-        <strong>cryptomorphic twin</strong> deployments. Adoption starts in AI and extends to the ISA/system
-        layer without new hardware; software shims compute invariants today, with optional FPGA or older-node
-        acceleration later.
-      </p>
-    </section>
-
-    <!-- MIA -->
-    <section id="mia-now" aria-labelledby="mia-now-h">
-      <h2 id="mia-now-h">MIA — what it is and what it provides</h2>
-
-      <article class="card">
-        <div class="kicker">Summary — what / what for / how</div>
-        <ul>
-          <li>
-            <strong>What it is.</strong>
-            MIA (Metric-Invariant Architecture) is an
-            <strong>invariant-first compute style</strong>: decisions are made from group-invariant
-            quantities (distances, ratios, Hamming counts, cross-ratios, etc.), and inputs, machine
-            state, and outputs transform together (diagonal action) under group symmetries.
-          </li>
-          <li>
-            <strong>What it provides.</strong>
-            Stable behavior across coordinate changes and reparameterizations; per-device or per-tenant
-            <strong>cryptomorphic twins</strong>; better tolerance for noise, drift, and fixture slop;
-            and an easier path to move the same logic across CPUs, PLCs, FPGAs, or mature-node ASICs
-            without constant re-teaching.
-          </li>
-          <li>
-            <strong>How / when you use it.</strong>
-            Start by inserting MIA as a <em>software shim</em> around one kernel or control loop:
-            compute invariants, feed the existing controller/model, and compare tolerance, uptime,
-            and attack surface. When you see the gains, you migrate more subsystems or push the pattern
-            down into the ISA/PLC level for higher throughput and stronger per-device twin guarantees.
-          </li>
-        </ul>
-      </article>
-
-      <div class="grid cols-2">
-        <article class="card">
-          <div class="kicker">Drop-in, no rip-and-replace</div>
-          <p class="lede">
-            Adopt as a software shim: compute <em>invariants</em> (distances, ratios, Hamming counts,
-            cross-ratios) and feed existing controllers or models with those numbers instead of raw
-            coordinates/IDs.
-          </p>
-          <div class="callout">
-            <span class="badge">Is new hardware required?</span>
-            Usually not. Software blocks compute invariants. If hardware acceleration is desired later,
-            FPGAs and even older-node chips compute these features efficiently.
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="kicker">From AI → whole stack</div>
-          <p>
-            Started inside LLMs/transformers and neural nets; now extended to the machine/ISA layer so that
-            CPUs/PLCs can run with the same invariant-first semantics. When the platform runs in this style,
-            everything on it inherits the <strong>twin</strong> property (cryptomorphic, function-identical
-            deployments).
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Tolerance &amp; uptime for robotics/PLC</div>
-          <ul>
-            <li>Drift-proof control: use distances/angles/ratios and order-free aggregates—<em>not</em> absolute X/Y/Z or sensor IDs.</li>
-            <li>Graceful dropouts via redundant invariants: one probe fails, the control signal persists.</li>
-            <li>Looser fixtures: larger mechanical tolerances without re-teach; fewer stops for recalibration.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Compute without bleeding-edge fabs</div>
-          <p>
-            Invariant evaluation prefers add/shift/XOR/popcount and small LUTs or CORDIC; giant multiplier
-            arrays are optional. Most use-cases do <strong>not</strong> demand sub-100 nm nodes—28–180 nm,
-            FPGAs, or mixed-signal blocks are viable.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Security by construction (twins)</div>
-          <p>
-            Inputs, machine state, and outputs transform <em>together</em> under group action (diagonal move).
-            Behavior is preserved while internal encodings differ—per-device/site <strong>twins</strong> for
-            anti-cloning and licensing, compatible with GRAIL-style deployments.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Less memory/interconnect pain</div>
-          <p>
-            Many “reorders” compile to <em>address math</em> (orbit-in-place) rather than physical data
-            shuffles—lower traffic, lower energy, simpler scaling.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Exactness is testable</div>
-          <ul>
-            <li><strong>Format-true</strong>: reproduce standard int/fp results bit-for-bit (including IEEE-754 flags).</li>
-            <li><strong>Approx + tiny fix-up</strong>: cheap core + ±1 ulp correction LUT → still bit-identical on all cases.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="kicker">Adopt this week</div>
-          <ol>
-            <li>Pick a multiply-heavy kernel (or a drift-sensitive control loop).</li>
-            <li>Swap raw measurements for invariants (L1/Hamming/cross-ratio/ratios).</li>
-            <li>Wrap the ABI once (encode/decode), keep apps/tests unchanged.</li>
-            <li>Optional: add “orbit-in-place” address transforms for common reorders.</li>
-          </ol>
-          <p class="callout">
-            <span class="badge">RISC-V / PLC</span>
-            Works as a micro-op overlay (<span class="kbd">DISTMUL</span>, <span class="kbd">DISTCMP</span>, <span class="kbd">KERNELACC</span>)
-            or as PLC function blocks (<span class="kbd">DISTCMP</span>, <span class="kbd">RATIO</span>, <span class="kbd">REDUCE</span>, <span class="kbd">INVPID</span>).
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <aside class="card emph-box" id="mia-one-liner" role="note" aria-label="Invariant-first summary">
-      <div class="kicker">Invariant-first compute</div>
-      <p>
-        Replace fragile scalars with <em>group-invariant</em> numbers. Move inputs, machine state, and
-        outputs together; behavior stays fixed while internals vary. Result: runs today in software,
-        accelerates on FPGAs or mature nodes, raises robotic tolerance, and ships as
-        <strong>per-device twins</strong> for security.
-      </p>
-    </aside>
-
-
-<!-- Bio (merged from About page) -->
-<section id="bio-full" aria-labelledby="bio-h">
-  <h2 id="bio-h">Vocation &amp; biography</h2>
-  <article class="card">
-    <p class="subtitle">
-      Founder, Logarchéon · Architect of self-correcting, interpretable AI systems · Researcher in secure
-      computation &amp; symbolic dynamics
-    </p>
-
-    <p class="content-text">
-      I design at the intersection of geometry, learning, and secure systems—where form reveals function and
-      structure encodes meaning. My research seeks mathematically grounded architectures built on symmetry,
-      topology, and spectral dynamics, oriented to the common good and the dignity of the human person. Core
-      applications include interpretable machine learning, privacy-preserving compute, and humanitarian resilience.
-    </p>
-
-    <p class="content-text">
-      Recent projects include transformers governed by Möbius flows and Lie symmetries; Langlands-dual attention
-      layers for structured reasoning; and cryptographic primitives based on modular trace zeta functions and
-      symbolic entropy compression. These are not mere technical novelties—they are durable frameworks intended
-      to preserve coherence and interpretability in adversarial environments.
-    </p>
-
-    <p class="content-text">
-      I treat mathematical rigor as an act of fidelity. Security is not merely defense; it is the protection of
-      dignity under uncertainty. Learning is not only optimization; it is formation through symmetry and disciplined
-      constraint. My work is shaped by physics and number theory and, no less, by a habit of interior stillness.
-    </p>
-
-    <p class="content-text">
-      As the founder of <strong>Logarchéon</strong> (launching 2025), I develop decision-support frameworks for
-      open-source analysis, cognitive modeling, and secure signal fusion in public-interest and humanitarian
-      contexts. These systems are built so that precision serves peace and information upholds truth, with ethical
-      safeguards consistent with human dignity and responsible stewardship.
-    </p>
-
-    <p class="content-text">
-      My philosophical and spiritual formation is guided by the Cistercian practice of quiet, the Jesuit discipline
-      of service through intellect, and the Order of Malta’s
-      <em>tuitio fidei et obsequium pauperum</em>—the defense of the Faith and service to the poor and the sick.
-      I pursue this work under spiritual direction and in fidelity to the Church.
-    </p>
-
-    <p class="content-text">
-      That formation is grounded in family. My Catholic ancestors in Taiwan, over many generations, supported parish
-      life by donating farmland, hosting open-air banquets, and dedicating our family home as a chapel. War and
-      hardship humbled us, but service endured.
-    </p>
-
-    <p class="content-text">
-     My grandfather and great-grandfather were Catholic, and in our family’s memory—and in local tradition—they and
-     my great-great-grandfather helped offer one house from our family estate to serve as a church in our county,
-     during a period when my great-grandfather was serving in local county leadership before World War II. The act
-     was simple and practical: a place for worship, hospitality, and ordinary parish life.
-    </p>
-
-
-    <p class="content-text">
-      My father, Prof. John B. Chuang (莊慶信), was baptized in infancy and received much of his formation within the life
-      of the Church. After elementary school he entered a petit séminaire, later continued in major seminary formation,
-      and went on to pursue advanced philosophical study. He earned a Ph.D. in Philosophy at Fu Jen Catholic University,
-      and later served in Catholic higher education under the shared guidance of diocesan leadership and multiple
-      religious communities.
-    </p>
-
-    <p class="content-text">
-      His academic work focuses on religion and ecology, Catholic environmental ethics, religious ethics and bioethics,
-      philosophy of religion, and the traditions of Chinese philosophy, culture, and religion.
-    </p>
-
-    <p class="content-text">
-      In parish life, he also served at Beibin Parish (北濱堂) in Hualien City, one of the earliest Catholic communities on
-      Taiwan’s east coast. His period of service there (1982–1983) took place while the Diocese of Hualien was shepherded by
-      Bishop Paul Shan Kuo-hsi, S.J. (單國璽), who was later created a cardinal and elevated to the College of Cardinals. Local accounts record that
-      the parish’s beginnings trace to 1949, when the home of Mr. Chou Chang-yao (周長耀)—a retired ROC air-defense officer
-      who later served as secretary to Cardinal Paul Yu Bin (于斌)—was made available for worship and community gatherings.
-      <strong>These historical notes are based on publicly available sources (diocesan/parish community accounts and other open references).</strong>
-    </p>
-
-
-    <p class="content-text">
-      During his philosophical formation at Fu Jen Catholic University, my father studied under several senior teachers who
-      helped shape both his intellectual discipline and his spiritual seriousness. Among them were Professor Yan (嚴靈峯 /
-      嚴明傑), Archbishop Luo Guang (羅光), who encouraged careful reading in classical sources (including the <em>Shan Hai Jing</em>,
-      《山海經》), and Professor Xiang (項退結), who served as his Ph.D. thesis advisor. Their influence contributed to the
-      careful style of thought and moral responsibility that has marked his teaching and service.
-    </p>
-
-    <p class="content-text">
-      As a child, I occasionally accompanied my father on visits to Professor Yan. I was not part of their conversations, but
-      the tone of those visits stayed with me: seriousness of conscience, restraint in speech, and a quiet steadiness. Even
-      without explanations, I learned that integrity is often formed slowly, through example more than words. In a similar
-      spirit of quiet kindness, Professor Xiang (項退結) and his family were generous to us as well; over the years, his son
-      passed on many books and reference volumes to me, along with a few boyhood keepsakes, and those gifts helped shape my
-      early habits of reading and study.
-    </p>
-
-    <p class="content-text">
-      <strong>Note on surnames (a historical aside):</strong> I later came across a tradition in Chinese surname history that I
-      found interesting. In some genealogical and clan accounts, 莊 (Chuang/Zhuang) and 嚴 (Yan) are treated as historically
-      connected. One strand links both surnames to the lineage associated with King Zhuang of Chu (楚莊王), one of the Spring
-      and Autumn “Five Hegemons.” Another strand is tied to Eastern Han name taboos: it is said that, to avoid the personal
-      name of Emperor Ming of Han (漢明帝, 劉莊), many families surnamed 莊 adopted 嚴 instead; the scholar Yan Ziling (嚴子陵 /
-      嚴光) is often cited as a well-known example in later tradition. After the Wei–Jin period, some branches reportedly
-      reverted to 莊 while others remained 嚴, which helps explain sayings such as “莊嚴本一家” and the existence of “莊嚴宗親會.”
-      I mention this only as a historical curiosity, not as a claim about any specific family relationship.
-    </p>
-
-
-    <p class="content-text">
-      <strong>Selected scholarly themes (John B. Chuang / 莊慶信):</strong> This body of work centers on religion and ecology,
-      Catholic environmental ethics and eco-spirituality, religious ethics, philosophy of religion, and the history of
-      Chinese philosophy and culture. Several publications engage Pope Francis’ <em>Laudato Si’</em>, including analyses of
-      its distinctive themes, its relationship to contemporary environmental thought, and its implications for Taiwanese
-      society. Earlier work includes studies on ecological concern in Catholic social thought, Catholic ethics of wealth,
-      religion and bioethics, Taoist reflections on matter and spirit, and environmental justice and indigenous eco-wisdom
-      in Taiwan. His academic publications are available on
-      <a href="https://scholar.google.com/citations?hl=zh-TW&amp;user=EUDuih4AAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
-         target="_blank" rel="noopener">Google Scholar</a>.
-    </p>
-
-    <p class="content-text">
-      In a similar way, my own formation was shaped by Catholic educational communities over many years—first through
-      St. Ignatius School and later through Jesuit university study—before I carried that discipline into technical work.
-      In total, this accounts for more than a decade of continuous enrollment, not counting the earlier years when our
-      family lived in the Fu Jen campus environment and Catholic university life quietly shaped the rhythms of home.
-    </p>
-
-    <p class="content-text">
-      In that same spirit of quiet continuity, I would like to share a personal note about my name, which carries layers of
-      familial and spiritual meaning. This is something I rarely explain, but here I offer it as part of the deeper witness
-      behind my work.
-    </p>
-
-    <p class="content-text">
-      My original Mandarin name was <strong>Tao-Mao</strong>, given in honor of <em>St. Thomas Aquinas</em>, as my birthday
-      falls near his feast day. After moving to the United States, I quietly adopted the name <strong>Huanshan</strong> as
-      part of a new beginning—both personal and spiritual.
-    </p>
-
-    <p class="content-text">
-      The name was not chosen at random. I wished to express appreciation for my father, whose baptismal name is
-      <strong>John</strong>, given to him in infancy by an American Catholic priest. I hoped to reflect this meaning gently
-      and discreetly. Beginning from the English form <em>John’s son</em>—<strong>Johnson</strong>—I searched for a way to
-      express that sense of connection across languages, without calling attention to it.
-    </p>
-
-    <p class="content-text">
-      Our family name, <strong>莊</strong>, is romanized as <strong>Chuang</strong> under the <em>Wade-Giles system</em>,
-      which was widely used in Taiwan’s official and ecclesiastical records throughout the 20th century. Its pronunciation
-      is nearly identical to <strong>Jhuang</strong>, a later spelling adopted under the <em>Tongyong Pinyin system</em>
-      introduced in Taiwan in 2002. The “h” in both versions is not actually pronounced, and when softened,
-      <strong>Chuang</strong> or <strong>Jhuang</strong> resembles <strong>Juan</strong>, the Spanish form of <em>John</em>.
-      I believe this may have been how my father received his baptismal name.
-    </p>
-
-    <p class="content-text">
-      And so, beginning with <strong>Juan</strong>—pronounced <em>Huan</em> in English—I gradually shaped the Mandarin name
-      <strong>Huanshan</strong>, which quietly carries the sound and meaning of <strong>Johnson</strong>, or
-      <em>John’s son</em>. It is not something I speak of often, but for me, it has become a personal way to remember the
-      quiet grace of faith passed down through my family.
-    </p>
-
-    <p class="content-text">
-      Both my grandfather and great-grandfather were Catholic, and I was told that my great-grandfather and his father once
-      donated part of the family home to serve as a night chapel. They also offered simple meals and accommodations to
-      fellow Catholics who came through the area. These small acts of hospitality were not widely known, but they remain
-      deeply meaningful to me. In choosing the name <strong>Huanshan</strong>, I hoped to carry forward that quiet spirit
-      of faith, service, and continuity.
-    </p>
-
-    <p class="content-text">
-      My English name, <strong>William</strong>, was chosen for its simplicity. In time, it also became a quiet reminder
-      to follow not my own will, but God’s.
-    </p>
-
-    <p class="content-text">
-      These layers of naming—received, chosen, and remembered—form part of the deeper structure of my work: quiet fidelity,
-      encoded meaning, and service made strong through clarity. As with systems, so with persons: what is named with care
-      may be lived with greater intention.
-    </p>
-
-    <p class="content-text">
-      I welcome collaborations where <strong>faith meets rigor</strong>—where work is not only excellent, but ordered
-      to charity and truth for the good of neighbor.
-    </p>
-
-    <p class="content-text">
-      <strong>E-mail:</strong> <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a>
-    </p>
-  </article>
+    </div>
+  </div>
 </section>
 
+<!-- ═══════════════════════════════════════ §2 IR/IL PROGRAMME ════════════════════ -->
+<section class="section" id="ir-research">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Indo-Pacific Lawfare Research</h2>
+  </div>
 
-    <!-- Manifesto -->
-    <section id="manifesto" aria-labelledby="manifesto-h">
-      <h2 id="manifesto-h">Logarchéon AI Manifesto</h2>
-      <article class="card emph-box">
-        <p class="subtitle">
-          Hazing says: <em>“I did it, so you must.”</em><br />
-          Logarchéon chooses stewardship: <em>“I did it, so you don’t have to.”</em>
-        </p>
+  <div class="prose" style="margin-bottom:2rem;">
+    <p>
+      Since early 2026, Logarch&eacute;on has carried an active research
+      programme in international relations, international law, and Indo-Pacific
+      security, conducted under the banner <em>Indo-Pacific Lawfare Research</em>.
+      The programme addresses long-horizon security questions through
+      international law, financial statecraft, and strategic theory.
+    </p>
+    <p>
+      Research methods draw on structured analytic tradecraft (Key Assumptions Check,
+      Analysis of Competing Hypotheses, MECE distillation) and Intelligence Community
+      Directive 203 estimative-probability discipline. Formal modeling tools include
+      variational calculus, demographic cohort analysis, and Lanchester-type
+      combat models. The programme maintains strict claim-type discipline,
+      distinguishing documented facts, analytical inferences, and speculative
+      scenarios throughout.
+    </p>
+    <p>
+      All papers in the programme are currently unpublished or under review.
+      Titles and specific arguments are not disclosed here. The summary below
+      describes the programme&rsquo;s thematic scope at the level appropriate
+      for institutional orientation.
+    </p>
+  </div>
 
-        <h3>1. From hazing to stewardship</h3>
-        <p>
-          Hazing ethics protects status by preserving pain: “I suffered under this system; your suffering is
-          what validates me.” Stewardship ethics protects people: “If I have already paid a high cost to
-          learn something hard, my duty is to lower that cost for others—not to keep them small so I feel big.”
-          Logarchéon is built explicitly on stewardship, not hazing.
-        </p>
 
-        <h3>2. Equal dignity versus pyramids of privilege and luck</h3>
-        <p>
-          Every human person has equal dignity—whether one speaks in the language of human rights or of
-          <em>imago Dei</em>. No one is given a higher-grade soul because of passport, accent, bloodline,
-          or accumulated privilege and luck. When AI allows a truck driver, migrant, or single parent with
-          a local model, basic coding skills, and a good workflow to match the work of an “elite,” that is
-          not a moral failure of AI; it is a moral correction of a rigged game.
-        </p>
-        <p class="callout">
-          <span class="badge">Vocation</span>
-          If one takes seriously <em>tuitio fidei et obsequium pauperum</em>—the defense of the Faith and
-          service of the poor and the sick—then the right use of AI is to <strong>amplify</strong> those
-          at the bottom of the pyramid, not to preserve comfort for those already on top.
-        </p>
 
-        <h3>3. Outer cortex, not distant oracle</h3>
-        <p>
-          Advanced models are treated as an <strong>outer cortex</strong>: a silicon extension of thought and
-          language, not an idol. The question is not whether such outer cortices will exist, but who they
-          will serve. Logarchéon’s answer is simple: your outer cortex should live on your machines, under
-          your keys, in service of your conscience, vocation, and community—not as a remote service reading
-          you from above.
-        </p>
+  <div class="programme-card" style="border-left:3px solid var(--gold);">
+    <h3>Programme scope</h3>
+    <div class="card-meta">
+      <span>Logarch&eacute;on &mdash; Indo-Pacific Lawfare Research</span>
+      <span>Working papers, articles, and analytical dossiers &middot; 2026</span>
+      <span>Pre-publication</span>
+    </div>
+    <p>
+      The Indo-Pacific Lawfare Research programme comprises a body of work
+      addressing long-horizon security questions in the Indo-Pacific through
+      international law, financial statecraft, and strategic theory.
+      Thematic domains include: the legal architecture of territorial and
+      succession disputes; the enforcement dynamics of multilateral financial
+      institutions; epistemic community construction as a long-horizon
+      strategic instrument; and the methodological foundations of
+      multi-vector convergent strategy.
+    </p>
+    <p>
+      The programme draws on structured analytic tradecraft (Key Assumptions
+      Check, Analysis of Competing Hypotheses, MECE distillation) and
+      Intelligence Community Directive 203 estimative-probability discipline.
+      Analytical tools include variational calculus, demographic cohort
+      modeling, and Lanchester-type combat analysis.
+    </p>
+    <p style="font-style:italic;color:var(--muted);font-size:0.88rem;">
+      Papers are currently pre-publication. Titles, institutional details,
+      and specific arguments will be disclosed upon publication.
+      Inquiries from journal editors and institutional partners are welcome
+      through the contact address below.
+    </p>
+  </div>
 
-        <h3>4. Tools are not cheating. Dishonesty is.</h3>
-        <p>
-          There are narrow, explicit contexts—exams, sacraments, sworn testimony, specific rituals—where
-          “unaided work” is required. In those places, secretly delegating to a model is cheating because it
-          breaks a clear promise. Outside those contexts, a blanket ban on AI is hazing, not ethics. The
-          meaningful question becomes: not “Did you touch AI?” but “How did you design, steer, and check
-          your stack—and do you stand behind the result?”
-        </p>
+</section>
 
-        <h3>5. Coding and machine’s-eye literacy for everyone</h3>
-        <p>
-          If you cannot speak the machine’s language, the machine will be used on you, not for you. Basic
-          coding and systems thinking are treated as a new civic literacy: understanding state and feedback,
-          knowing how prompts and APIs shape behavior, and being able to script small agents and pipelines.
-          This is how workers, migrants, parishes, and clinics rule their own machines, instead of being ruled
-          by opaque platforms.
-        </p>
-        <p>
-          When a model is trained or fine-tuned on your corpus, runs on your hardware or trusted enclave, and
-          is steered and reviewed by you, its output is not a foreign ghostwriter; it is your outer cortex.
-          Using it is not plagiarism; it is thinking with your extended mind.
-        </p>
+<!-- ═══════════════════════════════════════ §3 AI ARCHITECTURE ════════════════════ -->
+<section class="section" id="ai">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">AI Architecture &amp; the Physical ASI Seed</h2>
+  </div>
 
-        <h3>6. Commitments</h3>
-        <ul>
-          <li><strong>Stewardship over hazing.</strong> “I did the hard work, so you can start higher and go further.”</li>
-          <li><strong>Private, accountable outer cortex.</strong> Local or λ-secure models where feasible; clear logs and authorship metadata; no mind-mining.</li>
-          <li><strong>Bias toward the bottom of the pyramid.</strong> Priority for workers, migrants, patients, small parishes, and solo founders. If the tools only help those already on top, the design has failed.</li>
-        </ul>
-        <p class="callout">
-          In an age of hybrid minds, no one should be shamed for using an outer cortex, and no one should
-          be denied one because they were born on the wrong side of privilege and luck.
-        </p>
-        <p class="content-text">
-          <strong>The complete manifesto:</strong>
-          <a href="https://drive.google.com/file/d/1Lo40HnNzzTQmtqIPZIsae_WyZTwIWEx1/view?usp=sharing"
-             target="_blank" rel="noopener noreferrer">
-            Read the complete Logarchéon AI Manifesto (PDF)
-          </a>.
-        </p>
-      </article>
-    </section>
+  <div class="prose" style="margin-bottom:1.8rem;">
+    <p>
+      The core AI research programme is grounded in the
+      <strong>Physical ASI Seed</strong> (U.S. Provisional Patent 64/067,703,
+      2025): a physically-grounded architecture for artificial superintelligence
+      rooted in thermodynamics, symbolic operator theory, and geometric computation.
+      This patent anchors a portfolio of nine or more applications and repositions
+      the entire &lambda;-Stack as a consequence of first principles rather
+      than an engineering assembly.
+    </p>
+    <p>
+      The four primary research systems—CEAS, GRAIL, MIA, and the Ψ-operator
+      framework—are each documented on dedicated pages with full mathematical
+      content, implementation notes, and working code. The identity of Logarch&eacute;on
+      has shifted from &ldquo;encryption-centric&rdquo; to
+      <em>geometry-native recursive intelligence</em>: the encryption properties
+      are a consequence of group-invariant computation, not the primary goal.
+    </p>
+  </div>
 
-    <!-- Patrons & influences -->
-    <section id="patrons" aria-labelledby="patrons-h">
-      <h2 id="patrons-h">Patrons &amp; influences</h2>
-      <article class="card">
-        <p>Gratitude for the saints whose lives and writings shape my work and prayer:</p>
-        <ul>
-          <li>
-            <strong>St. John the Baptist</strong> (1st c. BC) — witness, repentance, and preparation; at the
-            Visitation (Lk 1:39–45) he already rejoices before Christ hidden in Mary, the New Ark of the
-            Covenant who carries the Word made flesh, the true Bread of Life, and the eternal High Priest.
-            His leap in the womb echoes David dancing before the Ark (2 Sam 6), making him the first prophet
-            to recognize and rejoice before the living Presence.
-          </li>
-          <li>
-            <strong>St. Matthew the Apostle</strong> (1st c. AD) — the Gospel of mercy, especially Matthew 25,
-            grounding service to “our Lords the sick.”
-          </li>
-          <li>
-            <strong>Blessed Fra’ Gerard</strong> (11th c.) — humble care for the sick and poor; founder of the
-            Jerusalem hospital that became the Order’s spiritual root.
-          </li>
-          <li>
-            <strong>St. Bernard of Clairvaux</strong> (1090) — stability, charity, and interior stillness; his
-            <em>Sermons on the Song of Songs</em>, <em>De Diligendo Deo</em> (<em>On Loving God</em>),
-            <em>De laude novae militiae</em>, and especially
-            <em>De Gradibus Humilitatis et Superbiae</em> (<em>On the Steps of Humility and Pride</em>).
-          </li>
-          <li>
-            <strong>St. Thomas Aquinas</strong> (1225) — clarity of reason ordered to truth.
-          </li>
-          <li>
-            <strong>St. Ignatius of Loyola</strong> (1491) — discernment, disciplined service, and formation
-            of conscience.
-          </li>
-          <li>
-            <strong>St. Teresa of Ávila</strong> (1515) — friendship with Christ in prayer and action.
-          </li>
-          <li>
-            <strong>St. John of the Cross</strong> (1542) — the purifying path to union with God.
-          </li>
-          <li>
-            <strong>St. John Bosco</strong> (1815) — forming the young through reason, faith, and patient kindness.
-          </li>
-          <li>
-            <strong>Blessed Michael McGivney</strong> (1852) — priestly charity and protection of families.
-          </li>
-          <li>
-            <strong>St. Josemaría Escrivá</strong> (1902) — sanctifying ordinary work and study.
-          </li>
-        </ul>
-      </article>
-    </section>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <h4><a href="/CEAS" style="color:var(--gold);">CEAS</a> &mdash; Critical Entropy Attention</h4>
+      <p>Thermodynamic control of attention scaling via explicit inverse temperature β. 20–50% training cost reduction. Physics-first training stability. Patent 63/813,617.</p>
+    </div>
+    <div class="tech-card">
+      <h4><a href="/GRAIL" style="color:var(--gold);">GRAIL</a> &mdash; Geometric Representation Algebra</h4>
+      <p>Group-invariant neural computation on curved manifolds. Cryptomorphic twin models; automorphic attention; observer-centric quantum gravity. Patents 64/067,703 · 63/773,441.</p>
+    </div>
+    <div class="tech-card">
+      <h4><a href="/MIA" style="color:var(--gold);">MIA</a> &mdash; Metric-Invariant Architecture</h4>
+      <p>Replaces scalar arithmetic with invariant-first group operations. Geometric error correction; 28–65&nbsp;nm chip viability; RISC-V and FPGA ready. Patent 63/901,369.</p>
+    </div>
+    <div class="tech-card">
+      <h4><a href="/Research/psi" style="color:var(--gold);">Ψ-Operator Framework</a></h4>
+      <p>Symbolic operator architecture for cyclic decomposition, orbitfold finance, deterministic LLM geometry, and QFT reformulation. Foundational to all four systems.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Daily Prayer -->
-    <section class="prayer-card blurb" id="daily-prayer" aria-labelledby="malta-prayer-title">
-      <h2 class="title" id="malta-prayer-title">Daily Prayer</h2>
-      <article class="card">
-        <blockquote class="content-text">
-          <p>
-            Lord Jesus, thou hast seen fit to enlist me for thy service among the Knights and Dames of
-            Saint John of Jerusalem. I humbly entreat thee, through the intercession of the Most Holy
-            Virgin of Philermo, of Saint John the Baptist, Blessed Gerard, and all the Saints and
-            blesseds of our Order, to keep me faithful to the traditions of our Order.
-          </p>
-          <p>
-            Be it mine to practice and defend the Catholic, the Apostolic, the Roman faith against the
-            enemies of religion; be it mine to practice charity towards my neighbors, especially the
-            poor and the sick.
-          </p>
-          <p>
-            Give me the strength I need to carry out this my resolve, forgetful of myself, learning ever
-            from the Holy Gospel a spirit of deep and generous Christian devotion, striving ever to
-            promote God’s glory, the world’s peace, and all that may benefit the Order of Saint John
-            of Jerusalem. <em>Amen.</em>
-          </p>
-        </blockquote>
-      </article>
-    </section>
+<!-- ═══════════════════════════════════════ §4 VOCATION & BIOGRAPHY ══════════════ -->
+<section class="section" id="vocation">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Vocation &amp; Biography</h2>
+  </div>
 
-    <!-- Ethos disclaimer -->
-    <section id="ethos-disclaimer" aria-labelledby="ethos-disclaimer-h">
-      <h2 id="ethos-disclaimer-h">Ethos &amp; scope</h2>
-      <div class="card">
-        <p>
-          This site presents personal research and vocation-aligned work. It does not use or trade on
-          any religious order’s name, logo, or endorsement, and it offers no goods or services under
-          such names. Views and materials here are my own.
-        </p>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-h">
-      <h2 id="contact-h">Contact</h2>
-      <ul>
-        <li>Email: <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a></li>
-        <li>GitHub: <a href="https://github.com/williamchuang" rel="me">github.com/williamchuang</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/chuang-william">linkedin.com/in/chuang-william</a></li>
-        <li>ORCID: <a href="https://orcid.org/0009-0008-0796-9478">orcid.org/0009-0008-0796-9478</a></li>
-      </ul>
-    </section>
-
-    <!-- Footer notes -->
-    <section id="footer-notes" aria-labelledby="footer-h">
-      <h2 id="footer-h">Footer notes (IP &amp; review)</h2>
+  <div class="prose-grid">
+    <div class="prose">
       <p>
-        Some materials relate to an active U.S. provisional filing. Public write-ups are
-        <strong>non-enabling summaries</strong>; technical evaluations proceed under NDA and
-        export-control compliance. I welcome <strong>peer review</strong> and
-        <strong>third-party benchmarking</strong>.
+        I was born in New Taipei City, Taiwan, in 1988, and am the twentieth
+        generation of the Chuang (莊) family to settle in Taiwan,
+        tracing our ancestry to the 1600s following the Dutch occupation period.
       </p>
-    </section>
+      <p>
+        The Chuang lineage carries an intellectual heritage of particular
+        significance to the research programme, one rooted in a centuries-long
+        encounter between the Chinese civilizational tradition and Catholic
+        intellectual culture.
+      </p>
+      <p>
+        The first Catholic missionaries to reach China were
+        <strong>Franciscans</strong>: John of Montecorvino OFM arrived in
+        Khanbaliq (Beijing) in 1294, built churches, and was consecrated
+        first Archbishop of Peking in 1307&ndash;1308. The Franciscan mission
+        was extinguished when the Mongol dynasty fell in 1368 and was not
+        revived for two centuries. When it resumed, it came not from Rome
+        directly but via Portugal: every Portuguese ship of the Age of
+        Discovery sailed under the <strong>Cross of the Order of Christ</strong>&mdash;
+        the Portuguese successor to the Knights Templar, of which
+        Prince Henry the Navigator (d. 1460) had been Grand Master and
+        principal financier. The Jesuit China mission from the 1580s onward
+        operated under Portuguese <em>padroado</em>, carrying that same
+        cross into the Ming court.
+      </p>
+      
+      <p>
+        The Wanli and Chongzhen periods saw the wider flowering of that
+        encounter. The Three Pillars of Chinese Catholicism&mdash;Paul
+        <strong>Xu Guangqi</strong> (baptized 1603), Leon
+        <strong>Li Zhizao</strong> (baptized 1610), and Michael
+        <strong>Yang Tingyun</strong> (baptized 1611)&mdash;were Ming
+        scholar-officials whose conversion, literary output, and protection
+        of the Jesuit mission established Hangzhou and Shanghai as centres
+        of Catholic intellectual life in late Ming China.
+        These conversions took place within the same Jiangnan literati world
+        from which the Changzhou School would later emerge.
+      </p>
+      <p>
+        The most dramatic episode came at the very end of the Ming dynasty.
+        When the Qing conquest drove the last Ming claimant,
+        the <strong>Yongli Emperor</strong> (朱由榔, Zhu Youlang, 1623&ndash;1662),
+        into the southwest, his court converted to Catholicism under the
+        Austrian Jesuit <strong>Andreas Koffler</strong> SJ (d. 1652) &mdash;
+        in circumstances the Jesuits consciously read as a second Constantine and Helena.
+      </p>
+      <p>
+        The baptisms of the imperial family echoed Rome exactly.
+        The Empress Dowager Wang (the emperor&rsquo;s official adoptive mother)
+        was baptized <strong>Helena</strong>, and it is she who
+        gave the Yongli Emperor himself the baptismal name
+        <strong>Constantine</strong> in one strand of the sources &mdash;
+        while academic scholarship identifies the heir to the throne (朱慈煊, Zhu Cixuan)
+        as the one baptized Constantine by Koffler, with the emperor&rsquo;s
+        own baptism remaining disputed. The Jesuits themselves read the
+        parallel as deliberate: as Rome&rsquo;s Constantine had made
+        Christianity the empire&rsquo;s faith, China&rsquo;s Constantine
+        would do the same.
+        The emperor&rsquo;s natural mother, Lady Ma, was baptized <strong>Maria</strong>.
+        His empress, Lady Wang, was baptized <strong>Anna</strong>.
+        His chancellor and court eunuch, P&acirc;ng T&rsquo;ien-shou,
+        had already been baptized <strong>Achilles</strong>.
+      </p>
+      <p>
+        Empress Dowager Helena then did something without precedent in Chinese history.
+        On 4 November 1650, she wrote in her own hand on yellow silk a letter
+        to <strong>Pope Innocent X</strong>&mdash;preserved today in the
+        Archivum Romanum Societatis Iesu, Jap.-Sin. 77, f. 83&mdash;asking the Pope
+        to send more Jesuits and to pray for the Ming dynasty&rsquo;s restoration.
+        Chancellor Pang-Achilles wrote simultaneously to the Pope,
+        the General of the Jesuit Order Francisco Piccolomini,
+        and Cardinal John de Lugo.
+        Additional letters went to the Doge of Venice and the King of Portugal.
+        Father Micha&lstrok; Boym SJ carried these letters overland from China to Rome &mdash;
+        a journey that took years and nearly killed him &mdash;
+        arriving to find that Innocent X had died in 1655.
+        The new Pope, <strong>Alexander VII</strong>, received Boym
+        on 18 December 1655 and sent a reply:
+        sympathy, prayers, and no troops.
+        It was not enough to save the Southern Ming.
+        By 1662 the Yongli Emperor and his son were strangled with bowstrings in Kunming.
+        A dolomite stone preserved in the Catholic Church in Anlong, Guizhou Province &mdash;
+        carved with the Christian names of the two empress dowagers,
+        the empress, and the crown prince: Helena, Maria, Anna, Constantine &mdash;
+        is the physical relic of what nearly was.
+      </p>
+      <p>
+        My maternal grandmother&rsquo;s family name was Hong (洪).
+        The Hong lineage has historic concentrations in 泉州 (Quanzhou), Fujian &mdash;
+        a lineage that spans both dynasties and both sides of a great dynastic rupture.
+        One notable figure is 洪承疇 (Hong Chengchou, 1593&ndash;1665),
+        born in Nan&rsquo;an, Quanzhou: a Wanli-era <em>jinshi</em> who first served
+        the Ming, rising to Minister of War and Governor-General of the northeast,
+        before defecting to the Qing after his capture at the Battle of Songjin (1642).
+        He went on to become the first Han Grand Secretary of the Qing dynasty and
+        one of the architects of its consolidation of South China &mdash;
+        a figure mourned by Ming loyalists and honoured by Qing emperors,
+        carrying in a single life the fracture between the two orders.
+        The Hong lineage also spread through 鹿港 (Lukang) in Taiwan &mdash;
+        港 (gang/port/harbor) being the same character as in 香港 (Hong Kong) &mdash;
+        and maintains connections to Changzhou, adding a further thread to
+        the family&rsquo;s presence in the Jiangnan world from which the
+        Changzhou School emerged.
+      </p>
+      <p>
+        The <strong>Changzhou School of Thought</strong> (常州學派) was founded by
+        <strong>莊存與</strong> (Chuang Ts&rsquo;un-yü, 1719&ndash;1788) and transmitted
+        through four generations:
+        莊存與 &rarr; 莊述祖 &rarr; 劉逢祿 &rarr; 魏源 &rarr;
+        <strong>康有為</strong> (K&rsquo;ang Yu-wei / Kang Youwei, 1858&ndash;1927).
+        Working from the school&rsquo;s New Text Confucian hermeneutics, K&rsquo;ang Yu-wei
+        assembled the compound <strong>中華</strong> (Zhonghua) as a modern political
+        category &mdash; an umbrella term designed to unify the more than fifty distinct
+        ethnic groups within the Qing empire&rsquo;s territory under a single
+        civilizational identity, transcending Han ethnicity alone.
+        <em>中</em> (centre) + <em>華</em> (flourishing, splendor) =
+        not an ethnic label but a civilizational inheritance claimed by all who
+        live within that tradition.
+        This construction is documented by Sinologist Benjamin Elman
+        (<em>From Philosophy to Philology</em>, 1984;
+        <em>Classicism, Politics, and Kinship</em>, 1990)
+        as a paradigmatic case of epistemic community producing civilizational
+        transformation across multigenerational timescales.
+      </p>
+      <p>
+        The character 華 carries two meanings simultaneously.
+        Its primary sense is <strong>flower</strong> &mdash; blossom, bloom,
+        the flourishing beauty of what has fully opened &mdash; from which
+        the extended meanings of splendor, glory, and civilizational brilliance
+        derive. K&rsquo;ang Yu-wei chose it precisely because it names something
+        living and radiant rather than merely ethnic or territorial.
+        The word 中華 thus means not &ldquo;the central race&rdquo; but something
+        closer to &ldquo;the central flowering&rdquo; &mdash; the civilization at
+        its fullest expression.
+      </p>
+      <p>
+        In its traditional written form, 華 also carries a five-fold cruciform
+        geometry bearing structural resemblance to the
+        <strong>Jerusalem Cross</strong> &mdash; the heraldic insignia of the
+        <em>Latin Patriarchate of Jerusalem</em>, the Franciscan Custody of the
+        Holy Land, and the Equestrian Order of the Holy Sepulchre of Jerusalem
+        (a lay order under the protection of the Holy See) &mdash;
+        whose five crosses represent the five wounds of Christ and
+        Christ with the four Evangelists sent to the four corners of the world.
+        The programme&rsquo;s research explores the resonance between the
+        Franciscans who carried the Jerusalem Cross to Khanbaliq in 1294,
+        the Portuguese navigators who sailed under the Cross of the Order of
+        Christ to East Asia in the sixteenth century, the Jesuits who brought
+        that intellectual tradition into Ming literati culture through the
+        <em>Qike</em>, and the Changzhou School that wove this character &mdash;
+        flower and cross at once &mdash; into the name of the modern
+        Chinese civilizational order.
+      </p>
+      <p>
+        The resulting term 中華 is the <em>C</em> in both
+        <strong>PRC</strong> (中華人民共和國, Zhonghua Renmin Gongheguo)
+        and <strong>ROC</strong> (中華民國, Zhonghua Minguo).
+        Both governments inherited this category &mdash; not from antiquity,
+        but from the deliberate intellectual construction of the Changzhou School.
+        Neither acknowledges that the character 華 at the heart of their shared
+        national name carries, in its traditional form, a geometry the
+        programme&rsquo;s research reads alongside the nine-century history
+        of the institutional order within which both nations now operate.
+        This lineage connects directly to the programme&rsquo;s core theoretical
+        work on civilizational succession and cross-strait international law.
+      </p>
+      <p>
+        Within the Changzhou Chuang lineage itself, the encounter with
+        Jesuit Catholic intellectual culture is documented as early as
+        <strong>莊起元</strong> (Chuang Ch&rsquo;i-yüan, 1559&ndash;1633;
+        <em>jinshi</em> 1610; official to Taipu si shaoqing)&mdash;
+        a member of the Wujin, Changzhou Chuang clan&mdash;who read and wrote
+        a poem of reflection on Diego de Pantoja SJ&rsquo;s
+        <em>Qike</em> (七克, <em>The Seven Victories over Sin</em>, 1614),
+        the Jesuit moral-theology work presenting the seven virtues against
+        the seven deadly sins in vocabulary accessible to Chinese literati.
+        His poem, 讀《七克》西書有感, stands as an early documented moment
+        of Chuang-lineage engagement with the Jesuit intellectual programme
+        in China.
+      </p>
+      <p>
+        The Changzhou region was not a peripheral site of Catholic life in
+        Ming and Qing China: the same Jiangnan literati world that produced
+        the Three Pillars of Chinese Catholicism in the Wanli period,
+        and that gave rise to the Changzhou School of Thought a century later,
+        was also the milieu in which Catholic communities formed around
+        education, hospitality, and the care of travelling faithful.
+        My family has been Catholic for several generations.
+        My grandfather and great-grandfather were Catholic,
+        and in family memory our ancestors helped offer a portion of the
+        family estate as a chapel and a place of hospitality for fellow
+        Catholics travelling through the region &mdash; a small act of
+        the same custodial spirit that 莊起元&rsquo;s engagement with
+        the Jesuit intellectual tradition reflects at the level of letters:
+        the faith received, housed, and passed on.
+      </p>
+      <p>
+        I studied theoretical physics at National Taiwan University and
+        National Dong Hwa University, ranking first in my cohort at NDHU,
+        before pursuing advanced mathematics at San Francisco State University
+        (M.A.) and the University of Arizona (M.S.). A decade of Catholic
+        educational formation&mdash;St. Ignatius School and later Jesuit
+        university study&mdash;shaped the intellectual discipline and moral
+        seriousness that now underlies both the AI architecture and the
+        international law research.
+      </p>
+    </div>
+    <div class="prose">
+      <p>
+        My father, Professor John B. Chuang (莊慶信), holds a Ph.D. in
+        Philosophy from Fu Jen Catholic University and has served in Catholic
+        higher education throughout his career. His scholarly work centers
+        on religion and ecology, Catholic environmental ethics, philosophy of
+        religion, and the traditions of Chinese philosophy and culture,
+        including several publications engaging <em>Laudato Si&rsquo;</em>.
+        The intellectual seriousness, the integration of faith and scholarship,
+        and the sense that ideas must be ordered to truth and the common good—
+        all of these I received first from him.
+      </p>
+      <p>
+        My name carries layers of meaning I rarely explain. My original
+        Mandarin name, Tao-Mao, was given in honor of St.&nbsp;Thomas Aquinas,
+        whose feast day falls near my birthday. The name Huanshan was chosen
+        later as a quiet expression of filial continuity: beginning from
+        <em>Juan</em> (the Spanish form of John, which approximates the
+        pronunciation of our family name Chuang), the name Huan-shan gently
+        carries the sound and meaning of &ldquo;John&rsquo;s son.&rdquo;
+        My English name, William, became in time a quiet reminder to follow
+        not my own will but God&rsquo;s.
+      </p>
+      <p>
+        My confirmation name is
+        <strong>&Iacute;&ntilde;igo</strong> &mdash; the baptismal name of
+        <strong>St.&nbsp;&Iacute;&ntilde;igo of O&ntilde;a</strong>
+        (d.&nbsp;1 June 1057; canonized 1259 by Pope Alexander&nbsp;IV):
+        the Benedictine abbot of San Salvador at O&ntilde;a in Castile,
+        a hermit who left his mountain solitude to reform monasteries at the
+        request of King Sancho III of Pamplona, peacemaker and miracle worker,
+        mourned at his death by Christians, Jews, and Muslims alike.
+        He is the saint after whom Ignatius of Loyola was baptized
+        &Iacute;&ntilde;igo &mdash; the Basque name from which the Jesuit founder
+        later adopted the Latin form <em>Ignatius</em>, patron of the Society of Jesus
+        and of much of this work.
+      </p>
+      <p>
+        The name carries several resonances I hold as personal meditations
+        rather than strict etymologies.
+        Its Basque root &mdash; <em>Eneko</em>, from <em>ene</em>
+        (&ldquo;mine&rdquo;) with a diminutive suffix &mdash; means
+        <em>my little one</em>: a tender claim that belongs to God
+        before anything else.
+        Through Ignatius it carries the Latin <em>ignis</em> &mdash; fire &mdash;
+        the same fire that descended at Pentecost as tongues of flame
+        upon the disciples so that every nation heard in its own language
+        (Acts 2:3): the sign of the Holy Spirit.
+        And in the English pronunciation <em>In&ndash;i&ndash;go</em>,
+        I hear quietly a phrase I carry as a private act of trust:
+        <em>In God</em>.
+        Not a claim about the name&rsquo;s derivation, but a way of remembering
+        whose name is spoken first.
+      </p>
+      <p>
+        I founded Logarch&eacute;on Inc. in 2025 to create the institutional
+        structure for independent, disciplined research at the intersection of
+        AI, mathematics, physics, and international affairs—work that does not
+        fit inside a single academic department and that requires the judgment
+        layer to remain with a human founder who sets standards and determines
+        what work matters.
+      </p>
+    </div>
+  </div>
+</section>
 
-  </main>
+<!-- ═══════════════════════════════════════ §5 AI MANIFESTO ══════════════════════ -->
+<section class="section" id="foundations">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">On Conscience and Moral Identity</h2>
+  </div>
 
-  <footer class="container">
-    <hr class="hr" />
-    <ul class="footer-links">
-      <li><a href="https://github.com/williamchuang">GitHub</a></li>
-    </ul>
-    <p>© <span id="year"></span> William Chuang · Logarchéon. All rights reserved.</p>
-  </footer>
+  <div class="pull-quote">
+    &ldquo;Nothing that enters one from outside can defile that person.
+    &hellip; All these evils come from within and they defile.&rdquo;
+    <cite>&mdash; Mark 7:15, 23 (NABRE)</cite>
+  </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <div class="prose" style="margin:1.4rem 0 1.8rem;">
+    <p>
+      These lecture notes set out two connected arguments against the slogan
+      <em>&ldquo;you are what you consume.&rdquo;</em>
+    </p>
+    <p>
+      The <strong>theological argument</strong> (Mark 7, Catechism, Canon Law,
+      Vatican II) holds that moral identity depends on judgment, consent,
+      intention, and chosen action &mdash; not on exterior contact alone.
+      The person is not a passive absorber of inputs but a rational and moral
+      subject who judges what is encountered, consents or resists, and acts
+      under conditions of greater or lesser freedom.
+    </p>
+    <p>
+      The <strong>mathematical argument</strong> proves the same conclusion
+      formally. Using non-identifiability theory (Theorem: if two latent states
+      generate observationally identical traces, passive logs cannot distinguish
+      them), Bayes error lower bounds (unavoidable misclassification when
+      investigator and adherent traces overlap), causal inference (observational
+      correlation does not identify causal endorsement, because role, stance,
+      goal, and context confound the observational law), and decision theory
+      (abstention is optimal when evidence is insufficient), the notes derive:
+      exposure data alone are, in general, insufficient to identify person-level
+      latent variables such as true belief, endorsement, loyalty, motive,
+      or moral state.
+    </p>
+    <p>
+      The governing thesis is the same in both registers:
+      <em>contact is not consent; a digital trace is not a person.</em>
+    </p>
+  </div>
+
+  <div class="programme-card">
+    <h3>The Ten Exception Classes</h3>
+    <div class="card-meta"><span>MECE taxonomy from the notes</span></div>
+    <p>
+      Investigative contact (researchers, historians, analysts);
+      pastoral contact (confessors, counselors, missionaries);
+      educational contact; judicial and civic contact;
+      medical and therapeutic contact; defensive contact
+      (apologetics, security, fraud investigation);
+      artistic and documentary representation;
+      spiritual and intellectual combat;
+      biographical and transitional contact (converts, survivors, penitents);
+      and involuntary or responsibility-diminished exposure
+      (accident, algorithmic injection, coercion, habit, fear).
+      In every class, surface trace and moral act differ.
+    </p>
+  </div>
+
+  <div class="programme-card" style="margin-top:1rem;">
+    <h3>Doctrinal Anchors</h3>
+    <div class="card-meta"><span>Catechism &middot; Canon Law &middot; Vatican II</span></div>
+    <p>
+      CCC&nbsp;1750: morality depends on object, intention, and circumstances &mdash;
+      not exposure alone.
+      CCC&nbsp;1735: imputability is diminished by ignorance, duress, fear, or habit.
+      CCC&nbsp;2477 &amp; Canon&nbsp;220: careless classification is an unjust injury
+      to reputation.
+      Canon&nbsp;218: freedom of inquiry is a protected canonical right.
+      <em>Gaudium et Spes</em>&nbsp;16: conscience is the
+      &ldquo;most secret core and sanctuary&rdquo; of the person &mdash;
+      no external record can exhaust it.
+    </p>
+  </div>
+
+  <p style="margin-top:1.4rem;color:var(--body);font-size:0.92rem;">
+    <a href="https://drive.google.com/file/d/1iSI7cg7w9mKDKltg6gaxNAKUIs8xFpb_/view?usp=sharing"
+       target="_blank">
+      Read the full lecture notes (PDF) &rarr;
+    </a>
+  </p>
+</section>
+
+<section class="section" id="faith">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Faith &amp; Identity</h2>
+  </div>
+
+  <div class="prose" style="margin-bottom:1.8rem;">
+    <p>
+      <span class="cross">&#10013;</span>
+      My philosophical and spiritual formation runs through three traditions
+      held together: the Cistercian practice of interior stillness and
+      contemplative stability; the Jesuit discipline of discernment, rigorous
+      service through intellect, and formation of conscience; and the
+      Order of Malta&rsquo;s <em>tuitio fidei et obsequium pauperum</em>—
+      the defence of the Faith and service to the poor and the sick.
+      I pursue this work under spiritual direction and in fidelity to the Church.
+      <span class="cross">&#10013;</span>
+    </p>
+    <p>
+      I am a <strong>Fourth Degree Knight of Columbus</strong> (Fr. McGivney Assembly,
+      U.S. Patriot Degree) and an <strong>Auxiliary and Provisional Member
+      of the Sovereign Military Order of Malta</strong>. These are not ceremonial
+      affiliations. The K of C&rsquo;s founding charism—priestly charity
+      and protection of families, exemplified by Blessed Michael McGivney—and
+      the Order of Malta&rsquo;s millennium-old commitment to the poor and the
+      sick are the moral framework within which all of Logarch&eacute;on&rsquo;s
+      work is evaluated. The AI manifesto&rsquo;s bias toward those at the bottom
+      of the pyramid, and the IR programme&rsquo;s concern for populations
+      living under coercion, are expressions of the same vocation.
+    </p>
+  </div>
+
+  <div class="patron-grid">
+    <div style="margin-bottom:1.8rem;">
+      <h3 style="font-size:1.1rem;color:var(--gold-light);font-family:'Cormorant Garamond',serif;margin-bottom:1.2rem;border-left:2px solid var(--gold-dim);padding-left:0.8rem;">
+        Patrons &amp; Influences
+      </h3>
+      <p style="color:var(--muted);font-size:0.83rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.2rem;">
+        Gratitude for the saints whose lives and writings shape my work and prayer
+      </p>
+
+      <div style="display:grid;gap:0.7rem;">
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. John the Baptist <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">1st c. BC</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Witness, repentance, and preparation. At the Visitation (Lk 1:39&ndash;45)
+            he already rejoices before Christ hidden in Mary &mdash; the new Ark of the
+            Covenant who carries the Word made flesh, the true Bread of Life,
+            and the eternal High Priest. His leap in the womb echoes David dancing
+            before the Ark (2 Sam 6), making him the first prophet to recognize
+            and rejoice before the living Presence.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. John the Evangelist <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">1st c. AD</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            The Beloved Disciple: the Prologue that opens with the Word
+            (John 1:1&ndash;14), the witness at the foot of the Cross,
+            the first to believe at the empty tomb. His Gospel and First Letter
+            (&ldquo;God is love&rdquo;, 1 Jn 4:8) ground the unity of
+            truth and charity that this work seeks.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. Matthew the Apostle <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">1st c. AD</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            The Gospel of mercy, especially Matthew 25,
+            grounding service to &ldquo;our Lords the sick.&rdquo;
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">Blessed Fra&rsquo; Gerard <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">11th c.</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Humble care for the sick and poor;
+            founder of the Jerusalem hospital that became the Order&rsquo;s spiritual root.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. &Iacute;&ntilde;igo of O&ntilde;a <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">d. 1057</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Benedictine hermit and reforming abbot; the saint after whom
+            Ignatius of Loyola was baptized. Peacemaker and miracle worker
+            mourned by Christians, Jews, and Muslims alike.
+            My confirmation patron.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. Bernard of Clairvaux <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1090</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Stability, charity, and interior stillness.
+            <em>Sermons on the Song of Songs</em>;
+            <em>De Diligendo Deo</em> (On Loving God);
+            <em>De laude novae militiae</em>;
+            and especially <em>De Gradibus Humilitatis et Superbiae</em>
+            (On the Steps of Humility and Pride).
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. Thomas Aquinas <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1225</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Clarity of reason ordered to truth.
+            My original Mandarin name, Tao-Mao, was given in his honour,
+            as my birthday falls near his feast day.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. Ignatius of Loyola <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1491</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Discernment, disciplined service, and formation of conscience.
+            Baptized &Iacute;&ntilde;igo after St. &Iacute;&ntilde;igo of O&ntilde;a;
+            founder of the Society of Jesus whose formation shaped more than
+            a decade of my education.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. Teresa of &Aacute;vila <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1515</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Friendship with Christ in prayer and action.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. John of the Cross <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1542</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            The purifying path to union with God.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. John Bosco <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1815</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Forming the young through reason, faith, and patient kindness.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">Blessed Michael McGivney <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1852</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Priestly charity and protection of families;
+            founder of the Knights of Columbus.
+          </p>
+        </div>
+
+        <div class="programme-card" style="padding:0.9rem 1.2rem;">
+          <h3 style="font-size:0.95rem;">St. Josémar&iacute;a Escriv&aacute; <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1902</span></h3>
+          <p style="font-size:0.88rem;margin-bottom:0;">
+            Sanctifying ordinary work and study.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <div class="patron-card">
+      <h4>Catholic Works &amp; Resources</h4>
+      <p>
+        <a href="/Research#faith">Taiwan / Holy See pastoral strategy paper &rarr;</a><br>
+        <a href="https://drive.google.com/file/d/1IFu_0nuuAQfeySwB_esI6RyAnRZrMZjt/view?usp=sharing" target="_blank">Plenary Indulgence adult catechesis &rarr;</a><br>
+        <a href="https://drive.google.com/file/d/1z2DScf5YcLpmvriAV2tGQspHBHSB_o4T/view?usp=sharing" target="_blank">Rule of Life (Ignatian&ndash;Cistercian lay horarium) &rarr;</a><br>
+        <a href="https://drive.google.com/file/d/1_bDq1rkjYoNoNCNpw43WRFs-QeE7CyMM/view?usp=sharing" target="_blank">Algerian as Tavern Inscription (typography &amp; sacred art) &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="daily-prayer">
+    Lord Jesus, thou hast seen fit to enlist me for thy service among the Knights
+    and Dames of Saint John of Jerusalem. I humbly entreat thee, through the
+    intercession of the Most Holy Virgin of Philermo, of Saint John the Baptist,
+    Blessed Gerard, and all the Saints and blesseds of our Order, to keep me
+    faithful to the traditions of our Order. Be it mine to practice and defend
+    the Catholic, the Apostolic, the Roman faith against the enemies of religion;
+    be it mine to practice charity towards my neighbors, especially the poor and
+    the sick. Give me the strength I need to carry out this my resolve, forgetful
+    of myself, learning ever from the Holy Gospel a spirit of deep and generous
+    Christian devotion, striving ever to promote God&rsquo;s glory, the world&rsquo;s
+    peace, and all that may benefit the Order of Saint John of Jerusalem. Amen.
+    <span class="prayer-source">Daily Prayer of the Order of Malta</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ §7 CONTACT ════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Contact &amp; Collaboration</h2>
+  </div>
+
+  <div class="prose" style="margin-bottom:1.4rem;">
+    <p>
+      Collaborations are welcome where they preserve the ability to pursue
+      interdisciplinary research at full fidelity and to publish complete,
+      verifiable results without constraint. Licensing, joint development,
+      and secure technical evaluations are available under NDA and
+      export-control compliance. Peer review and third-party benchmarking
+      of all AI architecture claims are explicitly welcomed.
+    </p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-item">
+      <span class="label">Email</span>
+      <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a>
+    </div>
+    <div class="contact-item">
+      <span class="label">GitHub</span>
+      <a href="https://github.com/williamchuang" target="_blank">github.com/williamchuang</a>
+    </div>
+    <div class="contact-item">
+      <span class="label">LinkedIn</span>
+      <a href="https://linkedin.com/in/chuang-william" target="_blank">linkedin.com/in/chuang-william</a>
+    </div>
+    <div class="contact-item">
+      <span class="label">ORCID</span>
+      <a href="https://orcid.org/0009-0008-0796-9478" target="_blank">0009-0008-0796-9478</a>
+    </div>
+    <div class="contact-item">
+      <span class="label">Research Page</span>
+      <a href="/Research">logarcheon.com/Research</a>
+    </div>
+    <div class="contact-item">
+      <span class="label">IP &amp; Review</span>
+      <span>Some materials relate to active U.S. provisional filings. Public write-ups are non-enabling summaries. Technical evaluations proceed under NDA.</span>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  &copy; <span id="yr"></span> William Huanshan Chuang &middot; Logarch&eacute;on Inc.
+  All rights reserved. &middot; U.S. Patent Portfolio: 9+ Applications Filed 2025.
+  &middot; Ethos: this site presents personal research and vocation-aligned work.
+  Views are the author&rsquo;s own and do not represent any religious order, institution, or government body.
+</footer>
+
+</div><!-- /wrap -->
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
 </body>
 </html>
-
