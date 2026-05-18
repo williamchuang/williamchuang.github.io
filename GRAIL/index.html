@@ -110,43 +110,80 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:'D
 /* Ensure details/summary readable */
 details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} summary:hover{color:var(--gold);}
 
-/* ── Math overflow fix: MathJax display equations never escape their container ── */
-mjx-container[display="true"] {
-  overflow-x: auto !important;
-  overflow-y: hidden;
-  max-width: 100%;
-}
-mjx-container {
-  max-width: 100%;
-}
-
-/* ── math-stack: replaces all auto-fit grids that hold equations ── */
-.math-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.math-card {
+/* ── tcobox: LaTeX-style titled bordered panels ── */
+.tcbox {
   border: 1px solid var(--border-dim);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--gold-dim);
+  border-radius: 0 6px 6px 0;
   background: var(--navy-mid);
-  overflow-x: auto;   /* wide equations scroll inside the card */
+  margin: 1rem 0;
+  overflow-x: auto;
 }
-.math-card h4 {
-  margin-top: 0;
-  color: var(--gold-light);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
+.tcbox-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.1rem;
+  border-bottom: 1px solid var(--border-dim);
+  background: rgba(201,168,76,0.08);
 }
-.math-card-label {
+.tcbox-title span {
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: .06em;
-  font-size: .75rem;
-  font-family: 'DM Mono', monospace;
   color: var(--gold);
-  margin-bottom: .35rem;
+}
+.tcbox-title .tcbox-num {
+  font-size: 0.65rem;
+  color: var(--gold-dim);
+  border: 1px solid var(--border-dim);
+  border-radius: 3px;
+  padding: 0.1rem 0.35rem;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.06em;
+}
+.tcbox-body {
+  padding: 0.9rem 1.1rem;
+  color: var(--body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.tcbox-body p { margin: 0.4rem 0; }
+.tcbox-body p:first-child { margin-top: 0; }
+.tcbox-body p:last-child  { margin-bottom: 0; }
+.tcbox-body ul { margin: 0.4rem 0 0 1.2rem; }
+.tcbox-body ol { margin: 0.4rem 0 0 1.2rem; }
+.tcbox-body li { margin-bottom: 0.2rem; }
+.tcbox-sublabel {
+  font-size: 0.78rem;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin: 0.8rem 0 0.15rem;
+}
+.tcbox-sublabel:first-child { margin-top: 0; }
+/* accent variants */
+.tcbox.tc-blue  { border-left-color: #5b9fff; }
+.tcbox.tc-teal  { border-left-color: #4cc9b0; }
+.tcbox.tc-red   { border-left-color: #e05555; }
+.tcbox.tc-muted { border-left-color: var(--border); }
+.tcbox.tc-blue  .tcbox-title { background: rgba(91,159,255,0.07); }
+.tcbox.tc-teal  .tcbox-title { background: rgba(76,201,176,0.07); }
+.tcbox.tc-red   .tcbox-title { background: rgba(224,85,85,0.07); }
+.tcbox.tc-blue  .tcbox-title span { color: #5b9fff; }
+.tcbox.tc-teal  .tcbox-title span { color: #4cc9b0; }
+.tcbox.tc-red   .tcbox-title span  { color: #e07070; }
+/* pill badges */
+.tc-pill {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--body);
+  margin: 0.1rem 0.2rem 0.1rem 0;
 }
 </style>
 </head>
@@ -1569,80 +1606,92 @@ Final test accuracy: 1.000
     </a>.
   </p>
 
-  <div class="math-stack">
-    <div class="math-card">
-      <h4>Core Idea</h4>
+  <div class="tcbox tc-blue">
+    <div class="tcbox-title"><span class="tcbox-num">1</span><span>Core Idea</span></div>
+    <div class="tcbox-body">
       <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
-      <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
+      <div class="tcbox-sublabel">BCH drift (operational)</div>
       \[
         e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
         = \exp\!\Big(\tfrac12\,\eta\varepsilon\,[\xi,X] + \cdots\Big).
       \]
-      <ul style="margin:.4rem 0 0 1rem;">
+      <ul>
         <li>\([\xi,X]=0\) → symmetry and descent commute (equivariance).</li>
         <li>\([\xi,X]\neq 0\) → curvature-like obstruction that reshapes training dynamics.</li>
       </ul>
     </div>
+  </div>
 
-    <div class="math-card">
-      <h4>DFA Layer (Symbolic Quantization)</h4>
+  <div class="tcbox tc-teal">
+    <div class="tcbox-title"><span class="tcbox-num">2</span><span>DFA Layer — Symbolic Quantization</span></div>
+    <div class="tcbox-body">
       <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
-      <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
+      <div class="tcbox-sublabel">Cycle \(C\) (length \(L\)) → unitary lift</div>
       \[
         U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\,\lvert s_{j+1}\rangle,\qquad
         \Phi_C=\sum_j \theta_{j\to j+1}\;(\text{mod }2\pi).
       \]
-      <p style="color:var(--body);font-size:.95rem;">Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
+      <p>Transients become completely positive, trace-preserving (CPTP) maps (open-system sector).</p>
     </div>
+  </div>
 
-    <div class="math-card">
-      <h4>Quantum-like Optimization Geometry</h4>
+  <div class="tcbox">
+    <div class="tcbox-title"><span class="tcbox-num">3</span><span>Quantum-like Optimization Geometry</span></div>
+    <div class="tcbox-body">
       <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
-      <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
+      <div class="tcbox-sublabel">Imaginary-time / Fokker–Planck</div>
       \[
         \partial_t \rho = \nabla\!\cdot(\rho\,\nabla\mathcal L) + D\,\Delta \rho,
         \qquad \hbar_{\text{eff}} := 2D.
       \]
       <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
     </div>
+  </div>
 
-    <div class="math-card">
-      <h4>Observer-Centric Quantum Gravity (Stance)</h4>
-      <ul style="margin:.4rem 0 0 1rem;">
+  <div class="tcbox tc-muted">
+    <div class="tcbox-title"><span class="tcbox-num">4</span><span>Observer-Centric Quantum Gravity — Stance</span></div>
+    <div class="tcbox-body">
+      <ul>
         <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
         <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
         <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
       </ul>
-      <div style="margin-top:.7rem;">
-        <span style="display:inline-block;border:1px solid var(--border);border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;color:var(--body);">No contradiction with QM/QFT/GR</span>
-        <span style="display:inline-block;border:1px solid var(--border);border-radius:999px;padding:.15rem .6rem;font-size:.85rem;color:var(--body);">Falsifiable: latent geometry &amp; audits</span>
+      <div style="margin-top:.8rem;">
+        <span class="tc-pill">No contradiction with QM/QFT/GR</span>
+        <span class="tc-pill">Falsifiable: latent geometry &amp; audits</span>
       </div>
     </div>
   </div>
 
   <h3 style="margin-top:2rem;">At-a-Glance Equations</h3>
-  <div class="math-stack">
-    <div class="math-card">
-      <div class="math-card-label">Curvature (gauge view)</div>
+  <div class="tcbox tc-blue">
+    <div class="tcbox-title"><span>Curvature — gauge view</span></div>
+    <div class="tcbox-body">
       \[
         \Omega = dA + A\wedge A,\qquad
         [D_v, D_w]\Phi = \Omega(v,w)\cdot \Phi.
       \]
-      <p style="color:var(--body);font-size:.95rem;margin-bottom:0;">Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
+      <p>Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
     </div>
-    <div class="math-card">
-      <div class="math-card-label">Projection–Symmetry</div>
+  </div>
+
+  <div class="tcbox tc-teal">
+    <div class="tcbox-title"><span>Projection–Symmetry</span></div>
+    <div class="tcbox-body">
       \[
         [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
       \]
-      <p style="color:var(--body);font-size:.95rem;margin-bottom:0;">DFA can preserve or deliberately break a symmetry, by design.</p>
+      <p>DFA can preserve or deliberately break a symmetry, by design.</p>
     </div>
-    <div class="math-card">
-      <div class="math-card-label">Finite Heisenberg–Weyl (per cycle)</div>
+  </div>
+
+  <div class="tcbox">
+    <div class="tcbox-title"><span>Finite Heisenberg–Weyl — per cycle</span></div>
+    <div class="tcbox-body">
       \[
         T_C S_C = \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
       \]
-      <p style="color:var(--body);font-size:.95rem;margin-bottom:0;">Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
+      <p>Discrete, block-central non-commutativity; \(\Phi_C\) acts as a \(U(1)\) charge.</p>
     </div>
   </div>
 
@@ -1696,10 +1745,10 @@ Final test accuracy: 1.000
     </a>.
   </p>
 
-  <div class="math-stack">
-    <div class="math-card">
-      <h4>What's new here</h4>
-      <ul style="margin:.4rem 0 0 1rem;">
+  <div class="tcbox">
+    <div class="tcbox-title"><span class="tcbox-num">1</span><span>What's new here</span></div>
+    <div class="tcbox-body">
+      <ul>
         <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow:
           \[
             e^{\varepsilon\xi}e^{-\eta X}e^{-\varepsilon\xi}e^{\eta X}
@@ -1712,45 +1761,49 @@ Final test accuracy: 1.000
         <li><strong>Lorentz/hyperbolic RMT</strong>: \(\eta\)-Wishart spectra and \(O(p,q)\)-invariant audits.</li>
       </ul>
     </div>
+  </div>
 
-    <div class="math-card">
-      <h4>Core equations</h4>
-      <div style="margin:.4rem 0 .2rem;color:var(--muted);font-size:.9rem;">Gauge curvature &amp; covariant flows</div>
+  <div class="tcbox tc-blue">
+    <div class="tcbox-title"><span class="tcbox-num">2</span><span>Core equations</span></div>
+    <div class="tcbox-body">
+      <div class="tcbox-sublabel">Gauge curvature &amp; covariant flows</div>
       \[
         \Omega = dA + A\wedge A,\qquad [D_v,D_w]\Phi = \Omega(v,w)\cdot \Phi.
       \]
-      <div style="margin:.6rem 0 .2rem;color:var(--muted);font-size:.9rem;">Cycle unitary &amp; Floquet Hamiltonian</div>
+      <div class="tcbox-sublabel">Cycle unitary &amp; Floquet Hamiltonian</div>
       \[
         U_C\,\lvert s_j\rangle = e^{i\theta_{j\to j+1}}\lvert s_{j+1}\rangle,\quad
         H_C = \tfrac{i}{\Delta t}\log U_C.
       \]
-      <div style="margin:.6rem 0 .2rem;color:var(--muted);font-size:.9rem;">Free multiplicative convolution</div>
+      <div class="tcbox-sublabel">Free multiplicative convolution</div>
       \[
         \nu_{(A W B)^{\!*}(A W B)} \;\approx\; \nu_{A^{\!*}A}\ \boxtimes\ \nu_{W^{\!*}W}\ \boxtimes\ \nu_{B B^{\!*}}.
       \]
-      <div style="margin:.6rem 0 .2rem;color:var(--muted);font-size:.9rem;">\(\eta\)-Wishart (hyperbolic Gram)</div>
+      <div class="tcbox-sublabel">\(\eta\)-Wishart — hyperbolic Gram</div>
       \[
         K=\tfrac{1}{n}X^\top \eta X
         = \tfrac{1}{n}X_+^\top X_+ \;-\; \tfrac{1}{n}X_-^\top X_-,
       \]
-      <p style="margin:.4rem 0 0;color:var(--body);font-size:.95rem;">
-        with limiting law \( \mu_K = \mu_{\mathrm{MP}}(\gamma_+,\sigma_+^2)\ \boxplus\ \big(-\,\mu_{\mathrm{MP}}(\gamma_-,\sigma_-^2)\big).\)
-      </p>
+      <p>with limiting law \( \mu_K = \mu_{\mathrm{MP}}(\gamma_+,\sigma_+^2)\ \boxplus\ \big(-\,\mu_{\mathrm{MP}}(\gamma_-,\sigma_-^2)\big).\)</p>
     </div>
+  </div>
 
-    <div class="math-card">
-      <h4>Why RMT?</h4>
-      <ul style="margin:.4rem 0 0 1rem;">
+  <div class="tcbox tc-teal">
+    <div class="tcbox-title"><span class="tcbox-num">3</span><span>Why RMT?</span></div>
+    <div class="tcbox-body">
+      <ul>
         <li><strong>Twin certification:</strong> spectra must match along symmetry orbits.</li>
         <li><strong>Stability margins:</strong> bulk edges/gaps predict conditioning.</li>
         <li><strong>Symmetry probes:</strong> BBP outliers reveal low-rank structure by sector.</li>
         <li><strong>Design:</strong> pick \((p,q)\) so hyperbolic edges stay away from \(0\).</li>
       </ul>
     </div>
+  </div>
 
-    <div class="math-card">
-      <h4>How to use</h4>
-      <ol style="margin:.4rem 0 0 1rem;">
+  <div class="tcbox tc-muted">
+    <div class="tcbox-title"><span class="tcbox-num">4</span><span>How to use</span></div>
+    <div class="tcbox-body">
+      <ol>
         <li>Insert DFA projectors \(\Pi_q\); add \(\mathcal L_{\text{DFA}}\).</li>
         <li>Quantize hidden states; get SCCs; form \(P=D+N\); lift \(U_C\), \(\Phi\).</li>
         <li>Run audits: unitary, Choi PSD/TP, projector–symmetry commutators, micro-causality.</li>
