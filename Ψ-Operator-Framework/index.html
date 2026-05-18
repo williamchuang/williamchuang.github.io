@@ -266,16 +266,28 @@ nav.site-nav{
 }
 .callout p{margin:0;font-size:0.95rem;}
 
-/* ── At-a-Glance equation grid ── */
+/* ── At-a-Glance equation grid — single column to prevent math overflow ── */
 .eq-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  display:flex;flex-direction:column;
   gap:1rem;margin:1rem 0;
 }
 .eq-card{
   background:var(--navy-mid);border:1px solid var(--border-dim);
   border-radius:4px;padding:1rem 1.2rem;
+  overflow-x:auto;
 }
 .eq-card h4{margin-top:0;color:var(--gold);}
+/* Math card: shared style for inline grid-replacement cards */
+.math-card{
+  border:1px solid var(--border-dim);border-radius:8px;
+  padding:1rem 1.2rem;background:var(--navy-mid);
+  overflow-x:auto;margin-bottom:0;
+}
+.math-card h3{margin-top:0;color:var(--gold-light);}
+/* Math card section stacker — replaces all repeat(auto-fit) grids that hold math */
+.math-stack{
+  display:flex;flex-direction:column;gap:1rem;margin-top:1rem;
+}
 
 /* ── Finance set header ── */
 .finance-header{
@@ -312,6 +324,35 @@ footer{
 @media(max-width:860px){
   .page-layout{grid-template-columns:1fr;gap:2rem;padding:2rem 20px 4rem;}
   .toc-sidebar{display:none;}
+}
+/* MathJax display math overflow fix */
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+.MathJax_Display, mjx-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* ── .grid, .card, .eq — math-safe single-column layout ── */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card {
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  background: var(--navy-mid);
+  overflow-x: auto;
+}
+.card h3 { margin-top: 0; color: var(--gold-light); }
+.eq {
+  overflow-x: auto;
+  max-width: 100%;
 }
 </style>
 </head>
@@ -1029,8 +1070,8 @@ Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
       </a>.
     </p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">Core Idea</h3>
         <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
         <div style="margin:.4rem 0 .2rem;">BCH drift (operational):</div>
@@ -1044,7 +1085,7 @@ Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
         </ul>
       </div>
 
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">DFA Layer (Symbolic Quantization)</h3>
         <p>At each step, project logits to legal tokens via \(\Pi_{q}\); build a finite functional graph over code indices.</p>
         <div style="margin:.4rem 0 .2rem;">Cycle \(C\) (length \(L\)) → unitary lift:</div>
@@ -1055,7 +1096,7 @@ Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
         <p style="color:var(--muted);font-size:.95rem;">Transients become channels that are completely positive and trace-preserving (open-system sector).</p>
       </div>
 
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">Quantum-like Optimization Geometry</h3>
         <p>With stochastic gradients, diffusion \(D\) defines an effective quantum scale.</p>
         <div style="margin:.4rem 0 .2rem;">Imaginary-time / Fokker–Planck:</div>
@@ -1066,21 +1107,21 @@ Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
         <p>Loops in parameter space accumulate Berry-like phases; the optimizer as a connection induces path dependence.</p>
       </div>
 
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">Observer-Centric Quantum Gravity (Stance)</h3>
         <ul style="margin:.4rem 0 0 1rem;">
           <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
           <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
           <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
         </ul>
-        <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
-        <span style="display:inline-block;border:1px solid #bbb;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
+        <span style="display:inline-block;border:1px solid var(--border-dim);border-radius:999px;padding:.15rem .6rem;font-size:.85rem;margin-right:.4rem;">No contradiction with QM/QFT/GR</span>
+        <span style="display:inline-block;border:1px solid var(--border-dim);border-radius:999px;padding:.15rem .6rem;font-size:.85rem;">Falsifiable: latent geometry & audits</span>
       </div>
     </div>
 
     <h2 style="margin-top:2rem;">At-a-Glance Equations</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:var(--muted);margin-bottom:.25rem;">Curvature (gauge view)</div>
         \[
           \Omega = dA + A\wedge A,\qquad
@@ -1088,14 +1129,14 @@ Cyclic Decomposition in the λ-Stack: What “Cycle” Really Means</h1>
         \]
         <p style="color:var(--muted);font-size:.95rem;">Non-commuting covariant flows ⇔ curvature acting on fields/updates.</p>
       </div>
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:var(--muted);margin-bottom:.25rem;">Projection–Symmetry</div>
         \[
           [U(g), \Pi_q]=0 \ \Longleftrightarrow\ U(g)\ \text{permutes tokens within } \Sigma_q.
         \]
         <p style="color:var(--muted);font-size:.95rem;">DFA can preserve or deliberately break a symmetry, by design.</p>
       </div>
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <div style="text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:var(--muted);margin-bottom:.25rem;">Finite Heisenberg–Weyl (per cycle)</div>
         \[
           T_C S_C = \omega\, S_C T_C,\qquad \omega=e^{2\pi i / L}.
@@ -1139,8 +1180,8 @@ Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
       </a>.
     </p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">What’s new here</h3>
         <ul style="margin:.4rem 0 0 1rem;">
           <li><strong>BCH diagnostic</strong> for symmetry vs. gradient flow:
@@ -1156,7 +1197,7 @@ Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
         </ul>
       </div>
 
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">Core equations</h3>
         <div style="margin:.4rem 0 .2rem;">Gauge curvature &amp; covariant flows</div>
         \[
@@ -1179,7 +1220,7 @@ Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
         with limiting law \( \mu_K = \mu_{\mathrm{MP}}(\gamma_+,\sigma_+^2)\ \boxplus\ \big(-\,\mu_{\mathrm{MP}}(\gamma_-,\sigma_-^2)\big).\)
       </div>
 
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">Why RMT?</h3>
         <ul style="margin:.4rem 0 0 1rem;">
           <li><strong>Twin certification:</strong> spectra must match along symmetry orbits.</li>
@@ -1189,7 +1230,7 @@ Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
         </ul>
       </div>
 
-      <div style="border:1px solid #ddd;border-radius:12px;padding:1rem;background:rgba(0,0,0,.02);">
+      <div style="border:1px solid var(--border-dim);border-radius:8px;padding:1rem 1.2rem;background:var(--navy-mid);overflow-x:auto;">
         <h3 style="margin-top:0;">How to use</h3>
         <ol style="margin:.4rem 0 0 1rem;">
           <li>Insert DFA projectors \(\Pi_q\); add \(\mathcal L_{\text{DFA}}\).</li>
@@ -1910,7 +1951,7 @@ Decomposing Autoregressive Transformers as Finite Machines — Overview</h2>
       <a href="https://drive.google.com/file/d/1g5DOVmMgYr-itFShqNkRfjdO7nzxCrue/view?usp=sharing" target="_blank" rel="noopener">Decomposing Autoregressive Transformers as Finite Machines (PDF)</a>.
     </p>
 
-    <div style="display:grid; gap:.9rem; margin:.9rem 0;">
+    <div style="display:flex;flex-direction:column; gap:.9rem; margin:.9rem 0;">
       <div>
         <h3 style="margin:.25rem 0;">Object of study</h3>
         <ul style="margin:.25rem 0 0 .95rem;">
