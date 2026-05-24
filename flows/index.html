@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Capital Flows &amp; Institutional Transparency — Logarchéon</title>
+<meta name="description" content="A primary-source transparency tracker mapping confirmed capital flows between Western institutional investors and entities linked to PRC/Russia state structures. Siekiera &amp; Chuang 2026 §19."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0a1628;--navy-mid:#0e1f3a;--navy-light:#162d52;
+  --gold:#c9a84c;--gold-light:#e2c97e;--gold-dim:#a07d3a;--gold-pale:rgba(201,168,76,0.12);
+  --cream:#f5f0e8;--body:#e8e2d8;--muted:#c8c0b0;--faint:#8a8070;
+  --border:rgba(201,168,76,0.25);--border-dim:rgba(201,168,76,0.11);
+  --warn:#e2a06a;--red:#d4776a;--confirmed:#7ab87a;--pending:#8a8070;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"Libre Baskerville",Georgia,serif;background:var(--navy);color:var(--cream);line-height:1.75;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
+  radial-gradient(ellipse 600px 800px at 88% 25%,rgba(201,168,76,0.04) 0%,transparent 55%);}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(201,168,76,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.02) 1px,transparent 1px);
+  background-size:80px 80px;}
+.wrap{position:relative;z-index:1;}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;color:var(--cream);line-height:1.2;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{color:var(--gold-light);text-decoration:underline;}
+p{margin-bottom:1rem;color:var(--body);}
+p:last-child{margin-bottom:0;}
+nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dim);padding:0 28px;}
+.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;}
+.nav-logo{font-family:"Cormorant Garamond",serif;font-size:1.25rem;font-weight:500;color:var(--gold-light);letter-spacing:0.02em;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);text-decoration:none;}
+.container{max-width:1060px;margin:0 auto;padding:0 28px 6rem;}
+.page-hero{padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--border-dim);margin-bottom:2.8rem;}
+.breadcrumb{font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.6rem;}
+.page-hero h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;margin-bottom:0.5rem;}
+.page-hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero-desc{font-size:0.97rem;color:var(--body);max-width:66ch;line-height:1.85;margin-top:0.8rem;}
+.mono-label{font-family:"DM Mono",monospace;font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.6rem;display:block;}
+.section-rule{font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin:2.6rem 0 0.9rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border-dim);}
+.disclaimer{border-left:3px solid var(--gold-dim);background:rgba(14,31,58,0.55);border-radius:0 4px 4px 0;padding:1.3rem 1.6rem;margin-bottom:2rem;}
+.disclaimer p{font-size:0.88rem;line-height:1.9;}
+.card{background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-radius:4px;padding:1.3rem 1.5rem;margin-bottom:0.9rem;}
+.card-title{font-family:"DM Mono",monospace;font-size:0.63rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.5rem;display:block;}
+.card p{font-size:0.87rem;color:var(--body);line-height:1.85;}
+.card-links{display:flex;gap:0.9rem;flex-wrap:wrap;margin-top:0.85rem;}
+.card-links a{font-family:"DM Mono",monospace;font-size:0.68rem;letter-spacing:0.04em;color:var(--gold);border:1px solid var(--border);padding:0.25rem 0.7rem;border-radius:2px;background:var(--gold-pale);}
+.card-links a:hover{background:rgba(201,168,76,0.22);text-decoration:none;}
+.tbl-wrap{overflow-x:auto;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.81rem;font-family:"DM Mono",monospace;}
+thead tr{border-bottom:1px solid var(--border);}
+th{text-align:left;padding:0.55rem 0.65rem;color:var(--gold-dim);font-weight:400;letter-spacing:0.07em;text-transform:uppercase;white-space:nowrap;}
+td{padding:0.62rem 0.65rem;color:var(--muted);vertical-align:top;border-bottom:1px solid var(--border-dim);line-height:1.65;}
+td.name{color:var(--cream);font-weight:500;}
+td.conf{color:var(--confirmed);}
+td.warn{color:var(--warn);}
+td.red{color:var(--red);}
+td.pend{color:var(--pending);font-style:italic;}
+.ev{display:inline-block;font-family:"DM Mono",monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.08rem 0.4rem;border-radius:2px;margin-left:0.35em;vertical-align:middle;}
+.ev-d{background:rgba(122,184,122,0.15);color:var(--confirmed);border:1px solid rgba(122,184,122,0.3);}
+.ev-f{background:rgba(201,168,76,0.12);color:var(--gold-dim);border:1px solid rgba(201,168,76,0.25);}
+.ev-i{background:rgba(138,128,112,0.15);color:var(--faint);border:1px solid rgba(138,128,112,0.3);}
+.note{font-size:0.76rem;color:var(--faint);font-family:"DM Mono",monospace;letter-spacing:0.03em;line-height:1.7;margin-top:0.5rem;}
+.sev{display:inline-block;font-family:"DM Mono",monospace;font-size:0.58rem;letter-spacing:0.09em;text-transform:uppercase;padding:0.12rem 0.5rem;border-radius:2px;margin-left:0.4em;vertical-align:middle;}
+.sev-1{background:rgba(212,119,106,0.18);color:var(--red);border:1px solid rgba(212,119,106,0.35);}
+.sev-2{background:rgba(226,160,106,0.18);color:var(--warn);border:1px solid rgba(226,160,106,0.35);}
+.sev-3{background:rgba(138,128,112,0.15);color:var(--muted);border:1px solid rgba(138,128,112,0.25);}
+footer{text-align:center;padding:2rem 1rem;font-family:"DM Mono",monospace;font-size:0.63rem;letter-spacing:0.07em;color:var(--faint);border-top:1px solid var(--border-dim);}
+@media(max-width:680px){.nav-links{gap:1rem;}.nav-links a{font-size:0.62rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarch&eacute;on</a>
+    <ul class="nav-links">
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+      <li><a href="/MIA">MIA</a></li>
+      <li><a href="/Research" class="active">Research</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="/" style="color:var(--faint);">Logarch&eacute;on</a>
+    <span>/</span>
+    <a href="/Research" style="color:var(--faint);">Research</a>
+    <span>/</span>
+    <span>Capital Flows</span>
+  </div>
+  <h1>Capital Flows &amp;<br><em>Institutional Transparency</em></h1>
+  <p class="hero-desc">
+    A primary-source tracker drawn from the Siekiera &amp; Chuang 2026
+    Indo-Pacific Lawfare and Civilizational Succession Series (§19).
+    Only confirmed, documented holdings appear —
+    tagged <span class="ev ev-d">D</span> demonstrated from full primary-source review,
+    <span class="ev ev-f">F</span> confirmed fact with primary citation, or
+    <span class="ev ev-i">I</span> structurally grounded inference noted as such.
+    Severity is ranked by U.S. regulatory designation, not by amount invested.
+    Unverified findings are withheld.
+  </p>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <span class="mono-label">Personal Statement on Institutional Affiliation</span>
+  <p>
+    I hold membership in several fraternal, religious, and civic organisations,
+    including the Knights of Columbus and the Order of Malta.
+    Membership in any institution does not constitute endorsement of, participation in,
+    or awareness of that institution&rsquo;s financial structures, investment allocations,
+    or capital-flow decisions. These matters are governed by fiduciary officers and
+    investment committees operating under separate legal mandates, properly subject to
+    public disclosure so that members and the wider public may examine them as a matter
+    of civic record.
+  </p>
+  <p style="margin-top:0.8rem;">
+    Investment decisions for the KoCAA International Equity Fund are made by its
+    sub-adviser <strong style="color:var(--cream);">Boston Advisors LLC</strong>
+    (portfolio managers Ivka Kalus-Bystricky and David Hanna), not by Knights of Columbus
+    leadership. The structural observation documented here is not an allegation of
+    coordination or wrongdoing — it is a documented gap between a values framework
+    designed in one era and a financial reality it was not designed to address.
+    This research is offered as a contribution to the public record.
+  </p>
+</div>
+
+<!-- ══════════════ I. USCCB SCREEN ══════════════ -->
+<p class="section-rule">I &nbsp;·&nbsp; The Foundational Policy Gap — USCCB Socially Responsible Investment Guidelines (2021)</p>
+
+<div class="card">
+  <span class="card-title">USCCB SRI Guidelines &nbsp;·&nbsp; November 2021 &nbsp;·&nbsp; Approved by full body of US Bishops &nbsp;·&nbsp; First update in 18 years <span class="ev ev-d">D</span></span>
+  <p>
+    The 2021 Guidelines contain <strong style="color:var(--cream);">zero provisions</strong> addressing:
+    DoD Section&nbsp;1260H-designated Chinese military companies;
+    OFAC-sanctioned Russian entities; Ukraine NACP-listed entities (designated under Ukraine’s National Agency on Corruption Prevention’s international sponsors register);
+    CCP state-owned enterprises; banks under US federal court contempt orders
+    for nuclear-proliferation financing; or companies formally designated as
+    adversarial actors by any foreign government.
+  </p>
+  <p style="margin-top:0.75rem;">
+    The screen&rsquo;s absolute exclusions cover abortion providers, contraceptive manufacturers,
+    pornography, embryonic stem cell research, gender-transition providers, tobacco,
+    gambling, and weapons of mass destruction. It does not exclude entities the US
+    Department of Defense has formally certified to Congress as contributors to the
+    People&rsquo;s Liberation Army&rsquo;s military capabilities, nor entities that Ukraine&rsquo;s National
+    Agency on Corruption Prevention has placed on its international sponsors register
+    in connection with continued business operations in Russia.
+    Every US Catholic institution applying this screen inherits the same structural gap.
+  </p>
+  <div class="card-links">
+    <a href="https://www.usccb.org/resources/socially-responsible-investment-guidelines" target="_blank" rel="noopener">USCCB SRI Guidelines ↗</a>
+  </div>
+</div>
+
+<!-- ══════════════ II. KoCAA ══════════════ -->
+<p class="section-rule">II &nbsp;·&nbsp; Knights of Columbus Asset Advisors — International Equity Fund &nbsp;·&nbsp; Confirmed Holdings, Ranked by Severity</p>
+
+<div class="card">
+  <span class="card-title">Fund structure &nbsp;·&nbsp; KoCAA LLC (CIK 0001688666) &nbsp;·&nbsp; Sub-adviser: Boston Advisors LLC &nbsp;·&nbsp; Active fund, not index &nbsp;·&nbsp; Launch: Feb 27, 2015 <span class="ev ev-d">D</span></span>
+  <p>
+    Benchmarked to the FTSE All-World ex-US Index; held within the Advisors&rsquo; Inner Circle
+    Fund III umbrella (CIK 0001593547). As an <strong style="color:var(--cream);">active fund</strong>,
+    every position is a conviction decision by Boston Advisors — not an automatic index
+    consequence. The fund has approximately 2,400 securities to choose from in the ex-US
+    universe. All positions below were specifically selected and maintained.
+  </p>
+  <div class="card-links">
+    <a href="https://files.kofc.org/download/assets/11331-7-25-2Q2025-IE-IShares.pdf/e1de684672fe11f0a932b2a4e0c2076a" target="_blank" rel="noopener">KoCAA Q2 2025 IE Fund Commentary (primary source) ↗</a>
+    <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1688666&type=13F" target="_blank" rel="noopener">SEC EDGAR — KoCAA filings ↗</a>
+    <a href="https://www.kocaa.com/resources/forms/" target="_blank" rel="noopener">KoCAA investor documents ↗</a>
+  </div>
+</div>
+
+<!-- TOP 10 -->
+<div class="card">
+  <span class="card-title">IE Fund — Top 10 Holdings as of June 30, 2025 <span class="ev ev-f">F</span> &nbsp;·&nbsp; Source: KoCAA Q2 2025 official fund commentary</span>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Rank</th><th>Entity</th><th>Weight</th><th>Flag</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="name">Taiwan Semiconductor Manufacturing Co.</td><td class="conf">3.61%</td><td>—</td></tr>
+      <tr><td>2</td><td class="name">SAP SE</td><td class="conf">2.46%</td><td>—</td></tr>
+      <tr>
+        <td>3</td>
+        <td class="name">Tencent Holdings Ltd <span class="sev sev-1">Severity I</span></td>
+        <td class="red"><strong>2.33%</strong></td>
+        <td class="red">DoD 1260H — PLA military-civil fusion contributor (Jan 6, 2025)</td>
+      </tr>
+      <tr><td>4</td><td class="name">ASML Holding NV</td><td class="conf">2.09%</td><td>—</td></tr>
+      <tr><td>5</td><td class="name">Royal Bank of Canada</td><td class="conf">2.04%</td><td>—</td></tr>
+      <tr><td>6</td><td class="name">Shell PLC</td><td class="conf">2.02%</td><td>—</td></tr>
+      <tr><td>7</td><td class="name">Lloyds Banking Group</td><td class="conf">1.66%</td><td>—</td></tr>
+      <tr><td>8</td><td class="name">UBS Group AG</td><td class="conf">1.64%</td><td>—</td></tr>
+      <tr><td>9</td><td class="name">BNP Paribas</td><td class="conf">1.61%</td><td>—</td></tr>
+      <tr><td>10</td><td class="name">Mitsubishi UFJ Financial Group</td><td class="conf">1.61%</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- FLAGGED HOLDINGS -->
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Entity &amp; Position <span class="ev ev-f">F</span></th>
+      <th>KofC Official Position</th>
+      <th>Documented Activity <span class="ev ev-f">F</span></th>
+      <th>Regulatory Status</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- TENCENT -->
+    <tr>
+      <td class="name" style="min-width:160px;">
+        Tencent Holdings Ltd<br>
+        <span class="sev sev-1">Severity I</span><br>
+        <span style="color:var(--faint);font-size:0.72rem;">TCEHY ADR</span><br>
+        <span style="color:var(--red);font-size:0.72rem;">85,300 shares / ~$5.22M</span><br>
+        <span style="color:var(--red);font-size:0.72rem;">#3 holding · 2.33% weight (Jun 30, 2025)</span><br>
+        <span style="color:var(--faint);font-size:0.72rem;">2.5% avg weight Q2 2025</span>
+      </td>
+      <td style="font-size:0.78rem;color:var(--muted);min-width:160px;">
+        KofC 2024 resolution: &ldquo;In Solidarity With Persecuted Christians&rdquo; — named &ldquo;dictatorial regimes.&rdquo;
+        Religious liberty page invokes <em>Dignitatis Humanae</em>.
+        Supreme Knight Kelly&rsquo;s prior role: Senior Advisor to the US Ambassador-at-Large
+        for International Religious Freedom.
+      </td>
+      <td style="font-size:0.78rem;color:var(--warn);min-width:200px;">
+        Tencent&rsquo;s WeChat operates under PRC Article&nbsp;35 data-access obligations,
+        functioning as a surveillance platform used against religious minorities including
+        underground Catholics, Uyghur Muslims, and Protestant house churches
+        — the populations <em>Dignitatis Humanae</em> protects. <span class="ev ev-i">I</span><br><br>
+        Tencent maintained Russian presence after the 2022 invasion;
+        leave-russia.org classified it as &ldquo;doing business in Russia as usual.&rdquo;
+        Stock fell ~10% on DoD designation; Tencent repurchased the most shares
+        in nearly two decades. Company called inclusion &ldquo;a mistake&rdquo; and
+        initiated reconsideration — remained listed as of Q2 2025.
+      </td>
+      <td class="red" style="font-size:0.78rem;">
+        <strong>DoD Section 1260H</strong><br>
+        Chinese Military Company<br>
+        PLA military-civil fusion contributor<br>
+        Fed. Reg. 2025-00070<br>
+        <span style="color:var(--faint);">Designated Jan 6, 2025</span><br>
+        <span style="color:var(--faint);">Not on OFAC SDN</span><br>
+        <span style="color:var(--faint);">DoD procurement bar: Jun 2026</span>
+      </td>
+      <td style="font-size:0.7rem;">
+        <a href="https://www.federalregister.gov/documents/2025/01/06/2025-00117/chinese-military-companies" target="_blank" rel="noopener">Fed. Register ↗</a><br>
+        <a href="https://files.kofc.org/download/assets/11331-7-25-2Q2025-IE-IShares.pdf/e1de684672fe11f0a932b2a4e0c2076a" target="_blank" rel="noopener">KoCAA Q2 2025 ↗</a>
+      </td>
+    </tr>
+
+    <!-- ALIBABA -->
+    <tr>
+      <td class="name" style="min-width:160px;">
+        Alibaba Group<br>
+        <span class="sev sev-2">Severity II</span><br>
+        <span style="color:var(--faint);font-size:0.72rem;">BABA NYSE · AliExpress parent</span><br>
+        <span style="color:var(--warn);font-size:0.72rem;">265,000 shares / ~$3.96M</span>
+      </td>
+      <td style="font-size:0.78rem;color:var(--muted);min-width:160px;">
+        KofC documentary <em>In Solidarity with Ukraine</em> described Russia&rsquo;s invasion
+        as &ldquo;the reality of evil.&rdquo; Supreme Knight Kelly stated within 36 hours of the
+        invasion: &ldquo;the situation in Ukraine is dire and worsening&rdquo; — &ldquo;a game-changer
+        that will have long-lasting consequences for Europe and for the world.&rdquo;
+        KofC donated over $24&nbsp;million to Ukraine relief with 100% directed to
+        displaced persons and refugees.
+      </td>
+      <td style="font-size:0.78rem;color:var(--warn);min-width:200px;">
+        Ukraine&rsquo;s National Agency on Corruption Prevention (NACP) placed Alibaba on
+        its international sponsors register (Aug 17, 2023). Stated grounds in the NACP notice:<br>
+        (1) Continued operation in Russia via AliExpress / Alibaba.KOM&nbsp;(RU)&nbsp;LLC;<br>
+        (2) Platforms used for sale of goods produced at the Debaltseve metallurgical plant
+        (located in an area under Russian military control at the relevant time) —
+        3,220 tonnes of copper alloy, ~$7.4M, Oct 2022&ndash;Mar 2023, shipped via Novorossiysk;<br>
+        (3) Removal of content by a Ukrainian streamer (268,000 followers on AliExpress)
+        for posting about the armed conflict, while comparable content was not removed.<br><br>
+        Alibaba.KOM&nbsp;(RU) reported profit of 16.3&nbsp;billion rubles (~$160M) in 2022.<br><br>
+        Alibaba&rsquo;s AliExpress Russia joint venture (formed 2019) included the
+        <strong>Russian Direct Investment Fund (RDIF)</strong> as a direct investor
+        with a $100M commitment and option to acquire up to 12.9% economic stake.
+        RDIF is a Russian state-owned entity.<br><br>
+        NACP notice stated: &ldquo;[the above facts] may indicate that the company supports
+        Russian aggression not only financially, by paying taxes, but also ideologically.&rdquo;
+        This is the language of the NACP notice; it is not a judicial finding.<br><br>
+        DoD Deputy Secretary Feinberg letter (Oct 7, 2025) identified Alibaba as meriting
+        1260H consideration. Briefly listed Feb 13, 2026; withdrawn same day — no national
+        security finding was issued.
+      </td>
+      <td class="warn" style="font-size:0.78rem;">
+        <strong>Ukraine NACP International Sponsors Register</strong><br>
+        <span style="color:var(--faint);">Designated Aug 17, 2023</span><br>
+        Cross-listed in World-Check database (used by banks and insurers for risk assessment)<br><br>
+        <strong>DoD-briefed for 1260H</strong><br>
+        <span style="color:var(--faint);">Feinberg letter Oct 7, 2025</span><br>
+        <span style="color:var(--faint);">Briefly listed Feb 13, 2026</span><br>
+        <span style="color:var(--faint);">Diplomatically withdrawn same day</span><br><br>
+        Not on OFAC SDN
+      </td>
+      <td style="font-size:0.7rem;">
+        <a href="https://nazk.gov.ua/en/news/the-nacp-included-the-owner-of-aliexpress-in-the-list-of-international-sponsors-of-the-war/" target="_blank" rel="noopener">NACP official ↗</a><br>
+        <a href="https://www.pravda.com.ua/eng/news/2023/08/17/7415989/" target="_blank" rel="noopener">Ukrainska Pravda ↗</a><br>
+        <a href="https://www.warsanctions.com/" target="_blank" rel="noopener">War &amp; Sanctions portal ↗</a>
+      </td>
+    </tr>
+
+    <!-- SPDB -->
+    <tr>
+      <td class="name" style="min-width:160px;">
+        Shanghai Pudong Development Bank<br>
+        <span class="sev sev-3">Severity III</span><br>
+        <span style="color:var(--faint);font-size:0.72rem;">SPDB · A-shares</span><br>
+        <span style="color:var(--warn);font-size:0.72rem;">1,410,000 shares / ~$2.13M (Jan 31, 2025)</span><br>
+        <span style="color:var(--warn);font-size:0.72rem;">1.0% weight · +34.8% return (Q2 2025)</span>
+      </td>
+      <td style="font-size:0.78rem;color:var(--muted);min-width:160px;">
+        KofC&rsquo;s &ldquo;Patriotism&rdquo; pillar and documented anticommunist history.
+        KofC&rsquo;s foundational principles on rule of law.
+        Religious freedom pillar: opposition to CCP state suppression of Catholic practice.
+      </td>
+      <td style="font-size:0.78rem;color:var(--warn);min-width:200px;">
+        <strong>DC Circuit contempt proceedings — DPRK-related DOJ grand jury subpoenas:</strong>
+        US prosecutors alleged SPDB moved an estimated $100M through US correspondent accounts
+        on behalf of Mingzheng International Trading Limited. Prosecutors alleged Mingzheng
+        was acting on behalf of North Korea&rsquo;s Foreign Trade Bank (OFAC-designated since 2013).
+        DC Circuit Court upheld $50,000/day contempt fines for SPDB&rsquo;s refusal to comply
+        with DOJ grand jury subpoenas. First application of Patriot Act Section&nbsp;319(b)
+        approved by a Circuit Court. No conviction or judicial finding has been entered
+        against SPDB on the underlying allegations; the contempt findings relate solely
+        to non-compliance with the subpoenas.<br><br>
+        <strong>State ownership:</strong>
+        26% owned by Shanghai Jiushi Corporation, 100% owned by Shanghai SASAC
+        (Shanghai municipal government state-owned assets regulator).<br><br>
+        <strong>CIPS membership:</strong>
+        SPDB is a participant in China&rsquo;s Cross-border Interbank Payment System (CIPS).
+        <span class="ev ev-i">I</span>
+      </td>
+      <td class="warn" style="font-size:0.78rem;">
+        <strong>DC Circuit — contempt of court</strong><br>
+        $50,000/day fines<br>
+        DOJ grand jury subpoena proceedings (DPRK-related investigation)<br>
+        <span style="color:var(--faint);">2019</span><br><br>
+        <strong>Not on OFAC SDN</strong><br>
+        <strong>Not on DoD 1260H</strong>
+      </td>
+      <td style="font-size:0.7rem;">
+        <a href="https://files.kofc.org/download/assets/11331-7-25-2Q2025-IE-IShares.pdf/e1de684672fe11f0a932b2a4e0c2076a" target="_blank" rel="noopener">KoCAA Q2 2025 ↗</a><br>
+        <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1593547&type=N-PORT" target="_blank" rel="noopener">N-PORT (Jan 31, 2025) ↗</a>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<p class="note" style="margin-top:0.7rem;">
+  <strong style="color:var(--muted);">Legal note:</strong>
+  DoD 1260H designation does not currently constitute a transaction ban, asset freeze,
+  or restriction on civilian investment funds. The investments are legally permissible.
+  DoD procurement bars for government contractors phase in Jun 2026 (direct) and Jun 2027 (indirect).
+  NACP designation carries no US legal consequence. Designations are reported as facts of
+  administrative record. The structural observation is about the gap between stated values
+  and disclosed holdings — not about legal compliance.
+</p>
+
+<!-- SPDB TIMELINE -->
+<div class="card" style="margin-top:1.1rem;">
+  <span class="card-title">SPDB — Confirmed &amp; Pending Holding Timeline &nbsp;·&nbsp; KoCAA IE Fund</span>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Period</th><th>Source</th><th>Status</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>2015&ndash;2024</td>
+        <td style="font-size:0.72rem;color:var(--faint);">N-Q / N-PORT / annual reports</td>
+        <td class="pend">Not yet confirmed per year</td>
+        <td style="font-size:0.72rem;color:var(--faint);">
+          Requires per-quarter N-PORT XML extraction from EDGAR CIK&nbsp;1593547 sub-schedules.
+          Apr 30, 2023 filing shows consistent PRC A-share financials strategy in same category:
+          Ping An Bank (893,700 shares), Industrial Bank (880,104), China Merchants Bank (696,700),
+          Bank of Nanjing (582,900) — same sector, adjacent period to confirmed SPDB position.
+          2024 is highest-priority backfill year.
+        </td>
+      </tr>
+      <tr>
+        <td class="conf" style="white-space:nowrap;">Jan 31, 2025</td>
+        <td style="font-size:0.72rem;"><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1593547&type=N-PORT" target="_blank" rel="noopener">SEC N-PORT ↗</a></td>
+        <td class="conf"><strong>Confirmed</strong></td>
+        <td class="conf" style="font-size:0.72rem;">1,410,000 shares · ~1.032% NAV · Filed as &ldquo;SHANGHAI PUDONG DEVELOPMENT BANK CO., LTD. / SHANGHAI PUDONG DEVEL BANK-A&rdquo;</td>
+      </tr>
+      <tr>
+        <td class="conf" style="white-space:nowrap;">Q2 2025 (Jun 30)</td>
+        <td style="font-size:0.72rem;"><a href="https://files.kofc.org/download/assets/11331-7-25-2Q2025-IE-IShares.pdf/e1de684672fe11f0a932b2a4e0c2076a" target="_blank" rel="noopener">KoCAA official ↗</a></td>
+        <td class="conf"><strong>Confirmed — named in performance attribution</strong></td>
+        <td class="conf" style="font-size:0.72rem;"><strong>1.0% weight · +34.8% return</strong> · Named explicitly: &ldquo;Selection in Financials was very strong, with over 30% returns from emerging market banks — KB Financial Group Inc. (1.1%, +54.3%), Shanghai Pudong Development Bank Co. (1.0%, +34.8%) and Grupo Financiero Banorte SAB de C.V. (1.0%, +38.8%).&rdquo;</td>
+      </tr>
+      <tr>
+        <td style="white-space:nowrap;">Jul 31, 2025</td>
+        <td style="font-size:0.72rem;"><a href="https://www.kocaa.com/resources/forms/" target="_blank" rel="noopener">KoCAA docs ↗</a></td>
+        <td class="pend">Schedule of Investments — pending extraction</td>
+        <td style="font-size:0.72rem;color:var(--faint);">High-priority</td>
+      </tr>
+      <tr>
+        <td style="white-space:nowrap;">Oct 31, 2025</td>
+        <td style="font-size:0.72rem;"><a href="https://www.kocaa.com/resources/forms/" target="_blank" rel="noopener">KoCAA docs ↗</a></td>
+        <td class="pend">Annual Shareholder Report — pending extraction</td>
+        <td style="font-size:0.72rem;color:var(--faint);">High-priority</td>
+      </tr>
+      <tr>
+        <td style="white-space:nowrap;">Jan 31, 2026</td>
+        <td style="font-size:0.72rem;"><a href="https://www.kocaa.com/resources/forms/" target="_blank" rel="noopener">KoCAA docs ↗</a></td>
+        <td class="pend">Schedule of Investments — highest-priority current check</td>
+        <td style="font-size:0.72rem;color:var(--faint);">Most recent available; current live status unverified</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ══════════════ III. COMMONSPIRIT ══════════════ -->
+<p class="section-rule">III &nbsp;·&nbsp; CommonSpirit Health — Audited Financial Disclosure</p>
+
+<div class="card">
+  <span class="card-title">CommonSpirit Health &nbsp;·&nbsp; FY2025 Audited Financial Statements &nbsp;·&nbsp; Ernst &amp; Young, September 24, 2025 <span class="ev ev-d">D</span></span>
+  <p>
+    Largest Catholic health system in the United States. Investment income of
+    <strong style="color:var(--cream);">$1.719&nbsp;billion net in FY2025</strong> subsidised
+    $687&nbsp;million in operating losses — the portfolio is essential to institutional viability.
+    Total assets $57.26&nbsp;billion &nbsp;·&nbsp; 138 hospitals &nbsp;·&nbsp; 24 states &nbsp;·&nbsp; 160,000 employees.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Foreign equity: $1.716&nbsp;billion (direct)</strong> plus
+    <strong style="color:var(--cream);">$4.093&nbsp;billion in commingled equity funds</strong>
+    described explicitly as funds that &ldquo;attempt to match or exceed the returns of specific
+    equity indices&rdquo; — the language for benchmark-tracking mandates that generate automatic
+    PRC equity exposure through MSCI ACWI (~3.3% China weight) and MSCI Emerging Markets.
+    At that weighting, the commingled pool alone implies approximately
+    <strong style="color:var(--cream);">$135M in inferred PRC equity exposure</strong>. <span class="ev ev-i">I</span>
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Confirmed policy gap:</strong>
+    FY2025 audited financials contain zero references to the USCCB SRI Guidelines,
+    a Catholic values screen, or any PRC/Russia geopolitical restriction.
+    The investment portfolio — approximately
+    <strong style="color:var(--cream);">560 times the scale</strong> of the KoCAA Tencent position
+    at $5.22M — operates without an equivalent ethical investment framework.
+    No individual holdings are named in the audited financials; the evidentiary gap
+    is at the holding-name level, not the asset-class level.
+  </p>
+  <div class="tbl-wrap" style="margin-top:1rem;">
+  <table>
+    <thead><tr><th>Asset Category</th><th>FY2025 ($M) <span class="ev ev-d">D</span></th><th>FY2024 ($M)</th></tr></thead>
+    <tbody>
+      <tr><td>US equity securities</td><td>$1,525</td><td>$1,587</td></tr>
+      <tr><td class="name">Foreign equity securities (direct)</td><td class="warn">$1,716</td><td class="warn">$1,467</td></tr>
+      <tr><td>Foreign government securities</td><td>$151</td><td>$71</td></tr>
+      <tr><td>Foreign corporate bonds</td><td>$188</td><td>$231</td></tr>
+      <tr><td class="name">Commingled equity funds — NAV basis<br><span style="color:var(--faint);font-size:0.72rem;">"attempt to match or exceed returns of specific equity indices"</span></td><td class="warn">$4,093</td><td>—</td></tr>
+      <tr><td>Multi-strategy hedge funds (NAV)</td><td>$2,624</td><td>$30</td></tr>
+      <tr><td>Private equity (NAV)</td><td>$1,904</td><td>$118</td></tr>
+      <tr><td><strong>Total investments</strong></td><td><strong>$20,460</strong></td><td><strong>$19,162</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note" style="margin-top:0.8rem;">
+    <strong style="color:var(--muted);">Resolution path:</strong>
+    CommonSpirit&rsquo;s IRS Form 990 Schedule&nbsp;D would name individual holdings.
+    Investment manager SEC 13F filings would name equity positions above the disclosure threshold.
+    Neither has been retrieved in this research.
+  </p>
+  <div class="card-links">
+    <a href="https://www.commonspirit.org/about/financial-reporting" target="_blank" rel="noopener">CommonSpirit Financial Reports ↗</a>
+  </div>
+</div>
+
+<!-- ══════════════ IV. ASCENSION ══════════════ -->
+<p class="section-rule">IV &nbsp;·&nbsp; Ascension Health — Pension Fund Disclosure &amp; Ascension Investment Management</p>
+
+<div class="card">
+  <span class="card-title">Ascension Health &nbsp;·&nbsp; Ascension Master Pension Trust (AMPT) &nbsp;·&nbsp; Form 5500 disclosures, 2023 &nbsp;·&nbsp; NNU analysis, September 2025 <span class="ev ev-d">D</span></span>
+  <p>
+    A September 2025 report by National Nurses United analyzed the publicly available
+    2023 disclosures of the Ascension Master Pension Trust (AMPT). Researchers found
+    Ascension holds investments in weapons manufacturing, alcohol, gambling, and oil,
+    gas, and mining industries that may violate the USCCB SRI Guidelines and the
+    Vatican&rsquo;s 2022 <em>Mensuram Bonam</em> document.
+  </p>
+  <p style="margin-top:0.75rem;">
+    AMPT&rsquo;s disclosed investments include
+    <strong style="color:var(--cream);">$188.6&nbsp;million in major global banks</strong>
+    (including BNP&nbsp;Paribas and Cr&eacute;dit Agricole, both with documented PRC operations)
+    and <strong style="color:var(--cream);">$71.1&nbsp;million in oil and gas companies</strong>
+    (Shell, BP, Chevron, ExxonMobil, TotalEnergies).
+    Ascension&rsquo;s CIO David Erickson publicly claimed in 2023 that Ascension had divested
+    fossil fuel companies — the Form&nbsp;5500 disclosures showed continued holdings.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Ascension Investment Management (AIM)</strong> —
+    a wholly owned Ascension subsidiary — manages more than
+    <strong style="color:var(--cream);">$40&nbsp;billion in assets</strong>, including investment
+    assets from non-Ascension Catholic entities such as archdioceses, schools, and foundations,
+    under a USCCB-aligned screen. AIM&rsquo;s $40B AUM under the same screen architecture
+    documented in Section&nbsp;I almost certainly carries PRC equity exposure through
+    benchmark-tracking mandates. <span class="ev ev-i">I</span>
+  </p>
+  <p class="note" style="margin-top:0.8rem;">
+    <strong style="color:var(--muted);">What is not documented:</strong>
+    No direct Chinese donor relationship, PRC government grant, or PRC institutional inflow
+    has been identified for Ascension in primary sources.
+    The exposure documented here is outbound investment, not inbound PRC capital.
+    Resolution path: AMPT Form&nbsp;5500 filings (available via DOL EFAST2);
+    AIM investment manager 13F if above threshold.
+  </p>
+</div>
+
+<!-- ══════════════ V. HSBC ══════════════ -->
+<p class="section-rule">V &nbsp;·&nbsp; HSBC — CCP Committee &amp; PRC Banking Stakes</p>
+
+<div class="card">
+  <span class="card-title">HSBC Holdings PLC &nbsp;·&nbsp; Global systemically important bank &nbsp;·&nbsp; CCP committee establishment documented 2022 <span class="ev ev-f">F</span></span>
+  <p>
+    HSBC became the <strong style="color:var(--cream);">first international bank to establish a
+    Chinese Communist Party committee</strong> in its mainland China operations — documented by
+    Fortune and the Financial Times (2022). Ping An Insurance, a PRC state-controlled insurer,
+    is HSBC&rsquo;s largest shareholder. HSBC increased its China brokerage joint venture stake
+    to 90% from 51%.
+  </p>
+  <p style="margin-top:0.75rem;">
+    HSBC holds an <strong style="color:var(--cream);">8% stake in Bank of Shanghai</strong> and a
+    <strong style="color:var(--cream);">19% stake in Bank of Communications</strong>
+    (one of China&rsquo;s five largest state-owned banks). As a G-SIB used as a financial
+    intermediary by numerous Catholic and Western institutional investors, HSBC&rsquo;s CCP
+    governance structure runs structurally through those institutional relationships.
+  </p>
+  <div class="card-links">
+    <a href="https://fortune.com/2022/10/10/hsbc-first-global-bank-ccp-communist-party-committee-china/" target="_blank" rel="noopener">Fortune — HSBC CCP committee ↗</a>
+  </div>
+</div>
+
+<!-- ══════════════ VI. VATICAN ══════════════ -->
+<p class="section-rule">VI &nbsp;·&nbsp; Holy See / Vatican — IOR, APSA, Peter&rsquo;s Pence, and the Credit Suisse Chain</p>
+
+<div class="card">
+  <span class="card-title">Vatican Financial Architecture — Confirmed Institutional Facts <span class="ev ev-d">D</span></span>
+  <p>
+    <strong style="color:var(--cream);">ASIF:</strong>
+    Full or high compliance with 35 of 39 applicable FATF recommendations (2024).
+    Of 79 suspicious activity reports received in 2024,
+    <strong style="color:var(--cream);">36 were connected to high-risk jurisdictions</strong>.
+    ASIF&rsquo;s December 2024 training introduced &ldquo;geographical risk factors&rdquo;
+    as a new area of focus — language new in 2024.
+    IOR: &ldquo;a solid and well-organised entity&rdquo; (ASIF 2024 Annual Report).
+    Next Moneyval technical evaluation: four years from 2024.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">APSA real estate subsidiaries (confirmed):</strong>
+    British Grolux Investments Ltd (England &nbsp;·&nbsp; co. no. 03727578),
+    Sopridex (France), Profima SA (Switzerland &nbsp;·&nbsp; UID CHE-100.270.592),
+    Societ&agrave; Agricola San Giuseppe, Societ&agrave; Edile Leonina, Sirea, Immobiliare Css (Italy).
+    ~1,200 real estate units in England, France, and Switzerland (APSA 2023 Annual Report).
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Vatican pension fund shortfall:</strong>
+    2015 internal document: $800&ndash;900M. By 2016: ~$1.6B. Official 2022 figure: &euro;631M
+    (different methodology). America Magazine (2025): &ldquo;1&nbsp;billion euro pension fund shortfall.&rdquo;
+    Outside IOR and ASIF oversight. No published accounts. No resolution plan announced.
+    Workers&rsquo; union locked out of budget information.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Coniuncta Cura — Leo XIV, October 2025:</strong>
+    Reversed Pope Francis&rsquo;s 2022 centralisation instruction. APSA may now use financial
+    intermediaries outside the Vatican &ldquo;if the competent bodies deem it more efficient
+    or convenient.&rdquo; Decision-maker: Investment Committee under Cardinal Kevin Farrell,
+    on experimental basis until 2027. Screening criteria for external intermediaries
+    not publicly disclosed (NCR, April 2025). No applicant list, no approved intermediary list,
+    and no screening criteria published in L&rsquo;Osservatore Romano, the Acta Apostolicae Sedis,
+    or any Vatican press release.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Peter&rsquo;s Pence scale and donor geography:</strong>
+    ~$47M annually. USA: 29.3% &nbsp;·&nbsp; Italy: 11.3% &nbsp;·&nbsp; Korea: 2.6% (~&euro;1.4M).
+    IOR total assets: &euro;5.7B (2024). APSA 2024 operating profit: &euro;62.2M.
+    <strong style="color:var(--cream);">China absent from published donor country lists in all available years: 2021, 2022, 2023, 2024</strong>
+    (Vatican annual disclosure PDFs, retrieved directly).
+    Korea (~5.8M Catholics) donates &euro;1.4M/year; China (estimated 6M+ Catholics)
+    does not appear in any published year at any level.
+    Foundations category (&euro;12.2M in 2024) is not broken down by country
+    in any published report.
+  </p>
+</div>
+
+<div class="card">
+  <span class="card-title">British Grolux Investments Ltd — Live Companies House Findings <span class="ev ev-d">D</span> &nbsp;·&nbsp; Company no. 03727578 &nbsp;·&nbsp; Retrieved April 2026</span>
+  <p>
+    <strong style="color:var(--cream);">Beneficial ownership (live PSC register):</strong>
+    &ldquo;Amministrazione Del Patrimonio Della Sede Apostolica&rdquo; (APSA), Vatican City —
+    listed as holding (a) significant influence/control and
+    (b) 75%+ voting rights + right to appoint/remove directors.
+    Publicly named on PSC register since August 2016.
+    No PRC entity on the PSC register.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Active directors:</strong>
+    Simon Barrowcliff (British), Franco Dalla Sega (Italian — also on Profima SA board),
+    Fabio Gasperini (Italian — also APSA Secretary), Santina Vigilante (Italian),
+    Piers Hillier (British). Giorgio Franceschi resigned February 27, 2025.
+    Registered office: Stephenson Harwood, 1 Finsbury Circus, London EC2M 7SH
+    (law firm address — not the property address).
+    No PRC-linked directors.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Pension fund co-ownership:</strong>
+    British Grolux is 49% co-owned by the Vatican Pension Fund (Omnes, 2022).
+    The pension fund&rsquo;s assets are partly held in the same UK vehicle through which
+    APSA conducts its London real estate activity.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Overdue accounts — Companies House compliance flag:</strong>
+    Accounts for period ending 31 December 2024 were due 30 September 2025.
+    Not filed as of April 2026 — seven months overdue.
+    Company was undergoing a &pound;16M building renovation during this period.
+    Tenant identity not disclosed in any Companies House filing.
+    Specific building address requires a Land Registry title search against company no. 03727578.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Historical ownership chain (confirmed):</strong>
+    Portfolio inherited in 1999 from predecessor companies British Grolux Ltd and Cheylesmore Estates.
+    Shares previously held through a company at the JP Morgan New York address,
+    with ultimate control running through Profima SA. Source: Guardian (David Leigh);
+    UK National Archives wartime records.
+  </p>
+</div>
+
+<div class="card">
+  <span class="card-title">Profima SA (Switzerland) — Registry Search Executed <span class="ev ev-d">D</span> &nbsp;·&nbsp; UID CHE-100.270.592 &nbsp;·&nbsp; Moneyhouse/Northdata, confirmed March 2026</span>
+  <p>
+    <strong style="color:var(--cream);">Company:</strong>
+    Profima S.A. Societ&eacute; Immobili&egrave;re et de Participations.
+    rue Le-Corbusier 26, 1208 Gen&egrave;ve (moved from Lausanne to Geneva). Status: Active.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Current directors (confirmed March 19, 2026):</strong>
+    Angelo Jelmini jun. (Member of Board and Secretary, added March 2026);
+    Giorgio Franceschi; Pierre Rochat; Bertrand Des&eacute;n&eacute;part; Francesco Crispino.
+    Franco Dalla Sega appears in historical record — same director as British Grolux,
+    confirming the cross-subsidiary APSA management link.
+    <strong style="color:var(--cream);">No PRC-linked directors, no CIC representatives,
+    no PRC state bank officers on the current register.</strong>
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Historical documentation:</strong>
+    Profima SA confirmed in 1945 British intelligence cable traffic (UK National Archives, Kew)
+    as &ldquo;the Swiss holding company for certain Vatican interests.&rdquo;
+    Wartime files describe shifting Italian bank shares into Profima&rsquo;s hands
+    to &ldquo;whitewash&rdquo; them as Swiss neutral assets.
+    Tenant identity in Geneva/Lausanne portfolio not confirmable from registry —
+    requires Swiss cantonal land register access.
+  </p>
+</div>
+
+<div class="card">
+  <span class="card-title">Peter&rsquo;s Pence — The Credit Suisse Collateral Chain <span class="ev ev-f">F</span> &nbsp;·&nbsp; Vatican prosecutors (CNA/The Pillar 2021&ndash;2022) · OCCRP (HKEX filings, March 2023) · UBS press release (March 2025)</span>
+  <p style="margin-bottom:0.75rem;">
+    Each link confirmed from an independent primary source.
+    This is a documented structural overlap, not evidence that PRC directed or benefited
+    from Vatican funds. It documents that the conditions for undisclosed entanglement between
+    Vatican assets and PRC-adjacent entities existed and were used by a different actor
+    (Cardinal Becciu/Mincione, convicted October 2023) through the same mechanism.
+  </p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Link</th><th>Confirmed Fact <span class="ev ev-f">F</span></th><th>Source</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="name" style="white-space:nowrap;">1 — Vatican → Credit Suisse</td>
+        <td style="font-size:0.78rem;color:var(--warn);">
+          ~$560M (~77% of Peter&rsquo;s Pence held by the Secretariat of State) held at Credit Suisse
+          and pledged as undisclosed loan collateral. Vatican prosecutors: &ldquo;represents strong
+          circumstantial evidence that it represented a ploy to avoid making the transactions visible.&rdquo;
+          Cardinal Becciu convicted October 2023. 488-page indictment.
+        </td>
+        <td style="font-size:0.7rem;"><a href="https://www.catholicnewsagency.com/" target="_blank" rel="noopener">CNA / The Pillar ↗</a></td>
+      </tr>
+      <tr>
+        <td class="name" style="white-space:nowrap;">2 — Credit Suisse → PRC military entities</td>
+        <td style="font-size:0.78rem;color:var(--warn);">
+          Credit Suisse held equity in three entities on the OFAC CMIC-EO and DoD 1260H lists
+          (OCCRP from HKEX filings, March 2023):<br>
+          &bull; <strong style="color:var(--cream);">CSSC</strong> — China State Shipbuilding Corporation; builds PLA Navy vessels<br>
+          &bull; <strong style="color:var(--cream);">COSCO</strong> — linked in reports to PLA military transport drills around Taiwan<br>
+          &bull; <strong style="color:var(--cream);">CRRC</strong> — China Railway Rolling Stock Corporation; DoD-designated
+        </td>
+        <td style="font-size:0.7rem;"><a href="https://www.occrp.org/" target="_blank" rel="noopener">OCCRP / HKEX ↗</a></td>
+      </tr>
+      <tr>
+        <td class="name" style="white-space:nowrap;">3 — Credit Suisse / ICBC JV → CRRC</td>
+        <td style="font-size:0.78rem;color:var(--warn);">
+          Credit Suisse ran a joint venture with ICBC (China&rsquo;s largest state-owned bank).
+          Effect: both Credit Suisse and ICBC became among the largest shareholders in CRRC.
+          Confirmed: OCCRP from HKEX filings.
+        </td>
+        <td style="font-size:0.7rem;"><a href="https://www.occrp.org/" target="_blank" rel="noopener">OCCRP / HKEX ↗</a></td>
+      </tr>
+      <tr>
+        <td class="name" style="white-space:nowrap;">4 — Credit Suisse → UBS (June 2023)</td>
+        <td style="font-size:0.78rem;color:var(--muted);">
+          UBS absorbed Credit Suisse June 2023, inheriting all relationships and positions.
+          Fed fined UBS $268.5M as successor for counterparty risk failures (Archegos).
+        </td>
+        <td style="font-size:0.7rem;">FINMA / Federal Reserve</td>
+      </tr>
+      <tr>
+        <td class="name" style="white-space:nowrap;">5 — UBS → BSAM (March 2025)</td>
+        <td style="font-size:0.78rem;color:var(--red);">
+          UBS sold 36% of Credit Suisse Securities (China) to Beijing State-owned Assets
+          Management (BSAM). BSAM acquired 85.01% controlling stake.
+          The successor to Credit Suisse&rsquo;s China operations is now majority Beijing-state-owned.
+          Source: UBS press release, March 2025.
+        </td>
+        <td style="font-size:0.7rem;">UBS press release (March 2025)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-title">Santa Maria Galeria Solar Farm — Two Projects, One Unawarded <span class="ev ev-f">F</span> &nbsp;·&nbsp; ESG News (Aug 2025); Vatican News; multiple confirmed</span>
+  <p>
+    <strong style="color:var(--confirmed);">Project A (complete):</strong>
+    Smaller photovoltaic installation at the Courtyard of the Corazze, Vatican City.
+    Installed by Italian utility ACEA. Completed May 2025. Italian contractor.
+  </p>
+  <p style="margin-top:0.7rem;">
+    <strong style="color:var(--warn);">Project B (tender not awarded as of April 2026):</strong>
+    430-hectare agrivoltaic farm at Santa Maria di Galeria.
+    Holy See and Italy signed bilateral agreement July 31, 2025.
+    Estimated cost: under &euro;100M.
+    ESG News (Aug 2025): &ldquo;Following Italian parliamentary approval, contracts will be tendered.&rdquo;
+    No contractor or panel supplier named in any Italian procurement database,
+    Vatican press release, or open source as of April 2026.
+    Italian parliamentary ratification not confirmed completed in open sources as of April 2026.
+  </p>
+  <p style="margin-top:0.7rem;">
+    <strong style="color:var(--cream);">Import tax exemption confirmed:</strong>
+    Vatican exempt from Italian import taxes on solar panels for this project (multiple sources).
+    Normal Italian customs origin-of-goods declarations do not apply.
+  </p>
+  <p style="margin-top:0.7rem;">
+    <strong style="color:var(--cream);">Vatican Radio co-location confirmed:</strong>
+    The Santa Maria di Galeria site includes Vatican Radio&rsquo;s shortwave transmission infrastructure
+    broadcasting globally in dozens of languages. The agrivoltaic contractor will have
+    physical access to the same 424-hectare site.
+  </p>
+  <p style="margin-top:0.7rem;">
+    <strong style="color:var(--cream);">Global solar supply chain — market structure fact (not confirmed procurement):</strong>
+    LONGi, JinkoSolar, JA Solar, and Trina Solar account for over 80% of global panel shipments
+    and have established Italian distribution networks. No Italian or European manufacturer
+    can competitively supply at this scale. Panel supplier for Project B has not been confirmed
+    from any primary source.
+  </p>
+  <p class="note" style="margin-top:0.8rem;">
+    <strong style="color:var(--muted);">Monitoring:</strong>
+    Italian Gazzetta Ufficiale for &ldquo;Santa Maria Galeria&rdquo; + &ldquo;agrivoltaico&rdquo;;
+    APSA/Governorate procurement announcements;
+    Italian parliamentary records for ratification of the July 31 2025 bilateral agreement.
+  </p>
+</div>
+
+<div class="card">
+  <span class="card-title">BCBS / BIS dimension — Credit Suisse succession <span class="ev ev-f">F</span></span>
+  <p>
+    Credit Suisse was not a BIS shareholder — BIS capital is held exclusively by central banks.
+    As a Swiss G-SIB, Credit Suisse participated in BCBS standard-setting through FINMA and SNB.
+    UBS inherits that adjacency as Switzerland&rsquo;s sole remaining G-SIB.
+    BCBS post-Credit Suisse counterparty credit risk review published August 2025;
+    PRC is a full BCBS member and participates in writing those risk-weight standards.
+    FINMA&rsquo;s new chief Stefan Walter: former BCBS secretary general and former
+    senior vice president at the Federal Reserve Bank of New York.
+    UBS&rsquo;s China securities subsidiary: 85.01% controlled by BSAM (Beijing state entity)
+    as of March 2025.
+  </p>
+</div>
+
+
+<!-- ══════════════ VII. ACN POSITIVE CONTROL ══════════════ -->
+<p class="section-rule">VII &nbsp;·&nbsp; Aid to the Church in Need — The Positive Control</p>
+
+<div class="card" style="border-left:3px solid var(--confirmed);">
+  <span class="card-title">ACN &nbsp;·&nbsp; Pontifical Foundation &nbsp;·&nbsp; ~&euro;130M annual budget &nbsp;·&nbsp; National entities in 23 countries <span class="ev ev-d">D</span></span>
+  <p>
+    ACN is the one major Catholic institution in this research series that
+    <strong style="color:var(--confirmed);">explicitly names</strong> PRC religious persecution and
+    Russia&rsquo;s armed conflict with Ukraine in its institutional communications — the positive control
+    demonstrating the pattern above is structural, not universal.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">PRC (demonstrated):</strong>
+    ACN&rsquo;s annual &ldquo;Persecuted and Forgotten?&rdquo; report (2022, 2023, 2024) explicitly names
+    Xi Jinping&rsquo;s Sinicization policy, the CCPA, underground Catholic persecution, and
+    rates China as one of the top persecutors of Christians globally. These characterisations
+    are ACN&rsquo;s own documented institutional language.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">Russia (demonstrated):</strong>
+    In its institutional publications ACN characterises Russia as the aggressor in Ukraine,
+    characterises Patriarch Kirill&rsquo;s public blessing of military operations as a violation
+    of Christian principles, and funds emergency assistance for Ukrainian Greek Catholic
+    communities described as displaced by Russian forces. These are ACN&rsquo;s own documented
+    institutional positions, not conclusions of this research.
+  </p>
+  <p style="margin-top:0.75rem;">
+    <strong style="color:var(--cream);">What the positive control proves:</strong>
+    ACN does not operate a large investment portfolio benchmarked to MSCI indices and
+    does not apply the USCCB SRI screen. The pattern of institutional silence in Sections&nbsp;II&ndash;VI
+    is structurally caused by investment portfolio architecture — not by Catholic theology,
+    personnel, or intent. The screen was designed to exclude intrinsic moral evils per
+    Catholic moral theology. It was not designed to address the principal actors in a
+    civilizational succession conflict. That is the gap this research documents.
+  </p>
+  <div class="card-links">
+    <a href="https://www.acnuk.org/persecuted-and-forgotten/" target="_blank" rel="noopener">ACN — Persecuted and Forgotten ↗</a>
+  </div>
+</div>
+
+<!-- ══════════════ VIII. REGULATORY SOURCES ══════════════ -->
+<p class="section-rule">VIII &nbsp;·&nbsp; Primary Regulatory Sources</p>
+
+<div class="card">
+  <span class="card-title">DoD Section 1260H — Chinese Military Companies List <span class="ev ev-f">F</span></span>
+  <p>Annually updated under §1260H FY2021 NDAA (P.L.&nbsp;116-283). 134 entities as of January 2025. Tencent designated January 6, 2025 as PLA military-civil fusion contributor. DoD procurement bars phase in Jun 2026 (direct) and Jun 2027 (indirect) for government contractors only.</p>
+  <div class="card-links">
+    <a href="https://www.federalregister.gov/documents/2025/01/06/2025-00117/chinese-military-companies" target="_blank" rel="noopener">Federal Register — Jan 2025 list ↗</a>
+    <a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title10-section4872" target="_blank" rel="noopener">NDAA §1260H statutory text ↗</a>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-title">Ukraine NACP — International Sponsors Register <span class="ev ev-f">F</span></span>
+  <p>The NACP War and Sanctions portal is Ukraine&rsquo;s national register administered by Ukraine&rsquo;s National Agency on Corruption Prevention, listing entities in connection with continued business operations in Russia during the armed conflict. Entities on the register are cross-listed in the World-Check database used by banks and insurers for counterparty risk assessment. Alibaba placed on the register August 17, 2023. NACP notice stated grounds: continued operation in Russia via AliExpress and Alibaba.KOM (RU) LLC; platforms used in connection with goods from the Debaltseve metallurgical plant (located in an area under Russian military control at the relevant time). Placement carries no US legal consequence; it carries compliance and reputational consequence through the World-Check database integration.</p>
+  <div class="card-links">
+    <a href="https://nazk.gov.ua/en/news/the-nacp-included-the-owner-of-aliexpress-in-the-list-of-international-sponsors-of-the-war/" target="_blank" rel="noopener">NACP official statement ↗</a>
+    <a href="https://www.warsanctions.com/" target="_blank" rel="noopener">War and Sanctions portal ↗</a>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-title">OFAC SDN List &amp; BIS Entity List <span class="ev ev-f">F</span></span>
+  <p>OFAC SDN carries hard prohibition: US persons may not transact with listed entities. BIS Entity List restricts export of controlled technology. Neither Tencent, Alibaba, nor SPDB is currently on the OFAC SDN list. North Korea&rsquo;s Foreign Trade Bank — whose transactions SPDB allegedly processed — is OFAC-designated since 2013.</p>
+  <div class="card-links">
+    <a href="https://sanctionssearch.ofac.treas.gov/" target="_blank" rel="noopener">OFAC SDN Search ↗</a>
+    <a href="https://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list" target="_blank" rel="noopener">BIS Entity List ↗</a>
+  </div>
+</div>
+
+<!-- ══════════════ IX. EVIDENTIARY STANDARDS ══════════════ -->
+<p class="section-rule">IX &nbsp;·&nbsp; Evidentiary Standards &amp; Resolution Paths</p>
+
+<div class="card">
+  <p class="note" style="font-size:0.8rem;color:var(--body);line-height:1.8;">
+    <strong style="color:var(--cream);">Evidence taxonomy</strong> follows ICD&nbsp;203 tradecraft standards
+    as applied in the Siekiera &amp; Chuang 2026 series.
+    <span class="ev ev-d">D</span> Demonstrated: full primary source reviewed, finding directly stated.
+    <span class="ev ev-f">F</span> Confirmed fact: primary-source citation directly supports.
+    <span class="ev ev-i">I</span> Inference: structurally grounded but not yet directly sourced —
+    noted explicitly and not included in main holdings tables.<br><br>
+    <strong style="color:var(--cream);">13F limitations:</strong>
+    SEC Form 13F discloses long positions in US-listed equity only. Does not capture fixed income,
+    private equity, real estate, insurance reserves, or non-US-listed positions.
+    Market value reflects quarter-end prices, not cost basis or realised returns.<br><br>
+    <strong style="color:var(--cream);">Pending resolution paths:</strong><br>
+    CommonSpirit named holdings → IRS Form 990 Schedule&nbsp;D; investment manager 13F filings.<br>
+    Ascension AIM holdings → investment manager 13F; AMPT Form&nbsp;5500 (DOL EFAST2).<br>
+    USCCB own portfolio → IRS Form 990 Schedule&nbsp;D (EIN&nbsp;53-0256831, ProPublica).<br>
+    Notre Dame Section&nbsp;117 disclosures → sites.ed.gov/foreigngifts.<br>
+    CRS Russia partner funding → IRS Form 990 Schedule&nbsp;F (EIN&nbsp;13-5563382).<br>
+    SPDB 2015&ndash;2024 history → EDGAR CIK&nbsp;1593547 N-PORT sub-schedules, per quarter.
+  </p>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  &copy; <span id="yr"></span> William Huanshan Chuang &nbsp;&middot;&nbsp; Logarch&eacute;on Inc.
+  &nbsp;&middot;&nbsp; Siekiera &amp; Chuang 2026 &middot; §19 Indo-Pacific Lawfare Series
+  &nbsp;&middot;&nbsp; All data from primary official disclosures and audited financials.
+  Views are the author&rsquo;s own and do not represent any religious order, institution, or government body.
+</footer>
+
+</div><!-- /wrap -->
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</body>
+</html>
