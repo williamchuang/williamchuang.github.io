@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>中華 — A Study in Name and Civilisation · Logarchéon</title>
+<meta name="description" content="A study on the root of 中華 and 華人, tracing how a civilizational term coined by the Changzhou School entered the names of both the Republic of China and the People's Republic of China."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
+  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
+  --section-gap:4rem;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Libre Baskerville",Georgia,serif;
+  background:var(--navy); color:var(--cream);
+  line-height:1.75; overflow-x:hidden;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 600px 800px at 88% 25%,rgba(201,168,76,0.04) 0%,transparent 55%);
+}
+body::after {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.wrap { position:relative; z-index:1; }
+
+h1,h2,h3,h4 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; color:var(--cream); line-height:1.2; letter-spacing:-0.01em; }
+a { color:var(--gold); text-decoration:none; }
+a:hover { color:var(--gold-light); text-decoration:underline; }
+p { margin-bottom:1rem; color:var(--body); }
+p:last-child { margin-bottom:0; }
+
+/* Nav */
+nav.site-nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(10,22,40,0.97); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-dim); padding:0 28px;
+}
+.nav-inner { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:54px; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.25rem; font-weight:500; color:var(--gold-light); letter-spacing:0.02em; }
+.nav-links { display:flex; gap:1.8rem; list-style:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+.nav-links a:hover,.nav-links a.active { color:var(--gold); text-decoration:none; }
+
+/* Layout */
+.page-wrap { max-width:1060px; margin:0 auto; padding:0 28px 6rem; }
+
+/* Hero */
+.hero { padding:4rem 0 3rem; border-bottom:1px solid var(--border-dim); margin-bottom:3.5rem; }
+.breadcrumb { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem; display:flex; align-items:center; gap:0.6rem; }
+.hero h1 { font-size:clamp(2.4rem,4.5vw,4rem); font-weight:300; margin-bottom:0.6rem; }
+.hero h1 em { font-style:italic; color:var(--gold-light); }
+.hero .title-line { font-family:"DM Mono",monospace; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:1.4rem; }
+.hero .lead { font-size:1.05rem; line-height:1.85; color:var(--body); max-width:66ch; }
+
+/* Sections */
+.section { margin-bottom:var(--section-gap); }
+.section-header { display:flex; align-items:baseline; gap:1.2rem; border-bottom:1px solid var(--border-dim); padding-bottom:0.9rem; margin-bottom:2rem; }
+.section-num { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
+
+/* Prose */
+.prose { max-width:70ch; }
+.prose p { color:var(--body); }
+.prose p + p { margin-top:0.9rem; }
+.prose strong { color:var(--cream); }
+
+.prose-wide { max-width:82ch; }
+.prose-wide p { color:var(--body); }
+.prose-wide p + p { margin-top:0.9rem; }
+.prose-wide strong { color:var(--cream); }
+
+/* Pull quote */
+.pull-quote {
+  border-left:3px solid var(--gold-dim); padding:1.1rem 1.4rem;
+  margin:1.5rem 0; background:rgba(14,31,58,0.5); border-radius:0 4px 4px 0;
+  font-style:italic; color:var(--body); font-size:0.97rem; line-height:1.75;
+}
+.pull-quote cite { display:block; margin-top:0.5rem; font-style:normal; font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--faint); }
+
+/* Timeline / lineage chain */
+.lineage-chain {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.6rem; margin:1.4rem 0;
+  border-left:3px solid var(--gold-dim);
+}
+.lineage-chain h4 { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; }
+.lineage-step { display:flex; gap:1rem; align-items:flex-start; margin-bottom:0.9rem; }
+.lineage-step:last-child { margin-bottom:0; }
+.lineage-arrow { font-family:"DM Mono",monospace; color:var(--gold-dim); font-size:0.8rem; padding-top:0.15rem; flex-shrink:0; }
+.lineage-name { font-size:0.95rem; color:var(--cream); font-family:"Cormorant Garamond",serif; font-weight:500; }
+.lineage-gloss { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin-top:0.15rem; }
+
+/* Character display */
+.char-block {
+  display:inline-flex; flex-direction:column; align-items:center; gap:0.4rem;
+  margin-right:1.5rem;
+}
+.char-block .char { font-family:"Cormorant Garamond",Georgia,serif; font-size:3.8rem; color:var(--gold-dim); line-height:1; }
+.char-block .char-label { font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--faint); }
+
+/* Info card */
+.info-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.6rem; margin-bottom:1.2rem;
+  border-left:3px solid var(--gold-dim);
+  transition:border-color 0.2s;
+}
+.info-card:hover { border-left-color:var(--gold); }
+.info-card h3 { font-size:1.1rem; color:var(--cream); margin-bottom:0.3rem; }
+.info-card .card-meta { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.7rem; }
+.info-card p { color:var(--body); font-size:0.9rem; line-height:1.75; margin-bottom:0.7rem; }
+.info-card p:last-child { margin-bottom:0; }
+
+/* Name equation */
+.name-eq {
+  background:rgba(8,24,52,0.85); border:1px solid var(--border); border-radius:3px;
+  padding:1.2rem 1.6rem; margin:1.4rem 0; text-align:center;
+}
+.name-eq .eq-row { display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.6rem; }
+.name-eq .eq-char { font-family:"Cormorant Garamond",serif; font-size:2.6rem; color:var(--gold-light); line-height:1; }
+.name-eq .eq-op { font-family:"DM Mono",monospace; font-size:1rem; color:var(--faint); }
+.name-eq .eq-gloss { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+.name-eq .eq-result { font-family:"Cormorant Garamond",serif; font-size:1.1rem; color:var(--cream); margin-top:0.6rem; font-style:italic; }
+
+/* Nation names */
+.nation-block {
+  display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin:1.4rem 0;
+}
+.nation-card {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.2rem 1.4rem;
+}
+.nation-card h4 { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:var(--cream); margin-bottom:0.3rem; }
+.nation-card .nation-zh { font-family:"Cormorant Garamond",serif; font-size:1.6rem; color:var(--gold-light); display:block; margin-bottom:0.4rem; }
+.nation-card .nation-py { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.6rem; display:block; }
+.nation-card p { font-size:0.86rem; color:var(--muted); line-height:1.65; margin-bottom:0; }
+.nation-card .hua-highlight { color:var(--gold); font-weight:700; }
+
+/* Visual cross/char panel */
+.cross-panel {
+  background:rgba(14,31,58,0.5); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.2rem 1.4rem; margin:1.4rem 0;
+}
+.cross-panel .panel-label { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; }
+.cross-panel .cross-row { display:flex; align-items:flex-end; gap:2rem; flex-wrap:wrap; }
+.cross-panel .cross-item { display:flex; flex-direction:column; align-items:center; gap:0.5rem; }
+.cross-panel .cross-sublabel { font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--faint); }
+.cross-panel .panel-note { font-size:0.78rem; color:var(--faint); margin-top:0.9rem; margin-bottom:0; font-family:"DM Mono",monospace; letter-spacing:0.04em; line-height:1.7; }
+
+/* Source note */
+.source-note {
+  font-size:0.83rem; color:var(--muted); border-left:2px solid var(--border-dim);
+  padding-left:0.8rem; margin-top:0.5rem; line-height:1.75;
+}
+
+/* Archive callout */
+.archive-callout {
+  background:rgba(14,31,58,0.55); border:1px solid var(--border);
+  border-radius:4px; padding:1.3rem 1.5rem; margin:1.4rem 0;
+}
+.archive-callout .ac-label { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.6rem; display:block; }
+.archive-callout p { font-size:0.88rem; color:var(--body); line-height:1.85; margin-bottom:0.6rem; }
+.archive-callout p:last-child { margin-bottom:0; }
+
+footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; color:var(--faint); border-top:1px solid var(--border-dim); }
+
+@media(max-width:680px) {
+  .nation-block { grid-template-columns:1fr; }
+  .nav-links { gap:1rem; }
+  .nav-links a { font-size:0.62rem; }
+  .name-eq .eq-row { gap:0.6rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarch&eacute;on</a>
+    <ul class="nav-links">
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Research" class="active">Research</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="breadcrumb">
+    <a href="/">Logarch&eacute;on</a>
+    <span>/</span>
+    <a href="/Research">Research</a>
+    <span>/</span>
+    <span>中華 &mdash; Name &amp; Civilisation</span>
+  </div>
+  <h1>中華 &amp; 華人<br><em>A Study in Name and Civilisation</em></h1>
+  <p class="title-line">Historical study &nbsp;·&nbsp; Etymology &nbsp;·&nbsp; Sino-Catholic intellectual history &nbsp;·&nbsp; Logarch&eacute;on &middot; 2026</p>
+  <p class="lead">
+    The term 中華 is the <em>C</em> in both the Republic of China (中華民國) and the
+    People&rsquo;s Republic of China (中華人民共和國). It is not an ancient ethnic label.
+    It was assembled as a deliberate modern political category in the late Qing period,
+    through an intellectual tradition that itself bore the marks of nine centuries of
+    contact between East Asian and Latin West civilisation.
+    This study traces that construction from its philological roots through the Changzhou
+    School of Thought, its entry into the names of two nations, and the deeper convergences
+    encoded in the character 華 itself.
+  </p>
+</div>
+
+
+<!-- ═══ §1 THE CHARACTER 華 ═══ -->
+<section class="section" id="hua-character">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">The Character 華 &mdash; Flower, Splendour, Civilisation</h2>
+  </div>
+
+  <div class="prose-wide">
+    <p>
+      The character 華 (<em>huá</em>) carries two meanings simultaneously and inseparably.
+      Its primary sense is <strong>flower</strong> &mdash; blossom, bloom,
+      the flourishing beauty of what has fully opened. From this botanical
+      root the extended meanings derive: splendour, glory, brilliance,
+      and civilizational radiance. The character does not name a race or
+      a territory; it names a quality of life at its fullest expression.
+    </p>
+    <p>
+      The compound 中華 (<em>Zhōnghuá</em>) joins two characters:
+    </p>
+  </div>
+
+  <div class="name-eq">
+    <div class="eq-row">
+      <div>
+        <div class="eq-char">中</div>
+        <div class="eq-gloss">zhōng &mdash; centre, middle</div>
+      </div>
+      <div class="eq-op">+</div>
+      <div>
+        <div class="eq-char">華</div>
+        <div class="eq-gloss">huá &mdash; flower, flourishing, splendour</div>
+      </div>
+      <div class="eq-op">=</div>
+      <div>
+        <div class="eq-char" style="color:var(--gold-light);">中華</div>
+        <div class="eq-gloss">the central flowering</div>
+      </div>
+    </div>
+    <p class="eq-result">
+      Not &ldquo;the central race&rdquo; &mdash; but <em>the civilisation at its fullest expression</em>:<br>
+      a term designed to embrace all peoples within that tradition, transcending Han ethnicity alone.
+    </p>
+  </div>
+
+  <div class="prose-wide">
+    <p>
+      The word 華人 (<em>Huárén</em>) follows the same root: a person (人, <em>rén</em>)
+      of the 華 tradition &mdash; defined not by blood or territory but by participation
+      in a civilizational inheritance. The diaspora communities of Southeast Asia,
+      the Americas, and the Pacific who identify as 華人 are invoking this broader,
+      culturally defined category, not a genetic claim.
+    </p>
+    <p>
+      This matters for understanding what both the Republic of China and the People&rsquo;s
+      Republic of China have named themselves. The 中華 in their official titles is not
+      neutral geography. It is a philosophical and civilizational claim &mdash; and it
+      was coined at a specific moment, by a specific intellectual lineage, for a
+      specific political purpose.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══ §2 THE CHANGZHOU SCHOOL ═══ -->
+<section class="section" id="changzhou-school">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">The Changzhou School &mdash; From Philology to Political Category</h2>
+  </div>
+
+  <div class="prose-wide" style="margin-bottom:1.8rem;">
+    <p>
+      The <strong>Changzhou School of Thought</strong> (常州學派, <em>Chángzhōu Xuépài</em>)
+      was founded in the eighteenth century by
+      <strong>莊存與</strong> (Ts&rsquo;un-yü Chuang, 1719&ndash;1788) &mdash;
+      a scholar of the Wujin, Changzhou Chuang clan &mdash; and developed a distinctive
+      hermeneutic approach to the Confucian canon: the New Text (<em>Jinwen</em>) tradition,
+      which read the classics not as fixed historical records but as vehicles of
+      sage-encoded political philosophy applicable to the present.
+    </p>
+    <p>
+      The school transmitted this approach across four generations, each figure
+      building on the last:
+    </p>
+  </div>
+
+  <div class="lineage-chain">
+    <h4>Changzhou School &mdash; Intellectual Transmission</h4>
+
+    <div class="lineage-step">
+      <div class="lineage-arrow">01 &rarr;</div>
+      <div>
+        <div class="lineage-name">莊存與 &nbsp;<span style="color:var(--muted);font-size:0.88rem;">(Ts&rsquo;un-yü Chuang, 1719&ndash;1788)</span></div>
+        <div class="lineage-gloss">&ldquo;Preserving the Gift&rdquo; &mdash; Founder. Established New Text hermeneutics as a live intellectual programme.</div>
+      </div>
+    </div>
+
+    <div class="lineage-step">
+      <div class="lineage-arrow">02 &rarr;</div>
+      <div>
+        <div class="lineage-name">莊述祖 &nbsp;<span style="color:var(--muted);font-size:0.88rem;">(Shu-tsu Chuang)</span></div>
+        <div class="lineage-gloss">&ldquo;Narrating the Ancestors&rdquo; &mdash; Grandson of 莊存與. Deepened the philological method.</div>
+      </div>
+    </div>
+
+    <div class="lineage-step">
+      <div class="lineage-arrow">03 &rarr;</div>
+      <div>
+        <div class="lineage-name">劉逢祿 &nbsp;<span style="color:var(--muted);font-size:0.88rem;">(Feng-lu Liu)</span></div>
+        <div class="lineage-gloss">&ldquo;Meeting Good Fortune&rdquo; &mdash; Brought New Text scholarship into direct engagement with reform thought.</div>
+      </div>
+    </div>
+
+    <div class="lineage-step">
+      <div class="lineage-arrow">04 &rarr;</div>
+      <div>
+        <div class="lineage-name">魏源 &nbsp;<span style="color:var(--muted);font-size:0.88rem;">(Yüan Wei, 1794&ndash;1857)</span></div>
+        <div class="lineage-gloss">&ldquo;Source&rdquo; &mdash; Extended the school&rsquo;s hermeneutics toward geopolitical analysis and statecraft. Compiled the <em>Haiguo Tuzhi</em> (海國圖志), the first major Chinese atlas of the world, calling for China to &ldquo;learn from the barbarians to control the barbarians.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="lineage-step">
+      <div class="lineage-arrow">05 &rarr;</div>
+      <div>
+        <div class="lineage-name">康有為 &nbsp;<span style="color:var(--muted);font-size:0.88rem;">(Youwei Kang, 1858&ndash;1927)</span></div>
+        <div class="lineage-gloss">&ldquo;Having Purpose&rdquo; &mdash; Assembled 中華 as a modern political category. Architect of the Hundred Days&rsquo; Reform (1898). Synthesised New Text Confucian hermeneutics with late Qing constitutional reform.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose-wide">
+    <p>
+      Working from the school&rsquo;s New Text Confucian hermeneutics,
+      Kang Youwei assembled the compound <strong>中華</strong> as a modern
+      political category &mdash; an umbrella term designed to unify the more
+      than fifty distinct ethnic groups within the Qing empire&rsquo;s territory
+      under a single civilizational identity, deliberately transcending
+      Han ethnicity alone. This was not a retrieval of antiquity; it was
+      a political act of naming, consciously designed to make a multi-ethnic
+      empire thinkable as a unified civilizational body.
+    </p>
+
+    <div class="pull-quote">
+      The Changzhou School&rsquo;s construction of 中華 is documented by Sinologist
+      Benjamin Elman as &ldquo;a paradigmatic case of epistemic community producing
+      civilizational transformation across multigenerational timescales.&rdquo;
+      <cite>Benjamin Elman, <em>From Philosophy to Philology</em> (1984); <em>Classicism, Politics, and Kinship</em> (1990)</cite>
+    </div>
+
+    <p>
+      The lineage from 莊存與 to Kang Youwei spans roughly 170 years &mdash;
+      from mid-Qing philological reform to late-Qing constitutional crisis.
+      What emerged from that tradition was not merely a scholarly movement
+      but a new vocabulary for Chinese political identity, one that both
+      successor states of the Qing would inherit and embed in their very names.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══ §3 INTO THE NAMES OF TWO NATIONS ═══ -->
+<section class="section" id="two-nations">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">中華 in the Names of Two Nations</h2>
+  </div>
+
+  <div class="prose-wide" style="margin-bottom:1.6rem;">
+    <p>
+      When the Qing dynasty fell in 1912, both successor states that eventually
+      emerged from the decades of civil and international conflict adopted 中華
+      as the first word of their official names. This was not coincidence:
+      the concept had by then become the dominant framework for articulating
+      Chinese civilizational continuity across political rupture.
+    </p>
+  </div>
+
+  <div class="nation-block">
+    <div class="nation-card">
+      <h4>Republic of China</h4>
+      <span class="nation-zh">中華民國</span>
+      <span class="nation-py">Zhōnghuá Mínguó &nbsp;·&nbsp; est. 1912</span>
+      <p>
+        <span class="hua-highlight">中華</span> 民國: the <em>民</em> (<em>mín</em>) nation-state
+        &mdash; the people&rsquo;s republic &mdash; of the central flowering.
+        Founded 1 January 1912 under Sun Yat-sen, drawing directly on
+        Kang Youwei&rsquo;s civilizational vocabulary (though in political
+        opposition to him). Now governing Taiwan and its associated islands.
+      </p>
+    </div>
+    <div class="nation-card">
+      <h4>People&rsquo;s Republic of China</h4>
+      <span class="nation-zh">中華人民共和國</span>
+      <span class="nation-py">Zhōnghuá Rénmín Gònghéguó &nbsp;·&nbsp; est. 1949</span>
+      <p>
+        <span class="hua-highlight">中華</span> 人民共和國: the people&rsquo;s (<em>rénmín</em>)
+        common-weal state (<em>gònghéguó</em>) of the central flowering.
+        Proclaimed 1 October 1949. The term 中華 carries, in both governments,
+        an implicit claim to the civilizational legacy assembled by the Changzhou tradition.
+      </p>
+    </div>
+  </div>
+
+  <div class="prose-wide">
+    <p>
+      The resulting term 中華 is therefore the <em>C</em> in both PRC and ROC.
+      Both governments inherited this category &mdash; not from antiquity,
+      but from the deliberate intellectual construction of the Changzhou School,
+      whose founders were themselves working within a civilizational vocabulary
+      shaped by centuries of contact between East Asia and the Latin West.
+    </p>
+    <p>
+      The name at the heart of both nations is not merely ethnic or territorial:
+      it names a <em>flowering</em> &mdash; a civilizational aspiration
+      that was always already in conversation with the world beyond its borders.
+      Those who carry this name, in either capital, carry more history
+      than the twentieth century has allowed them to remember.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══ §4 THE MISSIONARY INTELLECTUAL TRADITION ═══ -->
+<section class="section" id="missionary-thread">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">The Missionary Intellectual Thread &mdash; Nine Centuries of Contact</h2>
+  </div>
+
+  <div class="prose-wide" style="margin-bottom:1.8rem;">
+    <p>
+      The Changzhou School did not develop in isolation from the wider world.
+      The Jiangnan literati milieu from which it emerged was the same world
+      that had encountered, absorbed, and in some cases been shaped by
+      nine centuries of Catholic missionary intellectual culture.
+      Understanding 中華 requires understanding that encounter.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h3>The Franciscan First Contact &mdash; 1294</h3>
+    <div class="card-meta">Khanbaliq (Beijing) &nbsp;·&nbsp; John of Montecorvino OFM &nbsp;·&nbsp; Under the Jerusalem Cross</div>
+    <p>
+      The first Catholic missionaries to reach China were <strong>Franciscans</strong>.
+      John of Montecorvino OFM arrived in Khanbaliq (Beijing) in 1294, built churches,
+      translated the New Testament and Psalms into a Mongol language, and was consecrated
+      first Archbishop of Peking in 1307&ndash;1308.
+      The Franciscan mission was extinguished when the Mongol dynasty fell in 1368
+      and was not revived for two centuries.
+    </p>
+    <p>
+      The Franciscans carried their mission under the
+      <strong>Jerusalem Cross</strong> &mdash; the heraldic emblem of the
+      Kingdom of Jerusalem, the Franciscan Custody of the Holy Land,
+      and the Equestrian Order of the Holy Sepulchre.
+      Its five crosses represent the five wounds of Christ and
+      Christ with the four Evangelists sent to the four corners of the world.
+      It is the same cross the Franciscans hold as custodians of the Holy Land to this day.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h3>The Jesuit Mission &mdash; 1580s Onward</h3>
+    <div class="card-meta">Ming Court &nbsp;·&nbsp; Portuguese <em>padroado</em> &nbsp;·&nbsp; Cross of the Order of Christ</div>
+    <p>
+      When the mission resumed, it came not directly from Rome but via Portugal.
+      Every Portuguese ship of the Age of Discovery sailed under the
+      <strong>Cross of the Order of Christ</strong> &mdash;
+      the Portuguese successor to the Knights Templar,
+      of which Prince Henry the Navigator (d. 1460) had been Grand Master.
+      The Jesuit China mission from the 1580s onward operated under Portuguese
+      <em>padroado</em>, carrying that same cross into the Ming court.
+    </p>
+    <p>
+      The Three Pillars of Chinese Catholicism &mdash;
+      Paul <strong>Xu Guangqi</strong> (baptized 1603),
+      Leon <strong>Li Zhizao</strong> (baptized 1610),
+      and Michael <strong>Yang Tingyun</strong> (baptized 1611) &mdash;
+      were Ming scholar-officials whose conversion, literary output, and protection
+      of the Jesuit mission established Hangzhou and Shanghai as centres of
+      Catholic intellectual life in late Ming China.
+      These conversions took place within the same Jiangnan literati world
+      from which the Changzhou School would later emerge.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h3>The Southern Ming Catholic Court &mdash; 1646&ndash;1662</h3>
+    <div class="card-meta">Yongli Emperor &nbsp;·&nbsp; Andreas Koffler SJ &nbsp;·&nbsp; A Second Constantine</div>
+    <p>
+      The most dramatic episode came at the very end of the Ming dynasty.
+      When the Qing conquest drove the last Ming claimant,
+      the <strong>Yongli Emperor</strong> (朱由榔, Zhu Youlang, 1623&ndash;1662),
+      into the southwest, his court converted to Catholicism under the
+      Austrian Jesuit <strong>Andreas Koffler</strong> SJ (d. 1652) &mdash;
+      in circumstances the Jesuits consciously read as a second Constantine and Helena.
+    </p>
+    <p>
+      The Empress Dowager Wang was baptized <strong>Helena</strong>.
+      The heir to the throne (朱慈煊, Zhu Cixuan) was baptized <strong>Constantine</strong>.
+      The emperor&rsquo;s natural mother, Lady Ma, was baptized <strong>Maria</strong>.
+      His empress, Lady Wang, was baptized <strong>Anna</strong>.
+      His chancellor and court eunuch, P&acirc;ng T&rsquo;ien-shou,
+      had already been baptized <strong>Achilles</strong>.
+      The Jesuits read the parallel deliberately: as Rome&rsquo;s Constantine
+      had made Christianity the empire&rsquo;s faith, China&rsquo;s Constantine would do the same.
+    </p>
+  </div>
+
+  <div class="archive-callout">
+    <span class="ac-label">Primary Source &mdash; Archivum Romanum Societatis Iesu &nbsp;·&nbsp; Jap.-Sin. 77, f. 83</span>
+    <p>
+      On 4 November 1650, Empress Dowager Helena wrote in her own hand
+      on yellow silk a letter to <strong>Pope Innocent X</strong> &mdash;
+      preserved today in the Archivum Romanum Societatis Iesu,
+      Jap.-Sin. 77, f. 83 &mdash; asking the Pope to send more Jesuits
+      and to pray for the Ming dynasty&rsquo;s restoration.
+    </p>
+    <p>
+      Chancellor Pang-Achilles wrote simultaneously to the Pope,
+      the General of the Jesuit Order Francisco Piccolomini,
+      and Cardinal John de Lugo. Additional letters went to the
+      Doge of Venice and the King of Portugal.
+    </p>
+    <p>
+      Father Micha&#322; Boym SJ carried these letters overland from China to Rome &mdash;
+      a journey that took years and nearly killed him &mdash;
+      arriving to find that Innocent X had died in 1655.
+      The new Pope, <strong>Alexander VII</strong>, received Boym
+      on 18 December 1655 and sent a reply: sympathy, prayers, and no troops.
+      It was not enough to save the Southern Ming. By 1662 the Yongli Emperor
+      and his son were strangled with bowstrings in Kunming.
+    </p>
+    <p>
+      A dolomite stone preserved in the Catholic Church in Anlong, Guizhou Province &mdash;
+      carved with the Christian names of the two empress dowagers, the empress,
+      and the crown prince: <em>Helena, Maria, Anna, Constantine</em> &mdash;
+      is the physical relic of what nearly was.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h3>Jesuit Presence Through the Qing Transition</h3>
+    <div class="card-meta">Imperial Astronomical Bureau &nbsp;·&nbsp; Johann Adam Schall von Bell SJ &nbsp;·&nbsp; 1644 onward</div>
+    <p>
+      <strong>Johann Adam Schall von Bell</strong> SJ
+      (湯若望, Táng Ruòwàng, 1592&ndash;1666), the German Jesuit astronomer,
+      served the Shunzhi Emperor as personal adviser &mdash;
+      the emperor called him <em>Mafa</em> (grandpa) &mdash;
+      and directed the Imperial Astronomical Bureau through the Ming-Qing transition.
+      The Jesuits thus maintained their intellectual presence at the Qing court
+      in the same era that would eventually produce the Changzhou School.
+    </p>
+    <p>
+      The Qike (<em>七克</em>, <em>The Seven Victories over Sin</em>, 1614) &mdash;
+      Diego de Pantoja SJ&rsquo;s Jesuit moral-theology work presenting the seven virtues
+      against the seven deadly sins in vocabulary accessible to Chinese literati &mdash;
+      circulated in precisely the Jiangnan world from which the Changzhou lineage emerged.
+      It was the <em>Qike</em> that 莊起元, a member of the Wujin Changzhou Chuang clan,
+      read and responded to in verse around 1614:
+      <em>讀《七克》西書有感</em> &mdash; a poem of reflection on a Western book,
+      standing as an early documented moment of Chuang-lineage engagement with the Jesuit intellectual programme.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══ §5 華 AND THE JERUSALEM CROSS ═══ -->
+<section class="section" id="hua-cross">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">華 and the Jerusalem Cross &mdash; Convergence in Form</h2>
+  </div>
+
+  <div class="prose-wide" style="margin-bottom:1.6rem;">
+    <p>
+      In its traditional written form, the character 華 carries a five-fold
+      cruciform geometry that bears structural resemblance to the
+      <strong>Jerusalem Cross</strong> &mdash; the heraldic insignia of the
+      Latin Patriarchate of Jerusalem, the Franciscan Custody of the Holy Land,
+      and the Equestrian Order of the Holy Sepulchre of Jerusalem &mdash;
+      whose five crosses represent the five wounds of Christ and
+      Christ with the four Evangelists sent to the four corners of the world.
+    </p>
+    <p>
+      This is not coincidence so much as convergence. The same character
+      that names Chinese civilisation at its fullest expression was shaped
+      in part by the encounter between the Changzhou School and a missionary
+      intellectual tradition that had itself travelled under the Jerusalem Cross.
+      The Franciscans carried that cross to Khanbaliq in 1294;
+      the Portuguese sailed under the Cross of the Order of Christ to East Asia
+      in the sixteenth century; the Jesuits brought that tradition into
+      Ming literati culture through the <em>Qike</em>;
+      and the Changzhou School wove this character &mdash;
+      flower and cross at once &mdash; into the name by which
+      both the People&rsquo;s Republic and the Republic of China
+      still call themselves today.
+    </p>
+  </div>
+
+  <div class="cross-panel">
+    <p class="panel-label">The Jerusalem Cross and 華 &mdash; Structural Comparison</p>
+    <div class="cross-row">
+
+      <!-- 華 character -->
+      <div class="cross-item">
+        <div style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:3.8rem;color:var(--gold-dim);line-height:1;">&#33775;</span>
+        </div>
+        <span class="cross-sublabel">&#33775; (huá)</span>
+      </div>
+
+      <!-- Jerusalem Cross Standard -->
+      <div class="cross-item">
+        <svg width="80" height="80" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="jc1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient></defs>
+          <rect x="96.5" y="44"    width="7"  height="53" fill="url(#jc1)"/>
+          <rect x="70"   y="37"    width="60" height="7"  fill="url(#jc1)"/>
+          <rect x="96.5" y="103"   width="7"  height="53" fill="url(#jc1)"/>
+          <rect x="70"   y="156"   width="60" height="7"  fill="url(#jc1)"/>
+          <rect x="44"   y="96.5"  width="53" height="7"  fill="url(#jc1)"/>
+          <rect x="37"   y="70"    width="7"  height="60" fill="url(#jc1)"/>
+          <rect x="103"  y="96.5"  width="53" height="7"  fill="url(#jc1)"/>
+          <rect x="156"  y="70"    width="7"  height="60" fill="url(#jc1)"/>
+          <rect x="96.5" y="96.5"  width="7"  height="7"  fill="url(#jc1)"/>
+          <rect x="63.5"  y="56"    width="7"  height="22" fill="url(#jc1)"/>
+          <rect x="56"    y="63.5"  width="22" height="7"  fill="url(#jc1)"/>
+          <rect x="129.5" y="56"    width="7"  height="22" fill="url(#jc1)"/>
+          <rect x="122"   y="63.5"  width="22" height="7"  fill="url(#jc1)"/>
+          <rect x="63.5"  y="122"   width="7"  height="22" fill="url(#jc1)"/>
+          <rect x="56"    y="129.5" width="22" height="7"  fill="url(#jc1)"/>
+          <rect x="129.5" y="122"   width="7"  height="22" fill="url(#jc1)"/>
+          <rect x="122"   y="129.5" width="22" height="7"  fill="url(#jc1)"/>
+        </svg>
+        <span class="cross-sublabel">Standard</span>
+      </div>
+
+      <!-- Alt i -->
+      <div class="cross-item">
+        <svg width="80" height="80" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="jc3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient></defs>
+          <rect x="96.5" y="44"    width="7"  height="53" fill="url(#jc3)"/>
+          <rect x="70"   y="37"    width="60" height="7"  fill="url(#jc3)"/>
+          <rect x="96.5" y="103"   width="7"  height="53" fill="url(#jc3)"/>
+          <rect x="70"   y="156"   width="60" height="7"  fill="url(#jc3)"/>
+          <rect x="44"   y="96.5"  width="53" height="7"  fill="url(#jc3)"/>
+          <rect x="37"   y="70"    width="7"  height="60" fill="url(#jc3)"/>
+          <rect x="103"  y="96.5"  width="53" height="7"  fill="url(#jc3)"/>
+          <rect x="156"  y="70"    width="7"  height="60" fill="url(#jc3)"/>
+          <rect x="96.5" y="96.5"  width="7"  height="7"  fill="url(#jc3)"/>
+          <rect x="63.5"  y="78"    width="7"  height="44" fill="url(#jc3)"/>
+          <rect x="129.5" y="78"    width="7"  height="44" fill="url(#jc3)"/>
+          <rect x="78"    y="63.5"  width="44" height="7"  fill="url(#jc3)"/>
+          <rect x="78"    y="129.5" width="44" height="7"  fill="url(#jc3)"/>
+          <rect x="63.5"  y="44"    width="7"  height="12" fill="url(#jc3)"/>
+          <rect x="44"    y="63.5"  width="12" height="7"  fill="url(#jc3)"/>
+          <rect x="129.5" y="44"    width="7"  height="12" fill="url(#jc3)"/>
+          <rect x="144"   y="63.5"  width="12" height="7"  fill="url(#jc3)"/>
+          <rect x="63.5"  y="144"   width="7"  height="12" fill="url(#jc3)"/>
+          <rect x="44"    y="129.5" width="12" height="7"  fill="url(#jc3)"/>
+          <rect x="129.5" y="144"   width="7"  height="12" fill="url(#jc3)"/>
+          <rect x="144"   y="129.5" width="12" height="7"  fill="url(#jc3)"/>
+          <rect x="63.5"  y="56"    width="7"  height="22" fill="url(#jc3)"/>
+          <rect x="56"    y="63.5"  width="22" height="7"  fill="url(#jc3)"/>
+          <rect x="129.5" y="56"    width="7"  height="22" fill="url(#jc3)"/>
+          <rect x="122"   y="63.5"  width="22" height="7"  fill="url(#jc3)"/>
+          <rect x="63.5"  y="122"   width="7"  height="22" fill="url(#jc3)"/>
+          <rect x="56"    y="129.5" width="22" height="7"  fill="url(#jc3)"/>
+          <rect x="129.5" y="122"   width="7"  height="22" fill="url(#jc3)"/>
+          <rect x="122"   y="129.5" width="22" height="7"  fill="url(#jc3)"/>
+        </svg>
+        <span class="cross-sublabel">Alt.&thinsp;i</span>
+      </div>
+
+      <!-- Alt ii -->
+      <div class="cross-item">
+        <svg width="80" height="80" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="jc4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient></defs>
+          <path fill-rule="evenodd" fill="url(#jc4)" d="M110,25 C157,25 195,63 195,110 C195,157 157,195 110,195 C63,195 25,157 25,110 C25,63 63,25 110,25 Z M110,32 C153,32 188,67 188,110 C188,153 153,188 110,188 C67,188 32,153 32,110 C32,67 67,32 110,32 Z"/>
+          <path d="M110,28 Q83,28 63.5,44 L70.5,44 Q83,35 110,28 Z" fill="url(#jc4)"/>
+          <path d="M110,28 Q137,28 156.5,44 L149.5,44 Q137,35 110,28 Z" fill="url(#jc4)"/>
+          <path d="M110,192 Q83,192 63.5,176 L70.5,176 Q83,185 110,192 Z" fill="url(#jc4)"/>
+          <path d="M110,192 Q137,192 156.5,176 L149.5,176 Q137,185 110,192 Z" fill="url(#jc4)"/>
+          <path d="M28,110 Q28,83 44,63.5 L44,70.5 Q35,83 28,110 Z" fill="url(#jc4)"/>
+          <path d="M28,110 Q28,137 44,156.5 L44,149.5 Q35,137 28,110 Z" fill="url(#jc4)"/>
+          <path d="M192,110 Q192,83 176,63.5 L176,70.5 Q185,83 192,110 Z" fill="url(#jc4)"/>
+          <path d="M192,110 Q192,137 176,156.5 L176,149.5 Q185,137 192,110 Z" fill="url(#jc4)"/>
+          <rect x="106.5" y="28"    width="7"   height="164" fill="url(#jc4)"/>
+          <rect x="28"    y="106.5" width="164" height="7"   fill="url(#jc4)"/>
+          <rect x="73.5"  y="88"    width="7"   height="44"  fill="url(#jc4)"/>
+          <rect x="139.5" y="88"    width="7"   height="44"  fill="url(#jc4)"/>
+          <rect x="88"    y="73.5"  width="44"  height="7"   fill="url(#jc4)"/>
+          <rect x="88"    y="139.5" width="44"  height="7"   fill="url(#jc4)"/>
+          <rect x="73.5"  y="66"    width="7"   height="22"  fill="url(#jc4)"/>
+          <rect x="66"    y="73.5"  width="22"  height="7"   fill="url(#jc4)"/>
+          <rect x="139.5" y="66"    width="7"   height="22"  fill="url(#jc4)"/>
+          <rect x="132"   y="73.5"  width="22"  height="7"   fill="url(#jc4)"/>
+          <rect x="73.5"  y="132"   width="7"   height="22"  fill="url(#jc4)"/>
+          <rect x="66"    y="139.5" width="22"  height="7"   fill="url(#jc4)"/>
+          <rect x="139.5" y="132"   width="7"   height="22"  fill="url(#jc4)"/>
+          <rect x="132"   y="139.5" width="22"  height="7"   fill="url(#jc4)"/>
+          <path d="M73.5,66 Q74,48 110,28 L106.5,28 Q71,44 80.5,66 Z" fill="url(#jc4)"/>
+          <path d="M66,73.5 Q48,74 28,110 L28,106.5 Q44,71 66,80.5 Z" fill="url(#jc4)"/>
+          <path d="M139.5,66 Q140,48 110,28 L113.5,28 Q149,44 146.5,66 Z" fill="url(#jc4)"/>
+          <path d="M153,73.5 Q172,74 192,110 L192,106.5 Q176,71 153,80.5 Z" fill="url(#jc4)"/>
+          <path d="M73.5,154 Q74,172 110,192 L113.5,192 Q71,176 80.5,154 Z" fill="url(#jc4)"/>
+          <path d="M66,139.5 Q48,140 28,110 L28,113.5 Q44,149 66,146.5 Z" fill="url(#jc4)"/>
+          <path d="M139.5,154 Q140,172 110,192 L106.5,192 Q149,176 146.5,154 Z" fill="url(#jc4)"/>
+          <path d="M153,139.5 Q172,140 192,110 L192,113.5 Q176,149 153,146.5 Z" fill="url(#jc4)"/>
+        </svg>
+        <span class="cross-sublabel">Alt.&thinsp;ii</span>
+      </div>
+
+    </div>
+    <p class="panel-note">
+      One large potent cross and four smaller crosses, one per quadrant &mdash;
+      the heraldic emblem of the Kingdom of Jerusalem and the Order of the Holy Sepulchre.
+      華 shares a comparable radial geometry, though its crossbar sits lower, closer to
+      the Tau or Cross of Salem &mdash; a distinct but cognate form within the same heraldic
+      and ecclesiastical tradition.
+      Alt.&thinsp;i: all strokes uniform, the four crosses linked by straight extensions.
+      Alt.&thinsp;ii: enclosed by a continuous circular loop, suggestive of a globe projection.
+    </p>
+  </div>
+
+  <div class="prose-wide" style="margin-top:1.6rem;">
+    <p>
+      For readers outside this tradition looking for a point of entry:
+      the institutional networks that first brought this conversation into being
+      &mdash; Franciscan, Jesuit, and the lay orders of the Holy Land &mdash;
+      have never left. They remain present in both mainland China and Taiwan,
+      in universities, hospitals, and parishes, and they share a common
+      symbolic vocabulary with anyone who recognises the cross on this page.
+      The Jerusalem Cross is not a foreign imposition on Chinese civilisation;
+      it is part of the architecture by which 中華 was named.
+      Those who know the symbol know where to look,
+      and those who look will find more continuity than rupture.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══ §6 SUN YAT-SEN AND THE DIASPORA ═══ -->
+<section class="section" id="diaspora">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Sun Yat-sen, 香山, and the Diaspora Connection</h2>
+  </div>
+
+  <div class="prose-wide">
+    <p>
+      The revolutionary who brought the Republic into being carries in his
+      own geography a thread that runs through the 中華 story.
+      Sun Yat-sen, the father of the Republic of China (中華民國), was born in
+      <strong>香山</strong> (<em>Hoeng Saan</em> in Cantonese, <em>Xiāngshān</em>
+      in Mandarin &mdash; Fragrant Mountain), a district of Guangdong
+      later renamed Zhongshan in his honour.
+    </p>
+    <p>
+      In Cantonese, 香 is pronounced <em>hoeng</em> &mdash; the same syllable
+      that gives Hong Kong its English name: 香港 (<em>Heung Gong</em>),
+      Fragrant Harbour. The character 港 means harbour or port,
+      the same 港 that appears in 鹿港 (Lukong), the second city of Qing-era Taiwan,
+      where Fujian diaspora families put down roots after crossing the strait.
+    </p>
+    <p>
+      The Chinese name for Honolulu, 檀香山 (<em>Taan Hoeng Saan</em> in Cantonese),
+      is properly Sandalwood Fragrant Mountain &mdash; with 檀 (sandalwood)
+      prepended by the trade; at its heart it is simply <strong>香山</strong>,
+      Fragrant Mountain, the same two characters as Sun Yat-sen&rsquo;s birthplace.
+      Sun Yat-sen used Honolulu as his principal base for the revolutionary movement,
+      raising funds from the Cantonese diaspora there &mdash; the same community
+      whose home district bore the name 香山,
+      and who gave that name to the island they crossed the Pacific to reach.
+    </p>
+
+    <div class="pull-quote">
+      中 (centre) + 華 (flower; in its traditional written form, a cruciform geometry
+      bearing structural resemblance to the Cross of the Holy Land) =
+      the flourishing that blooms from the centre of the cross:
+      not an ethnic label but a civilizational inheritance claimed by all
+      who live within that tradition.
+    </div>
+
+    <p>
+      The four geographic extrema of U.S. territory &mdash; Alaska (north),
+      Sonoma (west), the U.S. Virgin Islands (east, <em>Virgo</em>), and the
+      Northern Mariana Islands (south, <em>Maria</em>) &mdash; together,
+      in Catholic theological imagination, the two names of one person:
+      the Virgin Mary, Mother of Christ &mdash; centre on Hawaii;
+      and it is in Hawaii, at this crossroads, that the Lokelani rose
+      flourishes as the official flower of Maui: the heavenly rose
+      at the heart of the Latin cross of American geography.
+      The revolutionary who coined the modern Chinese republic was based
+      at the same crossroads.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══ §7 CONCLUSION ═══ -->
+<section class="section" id="conclusion">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Conclusion &mdash; More Continuity Than Rupture</h2>
+  </div>
+
+  <div class="prose-wide">
+    <p>
+      The name 中華 is not ancient. It was constructed, deliberately and philosophically,
+      by a school of thought rooted in Changzhou &mdash; a school whose founder bore
+      the Chuang clan name, whose intellectual tradition ran through five generations,
+      and whose terminal figure, Kang Youwei, assembled the term as a modern
+      political category to hold a multi-ethnic empire together on civilizational
+      rather than ethnic grounds.
+    </p>
+    <p>
+      That school operated in a Jiangnan literati world that had been in sustained
+      contact with Franciscan, Jesuit, and Portuguese missionary intellectual culture
+      for three centuries before 中華 was coined. The character 華 itself &mdash;
+      flower, splendour, civilizational radiance &mdash; carries in its traditional
+      form a cruciform geometry cognate with the cross under which those missionaries
+      arrived. This is not a claim of identity; it is an observation of convergence.
+    </p>
+    <p>
+      Both the Republic of China and the People&rsquo;s Republic of China inherited
+      this term. Neither coined it; neither can exhaust it. The name at the heart
+      of both nations is a civilizational aspiration &mdash; a claim that the
+      centre can flower, that the flowering can hold many peoples,
+      and that what is named is not an ethnicity but a way of being in the world.
+    </p>
+    <p>
+      Those who carry this name, in either capital, carry more history
+      than the twentieth century has allowed them to remember.
+      Those who know the symbol know where to look,
+      and those who look will find more continuity than rupture.
+    </p>
+  </div>
+
+  <!-- References -->
+  <div style="margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--border-dim);">
+    <p style="font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem;">Key References &amp; Sources</p>
+    <ul style="list-style:none;display:grid;gap:0.5rem;">
+      <li style="font-size:0.83rem;color:var(--muted);padding-left:1.2rem;position:relative;">
+        <span style="position:absolute;left:0;color:var(--gold-dim);">&mdash;</span>
+        Benjamin Elman, <em>From Philosophy to Philology: Intellectual and Social Aspects of Change in Late Imperial China</em> (Harvard, 1984)
+      </li>
+      <li style="font-size:0.83rem;color:var(--muted);padding-left:1.2rem;position:relative;">
+        <span style="position:absolute;left:0;color:var(--gold-dim);">&mdash;</span>
+        Benjamin Elman, <em>Classicism, Politics, and Kinship: The Ch&rsquo;ang-chou School of New Text Confucianism in Late Imperial China</em> (California, 1990)
+      </li>
+      <li style="font-size:0.83rem;color:var(--muted);padding-left:1.2rem;position:relative;">
+        <span style="position:absolute;left:0;color:var(--gold-dim);">&mdash;</span>
+        Liam Matthew Brockey, <em>Journey to the East: The Jesuit Mission to China, 1579&ndash;1724</em> (Harvard, 2007)
+      </li>
+      <li style="font-size:0.83rem;color:var(--muted);padding-left:1.2rem;position:relative;">
+        <span style="position:absolute;left:0;color:var(--gold-dim);">&mdash;</span>
+        Archivum Romanum Societatis Iesu, Jap.-Sin. 77, f. 83 &mdash; letter of Empress Dowager Helena to Pope Innocent X, 4 November 1650
+      </li>
+      <li style="font-size:0.83rem;color:var(--muted);padding-left:1.2rem;position:relative;">
+        <span style="position:absolute;left:0;color:var(--gold-dim);">&mdash;</span>
+        Diego de Pantoja SJ, <em>Qike</em> (七克, <em>The Seven Victories over Sin</em>, 1614)
+      </li>
+      <li style="font-size:0.83rem;color:var(--muted);padding-left:1.2rem;position:relative;">
+        <span style="position:absolute;left:0;color:var(--gold-dim);">&mdash;</span>
+        魏源, <em>Haiguo Tuzhi</em> (海國圖志, <em>Illustrated Treatise on the Maritime Kingdoms</em>, 1843&ndash;1852)
+      </li>
+    </ul>
+  </div>
+</section>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  &copy; <span id="yr"></span> William Huanshan Chuang &middot; Logarch&eacute;on Inc.
+  All rights reserved. &middot; Views are the author&rsquo;s own.
+</footer>
+
+</div><!-- /wrap -->
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</body>
+</html>
