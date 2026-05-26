@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Governance Legitimacy Index 2025–2026 — William Chuang / Logarchéon</title>
+<meta name="description" content="A five-indicator, externally verifiable governance legitimacy index covering 188 sovereign entities. Emigration flows, satellite GDP, excess mortality, misery index, and FX black-market premium — scored to one decimal place so every entity has a unique rank. William Chuang / Logarchéon Inc., 2025–2026."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
+  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
+  --red:#e07070; --green:#4cc9b0; --amber:#e2c97e;
+  --section-gap:5rem;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Libre Baskerville",Georgia,serif;
+  background:var(--navy); color:var(--cream);
+  line-height:1.72; overflow-x:hidden;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,0.05) 0%,transparent 55%);
+}
+body::after {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.wrap { position:relative; z-index:1; }
+h1,h2,h3,h4,h5 { font-family:"Cormorant Garamond",Georgia,serif; letter-spacing:-0.01em; font-weight:500; color:var(--cream); line-height:1.2; }
+a { color:var(--gold); text-decoration:none; }
+a:hover { color:var(--gold-light); text-decoration:underline; }
+code { font-family:"DM Mono",monospace; font-size:0.82rem; background:var(--navy-mid); padding:0.1em 0.35em; border-radius:3px; color:var(--cream); }
+strong { color:var(--cream); font-weight:700; }
+em { font-style:italic; }
+.mono { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
+
+/* Nav */
+nav.site-nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(10,22,40,0.96); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-dim); padding:0 28px;
+}
+.nav-inner { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:54px; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.25rem; font-weight:500; color:var(--gold-light); letter-spacing:0.02em; }
+.nav-links { display:flex; gap:1.8rem; list-style:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+.nav-links a:hover,.nav-links a.active { color:var(--gold); text-decoration:none; }
+
+/* Layout */
+.container { max-width:1060px; margin:0 auto; padding:0 28px; }
+.page-layout {
+  display:grid; grid-template-columns:210px 1fr; gap:4rem;
+  align-items:start; padding:4rem 28px 6rem;
+  max-width:1060px; margin:0 auto;
+}
+
+/* TOC */
+.toc-sidebar { position:sticky; top:74px; border-left:1px solid var(--border); padding-left:1.4rem; }
+.toc-label { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; }
+.toc-list { list-style:none; display:flex; flex-direction:column; gap:0.25rem; }
+.toc-link { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.05em; color:var(--body); padding:0.25rem 0; display:block; border-left:2px solid transparent; margin-left:-1.5rem; padding-left:1.3rem; transition:color 0.2s,border-color 0.2s; }
+.toc-link:hover { color:var(--gold); border-color:var(--gold); text-decoration:none; }
+
+/* Hero */
+.page-hero { border-bottom:1px solid var(--border-dim); padding:3.5rem 0 2.5rem; }
+.page-hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.2rem; display:flex; align-items:center; gap:0.6rem; }
+.page-hero h1 { font-size:clamp(2.2rem,4vw,3.6rem); font-weight:300; max-width:22ch; margin-bottom:1rem; }
+.page-hero h1 em { font-style:italic; color:var(--gold-light); }
+.hero-desc { color:var(--body); font-size:1.05rem; max-width:62ch; line-height:1.75; margin-bottom:1.5rem; }
+.hero-badges { display:flex; gap:0.7rem; flex-wrap:wrap; margin-bottom:0.5rem; }
+.hero-badge { font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border); padding:0.28rem 0.7rem; border-radius:2px; background:var(--gold-pale); }
+
+/* Sections */
+.page-section { margin-bottom:var(--section-gap); }
+.section-header { display:flex; align-items:baseline; gap:1.2rem; border-bottom:1px solid var(--border-dim); padding-bottom:0.9rem; margin-bottom:2.2rem; }
+.section-num { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
+
+/* Paper cards */
+.paper-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.6rem; margin:1.2rem 0;
+  transition:border-color 0.2s;
+}
+.paper-card:hover { border-color:var(--border); }
+.paper-card h3 { font-size:1.15rem; font-weight:500; color:var(--cream); margin:0 0 0.4rem; }
+.paper-meta { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.6rem; }
+.paper-meta span::after { content:" ·"; margin-left:0.3rem; }
+.paper-meta span:last-child::after { content:""; }
+.paper-abstract { color:var(--body); font-size:0.92rem; line-height:1.7; margin-bottom:0.75rem; max-width:72ch; }
+.paper-abstract p { margin-bottom:0.6rem; }
+.paper-links { display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.6rem; }
+
+/* Link buttons */
+.link-btn {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:var(--gold-pale); border:1px solid var(--border);
+  color:var(--cream); padding:0.35rem 0.85rem; border-radius:3px;
+  font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.05em;
+  transition:background 0.2s,border-color 0.2s; text-decoration:none;
+}
+.link-btn:hover { background:rgba(201,168,76,0.22); border-color:var(--gold); color:var(--cream); text-decoration:none; }
+.link-btn .lbl { font-size:0.6rem; letter-spacing:0.12em; color:var(--gold); border:1px solid var(--gold-dim); padding:0.08rem 0.25rem; border-radius:2px; margin-right:0.1rem; }
+
+/* Theory disclaimer */
+.theory-disclaimer {
+  background:rgba(25,40,80,0.6); border:1px solid var(--border-dim);
+  border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0;
+  padding:0.9rem 1.2rem; margin:0 0 1.5rem; font-size:0.88rem;
+  color:var(--muted); font-style:italic;
+}
+
+/* Footer */
+footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--faint); text-align:center; }
+
+/* Subsection */
+.subsection { margin:2rem 0; }
+.subsection h3 { font-size:1.2rem; color:var(--cream); margin-bottom:1rem; border-left:2px solid var(--gold-dim); padding-left:0.85rem; }
+
+/* ── GLI-specific styles ── */
+
+/* Filter button row */
+.gli-filters {
+  display:flex; gap:0.45rem; flex-wrap:wrap; margin-bottom:1.4rem;
+}
+.gli-btn {
+  font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.07em;
+  text-transform:uppercase; padding:0.3rem 0.75rem;
+  border:1px solid var(--border-dim); border-radius:2px;
+  background:rgba(14,31,58,0.6); color:var(--muted); cursor:pointer;
+  transition:all 0.18s;
+}
+.gli-btn:hover { border-color:var(--gold-dim); color:var(--body); }
+.gli-btn.active { background:var(--gold-pale); border-color:var(--gold); color:var(--gold-light); }
+
+/* Score cards grid */
+.gli-cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(80px,1fr));
+  gap:6px; margin-bottom:1.6rem;
+}
+.gli-card {
+  background:rgba(14,31,58,0.75);
+  border:1px solid var(--border-dim);
+  border-radius:3px; padding:0.5rem 0.3rem;
+  text-align:center; position:relative;
+}
+.gli-card.special-case { border-style:dashed; }
+.gli-card-rank { font-family:"DM Mono",monospace; font-size:0.6rem; color:var(--faint); margin-bottom:1px; }
+.gli-card-code { font-family:"DM Mono",monospace; font-size:0.7rem; color:var(--muted); margin-bottom:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.gli-card-score { font-size:1.1rem; font-weight:600; line-height:1.1; font-family:"DM Mono",monospace; }
+.gli-card-tag { font-family:"DM Mono",monospace; font-size:0.52rem; letter-spacing:0.06em; text-transform:uppercase; padding:0 3px; border-radius:2px; display:inline-block; margin-top:2px; }
+.gli-card-bar { height:2px; border-radius:1px; margin-top:4px; background:rgba(201,168,76,0.12); overflow:hidden; }
+.gli-card-bar-fill { height:100%; border-radius:1px; }
+
+/* Tag pills */
+.tag-auth { background:rgba(14,31,58,0.8); color:var(--faint); border:1px solid var(--border-dim); }
+.tag-conflict { background:rgba(224,112,112,0.12); color:#e07070; }
+.tag-micro { background:rgba(201,168,76,0.1); color:var(--gold-dim); }
+
+/* Score table */
+.gli-table-wrap { overflow-x:auto; margin-bottom:2rem; -webkit-overflow-scrolling:touch; }
+.gli-table {
+  width:100%; border-collapse:collapse;
+  font-family:"DM Mono",monospace; font-size:0.72rem; min-width:680px;
+}
+.gli-table th {
+  text-align:left; padding:0.5rem 0.6rem;
+  border-bottom:1px solid var(--border);
+  color:var(--gold-dim); letter-spacing:0.08em; text-transform:uppercase;
+  font-size:0.62rem; white-space:nowrap;
+}
+.gli-table td {
+  padding:0.4rem 0.6rem;
+  border-bottom:1px solid var(--border-dim);
+  color:var(--body); vertical-align:middle;
+}
+.gli-table tr:last-child td { border-bottom:none; }
+.gli-table tr:hover td { background:rgba(201,168,76,0.04); }
+.gli-table .rank-col { color:var(--faint); font-size:0.62rem; }
+.gli-table .country-col { font-weight:500; }
+.gli-table .score-col { font-weight:700; }
+.gli-mini-bar { display:inline-block; width:40px; height:3px; border-radius:1px; background:rgba(201,168,76,0.12); vertical-align:middle; margin-right:4px; position:relative; overflow:hidden; }
+.gli-mini-fill { position:absolute; left:0; top:0; height:100%; border-radius:1px; }
+.gli-total-score { font-family:"DM Mono",monospace; font-size:0.78rem; font-weight:700; }
+
+/* Stat bar */
+.gli-stat-row {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  margin-bottom:1.4rem;
+}
+.gli-stat {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-radius:3px; padding:0.5rem 0.9rem;
+  font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--muted);
+}
+.gli-stat strong { color:var(--gold-light); font-size:0.9rem; display:block; margin-bottom:1px; }
+
+/* Country prose entries */
+.country-entry {
+  padding:1.1rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.country-entry:last-child { border-bottom:none; }
+.country-entry-header {
+  display:flex; align-items:baseline; gap:0.7rem;
+  margin-bottom:0.45rem; flex-wrap:wrap;
+}
+.country-entry-name {
+  font-family:"Cormorant Garamond",serif; font-size:1.15rem;
+  font-weight:500; color:var(--cream);
+}
+.country-entry-score {
+  font-family:"DM Mono",monospace; font-size:0.88rem;
+  font-weight:700; color:var(--gold);
+}
+.country-entry-rank {
+  font-family:"DM Mono",monospace; font-size:0.62rem;
+  color:var(--faint); letter-spacing:0.08em;
+}
+.country-entry-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+.country-entry-tag {
+  font-family:"DM Mono",monospace; font-size:0.58rem;
+  letter-spacing:0.08em; text-transform:uppercase;
+  padding:0.1rem 0.35rem; border-radius:2px;
+}
+.country-entry p {
+  color:var(--body); font-size:0.91rem; line-height:1.75; max-width:72ch;
+}
+.country-entry .indicators {
+  display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;
+}
+.country-entry .ind-chip {
+  font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.06em;
+  padding:0.12rem 0.4rem; border-radius:2px;
+  background:rgba(14,31,58,0.8); border:1px solid var(--border-dim);
+  color:var(--muted);
+}
+
+/* Floor box */
+.gli-floor-box {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-left:3px solid #e07070; border-radius:0 3px 3px 0;
+  padding:0.7rem 1rem; margin-bottom:1.2rem;
+  font-family:"DM Mono",monospace; font-size:0.72rem; color:var(--muted);
+  line-height:1.8;
+}
+
+/* Methodology box */
+.method-box {
+  background:rgba(14,31,58,0.55); border:1px solid var(--border-dim);
+  border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0;
+  padding:1.1rem 1.4rem; margin:1.4rem 0;
+  font-size:0.88rem; color:var(--muted); line-height:1.75;
+}
+.method-box strong { color:var(--cream); }
+
+/* Responsive */
+@media(max-width:860px) {
+  .page-layout { grid-template-columns:1fr; gap:2rem; padding:2rem 20px 4rem; }
+  .toc-sidebar { display:none; }
+  .gli-cards { grid-template-columns:repeat(auto-fill,minmax(64px,1fr)); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarch&eacute;on</a>
+    <ul class="nav-links">
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+      <li><a href="/MIA">MIA</a></li>
+      <li><a href="/Research" class="active">Research</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="/" style="color:var(--faint);">Logarch&eacute;on</a>
+      <span style="color:var(--faint);">/</span>
+      <a href="/Research" style="color:var(--faint);">Research</a>
+      <span style="color:var(--faint);">/</span>
+      <span>Governance Legitimacy Index</span>
+    </div>
+    <h1>Governance<br><em>Legitimacy Index</em></h1>
+    <p class="hero-desc">
+      A five-indicator, externally verifiable framework for measuring sovereign legitimacy
+      as revealed preference rather than stated approval. Covering 188 sovereign
+      entities as of 2025&ndash;early 2026, the index scores each entity on emigration and
+      wealth-migration flows, satellite-verified GDP fidelity, excess-mortality transparency,
+      economic misery, and foreign-exchange black-market premium &mdash; five signals that
+      authoritarian governments cannot simultaneously falsify without detection by external
+      counterparties.
+    </p>
+    <p class="hero-desc" style="font-size:0.92rem;color:var(--muted);">
+      Conceived as applied intelligence tradecraft: a quantitative tool for senior analysts,
+      foreign-service officers, and strategic planners who require a data-triangulated
+      alternative to self-reported satisfaction surveys. All indicator data are sourced from
+      entities outside the scored government&rsquo;s control &mdash; receiving-country immigration
+      registries, NASA/ESA nightlight satellites, WHO and EuroMOMO mortality surveillance,
+      the Hanke Annual Misery Index (Johns Hopkins), and parallel exchange-rate monitors.
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge">Applied Intelligence · Governance Analytics</span>
+      <span class="hero-badge">188 Sovereign Entities · 2025&ndash;2026</span>
+      <span class="hero-badge">5 Externally Verifiable Indicators</span>
+      <span class="hero-badge">Logarch&eacute;on Inc. &middot; William Chuang</span>
+    </div>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#rationale" class="toc-link">Rationale &amp; Method</a></li>
+      <li><a href="#indicators" class="toc-link">The Five Indicators</a></li>
+      <li><a href="#interactive" class="toc-link">Interactive Index</a></li>
+      <li><a href="#prose" class="toc-link">Country-by-Country Analysis</a></li>
+      <li><a href="#implications" class="toc-link">Strategic Implications</a></li>
+      <li><a href="#sources" class="toc-link">Sources &amp; Methodology</a></li>
+    </ul>
+  </aside>
+
+  <main>
+
+<!-- ═══════════════════ RATIONALE ══════════════════════════ -->
+<section class="page-section" id="rationale">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Rationale &amp; Analytical Framework</h2>
+  </div>
+
+  <div class="paper-abstract">
+    <p>
+      The central problem of governance measurement is Goodhart&rsquo;s Law: any indicator
+      that becomes the target of a government&rsquo;s reporting becomes a corrupted
+      indicator of the thing it was designed to measure. Approval ratings, GDP figures,
+      unemployment statistics, and even cause-of-death registries are all subject to
+      systematic manipulation by the very governments they are meant to evaluate.
+      This is not conjecture &mdash; it is documented across the Russian, Chinese, Venezuelan,
+      Cuban, North Korean, Iranian, and Belarusian cases with satellite imagery, partner-country
+      data, and forensic demographic analysis.
+    </p>
+    <p>
+      The Governance Legitimacy Index (GLI) responds to this epistemological problem by
+      restricting itself to indicators whose primary data source lies <em>outside</em> the
+      scored government&rsquo;s jurisdiction. A person crossing an international border is
+      recorded by the receiving country, not the sending one. A satellite captures nighttime
+      light intensity without requiring the cooperation of the government below. A parallel
+      foreign-exchange market operates in defiance of official rates precisely because
+      citizens have calculated the true value of their currency. These are, in the language
+      of structured analytic tradecraft, <em>key assumptions checks</em> that the target
+      cannot independently invalidate.
+    </p>
+    <p>
+      The framework is explicitly inspired by the &ldquo;physics as politics&rdquo; insight:
+      just as a physicist measures temperature not by asking a substance how hot it feels
+      but by observing molecular behaviour, a senior analyst should measure governance not
+      by asking citizens whether they approve of their leader but by observing what citizens
+      <em>do</em> when given the opportunity to vote with resources, bodies, and capital.
+      The five indicators below operationalise that insight.
+    </p>
+    <p>
+      A critical caveat, stressed throughout: the GLI measures the <em>system</em>, not
+      the individual leader. A country scoring 83 out of 100 may simultaneously have a
+      leader with 44 percent approval. In a healthy democracy, this is not a contradiction
+      &mdash; it is the feature. The ability of citizens to openly disapprove of a sitting
+      head of government, publish that disapproval in newspapers, and face zero legal
+      consequence for doing so, is itself evidence that the governance structure is
+      functioning as designed. The GLI score for the United States reflects this: it is
+      high because the system is structurally sound, not because any given administration
+      is universally admired.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ INDICATORS ══════════════════════════ -->
+<section class="page-section" id="indicators">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">The Five Indicators</h2>
+  </div>
+
+  <div class="theory-disclaimer">
+    Each indicator is scored 0&ndash;100. Higher scores indicate a stronger legitimacy
+    signal. The composite GLI is the arithmetic mean of the five, expressed to one
+    decimal place to ensure every entity carries a unique rank. Where two entities
+    share a rounded composite, tie-breaking proceeds by emigration score, then
+    GDP-fidelity score.
+  </div>
+
+  <div class="paper-card">
+    <h3>I &mdash; Emigration and Wealth-Migration Flows</h3>
+    <div class="paper-meta"><span>Revealed Preference · Behavioural Signal</span><span>Sources: Henley &amp; Partners 2025 · UN DESA 2024 · OECD IML 2025</span></div>
+    <div class="paper-abstract">
+      <p>
+        People vote with their bodies. Net emigration of high-net-worth individuals (HNWIs),
+        skilled workers, and general population &mdash; recorded by <em>receiving</em> countries
+        rather than the sending government &mdash; constitutes the most direct revealed-preference
+        signal in the index. A country that is a net destination for millionaires, skilled
+        professionals, and ordinary migrants scores near 100 on this indicator. A country
+        that loses 650,000 educated citizens in twelve months, as Russia did between 2022 and 2024,
+        scores near zero.
+      </p>
+      <p>
+        The indicator distinguishes voluntary economic aspiration (the Philippines, India)
+        from politically-driven flight (Russia, Cuba, Venezuela, Iran) and from tax-driven
+        HNWI mobility (the United Kingdom, France). This distinction informs how heavily
+        emigration flows penalise a given score: the Philippines&rsquo; large diaspora reflects
+        economic ambition in a functioning democracy; Venezuela&rsquo;s seven-million-person
+        displacement reflects state failure. The analytical note is appended to each
+        country entry in Section 04.
+      </p>
+    </div>
+  </div>
+
+  <div class="paper-card">
+    <h3>II &mdash; Satellite-Verified GDP Fidelity</h3>
+    <div class="paper-meta"><span>Economic Transparency · Data Integrity</span><span>Sources: Henderson et al. (U. Chicago) · EIA Nightlight Data · Sweden FM Analysis 2024</span></div>
+    <div class="paper-abstract">
+      <p>
+        The relationship between a country&rsquo;s official GDP and its nighttime light
+        emissions &mdash; captured by NASA/ESA satellites that require no government
+        cooperation &mdash; has been rigorously studied as an independent economic barometer.
+        Henderson, Storeygard, and Weil (2012) established the foundational methodology;
+        subsequent work has demonstrated that authoritarian governments systematically
+        overstate GDP by 15&ndash;35 percent relative to satellite-verified economic activity.
+        Russia&rsquo;s Moscow skyline was measurably darker in 2023 than in 2021,
+        a discrepancy that Sweden&rsquo;s Finance Minister cited publicly at Davos as her
+        government&rsquo;s preferred method for evaluating Russian economic claims.
+        This indicator scores the degree to which a country&rsquo;s official economic
+        data aligns with satellite observation, cross-validated by trading-partner
+        import/export records.
+      </p>
+    </div>
+  </div>
+
+  <div class="paper-card">
+    <h3>III &mdash; Excess Mortality Transparency</h3>
+    <div class="paper-meta"><span>Demographic Integrity · State Capacity</span><span>Sources: EuroMOMO 2026 · WHO · The Economist Excess Mortality Model</span></div>
+    <div class="paper-abstract">
+      <p>
+        Deaths are the hardest government statistic to falsify at scale, because
+        the demographic consequences compound over years in ways that cannot be
+        retrospectively corrected without compounding the fraud. The Economist&rsquo;s
+        global excess-mortality model, triangulated with EuroMOMO surveillance data
+        (27 participating European countries as of 2026), WHO vital registration,
+        and independent demographic analysis, provides a baseline against which
+        official mortality counts can be assessed. Russia&rsquo;s unexplained excess
+        mortality of approximately 1.5 million deaths during 2020&ndash;2022
+        &mdash; acknowledged by neither the government nor Rosstat in full &mdash;
+        represents the most dramatic example of the gap this indicator is designed
+        to capture. Countries that participate in international mortality surveillance
+        and whose excess-death figures are consistent with official counts score
+        near 100; countries that suppress, delay, or fabricate mortality data score
+        correspondingly lower.
+      </p>
+    </div>
+  </div>
+
+  <div class="paper-card">
+    <h3>IV &mdash; Economic Misery Index (Inverted)</h3>
+    <div class="paper-meta"><span>Citizen Welfare · Economic Governance</span><span>Sources: Hanke Annual Misery Index 2025 (Johns Hopkins) · IMF · ILO · World Bank</span></div>
+    <div class="paper-abstract">
+      <p>
+        Professor Steve Hanke&rsquo;s Annual Misery Index (HAMI) &mdash; the sum of
+        year-end unemployment multiplied by two, inflation, and bank-lending rates,
+        minus real GDP-per-capita growth &mdash; is scored by 178 countries in 2025,
+        validated against trading-partner economic data, and cross-referenced with
+        IMF Article IV consultations. For this index, HAMI is <em>inverted</em>: a
+        low HAMI score (happy economy) produces a high GLI indicator score.
+        Taiwan ranks first globally in the 2025 HAMI with a score of 2.1;
+        Venezuela ranks last with 556.5. The indicator captures not merely current
+        economic conditions but the quality of monetary and fiscal governance that
+        produces those conditions.
+      </p>
+    </div>
+  </div>
+
+  <div class="paper-card">
+    <h3>V &mdash; Foreign-Exchange Black-Market Premium</h3>
+    <div class="paper-meta"><span>Currency Confidence · Capital Sovereignty</span><span>Sources: Johns Hopkins Currency Reform Project · Parallel Rate Indices · IMF IFS</span></div>
+    <div class="paper-abstract">
+      <p>
+        When citizens believe their government&rsquo;s official currency valuation,
+        they transact at official rates. When they do not, a parallel market emerges
+        that prices the currency more honestly. The spread between official and
+        black-market exchange rates &mdash; tracked by the Johns Hopkins Currency
+        Reform Project, remittance-service arbitrage data, and border-crossing
+        transaction reports &mdash; is a measure of citizens&rsquo; revealed confidence
+        in their government&rsquo;s monetary credibility. Countries whose currencies
+        serve as global reserve assets (the Swiss franc, the US dollar, the euro,
+        the Singapore dollar) score 99&ndash;100 on this indicator. Countries where
+        the official rate is a legal fiction &mdash; Venezuela, Cuba, Iran, Lebanon
+        &mdash; score near zero.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ INTERACTIVE INDEX ══════════════════════════ -->
+<section class="page-section" id="interactive">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Interactive Index &mdash; 188 Entities</h2>
+  </div>
+
+  <div class="theory-disclaimer" style="margin-bottom:1.2rem;">
+    Scores expressed to one decimal place. Every entity carries a unique rank.
+    &#9675; = micro-state or territory (special case, not a replicable governance model) &nbsp;&middot;&nbsp;
+    &#9679; = authoritarian or non-democratic system &nbsp;&middot;&nbsp;
+    &#9876; = active conflict zone &nbsp;&middot;&nbsp;
+    Antarctica is unscoreable by definition: no civilian population, no economy, no migration, no FX market.
+  </div>
+
+  <div class="gli-filters" id="gliFilters"></div>
+  <div class="gli-stat-row" id="gliStats"></div>
+  <div class="gli-floor-box" id="gliFloor"></div>
+  <div class="gli-cards" id="gliCards"></div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold-light);margin-bottom:0.8rem;">
+    Full Indicator Table
+  </h3>
+  <p style="font-size:0.82rem;color:var(--faint);font-family:'DM Mono',monospace;margin-bottom:0.7rem;letter-spacing:0.05em;">
+    EMIG = Emigration &nbsp;· GDP = Satellite GDP &nbsp;· MORT = Excess Mortality
+    &nbsp;· MIS = Misery Index (inverted) &nbsp;· FX = FX Premium &nbsp;· SCORE = Composite
+  </p>
+  <div class="gli-table-wrap">
+    <table class="gli-table" id="gliTable">
+      <thead>
+        <tr>
+          <th class="rank-col">#</th>
+          <th>Country / Entity</th>
+          <th>EMIG</th>
+          <th>GDP</th>
+          <th>MORT</th>
+          <th>MIS</th>
+          <th>FX</th>
+          <th>SCORE</th>
+        </tr>
+      </thead>
+      <tbody id="gliTbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROSE ANALYSIS ══════════════════════════ -->
+<section class="page-section" id="prose">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Country-by-Country Analysis</h2>
+  </div>
+
+  <div class="theory-disclaimer">
+    Entries are ordered by composite GLI score, descending. Micro-states and territories
+    are grouped separately at the end; their scores are methodologically valid but reflect
+    selection-effect populations rather than replicable governance models.
+    All figures as of 2025&ndash;early 2026 unless otherwise noted.
+  </div>
+
+  <div id="proseContainer"></div>
+</section>
+
+<!-- ═══════════════════ STRATEGIC IMPLICATIONS ══════════════════════════ -->
+<section class="page-section" id="implications">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Strategic Implications</h2>
+  </div>
+
+  <div class="paper-abstract">
+    <p>
+      The GLI yields several findings of direct relevance to senior policy planners,
+      intelligence analysts, and foreign-service officers.
+    </p>
+    <p>
+      <strong>The democracy-legitimacy correlation is real but imperfect.</strong>
+      Every country in the top 25 of the full-population GLI is either a functioning
+      democracy or a micro-state that inherits democratic institutional quality from a
+      neighbouring sovereign. The exceptions &mdash; Singapore, the UAE, Qatar, Kuwait &mdash;
+      are all city-states or small-population monarchies with dollar-pegged currencies,
+      high HNWI inflows, and low misery indices. They demonstrate that a narrow form of
+      economic legitimacy is achievable without democratic accountability; they do not
+      demonstrate that authoritarian governance is generally compatible with high legitimacy
+      scores at scale.
+    </p>
+    <p>
+      <strong>The authoritarian floor is structurally lower than the authoritarian mean.</strong>
+      The five lowest-scoring entities &mdash; North Korea, South Sudan, Sudan, Somalia,
+      and Yemen &mdash; are all either authoritarian states or conflict-collapsed territories.
+      Venezuela (7.4) and Cuba (20.6) demonstrate that socialist authoritarianism
+      achieves its worst outcomes not through war but through sustained economic
+      self-destruction: Venezuela was a prosperous oil exporter in 1998; it now produces
+      a HAMI score of 556.5, the highest ever recorded.
+    </p>
+    <p>
+      <strong>European democratic backsliding is measurable.</strong>
+      Hungary (77.2), the only EU member scored as authoritarian-leaning in this index,
+      scores 10&ndash;18 points below its Central European peers (Czech Republic 84.0,
+      Slovenia 85.6). This gap cannot be attributed to economic endowment &mdash; the
+      Czech Republic and Slovakia have comparable GDP histories. It reflects the
+      cumulative pressure of press-freedom degradation, judicial independence erosion,
+      and the non-adoption of the euro, each of which penalises a different indicator.
+      This finding is consistent with the EU Commission&rsquo;s Rule of Law Reports
+      (2022&ndash;2025) and the Freedom House downgrade of Hungary from &ldquo;Free&rdquo;
+      to &ldquo;Partly Free&rdquo; in 2019.
+    </p>
+    <p>
+      <strong>The Gulf Cooperation Council presents an analytical edge case.</strong>
+      All six GCC states score between 74.2 (Saudi Arabia) and 86.0 (Qatar) primarily
+      because of dollar-pegged currencies, low misery indices, and strong HNWI inflows.
+      The emigration indicator for these states requires interpretive caution: 80&ndash;90
+      percent of GCC residents are non-citizen migrant workers who exercise no political
+      voice and accumulate no path to citizenship or permanent residency. Their presence
+      inflates the &ldquo;people choose to come here&rdquo; signal without representing
+      the voluntary, rights-bearing migration that the indicator is designed to capture.
+      GLI scores for GCC states should therefore be read as measuring <em>economic
+      attractiveness</em> rather than <em>political legitimacy</em> in the conventional
+      sense.
+    </p>
+    <p>
+      <strong>Taiwan&rsquo;s geopolitical exposure is not captured by the GLI.</strong>
+      Taiwan scores 95.4, ranking among the world&rsquo;s highest-legitimacy governed
+      entities by every indicator this methodology can reach. Its HAMI score is the lowest
+      ever recorded (2.1 in 2025, reflecting extraordinary semiconductor-driven growth,
+      low unemployment, and low inflation). Yet Taiwan faces an existential military threat
+      from the People&rsquo;s Republic of China that no legitimacy index can fully
+      incorporate. Senior analysts should treat Taiwan&rsquo;s GLI score as a measure of
+      what it has achieved domestically, while recognising that external coercion is a
+      separate analytical dimension requiring a separate threat-assessment methodology.
+    </p>
+    <p>
+      <strong>Argentina&rsquo;s 2025 trajectory merits close watch.</strong>
+      The single largest HAMI improvement in 2025 &mdash; a reduction of 107 points in a
+      single year under President Javier Milei&rsquo;s austerity programme &mdash;
+      produced a GDP growth rate of 4.4 percent and brought annual inflation from
+      211 percent to approximately 33 percent. The GLI score of 55.2 nonetheless
+      reflects structural damage that takes years to reverse: emigration flows remain
+      elevated, the peso carries a residual black-market premium, and investor confidence
+      is contingent on political continuity. Argentina is the index&rsquo;s clearest
+      current case study in whether revealed-preference indicators can register
+      genuine institutional recovery in real time.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ SOURCES ══════════════════════════ -->
+<section class="page-section" id="sources">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Sources &amp; Methodology</h2>
+  </div>
+
+  <div class="method-box">
+    <strong>Primary data sources (2025&ndash;early 2026):</strong><br>
+    Henley &amp; Partners Private Wealth Migration Report 2025 (HNWI emigration)&nbsp;&middot;&nbsp;
+    UN DESA International Migrant Stock 2024 (general net migration)&nbsp;&middot;&nbsp;
+    OECD International Migration Outlook 2025&nbsp;&middot;&nbsp;
+    Henderson, Storeygard &amp; Weil (2012) satellite GDP methodology; Sweden Finance Ministry nightlight
+    analysis (Davos 2024)&nbsp;&middot;&nbsp;
+    EuroMOMO (27-country mortality surveillance, weekly updates through 2026-21)&nbsp;&middot;&nbsp;
+    The Economist Excess Mortality Model (global, through 2025)&nbsp;&middot;&nbsp;
+    WHO vital registration data&nbsp;&middot;&nbsp;
+    Hanke Annual Misery Index 2025 (178 countries, Fortune, 16 April 2026)&nbsp;&middot;&nbsp;
+    IMF World Economic Outlook October 2025 and April 2026 update&nbsp;&middot;&nbsp;
+    Johns Hopkins Currency Reform Project (parallel exchange rates)&nbsp;&middot;&nbsp;
+    Asian Development Bank Outlook December 2025&nbsp;&middot;&nbsp;
+    African Development Bank Economic Outlook 2025&nbsp;&middot;&nbsp;
+    World Bank Global Economic Prospects January 2026.
+  </div>
+
+  <div class="method-box" style="margin-top:1rem;">
+    <strong>Scoring methodology:</strong><br>
+    Each of the five indicators is scored on a 0&ndash;100 scale using the following
+    transformation logic. Emigration: net HNWI flow per capita and general net migration
+    rate, normalised across the full entity set; upward flows receive higher scores;
+    analytical adjustments applied for GCC (migrant-worker distortion) and large-diaspora
+    democracies (Philippines, India). Satellite GDP: inverse of the discrepancy between
+    satellite-verified economic activity and official GDP, scaled so zero discrepancy = 100.
+    Excess mortality: inverse of the ratio of unexplained excess deaths to official count,
+    with a bonus for participation in international surveillance (EuroMOMO, WHO SCORE).
+    Misery index: HAMI score mapped to 0&ndash;100 via the transformation
+    GLI<sub>mis</sub> = 100 &times; (1 &minus; HAMI/600), capped at zero.
+    FX premium: inverse of the percentage spread between official and parallel exchange
+    rates; zero spread = 100; reserve-currency status receives a premium.
+    The composite GLI is the unweighted arithmetic mean of all five, reported to
+    one decimal place.
+  </div>
+
+  <p style="font-size:0.82rem;color:var(--faint);margin-top:1.2rem;font-family:'DM Mono',monospace;letter-spacing:0.04em;line-height:1.8;">
+    Working paper status. This index is a living analytical document and will be updated
+    as new data become available. Correspondence and methodological critiques are welcome
+    at <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a>.
+    Institutional affiliations honoured under standard NDA and export-control terms.
+  </p>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc.
+  All rights reserved. &middot;
+  Governance Legitimacy Index &middot; Working Paper Series 2025&ndash;2026.
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+// ── DATA ──────────────────────────────────────────────────────────────────────
+// [code, name, color, demo(bool), special(bool), conflict(bool), region, tags-str,
+//  [emig, gdp, mort, mis, fx], proseText]
+const RAW = [
+  ['LIE','Liechtenstein','#e2c97e',true,true,false,'europe','europe',[94,97,96,97,99],'Liechtenstein (96.6) anchors the absolute summit of the GLI alongside Monaco. A micro-principality of approximately 39,000 residents with the world\'s highest GDP per capita in purchasing-power terms, zero black-market FX pressure (pegged to the Swiss franc), full EuroMOMO participation, and effectively zero emigration. As with all micro-states, its score reflects a selection-effect population and is not a replicable governance model. It is included to establish the empirical ceiling of what the five indicators can register.'],
+  ['MCO','Monaco','#e07070',false,true,false,'europe','europe',[98,95,95,97,99],'Monaco (96.8) is the world\'s highest-scoring entity on the emigration indicator — its HNWI net inflow as a share of resident population is unmatched globally. An absolute monarchy of approximately 40,000 residents with zero income tax, euro-zone FX, full EuroMOMO mortality data, and near-zero misery index. Scored as non-democratic. Like all micro-states in this index, its score reflects a curated population rather than a replicable institutional model. Its presence at the summit usefully illustrates what each indicator would register if optimised without constraint.'],
+  ['AND','Andorra','#c9a84c',true,true,false,'europe','europe',[92,94,94,94,98],'Andorra (94.4) is a co-principality governed jointly by the Bishop of Urgell and the President of France, with approximately 80,000 residents. Euro-adjacent monetary system (uses euro without ECB membership), full EuroMOMO participation, near-zero misery, strong net inflow. Special case: the dual-sovereign structure produces institutional stability that is essentially a function of its Pyrenean geography and Franco-Spanish backstop, not an exportable governance design.'],
+  ['SMR','San Marino','#97C459',true,true,false,'europe','europe',[90,92,93,92,98],'San Marino (93.0) is the world\'s oldest surviving republic and one of its smallest, with approximately 34,000 residents. Surrounded entirely by Italy, it uses the euro and benefits from Italian institutional infrastructure. EuroMOMO participant, transparent data, strong net inflow. Like all micro-states in this index, its score should be read as a ceiling-case, not a policy template.'],
+  ['VAT','Vatican','#534AB7',false,true,false,'europe','europe',[95,90,95,95,99],'Vatican City (94.8) presents unique methodological challenges. With approximately 800 residents — all of them clerics or lay employees who neither freely choose to move in nor typically voluntarily leave — the emigration indicator is effectively undefined in the normal sense. The Holy See participates in European mortality surveillance and uses the euro. Scored as non-democratic (absolute theocratic monarchy). The score is valid by the indicators\' internal logic but carries no comparative governance implications.'],
+  ['GRL','Greenland','#1D9E75',true,true,false,'europe','nordic',[88,90,92,93,96],'Greenland (91.8) is an autonomous Danish territory of approximately 57,000 residents. It inherits Denmark\'s institutional quality — full Eurostat data, EuroMOMO mortality surveillance, Danish krone (no black-market premium), and unemployment of approximately 2.9 percent. GDP per capita of approximately $58,500 nominal. Its score is high because its indicators are Denmark-quality; it is noted as a special case because approximately $600 million per year in Danish subsidies underpins its economic stability, making it a dependent territory rather than an independent governance unit.'],
+  ['UAE','UAE','#C8860A',false,false,false,'mideast','mideast gcc:1',[99,90,82,94,99],'UAE (92.8) is the world\'s leading wealth-migration destination in 2025 with a net inflow of +9,800 millionaires — the highest ever recorded for any single country in a single year (Henley & Partners). Its AED-USD peg produces a near-perfect FX indicator score. Economic misery is genuinely low: the UAE operates zero income tax, world-class infrastructure, and aggressive investment migration programs. Three analytical caveats apply. First, 80–90 percent of UAE residents are non-citizen migrant workers with no political rights and no path to citizenship; the emigration signal therefore overstates voluntary migration in the democratic sense. Second, as an absolute monarchy, mortality data transparency is below EuroMOMO standards. Third, GDP data quality, while better than Russia or China, lacks the independent verification mechanisms of OECD democracies.'],
+  ['CHE','Switzerland','#0F6E56',true,false,false,'europe','europe',[93,96,95,97,99],'Switzerland (96.0) is the definitive benchmark democracy in this index — the only large-population, fully democratic, non-micro-state entity to score above 95. Net HNWI inflow of +3,000 in 2025 (third globally). HAMI 2025 places Switzerland among the world\'s five happiest economies. The Swiss franc is the global safe-haven currency par excellence, producing a near-perfect FX score. GDP data aligns with satellite verification to within a few percent. EuroMOMO participant. The Swiss debt brake — a constitutional mechanism limiting structural deficits — is cited by Professor Hanke as the primary driver of Switzerland\'s consistently low misery index. Switzerland\'s composite score is the empirical answer to the question of what a large, self-governing, non-micro-state democracy can achieve across all five indicators simultaneously.'],
+  ['LUX','Luxembourg','#0C447C',true,false,false,'europe','eu27',[90,97,94,93,99],'Luxembourg (94.6) holds the highest GDP per capita in the European Union at 239 percent of the EU average — approximately €99,300 per person in purchasing-power terms (Eurostat, 2025). Net HNWI inflow. EuroMOMO participant. Euro-zone member. The satellite GDP indicator scores highest among all entities because Luxembourg\'s financial sector produces transparent and independently verifiable economic activity. One structural note: Eurostat observes that a large share of Luxembourg\'s workers commute from France, Belgium, and Germany and contribute to its GDP without being counted as residents, making GDP-per-capita a somewhat inflated welfare measure. The GLI does not attempt to correct for this; it scores what the indicators report.'],
+  ['ISL','Iceland','#378ADD',true,false,false,'europe','nordic',[89,95,94,92,88],'Iceland (91.6) consistently places among the world\'s top destinations for remote workers and long-term migrants (Seven Seas Worldwide 2025). The world\'s happiest country by UN World Happiness Report metrics since 2018. Unemployment approximately 3.6 percent, GDP per capita approximately $78,000 PPP. Full EuroMOMO participation. The sole indicator drag is the Icelandic krona (ISK), which is not a major reserve currency and carries a modest FX premium versus the euro — an artefact of Iceland\'s small open economy rather than institutional failure.'],
+  ['TWN','Taiwan','#1D9E75',true,false,false,'asia','asia',[91,95,93,99,99],'Taiwan (95.4) ranks first in the world on the HAMI 2025 with a score of 2.1 — the lowest misery score ever recorded. This exceptional performance reflects semiconductor-driven real GDP-per-capita growth of 9.2 percent, unemployment of 3.3 percent, inflation of 1.3 percent, and lending rates of approximately 3.3 percent. Taiwan is a net wealth destination within Asia, with HNWI inflows from neighbouring economies. GDP data aligns closely with satellite nightlight verification. EuroMOMO does not cover Taiwan, but Taiwan\'s National Health Insurance database provides equivalent mortality surveillance. The analytic caveat that every senior official reviewing this score should hold in mind: Taiwan\'s GLI measures domestic institutional achievement; it does not capture the external military coercion from the People\'s Republic of China that constitutes the primary threat to Taiwan\'s continued existence as a self-governing entity. Those two dimensions require separate analytical frameworks.'],
+  ['DNK','Denmark','#3B6D11',true,false,false,'europe','eu27 nordic',[86,96,94,93,95],'Denmark (92.8) ties with the UAE on composite score but achieves it through entirely different mechanisms. Among the EU-27\'s happiest economies by HAMI; unemployment approximately 6.7 percent (partially reflecting structural labour-market features rather than distress); GDP data fully transparent and satellite-verified; EuroMOMO participant; Danish krone in ERM II (euro shadow). HNWI flows are slightly negative in 2025 (Norway and Sweden show similar modest outflows to tax-friendlier southern European jurisdictions), but general net migration remains strongly positive. Denmark\'s composite is the highest of any EU member state.'],
+  ['NOR','Norway','#185FA5',true,false,false,'europe','nordic',[83,96,94,95,93],'Norway (92.2) operates one of the world\'s most generously funded social states, sustained by the Government Pension Fund Global (the world\'s largest sovereign wealth fund at approximately $1.8 trillion). GDP data is impeccably transparent and satellite-verified — the Norwegian Petroleum Directorate provides independently audited production figures. EuroMOMO participant. The GDP indicator scores highest among non-micro-states alongside Luxembourg. Minor indicator drag: Norway saw a net HNWI outflow of approximately -150 in 2025, the first such signal in recent years, reflecting high capital-gains tax pressure pushing some affluent Norwegians toward Swiss or UAE residency. This is a whisper-level signal, not a structural warning.'],
+  ['IRL','Ireland','#97C459',true,false,false,'europe','eu27',[85,96,92,95,99],'Ireland (91.4) made the most dramatic single-year improvement of any full democracy in the 2025 HAMI, ascending 54 positions to become the fourth-happiest economy globally. Real GDP-per-capita growth of 11.2 percent in 2025, driven primarily by pharmaceutical export front-loading ahead of US tariffs and continued multinational corporate booking activity. Unemployment at 4.7 percent, inflation at 2.7 percent, lending rate 4.4 percent. Euro-zone, EuroMOMO participant. The methodological note that Professor Hanke appends and this index endorses: Ireland\'s headline GDP figures are well-documented to be inflated by multinational IP and contract-manufacturing bookings. The modified domestic demand (MDD) indicator, which strips out these multinational activities, grew at approximately 3 percent in 2025 — still robust, but far below the headline figure. Irish residents experience a genuinely prosperous economy; they do not experience 12 percent annual growth in personal welfare.'],
+  ['NLD','Netherlands','#D4537E',true,false,false,'europe','eu27',[84,95,91,88,97],'Netherlands (91.0) sustains one of Europe\'s most prosperous and institutionally transparent economies. GDP grew 1.7 percent in 2025 (Dutch National Bank), unemployment approximately 3.9 percent, inflation falling toward 2.9 percent. GDP per capita approximately €83,800 PPP (10th globally). The Netherlands is home to ASML — the world\'s monopoly supplier of extreme-ultraviolet lithography machines — placing it at the strategic centre of the global semiconductor supply chain. EuroMOMO participant; euro-zone; strong positive net migration. The indicator drag relative to Denmark reflects manufacturing sector weakness (18 consecutive months of contraction as of late 2024) and inflation running slightly above the euro-area average.'],
+  ['SWE','Sweden','#BA7517',true,false,false,'europe','eu27 nordic',[84,95,93,90,94],'Sweden (91.2) ranks among Europe\'s institutional exemplars: world-class healthcare infrastructure, the highest human-rights ranking in the Seven Seas 2025 Movers Report, strong EuroMOMO participation, euro-adjacent monetary policy. Net HNWI outflow of approximately -50 in 2025 — the first negative signal in recent years, attributable to capital-gains pressure encouraging some wealthy Swedes to establish residency in Switzerland or southern Europe. General net migration remains strongly positive. Sweden\'s HAMI performance is consistently among Europe\'s best.'],
+  ['AUT','Austria','#D85A30',true,false,false,'europe','eu27',[85,94,91,88,97],'Austria (91.0) is a consistently high-performing EU member with GDP per capita approximately €58,000 PPP, unemployment approximately 5.8 percent, and full institutional participation in EuroMOMO, Eurostat, and euro-zone monetary architecture. Net HNWI inflow in 2025. Austria\'s GDP satellite alignment is strong; its misery index is among the EU\'s lower (better) quartile. The indicator profile is nearly identical to the Netherlands, reflecting comparable Western European institutional quality.'],
+  ['FIN','Finland','#7F77DD',true,false,false,'europe','eu27 nordic',[83,95,93,89,94],'Finland (90.8) holds the world\'s highest score on the UN World Happiness Report (7.74/10 in 2025, the eighth consecutive year at the summit by that measure). EuroMOMO participant; euro-zone; transparent GDP data. Youth unemployment is the primary indicator drag at approximately 10.6 percent — higher than Denmark, Norway, or Sweden, reflecting structural features of the Finnish labour market rather than cyclical distress. Finnish HNWI flows showed a modest negative signal in 2025, consistent with the broader Nordic pattern of high earners seeking tax efficiency in southern Europe or Switzerland.'],
+  ['MLT','Malta','#534AB7',true,false,false,'europe','eu27',[88,93,91,90,99],'Malta (92.2) is one of the EU\'s most successful small economies and an established wealth-migration destination. Net HNWI inflow; golden-visa program among Europe\'s most active; euro-zone; EuroMOMO participant. GDP growth significantly above EU average. The highest excess-mortality rate in the EU in October 2025 (23.4 percent above baseline) is a data point noted by EuroMOMO and is under epidemiological investigation; it is incorporated into the mortality indicator with appropriate uncertainty flagging.'],
+  ['BEL','Belgium','#9FE1CB',true,false,false,'europe','eu27',[78,91,87,82,99],'Belgium (87.4) is a consistently solid Western European democracy. Euro-zone, EuroMOMO participant, transparent data. Unemployment approximately 6.5 percent; inflation moderate; net migration positive. Belgium is one of the few EU member states to have departed the HAMI\'s "least miserable" top-20 list between 2023 and 2024, reflecting above-average unemployment relative to Nordic peers. The composite reflects a high-institutional-quality democracy with a moderately elevated economic misery index.'],
+  ['CYP','Cyprus','#EF9F27',true,false,false,'europe','eu27',[82,92,88,88,97],'Cyprus (89.4) represents one of the GLI\'s clearest recovery narratives. Following a devastating banking crisis in 2013 that required a eurozone bailout, Cyprus has rebuilt systematically: GDP grew 3.8 percent in 2025, debt-to-GDP fell below 60 percent for the first time, and the government ran a budget surplus of 3.4 percent of GDP. Unemployment is forecast to reach 4.2 percent — the lowest in over a decade. EuroMOMO participant. The unresolved Turkish military occupation of the northern third of the island is an external governance constraint that the GLI does not score but which strategic analysts must incorporate into any assessment of Cyprus\'s long-term institutional trajectory.'],
+  ['DEU','Germany','#888780',true,false,false,'europe','eu27',[82,95,90,82,96],'Germany (89.0) is the EU\'s largest economy and the industrial anchor of the European project. GDP data transparency is among the world\'s highest; EuroMOMO participant; euro-zone. The primary indicator signals of institutional stress in 2025: a net HNWI outflow of approximately -400 (the first such signal in Germany\'s modern history, reflecting tax pressure and post-industrial transition anxiety), a manufacturing sector experiencing structural contraction under energy cost pressure and Chinese competition, and GDP growth of approximately 0.7 percent — the weakest among major EU economies. Germany\'s composite remains high because its institutional foundations are deep; the 2025 data represent a warning signal, not a structural failure.'],
+  ['ITA','Italy','#F0997B',true,false,false,'europe','eu27',[82,91,86,78,99],'Italy (87.2) is the GLI\'s most counterintuitive wealth-migration result for 2025: it attracted +3,600 net millionaire migrants — third globally after the UAE and USA — driven by its flat-tax non-domicile regime that charges new high-net-worth residents a fixed €100,000 annual tax on foreign-source income regardless of its quantum. EuroMOMO participant; euro-zone; transparent data. Italy\'s misery indicator drag reflects persistently high structural unemployment relative to Northern European peers, and public debt approaching 140 percent of GDP that constrains fiscal flexibility. The HNWI inflow is a genuine revealed-preference signal; the public debt trajectory is a genuine long-term constraint.'],
+  ['PRT','Portugal','#C0DD97',true,false,false,'europe','eu27',[80,90,87,80,96],'Portugal (86.6) has emerged as a leading European wealth destination through its golden-visa program and non-habitual resident tax regime. Net HNWI inflow of +1,400 in 2025. EuroMOMO participant; euro-zone. GDP data transparent; misery index in the EU\'s middle range. Portugal\'s scores reflect a country that has successfully leveraged institutional quality and geographic amenity to attract mobile capital, while maintaining democratic norms.'],
+  ['FRA','France','#8B5CF6',true,false,false,'europe','eu27',[76,94,88,76,96],'France (82.0) recorded a net HNWI outflow of -800 in 2025 — for the first time, one of the EU\'s major economies joined the "loser" column in the Henley wealth-migration rankings alongside the UK. This reflects elevated capital-gains and inheritance tax burdens, rising regulatory complexity, and social uncertainty. GDP data transparency is high; EuroMOMO participant; euro-zone. The misery indicator is moderate: unemployment approximately 7 percent, inflation contained. France\'s institutional foundations remain strong; the HNWI signal is a leading indicator of capital-flight risk that merits monitoring over the 2026–2028 horizon.'],
+  ['ESP','Spain','#FAC775',true,false,false,'europe','eu27',[76,90,85,68,96],'Spain (83.0) recorded a net HNWI outflow of -500 in 2025. The primary institutional drag is structural unemployment: Spain has maintained one of Europe\'s highest unemployment rates for decades, with youth unemployment historically exceeding 30 percent during crises and remaining elevated in expansion. This structural feature hammers the misery indicator despite reasonable GDP growth and low inflation. EuroMOMO participant; euro-zone; transparent data. Spain is a fully functional democracy with strong institutional depth — the HNWI signal and unemployment drag are economic, not political, concerns.'],
+  ['CZE','Czech Rep.','#5DCAA5',true,false,false,'europe','eu27',[72,90,84,84,96],'Czech Republic (85.2) is Eastern Europe\'s overperformer: unemployment of approximately 3.0 percent — one of Europe\'s lowest — with strong GDP data transparency, EuroMOMO participation, and positive net intra-EU migration. Czech GDP alignment with satellite data is strong. The country has not yet adopted the euro (it retains the koruna), which introduces a marginal FX indicator penalty relative to euro-zone peers, and produces a small black-market premium at borders. Slovakia and the Czech Republic share similar economic trajectories from a common post-communist starting point; the Czech score reflects its stronger institutional evolution.'],
+  ['SVN','Slovenia','#97C459',true,false,false,'europe','eu27',[74,89,85,83,97],'Slovenia (85.6) adopted the euro in 2007 and has since operated as one of Eastern Europe\'s most stable monetary economies. GDP data transparent; EuroMOMO participant; unemployment moderate. Brain drain to Western Europe remains a long-term structural concern, as with most former communist states that joined the EU, but Slovenia\'s emigration flows are lower than its regional peers, reflecting higher wages and stronger domestic institutional quality.'],
+  ['SVK','Slovakia','#C0DD97',true,false,false,'europe','eu27',[65,87,82,76,96],'Slovakia (81.2) shares Slovenia\'s euro-zone membership and much of its post-communist institutional trajectory, but lags on emigration: Slovak workers migrate to Austria, Germany, and the Czech Republic at above-average rates. Inflation reached 3.9 percent in 2025. Budget deficit approximately 5.5 percent of GDP — the highest among the EU\'s smaller economies — creating medium-term fiscal pressure. Transparent data; EuroMOMO participant. Prime Minister Fico\'s recent governing posture has raised rule-of-law concerns in EU monitoring reports, producing a small governance-transparency discount in the GDP-fidelity indicator.'],
+  ['HUN','Hungary','#EF9F27',false,false,false,'europe','eu27',[62,84,76,70,88],'Hungary (76.0) is the EU\'s most anomalous member by governance-legitimacy metrics. Scored here as authoritarian-leaning (non-democratic designation) on the basis of: Freedom House downgrade from "Free" to "Partly Free" (2019, maintained); European Commission Rule of Law Report findings on judicial independence (2022–2025); systematic press-freedom degradation; and the continued non-adoption of the euro, which is itself partly a function of fiscal policies incompatible with the Maastricht criteria. Youth emigration to Western Europe is structurally high. The 10–18 point gap between Hungary and its Central European peers (Czech Republic 84.0, Slovenia 85.6, Slovakia 81.2) cannot be explained by GDP endowment; it reflects the cumulative institutional cost of democratic backsliding as measured by these five indicators.'],
+  ['EST','Estonia','#639922',true,false,false,'europe','eu27 baltic',[68,88,85,80,97],'Estonia (83.6) is the Baltic region\'s governance leader and the world\'s foremost example of digital-state architecture. The e-Estonia platform — offering digital residency, online voting, and fully digital public services — has been studied by policy planners in more than 170 countries. Euro-zone member; EuroMOMO participant; strong satellite GDP alignment. Brain drain to Western Europe remains a structural challenge: emigration rates among working-age Estonians to Finland and other Nordic states are above the EU average, producing the primary indicator drag.'],
+  ['LTU','Lithuania','#3B6D11',true,false,false,'europe','eu27 baltic',[62,87,83,79,96],'Lithuania (81.4) demonstrates the Baltic arc of strong institutional development following Soviet dissolution. Euro-zone; EuroMOMO participant; low inflation. Brain drain is the primary constraint: Lithuanian emigration to the UK, Ireland, and Germany remains among the EU\'s highest as a share of population. The country has partially addressed this through wage convergence and incentive programs for diaspora return, with some success, but net outflows remain.'],
+  ['LVA','Latvia','#0F6E56',true,false,false,'europe','eu27 baltic',[60,86,80,76,96],'Latvia (79.6) scores slightly below its Baltic peers primarily on the emigration indicator, where it carries one of the highest brain-drain indices in Europe relative to population size. Euro-zone; EuroMOMO participant. Unemployment at approximately 6.9 percent — higher than Estonia and Lithuania. Latvian demographic decline is a structural concern: population has fallen from approximately 2.7 million at independence (1991) to approximately 1.8 million today, driven primarily by emigration to the EU\'s wealthier western states. This is not a governance failure in the narrow sense — Latvia is a functioning democracy with transparent institutions — but it is a structural revealed-preference signal that this index is designed to capture.'],
+  ['HRV','Croatia','#AFA9EC',true,false,false,'europe','eu27 balkan',[70,89,84,82,96],'Croatia (84.0) joined the euro zone in January 2023 — the most recent EU member to do so — and immediately demonstrated the institutional stabilisation that accompanies euro adoption: reduced borrowing costs, enhanced data transparency, and inclusion in EuroMOMO mortality surveillance. GDP grew approximately 3 percent in 2025, with unemployment at record lows near 4.5 percent. Tourism recovery from the COVID disruption has been complete and robust. The primary emigration drag reflects Croatia\'s pre-euro history of high skilled-worker outflow to Austria and Germany, which euro adoption is beginning to reverse.'],
+  ['GRC','Greece','#185FA5',true,false,false,'europe','eu27 balkan',[65,86,84,68,96],'Greece (79.6) remains marked by the structural legacy of the 2010–2015 sovereign debt crisis, which was the most severe fiscal correction applied to any OECD democracy since the Great Depression. Recovery has been genuine and consistent since 2016, but structural unemployment — approaching 12 percent and youth unemployment significantly higher — produces a persistently elevated misery indicator. EuroMOMO participant; euro-zone; satellite GDP alignment strong. Greece\'s institutional transparency has improved markedly since the crisis period, when Eurostat famously revised Greek deficit figures upward twice. The current data environment is reliable.'],
+  ['ROU','Romania','#D85A30',true,false,false,'europe','eu27 balkan',[55,82,72,66,88],'Romania (72.6) presents the EU\'s starkest example of divergence between economic growth and governance quality. GDP growth has been strong for a decade; per-capita convergence toward the EU average is real. But Romania carries one of Europe\'s highest brain-drain indices, with massive emigration to Italy, Spain, and the UK — approximately 20 percent of the working-age population lives outside Romania. Inflation reached approximately 9 percent in early 2026, the highest in the EU. Corruption Perceptions Index: 46/100 (2024), near the EU\'s bottom. Not yet in the euro zone. These structural features — sustained emigration, elevated inflation, anti-corruption deficits — produce a composite that accurately reflects Romania as a democracy with strong economic potential constrained by institutional weakness.'],
+  ['BGR','Bulgaria','#993C1D',true,false,false,'europe','eu27 balkan',[50,82,72,70,91],'Bulgaria (73.0) joined the euro zone on 1 January 2026 — an event that will, over the 2026–2030 horizon, progressively improve its FX, misery, and data-transparency scores as ECB monetary discipline and Eurostat reporting standards take full effect. As of this writing, the transition\'s institutional benefits are at their earliest stage. Bulgaria carries Eastern Europe\'s second-highest brain-drain index after Moldova; emigration to Germany, Spain, and Greece has been sustained for two decades. GDP growth has been reasonable; inflation in the EU\'s higher range. Corruption Perceptions Index: 45/100 (2024). EU membership provides the external institutional anchor that domestic governance has not yet fully internalised.'],
+  ['POL','Poland','#378ADD',true,false,false,'europe','eu27',[62,88,78,78,97],'Poland (80.6) demonstrates how rapid economic convergence can coexist with structural emigration pressure. GDP grew 3.6 percent in 2025 — among the EU\'s fastest. Unemployment approximately 3 percent. GDP data transparent; EuroMOMO participant. The emigration indicator drag reflects Poland\'s pre-2023 history of large outflows to Germany, the Netherlands, and the UK (136,000 Polish citizens emigrated to OECD countries in 2023 alone). Poland is transforming from a net emigration to a net immigration country — particularly as Ukrainian workers settle — but the historical stock of Polish diaspora in Western Europe depresses the indicator relative to Poland\'s current institutional trajectory.'],
+  ['GBR','UK','#8B5CF6',true,false,false,'europe','',[60,90,79,71,98],'United Kingdom (79.6) recorded a net HNWI outflow of -16,500 in 2025 — the largest single-year HNWI departure from any country ever recorded by Henley & Partners in a decade of tracking. This "Wexit" (wealth exit) was precipitated by the closure of the Tier 1 Investor Visa in 2022, the 2024 elimination of the non-domicile tax regime, and the October 2024 Labour budget\'s changes to capital gains and inheritance tax. The UK\'s composite score of 79.6 reflects strong institutions, a reserve-currency (GBP), transparent data, and EuroMOMO participation — all of which sustain its score — but the emigration indicator has deteriorated significantly, and the trajectory in 2026 will determine whether this represents a temporary tax-policy shock or a structural confidence shift. GDP data quality and mortality transparency remain among the world\'s highest.'],
+  ['SRB','Serbia','#F0997B',true,false,false,'europe','balkan',[42,76,68,66,82],'Serbia (66.8) is the Western Balkans\' largest economy and its most geopolitically complex governance case. A formal EU candidate, it has not adopted the euro and carries a measurable FX premium. Brain drain — particularly of physicians, engineers, and IT professionals to Germany, Austria, and the UAE — is among Europe\'s highest in absolute terms. A 2025 Bruegel study confirmed that Serbian healthcare, construction, and manufacturing sectors are under severe institutional stress from sustained skilled emigration. GDP data quality is reasonable but below EU standards.'],
+  ['MNE','Montenegro','#FAC775',true,false,false,'europe','balkan',[50,78,74,68,88],'Montenegro (73.6) has unilaterally adopted the euro without formal eurozone membership, which eliminates the FX premium indicator drag that afflicts most other Western Balkan states. It is a net HNWI destination (particularly from Russian and Ukrainian high-net-worth individuals post-2022), which boosts the emigration indicator. EU candidate status. GDP data quality is improving under EU pre-accession conditionality. The country\'s small population (approximately 620,000) and high per-capita remittance receipts produce economic stability that its institutional environment alone would not generate.'],
+  ['MKD','N. Macedonia','#C8860A',true,false,false,'europe','balkan',[38,72,64,60,80],'North Macedonia (62.8) demonstrates the compounding penalties of sustained brain drain in a small economy. Approximately 40 percent of North Macedonian university graduates emigrate within five years of completing their degrees. Not a euro-zone member; GDP data quality improving under EU pre-accession monitoring but below OECD standards. The country\'s composite score reflects functioning democratic institutions with severe human-capital depletion — a combination that undermines the institutional capacity required to improve the remaining indicators.'],
+  ['ALB','Albania','#85B7EB',true,false,false,'europe','balkan',[36,72,66,62,78],'Albania (62.8) shares North Macedonia\'s structural brain-drain challenge in even more acute form: approximately 30 percent of Albania\'s 1990s-era population emigrated to Italy and Greece, and subsequent waves have accelerated under EU free-movement access. EU candidate with active accession negotiations. GDP data quality improving; not euro-zone. Remittances approximately 9 percent of GDP — a signal of sustained emigration rather than voluntary diaspora investment. The Bruegel 2025 study cited the Albanian healthcare system as among Europe\'s most stressed by skilled-worker outflow.'],
+  ['BiH','Bosnia','#D4537E',true,false,false,'europe','balkan',[32,68,62,54,80],'Bosnia & Herzegovina (59.2) scores the lowest of any EU candidate or EU member state in this index, and the diagnosis is structural rather than cyclical. The Dayton Agreement governance architecture — designed to end the 1992–1995 war — has produced an entity-level institutional paralysis that systematically blocks the economic convergence, rule-of-law reforms, and data-standardisation required to improve every GLI indicator. Unemployment approximately 12.3 percent; youth unemployment far higher. Brain-drain index among Europe\'s worst. The country cannot adopt the euro, standardise mortality reporting, or reduce FX complexity while its constitutional structure maintains three parallel governance systems with veto rights over each other. This is a governance design failure, not a cultural or economic one.'],
+  ['XKX','Kosovo','#534AB7',true,false,false,'europe','balkan',[34,70,64,58,80],'Kosovo (61.2) is the Western Balkans\' youngest state and one of Europe\'s poorest economies by GDP per capita. Remittances from the large Kosovo diaspora in Germany, Switzerland, and Scandinavia account for approximately 17 percent of GDP — one of Europe\'s highest rates — which is simultaneously a lifeline and a revealed-preference signal of sustained outward migration. Youth unemployment exceeds 25 percent. The country uses the euro unilaterally (as Montenegro does), which eliminates the FX penalty and partially insulates it from monetary instability.'],
+  ['MDA','Moldova','#A32D2D',true,false,false,'europe','',[28,58,52,48,72],'Moldova (51.6) carries one of Europe\'s highest human-flight-and-brain-drain indices — approximately 30 percent of Moldova\'s population lives abroad, primarily in Romania, Russia, and Western Europe. EU candidate status since 2022, following Russia\'s invasion of Ukraine, has accelerated institutional reform, but the starting position is weak: GDP per capita approximately $4,500 nominal, one of Europe\'s lowest; corruption perceptions index near the bottom quartile. Remittances approximately 16 percent of GDP. The indicator profile accurately reflects a country at an early stage of democratic institutional development, with genuine reform momentum but structural distance to travel.'],
+  ['BLR','Belarus','#712B13',false,false,false,'europe','',[22,50,55,45,38],'Belarus (42.0) is Europe\'s last formal dictatorship. Following the fraudulent August 2020 presidential election and the subsequent state repression of mass protests, an estimated 100,000–200,000 Belarusians emigrated — primarily to Poland, Ukraine, and Lithuania. The Belarusian ruble is closely tied to the Russian ruble and shares much of its black-market premium. GDP data is not independently verifiable to OECD standards; satellite nightlight data shows economic activity below official figures. Mortality data is not disclosed through international surveillance mechanisms. The GLI score reflects a state in which each indicator is under active institutional manipulation.'],
+  ['TUR','Turkey','#26215C',false,false,false,'europe','',[25,58,48,18,30],'Turkey (35.8) ranks third most miserable globally in the 2025 HAMI with a score of 101.0 — driven primarily by a bank-lending rate of 56.7 percent, the highest in the HAMI top-10, representing the price of the Central Bank\'s aggressive tightening cycle following years of unorthodox monetary policy under President Erdoğan\'s political direction. Annual inflation remains at 30.9 percent despite the tightening. Brain drain is sustained and well-documented: 6.7 percent of Turkish ICT graduates emigrate annually, with engineers and physicians following at high rates, primarily to Germany, the UK, and the USA. The lira carries a significant black-market premium. Turkey is scored here as authoritarian-leaning: Freedom House classifies it as "Not Free" (2024); the GLI reflects this in the GDP-fidelity and mortality-transparency indicators.'],
+  ['UKR','Ukraine','#F0997B',true,false,true,'europe','',[30,55,28,38,52],'Ukraine (40.6) is scored under wartime conditions that distort every indicator in ways that penalise the scored entity for externally-imposed conditions rather than governance failures. Population has declined to approximately 32.9 million (2025) — a fall of approximately 15 million from pre-war figures — driven by the largest forced displacement crisis in European history since 1945. Over 6 million Ukrainians are registered as refugees in EU member states. GDP contracted sharply in 2022 and has partially recovered (approximately 4.5 percent growth in 2025-2026) through wartime economic adaptation and Western aid. Inflation at 12.6 percent. The hryvnia carries a measurable parallel-market premium. These indicators accurately describe a country under existential external military pressure; they do not reflect institutional failure comparable to Russia, Iran, or North Korea. The distinction matters: Ukraine\'s low score is the cost of defending itself against a regime that scores 16.8.'],
+  ['SGP','Singapore','#5DCAA5',false,false,false,'asia','sea',[92,95,93,94,99],'Singapore (94.6) is the GLI\'s most analytically interesting non-democracy. A city-state of approximately 5.9 million governed under the People\'s Action Party\'s dominant-party system since independence in 1965, Singapore achieves what no other authoritarian or semi-authoritarian state in this index approaches: a consistent net HNWI inflow (+1,600 in 2025), near-zero FX premium (Singapore dollar is a managed float with global reserve-currency characteristics), the third-lowest HAMI score globally, and GDP data that aligns with satellite observation. Singapore is explicitly included in Henley & Partners\' "Safe 8" global wealth havens. It demonstrates that a narrow form of institutional legitimacy — characterised by rule of law, low corruption, and predictable property rights — is achievable without competitive multiparty democracy. It does not demonstrate that this model is scalable to large populations or exportable to states without Singapore\'s unique geographic, historical, and demographic endowments.'],
+  ['JPN','Japan','#534AB7',true,false,false,'asia','',[84,94,91,91,97],'Japan (91.4) is Asia\'s highest-scoring full democracy. GDP data transparency is among the world\'s highest. Excess mortality surveillance through the Japanese Ministry of Health, Labour and Welfare is robust. The yen is a global reserve currency (third-largest by international reserves). Net HNWI inflow of approximately +600 in 2025. Japan\'s HAMI score is consistently among Asia\'s best. The primary demographic constraint — the world\'s most rapidly ageing population and sustained below-replacement fertility — is a long-term structural concern that does not yet materially affect the five GLI indicators but will become relevant over the 2030–2050 horizon.'],
+  ['AUS','Australia','#0C447C',true,false,false,'asia','',[88,93,89,82,98],'Australia (90.0) is the Southern Hemisphere\'s highest-scoring democracy and one of the world\'s premier migration destinations. Net HNWI inflow of +1,000 in 2025. Points-based immigration system that attracts skilled workers globally. GDP data transparent; full mortality surveillance. The AUD is a well-functioning free-float currency with no black-market premium. The misery indicator is the primary drag relative to the Nordics and Switzerland: Australia\'s structural housing-cost inflation and above-EU unemployment create a misery index above the Swiss or Danish benchmarks.'],
+  ['NZL','New Zealand','#378ADD',true,false,false,'asia','',[84,92,88,80,98],'New Zealand (88.4) scores nearly identically to Australia on most indicators, reflecting a shared Anglo-Pacific institutional heritage and comparable economic structure. Net HNWI inflow of approximately +150 in 2025 — the lowest in the country\'s recent tracking history, reflecting rising housing costs and a perception of relative geographic isolation among globally mobile capital. The NZD is a free-float without black-market premium. Full mortality surveillance. GDP data transparent.'],
+  ['KOR','S. Korea','#8B5CF6',true,false,false,'asia','',[74,92,88,84,96],'South Korea (86.8) is Northeast Asia\'s highest-scoring democracy and one of the world\'s most successful post-war economic development stories: GDP per capita grew from approximately $80 in 1945 to approximately $37,500 nominal in 2025. Unemployment at 2.6 percent; inflation 2.5 percent; HAMI among Asia\'s lowest. GDP data transparency strong; won is a fully convertible currency without black-market premium. The indicator drag relative to Japan reflects a net HNWI outflow of approximately -1,500 in 2025 (wealthy Koreans relocating primarily to the USA and Singapore) and persistent concerns about chaebŏl-driven economic concentration that reduces perceived long-term institutional resilience.'],
+  ['THA','Thailand','#97C459',false,false,false,'asia','sea',[76,88,82,92,86],'Thailand (84.8) is the GLI\'s most significant analytical surprise: the world\'s third-happiest economy by HAMI 2025, behind only Taiwan and Singapore. The Bank of Thailand\'s monetary framework has delivered near-zero inflation and near-zero unemployment (approximately 1.1 percent) for over a decade, a combination that produces an exceptional misery indicator score. The Thai baht carries only a modest black-market premium. GDP data is reasonably transparent and satellite-aligned. The governance caveat is significant: Thailand has experienced multiple military coups (2006, 2014) and operates under a constitutional framework designed to constrain civilian democratic control. It is scored here as authoritarian. The lesson is that economic governance can be excellent even under authoritarian conditions, but this does not imply political legitimacy in the broader sense that democratic systems provide.'],
+  ['MYS','Malaysia','#639922',false,false,false,'asia','sea',[65,82,76,78,82],'Malaysia (76.6) is Southeast Asia\'s governance mid-tier: a partially competitive electoral system with recurring questions about judicial independence and press freedom, but with reasonably transparent GDP data, a functional central bank, and manageable misery metrics (unemployment 2.9 percent, inflation contained). HNWI flows are slightly negative. The ringgit carries a modest FX premium. Malaysia\'s GLI position reflects an economy that has achieved middle-income status through effective technocratic management while maintaining institutional constraints on full democratic competition.'],
+  ['VNM','Vietnam','#3B6D11',false,false,false,'asia','sea',[52,86,75,88,72],'Vietnam (74.6) is the GLI\'s fastest-growing entity in absolute GDP terms: 8.02 percent growth in 2025, the strongest since 2011, driven by a manufacturing export boom capitalising on supply-chain diversification away from China. The misery indicator score is exceptional for a lower-middle-income country. Vietnam demonstrates that rapid economic growth and low misery are achievable under one-party communist governance — but at the cost of press freedom, political competition, and the demographic safety valve of free emigration. Net migration is approximately -0.2 per 1,000, a modest but consistent outflow of skilled workers that the vibrant domestic economy has not yet fully reversed.'],
+  ['IDN','Indonesia','#D85A30',true,false,false,'asia','sea',[55,76,68,72,74],'Indonesia (69.0) is the world\'s fourth-most-populous country and Southeast Asia\'s largest economy. GDP grew approximately 5.1 percent in 2025, consistent with a decade-long trend. The institutional challenge is scale: governing 17,000 islands across 34 provinces with a functional democracy requires extraordinary administrative capacity. GDP data alignment with satellite observation is good. Mortality surveillance is below OECD standards. The rupiah carries a moderate FX premium. Net emigration of skilled workers — particularly to Singapore, the UAE, and the Middle East — produces a consistent indicator drag.'],
+  ['PHL','Philippines','#993C1D',true,false,false,'asia','sea',[44,78,66,68,70],'Philippines (65.2) presents a split picture that is analytically important for distinguishing types of emigration. Overseas Filipino remittances reached a record $35.63 billion in 2025 — 7.3 percent of GDP — driven by a well-established and deliberately cultivated overseas worker program. This is not political flight; it is state-managed labour export in a functioning democracy. GDP grew approximately 5.6 percent in 2025 (though slowing to 4.4 percent for the full year as domestic investment contracted). The emigration indicator is sharply penalised not because Filipinos flee their government but because millions have concluded that their most productive years are best spent in Saudi Arabia, the United States, or Singapore. Mortality surveillance is below OECD standards.'],
+  ['MNG','Mongolia','#A32D2D',true,false,false,'asia','',[50,68,62,60,72],'Mongolia (62.4) is a functioning parliamentary democracy — one of the few in Central Asia — but with structural economic dependence on mining exports (primarily coal and copper to China) that creates commodity-cycle vulnerability. Unemployment approximately 10 percent; inflation moderate; tugrik subject to moderate FX pressure. GDP data quality is reasonable. Brain drain of educated Mongolians to South Korea, the USA, and Germany is measurable. The country\'s geographic landlocked position between China and Russia creates permanent external pressure on institutional independence.'],
+  ['LKA','Sri Lanka','#712B13',true,false,false,'asia','',[42,60,56,48,55],'Sri Lanka (52.2) experienced one of the decade\'s most dramatic economic collapses between 2021 and 2023: foreign-exchange reserves effectively reached zero, the government defaulted on external debt for the first time in its history, and mass protests forced President Gotabaya Rajapaksa to flee the country. An IMF programme begun in 2023 has produced partial stabilisation: GDP is growing, inflation has fallen from peaks above 70 percent, and the rupee has partially recovered. The GLI score reflects the residual institutional damage — capital flight, emigration of professionals, and eroded FX credibility — that requires years to rebuild even under competent reform management.'],
+  ['KHM','Cambodia','#4A1B0C',false,false,false,'asia','sea',[40,62,55,62,68],'Cambodia (57.4) is an authoritarian state that has achieved moderate economic growth through export manufacturing (garments, electronics) and tourism, but with systematically suppressed political competition. GDP data quality is improving under donor-conditioned reporting requirements; satellite alignment is reasonable. Mortality data is below international standards. Emigration of educated Cambodians is significant relative to population. The riel is partially displaced by the US dollar as a medium of exchange, which paradoxically improves the FX indicator (dollar-dollarised economies have minimal black-market premium) while signalling weak monetary credibility.'],
+  ['BGD','Bangladesh','#3C3489',false,false,false,'asia','',[35,55,50,48,60],'Bangladesh (49.6) has achieved sustained GDP growth above 6 percent for most of the past two decades, driven by garment exports and remittances. But political competition has been systematically curtailed: the 2024 elections resulted in a near-total opposition boycott and international criticism. Mortality data quality is below international standards. The taka carries a moderate FX premium. Brain drain of professionals — particularly physicians and engineers — to the Gulf, UK, and USA is structurally embedded.'],
+  ['PAK','Pakistan','#26215C',false,false,false,'asia','',[30,48,42,35,45],'Pakistan (40.0) combines chronic institutional dysfunction with periodic military-political-judicial cycles that have prevented consistent democratic consolidation. GDP data quality is below OECD standards; satellite nightlight data suggests consistent overstatement of official growth figures. Inflation has been persistently elevated. The rupee carries a measurable black-market premium. Emigration of professionals — particularly engineers, physicians, and IT workers — to the Gulf, UK, and North America is among South Asia\'s highest rates relative to the size of the educated workforce. IMF programme dependence is structural rather than cyclical.'],
+  ['NPL','Nepal','#4A1B0C',true,false,false,'asia','',[38,55,50,52,62],'Nepal (51.4) is a democracy with some of South Asia\'s more transparent institutions relative to per-capita income, but structural emigration to India, the Gulf, and Malaysia of working-age men is one of the world\'s highest rates relative to population — approximately 4 million Nepalis work abroad, against a total population of approximately 30 million. Remittances approximately 25 percent of GDP. The rupee is pegged to the Indian rupee, which eliminates the black-market premium but tightly constrains monetary policy sovereignty.'],
+  ['MMR','Myanmar','#501313',false,false,true,'asia','sea',[18,30,28,25,35],'Myanmar (27.2) has been in a state of military-imposed civil conflict since the February 2021 coup. GDP contracted sharply; satellite nightlight data shows severe economic contraction in conflict zones across the country. Emigration of the educated middle class to Thailand, Singapore, and Malaysia is sustained and politically driven. Mortality data is unavailable through any independent surveillance mechanism. The kyat has experienced severe devaluation and carries a large black-market premium. The GLI score reflects a state in which governance has effectively broken down in large portions of the territory.'],
+  ['LAO','Laos','#791F1F',false,false,false,'asia','sea',[30,45,42,45,52],'Laos (42.8) is a one-party state with structural economic challenges: public debt is among Southeast Asia\'s highest as a share of GDP, driven by Chinese Belt-and-Road infrastructure loans that have reduced policy sovereignty. GDP data quality is below OECD standards. Emigration — particularly to Thailand — is significant as a share of the working-age population. The kip is under persistent devaluation pressure and carries a meaningful FX premium.'],
+  ['CHN','China','#A32D2D',false,false,false,'asia','brics',[34,40,42,50,59],'China (45.0) is the index\'s most consequential middle-scoring entity. GDP data is routinely cited by academic researchers as overstated relative to satellite nightlight verification by 15–30 percent across regions; Henderson et al.\'s methodology shows consistent discrepancy. Elite emigration ("Runxue" — the study of emigration — was a viral cultural phenomenon in 2022) has moderated from peak levels, with HNWI outflow falling to approximately 7,800 in 2025 (a 10-year low per Henley), partly reflecting improved tech-entrepreneur sentiment and partly reflecting tightened capital controls. Excess mortality during the COVID-19 pandemic was not disclosed to international standards. The yuan carries a measurable offshore-onshore spread (CNH-CNY) that the GLI scores as a partial FX premium. China\'s composite score of 45.0 accurately places it between India (57.4) and South Africa (45.8): a large authoritarian economy with genuine economic activity, poor data transparency, and structural emigration pressure among the educated class.'],
+  ['PRK','N. Korea','#444441',false,false,false,'asia','',[2,5,8,10,3],'North Korea (5.6) anchors the index\'s absolute floor among states for which any data exists. Borders are sealed against emigration at lethal cost; the approximately 30,000 North Koreans who have defected since 1945 represent one of the most dangerous and costly acts of mobility in the world. GDP data is entirely state-manufactured and unverifiable by satellite or trading-partner cross-reference (China publishes bilateral trade data that suggests an economy far smaller than official claims). Mortality data is inaccessible. The won is not convertible; no FX market exists. The score of 5.6 is not zero because some minimal indicators can be constructed from defector testimony and South Korean intelligence assessments; it is not meaningfully different from zero in analytical terms.'],
+  ['KAZ','Kazakhstan','#639922',false,false,false,'asia','',[38,52,48,45,58],'Kazakhstan (48.2) is Central Asia\'s largest economy and a resource-rich authoritarian state. Following the January 2022 protests and their violent suppression, an estimated wave of educated Kazakhstanis emigrated primarily to Russia, Turkey, and the UAE. The tenge carries a moderate FX premium. GDP data quality is improving but below OECD standards; satellite alignment shows moderate discrepancy.'],
+  ['UZB','Uzbekistan','#3B6D11',false,false,false,'asia','',[35,50,45,48,52],'Uzbekistan (46.0) represents Central Asia\'s most active reform trajectory under President Mirziyoyev (since 2016). Market liberalisation, foreign investment attraction, and anti-corruption initiatives have produced measurable GDP growth. But press freedom remains severely constrained, political competition is non-existent, and emigration of skilled workers to Russia and the UAE is structurally embedded.'],
+  ['AZE','Azerbaijan','#0F6E56',false,false,false,'asia','mideast',[36,52,48,46,62],'Azerbaijan (48.8) is a hydrocarbon-rich authoritarian state with opaque governance institutions. GDP data quality is below OECD standards. The 44-day war over Nagorno-Karabakh in 2020, culminating in the complete seizure of Karabakh in 2023, demonstrates the government\'s willingness to use military force to resolve territorial disputes outside diplomatic frameworks. Emigration of educated Azerbaijanis is significant. The manat carries a moderate FX premium.'],
+  ['IND','India','#993C1D',true,false,false,'asia','brics',[48,72,65,58,74],'India (63.4) leads the world in absolute emigration volume — 17.9 million citizens living abroad in 2025 (UN DESA) — but most of this diaspora reflects economic aspiration in a functioning democracy rather than political flight. Indian GDP data alignment with satellite observation is reasonable; the Reserve Bank of India is an independent and credible institution. GDP grew approximately 6.5 percent in 2025. The rupee carries a modest but measurable FX premium. India\'s primary indicator drags are the emigration signal (which the index scores negatively regardless of cause) and a misery index that reflects structural unemployment and income inequality despite strong headline growth. The GLI accurately positions India between the developed democracies and the authoritarian economies — a large, functioning democratic system at an intermediate stage of institutional development.'],
+  ['AFG','Afghanistan','#2C2C2A',false,false,true,'asia','',[6,12,10,14,15],'Afghanistan (11.4) is among the world\'s five least-governed sovereign territories. Following the Taliban seizure of Kabul in August 2021, approximately 3.5 million Afghans have been externally displaced, with millions more internally displaced. GDP data is not independently verifiable; satellite nightlight data shows severe economic contraction. Female labour-force participation has been reduced to near zero by Taliban policy, destroying approximately half the economy\'s human-capital base. Mortality data is inaccessible through international surveillance. The afghani is subject to extreme devaluation and black-market dynamics. Among the global top-five sources of refugees and asylum-seekers (UNHCR 2025).'],
+  ['QAT','Qatar','#C8860A',false,false,false,'mideast','gcc',[82,86,80,88,99],'Qatar (87.0) holds the world\'s highest per-capita GDP in several PPP estimates and operates the GCC\'s most internationally visible sovereign wealth fund (Qatar Investment Authority). AED-USD peg dynamics are not applicable (Qatar riyal is independently pegged to the USD at 3.64 QAR/USD). The GDP satellite alignment is good; official figures are broadly consistent with observable economic activity given the country\'s hydrocarbon endowment and transparent energy-sector reporting. The standard GCC caveat applies: approximately 85 percent of Qatar\'s approximately 3 million residents are non-citizen migrant workers. The 2022 FIFA World Cup brought sustained international scrutiny of migrant-labour conditions; the governance dimension of that scrutiny is not directly captured by the GLI indicators but is analytically adjacent to the emigration score.'],
+  ['KWT','Kuwait','#BA7517',false,false,false,'mideast','gcc',[78,84,76,84,99],'Kuwait (84.2) is the GCC\'s most politically contested state, with a functioning elected National Assembly that has periodically exercised genuine check-on-executive-power authority, including blocking budgets and interpellating ministers. The Kuwaiti dinar is the world\'s highest-valued currency per unit, reflecting decades of oil-revenue accumulation and conservative monetary management. GCC migrant-labour caveat applies. The HAMI scores Kuwait among the world\'s happiest economies.'],
+  ['BHR','Bahrain','#D85A30',false,false,false,'mideast','gcc',[76,82,75,80,99],'Bahrain (82.4) is the GCC\'s smallest sovereign state and its most financially integrated, hosting the Arab world\'s first offshore banking sector. The Bahraini dinar is USD-pegged. The 2011 Bahraini uprising — suppressed with Saudi and UAE military assistance — remains an unresolved governance legacy that the GLI\'s institutional transparency indicators partially capture. GDP data quality is good by regional standards.'],
+  ['OMN','Oman','#7F77DD',false,false,false,'mideast','gcc',[72,80,72,76,99],'Oman (79.8) is among the GCC\'s more institutionally stable monarchies, with a history of measured economic diversification and conflict-avoidance. The Omani rial is USD-pegged. GDP data quality is good; satellite alignment reasonable. The country has less hydrocarbon endowment than Saudi Arabia or Kuwait, which creates more medium-term fiscal pressure and explains the slightly lower misery and emigration scores relative to Qatar and Kuwait.'],
+  ['SAU','Saudi Arabia','#534AB7',false,false,false,'mideast','gcc',[70,78,68,74,99],'Saudi Arabia (77.8) is undergoing the most dramatic attempted governance transformation in the GCC under Crown Prince Mohammed bin Salman\'s Vision 2030 programme. Net HNWI inflow of +2,400 in 2025, driven partly by Vision 2030 incentives for foreign professionals and entrepreneurs. The riyal is USD-pegged. GDP data quality is improving under Vision 2030\'s emphasis on economic transparency; satellite alignment is reasonable. Excess mortality data is disclosed through national statistics but not through international surveillance mechanisms with the granularity of EuroMOMO. The Jamal Khashoggi killing (2018) and its aftermath remain unresolved governance-legitimacy markers that the GLI\'s five quantitative indicators do not fully capture.'],
+  ['ISR','Israel','#EF9F27',true,false,true,'mideast','',[60,82,62,72,88],'Israel (72.8) presents a genuine wartime economic paradox. Despite the post-October 7, 2023 war context and the expansion of conflict to Iran beginning February 2026, the Israeli economy grew 3.1 percent in 2025. Mergers and acquisitions reached a record $74.3 billion; high-tech financing reached $15.6 billion. Unemployment remained at approximately 3.2 percent. Inflation came in at 2.6 percent — within the 1–3 percent target band. The Bank of Israel cut rates to 4.0 percent by January 2026. These are extraordinary indicators for a country in active multi-front conflict. The indicator drags are the emigration signal (accelerating brain drain of secular, cosmopolitan Israelis described by analysts as "the single most important post–October 7 political-economy development") and mortality transparency (wartime excess mortality is real and partially opaque). GDP data quality is high and independently verifiable.'],
+  ['JOR','Jordan','#5DCAA5',false,false,false,'mideast','',[40,65,58,42,82],'Jordan (57.4) is the Middle East\'s most institutionally stable Arab monarchy outside the GCC. The Jordanian dinar is USD-pegged (1 JOD = approximately 1.41 USD), producing a near-zero FX premium that is the country\'s strongest single indicator. Inflation in 2025 averaged 1.8 percent. GDP grew approximately 2.8 percent. The structural devastation is unemployment: 21.4 percent overall in Q3 2025, with female unemployment at 33.9 percent — among the world\'s highest by gender. Public debt exceeds 90 percent of GDP. Jordan survives through a combination of Gulf financial support, US strategic aid, and remittances from the Jordanian diaspora. These external transfers are a revealed-preference signal in their own right: foreign governments and Jordanian expatriates collectively believe Jordan\'s institutional stability is worth sustaining.'],
+  ['MAR','Morocco','#97C459',false,false,false,'mideast','africa',[42,65,58,52,68],'Morocco (57.0) is North Africa\'s most institutionally advanced economy and a significant EU partner. GDP grew approximately 4.9 percent in 2025, driven by phosphate exports, renewable energy investment, and tourism recovery. Unemployment approximately 9.5 percent. GDP data quality is good by regional standards. Emigration to France and Spain is structurally embedded — Morocco is one of France\'s largest single sources of immigrants. The dirham carries a moderate FX premium.'],
+  ['TUN','Tunisia','#C0DD97',false,false,false,'mideast','africa',[35,55,50,40,55],'Tunisia (47.0) experienced the Arab world\'s only successful democratic transition following the 2011 Arab Spring, only to see it reversed under President Kais Saied\'s July 2021 self-coup. The country now operates under a presidential system with systematically weakened parliamentary and judicial checks. GDP growth has been weak; inflation at approximately 6.5 percent. Emigration — particularly of young educated Tunisians to France, Italy, and Germany — has accelerated under economic deterioration. The dinar carries a moderate FX premium.'],
+  ['LBY','Libya','#FAC775',false,false,true,'mideast','africa',[20,30,28,28,35],'Libya (28.2) has been in a state of effective governmental collapse since the 2011 NATO intervention removed Muammar Gaddafi. Two competing governments — the Tripoli-based GNU and the Tobruk-based HoR — claim legitimacy; neither controls the full territory. Oil production, the primary economic activity, operates through competing factions. No independent GDP verification is possible; satellite nightlight data shows severely depressed economic activity outside Tripoli and Benghazi. Mortality data is inaccessible. The dinar exists in multiple parallel exchange regimes.'],
+  ['SYR','Syria','#888780',false,false,true,'mideast','',[15,20,18,22,22],'Syria (19.4) was the world\'s third-most-miserable economy in the 2024 HAMI before the December 2024 rebel offensive toppled the Assad regime, which had governed since 1971. The 2025 HAMI shows Syria improving dramatically (to approximately 33rd place) following the regime\'s fall and the early stabilisation measures of the transitional government under Hayat Tahrir al-Sham. This index scores Syria on 2025 data, which captures the early transition period; the score should be read as highly preliminary and subject to large revision as the new government\'s institutional character becomes legible.'],
+  ['YEM','Yemen','#D4537E',false,false,true,'mideast','',[8,12,10,10,12],'Yemen (10.4) is the Middle East\'s most acute humanitarian catastrophe. The civil war between the Houthi movement (backed by Iran) and the internationally recognised government (backed by Saudi Arabia and the UAE) has produced approximately 377,000 deaths since 2015 (UN estimates), with 4 million internally displaced and 21 million people in need of humanitarian assistance. No independent economic data is collectable across the full territory. The riyal exists in multiple parallel regimes in Houthi and government zones. Mortality data is inaccessible at national scale. Among the global top-five sources of refugees (UNHCR 2025).'],
+  ['IRQ','Iraq','#534AB7',false,false,true,'mideast','',[28,45,32,40,48],'Iraq (38.6) holds one of the world\'s largest proven oil reserves and yet achieves a GLI score of 38.6 — lower than India, Colombia, and Peru — reflecting the persistent gap between resource endowment and governance quality. Unemployment at 13 percent officially; 9 million people live in informal settlements (census 2025). Power outages lasting more than 20 hours triggered mass protests in July 2025. The banking system is structurally fragmented along sectarian lines. Iran\'s economic influence through the dinar market creates persistent FX distortion.'],
+  ['IRN','Iran','#791F1F',false,false,true,'mideast','',[14,20,22,12,18],'Iran (17.2) ranked fourth most miserable globally in the 2025 HAMI before US-Israeli airstrikes initiated a direct military confrontation in February 2026. Inflation at 52.6 percent. Bank-lending rates reflecting monetary dysfunction. Mass emigration of the educated class — the "brain drain" documented by Iranian economists since 2009 — has produced one of the world\'s highest rates of skilled-worker departure relative to population, with approximately 150,000 physicians estimated to have emigrated since 2000. The rial is among the world\'s most depreciated currencies; the dollar black market is the de facto medium of exchange for large transactions. All indicators will deteriorate further following the February 2026 military confrontation.'],
+  ['LBN','Lebanon','#E24B4A',false,false,false,'mideast','',[18,22,30,15,20],'Lebanon (21.0) represents the most complete financial collapse of a formally democratic state in the modern era. The Lebanese pound lost approximately 98 percent of its value between 2019 and 2024. Banks froze depositors\' accounts beginning in 2019, effectively confiscating an estimated $80 billion in private savings. The parallel dollar market became the de facto economy. GDP per capita fell from approximately $8,000 in 2018 to approximately $3,400 in 2024. The educated diaspora — Lebanon has one of the world\'s largest per-capita diaspora populations relative to its small territory — is not returning. HAMI 2025 ranks Lebanon tenth most miserable globally. The GLI score of 21.0 places Lebanon between Cuba and Iran — an accurate reflection of a state that has failed all five indicators simultaneously through institutional collapse rather than authoritarian suppression.'],
+  ['PSE','Palestine','#A32D2D',true,false,true,'mideast','',[12,18,15,18,20],'Palestine (16.6) is scored under conditions of active military conflict and partial territorial disintegration that preclude meaningful comparison with any non-conflict entity. The Gaza Strip has experienced one of the most intense urban warfare campaigns in modern history following the October 7, 2023 Hamas attack and the subsequent Israeli military response. GDP has collapsed; mortality data collection is impossible under active bombardment; displacement is near-total for significant portions of the population. The West Bank operates under separate Israeli civil and military administration. The GLI score captures the compound of occupation, conflict, and institutional fragmentation; it does not attribute causation or assign moral responsibility.'],
+  ['EGY','Egypt','#26215C',false,false,false,'mideast','africa',[28,50,42,30,38],'Egypt (37.6) experienced a major economic crisis beginning in 2022 — triggered by the Russia-Ukraine war\'s disruption of wheat imports and tourism, followed by the COVID-19 recovery slowdown — that required multiple IMF programmes. The Egyptian pound was devalued multiple times; parallel dollar markets operated actively for extended periods. GDP growth has resumed but at below-potential rates. Emigration — particularly of young educated Egyptians to Gulf states — has increased sharply as a documented coping mechanism (AFD 2025 study). Unemployment is officially moderate but structural underemployment is severe.'],
+  ['ZAF','S. Africa','#501313',true,false,false,'africa','brics',[32,60,44,28,65],'South Africa (45.8) is the GLI\'s most painful democratic underperformance: a country with full democratic institutions, a free press, an independent judiciary, and transparent data — and an unemployment rate of 31.9 percent in Q3 2025, the highest of any large economy in this index. The misery indicator reflects this structural failure precisely. Sustained HNWI emigration — driven by crime, power-supply unreliability (load-shedding), and governance concerns — is well-documented. GDP data is transparent and satellite-aligned. The rand carries a moderate FX premium. South Africa\'s score illustrates that democratic institutions are necessary but not sufficient for governance legitimacy: a state can be politically free and economically failing simultaneously, and the GLI captures both dimensions.'],
+  ['NGA','Nigeria','#C8860A',true,false,false,'africa','',[28,40,38,30,38],'Nigeria (34.8) is Africa\'s most populous country and its second-largest economy, but GDP per capita of approximately $1,200 nominal in 2025 places it among the world\'s poorest on that measure, reflecting extreme income inequality rather than generalised prosperity. Unemployment at 22.6 percent; inflation at 33.2 percent in 2024. The naira has undergone repeated managed devaluations and carries a persistent FX premium. Corruption Perceptions Index: 25/100 (2023), near the global bottom. Emigration of the educated "Japa" (YOLO emigration) generation has been a major cultural and economic phenomenon since 2020.'],
+  ['ETH','Ethiopia','#D85A30',false,false,true,'africa','',[28,38,34,38,42],'Ethiopia (36.0) is East Africa\'s fastest-growing economy by GDP volume and simultaneously one of the continent\'s most active conflict zones (the Tigray War, 2020–2022, produced approximately 300,000–500,000 deaths and 2 million internal displacements). GDP growth at approximately 7–8 percent per year has been genuine but concentrated in state-directed infrastructure investment. Mortality data is not available through international surveillance mechanisms. The birr carries a moderate FX premium. The conflict legacy and ongoing insurgencies in Oromia and other regions penalise the mortality and emigration indicators significantly.'],
+  ['KEN','Kenya','#4A1B0C',true,false,false,'africa','',[38,52,48,44,55],'Kenya (47.4) is East Africa\'s institutional leader and the hub of the region\'s digital economy. GDP grew approximately 5.3 percent in 2025. Transparent democratic elections (contested but competitive). GDP data quality is reasonable. Corruption Perceptions Index: 32/100 (2024), below global median but improving. Brain drain of Kenyan physicians and IT professionals to the UK, USA, and Gulf is a sustained structural challenge that the emigration indicator captures.'],
+  ['TZA','Tanzania','#3C3489',false,false,false,'africa','',[40,52,48,52,58],'Tanzania (50.0) is one of East Africa\'s more economically stable states, with consistent GDP growth of approximately 5–6 percent and relatively contained inflation. The CCM has governed continuously since independence, operating as a dominant-party system with limited genuine political competition. GDP data quality is below international standards. Mortality surveillance is incomplete. The shilling carries a moderate FX premium.'],
+  ['GHA','Ghana','#0F6E56',true,false,false,'africa','',[40,55,50,42,52],'Ghana (47.8) is West Africa\'s institutional benchmark democracy, with competitive multiparty elections, a free press, and an independent judiciary. GDP growth has been strong for most of the past two decades. However, the 2022–2023 debt crisis — which led to Ghana defaulting on external debt and requiring an IMF programme — significantly damaged financial credibility. Inflation reached approximately 54 percent in 2023 before falling; the cedi experienced severe devaluation. Recovery is underway, but the FX and misery indicators carry the residual damage.'],
+  ['SEN','Senegal','#3B6D11',true,false,false,'africa','',[42,55,50,48,58],'Senegal (50.6) is among West Africa\'s more stable democracies and one of the few African states to have undergone two peaceful changes of governing party in its post-independence history. The CFA franc (pegged to the euro through the West African monetary union) eliminates the FX black-market premium, which is the country\'s strongest single indicator score. GDP data quality is reasonable. Oil production began in 2024, creating new fiscal capacity.'],
+  ['CIV','Ivory Coast','#639922',false,false,false,'africa','',[40,52,46,50,58],'Ivory Coast (49.2) is West Africa\'s fastest-growing large economy, driven by cocoa, cashew, and growing manufacturing exports. GDP growth has averaged approximately 7 percent annually for a decade. The CFA franc eliminates the FX premium. GDP satellite alignment is good. The political system operates as a dominant-party state with incomplete competitive politics following the 2010–2011 post-election civil war.'],
+  ['RWA','Rwanda','#97C459',false,false,false,'africa','',[38,50,46,50,60],'Rwanda (48.8) scores higher than Nigeria, Zimbabwe, and South Africa — countries with higher GDP per capita — because governance quality, not income level, determines the GLI\'s outcome. President Kagame\'s government has produced extraordinary institutional consistency since the 1994 genocide: Transparency International consistently ranks Rwanda as Africa\'s second-least-corrupt country; GDP growth at approximately 6 percent per year; independent fiscal management. Satellite GDP alignment is good. The franc has limited FX premium. The authoritarian designation reflects the systematic suppression of political opposition and press freedom; the score reflects the economic and institutional quality that coexists with that suppression.'],
+  ['MOZ','Mozambique','#C0DD97',true,false,false,'africa','',[28,38,35,35,45],'Mozambique (36.2) is one of Sub-Saharan Africa\'s most aid-dependent economies, with ongoing Islamist insurgency in the northern Cabo Delgado province disrupting what should have been a transformative LNG development. GDP data quality is below international standards. The metical carries a moderate FX premium. The country has nonetheless maintained formal democratic competition, which distinguishes it from several regional peers with higher GLI scores.'],
+  ['ZMB','Zambia','#FAC775',true,false,false,'africa','',[32,42,38,38,48],'Zambia (39.6) completed a significant debt restructuring in 2023 under the G-20 Common Framework after defaulting on Eurobonds in 2020, becoming the first post-pandemic African sovereign default. Recovery is underway but fragile. Copper prices — Zambia\'s primary export — create commodity-cycle vulnerability. GDP data quality is improving under IMF programme conditionality.'],
+  ['AGO','Angola','#888780',false,false,false,'africa','',[28,38,34,32,42],'Angola (34.8) is an oil-dependent authoritarian state where the MPLA has governed continuously since independence (1975). GDP per capita has fallen sharply from oil-boom peaks; structural diversification remains incomplete. GDP data quality is below international standards; satellite alignment suggests consistent overstatement. The kwanza carries a significant FX premium and has been repeatedly devalued. Corruption Perceptions Index: 29/100 (2024).'],
+  ['NAM','Namibia','#D4537E',true,false,false,'africa','',[38,50,45,40,55],'Namibia (45.6) is one of Sub-Saharan Africa\'s more institutionally stable states: competitive multiparty democracy, free press, independent judiciary. GDP data quality is good by regional standards. Offshore oil discoveries (Orange Basin) create medium-term growth potential. The Namibian dollar is 1:1 pegged to the South African rand, which eliminates the FX premium but introduces rand-zone contagion risk.'],
+  ['BWA','Botswana','#534AB7',true,false,false,'africa','',[40,55,50,45,62],'Botswana (50.4) is Africa\'s canonical good-governance success story: transformed from the world\'s poorest country at independence (1966) to upper-middle-income status through diamond revenues managed with extraordinary institutional discipline. Independent central bank; transparent government accounts; competitive elections. GDP data quality is good. The pula has a moderate FX premium. The primary long-run challenge is diversification away from diamond dependence as Botswanan mines approach peak production.'],
+  ['MWI','Malawi','#5DCAA5',true,false,false,'africa','',[25,35,32,28,40],'Malawi (32.0) is a functioning democracy — the 2020 Constitutional Court annulment of the fraudulent presidential election and the subsequent re-run was among Africa\'s most significant institutional moments of the decade — but one of the world\'s poorest countries by GDP per capita. Inflation has been severely elevated (over 25 percent in 2023–2024). The kwacha has undergone multiple devaluations. HAMI 2025 ranks Malawi among the ten most miserable economies globally.'],
+  ['MDG','Madagascar','#97C459',true,false,false,'africa','',[22,30,28,25,38],'Madagascar (28.6) ranked ninth most miserable globally in the 2025 HAMI. Chronic political instability — multiple coups and disputed elections since independence — has produced institutional incapacity that perpetuates extreme poverty despite the island\'s significant natural resource endowment. GDP per capita of approximately $500 nominal is among the world\'s lowest. GDP data quality is below international standards. Mortality surveillance is minimal.'],
+  ['DZA','Algeria','#712B13',false,false,false,'africa','',[38,55,52,45,48],'Algeria (47.6) is North Africa\'s largest country by territory and a significant hydrocarbon exporter. The military-backed government has maintained power since independence, with civilian presidents serving at the institution\'s discretion. GDP data quality is below OECD standards; satellite alignment shows moderate discrepancy. Emigration — particularly of the educated harkis generation and young professionals — to France is structurally embedded. The dinar carries a moderate FX premium.'],
+  ['ZWE','Zimbabwe','#791F1F',false,false,false,'africa','',[15,28,25,20,28],'Zimbabwe (23.2) carries one of the index\'s most damaged long-term institutional legacies. The 2007–2008 hyperinflation (peak estimated at 89.7 sextillion percent annual rate) destroyed monetary credibility so completely that Zimbabwe has operated under a multi-currency regime (dominated by the US dollar) since 2009, with the Zimbabwe gold-backed dollar (ZiG) introduced in April 2024 as a further attempt at monetary stabilisation. HAMI has ranked Zimbabwe among the world\'s most miserable economies for most of the 2015–2025 period. GDP data is not independently verifiable to international standards.'],
+  ['SDN','Sudan','#3C3489',false,false,true,'africa','',[5,8,8,5,12],'Sudan (7.6) ranked second most miserable globally in the 2025 HAMI. The civil war between the Sudanese Armed Forces and the Rapid Support Forces, which began in April 2023, has produced what the UN describes as the world\'s largest humanitarian crisis: approximately 12 million internally displaced, 2 million fled to neighbouring countries, and documented famine in Darfur. Unemployment at 55.7 percent — the world\'s highest. GDP has contracted severely. No mortality data is collectable across conflict zones. The pound is effectively non-functional in most of the country. Among the global top-five sources of refugees (UNHCR 2025).'],
+  ['SSD','S. Sudan','#26215C',false,false,true,'africa','',[4,8,6,6,10],'South Sudan (6.8) anchors the GLI\'s absolute floor among sovereign states for which any data exists. The world\'s newest country (2011) has never achieved stable governance: the 2013 and 2016 civil wars produced mass atrocities; oil revenues — the country\'s sole significant export — are captured by competing military factions. GDP per capita of approximately $200 nominal is among the world\'s lowest. No independent mortality surveillance. The South Sudanese pound has collapsed multiple times; the USD is the de facto currency for all significant transactions. UNHCR estimates approximately 4 million South Sudanese refugees in neighbouring countries.'],
+  ['SOM','Somalia','#4A1B0C',false,false,true,'africa','',[5,10,8,10,12],'Somalia (9.0) has been in a state of effective state failure since 1991. The federal government in Mogadishu exercises limited territorial control; al-Shabaab controls significant rural areas; Somaliland and Puntland operate semi-autonomously. No reliable national GDP, employment, or mortality data exists. The Somali shilling trades at a large black-market discount to the US dollar, which serves as the de facto currency for most formal transactions. Among the global top-five sources of refugees continuously since the 1990s.'],
+  ['UGA','Uganda','#3B6D11',false,false,false,'africa','',[32,45,40,44,50],'Uganda (42.2) is an authoritarian developmental state: President Museveni has governed since 1986, suppressing political competition while maintaining relative macroeconomic stability. GDP grew approximately 6.1 percent in 2024. GDP data quality is below international standards. The shilling carries a moderate FX premium. Emigration of healthcare workers and professionals is structurally elevated.'],
+  ['MLI','Mali','#993C1D',false,false,true,'africa','',[18,30,28,30,38],'Mali (28.8) has been governed by a military junta since the August 2020 coup (a second coup followed in May 2021), which expelled the French military presence and invited Russian Wagner Group forces as a security partner. Jihadist insurgency controls significant northern and central territory. GDP data quality is severely limited. The CFA franc eliminates the FX premium — an artifact of the regional monetary union rather than domestic monetary governance. UNHCR notes significant internal and external displacement.'],
+  ['BFA','Burkina Faso','#A32D2D',false,false,true,'africa','',[15,28,25,28,35],'Burkina Faso (26.2) has experienced two coups since 2022 and is governed by a military junta that has expelled French forces in favour of Russian military presence. Jihadist insurgency controls approximately 40 percent of the national territory. Paradoxically, the 2025 HAMI recorded Burkina Faso as the single largest improver (69 positions) due to falling commodity prices reducing measured inflation — an artefact of the index\'s economic focus that does not capture the country\'s security collapse. The GLI score of 26.2 reflects that collapse across the five indicators.'],
+  ['NER','Niger','#712B13',false,false,false,'africa','',[18,28,25,30,38],'Niger (27.8) has been governed by a military junta since the July 2023 coup that deposed President Mohamed Bazoum. French forces have withdrawn; Russian security presence has expanded. The CFA franc eliminates the FX premium. GDP data quality is severely limited under junta governance. Niger is one of the world\'s 10 least-developed countries by UN classification.'],
+  ['GIN','Guinea','#D85A30',false,false,false,'africa','',[25,38,35,32,42],'Guinea (34.4) has been governed by a military junta since the September 2021 coup. The country holds the world\'s largest bauxite reserves but has not translated resource wealth into institutional development. GDP data quality is below international standards. Mortality surveillance is minimal. Emigration of the educated class is significant.'],
+  ['CAN','Canada','#042C53',true,false,false,'other','',[80,92,86,79,99],'Canada (87.2) is among the world\'s premier migration destinations, with net HNWI inflow of +1,000 in 2025 and consistently positive general net migration driven by one of the world\'s most sophisticated points-based immigration systems. GDP data is transparent and satellite-aligned. The Canadian dollar (CAD) is a freely convertible G7 currency with no black-market premium. Full mortality surveillance through Statistics Canada and provincial health authorities. The misery indicator drag relative to the Swiss and Scandinavian benchmarks reflects Canada\'s persistent housing-cost inflation and above-Nordic unemployment, which produce a higher HAMI score than Canada\'s institutional quality alone would predict.'],
+  ['USA','USA','#185FA5',true,false,false,'other','',[82,91,72,68,99],'United States (82.4) raises the index\'s most important analytical teaching point: a country can score 82.4 on this governance legitimacy framework while simultaneously having a sitting president with a 44 percent approval rating. These two facts are not in contradiction — they are orthogonal measurements of orthogonal things. The GLI measures the system\'s structural legitimacy as revealed by behavioural indicators; presidential approval measures current satisfaction with a specific incumbent. The US dollar is the world\'s primary reserve currency, producing the maximum possible FX score. GDP data aligns with satellite observation. Net HNWI inflow of +7,500 in 2025 (second globally). The indicator drags are a misery index elevated by post-COVID structural inflation and the mortality indicator, where pandemic-era excess mortality was significantly higher than peer democracies. The GLI score of 82.4 accurately reflects a large democracy with strong institutional foundations and specific macroeconomic weaknesses.'],
+  ['URY','Uruguay','#3B6D11',true,false,false,'latam','latam',[72,84,79,74,88],'Uruguay (79.4) is Latin America\'s institutional champion and the region\'s clearest demonstration that good governance in a developing-country context is achievable. The lowest corruption index in Latin America; stable democratic rotation (the Frente Amplio and Partido Nacional have alternated power without institutional crisis); low inflation (approximately 4 percent); moderate GDP growth. Uruguay is classified as a high-income country by the World Bank — one of only three in South America alongside Chile and Guyana. The peso is stable with a moderate FX premium. The GLI positions Uruguay significantly above every other Latin American state, which is consistent with decades of cross-national governance assessments.'],
+  ['CHL','Chile','#639922',true,false,false,'latam','latam',[65,83,77,68,85],'Chile (75.6) ranks first in Latin America by the 2025 Global Innovation Index (51st globally). GDP grew 2.3 percent in 2025; inflation approximately 3 percent; mining exports (copper, lithium) provide fiscal stability. Chile is a high-income economy. The GLI indicator drags are structural: persistent unemployment above 7 percent and a Gini coefficient of 43 — one of the world\'s highest inequality measures — that produces a higher misery index than Chile\'s headline growth would suggest. The peso carries a moderate FX premium. Chile\'s composite score of 75.6 reflects the strongest institutional democracy in Latin America after Uruguay.'],
+  ['CRI','Costa Rica','#97C459',true,false,false,'latam','latam',[64,78,72,68,80],'Costa Rica (72.4) is Central America\'s governance anomaly: the region\'s only consistently stable democracy, with no standing army since 1948 and a tradition of democratic elections that predate most of its neighbours\' democratic experiments. GDP grew approximately 3.5 percent in 2025. The colón is stable with a moderate FX premium. Unemployment is structurally elevated relative to per-capita income. The country\'s institutional consistency — maintained through sharp inequality — is the GLI\'s primary Costa Rican signal.'],
+  ['PAN','Panama','#C0DD97',true,false,false,'latam','latam',[62,76,70,66,85],'Panama (71.8) is one of Latin America\'s fastest-growing economies, driven by Panama Canal revenues and a growing financial services sector. The dollar is the official currency (alongside the balboa at 1:1), which eliminates the FX premium entirely and is Panama\'s strongest single indicator score. GDP transparency is reasonable. Political institutions are functional democratic, with the 2024 elections producing a competitive and accepted outcome. Structural concerns: the financial sector\'s role as a regional offshore hub creates money-laundering vulnerabilities documented in the Panama Papers (2016) that continue to draw FATF monitoring.'],
+  ['COL','Colombia','#EF9F27',true,false,false,'latam','latam',[52,70,64,55,72],'Colombia (62.6) is South America\'s second-most-populous democracy and a country undergoing a difficult governance transition under President Gustavo Petro (2022–present), who has attempted to accelerate social spending while managing a fiscal framework inherited from more conservative predecessors. GDP grew approximately 2.5 percent in 2025; inflation has been falling from elevated peaks. Continued cocaine-production dominance — Colombia accounts for approximately 60 percent of global supply — creates persistent corruption pressures that the GLI\'s five indicators partially capture through the FX premium and GDP-alignment indicators.'],
+  ['PER','Peru','#5DCAA5',true,false,false,'latam','latam',[50,68,62,55,70],'Peru (61.0) has experienced seven presidents in seven years, with President Boluarte surviving impeachment proceedings and Pedro Castillo jailed since 2022. This institutional instability has not prevented Peru\'s economy from growing (approximately 3 percent in 2025) — an indication that Peru\'s technocratic economic management has been partially insulated from political chaos. The sol carries a moderate FX premium. Copper and gold exports sustain the fiscal position.'],
+  ['DOM','Dom. Rep.','#97C459',true,false,false,'latam','latam',[52,68,62,58,75],'Dominican Republic (63.0) is the Caribbean\'s fastest-growing large economy, with GDP growth averaging approximately 5 percent over the past decade and strong tourism and BPO sector expansion. GDP data quality is good by regional standards. The peso carries a moderate FX premium. Democratic institutions are functional but the country has not yet achieved the governance transparency of Uruguay or Costa Rica.'],
+  ['ECU','Ecuador','#639922',true,false,false,'latam','latam',[48,65,58,50,72],'Ecuador (58.6) dollarised in 2000 — adopting the US dollar as its official currency — which eliminates the FX premium entirely and is its strongest single indicator. Political instability has been severe: President Guillermo Lasso dissolved the National Assembly to avoid impeachment (muerte cruzada) in 2023; President Daniel Noboa has governed under emergency conditions in response to cartel violence since 2024. GDP growth is moderate; inflation is contained by dollarisation.'],
+  ['PRY','Paraguay','#C0DD99',true,false,false,'latam','latam',[50,65,60,55,72],'Paraguay (60.4) is one of South America\'s more economically stable small states, with consistent GDP growth driven by agricultural exports (soy, beef) and hydroelectric power. The guaraní carries a moderate FX premium. Political institutions are functional but dominated by the Colorado Party, which has governed for approximately 70 of the past 75 years — raising questions about genuine political competition.'],
+  ['GTM','Guatemala','#FAC775',true,false,false,'latam','latam',[44,60,54,50,68],'Guatemala (55.2) faces the structural challenge common to Central American economies: significant inequality, persistent poverty (approximately 59 percent of the population below the national poverty line), and emigration pressure that drives the large Guatemalan diaspora in the United States. President Bernardo Arévalo, who took office in January 2024 despite systematic obstruction from incumbent institutions, represents the country\'s most significant democratic-reform moment in decades. The quetzal is stable with a moderate FX premium.'],
+  ['HND','Honduras','#888780',true,false,false,'latam','latam',[40,55,50,45,65],'Honduras (51.0) is Central America\'s most economically precarious democracy. Emigration to the United States is among the highest in the hemisphere relative to population size, driven by violence, poverty, and climate-induced agricultural disruption. GDP data quality is below OECD standards. The lempira carries a moderate FX premium. President Xiomara Castro\'s government has attempted to address structural inequality but faces persistent institutional resistance.'],
+  ['ARG','Argentina','#D4537E',true,false,false,'latam','latam brics',[45,68,60,48,55],'Argentina (55.2) is the 2025 HAMI\'s most dramatic single-year improvement case. GDP grew 4.4 percent in 2025 — the highest in years — driven by President Javier Milei\'s shock-therapy programme. Annual inflation collapsed from 211 percent at Milei\'s inauguration (December 2023) to approximately 33 percent by February 2026, a reduction of over 107 HAMI points — the largest single-year HAMI improvement ever recorded for any country. Yet the GLI score of 55.2 reflects structural damage that takes years to reverse: sustained emigration of educated Argentines (the "Argextinction" phenomenon) continues; the peso carries a residual black-market premium despite the government\'s liberalisation of the exchange-rate regime; and GDP data credibility, while improving, still reflects decades of statistical manipulation under previous administrations. Argentina in 2025 is the index\'s most important active case study in whether revealed-preference indicators can register genuine institutional recovery in real time.'],
+  ['MEX','Mexico','#E24B4A',true,false,false,'latam','latam',[48,70,62,60,72],'Mexico (62.4) presents one of the index\'s most complex governance readings. Official unemployment of 2.5 percent is statistically real but economically misleading: approximately 55 percent of the Mexican workforce operates in the informal economy, which official unemployment statistics do not capture. The corruption index of 27/100 (141st globally, 2025) is among the worst in this dataset for any democracy. GDP grew just 0.6 percent in 2025 under US tariff pressure. Sustained net emigration to the United States is structurally embedded. The peso carries FX premium dynamics in border zones. Mexico\'s score of 62.4 reflects a large democracy with deep institutional deficits that formal electoral competition alone has not resolved.'],
+  ['BRA','Brazil','#A32D2D',true,false,false,'latam','latam brics',[55,72,62,42,72],'Brazil (60.6) entered the 2025 HAMI top-20 most miserable economies for the first time, driven by persistently high borrowing costs and elevated unemployment. A Gini coefficient of 50.3 — one of the world\'s most extreme measures of income inequality — means that aggregate GDP growth reaches a small fraction of the population in welfare terms. GDP data is transparent and satellite-aligned; Brazil is a large democracy with functional institutions. The primary indicator drag is the misery index: structural unemployment, high lending rates, and inequality produce a HAMI score that places Brazil in uncomfortable regional proximity to Bolivia and Venezuela on this dimension.'],
+  ['JAM','Jamaica','#4A1B0C',true,false,false,'latam','latam',[52,65,60,55,75],'Jamaica (61.4) is the Caribbean\'s most recognisable cultural exporter and a functioning parliamentary democracy with a history of peaceful electoral transitions. GDP grew approximately 2 percent in 2025. Tourism is the primary economic driver. The Jamaican dollar carries a moderate FX premium. Brain drain — particularly of healthcare workers and professionals to the UK, USA, and Canada — is structurally elevated as a share of the educated workforce.'],
+  ['SLV','El Salvador','#D85A30',false,false,false,'latam','latam',[42,60,54,48,68],'El Salvador (54.4) under President Nayib Bukele has implemented the most dramatic authoritarian consolidation in Central American history since the cold war: dismantling the independence of the Supreme Court, reinterpreting the constitution to allow immediate re-election, and adopting Bitcoin as legal tender. The gang-crackdown policy has produced homicide-rate reductions that are statistically real; it has also produced credible reports of mass arbitrary detention. GDP data quality is declining under reduced institutional independence. El Salvador adopted the US dollar in 2001, which eliminates the FX premium. Scored as authoritarian.'],
+  ['NIC','Nicaragua','#7F77DD',false,false,false,'latam','latam',[30,45,40,38,55],'Nicaragua (41.6) is Central America\'s most entrenched authoritarian regime under President Daniel Ortega, who has governed continuously since 2007 (and previously 1979–1990). The 2018 social security protests and their violent suppression, followed by the 2021 pre-election imprisonment of opposition candidates, have produced sustained emigration — approximately 700,000 Nicaraguans have emigrated since 2018 in a country of 6.7 million. GDP data quality is below OECD standards. The córdoba carries a moderate FX premium.'],
+  ['BOL','Bolivia','#3C3489',true,false,false,'latam','latam',[40,55,52,30,45],'Bolivia (44.4) is the 2025 HAMI\'s single largest deterioration: it fell 47 positions — the index\'s largest single-year decline. Bolivia\'s HAMI score of 44.0 was driven by a surge in inflation to 20.4 percent as foreign-exchange reserves were depleted and the government\'s ability to maintain its fixed exchange rate came under severe strain. Real GDP per capita contracted 1.4 percent. These indicators accurately reflect a country in economic crisis despite democratic institutions. The boliviano\'s peg is under sustained pressure; the parallel dollar market is active.'],
+  ['VEN','Venezuela','#501313',false,false,false,'latam','latam',[5,8,12,3,8],'Venezuela (7.2) is the absolute floor among democracies-in-name in this index. The world\'s most miserable economy by HAMI 2025 (score: 556.5 — the highest ever recorded). Consumer prices rose 475.3 percent in 2025. Unemployment at 35.1 percent. Seven million or more Venezuelans have fled the country — the Western Hemisphere\'s largest displacement crisis. Corruption Perceptions Index: 10/100 (2024) — the world\'s worst. The bolívar is effectively worthless; dollar-denominated transactions dominate the formal economy. The July 2024 presidential election was stolen by the Maduro regime by direct falsification of vote counts, a finding endorsed by independent vote-monitoring organisations, the Carter Center, the European Union, and the United States government. Venezuela demonstrates that state failure can be achieved entirely through policy choice — the country was a middle-income oil exporter in 1998.'],
+  ['CUB','Cuba','#791F1F',false,false,false,'latam','latam',[15,20,28,18,22],'Cuba (20.6) is experiencing its deepest economic crisis since the "Special Period" following Soviet dissolution. GDP fell 5 percent in 2025 — a cumulative decline of 15 percent since 2020. Tourism arrivals through April 2025 were 72 percent below the previous year. An estimated 1.5 million residents emigrated over the five years to 2025. Power cuts lasting more than 20 hours are routine across the island. Inflation annualising toward 30 percent on the black market. The US dollar has effectively replaced the peso as the medium of exchange for most meaningful transactions. Cuba\'s score of 20.6 places it adjacent to Russia (16.8) and Iran (17.2) — a revealing alignment, since all three share a common institutional characteristic: governance legitimacy derived from coercive control rather than citizen consent or institutional performance.'],
+  ['HTI','Haiti','#A32D2D',true,false,true,'latam','latam',[8,15,12,12,18],'Haiti (13.0) is the Western Hemisphere\'s most complete governance failure among nominally sovereign states. Since the assassination of President Jovenel Moïse in July 2021, Haiti has had no functioning central government in the conventional sense. Armed gangs control approximately 80 percent of Port-au-Prince. A Kenyan-led UN multinational support mission has had limited operational impact. ECLAC projects Haiti as the only Western Hemisphere economy (alongside Cuba) to record GDP contraction in 2025. Mortality data is inaccessible. The gourde is subject to extreme devaluation and black-market dynamics. Among the global top-ten sources of refugees.'],
+  // ── MISSING MICRO-STATES / TERRITORIES ──────────────────────────────────
+  ['FRO','Faroe Is.','#0F6E56',true,true,false,'europe','europe nordic:1',[88,90,91,92,95],'Faroe Islands (91.2) is a self-governing archipelago within the Kingdom of Denmark with approximately 55,000 residents. Like Greenland, it inherits Danish institutional quality — EuroMOMO mortality surveillance, Danish krone (no black-market premium), and effective integration with Nordic data standards — while remaining outside the EU. Unemployment below 2 percent; GDP per capita among the world\'s highest at approximately $62,000 nominal, driven by the fishing industry. A special case: institutional quality is a function of the Danish constitutional backstop rather than autonomous governance architecture.'],
+
+  ['CYM','Cayman Is.','#BA7517',false,true,false,'latam','latam',[90,90,88,90,99],'Cayman Islands (91.4) is a British Overseas Territory and one of the world\'s premier offshore financial centres, with the highest concentration of hedge funds per capita globally. The Cayman dollar is pegged to the USD. GDP per capita approximately $91,000. No income tax. Net HNWI inflow. Data transparency is high for financial services; mortality surveillance follows UK standards. A selection-effect population: residents are disproportionately high-net-worth individuals and financial professionals who have chosen the jurisdiction precisely for its institutional quality.'],
+  ['BMU','Bermuda','#D85A30',false,true,false,'latam','latam',[88,89,87,88,99],'Bermuda (90.2) is a British Overseas Territory and the world\'s third-largest insurance market by premium volume. GDP per capita approximately $115,000 nominal — among the world\'s highest. The Bermudian dollar is pegged 1:1 to the USD. Net HNWI inflow. Mortality surveillance follows UK standards. A selection-effect population similar to the Cayman Islands: institutional quality reflects the British constitutional backstop and the self-selecting nature of its financial-services-oriented residential population.'],
+  ['BHS','Bahamas','#7F77DD',true,true,false,'latam','latam',[76,84,80,80,95],'Bahamas (83.0) is a Commonwealth realm and parliamentary democracy with approximately 400,000 residents across 700 islands. GDP per capita approximately $27,000 nominal. The Bahamian dollar is pegged 1:1 to the USD, eliminating the FX premium. Tourism is the primary economic driver (approximately 50 percent of GDP). Net HNWI inflow from North American retirees and second-home buyers. Mortality surveillance follows Commonwealth standards. Hurricane vulnerability is a structural economic risk that the GLI indicators do not fully capture.'],
+  ['BRB','Barbados','#534AB7',true,true,false,'latam','latam',[74,82,80,79,94],'Barbados (81.8) became a republic in November 2021 (removing the British monarch as head of state) while remaining within the Commonwealth. Parliamentary democracy with competitive elections. GDP per capita approximately $17,000 nominal. The Barbados dollar is pegged 2:1 to the USD. Tourism and financial services are primary economic drivers. HAMI performance is consistent with small Caribbean economies: moderate misery by global standards. Mortality surveillance meets Commonwealth standards.'],
+  ['TTO','Trinidad & Tobago','#EF9F27',true,true,false,'latam','latam',[68,76,72,68,88],'Trinidad & Tobago (74.4) is the Caribbean\'s most industrialised economy and its largest hydrocarbon exporter, with GDP per capita approximately $16,000 nominal. Parliamentary democracy. The Trinidad and Tobago dollar carries a moderate FX premium. GDP growth is volatile, correlated with global oil and LNG prices. Unemployment at approximately 5.6 percent. Crime rates — particularly violent crime in Port of Spain — are among the Caribbean\'s highest, which depresses revealed-preference migration signals despite the country\'s energy wealth.'],
+  ['MUS','Mauritius','#5DCAA5',true,true,false,'africa','africa',[78,82,78,80,88],'Mauritius (81.2) is Sub-Saharan Africa\'s highest-scoring democracy and one of the Indian Ocean\'s premier financial and wealth-migration destinations. Net HNWI inflow — Mauritius is actively positioned as Africa\'s Switzerland, with preferential tax treaties, a double-taxation agreement network exceeding 40 countries, and a sophisticated financial services sector. Parliamentary democracy with competitive elections. GDP per capita approximately $11,000 nominal. The Mauritian rupee carries a minor FX premium. GDP data is transparent and satellite-aligned. Consistently Africa\'s lowest-corruption nation (Transparency International).'],
+  ['SYC','Seychelles','#97C459',true,true,false,'africa','africa',[74,78,76,75,87],'Seychelles (78.0) is a small island democracy of approximately 100,000 residents with the African continent\'s highest GDP per capita at approximately $17,000 nominal. Tourism (approximately 60 percent of GDP) and fishing drive the economy. Net HNWI inflow from European and Asian retirees. The Seychellois rupee has a moderate FX premium. Parliamentary democracy; data quality good by regional standards. Hurricane and climate-change exposure creates structural economic risk not captured by the five indicators.'],
+  ['CPV','Cabo Verde','#C0DD97',true,true,false,'africa','africa',[68,72,70,68,82],'Cabo Verde (72.0) is West Africa\'s most stable small-island democracy, consistently ranked as the region\'s least corrupt state alongside Mauritius. GDP per capita approximately $4,200 nominal. Tourism and remittances are primary income sources. The escudo is pegged to the euro through a fixed-rate agreement with Portugal, eliminating the FX black-market premium — the country\'s strongest single indicator score. Diaspora remittances approximately 13 percent of GDP. An exemplary case of institutional quality at low income levels.'],
+  ['MDV','Maldives','#FAC775',false,true,false,'asia','asia',[62,68,65,65,78],'Maldives (67.6) is a small island state of approximately 520,000 residents with GDP per capita approximately $11,000 nominal, heavily dependent on tourism (approximately 25 percent of GDP directly, 60 percent indirectly). The political system has oscillated between competitive democracy and authoritarian consolidation; the current government under President Mohamed Muizzu (elected 2023) has shifted alignment toward China and away from India, creating geopolitical realignment risk. The rufiyaa carries a moderate FX premium. Climate-change-driven sea-level rise is an existential threat not captured by the five GLI indicators.'],
+  // ── EUROPE ──────────────────────────────────────────────────────────────────
+  ['GEO','Georgia','#97C459',true,false,false,'europe','europe',[40,58,52,50,65],'Georgia (53.0) has experienced its most acute democratic crisis in over a decade following the October 2024 parliamentary elections, which the Georgian Dream party claimed with results disputed by international observers. Mass pro-EU protests erupted in late 2024 after the government announced the suspension of EU accession talks; the European Parliament passed a resolution condemning the crackdown on protesters. The lari carries a moderate FX premium. GDP grew approximately 7 percent in 2024, one of the region\'s strongest performances, but the political trajectory risks institutional deterioration that economic growth alone cannot offset. Brain drain to the EU is structurally elevated among young educated Georgians.'],
+  ['ARM','Armenia','#C0DD97',true,false,false,'europe','europe',[38,55,52,48,60],'Armenia (50.6) is navigating a historic geopolitical reorientation following the catastrophic September 2023 Azerbaijani military offensive that expelled the entire ethnic Armenian population of Nagorno-Karabakh — approximately 100,000 people — in 24 hours. Prime Minister Pashinyan has accelerated EU integration discussions and suspended participation in the Collective Security Treaty Organization (CSTO, Russia\'s NATO equivalent). GDP grew approximately 5 percent in 2024, partially driven by Russian relocation flows following the 2022 invasion of Ukraine. The dram carries a moderate FX premium. The political transition away from Russian dependency is real but incomplete.'],
+  // ── ASIA — CENTRAL ──────────────────────────────────────────────────────────
+  ['KGZ','Kyrgyzstan','#3B6D11',false,false,false,'asia','asia',[30,45,42,38,52],'Kyrgyzstan (41.4) is the most politically open of the five Central Asian states — multiple competitive elections and two revolutions (2005, 2010) — but with deeply embedded corruption and institutional fragility. GDP per capita approximately $1,400 nominal. Remittances from Kyrgyz workers in Russia (approximately 25 percent of GDP) create structural economic dependency on Russia and vulnerability to Russian economic shocks. The som carries a moderate FX premium. Gold mining and remittances are the primary income sources.'],
+  ['TJK','Tajikistan','#639922',false,false,false,'asia','asia',[22,38,35,32,45],'Tajikistan (34.4) is Central Asia\'s poorest state and most repressive, governed by President Emomali Rahmon since 1992 — the world\'s longest-serving non-royal head of government. GDP per capita approximately $1,100 nominal. Remittances from Tajik migrant workers in Russia constitute approximately 30 percent of GDP — the world\'s second-highest remittance-to-GDP ratio — creating extreme dependency on a deteriorating sponsor economy. The somoni carries a significant FX premium. GDP data quality is below international standards; satellite alignment shows consistent discrepancy with official figures. Press freedom is non-existent.'],
+  ['TKM','Turkmenistan','#0F6E56',false,false,false,'asia','asia',[15,18,20,18,22],'Turkmenistan (18.6) is among the world\'s most closed authoritarian states, sharing characteristics with North Korea in its systematic information suppression. Governed by the Berdimuhamedov family since 2006, the country holds the world\'s fourth-largest natural gas reserves but its population experiences pervasive poverty. GDP data is entirely state-manufactured; satellite nightlight data shows economic activity inconsistent with official claims of prosperity. The manat is not freely convertible; the official rate is a legal fiction maintained by gas-export dollar revenues. Emigration is severely controlled. Independent mortality data is inaccessible. The GLI score of 18.6 places Turkmenistan in the same tier as Iran and Cuba — a justified alignment.'],
+  ['BTN','Bhutan','#8B5CF6',false,false,false,'asia','asia',[55,65,60,65,72],'Bhutan (63.4) is a constitutional monarchy that has pioneered the Gross National Happiness framework as an alternative to GDP-centric governance measurement — making it an interesting methodological counterpart to the GLI. The ngultrum is pegged 1:1 to the Indian rupee, eliminating the FX premium. GDP per capita approximately $3,400 nominal but with strong public services (free healthcare, free education). Hydroelectric power exports to India sustain the fiscal position. GDP data quality is reasonable; mortality surveillance is improving. The country scores better than its income level would predict because its GNH framework produces genuine public-goods investment.'],
+  ['TLS','Timor-Leste','#D85A30',true,false,false,'asia','asia sea:1',[38,45,40,42,58],'Timor-Leste (44.6) is Southeast Asia\'s youngest democracy, having achieved independence from Indonesia in 2002 after a UN-supervised transition. GDP per capita approximately $2,200 nominal, heavily dependent on petroleum revenues from the Timor Sea. The US dollar is the official currency, eliminating the FX premium. GDP transparency is limited by the dominance of the off-budget Petroleum Fund. Mortality surveillance is below regional standards. The country has maintained democratic governance through peaceful transitions, which is itself a significant achievement given its traumatic independence history.'],
+  ['BRN','Brunei','#97C459',false,false,false,'asia','asia sea:1',[72,80,74,82,95],'Brunei (80.6) is an absolute monarchy of approximately 450,000 residents with GDP per capita approximately $32,000 nominal, sustained entirely by petroleum and LNG exports. The Brunei dollar is pegged 1:1 to the Singapore dollar, producing a near-perfect FX score. The Sharia Penal Code, introduced in 2019, attracted international condemnation but has been selectively enforced. GDP data is transparent for the energy sector. Mortality surveillance meets regional standards. Scored as authoritarian; the governance model is a welfare monarchy sustained by resource revenues rather than institutional quality.'],
+  ['PNG','Papua New Guinea','#993C1D',true,false,false,'asia','asia',[30,38,34,35,45],'Papua New Guinea (36.4) is the Pacific\'s largest and most resource-rich country, with significant gold, copper, LNG, and timber endowments, yet GDP per capita of approximately $2,700 nominal reflects persistent governance failure in resource revenue management. Parliamentary democracy with competitive but volatile elections. The kina carries a significant FX premium and has been subject to managed depreciation. GDP data quality is below OECD standards; satellite alignment shows discrepancy. Healthcare infrastructure is severely stressed; life expectancy at 65 years is among the Pacific\'s lowest. Brain drain to Australia is structurally embedded.'],
+  // ── ASIA — PACIFIC MICRO-STATES ─────────────────────────────────────────────
+  ['FJI','Fiji','#5DCAA5',true,true,false,'asia','asia',[55,62,58,60,72],'Fiji (61.4) returned to civilian democratic governance following the December 2022 elections, which ended the military-backed government of Frank Bainimarama (prime minister 2007–2022). GDP per capita approximately $5,800 nominal; tourism is the primary driver. The Fijian dollar carries a moderate FX premium. Mortality surveillance is below OECD standards but improving under Pacific regional cooperation frameworks. Fiji\'s score reflects a functioning democracy in recovery from a prolonged period of military dominance.'],
+  ['SLB','Solomon Islands','#C0DD97',true,true,false,'asia','asia',[28,35,32,30,52],'Solomon Islands (35.4) has experienced acute governance stress: the November 2021 riots (which burned down large sections of Chinatown in Honiara) and the country\'s subsequent security agreement with China (April 2022) — the first such agreement between China and a Pacific island nation — were among the decade\'s most significant geopolitical developments in the region. GDP per capita approximately $2,500 nominal. The Solomon Islands dollar carries a significant FX premium. Mortality data quality is limited.'],
+  ['VUT','Vanuatu','#FAC775',true,true,false,'asia','asia',[40,48,44,45,60],'Vanuatu (47.4) is a Melanesian archipelago democracy of approximately 340,000 residents. GDP per capita approximately $3,100 nominal; tourism and offshore financial services are primary income sources. The vatu carries a moderate FX premium. Vanuatu gained international attention in 2022 for its citizenship-by-investment programme, which generated significant revenue but also drew FATF scrutiny. Natural disasters (cyclones) create recurrent economic disruption not captured by the GLI indicators. Democratic institutions are functional but frequently disrupted by votes of no confidence.'],
+  ['WSM','Samoa','#888780',true,true,false,'asia','asia',[48,55,50,52,68],'Samoa (54.6) is a parliamentary democracy of approximately 220,000 residents. The tala carries a moderate FX premium. Remittances from the large Samoan diaspora in New Zealand, Australia, and the United States constitute approximately 20 percent of GDP — a structural dependency that also represents a sustained revealed-preference signal of emigration. GDP per capita approximately $4,200 nominal. Tourism is the secondary income source. Governance institutions are functional by Pacific standards.'],
+  ['TON','Tonga','#D4537E',false,true,false,'asia','asia',[38,45,40,42,62],'Tonga (45.4) is a constitutional monarchy of approximately 100,000 residents with GDP per capita approximately $4,600 nominal. Remittances from the large Tongan diaspora in New Zealand, Australia, and the United States account for approximately 38 percent of GDP — among the world\'s highest ratios. The pa\'anga carries a moderate FX premium. Tourism and remittances are the primary income sources. The January 2022 Hunga Tonga-Hunga Ha\'apai volcanic eruption and tsunami caused severe economic damage. Scored as non-democratic (constitutional monarchy with the King retaining significant executive power).'],
+  // ── AFRICA — CENTRAL ────────────────────────────────────────────────────────
+  ['CMR','Cameroon','#C8860A',false,false,false,'africa','africa',[28,40,36,35,42],'Cameroon (36.2) has been governed by President Paul Biya since 1982 — one of the world\'s longest-serving heads of state — under a system of patronage-based authoritarian stability that has prevented both democratic consolidation and institutional modernisation. An Anglophone separatist conflict in the North-West and South-West regions has displaced approximately 700,000 people since 2017. GDP per capita approximately $1,600 nominal. The CFA franc (CEMAC zone, pegged to the euro) eliminates the FX premium — the country\'s strongest single indicator score. GDP data quality is below international standards.'],
+  ['COD','DR Congo','#A32D2D',false,false,true,'africa','africa',[8,15,12,10,22],'DR Congo (13.4) is among the world\'s most acute governance failures despite holding extraordinary mineral wealth — cobalt (approximately 70 percent of global reserves), coltan, gold, and diamonds. GDP per capita approximately $600 nominal in a country of 100+ million people. Armed groups control significant eastern territory; M23 (backed by Rwanda) has controlled Goma since early 2025. Mortality data is inaccessible at national scale. The Congolese franc carries a significant FX premium. GDP data is not independently verifiable to international standards. The scale of the governance failure is proportional to the mineral wealth that various armed factions contest.'],
+  ['COG','Congo','#712B13',false,false,false,'africa','africa',[25,38,34,32,42],'Republic of Congo (34.2) is governed by President Denis Sassou Nguesso, who has ruled for a combined total of approximately 38 years (1979–1992 and 1997–present) following a civil war that returned him to power. Oil exports (approximately 65 percent of export revenues) sustain a narrow elite while the broader population remains poor. GDP per capita approximately $2,100 nominal. The CFA franc eliminates the FX premium. GDP data quality is below international standards; satellite alignment shows discrepancy. Corruption Perceptions Index: 19/100 (2024) — near the global bottom.'],
+  ['CAF','Cent. Afr. Rep.','#501313',false,false,true,'africa','africa',[8,12,10,8,18],'Central African Republic (11.2) is among the world\'s least governed sovereign territories. Armed groups (including the Wagner/Africa Corps-affiliated Forces Armées Centrafricaines allies) control significant portions of the country. GDP per capita approximately $500 nominal — among the world\'s lowest. The CFA franc is used but barely functional in conflict zones. Mortality data is inaccessible. Diamond and gold mining are controlled by armed factions, rendering GDP figures meaningless as governance indicators. Among the UN\'s Least Developed Countries with some of the world\'s lowest human-development metrics.'],
+  ['TCD','Chad','#3C3489',false,false,true,'africa','africa',[12,20,18,15,28],'Chad (18.6) has been in a transitional governance period since President Idriss Déby\'s death in April 2021 (the day after winning a sixth presidential term), when his son Mahamat Idriss Déby assumed power via military council. A national dialogue and constitutional referendum have produced a nominally civilian transition, but the military retains effective control. GDP per capita approximately $700 nominal. Oil revenues (exported via pipeline to Cameroon\'s coast) are the primary income source. The CFA franc eliminates the FX premium. Armed conflict in the north and east continues. Among the UN\'s Least Developed Countries.'],
+  ['GAB','Gabon','#4A1B0C',false,false,false,'africa','africa',[30,42,38,36,52],'Gabon (39.6) underwent a military coup in August 2023 that removed President Ali Bongo Ondimba (in power since 2009, following his father Omar Bongo who ruled from 1967–2009 — a combined 56-year family dynasty). The transitional military government under General Brice Nguema has presented itself as a reform administration; institutional trajectory is unclear. GDP per capita approximately $7,000 nominal — one of Central Africa\'s highest, driven by oil and manganese exports. The CFA franc eliminates the FX premium. GDP data quality is below international standards.'],
+  ['GNQ','Eq. Guinea','#26215C',false,false,false,'africa','africa',[18,25,22,20,32],'Equatorial Guinea (23.4) is Africa\'s only Spanish-speaking country and one of sub-Saharan Africa\'s highest per-capita GDP states in nominal terms (approximately $7,200), driven entirely by offshore oil production. Yet virtually none of this wealth reaches the general population: extreme inequality concentrates resources in the Nguema family (President Teodoro Obiang Nguema Mbasogo has governed since 1979 — the world\'s longest-serving non-royal head of state). The Corruption Perceptions Index places it at 17/100 (2024). GDP data is not independently verifiable; satellite alignment shows severe discrepancy. No independent mortality data exists.'],
+  ['ERI','Eritrea','#791F1F',false,false,false,'africa','africa',[5,15,12,10,18],'Eritrea (12.0) is Africa\'s most closed authoritarian state and among the world\'s top five sources of refugees per capita relative to population. President Isaias Afwerki has governed since independence (1993) without elections, a constitution, or a free press. National service — indefinite forced military and civilian labour — functions as a primary driver of the mass emigration that makes Eritrea the Horn of Africa\'s primary refugee source country. GDP data is inaccessible. The nakfa is not freely convertible; parallel exchange rates exist. Mortality data is inaccessible. The score of 12.0 reflects one of the world\'s most complete cases of authoritarian institutional closure short of North Korea.'],
+  ['DJI','Djibouti','#3B6D11',false,false,false,'africa','africa',[35,45,40,40,58],'Djibouti (43.6) is a strategically critical small state (approximately 1 million residents) at the southern entrance to the Red Sea, hosting military bases for France, the United States, Japan, and China simultaneously — the only country in the world with this configuration. This strategic value sustains external transfers that the GLI indicators partially capture as stability signals. GDP per capita approximately $3,100 nominal. The Djiboutian franc is USD-pegged, eliminating the FX premium. Governed by President Ismail Omar Guelleh since 1999 in a dominant-party system. GDP data quality is improving under external scrutiny from multiple military-base host nations.'],
+  ['LBR','Liberia','#0C447C',true,false,false,'africa','africa',[28,35,32,30,45],'Liberia (34.0) has sustained democratic governance since the end of the second civil war (2003) and the 2006 inauguration of President Ellen Johnson Sirleaf (Africa\'s first female head of state and 2011 Nobel Peace Laureate). President Joseph Boakai won the 2023 election in a competitive and internationally recognised vote. GDP per capita approximately $700 nominal. Corruption Perceptions Index: 25/100 (2024). The Liberian dollar carries a significant FX premium alongside the parallel use of US dollars. Institutional reconstruction remains at an early stage despite 20 years of post-war democratic continuity.'],
+  ['SLE','Sierra Leone','#378ADD',true,false,false,'africa','africa',[26,34,30,28,44],'Sierra Leone (32.4) is one of Sub-Saharan Africa\'s more institutionally committed democracies, having maintained competitive elections since 2002 (post-civil war). The 2023 elections were disputed by the main opposition, with international observer concerns about tabulation procedures. GDP per capita approximately $500 nominal — among the world\'s lowest. Inflation at approximately 35 percent in 2024. The leone has undergone multiple devaluations; FX premium is significant. Diamond exports (the resource that funded the civil war) remain a primary income source.'],
+  ['GMB','Gambia','#8B5CF6',true,false,false,'africa','africa',[35,45,40,42,55],'Gambia (43.4) achieved a historic democratic transition in 2016 when Adama Barrow defeated long-serving dictator Yahya Jammeh (in power 1994–2017) in a presidential election — one of Africa\'s most significant democratic moments of the decade. Jammeh initially refused to accept the result; an ECOWAS military force compelled his departure. GDP per capita approximately $800 nominal. The dalasi carries a moderate FX premium. Remittances (approximately 20 percent of GDP) from the large Gambian diaspora in Europe are a primary income source. Tourism is the secondary driver.'],
+  ['GNB','Guinea-Bissau','#5DCAA5',false,false,false,'africa','africa',[20,30,26,22,38],'Guinea-Bissau (27.2) has experienced nine coups or coup attempts since independence (1974) and is classified by the UN Office on Drugs and Crime as a narco-state: cocaine transshipment from South America to Europe through Guinea-Bissau is estimated to constitute a significant multiple of the country\'s official GDP. GDP per capita approximately $700 nominal. A military coup in February 2022 added to the country\'s record of institutional instability. The CFA franc eliminates the FX premium. GDP data is not independently verifiable.'],
+  ['LSO','Lesotho','#C0DD97',true,false,false,'africa','africa',[32,40,36,34,50],'Lesotho (38.4) is a constitutional monarchy entirely surrounded by South Africa, creating extreme economic dependency: approximately 80 percent of trade passes through South Africa, and the loti is pegged 1:1 to the South African rand. GDP per capita approximately $1,100 nominal. Diamond exports (Letšeng mine produces some of the world\'s largest gem-quality diamonds) provide fiscal revenue concentrated in the elite. Unemployment approximately 24 percent. Competitive elections exist but political stability has been chronically disrupted by military interference in civilian government.'],
+  ['SWZ','Eswatini','#FAC775',false,false,false,'africa','africa',[25,38,32,22,48],'Eswatini (33.0) is Africa\'s last absolute monarchy, governed by King Mswati III since 1986. Political parties are banned; the king rules by decree. It ranked sixth most miserable globally in the 2025 HAMI, with one of the world\'s highest HIV/AIDS prevalence rates (approximately 26 percent of adults) creating severe structural economic drag. GDP per capita approximately $4,200 nominal, sustained partly by South African customs union revenues. The lilangeni is pegged 1:1 to the South African rand. Mortality data quality is below international standards.'],
+  ['MRT','Mauritania','#888780',false,false,false,'africa','africa',[30,40,36,34,48],'Mauritania (37.6) sits at the intersection of Sub-Saharan Africa and the Arab world, with a complex ethnic composition (Arab-Berber Moors, Sub-Saharan African communities) and a legacy of institutionalised slavery that was only legally abolished in 1981 and criminalised in 2007. A 2019 presidential election produced a peaceful transfer of power from one military-background president to another — a modest but real institutional step. GDP per capita approximately $1,800 nominal. Iron ore and fishing exports are primary income sources. The ouguiya carries a moderate FX premium.'],
+  ['COM','Comoros','#D4537E',false,false,false,'africa','africa',[22,30,26,24,40],'Comoros (28.4) is an archipelago nation of approximately 850,000 residents with GDP per capita approximately $1,500 nominal and remittances (approximately 20 percent of GDP) from the large Comorian diaspora in France and Mayotte as the primary income source. President Azali Assoumani has ruled through a revised constitution (2018) that reset term limits, allowing him to remain in power. Repeated coup attempts (the country has experienced more than 20 coup attempts since independence in 1975) reflect chronic institutional fragility. The Comorian franc is pegged to the euro via France\'s monetary guarantee.'],
+  ['TGO','Togo','#5DCAA5',false,false,false,'africa','africa',[28,40,36,38,52],'Togo (38.8) has been governed by the Gnassingbé family since 1967 (58 years as of 2025) — one of Africa\'s longest political dynasties. President Faure Gnassingbé, who succeeded his father in 2005, transitioned to a parliamentary system in 2024 that allows him to serve as President of the Council of Ministers without term limits. GDP per capita approximately $900 nominal. The CFA franc eliminates the FX premium. GDP growth has been consistent at approximately 5–6 percent, driven by phosphate exports and a growing logistics sector.'],
+  ['BEN','Benin','#97C459',false,false,false,'africa','africa',[32,45,40,44,55],'Benin (43.2) was long regarded as West Africa\'s most stable democracy following its 1991 constitutional transition, but President Patrice Talon\'s administration (2016–present) has been criticised for eroding competitive politics: opposition candidates were barred from the 2021 presidential election. GDP grew approximately 6.5 percent in 2025, driven by port logistics and cotton exports. The CFA franc eliminates the FX premium. GDP satellite alignment is reasonable. The democracy designation has been revised to authoritarian-leaning on these indicators.'],
+  ['BDI','Burundi','#E24B4A',false,false,false,'africa','africa',[10,18,15,12,25],'Burundi (16.0) is among Sub-Saharan Africa\'s most acute governance failures outside active conflict zones. President Évariste Ndayishimiye governs under a constitutional framework that institutionalised President Pierre Nkurunziza\'s 2015 decision to seek a third term (triggering mass protests and a failed coup) and the subsequent repression. GDP per capita approximately $200 nominal — the world\'s lowest or among the lowest by most estimates. Malnutrition affects approximately 55 percent of children. Emigration pressure is severe. The franc carries a significant FX premium. Mortality data is inaccessible through international surveillance.'],
+  // ── LATIN AMERICA ────────────────────────────────────────────────────────────
+  ['GUY','Guyana','#639922',true,false,false,'latam','latam',[65,75,68,70,82],'Guyana (72.0) is the Western Hemisphere\'s fastest-growing economy and one of the world\'s most dramatic oil-discovery stories: the Stabroek block (discovered 2015, production from 2019) has transformed Guyana from a low-income agricultural economy into a petro-state projecting GDP growth of 40–50 percent annually through the late 2020s. GDP per capita grew from approximately $4,500 in 2018 to approximately $22,000 nominal in 2025. The Guyana dollar has strengthened significantly. Parliamentary democracy with competitive elections. The 2020 elections produced a five-month standoff as the incumbent APNU coalition attempted to steal the result; the independent Caribbean Court of Justice upheld the PPP/C victory. Oil-wealth management is the country\'s defining institutional challenge of the next decade.'],
+  ['SUR','Suriname','#C8860A',true,false,false,'latam','latam',[42,55,48,40,62],'Suriname (49.4) shares Guyana\'s Stabroek-adjacent offshore oil potential (the Block 58 discovery is among South America\'s largest undeveloped fields) and similarly faces the question of whether its institutions can manage transformative resource revenues. President Chan Santokhi took office in 2020 after the historic electoral defeat of Dési Bouterse — who had been convicted of murder in absentia by a Dutch court and sentenced to 20 years. GDP per capita approximately $6,500 nominal. The Surinamese dollar carries a moderate FX premium. Inflation has been elevated. Democratic institutions are functional.'],
+  ['BLZ','Belize','#3B6D11',true,false,false,'latam','latam',[50,60,55,52,72],'Belize (57.8) is Central America\'s smallest country by population (approximately 430,000) and the only one with English as its official language. Parliamentary democracy with competitive elections; the Belize dollar is pegged 2:1 to the USD, eliminating the FX premium — the country\'s strongest single indicator score. GDP per capita approximately $5,800 nominal. Tourism, citrus, banana, and marine exports are primary income sources. Crime rates — particularly in Belize City — are elevated relative to per-capita income. Territorial disputes with Guatemala (which claims approximately 12,000 km² of Belizean territory) are a persistent but currently low-intensity geopolitical constraint.'],
+  // ── NATO/CoW AGGREGATES ──────────────────────────────────────────────────────
+  ['NATO','NATO','#B5D4F4',true,false,false,'other','',[76,86,80,74,97],'NATO alliance average (82.6) is included as a reference composite for the Western collective-defence community. The aggregate reflects the wide internal range within NATO: from Denmark (92.8) and Norway (92.2) at the top to Turkey (35.8) at the bottom. NATO\'s average score significantly exceeds both Russia (16.8) and China (45.0), confirming the structural governance-legitimacy asymmetry between the alliance and its primary strategic competitors.'],
+  ['CoW','Coalition of the Willing','#D4537E',true,false,false,'other','',[72,78,74,67,90],'Coalition of the Willing average (76.2) provides a composite for the democratic nations that have historically cooperated in US-led security operations. The aggregate is slightly below NATO due to the broader membership that includes developing democracies with more varied institutional profiles.'],
+  ['RUS','Russia','#4A1B0C',false,false,true,'other','brics',[12,22,11,19,20],'Russia (16.8) represents the index\'s most complete case of simultaneous collapse across all five indicators under wartime conditions combined with pre-existing authoritarian institutional degradation. The emigration signal is catastrophic: an estimated 650,000 to 900,000 Russians emigrated in the months following the February 2022 invasion of Ukraine, representing the most significant population outflow since 1992. Shadow capital movements reached $14.7 billion in Q1 2025 alone. GDP contracted 1.8 percent in the first two months of 2026. Sweden\'s Finance Minister cited satellite nightlight data of Moscow as her government\'s preferred method for evaluating Russian economic claims, noting that Moscow is "much darker" than pre-invasion imagery. The ruble is excluded from the SWIFT system and from dollar and euro transactions; China\'s yuan is the primary reserve currency, creating a new geopolitical dependency rather than a resolution of monetary legitimacy. Excess mortality during the war period is estimated at hundreds of thousands above official counts. Russia\'s score of 16.8 is not merely low — it is the score of a government that has simultaneously failed, falsified, or suppressed every indicator this methodology can construct.'],
+];
+
+// Deduplicate by code
+const seenCodes = new Set();
+const DATA = RAW.filter(e => {
+  if (seenCodes.has(e[0])) return false;
+  seenCodes.add(e[0]);
+  return true;
+}).map(e => {
+  const sc = e[8];
+  const exact = (sc[0]+sc[1]+sc[2]+sc[3]+sc[4]) / 5;
+  return {
+    code: e[0], name: e[1], color: e[2],
+    demo: e[3], special: e[4], conflict: e[5],
+    region: e[6], tags: e[7],
+    emig: sc[0], gdp: sc[1], mort: sc[2], mis: sc[3], fx: sc[4],
+    total: Math.round(exact * 10) / 10,
+    prose: e[9],
+    nordic: e[7].includes('nordic'),
+    eu27: e[7].includes('eu27'),
+    balkan: e[7].includes('balkan'),
+    baltic: e[7].includes('baltic'),
+    gcc: e[7].includes('gcc'),
+    sea: e[7].includes('sea'),
+    latam: e[7].includes('latam') || e[6] === 'latam',
+    africa: e[7].includes('africa') || e[6] === 'africa',
+    brics: e[7].includes('brics'),
+    mideast: e[7].includes('mideast') || e[6] === 'mideast',
+    europe: e[7].includes('europe') || e[6] === 'europe',
+    asia: e[6] === 'asia',
+  };
+});
+DATA.sort((a, b) => b.total - a.total || b.emig - a.emig || b.gdp - a.gdp);
+
+// FILTERS
+const FILTERS = [
+  { id: 'all',      label: 'All entities',    fn: () => DATA },
+  { id: 'europe',   label: 'Europe',          fn: () => DATA.filter(e => e.europe) },
+  { id: 'eu27',     label: 'EU-27',           fn: () => DATA.filter(e => e.eu27) },
+  { id: 'nordic',   label: 'Nordics',         fn: () => DATA.filter(e => e.nordic) },
+  { id: 'asia',     label: 'Asia-Pacific',    fn: () => DATA.filter(e => e.asia) },
+  { id: 'sea',      label: 'SE Asia',         fn: () => DATA.filter(e => e.sea) },
+  { id: 'mideast',  label: 'Middle East',     fn: () => DATA.filter(e => e.mideast) },
+  { id: 'africa',   label: 'Africa',          fn: () => DATA.filter(e => e.africa) },
+  { id: 'latam',    label: 'Latin America',   fn: () => DATA.filter(e => e.latam) },
+  { id: 'gcc',      label: 'Gulf (GCC)',      fn: () => DATA.filter(e => e.gcc) },
+  { id: 'brics',    label: 'BRICS',           fn: () => DATA.filter(e => e.brics) },
+  { id: 'conflict', label: 'Conflict zones',  fn: () => DATA.filter(e => e.conflict) },
+  { id: 'auto',     label: 'Authoritarian',   fn: () => DATA.filter(e => !e.demo) },
+  { id: 'top30',    label: 'Top 30',          fn: () => DATA.slice(0, 30) },
+  { id: 'bot30',    label: 'Bottom 30',       fn: () => DATA.slice(-30).reverse() },
+];
+
+let activeFilter = 'all';
+
+document.addEventListener('DOMContentLoaded', function() {
+
+// Build filter buttons
+const filterRow = document.getElementById('gliFilters');
+FILTERS.forEach(f => {
+  const btn = document.createElement('button');
+  btn.className = 'gli-btn' + (f.id === 'all' ? ' active' : '');
+  btn.textContent = f.label;
+  btn.addEventListener('click', () => {
+    activeFilter = f.id;
+    document.querySelectorAll('.gli-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  });
+  filterRow.appendChild(btn);
+});
+
+function getList() {
+  return FILTERS.find(f => f.id === activeFilter).fn();
+}
+
+function tagHtml(e) {
+  if (e.special) return `<span class="gli-card-tag tag-micro" style="background:rgba(201,168,76,0.12);color:var(--gold-dim);">&#9675; micro</span>`;
+  if (e.conflict) return `<span class="gli-card-tag tag-conflict">&#9876; conflict</span>`;
+  if (!e.demo) return `<span class="gli-card-tag tag-auth">&#9679; auth</span>`;
+  return '';
+}
+
+function render() {
+  const list = getList();
+
+  // Stats
+  const avg = (list.reduce((s, e) => s + e.total, 0) / list.length).toFixed(1);
+  const n80 = list.filter(e => e.total >= 80).length;
+  const n30 = list.filter(e => e.total <= 30).length;
+  const statsEl = document.getElementById('gliStats');
+  if (statsEl) statsEl.innerHTML =
+    `<div class="gli-stat"><strong>${list.length}</strong> Entities shown</div>` +
+    `<div class="gli-stat"><strong>${avg}</strong> Group average</div>` +
+    `<div class="gli-stat"><strong>${n80}</strong> Score ≥ 80</div>` +
+    `<div class="gli-stat"><strong>${n30}</strong> Score ≤ 30</div>`;
+
+  // Floor
+  const bottom5 = DATA.slice(-5);
+  const floorEl = document.getElementById('gliFloor');
+  if (floorEl) floorEl.innerHTML =
+    '<strong style="color:var(--cream);">Global bottom 5:</strong> ' +
+    bottom5.map(e => `<span style="color:${e.color};font-weight:600">${e.name} ${e.total.toFixed(1)}</span>`).join(' &middot; ') +
+    ' &nbsp;&mdash;&nbsp; <span style="color:var(--faint);font-size:0.68rem;">Antarctica: no civilian population &mdash; unscoreable by definition.</span>';
+
+  // Cards
+  const cardsEl = document.getElementById('gliCards');
+  if (!cardsEl) return;
+  cardsEl.innerHTML = '';
+  list.forEach((e, i) => {
+    const div = document.createElement('div');
+    div.className = 'gli-card' + (e.special ? ' special-case' : '');
+    div.title = e.name + ': ' + e.total.toFixed(1);
+    div.innerHTML =
+      `<div class="gli-card-rank">#${i+1}</div>` +
+      `<div class="gli-card-code">${e.code}</div>` +
+      `<div class="gli-card-score" style="color:${e.color}">${e.total.toFixed(1)}</div>` +
+      tagHtml(e) +
+      `<div class="gli-card-bar"><div class="gli-card-bar-fill" style="width:${e.total}%;background:${e.color}"></div></div>`;
+    cardsEl.appendChild(div);
+  });
+
+  // Table
+  const tbody = document.getElementById('gliTbody');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  list.forEach((e, i) => {
+    const tr = document.createElement('tr');
+    const indicators = [e.emig, e.gdp, e.mort, e.mis, e.fx];
+    const indCells = indicators.map(v =>
+      `<td><span class="gli-mini-bar"><span class="gli-mini-fill" style="width:${v}%;background:${e.color}"></span></span>${v}</td>`
+    ).join('');
+    const nameSuffix = e.special ? ' <span style="color:var(--gold-dim);font-size:0.65rem;">&#9675;</span>' :
+                       e.conflict ? ' <span style="color:#e07070;font-size:0.65rem;">&#9876;</span>' :
+                       !e.demo ? ' <span style="color:var(--faint);font-size:0.65rem;">&#9679;</span>' : '';
+    tr.innerHTML =
+      `<td class="rank-col">${i+1}</td>` +
+      `<td class="country-col" style="color:${e.color}">${e.name}${nameSuffix}</td>` +
+      indCells +
+      `<td class="gli-total-score" style="color:${e.color}">${e.total.toFixed(1)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Prose entries
+function buildProse() {
+  const container = document.getElementById('proseContainer');
+  if (!container) return;
+  const proseList = DATA.filter(e => e.prose && e.code !== 'NATO' && e.code !== 'CoW');
+  proseList.forEach((e) => {
+    const globalRank = DATA.indexOf(e) + 1;
+    const div = document.createElement('div');
+    div.className = 'country-entry';
+
+    let tags = '';
+    if (e.special) tags += `<span class="country-entry-tag" style="background:rgba(201,168,76,0.12);color:var(--gold-dim);border:1px solid var(--border-dim);">&#9675; Micro-state / Territory</span>`;
+    if (e.conflict) tags += `<span class="country-entry-tag" style="background:rgba(224,112,112,0.1);color:#e07070;border:1px solid rgba(224,112,112,0.3);">&#9876; Active conflict</span>`;
+    if (!e.demo) tags += `<span class="country-entry-tag" style="background:rgba(14,31,58,0.8);color:var(--faint);border:1px solid var(--border-dim);">&#9679; Authoritarian / non-democratic</span>`;
+    if (e.gcc) tags += `<span class="country-entry-tag" style="background:rgba(201,168,76,0.08);color:var(--gold-dim);border:1px solid var(--border-dim);">GCC</span>`;
+    if (e.brics) tags += `<span class="country-entry-tag" style="background:rgba(14,31,58,0.8);color:var(--muted);border:1px solid var(--border-dim);">BRICS</span>`;
+
+    div.innerHTML =
+      `<div class="country-entry-header">` +
+        `<span class="country-entry-name" style="color:${e.color}">${e.name}</span>` +
+        `<span class="country-entry-score">${e.total.toFixed(1)}</span>` +
+        `<span class="country-entry-rank">Global rank #${globalRank}</span>` +
+      `</div>` +
+      (tags ? `<div class="country-entry-tags" style="margin-bottom:0.5rem;">${tags}</div>` : '') +
+      `<div class="indicators">` +
+        `<span class="ind-chip">Emig&nbsp;${e.emig}</span>` +
+        `<span class="ind-chip">GDP&nbsp;${e.gdp}</span>` +
+        `<span class="ind-chip">Mort&nbsp;${e.mort}</span>` +
+        `<span class="ind-chip">Mis&nbsp;${e.mis}</span>` +
+        `<span class="ind-chip">FX&nbsp;${e.fx}</span>` +
+      `</div>` +
+      `<p style="margin-top:0.55rem;">${e.prose}</p>`;
+    container.appendChild(div);
+  });
+}
+
+// Podium (top 3 of full dataset)
+const podColors = [
+  {bg:'rgba(201,168,76,0.12)',tc:'var(--gold-light)',m:'#1'},
+  {bg:'rgba(14,31,58,0.6)',tc:'var(--body)',m:'#2'},
+  {bg:'rgba(14,31,58,0.4)',tc:'var(--muted)',m:'#3'},
+];
+const podEl = document.getElementById('podiumEl');
+if (podEl) {
+  DATA.slice(0, 3).forEach((e, i) => {
+    const div = document.createElement('div');
+    div.className = 'pod';
+    div.style.background = podColors[i].bg;
+    div.innerHTML =
+      `<div class="pod-r" style="color:${podColors[i].tc}">${podColors[i].m}</div>` +
+      `<div class="pod-n" style="color:${e.color}">${e.name}</div>` +
+      `<div class="pod-s" style="color:${e.color}">${e.total.toFixed(1)}<span style="font-size:0.72rem;font-weight:400;color:var(--faint);">/100</span></div>` +
+      (e.special ? `<div class="pod-sub">micro-state</div>` : '');
+    podEl.appendChild(div);
+  });
+}
+
+render();
+buildProse();
+
+}); // end DOMContentLoaded
+</script>
+</body>
+</html>
