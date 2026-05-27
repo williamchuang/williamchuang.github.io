@@ -175,15 +175,16 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   <div class="nav-inner">
     <a href="/" class="nav-logo">Logarch&eacute;on</a>
     <ul class="nav-links">
-      <li><a href="/" class="active">About</a></li>
-      <li><a href="/Research">Research</a></li>
       <li><a href="/CEAS">CEAS</a></li>
       <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
       <li><a href="/MIA">MIA</a></li>
+      <li><a href="/Research" class="active">Research</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
     </ul>
   </div>
 </nav>
-
 
 <div class="container">
   <div class="page-hero">
@@ -733,17 +734,22 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 
   <div class="rc-row"><div class="rc-lbl">Geometry</div>
     <div class="rc-ani">Euclidean q<sup>&top;</sup>k — coordinate-dependent. Exact orbit generalisation over infinite symmetry groups is impossible regardless of data volume. Theorem, not engineering limit.</div>
-    <div class="rc-asi">GRAIL invariant I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). Coordinate-independent. Exact orbit generalisation is structural — not a data-scaling problem.</div>
+    <div class="rc-asi">GRAIL replaces the dot product with metric-invariant I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). Root: Einstein's general covariance — <em>all physical observables must be tensors.</em> Neural dot products q<sup>&top;</sup>k are coordinate-dependent and lose information. GRAIL preserves every physically meaningful observable without loss of generality, in any coordinate system.</div>
   </div>
 
   <div class="rc-row"><div class="rc-lbl">Global coordination</div>
     <div class="rc-ani">Local fixed-&beta; attention. Coordination latency T<sub>N</sub>&nbsp;=&nbsp;&Omega;(N<sup>1/d</sup>) diverges with scale. No parameter increase removes this — proved unconditionally.</div>
-    <div class="rc-asi">CEAS collective variable achieves sub-diameter coordination. &beta; dynamically controlled — fixed initialisation is proved suboptimal after the first gradient step.</div>
+    <div class="rc-asi">CEAS adds the one degree of freedom local attention structurally lacks: a collective channel &phi;(t) whose Jacobian contribution bc<sup>&top;</sup> is dense across the entire computation graph. b<sub>i</sub> = how each node responds to the collective signal; c<sub>k</sub> = how each node contributes to it. Intelligence passes between any two nodes regardless of graph distance — system-wide coherence in one step.</div>
   </div>
 
   <div class="rc-row"><div class="rc-lbl">Self-improvement</div>
     <div class="rc-ani">Weights frozen at inference. Frontier labs at RSI (Recursive Self-Improvement) Levels 3–5; autonomous closed-loop successor design (Levels 7–8) not publicly demonstrated.</div>
     <div class="rc-asi">Designed for a verified closed RSI loop: propose &rarr; implement &rarr; train &rarr; evaluate &rarr; verify &rarr; deploy. No manual edits inside the measured cycle.</div>
+  </div>
+
+  <div class="rc-row"><div class="rc-lbl">Cross-domain transfer</div>
+    <div class="rc-ani">Transfers surface distributional features. Succeeds when new tasks resemble training data. Cannot operate on domains it was not trained for.</div>
+    <div class="rc-asi">Transfers structural operators to untrained domains — verified by pre-committed cryptographic hash of the hidden benchmark. Because transfer operates at the level of causal, geometric, and operator structure, the architecture can conduct intelligence analysis, strategic assessment, scientific discovery, and experiment design across domains it was never trained on. ANI cannot: it requires in-distribution data for every new domain.</div>
   </div>
 
   <div class="rc-row"><div class="rc-lbl">ANI vs AGI vs ASI</div>
