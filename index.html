@@ -675,13 +675,13 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="ct-row">
     <div class="ct-label">Geometric representation</div>
     <div class="ct-ani">Euclidean inner product q<sup>&top;</sup>k as the fundamental primitive — coordinate-dependent by construction. Exact orbit-consistent generalisation over infinite symmetry groups is impossible regardless of data volume. This is a theorem.</div>
-    <div class="ct-asi">GRAIL invariant I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k) replaces the dot product. Coordinate-independent by design. Exact orbit generalisation is structural — not a data-scaling problem.</div>
+    <div class="ct-asi">GRAIL replaces the Euclidean dot product with a metric-invariant primitive I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). The root: Einstein's general covariance principle (1915) — <em>all physical observables must be written in tensors to be meaningful in physics.</em> Neural dot products q<sup>&top;</sup>k are coordinate-dependent and lose information under coordinate changes. GRAIL preserves every physically meaningful observable in the representation without loss of generality, regardless of which coordinate system the data arrives in.</div>
   </div>
 
   <div class="ct-row">
     <div class="ct-label">Global coordination</div>
     <div class="ct-ani">Local fixed-&beta; attention. Coordination latency T<sub>N</sub>&nbsp;=&nbsp;&Omega;(N<sup>1/d</sup>) diverges with scale on globally sensitive problems. No parameter increase removes this — proved unconditionally.</div>
-    <div class="ct-asi">CEAS collective variable &phi;(t) achieves sub-diameter coordination. &beta; is dynamically controlled — fixed initialisation is proved suboptimal after the first gradient step.</div>
+    <div class="ct-asi">CEAS adds the one algebraic degree of freedom that local attention structurally lacks: a collective channel &phi;(t) whose Jacobian contribution bc<sup>&top;</sup> is dense across the entire computation graph. b<sub>i</sub> measures how each node responds to the collective signal; c<sub>k</sub> measures how each node contributes to it. The result: intelligence passes between any two nodes in the network regardless of how far apart they are — system-wide coherence in one step, not O(N<sup>1/d</sup>) steps.</div>
   </div>
 
   <div class="ct-row">
@@ -693,7 +693,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="ct-row">
     <div class="ct-label">Cross-domain transfer</div>
     <div class="ct-ani">Transfers surface distributional features — succeeds when new tasks resemble training data. Structural operators are not extracted and are not portable across domains.</div>
-    <div class="ct-asi">Transfers structural operators. Improvement on domain A carries to untrained domain B when they share the same symmetry group — verified by pre-committed cryptographic hash of the hidden benchmark.</div>
+    <div class="ct-asi">Transfers structural operators to untrained domains — verified by pre-committed cryptographic hash of the hidden benchmark. Because transfer operates at the level of causal, geometric, and operator structure rather than surface patterns, the same architecture can conduct intelligence analysis, strategic assessment, scientific discovery, and experiment design across domains it was never trained on. ANI cannot: it requires in-distribution data for every new domain.</div>
   </div>
 
   <div class="ct-row">
@@ -719,7 +719,23 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.2);border-top:2px solid var(--gold);padding:22px 24px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">ASI Architect — the intelligence OS</div>
       <p style="font-size:0.86rem;color:rgba(245,240,232,0.82);line-height:1.65;margin:0;">
-        An operating system is not a bigger program — it is the coordinating layer that makes computation composable and self-managing. This architecture is the analogous layer for intelligence: coordinating agents, verifying outputs, performing causal interventions, and rewriting its own subsystems. The OS made computation compositional. This makes intelligence compositional.
+        An operating system is not a bigger program — it is the coordinating layer that makes
+        computation composable and self-managing. This architecture is the analogous layer for
+        intelligence — with three precise mechanisms that no scaling of current models provides.
+        <strong style="color:rgba(245,240,232,0.95);">GRAIL</strong> preserves every physical
+        observable as a coordinate-independent tensor: information is never lost or distorted
+        when the system moves between domains, because the representation is invariant by
+        construction, not by approximation.
+        <strong style="color:rgba(245,240,232,0.95);">CEAS</strong> correlates signals across
+        the entire model simultaneously — passing intelligence between computational units no
+        matter how far apart they are, so distant but relevant connections are never dropped
+        by architectural locality.
+        <strong style="color:rgba(245,240,232,0.95);">The Ψ-operator</strong> acts on what
+        those two layers produce: conducting causal analysis, strategic assessment, scientific
+        hypothesis generation, and experiment design — in domains the system has never
+        encountered, because the operators transfer structurally, not by distributional
+        similarity to training data. The OS made computation compositional.
+        This makes intelligence compositional across untrained domains.
       </p>
     </div>
   </div>
