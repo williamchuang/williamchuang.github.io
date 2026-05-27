@@ -502,13 +502,14 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="nav-inner">
     <a href="/" class="nav-logo">Logarchéon</a>
     <ul class="nav-links">
-      <li><a href="/CEAS">CEAS</a></li>
-      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/CEAS">Critical Entropy Attention Scaling (CEAS)</a></li>
+      <li><a href="/GRAIL">Geometric Representation Algebra for Intelligent Learning (GRAIL)</a></li>
       <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
-      <li><a href="/MIA">MIA</a></li>
+      <li><a href="/MIA">Metric-Invariant Architecture (MIA)</a></li>
       <li><a href="/Research">Research</a></li>
       <li><a href="/About">About</a></li>
       <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+      <li><a href="#comparison" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">ANI vs ASI</a></li>
       <li><a href="#contact" class="btn-primary" style="font-size:0.72rem;padding:8px 18px;">Contact</a></li>
     </ul>
   </div>
@@ -627,6 +628,137 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     </div>
   </div>
 </section>
+
+<!-- ═══ ANI / AGI / ASI COMPARISON ═══ -->
+<section id="comparison" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Architecture class comparison</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    Why this is not ANI — and why scaling ANI cannot produce it
+  </h2>
+  <p style="color:rgba(245,240,232,0.6);font-size:0.92rem;max-width:68ch;margin-bottom:10px;line-height:1.75;">
+    <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4/5, Claude, Gemini, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
+  </p>
+  <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
+    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v18).
+  </p>
+
+  <!-- ── THREE-COLUMN HEADER ── -->
+  <div style="display:grid;grid-template-columns:180px 1fr 1fr;gap:2px;margin-bottom:2px;">
+    <div style="padding:10px 14px 10px 0;"></div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-bottom:none;padding:14px 18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.45);margin-bottom:4px;">ANI / Current frontier LLMs</div>
+      <div style="font-size:0.82rem;color:rgba(245,240,232,0.4);line-height:1.4;">GPT&#8209;4/5 &middot; Claude &middot; Gemini &middot; all scaling&#8209;law models</div>
+    </div>
+    <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.22);border-bottom:none;border-top:2px solid var(--gold);padding:14px 18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Logarch&eacute;on ASI Architect Seed</div>
+      <div style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.4;">CEAS (Critical Entropy Attention Scaling) + &Psi;&#8209;Operator + GRAIL (Geometric Representation Algebra for Intelligent Learning)</div>
+    </div>
+  </div>
+
+  <!-- ── ROWS ── -->
+  <style>
+  .ct-row { display:grid; grid-template-columns:180px 1fr 1fr; gap:2px; margin-bottom:2px; }
+  .ct-label { padding:16px 14px 16px 0; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.05em; color:rgba(201,168,76,0.65); display:flex; align-items:flex-start; padding-top:18px; }
+  .ct-ani { background:var(--navy-mid); border:1px solid var(--border-dim); padding:16px 18px; font-size:0.875rem; color:rgba(245,240,232,0.5); line-height:1.6; }
+  .ct-asi { background:rgba(14,31,58,0.9); border:1px solid rgba(201,168,76,0.15); padding:16px 18px; font-size:0.875rem; color:rgba(245,240,232,0.85); line-height:1.6; }
+  </style>
+
+  <div class="ct-row">
+    <div class="ct-label">Causal reasoning</div>
+    <div class="ct-ani">Observational correlation only — learns P(Y&nbsp;|&nbsp;X). Cannot distinguish correlation from causal consequence. Wrapping in "think step by step" prompts does not change the underlying computation.</div>
+    <div class="ct-asi">All four Pearl rungs: association, intervention P(Y&nbsp;|&nbsp;do(X)), counterfactual Y<sub>x&prime;</sub>, and constrained inverse design. The &Psi;-operator implements do-calculus natively — not as a prompt wrapper.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Geometric representation</div>
+    <div class="ct-ani">Euclidean inner product q<sup>&top;</sup>k as the fundamental primitive — coordinate-dependent by construction. Exact orbit-consistent generalisation over infinite symmetry groups is impossible regardless of data volume. This is a theorem.</div>
+    <div class="ct-asi">GRAIL invariant I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k) replaces the dot product. Coordinate-independent by design. Exact orbit generalisation is structural — not a data-scaling problem.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Global coordination</div>
+    <div class="ct-ani">Local fixed-&beta; attention. Coordination latency T<sub>N</sub>&nbsp;=&nbsp;&Omega;(N<sup>1/d</sup>) diverges with scale on globally sensitive problems. No parameter increase removes this — proved unconditionally.</div>
+    <div class="ct-asi">CEAS collective variable &phi;(t) achieves sub-diameter coordination. &beta; is dynamically controlled — fixed initialisation is proved suboptimal after the first gradient step.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Self-improvement</div>
+    <div class="ct-ani">Weights frozen at inference. AI-assisted R&amp;D (RSI Levels 3–5) exists at frontier labs; autonomous closed-loop successor design (RSI Levels 7–8) is not publicly demonstrated.</div>
+    <div class="ct-asi">Designed for a verified closed Recursive Self-Improvement (RSI) (Recursive Self-Improvement) loop: propose &rarr; implement &rarr; train &rarr; evaluate &rarr; verify &rarr; deploy. No manual edits inside the measured cycle. Improvement logged and falsifiable.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Cross-domain transfer</div>
+    <div class="ct-ani">Transfers surface distributional features — succeeds when new tasks resemble training data. Structural operators are not extracted and are not portable across domains.</div>
+    <div class="ct-asi">Transfers structural operators. Improvement on domain A carries to untrained domain B when they share the same symmetry group — verified by pre-committed cryptographic hash of the hidden benchmark.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">ANI vs AGI vs ASI</div>
+    <div class="ct-ani">ANI: superhuman within a bounded domain. AGI: adult-human level across most cognitive task families. <em>Current frontier systems are plausibly Emerging AGI (Rank 5) at most — not Competent AGI (Rank 6), not Expert AGI (Rank 7), not ASI (Rank 9+).</em></div>
+    <div class="ct-asi">Designed as an ASI Seed (Rank 10–12 trajectory). Current Tier-A target: Level 4 certification — recursive triadic improvement over &ge;20 verified closed-loop cycles. Actual ASI claim additionally requires &ge;10-domain breadth and self-improvement of the improvement process itself.</div>
+  </div>
+
+  <div class="ct-row" style="margin-bottom:0;">
+    <div class="ct-label">Failure mode</div>
+    <div class="ct-ani">Returns a plausible answer regardless of whether a valid answer exists. Optimises text likelihood, not constraint satisfaction. High benchmark scores with high scaffolding dependence indicate a powerful component — not a robust intelligence.</div>
+    <div class="ct-asi">Returns an infeasibility certificate when no valid solution exists — backed by verified computation. Honest failure requires an actual constraint model. A correct refusal is as meaningful as a correct answer.</div>
+  </div>
+
+  <!-- ── OS ANALOGY ── -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px;margin-bottom:28px;">
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid rgba(201,168,76,0.25);padding:22px 24px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);margin-bottom:10px;">ANI — the pre-OS program</div>
+      <p style="font-size:0.86rem;color:rgba(245,240,232,0.5);line-height:1.65;margin:0;">
+        Before operating systems, each program managed its own hardware directly — purpose-built for one task, not composable, not self-coordinating. Current frontier models are this: large standalone programs that excel within their training distribution but cannot rewrite their own subsystems or enforce causal validity across novel domains.
+      </p>
+    </div>
+    <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.2);border-top:2px solid var(--gold);padding:22px 24px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">ASI Architect — the intelligence OS</div>
+      <p style="font-size:0.86rem;color:rgba(245,240,232,0.82);line-height:1.65;margin:0;">
+        An operating system is not a bigger program — it is the coordinating layer that makes computation composable and self-managing. This architecture is the analogous layer for intelligence: coordinating agents, verifying outputs, performing causal interventions, and rewriting its own subsystems. The OS made computation compositional. This makes intelligence compositional.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── KEY RESULT ── -->
+  <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v18</span>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
+      <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
+    </p>
+    <p style="font-size:0.86rem;color:rgba(245,240,232,0.5);line-height:1.7;max-width:70ch;margin:0;">
+      A system can score at the highest human level on every standard benchmark and still be ANI
+      if it succeeds only within its training distribution. The distinction is not performance —
+      it is whether the system can intervene causally, generalise over symmetry orbits,
+      and improve its own architecture inside a verified closed loop with a falsifiable audit record.
+    </p>
+  </div>
+
+  <!-- ── WHAT IS NOT ASI ── -->
+  <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v18)</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>An agentic pipeline wrapping a correlation-based LLM in causal-sounding instructions — wrapping produces a "causal-shaped" system, not a causal one</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>Advanced computing hardware (quantum, neuromorphic) without goals, world models, or causal agency</li>
+      </ul>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A system with superhuman performance in narrow domains only — that is ANI by definition</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A system with high benchmark scores but high scaffolding dependence — scaffolded performance is not autonomous intelligence</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>Any system whose claimed improvements cannot be reproduced from logs, checkpoints, and pre-registered benchmarks alone</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
 
 <!-- PROOF -->
 <section class="proof" id="proof">
@@ -919,7 +1051,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         deployments, hypervisor surfaces, and full artifact lifecycle control.</p>
       </div>
       <div class="sec-card">
-        <h3>Why FHE/MPC/TEEs fall short</h3>
+        <h3>Why Fully Homomorphic Encryption (FHE)/secure multi-party computation (MPC)/TEEs fall short</h3>
         <p>FHE: 10³–10⁶× overhead, impractical for large neural pipelines.
         MPC: communication latency dominates at scale.
         TEEs: shift trust to vendor firmware, not zero-trust.
@@ -928,7 +1060,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     </div>
     <div class="sec-disclaimer">
       <strong>Scope boundary:</strong> Public materials are intentionally non-enabling.
-      Detailed substantiation, benchmarks, and evaluation specifics are provided under NDA
+      Detailed substantiation, benchmarks, and evaluation specifics are provided under non-disclosure agreement (NDA)
       for serious technical review. All claims are bounded by written scope and acceptance criteria.
       No unbounded promises.
     </div>
@@ -950,7 +1082,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <span class="audience-tier">Tier I · Core</span>
         <h3>U.S. National Security / Defense / Intelligence Community</h3>
         <ul>
-          <li>IC agencies and DoD components requiring encrypted-in-use AI at operational scale</li>
+          <li>Intelligence Community (IC) agencies and Department of Defense (DoD) components requiring encrypted-in-use AI at operational scale</li>
           <li>Defense and intelligence industrial base embedding hardened AI into mission-critical systems</li>
           <li>Systemic finance and critical infrastructure with real-world failure modes</li>
         </ul>
@@ -959,8 +1091,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <span class="audience-tier">Tier II · Expansion</span>
         <h3>Research grants &amp; regulated enterprise</h3>
         <ul>
-          <li>DARPA / IARPA / ONR — SBIR/STTR for ASI research and development</li>
-          <li>Healthcare, pharma, aerospace requiring IP protection and sovereign execution</li>
+          <li>Defense Advanced Research Projects Agency (DARPA) / Intelligence Advanced Research Projects Activity (IARPA) / Office of Naval Research (ONR) — Small Business Innovation Research (SBIR)/Small Business Technology Transfer (STTR) for ASI research and development</li>
+          <li>Healthcare, pharma, aerospace requiring intellectual property (IP) protection and sovereign execution</li>
           <li>Cloud and hardware vendors licensing encrypted-in-use runtime infrastructure</li>
         </ul>
       </div>

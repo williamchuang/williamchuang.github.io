@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Research — William Chuang</title>
-<meta name="description" content="Research portfolio of William Chuang: applied neuroscience policy, diplomatic strategy, AI architecture, theoretical physics, mathematics, and Catholic intellectual tradition."/>
+<title>Research — William Chuang · Logarchéon</title>
+<meta name="description" content="Research portfolio of William Chuang: applied neuroscience policy, diplomatic strategy, AI architecture, theoretical physics, mathematics, and Catholic intellectual tradition. Founder, Logarchéon Inc."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
@@ -125,18 +125,18 @@ nav.site-nav {
 .link-btn:hover { background:rgba(201,168,76,0.22); border-color:var(--gold); color:var(--cream); text-decoration:none; }
 .link-btn .lbl { font-size:0.6rem; letter-spacing:0.12em; color:var(--gold); border:1px solid var(--gold-dim); padding:0.08rem 0.25rem; border-radius:2px; margin-right:0.1rem; }
 
-/* ── Sub-groups inside sections ── */
+/* ── Sub-groups ── */
 .subsection { margin:2rem 0; }
 .subsection h3 { font-size:1.2rem; color:var(--cream); margin-bottom:1rem; border-left:2px solid var(--gold-dim); padding-left:0.85rem; }
 .subsection h4 { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin:1.2rem 0 0.6rem; }
 
-/* ── Note list (compact: study notes, lecture notes) ── */
+/* ── Note list ── */
 .note-list { list-style:none; display:grid; gap:0.5rem; margin:0.6rem 0; }
 .note-list li a { color:var(--body); font-size:0.9rem; }
 .note-list li a:hover { color:var(--gold-light); }
 .note-list li::before { content:"—"; margin-right:0.5rem; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:0.7rem; }
 
-/* ── Exploratory physics disclaimer box ── */
+/* ── Disclaimer box ── */
 .theory-disclaimer {
   background:rgba(25,40,80,0.6); border:1px solid var(--border-dim);
   border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0;
@@ -144,16 +144,16 @@ nav.site-nav {
   color:var(--muted); font-style:italic;
 }
 
-/* ── Faith section cross ornament ── */
+/* ── Faith cross ── */
 .cross-ornament { color:var(--gold-dim); font-size:1.2rem; margin:0 0.4rem; }
 
-/* ── Reference list ── */
+/* ── Ref list ── */
 .ref-list { list-style:none; display:grid; gap:0.5rem; }
 .ref-list li { color:var(--body); font-size:0.88rem; padding-left:1.5rem; position:relative; }
 .ref-list li::before { content:""; position:absolute; left:0; top:0.6em; width:0.8rem; height:1px; background:var(--gold-dim); }
 .ref-list li a { color:var(--gold); }
 
-/* ── Inline product link note ── */
+/* ── Product link note ── */
 .product-link-note { font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--muted); margin-top:0.4rem; }
 .product-link-note a { color:var(--gold-dim); }
 .product-link-note a:hover { color:var(--gold); }
@@ -175,15 +175,15 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   <div class="nav-inner">
     <a href="/" class="nav-logo">Logarch&eacute;on</a>
     <ul class="nav-links">
-      <li><a href="/CEAS">CEAS</a></li>
-      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/CEAS">Critical Entropy Attention Scaling (CEAS)</a></li>
+      <li><a href="/GRAIL">Geometric Representation Algebra for Intelligent Learning (GRAIL)</a></li>
       <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
-      <li><a href="/MIA">MIA</a></li>
-      <li><a href="/Research">Research</a></li>
+      <li><a href="/MIA">Metric-Invariant Architecture (MIA)</a></li>
+      <li><a href="/Research" class="active">Research</a></li>
       <li><a href="/About">About</a></li>
       <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
     </ul>
-    </div>
+  </div>
 </nav>
 
 <div class="container">
@@ -197,7 +197,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <p class="hero-desc">
       Independent researcher working at the intersection of AI architecture, policy,
       and the mathematical foundations of intelligence. Primary interests: AI-assisted
-      public health and national security, Taiwan&ndash;Holy See&ndash;PRC diplomacy,
+      public health and national security. This site uses LLM (large language model) to refer to systems like GPT&#8209;4/5, Claude, and Gemini throughout, Taiwan&ndash;Holy See&ndash;PRC diplomacy,
       operator-theoretic methods in finance and learning, and post-quantum cryptography.
       Founder, Logarch&eacute;on Inc.
     </p>
@@ -219,18 +219,19 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <div class="toc-label">Sections</div>
     <ul class="toc-list">
       <li><a href="#policy" class="toc-link">Policy &amp; Applied Research</a></li>
+      <li><a href="#comparison" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; ANI vs. ASI Comparison</a></li>
       <li><a href="/governance-legitimacy-index/" class="toc-link" style="color:var(--gold-dim);">Governance Legitimacy Index &#8599;</a></li>
       <li><a href="#math" class="toc-link">Mathematics</a></li>
       <li><a href="#finance" class="toc-link">Finance</a></li>
       <li><a href="#faith" class="toc-link">Faith &amp; Identity</a></li>
       <li><a href="#notes" class="toc-link">Study Notes</a></li>
-      <li><a href="/hua/" class="toc-link" style="color:var(--gold-dim);">中華 Study ↗</a></li>
+      <li><a href="/hua/" class="toc-link" style="color:var(--gold-dim);">中華 Study &#8599;</a></li>
     </ul>
   </aside>
 
   <main>
 
-<!-- ═══════════════════════════════════ CURRENT WORK ════════════════════════════ -->
+<!-- ═══ CURRENT WORK ═══ -->
 <aside class="paper-card" style="border-left:3px solid var(--gold);background:rgba(14,31,58,0.55);margin-bottom:2rem;">
   <h3 style="margin-bottom:0.4rem;">Current writing &middot; 2026</h3>
   <p style="font-size:0.78rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.9rem;">
@@ -242,17 +243,17 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     of the Ψ&ndash;Orbitfold Finance Set IV; and a methodological note on
     structured analytic tradecraft for AI-assisted national-security research.
     Timelines are working estimates and may move with peer review and any
-    institutional review constraints.
+    applicable institutional review constraints.
   </p>
   <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:0;">
     Editors and programme officers interested in pre-print review, commissioned
     work, or co-authored extensions are welcome to write to
     <a href="mailto:founder@logarcheon.com">founder@logarcheon.com</a>.
-    Institutional affiliations honoured under standard NDA and export-control terms.
+    Institutional affiliations honoured under standard non-disclosure agreement (NDA) and export-control terms.
   </p>
 </aside>
 
-<!-- ═══════════════════════════════════ §1 POLICY ════════════════════════════ -->
+<!-- ═══ §1 POLICY ═══ -->
 <section class="page-section" id="policy">
   <div class="section-header">
     <span class="section-num">01</span>
@@ -292,16 +293,14 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   <!-- LIFU Safety Parameter Explorer -->
   <div id="fus-checker" style="background:var(--navy-mid);border:1px solid var(--border);border-left:4px solid var(--gold-dim);border-radius:0 6px 6px 0;padding:1.4rem 1.6rem;margin:1.2rem 0;">
     <h3 style="margin-top:0;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold-light);margin-bottom:0.2rem;">LIFU Safety Parameter Explorer</h3>
-    <p style="font-size:0.82rem;color:var(--muted);margin:0 0 1rem;font-family:'DM Mono',monospace;letter-spacing:0.05em;">Interactive — adjust parameters; constraints update in real time</p>
+    <p style="font-size:0.82rem;color:var(--muted);margin:0 0 1rem;font-family:'DM Mono',monospace;letter-spacing:0.05em;">Interactive — adjust parameters; safety constraints update in real time</p>
 
-    <!-- Presets -->
     <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
       <button onclick="fusPreset('safe')"   style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Conservative</button>
       <button onclick="fusPreset('ae2025')" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Rezai 2025 ± skull error</button>
-      <button onclick="fusPreset('cw90w')" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border-dim);background:var(--navy-light);color:var(--faint);border-radius:3px;cursor:pointer;">Preset: High-pressure (violation)</button>
+      <button onclick="fusPreset('cw90w')"  style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border-dim);background:var(--navy-light);color:var(--faint);border-radius:3px;cursor:pointer;">Preset: High-pressure (violation)</button>
     </div>
 
-    <!-- Sliders -->
     <div style="display:grid;gap:0.6rem;margin-bottom:1rem;">
       <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
         <label style="font-size:0.85rem;color:var(--body);">P<sub>neg</sub> (MPa)</label>
@@ -330,7 +329,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       </div>
     </div>
 
-    <!-- Metric tiles -->
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-bottom:1rem;">
       <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
         <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">MI</div>
@@ -354,13 +352,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       </div>
     </div>
 
-    <!-- Constraint list -->
     <div id="fus-constraint-list" style="font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.9;margin-bottom:0.9rem;"></div>
-
-    <!-- Fire/abort button -->
     <div id="fus-fire-btn" style="font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.06em;padding:0.6rem 1rem;border-radius:3px;margin-bottom:0.9rem;text-align:center;"></div>
-
-    <!-- λ-Stack optimal box -->
     <div id="fus-optimal-box" style="display:none;font-size:0.82rem;color:var(--body);background:rgba(8,24,52,0.7);border:1px solid var(--border-dim);padding:0.8rem 1rem;border-radius:4px;line-height:1.8;"></div>
   </div>
 
@@ -459,7 +452,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         +' (reported: '+P.toFixed(3)+' MPa, amplified by G·ΔH = '+(G*dh/100).toFixed(2)+'×)<br>'
         +'Recommended DC*: <strong>'+(d.dc_opt*100).toFixed(2)+'%</strong>'
         +' &nbsp;·&nbsp; Recommended P<sub>neg</sub>*: <strong>'+d.p_opt.toFixed(3)+' MPa</strong>'
-        +' (0.70 × P<sub>IC</sub>('+f.toFixed(2)+' MHz))<br>'
+        +' (0.70 × P<sub>Intelligence Community (IC)</sub>('+f.toFixed(2)+' MHz))<br>'
         +'CEAS β★ initializer: <strong>'+bs.toFixed(3)+'</strong>'
         +' &nbsp;·&nbsp; T<sub>gate</sub>: <strong>'+tg.toFixed(3)+'</strong>';
     };
@@ -475,9 +468,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       fusUpdate();
     };
 
-    document.addEventListener('DOMContentLoaded',function(){
-      fusUpdate();
-    });
+    document.addEventListener('DOMContentLoaded',function(){ fusUpdate(); });
   })();
   </script>
 
@@ -509,7 +500,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <!-- ── Capital Flows tracker card ── -->
+  <!-- Capital Flows tracker -->
   <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Live tracker</div>
     <h3>Capital Flows &amp; Institutional Transparency</h3>
@@ -541,12 +532,12 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <div class="paper-links">
       <a href="/flows/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">↗</span>Open Tracker
+        <span class="lbl">&#8599;</span>Open Tracker
       </a>
     </div>
   </div>
 
-  <!-- ── Governance Legitimacy Index card ── -->
+  <!-- Governance Legitimacy Index -->
   <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Working Paper &middot; 2025&ndash;2026</div>
     <h3>Governance Legitimacy Index &mdash; A Five-Indicator, Externally Verifiable Framework</h3>
@@ -571,7 +562,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         Key findings: Taiwan (95.4) holds the world&rsquo;s lowest misery index (HAMI 2.1)
         and scores among the highest-legitimacy governed entities by any indicator combination.
         Russia (16.8) fails all five simultaneously. Venezuela (7.2) anchors the floor among
-        nominally democratic states. The US scores 82.4 &mdash; reflecting structural institutional
+        nominally democratic states. The U.S. scores 82.4&mdash;reflecting structural institutional
         strength, not incumbent satisfaction. Includes an interactive dashboard with regional
         filters, a complete indicator table, and a 10,000-word country-by-country analytical
         commentary written at senior foreign-service and intelligence-community standards.
@@ -584,7 +575,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <!-- ── 中華 / Hua study card ── -->
+  <!-- 中華 study -->
   <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Historical study</div>
     <h3>中華 &amp; 華人 &mdash; A Study in Name and Civilisation</h3>
@@ -598,9 +589,9 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         The term 中華 is the <em>C</em> in both the Republic of China (中華民國) and the
         People&rsquo;s Republic of China (中華人民共和國). It is not an ancient ethnic label.
         It was assembled as a deliberate modern political category in the late Qing period
-        by the <strong>Changzhou School of Thought</strong> (常州學派) &mdash; a five-generation
+        by the <strong>Changzhou School of Thought</strong> (常州學派)&mdash;a five-generation
         intellectual lineage running from 莊存與 (1719&ndash;1788) through to Kang Youwei
-        (1858&ndash;1927), the architect of the Hundred Days&rsquo; Reform &mdash;
+        (1858&ndash;1927), the architect of the Hundred Days&rsquo; Reform&mdash;
         working from New Text Confucian hermeneutics to coin 中華 as a civilizational
         umbrella transcending Han ethnicity alone.
       </p>
@@ -618,7 +609,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <div class="paper-links">
       <a href="/hua/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">↗</span>Read the Study
+        <span class="lbl">&#8599;</span>Read the Study
       </a>
     </div>
   </div>
@@ -634,7 +625,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <div class="paper-abstract">
       <p>A three-part integrated framework addressing AI-driven scientific replication threats
-      and law-bounded U.S. responses. <strong>Portion I</strong> delineates PRC AI-assisted
+      and law-bounded U.S. responses. Large language models (LLMs) and related systems are the primary vector examined. <strong>Portion I</strong> delineates PRC AI-assisted
       &ldquo;scientific cloning&rdquo;: centralized pipelines that learn from foreign research
       and redeploy results across dual-use vectors&mdash;with operational mechanics,
       translation pathways, and indicators for Western R&amp;D exposure.
@@ -658,9 +649,149 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
+  <!-- ASI Architect / Logarchéon core work card -->
+  <div class="paper-card" style="border-left:3px solid var(--gold);background:rgba(14,31,58,0.55);">
+    <h3>Artificial Superintelligence Architect — Logarchéon Core Architecture</h3>
+    <div class="paper-meta">
+      <span>Lecture Notes &amp; Patent Portfolio &middot; 2023&ndash;2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>AI Architecture &middot; Mathematical Foundations &middot; U.S. Patent Pending</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        The primary research output of Logarch&eacute;on: a mathematically rigorous
+        proof that any scalable Artificial Superintelligence operating in the real world
+        requires, at the architecture class level, three independent mechanisms —
+        CEAS-class nonlocal coordination, Ψ-class causal operator inference, and
+        GRAIL-class invariant geometric representation. The necessity claims are theorems,
+        not assertions; each addresses an independent obstruction proved via graph theory,
+        causal identifiability, and orbit coverage.
+      </p>
+      <p>
+        Materials include ~264 pages of graduate-seminar lecture notes (v18), a
+        94-cell Colab implementation (Tier-A v5), a 25-claim patent draft, and
+        a complete ANI-vs-ASI certification checklist requiring triadic ablation and
+        20 closed-loop recursive self-improvement cycles. U.S. Provisional 64/067,703
+        filed; non-provisional in preparation. Portfolio: 9+ applications filed 2025
+        across ASI architecture, MIA, CEAS, operator-theoretic verification,
+        and related methods.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);">
+        <span class="lbl">&#8599;</span>Architecture Overview
+      </a>
+      <a href="/CEAS" class="link-btn"><span class="lbl">&#8599;</span>CEAS</a>
+      <a href="/GRAIL" class="link-btn"><span class="lbl">&#8599;</span>GRAIL</a>
+      <a href="/Ψ-Operator-Framework" class="link-btn"><span class="lbl">&#8599;</span>Ψ-Operator</a>
+      <a href="/MIA" class="link-btn"><span class="lbl">&#8599;</span>MIA</a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      NDA-gated technical brief and lecture notes available on request —
+      <a href="mailto:founder@logarcheon.com?subject=Logarch%C3%A9on%20%E2%80%94%20Technical%20brief%20request">founder@logarcheon.com</a>
+    </p>
+  </div>
+
+
+<!-- ═══ ANI vs ASI COMPARISON (research page) ═══ -->
+<div id="comparison" style="margin:2rem 0;">
+  <div style="border-bottom:1px solid var(--border-dim);padding-bottom:0.9rem;margin-bottom:1.6rem;display:flex;align-items:baseline;gap:1.2rem;">
+    <span style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--muted);">01b</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--gold-light);">ANI vs. AGI vs. ASI — Formal Comparison</h2>
+  </div>
+
+  <p style="color:var(--body);font-size:0.92rem;max-width:68ch;margin-bottom:0.8rem;line-height:1.75;">
+    <strong>ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks, including every current large language model (LLM). <strong>AGI (Artificial General Intelligence)</strong> — broad competence across most cognitive task families at adult-human level. <strong>ASI (Artificial Superintelligence)</strong> — exceeds the best human across most major cognitive domains, with robust transfer to untrained task families. The distinction is architectural and mathematical, not about benchmark scores or parameter count.
+  </p>
+  <p style="color:var(--faint);font-size:0.84rem;max-width:68ch;margin-bottom:1.5rem;line-height:1.65;">
+    Table derived directly from lecture notes v18, §§ checklist, concrete-scenarios, synthesis.
+  </p>
+
+  <!-- Table header -->
+  <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:2px;margin-bottom:2px;">
+    <div></div>
+    <div style="background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-bottom:none;padding:12px 16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:3px;">ANI — Frontier LLMs</div>
+      <div style="font-size:0.78rem;color:var(--faint);line-height:1.4;">GPT&#8209;4/5 &middot; Claude &middot; Gemini &middot; all scaling&#8209;law models</div>
+    </div>
+    <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.2);border-bottom:none;border-top:2px solid var(--gold);padding:12px 16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;">Logarchéon ASI Architect Seed</div>
+      <div style="font-size:0.78rem;color:var(--muted);line-height:1.4;">CEAS + &Psi;-Operator + GRAIL triadic architecture</div>
+    </div>
+  </div>
+
+  <style>
+  .rc-row { display:grid; grid-template-columns:160px 1fr 1fr; gap:2px; margin-bottom:2px; }
+  .rc-lbl { padding:14px 12px 14px 0; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.04em; color:var(--gold-dim); display:flex; align-items:flex-start; padding-top:16px; }
+  .rc-ani { background:rgba(14,31,58,0.7); border:1px solid var(--border-dim); padding:14px 16px; font-size:0.86rem; color:var(--faint); line-height:1.6; }
+  .rc-asi { background:rgba(14,31,58,0.9); border:1px solid rgba(201,168,76,0.15); padding:14px 16px; font-size:0.86rem; color:var(--body); line-height:1.6; }
+  </style>
+
+  <div class="rc-row"><div class="rc-lbl">Causal reasoning</div>
+    <div class="rc-ani">Observational correlation only — P(Y&nbsp;|&nbsp;X). Cannot distinguish correlation from causal consequence. Prompt wrappers do not change the underlying computation.</div>
+    <div class="rc-asi">All four Pearl rungs: association, intervention P(Y&nbsp;|&nbsp;do(X)), counterfactual Y<sub>x&prime;</sub>, and constrained inverse design. &Psi;-operator implements do-calculus natively — not as a wrapper.</div>
+  </div>
+
+  <div class="rc-row"><div class="rc-lbl">Geometry</div>
+    <div class="rc-ani">Euclidean q<sup>&top;</sup>k — coordinate-dependent. Exact orbit generalisation over infinite symmetry groups is impossible regardless of data volume. Theorem, not engineering limit.</div>
+    <div class="rc-asi">GRAIL invariant I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). Coordinate-independent. Exact orbit generalisation is structural — not a data-scaling problem.</div>
+  </div>
+
+  <div class="rc-row"><div class="rc-lbl">Global coordination</div>
+    <div class="rc-ani">Local fixed-&beta; attention. Coordination latency T<sub>N</sub>&nbsp;=&nbsp;&Omega;(N<sup>1/d</sup>) diverges with scale. No parameter increase removes this — proved unconditionally.</div>
+    <div class="rc-asi">CEAS collective variable achieves sub-diameter coordination. &beta; dynamically controlled — fixed initialisation is proved suboptimal after the first gradient step.</div>
+  </div>
+
+  <div class="rc-row"><div class="rc-lbl">Self-improvement</div>
+    <div class="rc-ani">Weights frozen at inference. Frontier labs at RSI (Recursive Self-Improvement) Levels 3–5; autonomous closed-loop successor design (Levels 7–8) not publicly demonstrated.</div>
+    <div class="rc-asi">Designed for a verified closed RSI loop: propose &rarr; implement &rarr; train &rarr; evaluate &rarr; verify &rarr; deploy. No manual edits inside the measured cycle.</div>
+  </div>
+
+  <div class="rc-row"><div class="rc-lbl">ANI vs AGI vs ASI</div>
+    <div class="rc-ani">Frontier systems are plausibly Emerging AGI (Rank 5) at most — not Competent AGI (Rank 6), not Expert AGI (Rank 7), not ASI (Rank 9+). Remarkable capability within training distribution; not general superintelligence.</div>
+    <div class="rc-asi">Designed as an ASI Seed (Rank 10–12 trajectory). Current target: Level 4 — recursive triadic improvement over &ge;20 verified cycles. Actual ASI additionally requires &ge;10-domain breadth and self-improvement of the improvement process itself.</div>
+  </div>
+
+  <div class="rc-row" style="margin-bottom:0;"><div class="rc-lbl">Failure mode</div>
+    <div class="rc-ani">Returns a plausible answer regardless of whether a valid answer exists. Optimises text likelihood, not constraint satisfaction.</div>
+    <div class="rc-asi">Returns an infeasibility certificate when no valid solution exists — backed by verified computation. Honest failure requires an actual constraint model.</div>
+  </div>
+
+  <!-- Key result -->
+  <div style="background:rgba(14,31,58,0.7);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1.1rem 1.3rem;margin-top:1.2rem;margin-bottom:0.8rem;">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 0.5rem;">
+      <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
+    </p>
+    <p style="font-size:0.84rem;color:var(--muted);line-height:1.65;margin:0;">
+      A system can score at the highest human level on every standard benchmark and still be ANI
+      if it succeeds only within its training distribution. The distinction is whether it can
+      intervene causally, generalise over symmetry orbits, and improve its own architecture
+      inside a verified closed loop with a falsifiable audit record. — <em>Lecture notes v18, §checklist</em>
+    </p>
+  </div>
+
+  <!-- What is not ASI -->
+  <div style="background:rgba(10,22,40,0.4);border:1px solid var(--border-dim);padding:1rem 1.3rem;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:0.75rem;">What is not ASI — lecture notes v18, §synthesis</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+        <li style="font-size:0.83rem;color:var(--faint);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">✗</span>Any LLM, however large, operating at observational-correlation-only causality</li>
+        <li style="font-size:0.83rem;color:var(--faint);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">✗</span>An agentic pipeline wrapping a correlation-based LLM in causal-sounding instructions</li>
+        <li style="font-size:0.83rem;color:var(--faint);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">✗</span>Advanced computing hardware without goals, world models, or causal agency</li>
+      </ul>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+        <li style="font-size:0.83rem;color:var(--faint);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">✗</span>Superhuman performance in narrow domains only — ANI by definition</li>
+        <li style="font-size:0.83rem;color:var(--faint);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">✗</span>High benchmark scores with high scaffolding dependence — scaffolded performance is not autonomous intelligence</li>
+        <li style="font-size:0.83rem;color:var(--faint);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">✗</span>Claimed improvements not reproducible from logs, checkpoints, and pre-registered benchmarks</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
 </section>
 
-<!-- ═══════════════════════════════════ §4 MATH ═════════════════════════════ -->
+<!-- ═══ §2 MATHEMATICS ═══ -->
 <section class="page-section" id="math">
   <div class="section-header">
     <span class="section-num">02</span>
@@ -743,7 +874,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 </section>
 
-<!-- ═══════════════════════════════════ §5 FINANCE ══════════════════════════ -->
+<!-- ═══ §3 FINANCE ═══ -->
 <section class="page-section" id="finance">
   <div class="section-header">
     <span class="section-num">03</span>
@@ -793,7 +924,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 </section>
 
-<!-- ═══════════════════════════════════ §6 FAITH ════════════════════════════ -->
+<!-- ═══ §4 FAITH ═══ -->
 <section class="page-section" id="faith">
   <div class="section-header">
     <span class="section-num">04</span>
@@ -852,7 +983,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       spirituality (especially the Examen and Suscipe) and the monastic balance of the
       Cistercian tradition. Includes a full weekday horarium, busy-day minimum,
       weekly Principle and Foundation practice, and a sacramental rhythm (~20 days).
-      Times are recommendations, not rigid laws.
+      Times are recommendations, not rigid prescriptions.
     </div>
     <div class="paper-links">
       <a href="https://drive.google.com/file/d/1z2DScf5YcLpmvriAV2tGQspHBHSB_o4T/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>Rule of Life</a>
@@ -876,7 +1007,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 </section>
 
-<!-- ═══════════════════════════════════ §7 STUDY NOTES ══════════════════════ -->
+<!-- ═══ §5 STUDY NOTES ═══ -->
 <section class="page-section" id="notes">
   <div class="section-header">
     <span class="section-num">05</span>
