@@ -178,6 +178,48 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 @media(max-width:520px) {
   .tech-grid { grid-template-columns:1fr; }
 }
+
+/* Research table */
+.research-table-wrap { overflow-x:auto; margin-top:1.6rem; }
+.research-table { width:100%; border-collapse:collapse; font-size:0.84rem; }
+.research-table th {
+  font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.09em;
+  text-transform:uppercase; color:var(--gold-dim); font-weight:400;
+  padding:0.6rem 0.9rem; border-bottom:1px solid var(--border-dim);
+  text-align:left; white-space:nowrap;
+}
+.research-table td {
+  padding:0.75rem 0.9rem; border-bottom:1px solid var(--border-dim);
+  color:var(--body); vertical-align:top; line-height:1.65;
+}
+.research-table tr:last-child td { border-bottom:none; }
+.research-table tr:hover td { background:rgba(201,168,76,0.04); }
+.research-table td:first-child { color:var(--cream); font-size:0.86rem; }
+.research-table td .zh { display:block; font-size:0.75rem; color:var(--faint); margin-top:0.15rem; }
+.research-table td .size-num { font-family:"DM Mono",monospace; font-size:0.95rem; color:var(--gold); }
+.research-table td .size-sub { display:block; font-size:0.68rem; color:var(--faint); font-family:"DM Mono",monospace; letter-spacing:0.05em; }
+.rt-tag {
+  display:inline-block; font-family:"DM Mono",monospace; font-size:0.6rem;
+  letter-spacing:0.06em; text-transform:uppercase; padding:0.18rem 0.5rem;
+  border:1px solid var(--border-dim); border-radius:2px; color:var(--gold-dim);
+  margin:0.25rem 0.2rem 0 0; background:var(--gold-glow);
+}
+
+/* Assessment bar */
+.assess-block { margin-top:1.6rem; border-top:1px solid var(--border-dim); padding-top:1.4rem; }
+.assess-label-row {
+  display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;
+}
+.assess-text { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+.assess-bar-wrap { flex:1; min-width:120px; max-width:260px; height:4px; background:rgba(201,168,76,0.13); border-radius:2px; }
+.assess-bar-fill { height:100%; width:62%; background:var(--gold); border-radius:2px; }
+.assess-pct { font-family:"DM Mono",monospace; font-size:1rem; color:var(--gold-light); letter-spacing:0.04em; }
+.assess-icd { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); }
+
+@media(max-width:820px) {
+  .research-table th:nth-child(4),
+  .research-table td:nth-child(4) { display:none; }
+}
 </style>
 </head>
 <body>
@@ -780,7 +822,22 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         moment, on this island.
       </p>
       <p>
-        The second is institutional, and from the twentieth century.
+        The second is maritime. <strong>嚴喜</strong> (romanised
+        in the U.S. court records as &ldquo;Yum Hee,&rdquo; of Hong Kong)
+        was one of six Chinese survivors of the RMS Titanic (1912).
+      </p>
+
+      <div class="assess-block">
+        <div class="assess-label-row">
+          <span class="assess-text" style="color:var(--faint);">Complement &middot; 嚴喜 (Yum Hee) &middot; ICD&nbsp;203 &nbsp;&mdash;&nbsp; Crew member only, no intelligence-adjacent function</span>
+          <div class="assess-bar-wrap"><div class="assess-bar-fill" style="width:38%;background:var(--faint);"></div></div>
+          <span class="assess-pct" style="color:var(--faint);">~38%</span>
+          <span class="assess-icd" style="background:rgba(138,128,112,0.15);color:var(--faint);">unlikely</span>
+        </div>
+      </div>
+
+      <p>
+        The third is institutional, and from the twentieth century.
         A primary-source account of the wartime
         Military Intelligence Service Fujian Northern Station records that
         when the station was reorganized in late 1938, its two senior positions
@@ -792,7 +849,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         records; I note it because the pattern is precise.
       </p>
       <p>
-        The third is custodial, and it carries a weight that I find difficult
+        The fourth is custodial, and it carries a weight that I find difficult
         to overstate. <strong>莊嚴</strong> (Chuang Yen, 1899&ndash;1980) &mdash;
         whose name joins both surnames in a single compound that means, in
         classical Chinese, <em>solemn dignity</em> and <em>adornment of the
@@ -808,7 +865,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         deal of quiet gratitude.
       </p>
       <p>
-        The fourth is constitutional and financial.
+        The fifth is constitutional and financial.
         <strong>嚴家淦</strong> (Yen Chia-kan, 1905&ndash;1993) served the
         Republic of China across a sequence of offices whose cumulative
         significance is difficult to compress into a single sentence:
@@ -824,11 +881,64 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         &ldquo;Father of the New Taiwan Dollar.&rdquo;
         The historical record of his service stands entirely on its own.
       </p>
-      <p>
-        The fifth is quieter in register. <strong>嚴喜</strong> (romanised
-        in the U.S. court records as &ldquo;Yum Hee,&rdquo; of Hong Kong)
-        was one of six Chinese survivors of the RMS Titanic (1912).
-      </p>
+      <div class="research-table-wrap">
+        <table class="research-table">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Year</th>
+              <th>Size</th>
+              <th>Mandate</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Taiwan Investigation Commission<span class="zh">台灣調查委員會</span></td>
+              <td><span style="font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--muted);">Apr 1944</span></td>
+              <td><span class="size-num">~8&ndash;10</span></td>
+              <td>Chongqing. Headed by Chen Yi. Produced the &ldquo;Outline of the Plan for Taiwan&rsquo;s Takeover.&rdquo; Economic, political, military assessment.</td>
+              <td>嚴家淦 on parallel Ministry of Economic Affairs standing committee for reorganizing Japanese assets.<br><span class="rt-tag">Finance planner</span></td>
+            </tr>
+            <tr>
+              <td>Taiwan Provincial Admin. Executive Office<span class="zh">台灣省行政長官公署</span></td>
+              <td><span style="font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--muted);">Oct 1945</span></td>
+              <td><span class="size-num">~15&ndash;17</span></td>
+              <td>Formal governing apparatus. Chen Yi: Chief Executive. 8 department directors, 4 bureau heads, Bank of Taiwan chairman.</td>
+              <td>嚴家淦: Transportation Director &rarr; Finance Commissioner (Apr 1946) &rarr; Bank of Taiwan Chairman. 1 of&nbsp;~15&ndash;17. Only official with Anglo-American institutional education.<br><span class="rt-tag">St. John&rsquo;s / English-medium</span><span class="rt-tag">Finance control within 6 months</span></td>
+            </tr>
+            <tr>
+              <td>New Taiwan Dollar Reform<span class="zh">新台幣發行</span></td>
+              <td><span style="font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--muted);">Jun 1949</span></td>
+              <td><span class="size-num">1</span><span class="size-sub">sole architect</span></td>
+              <td>Replaced hyperinflationary Old Taiwan Dollar (40,000:1). IMF-legible monetary framework. Precondition for Bretton Woods integration.</td>
+              <td>嚴家淦: &ldquo;Father of the New Taiwan Dollar.&rdquo;<br><span class="rt-tag">Bretton Woods integration</span><span class="rt-tag">BIS / IMF compatible</span></td>
+            </tr>
+            <tr>
+              <td>Central Bank Governor<span class="zh">中央銀行總裁</span></td>
+              <td><span style="font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--muted);">1961&ndash;63</span></td>
+              <td><span class="size-num">1</span></td>
+              <td>Taiwan&rsquo;s institutional link to BIS and global central banking network.</td>
+              <td>嚴家淦: Governor.<br><span class="rt-tag">Fed Reserve &rarr; BIS &rarr; Taiwan CB chain</span></td>
+            </tr>
+            <tr>
+              <td>President, Republic of China<span class="zh">中華民國總統</span></td>
+              <td><span style="font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--muted);">1975&ndash;78</span></td>
+              <td><span class="size-num">1</span></td>
+              <td>Succeeded Chiang Kai-shek upon his death. Served out remainder of term; ceded presidency to Chiang Ching-kuo (1978).</td>
+              <td>嚴家淦: Head of state.<br><span class="rt-tag">Financial technocrat as president</span></td>
+            </tr>
+            <tr>
+              <td>KMT Political Reform Committee</td>
+              <td><span style="font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--muted);">Mar 1986</span></td>
+              <td><span class="size-num">10</span></td>
+              <td>Planned Taiwan&rsquo;s democratization. Led to lifting of martial law (1987).</td>
+              <td>嚴家淦: Chair.<br><span class="rt-tag">Democracy architect</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <p>
         The sixth is constitutional, and it connects directly to the Changzhou
         lineage that runs through the rest of this page.
@@ -921,13 +1031,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           what he could not obtain on his own: military force (Chuang Yunkuan activated
           his former Guangxi military network to march on Hunan), direct access to the
           Republican president and premier in Beijing, safe housing for his forty-person
-          delegation, and the social credibility to be received at all. This is stated
-          as structural causation, not endorsement. All four families were Confucian
-          scholar-gentry &mdash; the educated elite class whose property, institutions,
-          and lives the Chinese Communist Party would systematically destroy after 1949.
-          They did not invest in the CCP; they invested in a political campaign whose
-          downstream consequences none of them could have foreseen or endorsed.
-          The return on their investment, measured over thirty years, was negative.
+          delegation, and the social credibility to be received at all.
           <br><br>
           A parallel institutional vector: in 1919 Mao rented space in the former
           clinic of Yale-in-China (雅禮協會), the American missionary-educational
