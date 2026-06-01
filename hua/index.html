@@ -996,7 +996,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
           <rect x="129.5" y="122"  width="7"  height="22" fill="url(#jc1)"/>
           <rect x="122"   y="129.5" width="22" height="7" fill="url(#jc1)"/>
         </svg>
-        <span class="cross-sublabel">Standard</span>
+        <span class="cross-sublabel">Cross of Jerusalem</span>
       </div>
 
       <div class="cross-item">
@@ -1037,43 +1037,61 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
 
       <div class="cross-item">
         <svg width="80" height="80" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="jc4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient></defs>
+          <defs>
+            <linearGradient id="jc4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient>
+            <clipPath id="circ-jc4"><circle cx="110" cy="110" r="85"/></clipPath>
+          </defs>
+          <g clip-path="url(#circ-jc4)">
+            <!-- Central vertical (prime meridian — straight rect) -->
+            <rect x="106.5" y="28"  width="7" height="164" fill="url(#jc4)"/>
+            <!-- Left side vertical — straight body y=66–154 -->
+            <rect x="73.5"  y="66"  width="7" height="88"  fill="url(#jc4)"/>
+            <!-- Right side vertical — straight body y=66–154 -->
+            <rect x="139.5" y="66"  width="7" height="88"  fill="url(#jc4)"/>
+            <!-- Convergence caps: each side bar tapers to north pole (globe meridian) -->
+            <path d="M 110,25 C 89.8,25 73.5,50 73.5,66 L 80.5,66 C 80.5,50 93.7,25 110,25 Z" fill="url(#jc4)"/>
+            <path d="M 110,25 C 130.2,25 146.5,50 146.5,66 L 139.5,66 C 139.5,50 126.3,25 110,25 Z" fill="url(#jc4)"/>
+            <!-- Convergence caps: each side bar tapers to south pole -->
+            <path d="M 73.5,154 C 73.5,170 89.8,195 110,195 C 93.7,195 80.5,170 80.5,154 Z" fill="url(#jc4)"/>
+            <path d="M 146.5,154 C 146.5,170 130.2,195 110,195 C 126.3,195 139.5,170 139.5,154 Z" fill="url(#jc4)"/>
+            <!-- Horizontal bars: full width, clipped at outer circle -->
+            <rect x="25" y="73.5"  width="170" height="7" fill="url(#jc4)"/>
+            <rect x="25" y="106.5" width="170" height="7" fill="url(#jc4)"/>
+            <rect x="25" y="139.5" width="170" height="7" fill="url(#jc4)"/>
+          </g>
+          <!-- Ring on top -->
           <path fill-rule="evenodd" fill="url(#jc4)" d="M110,25 C157,25 195,63 195,110 C195,157 157,195 110,195 C63,195 25,157 25,110 C25,63 63,25 110,25 Z M110,32 C153,32 188,67 188,110 C188,153 153,188 110,188 C67,188 32,153 32,110 C32,67 67,32 110,32 Z"/>
-          <path d="M110,28 Q83,28 63.5,44 L70.5,44 Q83,35 110,28 Z" fill="url(#jc4)"/>
-          <path d="M110,28 Q137,28 156.5,44 L149.5,44 Q137,35 110,28 Z" fill="url(#jc4)"/>
-          <path d="M110,192 Q83,192 63.5,176 L70.5,176 Q83,185 110,192 Z" fill="url(#jc4)"/>
-          <path d="M110,192 Q137,192 156.5,176 L149.5,176 Q137,185 110,192 Z" fill="url(#jc4)"/>
-          <path d="M28,110 Q28,83 44,63.5 L44,70.5 Q35,83 28,110 Z" fill="url(#jc4)"/>
-          <path d="M28,110 Q28,137 44,156.5 L44,149.5 Q35,137 28,110 Z" fill="url(#jc4)"/>
-          <path d="M192,110 Q192,83 176,63.5 L176,70.5 Q185,83 192,110 Z" fill="url(#jc4)"/>
-          <path d="M192,110 Q192,137 176,156.5 L176,149.5 Q185,137 192,110 Z" fill="url(#jc4)"/>
-          <rect x="106.5" y="28"    width="7"   height="164" fill="url(#jc4)"/>
-          <rect x="28"    y="106.5" width="164" height="7"   fill="url(#jc4)"/>
-          <rect x="73.5"  y="88"    width="7"   height="44"  fill="url(#jc4)"/>
-          <rect x="139.5" y="88"    width="7"   height="44"  fill="url(#jc4)"/>
-          <rect x="88"    y="73.5"  width="44"  height="7"   fill="url(#jc4)"/>
-          <rect x="88"    y="139.5" width="44"  height="7"   fill="url(#jc4)"/>
-          <rect x="73.5"  y="66"    width="7"   height="22"  fill="url(#jc4)"/>
-          <rect x="66"    y="73.5"  width="22"  height="7"   fill="url(#jc4)"/>
-          <rect x="139.5" y="66"    width="7"   height="22"  fill="url(#jc4)"/>
-          <rect x="132"   y="73.5"  width="22"  height="7"   fill="url(#jc4)"/>
-          <rect x="73.5"  y="132"   width="7"   height="22"  fill="url(#jc4)"/>
-          <rect x="66"    y="139.5" width="22"  height="7"   fill="url(#jc4)"/>
-          <rect x="139.5" y="132"   width="7"   height="22"  fill="url(#jc4)"/>
-          <rect x="132"   y="139.5" width="22"  height="7"   fill="url(#jc4)"/>
-          <path d="M73.5,66 Q74,48 110,28 L106.5,28 Q71,44 80.5,66 Z" fill="url(#jc4)"/>
-          <path d="M66,73.5 Q48,74 28,110 L28,106.5 Q44,71 66,80.5 Z" fill="url(#jc4)"/>
-          <path d="M139.5,66 Q140,48 110,28 L113.5,28 Q149,44 146.5,66 Z" fill="url(#jc4)"/>
-          <path d="M153,73.5 Q172,74 192,110 L192,106.5 Q176,71 153,80.5 Z" fill="url(#jc4)"/>
-          <path d="M73.5,154 Q74,172 110,192 L113.5,192 Q71,176 80.5,154 Z" fill="url(#jc4)"/>
-          <path d="M66,139.5 Q48,140 28,110 L28,113.5 Q44,149 66,146.5 Z" fill="url(#jc4)"/>
-          <path d="M139.5,154 Q140,172 110,192 L106.5,192 Q149,176 146.5,154 Z" fill="url(#jc4)"/>
-          <path d="M153,139.5 Q172,140 192,110 L192,113.5 Q176,149 153,146.5 Z" fill="url(#jc4)"/>
         </svg>
         <span class="cross-sublabel">Alt.&thinsp;ii</span>
       </div>
 
-      <!-- Alt iii: Cross of Rolin + Jerusalem — untilted, verified proportions -->
+      <!-- Alt iii: 5-bar graduated cross — longest centre bar with crosslet terminals -->
+      <div class="cross-item">
+        <svg width="80" height="80" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="jc5b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient></defs>
+          <!-- Spine -->
+          <rect x="129" y="16"  width="22" height="248" fill="url(#jc5b)"/>
+          <!-- Bar 1 — top, shortest (offset -88) -->
+          <rect x="94"  y="41"  width="92"  height="22"  fill="url(#jc5b)"/>
+          <!-- Bar 2 — upper medium (offset -44) + inner small verticals -->
+          <rect x="58"  y="87"  width="164" height="18"  fill="url(#jc5b)"/>
+          <rect x="64"  y="67"  width="22"  height="58"  fill="url(#jc5b)"/>
+          <rect x="194" y="67"  width="22"  height="58"  fill="url(#jc5b)"/>
+          <!-- Bar 3 — CENTRE, longest (offset 0) + crosslet terminals inward — forms two small crosses -->
+          <rect x="25"  y="131" width="230" height="18"  fill="url(#jc5b)"/>
+          <rect x="30"  y="121" width="22"  height="38"  fill="url(#jc5b)"/>
+          <rect x="228" y="121" width="22"  height="38"  fill="url(#jc5b)"/>
+          <!-- Bar 4 — lower medium (offset +44) + inner small verticals -->
+          <rect x="58"  y="175" width="164" height="18"  fill="url(#jc5b)"/>
+          <rect x="64"  y="155" width="22"  height="58"  fill="url(#jc5b)"/>
+          <rect x="194" y="155" width="22"  height="58"  fill="url(#jc5b)"/>
+          <!-- Bar 5 — bottom, shortest (offset +88) -->
+          <rect x="94"  y="217" width="92"  height="22"  fill="url(#jc5b)"/>
+        </svg>
+        <span class="cross-sublabel">Alt.&thinsp;iii</span>
+      </div>
+
+      <!-- Alt iv: Cross of Rolin + Jerusalem — untilted, verified proportions -->
       <div class="cross-item">
         <svg width="80" height="80" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="jc5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient></defs>
@@ -1093,7 +1111,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
           <rect x="64"  y="147" width="22" height="58"  fill="url(#jc5)"/>
           <rect x="194" y="147" width="22" height="58"  fill="url(#jc5)"/>
         </svg>
-        <span class="cross-sublabel">Alt.&thinsp;iii</span>
+        <span class="cross-sublabel">Alt.&thinsp;iv</span>
       </div>
 
     </div>
@@ -1104,17 +1122,39 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
       the Tau or Cross of Salem &mdash; a distinct but cognate form within the same
       heraldic and ecclesiastical tradition.
       Alt.&thinsp;i: all strokes uniform, the four crosses linked by straight extensions.
+      A heraldic reading of Alt.&thinsp;i colours the inner central cross
+      <em>white</em> and shades the outer region &mdash; the area of the larger cross
+      that remains after the inner cross is subtracted &mdash; in <em>red</em>,
+      yielding the Cruz de Cristo (Cross of Christ). This two-tone form is the
+      badge of the <strong>Ordem de Cristo</strong> (Order of Christ), one of the
+      three ancient military orders of Portugal; by law, every President of the
+      Portuguese Republic is automatically Grand Master of the Order of Christ,
+      as is every President for the Ordem Militar de Santiago da Espada
+      (Order of Saint James of the Sword). The same Cruz de Cristo colouring
+      is also borne by the <strong>Order of Saint Thomas of Acon</strong>
+      (Acre), the English crusading order established at Akko and named
+      for Saint Thomas Becket of Canterbury.
       Alt.&thinsp;ii: enclosed by a continuous circular loop, suggestive of a globe projection.
-      Alt.&thinsp;iii: the Cross of Rolin at centre &mdash; one long spine with two shorter inner
+      Alt.&thinsp;iii: five horizontal bars on a single spine, graduating from shortest at top
+      and bottom to longest at the centre; the centre bar carries small crosslet terminals
+      at each end forming two local crosses. Bars are evenly spaced at 44-pixel intervals;
+      widths progress
+      46&thinsp;&rarr;&thinsp;82&thinsp;&rarr;&thinsp;115&thinsp;&rarr;&thinsp;82&thinsp;&rarr;&thinsp;46
+      (half-widths in viewBox units).
+      This graduated cross is the <strong>symbol and personal signature</strong> of the
+      <strong>Sovereign Grand Commander</strong> &mdash; the supreme officer of the
+      Supreme Council &mdash; whose authority is distinguished from all other degrees
+      by the five-bar form and by the crosslet terminals of the centre bar.
+      Alt.&thinsp;iv: the Cross of Rolin at centre &mdash; one long spine with two shorter inner
       crossbars above and below &mdash; combined with four small crosses at the ends of two
       extended horizontal bars; the form used in the regalia of the
       Sovereign Grand Inspector General.
     </p>
   </div>
 
-  <!-- Card 2: Cross of Salem ∪ Standard ≈ 華 -->
+  <!-- Card 2: Cross of Salem ∪ Cross of Jerusalem ≈ 華 -->
   <div class="cross-panel" style="margin-top:1.2rem;">
-    <p class="panel-label">Cross of Salem &nbsp;&#x222A;&nbsp; Standard &nbsp;&asymp;&nbsp; 華</p>
+    <p class="panel-label">Cross of Salem &nbsp;&#x222A;&nbsp; Cross of Jerusalem &nbsp;&asymp;&nbsp; 華</p>
     <div class="cross-row" style="align-items:center;gap:1.2rem;">
 
       <div class="cross-item">
@@ -1154,7 +1194,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
           <rect x="129.5" y="122"  width="7"  height="22" fill="url(#jc1)"/>
           <rect x="122"   y="129.5" width="22" height="7" fill="url(#jc1)"/>
         </svg>
-        <span class="cross-sublabel">Standard<br>
+        <span class="cross-sublabel">Cross of Jerusalem<br>
           <span style="font-size:0.52rem;letter-spacing:0.04em;">four crosses retained</span>
         </span>
       </div>
@@ -1175,9 +1215,9 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
       The Cross of Salem (Papal / Pontifical Cross) carries three horizontal bars of
       graduated width on a single vertical &mdash; short at the top, wide in the middle,
       medium below. The set union (&#x222A;) denotes substitution, not mere addition:
-      the Cross of Salem <em>replaces the large central cross</em> of the Standard
-      Jerusalem Cross, while the four smaller quadrant crosses are retained.
-      The dimmed centre of the Standard marks the element being substituted out.
+      the Cross of Salem <em>replaces the large central cross</em> of the Cross of Jerusalem,
+      while the four smaller quadrant crosses are retained.
+      The dimmed centre of the Cross of Jerusalem marks the element being substituted out.
       Salem&rsquo;s three-barred vertical at the centre, the four quadrant crosses
       extending outward &mdash; the combined stroke inventory approximates the traditional
       written structure of 華: a central vertical axis with three horizontal registers
@@ -1242,6 +1282,33 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
           <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:3.8rem;color:var(--gold);line-height:1;">&#33775;</span>
         </div>
         <span class="cross-sublabel" style="color:var(--gold);">&#33775; (huá)</span>
+      </div>
+
+      <!-- ≈ Alt. iii operator -->
+      <div class="cross-item" style="gap:0;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold-dim);line-height:1;padding-bottom:1.4rem;">&asymp;</span>
+      </div>
+
+      <!-- Alt. iii — Sovereign Grand Commander symbol -->
+      <div class="cross-item">
+        <svg width="80" height="80" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="jc5c" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4db88"/><stop offset="100%" stop-color="#b8892a"/></linearGradient></defs>
+          <rect x="129" y="16"  width="22" height="248" fill="url(#jc5c)"/>
+          <rect x="94"  y="41"  width="92"  height="22"  fill="url(#jc5c)"/>
+          <rect x="58"  y="87"  width="164" height="18"  fill="url(#jc5c)"/>
+          <rect x="64"  y="67"  width="22"  height="58"  fill="url(#jc5c)"/>
+          <rect x="194" y="67"  width="22"  height="58"  fill="url(#jc5c)"/>
+          <rect x="25"  y="131" width="230" height="18"  fill="url(#jc5c)"/>
+          <rect x="30"  y="121" width="22"  height="38"  fill="url(#jc5c)"/>
+          <rect x="228" y="121" width="22"  height="38"  fill="url(#jc5c)"/>
+          <rect x="58"  y="175" width="164" height="18"  fill="url(#jc5c)"/>
+          <rect x="64"  y="155" width="22"  height="58"  fill="url(#jc5c)"/>
+          <rect x="194" y="155" width="22"  height="58"  fill="url(#jc5c)"/>
+          <rect x="94"  y="217" width="92"  height="22"  fill="url(#jc5c)"/>
+        </svg>
+        <span class="cross-sublabel">Alt.&thinsp;iii<br>
+          <span style="font-size:0.52rem;letter-spacing:0.04em;">Sovereign Grand Commander</span>
+        </span>
       </div>
 
     </div>
@@ -1443,7 +1510,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
       two shorter inner crossbars (the Rolin cross, above and below the small
       cross positions) combined with four compound crosses whose extended
       horizontal bars and small vertical arms form the outer structure.
-      Both the upright (Alt.&thinsp;iii) and 45&deg; orientations are shown.
+      Both the upright (Alt.&thinsp;iv) and 45&deg; orientations are shown.
       The interactive panel below records and preserves the verified proportions.
     </p>
   </div>
@@ -1465,7 +1532,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
           <rect x="64"  y="147" width="22" height="58"  fill="url(#ap1)"/>
           <rect x="194" y="147" width="22" height="58"  fill="url(#ap1)"/>
         </svg>
-        <span class="cross-sublabel">Upright &nbsp;&middot;&nbsp; Alt.&thinsp;iii</span>
+        <span class="cross-sublabel">Upright &nbsp;&middot;&nbsp; Alt.&thinsp;iv</span>
       </div>
       <div class="cross-item">
         <svg width="140" height="140" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
