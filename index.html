@@ -510,6 +510,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <li><a href="/About">About</a></li>
       <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
       <li><a href="#comparison" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">ANI vs ASI</a></li>
+      <li><a href="#mathematics" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Mathematics</a></li>
       <li><a href="#roadmap" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Roadmap</a></li>
       <li><a href="#contact" class="btn-primary" style="font-size:0.72rem;padding:8px 18px;">Contact</a></li>
     </ul>
@@ -756,7 +757,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     </p>
   </div>
 
-  <!-- ── WHAT IS NOT ASI ── -->
+  <!-- what is not ASI -->
   <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
     <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v18)</span>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
@@ -1115,6 +1116,176 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </div>
 </section>
 
+
+<!-- ═══ MATH ARCHITECTURE ═══ -->
+<section id="mathematics" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Mathematical foundations</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:14px;">
+    The mathematics of ASI is algebraic, not statistical
+  </h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:20px;">
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:24px 26px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px;">Statistical mathematics &mdash; necessary but not sufficient</div>
+      <p style="font-size:0.9rem;font-weight:500;color:rgba(245,240,232,0.75);margin-bottom:10px;line-height:1.5;">Answers: given data, how well can you <em>approximate</em> a function?</p>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.7;margin-bottom:10px;">Gradient descent, PAC learning, VC dimension, measure-theoretic probability, stochastic processes, random matrix theory &mdash; this tradition is largely answered at the engineering level. Transformers trained with Adam on cross-entropy loss work. The theory for why they generalise exists.</p>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.7;margin:0;border-left:2px solid var(--border-dim);padding-left:0.8rem;">Statistical math remains foundational for training dynamics, generalisation bounds, information theory (entropy H(&beta;) in CEAS), and Bayesian inference in the &Psi;-causal layer. It is not replaced &mdash; it is de-centred.</p>
+    </div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid var(--gold);padding:24px 26px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Algebraic mathematics &mdash; where the frontier lives</div>
+      <p style="font-size:0.9rem;font-weight:500;color:rgba(245,240,232,0.85);margin-bottom:10px;line-height:1.5;">Answers: what can a system structurally <em>represent</em>, regardless of data volume?</p>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.7;margin-bottom:10px;">Category theory, algebraic topology, algebraic combinatorics, representation theory, number theory (automorphic forms, Langlands programme), algebraic geometry (moduli spaces), programming language theory (type theory, PLT). The failures of LLMs are structural impossibilities &mdash; theorems in graph theory, group theory, and logic. More data and more compute do not fix them.</p>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.5);line-height:1.7;margin:0;border-left:2px solid var(--border);padding-left:0.8rem;">The GRAIL automorphic kernel is an automorphic form. The locality obstruction is a graph-theoretic theorem. The causal impossibility for association-only systems is a logic theorem. Each requires an algebraic solution.</p>
+    </div>
+  </div>
+
+  <!-- HISTORICAL PROGRESSION -->
+  <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:22px 26px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:14px;">Historical analogy &mdash; physics underwent the same transition</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch;">
+      <div style="padding:14px 16px;border-right:1px solid var(--border-dim);">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);margin-bottom:6px;">Newton</div>
+        <div style="font-size:0.83rem;color:rgba(245,240,232,0.55);line-height:1.5;">Calculus, classical analysis</div>
+      </div>
+      <div style="padding:14px 16px;border-right:1px solid var(--border-dim);">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);margin-bottom:6px;">Statistical mechanics</div>
+        <div style="font-size:0.83rem;color:rgba(245,240,232,0.55);line-height:1.5;">Probability theory, thermodynamics</div>
+      </div>
+      <div style="padding:14px 16px;border-right:1px solid var(--border-dim);">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);margin-bottom:6px;">Quantum mechanics</div>
+        <div style="font-size:0.83rem;color:rgba(245,240,232,0.55);line-height:1.5;">Linear algebra, group theory, symmetry</div>
+      </div>
+      <div style="padding:14px 16px;border-right:1px solid var(--border-dim);">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);margin-bottom:6px;">QFT / Standard Model</div>
+        <div style="font-size:0.83rem;color:rgba(245,240,232,0.55);line-height:1.5;">Algebraic topology, differential geometry, gauge theory</div>
+      </div>
+      <div style="padding:14px 16px;background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);border-left:none;margin:-1px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);margin-bottom:6px;">ASI frontier &larr; here</div>
+        <div style="font-size:0.83rem;color:rgba(245,240,232,0.75);line-height:1.5;">Category theory, type theory, automorphic forms, moduli spaces</div>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:rgba(245,240,232,0.35);margin:12px 0 0;font-style:italic;">Each transition preserved the previous mathematics as infrastructure. Calculus did not stop mattering when group theory entered. Statistics does not stop mattering when algebraic structure enters.</p>
+  </div>
+
+
+  <!-- ASI STACK LAYERS -->
+  <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:22px 26px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;">Where each mathematical tradition sits in the ASI stack</div>
+    <div style="display:flex;flex-direction:column;gap:2px;">
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:2px;align-items:stretch;">
+        <div style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);padding:11px 14px;display:flex;align-items:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;">Formal verification</span>
+        </div>
+        <div style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.18);padding:11px 14px;">
+          <span style="font-size:0.82rem;color:rgba(245,240,232,0.7);">Type theory, proof theory, PLT &mdash; Lean 4, Coq</span>
+        </div>
+        <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);padding:11px 14px;">
+          <span style="font-size:0.8rem;color:rgba(245,240,232,0.45);">RSI gate: incorrect proof = compile error</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:2px;align-items:stretch;">
+        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:11px 14px;display:flex;align-items:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);letter-spacing:0.06em;text-transform:uppercase;">Architecture design</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.82rem;color:rgba(245,240,232,0.6);">Algebraic topology, group theory, automorphic forms, category theory</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.8rem;color:rgba(245,240,232,0.4);">GRAIL invariant kernel, CEAS phase structure, Langlands connection</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:2px;align-items:stretch;">
+        <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);padding:11px 14px;display:flex;align-items:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);letter-spacing:0.06em;text-transform:uppercase;">Causal reasoning</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.82rem;color:rgba(245,240,232,0.6);">Logic, graph theory, combinatorics &mdash; Racket, SWI-Prolog</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.8rem;color:rgba(245,240,232,0.4);">&Psi;-causal layer: do-calculus, counterfactuals, inverse design</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:2px;align-items:stretch;">
+        <div style="border:1px solid var(--border-dim);padding:11px 14px;display:flex;align-items:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.4);letter-spacing:0.06em;text-transform:uppercase;">Training dynamics</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.82rem;color:rgba(245,240,232,0.45);">Statistical physics, information theory, stochastic optimisation</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.8rem;color:rgba(245,240,232,0.35);">Entropy H(&beta;) in CEAS; gradient descent; Adam</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:2px;align-items:stretch;">
+        <div style="border:1px solid var(--border-dim);padding:11px 14px;display:flex;align-items:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.35);letter-spacing:0.06em;text-transform:uppercase;">Generalisation theory</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.82rem;color:rgba(245,240,232,0.4);">PAC learning, VC theory, RMT (bridge field: also algebraic via Montgomery&rsquo;s conjecture)</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.8rem;color:rgba(245,240,232,0.3);">Eigenvalue structure of weight matrices; scaling law verification</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:2px;align-items:stretch;">
+        <div style="border:1px solid var(--border-dim);padding:11px 14px;display:flex;align-items:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.25);letter-spacing:0.06em;text-transform:uppercase;">Data &amp; loss</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.82rem;color:rgba(245,240,232,0.35);">Measure theory, probability &mdash; infrastructure layer</span>
+        </div>
+        <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:11px 14px;">
+          <span style="font-size:0.8rem;color:rgba(245,240,232,0.25);">Cross-entropy loss, dataset construction, evaluation metrics</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem;color:rgba(245,240,232,0.3);margin:12px 0 0;font-style:italic;">Algebraic mathematics occupies the top of the stack. Statistical mathematics is the bottom. The bottom is infrastructure. The frontier is at the top.</p>
+  </div>
+
+  <!-- SPECIFIC FIELDS -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px;">
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Algebraic topology</div>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Persistent homology tracks which features survive training. The locality obstruction theorem is a diameter lower bound &mdash; topology. CEAS phase transitions are topological, marking qualitative changes in global connectivity.</p>
+    </div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Number theory &amp; Langlands</div>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">The GRAIL automorphic kernel K&beta;(q,k) = &sum;&gamma;&isin;&Gamma; exp(&minus;&beta; d(q,&gamma;k)) is an automorphic form. The Langlands programme connects symmetry groups to analytic objects &mdash; precisely what GRAIL formalises for representations.</p>
+    </div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Category theory as unifier</div>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Category theory is not one more algebraic field &mdash; it is the language that connects all the others. Markov categories contain probability theory as a special case. The Curry&ndash;Howard&ndash;Lambek correspondence unifies type theory, logic, and category theory.</p>
+    </div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Algebraic geometry</div>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">The space of all model architectures with a given property is a moduli space. The MIA migration tiers are a stratification of this space. Deforming a model via RSI is a path in this geometric space.</p>
+    </div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">PLT as computational face</div>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Programming language theory is not separate from the algebraic fields &mdash; it is their computational instantiation. Homotopy type theory: types ARE topological spaces. Lean 4's type system is algebraic topology expressed as a proof language.</p>
+    </div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">RMT as bridge field</div>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Random matrix theory bridges both traditions. Statistical side: eigenvalue structure of weight matrices and Hessians. Algebraic side: Montgomery&rsquo;s conjecture connects RMT to the Riemann zeta function. RMT is being enriched by both directions simultaneously.</p>
+    </div>
+  </div>
+
+  <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);padding:16px 22px;">
+    <p style="font-size:0.92rem;color:rgba(245,240,232,0.8);line-height:1.7;margin:0;font-style:italic;">
+      &ldquo;Statistical mathematics tells you how well a system <strong style="color:var(--cream);font-style:normal;">approximates</strong>.
+      Algebraic mathematics tells you what a system can and cannot <strong style="color:var(--cream);font-style:normal;">represent</strong>.
+      For building systems that approach ASI, the binding constraint is representational &mdash;
+      what the architecture can structurally express &mdash; not approximation quality.&rdquo;
+    </p>
+  </div>
+
+</div>
+</section>
+
+
 <!-- ORIGIN -->
 <section class="origin" id="origin">
   <div class="container">
@@ -1413,6 +1584,92 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <li>GRAIL: ring of G-invariant kernels under convolution; choice of I yields candidate physics correspondences — heat kernel toward Einstein–Hilbert action, resolvent as a QFT propagator, Hecke kernels for Langlands, spectral projector for QM</li>
           <li>Recursive self-improvement: seven-step RSI protocol — spawn successor, super-connect, CEAS-initialize, GRAIL-inherit, Ψ-certify, iterate, certify; cost O(|V<sub>new</sub>|·|V<sup>(t)</sup>|)</li>
         </ul>
+      </div>
+      <div class="hood-card">
+        <h3>Language architecture &mdash; correctness by construction</h3>
+        <p style="margin-bottom:12px;">Every language has a <em>bug topology</em> &mdash; a map of what mistakes are structurally impossible to write. For a self-modifying system running autonomous improvement loops, the key question is not which language is fastest but which class of bugs each language makes impossible. The language choices here were reached through rigorous PL-theoretic analysis, including several revisions.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+          <div style="border:1px solid rgba(201,168,76,0.3);background:rgba(201,168,76,0.05);padding:12px 14px;">
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Lean 4 + Coq</div>
+            <div style="font-size:0.8rem;color:rgba(245,240,232,0.65);line-height:1.6;">Impossible to write an incorrect proof. Logical gaps are compile errors. Gates every RSI proposal that touches formal invariants.</div>
+          </div>
+          <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:12px 14px;">
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Racket (Chez Scheme backend)</div>
+            <div style="font-size:0.8rem;color:rgba(245,240,232,0.55);line-height:1.6;"><code style="font-size:0.75rem;color:var(--gold-dim);">#lang causal-dsl</code> makes it impossible to conflate P(Y|X) with P(Y|do(X)) at parse time. <code style="font-size:0.75rem;color:var(--gold-dim);">call/cc</code> is the correct categorical semantics for counterfactuals: suspending computation, evaluating an alternative world, returning. <code style="font-size:0.75rem;color:var(--gold-dim);">contract-out</code> enforces RSI invariants at module boundaries.</div>
+          </div>
+          <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:12px 14px;">
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">SWI-Prolog</div>
+            <div style="font-size:0.8rem;color:rgba(245,240,232,0.55);line-height:1.6;">Impossible to silently mutate the causal graph during a query. CLP(FD/R) enforces physical constraints without explicit code. Tabling memoises repeated sub-queries. Meta-interpreters can generate next-generation causal languages within the RSI loop.</div>
+          </div>
+          <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:12px 14px;">
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Python / JAX</div>
+            <div style="font-size:0.8rem;color:rgba(245,240,232,0.55);line-height:1.6;">Functional transforms (jit, vmap, grad) enforce pure functions with explicit randomness. GPU is non-negotiable for CEAS kernels and GRAIL hyperbolic geometry. JAX best for custom differentiable ops.</div>
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--border-dim);background:rgba(0,0,0,0.15);padding:14px 16px;font-size:0.8rem;color:rgba(245,240,232,0.45);line-height:1.75;">
+          <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:10px;">Key design decisions &mdash; arrived at through rigorous PL-theoretic analysis</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div><strong style="color:rgba(245,240,232,0.65);">Racket over SBCL:</strong> speed is irrelevant &mdash; Python/JAX on GPU is the bottleneck. Racket&rsquo;s <code style="font-size:0.75rem;color:var(--gold-dim);">#lang</code> defines new languages at the reader level (before parsing), not just at macro expansion. <code style="font-size:0.75rem;color:var(--gold-dim);">#lang causal-dsl</code> makes it impossible to conflate observation and intervention at the source level &mdash; a functor from syntax to semantics. Chez Scheme&rsquo;s macros cannot do this. Racket CS runs on Chez Scheme anyway, so Racket&rsquo;s <code style="font-size:0.75rem;color:var(--gold-dim);">call/cc</code> performance is Chez Scheme&rsquo;s.</div>
+            <div><strong style="color:rgba(245,240,232,0.65);">Racket over Haskell:</strong> homoiconicity, not purity, is the critical property for RSI. <code style="font-size:0.75rem;color:var(--gold-dim);">(eval new-state)</code> is Racket&rsquo;s normal operation; Haskell requires the GHC compiler API or Template Haskell. The RSI loop has side effects by definition &mdash; it modifies the system. Haskell&rsquo;s monadic purity adds overhead without solving the self-modification problem.</div>
+            <div><strong style="color:rgba(245,240,232,0.65);">SWI-Prolog retained (not eliminated by Racket):</strong> three capabilities <code style="font-size:0.75rem;color:var(--gold-dim);">call/cc</code> in Racket cannot replicate without weeks of infrastructure: tabling (automatic query memoisation), CLP(FD/R) (constraint propagation over physical laws), and meta-interpreters that can generate entirely new causal reasoning languages in a few dozen lines. The Racket&ndash;Prolog boundary is not a seam within a computation &mdash; it is an interface between two paradigms. Across paradigms, the interface is the contribution. Racket generates functional/syntactic languages; Prolog generates logic/constraint languages; together they generate next-generation languages in both paradigms simultaneously.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hood-card">
+        <h3>World model &mdash; (M, G, &beta;)</h3>
+        <p style="margin-bottom:12px;">The world model is not a separate design decision &mdash; it is already determined by the three components. M is the Riemannian manifold (GRAIL), G is the symmetry group acting on M (GRAIL), &beta; is the inverse temperature controlling information density (CEAS). The &Psi;-causal layer adds structural causal equations over M. The &Psi;-causal engine is the world model: prediction is what you get when you marginalise out the causal structure; intervention, counterfactual, and inverse design are what you get when you use it fully.</p>
+
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Pearl rungs &mdash; what each system can answer</div>
+        <div style="display:grid;grid-template-columns:auto 1fr 40px 40px 40px 40px;gap:0;margin-bottom:14px;font-size:0.78rem;">
+          <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border-dim);padding:6px 10px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);">Rung</div>
+          <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border-dim);border-left:none;padding:6px 10px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);">Capability</div>
+          <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border-dim);border-left:none;padding:6px 4px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--gold-dim);text-align:center;">JEPA</div>
+          <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border-dim);border-left:none;padding:6px 4px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--gold-dim);text-align:center;">Sora</div>
+          <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border-dim);border-left:none;padding:6px 4px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--gold-dim);text-align:center;">D3</div>
+          <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);border-left:none;padding:6px 4px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--gold);text-align:center;">This</div>
+
+          <div style="border:1px solid var(--border-dim);border-top:none;padding:7px 10px;color:rgba(245,240,232,0.5);">1</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 10px;color:rgba(245,240,232,0.55);">Observe: P(Y|X=x)</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.5);text-align:center;">&#10003;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.5);text-align:center;">&#10003;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.5);text-align:center;">&#10003;</div>
+          <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-top:none;border-left:none;padding:7px 4px;color:var(--gold);text-align:center;">&#10003;</div>
+
+          <div style="border:1px solid var(--border-dim);border-top:none;padding:7px 10px;color:rgba(245,240,232,0.5);">2</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 10px;color:rgba(245,240,232,0.55);">Intervene: P(Y|do(X=x))</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-top:none;border-left:none;padding:7px 4px;color:var(--gold);text-align:center;">&#10003;</div>
+
+          <div style="border:1px solid var(--border-dim);border-top:none;padding:7px 10px;color:rgba(245,240,232,0.5);">3</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 10px;color:rgba(245,240,232,0.55);">Counterfactual: what if X=x&prime;?</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-top:none;border-left:none;padding:7px 4px;color:var(--gold);text-align:center;">&#10003;</div>
+
+          <div style="border:1px solid var(--border-dim);border-top:none;padding:7px 10px;color:rgba(245,240,232,0.5);">4</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 10px;color:rgba(245,240,232,0.55);">Inverse design: find action causing Y=y</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="border:1px solid var(--border-dim);border-top:none;border-left:none;padding:7px 4px;color:rgba(245,240,232,0.25);text-align:center;">&#10007;</div>
+          <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-top:none;border-left:none;padding:7px 4px;color:var(--gold);text-align:center;">&#10003;</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+          <div style="border:1px solid var(--border-dim);background:rgba(0,0,0,0.1);padding:11px 13px;">
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Riemannian &Hopf;<sup>d</sup> vs Euclidean &real;<sup>d</sup></div>
+            <p style="font-size:0.8rem;color:rgba(245,240,232,0.5);line-height:1.6;margin:0;">Hierarchical structure (object &rarr; part &rarr; subpart) requires exponentially many Euclidean dimensions without distortion. The same structure embeds in &Hopf;<sup>d</sup> with constant distortion. LeCun&rsquo;s JEPA and DreamerV3 both suffer this silently. GRAIL uses the right geometry.</p>
+          </div>
+          <div style="border:1px solid var(--border-dim);background:rgba(0,0,0,0.1);padding:11px 13px;">
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">World model RSI</div>
+            <p style="font-size:0.8rem;color:rgba(245,240,232,0.5);line-height:1.6;margin:0;">Every other world model is fixed architecture trained once. In this framework the RSI loop can modify the world model&rsquo;s causal graph structure, manifold geometry, symmetry group assumptions, and &beta;-schedule. The world model improves its own theory of the world. No existing public approach does this.</p>
+          </div>
+        </div>
+        <p style="font-size:0.8rem;color:rgba(245,240,232,0.35);line-height:1.6;margin:0;font-style:italic;">LeCun is right that world models are necessary. Fei-Fei is right that 3D structure matters. DreamerV3 is right that planning in latent space is efficient. All are solving Rung&nbsp;1 with increasingly good architectures. None have the causal structure for Rungs 2&ndash;4.</p>
       </div>
       <div class="hood-card">
         <h3>Where to read more</h3>
