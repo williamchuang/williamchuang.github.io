@@ -505,7 +505,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <li><a href="/CEAS">CEAS</a></li>
       <li><a href="/GRAIL">GRAIL</a></li>
       <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
-      <li><a href="/MIA">MIA</a></li>
+      <li><a href="#mia">MIA</a></li>
       <li><a href="/Research">Research</a></li>
       <li><a href="/About">About</a></li>
       <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
@@ -775,6 +775,217 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </div>
 </section>
 
+
+
+<!-- ═══ MIA MIGRATION FRAMEWORK ═══ -->
+<section id="mia" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Model upgrade path</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    MIA: Any trained model, upgraded to GRAIL
+  </h2>
+
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;margin-bottom:40px;">
+    <div>
+      <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:14px;">
+        <strong style="color:var(--cream);">Metric-Invariant Architecture (MIA)</strong> is the
+        general class of which GRAIL is a strict specialisation.
+        MIA replaces every scalar dot-product primitive with a group-preserved invariant
+        <span style="font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold);">F(d&#x2098;(q,&thinsp;k))</span>,
+        where <span style="font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold);">I(g·q, g·k) = I(q, k)</span>
+        for all isometries <em>g</em>.
+        The critical consequence: a legacy model — including any Transformer trained on Euclidean
+        dot products — can inherit twinhood and geometric properties at runtime
+        without discarding what it learned.
+      </p>
+      <p style="color:rgba(245,240,232,0.55);font-size:0.88rem;line-height:1.75;margin-bottom:0;border-left:2px solid var(--border-dim);padding-left:0.9rem;">
+        <strong style="color:rgba(245,240,232,0.7);">Four tiers, not three.</strong>
+        The path from a plain pre-trained model to full GRAIL is a gradient:
+        zero-step arithmetic replacement, lightweight β fine-tuning, LoRA + hyperbolic
+        projection, and full retraining from scratch. Each tier is independently verifiable.
+        The author's trained CEAS–Ψ–GRAIL models satisfy all four tiers by construction.
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Formal hierarchy</div>
+        <p style="font-size:0.85rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">
+          GRAIL &sub; MIA &nbsp;(strict inclusion)<br>
+          GRAIL = MIA + orbit-jump + automorphic kernels + CEAS β-control
+        </p>
+      </div>
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Explicit caveat</div>
+        <p style="font-size:0.85rem;color:rgba(245,240,232,0.45);line-height:1.6;margin:0;">
+          Merely storing tensors in geometric memory without replacing arithmetic primitives
+          does <em>not</em> confer twinhood. Both conditions of
+          Proposition (Legacy Inheritance) must hold.
+        </p>
+      </div>
+      <a href="/MIA" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border);padding:12px 16px;background:var(--gold-glow);text-align:center;transition:background .2s;display:block;" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='var(--gold-glow)'">
+        Full MIA technical page →
+      </a>
+    </div>
+  </div>
+
+  <!-- TIER TABLE HEADER -->
+  <style>
+  .mia-table { width:100%; border-collapse:collapse; margin-bottom:20px; }
+  .mia-table th, .mia-table td { padding:0; }
+  .mia-th-prop {
+    width:190px; padding:10px 14px 10px 0;
+    font-family:'DM Mono',monospace; font-size:0.62rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:rgba(201,168,76,0.4); vertical-align:bottom;
+    border-bottom:1px solid var(--border-dim);
+  }
+  .mia-th {
+    background:var(--navy-mid); border:1px solid var(--border-dim);
+    border-top:2px solid rgba(201,168,76,0.3);
+    padding:12px 14px; vertical-align:top;
+  }
+  .mia-th.tier3 {
+    background:rgba(14,31,58,0.9);
+    border-color:rgba(201,168,76,0.2);
+    border-top:2px solid var(--gold);
+  }
+  .mia-th-label {
+    font-family:'DM Mono',monospace; font-size:0.62rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold-dim); display:block; margin-bottom:4px;
+  }
+  .mia-th.tier3 .mia-th-label { color:var(--gold); }
+  .mia-th-sub {
+    font-size:0.78rem; color:rgba(245,240,232,0.38); line-height:1.35;
+  }
+  .mia-th.tier3 .mia-th-sub { color:rgba(245,240,232,0.6); }
+  .mia-td-prop {
+    padding:14px 14px 14px 0;
+    font-family:'DM Mono',monospace; font-size:0.7rem;
+    letter-spacing:0.04em; color:rgba(201,168,76,0.65);
+    vertical-align:middle; border-bottom:1px solid var(--border-dim);
+  }
+  .mia-td {
+    background:var(--navy-mid); border:1px solid var(--border-dim);
+    padding:14px 16px; text-align:center; vertical-align:middle;
+    border-bottom:1px solid rgba(201,168,76,0.07);
+    font-size:0.82rem; line-height:1.4;
+  }
+  .mia-td.tier3 {
+    background:rgba(14,31,58,0.9);
+    border-color:rgba(201,168,76,0.12);
+  }
+  .mia-yes {
+    color:var(--gold); font-size:1rem; display:block;
+  }
+  .mia-no {
+    color:rgba(245,240,232,0.2); font-size:1rem; display:block;
+  }
+  .mia-partial {
+    color:var(--gold-dim); font-size:0.7rem; font-family:'DM Mono',monospace;
+    letter-spacing:0.03em; display:block; line-height:1.4; margin-top:3px;
+  }
+  @media(max-width:780px){
+    .mia-table { display:none; }
+    .mia-mobile { display:block !important; }
+  }
+  .mia-mobile { display:none; }
+  </style>
+
+  <table class="mia-table" aria-label="MIA four-tier migration framework">
+    <thead>
+      <tr>
+        <th class="mia-th-prop">Property</th>
+        <th class="mia-th">
+          <span class="mia-th-label">Tier 0 · MIA retrofit</span>
+          <span class="mia-th-sub">Arithmetic replacement only — zero gradient steps</span>
+        </th>
+        <th class="mia-th">
+          <span class="mia-th-label">Tier 1 · CEAS β</span>
+          <span class="mia-th-sub">β-thermostat fine-tuning — hundreds of steps</span>
+        </th>
+        <th class="mia-th">
+          <span class="mia-th-label">Tier 2 · LoRA + metric</span>
+          <span class="mia-th-sub">LoRA + ℍ<sup>d</sup> projection — thousands of steps</span>
+        </th>
+        <th class="mia-th tier3">
+          <span class="mia-th-label">Tier 3 · Full retrain</span>
+          <span class="mia-th-sub">Train from scratch with triad priors</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mia-td-prop">Twinhood<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">F<sub>g·θ</sub>(gx) = F<sub>θ</sub>(x)</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop">Entropy corridor<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">H(β) ∈ [H★ − δ, H★ + δ]</span></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop">Susceptibility sharpening<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">χ<sub>L</sub> ~ L<sup>γ/ν</sup></span></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop">Orbit generalisation<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">unseen g ∈ G, ε<sub>twin</sub> ≤ 10<sup>−6</sup></span></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span><span class="mia-partial">partial → full</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop" style="border-bottom:none;">Automorphic kernels<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">K<sub>β</sub>(q,k) = Σ<sub>γ∈Γ</sub> e<sup>−β d(q,γk)</sup></span></td>
+        <td class="mia-td" style="border-bottom:none;"><span class="mia-no">✗</span></td>
+        <td class="mia-td" style="border-bottom:none;"><span class="mia-no">✗</span></td>
+        <td class="mia-td" style="border-bottom:none;"><span class="mia-yes">✓</span><span class="mia-partial">with ℍ<sup>d</sup> projection</span></td>
+        <td class="mia-td tier3" style="border-bottom:none;"><span class="mia-yes">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MOBILE FALLBACK (cards) -->
+  <div class="mia-mobile">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 0 — MIA retrofit (0 steps)</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Twinhood only. Replace dot products with F(d&#x2098;(q,k)) and wrap with (ψ, π). Zero gradient steps. No other GRAIL properties are transferred.</p>
+      </div>
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 1 — CEAS β fine-tune (hundreds of steps)</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds entropy corridor and susceptibility sharpening. β is an algebraic consequence of having adaptive temperature — no orbit generalisation required.</p>
+      </div>
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 2 — LoRA + metric fine-tune (thousands of steps)</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds orbit generalisation and automorphic kernels via LoRA adapters + ℍ<sup>d</sup> projection on Q, K. ~1–2M trainable params. One to two days on a single GPU.</p>
+      </div>
+      <div style="border:1px solid rgba(201,168,76,0.2);background:rgba(14,31,58,0.9);border-top:2px solid var(--gold);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold);margin-bottom:8px;">Tier 3 — Full retrain</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.75);line-height:1.6;margin:0;">All five properties at the theoretical optimum. The author's trained CEAS–Ψ–GRAIL models are at this tier by construction.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTNOTE -->
+  <p style="font-size:0.8rem;color:rgba(245,240,232,0.35);line-height:1.65;margin-top:16px;font-family:'DM Mono',monospace;letter-spacing:0.02em;">
+    MIA formal definitions: lecture notes v18, §MIA (§2581 and §4163). GRAIL ⊂ MIA, strict inclusion.
+    Migration paths A (software VM), B (FPGA/ASIC), C (industrial PLC) specified in §2730.
+    LoRA path (Tier 2) derived from Proposition (Legacy Inheritance) conditions (i)–(ii).
+  </p>
+
+</div>
+</section>
 
 
 <!-- PROOF -->
