@@ -2337,14 +2337,14 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <tr class="ti-group-header"><td colspan="4">CEAS &mdash; Critical Entropy Attention Scaling</td></tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>BBP / Tracy&ndash;Widom</strong>RMT &times; CEAS<br>§ Grail addendum §1</td>
+        <td class="ti-td src"><strong>BBP / Tracy&ndash;Widom</strong>RMT &times; CEAS<br>lecture notes v20</td>
         <td class="ti-td default">Compute entropy at every step (softmax then log-sum). Expensive. Misses the phase structure entirely.</td>
         <td class="ti-td reveals">The entropy corridor and the BBP spectral gap are two descriptions of the same phase transition. Monitor m(&beta;) = &lambda;<sub>1</sub>(&Atilde;<sub>&beta;</sub>) &minus; &lambda;<sub>+</sub>(&beta;) instead: zero-crossing = criticality. <em>10&times; cheaper than entropy, JAX-differentiable.</em></td>
         <td class="ti-td tool"><code>scipy.linalg.eigvalsh</code><br>one forward-pass measurement</td>
       </tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>TW corridor scaling</strong>RMT &times; CEAS<br>§ Grail addendum §1, C2</td>
+        <td class="ti-td src"><strong>TW corridor scaling</strong>RMT &times; CEAS<br>lecture notes v20</td>
         <td class="ti-td default">Tune &delta; by cross-validation. It overfits to specific model sizes.</td>
         <td class="ti-td reveals">The corridor half-width must scale as <em>&delta; &sim; c &middot; d<sub>k</sub><sup>&minus;2/3</sup></em> (subcritical) or d<sub>k</sub><sup>&minus;1/2</sup> (supercritical). This is a functional form, not a hyperparameter. It scales correctly as d<sub>k</sub> grows.</td>
         <td class="ti-td tool">closed-form;<br>no tuning required</td>
@@ -2353,12 +2353,12 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <tr class="ti-row">
         <td class="ti-td src"><strong>&sigma;Reparam identification</strong>RMT correspondence<br>Zhai et al. 2023 anchor</td>
         <td class="ti-td default">Implement CEAS from scratch without knowing &sigma;Reparam exists &mdash; or use &sigma;Reparam without knowing it is already a critical-entropy mechanism.</td>
-        <td class="ti-td reveals">The spectral norm &#x2016;W<sub>K</sub>W<sub>Q</sub><sup>&top;</sup>&#x2016;<sub>2</sub> <em>is</em> the CEAS inverse temperature. Add exactly one missing component: Newton step &beta;<sub>new</sub> = &beta; + (H &minus; H&star;)/(&beta;&middot;Var(s) + &epsilon;). Nothing else required.</td>
+        <td class="ti-td reveals">The spectral norm &#x2016;W<sub>K</sub>W<sub>Q</sub><sup>&top;</sup>&#x2016;<sub>2</sub> is the CEAS inverse temperature. Add exactly one missing component: Newton step &beta;<sub>new</sub> = &beta; + (H &minus; H&star;)/(&beta;&middot;Var(s) + &epsilon;). Nothing else required.</td>
         <td class="ti-td tool">one additional line<br>to existing &sigma;Reparam</td>
       </tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>MP bulk diagnostic</strong>Marchenko&ndash;Pastur &times; CEAS<br>§ Grail addendum §1</td>
+        <td class="ti-td src"><strong>MP bulk diagnostic</strong>Marchenko&ndash;Pastur &times; CEAS<br>lecture notes v20</td>
         <td class="ti-td default">Run WeightWatcher for general layer health. Would not know what to look for in &beta;-specific weights.</td>
         <td class="ti-td reveals">If the &beta;-weight spectrum lies entirely in the MP bulk: <em>the thermostat is adding noise, not adaptive control.</em> Spikes above &lambda;<sup>+</sup> = CEAS is working. Theory tells you exactly when to redesign vs. scale.</td>
         <td class="ti-td tool"><code>pip install weightwatcher</code><br><code>watcher.analyze()</code></td>
@@ -2368,21 +2368,21 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <tr class="ti-group-header"><td colspan="4">GRAIL &mdash; Geometric Representation Algebra for Intelligent Learning</td></tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Poincar&eacute; series convergence</strong>GRAIL kernel<br>§ wf-9adc3762 §4</td>
+        <td class="ti-td src"><strong>Poincar&eacute; series convergence</strong>GRAIL kernel<br>lecture notes v20</td>
         <td class="ti-td default">Discover kernel divergence at training time &mdash; NaN loss after many gradient steps.</td>
         <td class="ti-td reveals"><em>Before any gradient step:</em> estimate &delta;(&Gamma;) from orbit-counting slope, assert &beta; &gt; &delta;(&Gamma;) + margin. Runtime failure becomes a pre-condition. One curve-fit call replaces hours of debugging.</td>
         <td class="ti-td tool"><code>scipy.optimize.curve_fit</code><br>orbit BFS on generators</td>
       </tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Gromov &delta;-hyperbolicity</strong>GRAIL injection necessity<br>§ wf-9adc3762 §2</td>
+        <td class="ti-td src"><strong>Gromov &delta;-hyperbolicity</strong>GRAIL injection necessity<br>lecture notes v20</td>
         <td class="ti-td default">Inject into &Hopf;<sup>n</sup> and wonder why it underperforms Euclidean on certain ontologies.</td>
         <td class="ti-td reveals">Test first: &delta; &lt; 1 &rarr; tree-like, use &Hopf;<sup>n</sup>. &delta; &ge; 4 &rarr; not hyperbolic, do not use &Hopf;<sup>n</sup>. <em>Geometry is selected by the data structure, not by preference.</em></td>
         <td class="ti-td tool"><code>hyperbolicity_delta()</code><br>four-point condition sampling</td>
       </tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Orbit-wide evaluation</strong>GRAIL orbit generalisation<br>§ wf-9adc3762 §1, §7</td>
+        <td class="ti-td src"><strong>Orbit-wide evaluation</strong>GRAIL orbit generalisation<br>lecture notes v20</td>
         <td class="ti-td default">Randomly sample test points from the orbit. Misses the zero-sample-complexity guarantee entirely.</td>
         <td class="ti-td reveals">The orbit is the unit of evaluation. Train on one orbit representative; test on every orbit member. <em>Error must be &le; machine epsilon.</em> Any drift reveals the equivariance property has silently degraded.</td>
         <td class="ti-td tool"><code>orbit_generalization_metric()</code><br>falsifies guarantee directly</td>
@@ -2392,21 +2392,21 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <tr class="ti-group-header"><td colspan="4">&Psi;-Causal &mdash; Causal Operator Framework</td></tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Markov category types</strong>Fritz 2020 &times; Pearl<br>§ wf-be4a9893 §5</td>
+        <td class="ti-td src"><strong>Markov category types</strong>Fritz 2020 &times; Pearl<br>lecture notes v20</td>
         <td class="ti-td default">Mix rungs freely. Find silent causal errors at runtime. Debugging requires tracing which rung was intended.</td>
         <td class="ti-td reveals">Four distinct types (Obs, Interv, Ctf, LogicUncertain) with the do-functor as the <em>only</em> legal Rung-1&rarr;2 bridge. Illegal coercions are compile-time errors, not silent statistical bugs.</td>
         <td class="ti-td tool">Python <code>Protocol</code><br>SWI-Prolog <code>rung/2</code> guard</td>
       </tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Do-calculus completeness</strong>Prolog formal architecture<br>§ grail_addendum §5</td>
+        <td class="ti-td src"><strong>Do-calculus completeness</strong>Prolog formal architecture<br>lecture notes v20</td>
         <td class="ti-td default">Avoid memoization of causal queries &mdash; worried context might change the answer for identical inputs.</td>
         <td class="ti-td reveals">The completeness theorem certifies: identical (Y, X, V<sub>x</sub>) triples always return identical distributions. <em>Tabling is provably sound, not an approximation.</em> Memoization is free correctness, not a shortcut.</td>
         <td class="ti-td tool"><code>:- table effect/3.</code><br><code>:- table interv/3, cf/4.</code></td>
       </tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Sheaf cohomology H&sup1;</strong>Algebraic topology &times; &Psi;<br>§ grail_addendum §3</td>
+        <td class="ti-td src"><strong>Sheaf cohomology H&sup1;</strong>Algebraic topology &times; &Psi;<br>lecture notes v20</td>
         <td class="ti-td default">Observe inconsistent counterfactual + interventional results on looped SCMs. Call it a bug. Debug indefinitely.</td>
         <td class="ti-td reveals">H&sup1;(F<sub>&Psi;</sub>) &ne; 0 means a causal monodromy &mdash; a topological obstruction, not a code error. <em>Fix: lift to universal cover via GRAIL&rsquo;s hyperbolic injection.</em> Structural diagnosis in one graph traversal.</td>
         <td class="ti-td tool"><code>networkx.cycle_basis()</code><br><code>causal_sheaf_h1()</code></td>
@@ -2416,16 +2416,16 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <tr class="ti-group-header"><td colspan="4">Full triad &mdash; CEAS + GRAIL + &Psi; jointly</td></tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Cohomological uniqueness</strong>Three simultaneous obstructions<br>§ grail_addendum §2, §5</td>
+        <td class="ti-td src"><strong>Cohomological uniqueness</strong>Three simultaneous obstructions<br>lecture notes v20</td>
         <td class="ti-td default">Three separate safety checkers. Each can pass o<sub>1</sub> and o<sub>2</sub> individually while the joint condition fails.</td>
         <td class="ti-td reveals"><em>CertifiedMod:</em> a single Lean&thinsp;4 structure that carries all three necessity proofs simultaneously. You cannot construct it for a non-triadic architecture. Failed construction = compile error = architectural rejection.</td>
         <td class="ti-td tool">Lean&thinsp;4 dependent record<br>compile error = rejection</td>
       </tr>
 
       <tr class="ti-row">
-        <td class="ti-td src"><strong>Naturality square test</strong>Category theory &times; triad<br>§ grail_addendum §2, conj. 2.1</td>
+        <td class="ti-td src"><strong>Naturality square test</strong>Category theory &times; triad<br>lecture notes v20</td>
         <td class="ti-td default">Test components on specific world states. Misses whether they compose correctly with world-model morphisms.</td>
-        <td class="ti-td reveals">Commutativity of the naturality square &mdash; F(w) &rarr; G(w) &rarr; G(w&prime;) vs. F(w) &rarr; F(w&prime;) &rarr; G(w&prime;) &mdash; <em>is</em> the triad consistency test. Failure identifies which world-model morphism breaks the joint condition.</td>
+        <td class="ti-td reveals">Commutativity of the naturality square &mdash; F(w) &rarr; G(w) &rarr; G(w&prime;) vs. F(w) &rarr; F(w&prime;) &rarr; G(w&prime;) &mdash; is the triad consistency test. Failure identifies which world-model morphism breaks the joint condition.</td>
         <td class="ti-td tool"><code>triad_naturality_test()</code><br>tolerance: 10<sup>&minus;5</sup></td>
       </tr>
 
