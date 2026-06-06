@@ -970,7 +970,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       </div>
       <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
         <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 2 — LoRA + metric fine-tune (thousands of steps)</div>
-        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds orbit generalisation and automorphic kernels via LoRA adapters + ℍ<sup>d</sup> projection on Q, K. ~1–2M trainable params. One to two days on a single GPU.</p>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds orbit generalisation and automorphic kernels via LoRA adapters + ℍ<sup>d</sup> projection on Q, K. A small adapter layer. Tractable on a single GPU.</p>
       </div>
       <div style="border:1px solid rgba(201,168,76,0.2);background:rgba(14,31,58,0.9);border-top:2px solid var(--gold);padding:16px 18px;">
         <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold);margin-bottom:8px;">Tier 3 — Full retrain</div>
@@ -1338,7 +1338,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">2023–25</div>
             <div class="tl-right">
               <div class="tl-event">Formal integration → ASI Necessary Seed Architecture</div>
-              <div class="tl-detail">~290-page lecture notes (v20), 25 patent claims, Colab verification programme M0–M7. U.S. Provisional 64/067,703 filed; non-provisional in preparation. Patent portfolio: 9+ applications filed 2025 across ASI, MIA, CEAS, operator-theoretic verification, and related methods.</div>
+              <div class="tl-detail">367-page lecture notes (v20), 25 patent claims, Colab verification programme M0–M7. U.S. Provisional 64/067,703 filed; non-provisional in preparation. Patent portfolio: 9+ applications filed 2025 across ASI, MIA, CEAS, operator-theoretic verification, and related methods.</div>
             </div>
           </div>
         </div>
@@ -1349,7 +1349,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <span class="stat-label">Root conception<br>predates transformers</span>
         </div>
         <div class="origin-stat">
-          <span class="stat-num">290</span>
+          <span class="stat-num">367</span>
           <span class="stat-label">Pages of lecture<br>notes v20</span>
         </div>
         <div class="origin-stat">
@@ -1493,7 +1493,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <h3>U.S. National Security / Defense / Intelligence Community</h3>
         <ul>
           <li>Intelligence Community (IC) agencies and Department of Defense (DoD) components requiring encrypted-in-use AI at operational scale</li>
-          <li>Defense and intelligence industrial base embedding hardened AI into mission-critical systems</li>
+          <li>Defense and intelligence industrial base injecting hardened AI into mission-critical systems</li>
           <li>Systemic finance and critical infrastructure with real-world failure modes</li>
         </ul>
       </div>
@@ -1659,8 +1659,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
           <div style="border:1px solid var(--border-dim);background:rgba(0,0,0,0.1);padding:11px 13px;">
-            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Riemannian &Hopf;<sup>d</sup> vs Euclidean &real;<sup>d</sup></div>
-            <p style="font-size:0.8rem;color:rgba(245,240,232,0.5);line-height:1.6;margin:0;">Hierarchical structure (object &rarr; part &rarr; subpart) requires exponentially many Euclidean dimensions without distortion. The same structure embeds in &Hopf;<sup>d</sup> with constant distortion. LeCun&rsquo;s JEPA and DreamerV3 both suffer this silently. GRAIL uses the right geometry.</p>
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Riemannian &Hopf;<sup>d</sup> vs Euclidean &#x211D;<sup>d</sup></div>
+            <p style="font-size:0.8rem;color:rgba(245,240,232,0.5);line-height:1.6;margin:0;">Hierarchical structure (object &rarr; part &rarr; subpart) requires exponentially many Euclidean dimensions without distortion. The same structure admits an injective map into &Hopf;<sup>d</sup> with constant distortion. LeCun&rsquo;s JEPA and DreamerV3 both suffer this silently. GRAIL uses the right geometry.</p>
           </div>
           <div style="border:1px solid var(--border-dim);background:rgba(0,0,0,0.1);padding:11px 13px;">
             <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">World model RSI</div>
@@ -1673,7 +1673,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <h3>Where to read more</h3>
         <p>Technical reviewers, cryptographers, and ML researchers who want the mathematics, proofs, and working code:</p>
         <ul>
-          <li><a href="/Other%20Research" style="color:var(--gold);text-decoration:none;">Research page</a> — lecture notes v20 (~290 pages), Colab verification programme (M0–M7), 25-claim patent draft</li>
+          <li><a href="/Other%20Research" style="color:var(--gold);text-decoration:none;">Research page</a> — lecture notes v20 (367 pages), Colab verification programme (M0–M7), 25-claim patent draft</li>
           <li><a href="/CEAS" style="color:var(--gold);text-decoration:none;">CEAS</a>, <a href="/GRAIL" style="color:var(--gold);text-decoration:none;">GRAIL</a>, <a href="/Ψ-Operator-Framework" style="color:var(--gold);text-decoration:none;">Ψ-Operator</a> — component pages</li>
           <li><a href="/files/william_chuang_cv.pdf" style="color:var(--gold);text-decoration:none;">CV</a> — academic background and prior work</li>
           <li>Email for NDA-gated technical briefs and evaluation materials</li>
@@ -1793,7 +1793,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="rq-q">Weeks 3–6</span>
       <div class="rq-focus">&Psi;-causal engine</div>
       <span class="rq-lang">SWI-Prolog</span>
-      <p class="rq-milestone">&Psi;-engine beats GPT-4o on 20-case do-calculus suite. Causal reversal and action-order demos live. LLMs cannot compute P(Y|do(X)) &mdash; structural impossibility.</p>
+      <p class="rq-milestone">&Psi;-engine outperforms correlation-only LLMs on a do-calculus evaluation suite. Causal reversal and action-order demos live. LLMs cannot compute P(Y|do(X)) &mdash; structural impossibility.</p>
       <span class="rq-demo-badge">Demos A + B</span>
     </div>
 
@@ -1801,7 +1801,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="rq-q">Weeks 7–8</span>
       <div class="rq-focus">CEAS coordination</div>
       <span class="rq-lang">Python / JAX</span>
-      <p class="rq-milestone">T<sub>CEAS</sub>(N) = o(N) scaling chart &mdash; crossover visible at N&nbsp;=&nbsp;256. First public milestone: product live, two demos running.</p>
+      <p class="rq-milestone">T<sub>CEAS</sub>(N) = o(N) scaling chart &mdash; crossover with local attention visible at a defined scale threshold. First public milestone: product live, two demos running.</p>
       <span class="rq-demo-badge">Demo C</span>
     </div>
 
@@ -1836,7 +1836,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="rq-q">Weeks 23–32</span>
       <div class="rq-focus">RSI-0 closed loop</div>
       <span class="rq-lang">Racket + Lean 4 + Python</span>
-      <p class="rq-milestone">K&nbsp;=&nbsp;20 cycles. No manual edits inside the loop. Lean&nbsp;4 gate active. No public system has demonstrated this at RSI Level 7. User feedback compounds improvement nightly.</p>
+      <p class="rq-milestone">A defined minimum of verified cycles. No manual edits inside the loop. Lean&nbsp;4 gate active. No public system has demonstrated this at RSI Level 7. User feedback compounds improvement nightly.</p>
       <span class="rq-cert">Cert Level 4</span>
       <span class="rq-demo-badge" style="margin-left:6px;">Demo F</span>
     </div>
@@ -1911,7 +1911,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-letter">C</span>
       <span class="demo-when">Weeks 7&ndash;8</span>
       <div class="demo-title">Global coordination scaling</div>
-      <p class="demo-why">On N-bit global parity, standard transformers require &Theta;(N) context. CEAS achieves o(N) via the rank-one collective variable &phi;(t). Crossover visible at N&nbsp;=&nbsp;256 on a reproducible chart.</p>
+      <p class="demo-why">On N-bit global parity, standard transformers require &Theta;(N) context. CEAS achieves o(N) via the rank-one collective variable &phi;(t). Crossover with local attention visible at a measurable scale threshold on a reproducible chart.</p>
       <div class="demo-proof">Locality obstruction theorem &middot; lecture notes v20</div>
     </div>
 
@@ -1919,7 +1919,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-letter">D</span>
       <span class="demo-when">Weeks 9&ndash;11</span>
       <div class="demo-title">Symmetry generalisation</div>
-      <p class="demo-why">Train on {0&deg;,&thinsp;90&deg;,&thinsp;180&deg;,&thinsp;270&deg;}. Test on {45&deg;,&thinsp;135&deg;,&thinsp;225&deg;,&thinsp;315&deg;}. GRAIL: zero gap. Euclidean transformer: degrades. I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k) is a mathematical identity, not an approximation.</p>
+      <p class="demo-why">Train on a set of group elements; test on unseen elements from the same group. GRAIL: zero error gap. Euclidean transformer: degrades. I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k) is a mathematical identity, not an approximation.</p>
       <div class="demo-proof">&epsilon;<sub>twin</sub> &le; 10<sup>&minus;6</sup> &middot; GRAIL invariant kernel theorem</div>
     </div>
 
@@ -1935,7 +1935,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-letter" style="color:rgba(201,168,76,0.55);">F</span>
       <span class="demo-when">Weeks 23&ndash;32</span>
       <div class="demo-title">Autonomous improvement loop</div>
-      <p class="demo-why">K&nbsp;=&nbsp;20 closed-loop cycles with no human edits inside the loop. Lean&nbsp;4 gate active throughout. No publicly demonstrated system operates at RSI Level 7. User queries feed the nightly fine-tuning cycle.</p>
+      <p class="demo-why">A defined minimum of closed-loop cycles with no human edits inside the loop. Lean&nbsp;4 gate active throughout. No publicly demonstrated system operates at RSI Level 7. User queries feed the nightly fine-tuning cycle.</p>
       <div class="demo-proof">RSI Level 7 &middot; beyond any publicly demonstrated system &middot; 2026</div>
     </div>
 
@@ -2003,6 +2003,462 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </div>
 </section>
 
+
+
+
+<!-- LANGUAGE RSI -->
+<section id="language-rsi" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Language-level self-improvement &middot; RSI level 2</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    Generating a better language is formulating a better theory
+  </h2>
+
+  <p style="color:rgba(245,240,232,0.8);font-size:1.05rem;line-height:1.85;max-width:78ch;margin-bottom:10px;">
+    The architecture is designed to operate as a scientist.
+    At each cycle it formulates a hypothesis from its current theory of the world,
+    designs a causal experiment to test that hypothesis &mdash; not a statistical correlation study,
+    but a genuine Rung-2 intervention that distinguishes cause from effect &mdash;
+    executes the experiment in the physical world,
+    collects and encodes the data,
+    applies causal inference to update both its model parameters and its causal theory,
+    and then uses the revised theory to generate a more precise language in which the next
+    experiment can be expressed.
+    Each cycle the system knows more about the physical world,
+    and the representational substrate it uses to express that knowledge becomes more tightly
+    calibrated to what is physically true.
+  </p>
+  <p style="color:rgba(245,240,232,0.5);font-size:0.88rem;line-height:1.75;max-width:74ch;margin-bottom:36px;border-left:2px solid var(--border-dim);padding-left:0.9rem;">
+    This is not a metaphor for the scientific method.
+    It is the scientific method &mdash; implemented as a formally verified self-improving system
+    in which every experimental design is causally valid by construction,
+    every model update is checked against previously proved invariants before it is committed,
+    and every new theoretical concept that cannot be expressed in the current language
+    triggers the generation of a new language capable of expressing it.
+    The &ldquo;experiment design language&rdquo; node in the diagram below is the
+    syntactic enforcement layer for stage 2 of that loop:
+    it makes it impossible, at the language level, to design a bad experiment.
+  </p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:40px;">
+    <div>
+      <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:14px;">
+        Weight RSI and architecture RSI operate inside a fixed representational substrate.
+        The language &mdash; the set of expressible propositions, the type system, the semantic rules &mdash; is held constant.
+        Any gain from levels 0&ndash;1 is a gain in approximation quality within a fixed concept space.
+        No amount of gradient descent on weights, regardless of parameter count, lifts a system&rsquo;s ability
+        to express a concept that is not representable in its current language.
+      </p>
+      <p style="color:rgba(245,240,232,0.55);font-size:0.88rem;line-height:1.75;margin-bottom:0;border-left:2px solid var(--border-dim);padding-left:0.9rem;">
+        <strong style="color:rgba(245,240,232,0.7);">Level 2 changes the concept space itself.</strong>
+        In the four-language stack, this is Racket&rsquo;s <code style="font-family:'DM Mono',monospace;font-size:0.8em;color:var(--gold-dim);">#lang</code>
+        (new syntactic and semantic substrates) and SWI-Prolog&rsquo;s meta-interpreter (new inference rules, new causal primitives).
+        Levels 3 and 4 are not directly implementable without first having level 2:
+        a theory is a language with specific semantic constraints, and generating a new theory requires
+        the ability to generate new languages in which to express it.
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">The language lattice</div>
+        <p style="font-size:0.85rem;color:rgba(245,240,232,0.6);line-height:1.65;margin:0;">
+          Define a partial order on languages:
+          <em>L</em><sub>1</sub> &le; <em>L</em><sub>2</sub> if and only if
+          <em>B</em>(<em>L</em><sub>2</sub>) &subsetneq; <em>B</em>(<em>L</em><sub>1</sub>)
+          &mdash; that is, <em>L</em><sub>2</sub> makes strictly more errors impossible than <em>L</em><sub>1</sub>.
+          A language higher in this lattice is more restrictive in the right way: it cannot express
+          more categories of wrong things.
+          The RSI loop is a monotone walk upward in this lattice, enforced by the Lean&nbsp;4 gate.
+        </p>
+      </div>
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">The target: <em>L</em>&#x22C6;</div>
+        <p style="font-size:0.85rem;color:rgba(245,240,232,0.55);line-height:1.65;margin:0;">
+          Let &Fscr; be the set of all physically false propositions.
+          The ideal language <em>L</em>&#x22C6; is one whose bug topology is exactly &Fscr;:
+          every statement expressible in <em>L</em>&#x22C6; is either physically true,
+          physically contingent (decidable by experiment), or syntactically impossible.
+          <em>L</em>&#x22C6; is a language calibrated to physical reality.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RSI LEVEL TABLE -->
+  <div style="margin-bottom:32px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:14px;">Five levels of recursive self-improvement</div>
+
+    <!-- Header row -->
+    <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:2px;margin-bottom:2px;">
+      <div style="padding:8px 10px 8px 0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(201,168,76,0.4);">RSI level</div>
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:8px 14px;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(201,168,76,0.4);">what changes</div>
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:none;padding:8px 14px;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(201,168,76,0.4);">bug topology effect</div>
+    </div>
+
+    <!-- Level 0 -->
+    <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:2px;margin-bottom:2px;">
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:13px 14px;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:rgba(245,240,232,0.45);">0 &mdash; weight RSI</span>
+      </div>
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.45);">parameters inside fixed architecture</div>
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.3);font-style:italic;">unchanged</div>
+    </div>
+
+    <!-- Level 1 -->
+    <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:2px;margin-bottom:2px;">
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:13px 14px;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:rgba(245,240,232,0.45);">1 &mdash; arch. RSI</span>
+      </div>
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.45);">topology of layers / heads</div>
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.35);font-style:italic;">marginally reshaped</div>
+    </div>
+
+    <!-- Level 2 — inflection point -->
+    <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:2px;margin-bottom:2px;">
+      <div style="border:1px solid rgba(201,168,76,0.45);border-top:2px solid rgba(201,168,76,0.8);background:rgba(201,168,76,0.12);padding:13px 14px;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.75rem;font-weight:500;color:rgba(226,201,126,0.95);">2 &mdash; language RSI</span>
+        <span style="display:block;font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(201,168,76,0.65);margin-top:4px;">inflection point</span>
+      </div>
+      <div style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.25);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.85);">syntax + type system + semantics</div>
+      <div style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.25);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.78);font-style:italic;">structurally reshaped</div>
+    </div>
+
+    <!-- Level 3 -->
+    <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:2px;margin-bottom:2px;">
+      <div style="border:1px solid rgba(201,168,76,0.28);background:rgba(201,168,76,0.07);padding:13px 14px;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:rgba(201,168,76,0.8);">3 &mdash; theory RSI</span>
+      </div>
+      <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.65);">primitives + axioms + logic</div>
+      <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.58);font-style:italic;">fundamentally restructured</div>
+    </div>
+
+    <!-- Level 4 -->
+    <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:2px;">
+      <div style="border:1px solid rgba(201,168,76,0.18);background:rgba(201,168,76,0.04);padding:13px 14px;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:rgba(201,168,76,0.6);">4 &mdash; ontology RSI</span>
+      </div>
+      <div style="background:rgba(201,168,76,0.02);border:1px solid rgba(201,168,76,0.1);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.55);">what objects / relations exist</div>
+      <div style="background:rgba(201,168,76,0.02);border:1px solid rgba(201,168,76,0.1);border-left:none;padding:13px 16px;font-size:0.84rem;color:rgba(245,240,232,0.48);font-style:italic;">redefined</div>
+    </div>
+  </div>
+
+  <!-- CLOSED LOOP DIAGRAM -->
+  <div style="margin-bottom:32px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:14px;">The language-generation closed loop</div>
+
+    <!-- Five nodes -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-bottom:6px;position:relative;">
+
+      <div style="background:rgba(24,95,165,0.12);border:1px solid rgba(24,95,165,0.35);border-top:2px solid rgba(24,95,165,0.55);padding:14px 12px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(100,160,230,0.7);margin-bottom:4px;">01</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.8);line-height:1.3;">Physical<br>universe</div>
+      </div>
+
+      <div style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-top:2px solid rgba(201,168,76,0.55);padding:14px 12px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(201,168,76,0.75);margin-bottom:4px;">02</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.75);line-height:1.3;">Experiment<br>design language</div>
+      </div>
+
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid var(--border);padding:14px 12px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(245,240,232,0.3);margin-bottom:4px;">03</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.55);line-height:1.3;">Model<br>fitting + valid.</div>
+      </div>
+
+      <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid var(--border);padding:14px 12px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(245,240,232,0.3);margin-bottom:4px;">04</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.55);line-height:1.3;">Theory<br>prediction target</div>
+      </div>
+
+      <div style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-top:2px solid rgba(201,168,76,0.55);padding:14px 12px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(201,168,76,0.75);margin-bottom:4px;">05</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.8);line-height:1.3;">Language<br>generation (RSI)</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.55rem;color:rgba(201,168,76,0.5);margin-top:4px;">Lean&thinsp;4 gate</div>
+      </div>
+    </div>
+
+    <!-- Arrows + feedback label -->
+    <div style="display:flex;align-items:center;gap:0;margin-bottom:8px;padding:0 1px;">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.35),rgba(201,168,76,0.35));"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.04em;color:rgba(245,240,232,0.3);padding:0 8px;white-space:nowrap;">&larr; feedback: B(<em>L</em><sub>t+1</sub>) &sube; B(<em>L</em><sub>t</sub>)</div>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.35),rgba(201,168,76,0.35));"></div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:16px;">
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.4);line-height:1.6;margin:0;flex:1;">
+        Bug topology narrows toward physically impossible at each cycle.
+        Steps 02 and 05 are the language-generation stages &mdash; the ones ANI systems cannot execute.
+        The Lean&thinsp;4 gate at step 05 ensures the walk is monotone: proposals that would widen the bug topology are rejected before deployment.
+      </p>
+      <div style="border:1px solid rgba(201,168,76,0.2);background:rgba(10,22,40,0.6);padding:12px 16px;min-width:240px;flex-shrink:0;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(201,168,76,0.35);margin-bottom:7px;">ANI: fixed at levels 0&ndash;1</div>
+        <div style="font-size:0.8rem;color:rgba(245,240,232,0.35);line-height:1.55;">cannot enter levels 2&ndash;4<br>expressiveness bounded by training language<br>more data / parameters do not lift this bound</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DUALITY THEOREM -->
+  <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:28px 28px 24px;margin-bottom:28px;">
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:14px;">Language&ndash;theory duality &middot; lecture notes v20</span>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.35rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
+      For every physical theory <em>T</em> there is a language <em>L</em><sub><em>T</em></sub> in the lattice
+      such that <em>B</em>(<em>L</em><sub><em>T</em></sub>) = &not;<em>T</em> &mdash; the bug topology of
+      <em>L</em><sub><em>T</em></sub> is exactly the set of propositions falsified by the theory.
+      Conversely, for every language <em>L</em> with well-defined semantics, there is a theory
+      <em>T</em>(<em>L</em>) whose falsified set is <em>B</em>(<em>L</em>).
+    </p>
+    <p style="font-size:0.88rem;color:rgba(245,240,232,0.55);line-height:1.7;margin:0;">
+      The consequence: generating a better language is formulating a better theory.
+      The RSI loop at level&nbsp;2 is not a separate operation from scientific theory formation &mdash;
+      it is that operation, implemented computationally.
+      An ASI that generates progressively better languages is an ASI that formulates progressively
+      better theories of the physical universe. These are not two different things.
+    </p>
+  </div>
+
+  <!-- FOUR PERMANENT ANI LIMITS -->
+  <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:14px;">Four capabilities structurally beyond ANI, regardless of scale</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:0;">
+
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:20px 22px;transition:border-color .25s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='var(--border-dim)'" >
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold-light);margin-bottom:8px;">Generating a more restrictive language</div>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.65;margin:0;">
+        Generating a language whose bug topology is a proper superset of the training language&rsquo;s bug topology
+        is not a gradient-descent operation. It requires a meta-computation over the language structure itself.
+        No parameter count achieves this within a fixed expressible set.
+      </p>
+    </div>
+
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:20px 22px;transition:border-color .25s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='var(--border-dim)'" >
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold-light);margin-bottom:8px;">Falsifying a proposition via a self-designed experiment</div>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.65;margin:0;">
+        Designing a valid causal experiment requires a Rung-2 causal model and a Lean&thinsp;4 proof obligation
+        confirming the described experiment actually falsifies a specific causal proposition.
+        LLMs can describe experiments in natural language; they cannot formally verify the falsification claim.
+      </p>
+    </div>
+
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:20px 22px;transition:border-color .25s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='var(--border-dim)'" >
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold-light);margin-bottom:8px;">Generating new causal primitives beyond Pearl&rsquo;s four rungs</div>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.65;margin:0;">
+        The SWI-Prolog meta-interpreter generates new Prolog clauses that extend the causal calculus.
+        A fixed-architecture system is bounded by the four rungs and cannot represent causal structures
+        requiring additional primitives (quantum causality, open causal systems, logical uncertainty).
+      </p>
+    </div>
+
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:20px 22px;transition:border-color .25s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='var(--border-dim)'" >
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold-light);margin-bottom:8px;">Deriving the architecture from the theory</div>
+      <p style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.65;margin:0;">
+        As <em>B</em>(<em>L</em><sub>t</sub>) &rarr; &Fscr;, the language becomes able to express increasingly
+        precise physical constraints that rule out architectural choices as insufficient.
+        A system that cannot express architectural necessity as a theorem cannot derive next-generation
+        architectures from first principles &mdash; only approximate architectures already in training data.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+
+<!-- THEORY TO IMPLEMENTATION -->
+<section id="theory-yield" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v20 &middot; 367 pages &middot; theory yield</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:14px;">
+    What the theory lets you build that intuition cannot find
+  </h2>
+  <p style="color:rgba(245,240,232,0.6);font-size:0.93rem;max-width:72ch;margin-bottom:10px;line-height:1.78;">
+    Each row answers what the theory lets you build that you could not have found otherwise.
+    Each entry comes directly from a formal result in the lecture notes.
+    The &ldquo;engineering default&rdquo; column is what a competent practitioner would have done without the theory.
+    The &ldquo;what the theory reveals&rdquo; column is what the formal derivation makes visible instead.
+  </p>
+  <p style="color:rgba(245,240,232,0.35);font-size:0.82rem;max-width:72ch;margin-bottom:36px;line-height:1.68;border-left:2px solid var(--border-dim);padding-left:0.85rem;">
+    These are theory-to-implementation mappings established in the notes, not empirical performance claims.
+    Each entry can be reproduced from the corresponding section of lecture notes v20 and the
+    open-source tools listed.
+  </p>
+
+  <!-- TABLE HEADER -->
+  <style>
+  .ti-table { width:100%; border-collapse:collapse; }
+  .ti-th-src  { width:200px; }
+  .ti-th-default { width:auto; }
+  .ti-th-reveals { width:auto; }
+  .ti-th-tool { width:180px; }
+  .ti-header { padding:8px 12px; font-family:'DM Mono',monospace; font-size:0.6rem;
+               letter-spacing:0.08em; text-transform:uppercase;
+               color:rgba(201,168,76,0.45); background:var(--navy-mid);
+               border:1px solid var(--border-dim); vertical-align:bottom; }
+  .ti-header.first { border-left:3px solid rgba(201,168,76,0.3); }
+  .ti-row { transition:background .2s; }
+  .ti-row:hover .ti-td { background:rgba(14,31,58,0.95); }
+  .ti-td { padding:14px 14px; font-size:0.83rem; line-height:1.62;
+           border:1px solid var(--border-dim); vertical-align:top; }
+  .ti-td.src { background:var(--navy-mid); color:rgba(245,240,232,0.55);
+               font-family:'DM Mono',monospace; font-size:0.7rem;
+               letter-spacing:0.02em; line-height:1.5; }
+  .ti-td.src strong { color:var(--gold-dim); display:block; margin-bottom:3px;
+                       font-size:0.62rem; text-transform:uppercase; letter-spacing:0.06em; }
+  .ti-td.default { background:var(--navy-mid); color:rgba(245,240,232,0.38); }
+  .ti-td.reveals { background:rgba(14,31,58,0.6); color:rgba(245,240,232,0.78);
+                   border-left:2px solid rgba(201,168,76,0.25); }
+  .ti-td.reveals em { color:var(--gold-light); font-style:normal; }
+  .ti-td.tool { background:var(--navy-mid); color:rgba(245,240,232,0.4);
+               font-family:'DM Mono',monospace; font-size:0.68rem;
+               letter-spacing:0.02em; line-height:1.55; }
+  .ti-td.tool code { color:var(--gold-dim); font-size:0.85em; }
+  .ti-section-label { grid-column:1/-1; }
+  .ti-group-header td { padding:9px 14px; font-family:'DM Mono',monospace;
+                        font-size:0.6rem; letter-spacing:0.09em; text-transform:uppercase;
+                        color:rgba(201,168,76,0.5); background:rgba(10,22,40,0.7);
+                        border:1px solid var(--border-dim); border-top:2px solid rgba(201,168,76,0.2); }
+  @media(max-width:860px){ .ti-th-tool,.ti-td.tool { display:none; } }
+  </style>
+
+  <table class="ti-table" aria-label="Theory-to-implementation mapping from lecture notes v20">
+    <thead>
+      <tr>
+        <th class="ti-header first ti-th-src">Theoretical source</th>
+        <th class="ti-header ti-th-default">Engineering default&thinsp;&mdash;&thinsp;what intuition does</th>
+        <th class="ti-header ti-th-reveals">What the formal result reveals instead</th>
+        <th class="ti-header ti-th-tool">Tool / entry point</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- CEAS group -->
+      <tr class="ti-group-header"><td colspan="4">CEAS &mdash; Critical Entropy Attention Scaling</td></tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>BBP / Tracy&ndash;Widom</strong>RMT &times; CEAS<br>§ Grail addendum §1</td>
+        <td class="ti-td default">Compute entropy at every step (softmax then log-sum). Expensive. Misses the phase structure entirely.</td>
+        <td class="ti-td reveals">The entropy corridor and the BBP spectral gap are two descriptions of the same phase transition. Monitor m(&beta;) = &lambda;<sub>1</sub>(&Atilde;<sub>&beta;</sub>) &minus; &lambda;<sub>+</sub>(&beta;) instead: zero-crossing = criticality. <em>10&times; cheaper than entropy, JAX-differentiable.</em></td>
+        <td class="ti-td tool"><code>scipy.linalg.eigvalsh</code><br>one forward-pass measurement</td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>TW corridor scaling</strong>RMT &times; CEAS<br>§ Grail addendum §1, C2</td>
+        <td class="ti-td default">Tune &delta; by cross-validation. It overfits to specific model sizes.</td>
+        <td class="ti-td reveals">The corridor half-width must scale as <em>&delta; &sim; c &middot; d<sub>k</sub><sup>&minus;2/3</sup></em> (subcritical) or d<sub>k</sub><sup>&minus;1/2</sup> (supercritical). This is a functional form, not a hyperparameter. It scales correctly as d<sub>k</sub> grows.</td>
+        <td class="ti-td tool">closed-form;<br>no tuning required</td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>&sigma;Reparam identification</strong>RMT correspondence<br>Zhai et al. 2023 anchor</td>
+        <td class="ti-td default">Implement CEAS from scratch without knowing &sigma;Reparam exists &mdash; or use &sigma;Reparam without knowing it is already a critical-entropy mechanism.</td>
+        <td class="ti-td reveals">The spectral norm &#x2016;W<sub>K</sub>W<sub>Q</sub><sup>&top;</sup>&#x2016;<sub>2</sub> <em>is</em> the CEAS inverse temperature. Add exactly one missing component: Newton step &beta;<sub>new</sub> = &beta; + (H &minus; H&star;)/(&beta;&middot;Var(s) + &epsilon;). Nothing else required.</td>
+        <td class="ti-td tool">one additional line<br>to existing &sigma;Reparam</td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>MP bulk diagnostic</strong>Marchenko&ndash;Pastur &times; CEAS<br>§ Grail addendum §1</td>
+        <td class="ti-td default">Run WeightWatcher for general layer health. Would not know what to look for in &beta;-specific weights.</td>
+        <td class="ti-td reveals">If the &beta;-weight spectrum lies entirely in the MP bulk: <em>the thermostat is adding noise, not adaptive control.</em> Spikes above &lambda;<sup>+</sup> = CEAS is working. Theory tells you exactly when to redesign vs. scale.</td>
+        <td class="ti-td tool"><code>pip install weightwatcher</code><br><code>watcher.analyze()</code></td>
+      </tr>
+
+      <!-- GRAIL group -->
+      <tr class="ti-group-header"><td colspan="4">GRAIL &mdash; Geometric Representation Algebra for Intelligent Learning</td></tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Poincar&eacute; series convergence</strong>GRAIL kernel<br>§ wf-9adc3762 §4</td>
+        <td class="ti-td default">Discover kernel divergence at training time &mdash; NaN loss after many gradient steps.</td>
+        <td class="ti-td reveals"><em>Before any gradient step:</em> estimate &delta;(&Gamma;) from orbit-counting slope, assert &beta; &gt; &delta;(&Gamma;) + margin. Runtime failure becomes a pre-condition. One curve-fit call replaces hours of debugging.</td>
+        <td class="ti-td tool"><code>scipy.optimize.curve_fit</code><br>orbit BFS on generators</td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Gromov &delta;-hyperbolicity</strong>GRAIL injection necessity<br>§ wf-9adc3762 §2</td>
+        <td class="ti-td default">Inject into &Hopf;<sup>n</sup> and wonder why it underperforms Euclidean on certain ontologies.</td>
+        <td class="ti-td reveals">Test first: &delta; &lt; 1 &rarr; tree-like, use &Hopf;<sup>n</sup>. &delta; &ge; 4 &rarr; not hyperbolic, do not use &Hopf;<sup>n</sup>. <em>Geometry is selected by the data structure, not by preference.</em></td>
+        <td class="ti-td tool"><code>hyperbolicity_delta()</code><br>four-point condition sampling</td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Orbit-wide evaluation</strong>GRAIL orbit generalisation<br>§ wf-9adc3762 §1, §7</td>
+        <td class="ti-td default">Randomly sample test points from the orbit. Misses the zero-sample-complexity guarantee entirely.</td>
+        <td class="ti-td reveals">The orbit is the unit of evaluation. Train on one orbit representative; test on every orbit member. <em>Error must be &le; machine epsilon.</em> Any drift reveals the equivariance property has silently degraded.</td>
+        <td class="ti-td tool"><code>orbit_generalization_metric()</code><br>falsifies guarantee directly</td>
+      </tr>
+
+      <!-- Ψ group -->
+      <tr class="ti-group-header"><td colspan="4">&Psi;-Causal &mdash; Causal Operator Framework</td></tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Markov category types</strong>Fritz 2020 &times; Pearl<br>§ wf-be4a9893 §5</td>
+        <td class="ti-td default">Mix rungs freely. Find silent causal errors at runtime. Debugging requires tracing which rung was intended.</td>
+        <td class="ti-td reveals">Four distinct types (Obs, Interv, Ctf, LogicUncertain) with the do-functor as the <em>only</em> legal Rung-1&rarr;2 bridge. Illegal coercions are compile-time errors, not silent statistical bugs.</td>
+        <td class="ti-td tool">Python <code>Protocol</code><br>SWI-Prolog <code>rung/2</code> guard</td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Do-calculus completeness</strong>Prolog formal architecture<br>§ grail_addendum §5</td>
+        <td class="ti-td default">Avoid memoization of causal queries &mdash; worried context might change the answer for identical inputs.</td>
+        <td class="ti-td reveals">The completeness theorem certifies: identical (Y, X, V<sub>x</sub>) triples always return identical distributions. <em>Tabling is provably sound, not an approximation.</em> Memoization is free correctness, not a shortcut.</td>
+        <td class="ti-td tool"><code>:- table effect/3.</code><br><code>:- table interv/3, cf/4.</code></td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Sheaf cohomology H&sup1;</strong>Algebraic topology &times; &Psi;<br>§ grail_addendum §3</td>
+        <td class="ti-td default">Observe inconsistent counterfactual + interventional results on looped SCMs. Call it a bug. Debug indefinitely.</td>
+        <td class="ti-td reveals">H&sup1;(F<sub>&Psi;</sub>) &ne; 0 means a causal monodromy &mdash; a topological obstruction, not a code error. <em>Fix: lift to universal cover via GRAIL&rsquo;s hyperbolic injection.</em> Structural diagnosis in one graph traversal.</td>
+        <td class="ti-td tool"><code>networkx.cycle_basis()</code><br><code>causal_sheaf_h1()</code></td>
+      </tr>
+
+      <!-- Triad group -->
+      <tr class="ti-group-header"><td colspan="4">Full triad &mdash; CEAS + GRAIL + &Psi; jointly</td></tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Cohomological uniqueness</strong>Three simultaneous obstructions<br>§ grail_addendum §2, §5</td>
+        <td class="ti-td default">Three separate safety checkers. Each can pass o<sub>1</sub> and o<sub>2</sub> individually while the joint condition fails.</td>
+        <td class="ti-td reveals"><em>CertifiedMod:</em> a single Lean&thinsp;4 structure that carries all three necessity proofs simultaneously. You cannot construct it for a non-triadic architecture. Failed construction = compile error = architectural rejection.</td>
+        <td class="ti-td tool">Lean&thinsp;4 dependent record<br>compile error = rejection</td>
+      </tr>
+
+      <tr class="ti-row">
+        <td class="ti-td src"><strong>Naturality square test</strong>Category theory &times; triad<br>§ grail_addendum §2, conj. 2.1</td>
+        <td class="ti-td default">Test components on specific world states. Misses whether they compose correctly with world-model morphisms.</td>
+        <td class="ti-td reveals">Commutativity of the naturality square &mdash; F(w) &rarr; G(w) &rarr; G(w&prime;) vs. F(w) &rarr; F(w&prime;) &rarr; G(w&prime;) &mdash; <em>is</em> the triad consistency test. Failure identifies which world-model morphism breaks the joint condition.</td>
+        <td class="ti-td tool"><code>triad_naturality_test()</code><br>tolerance: 10<sup>&minus;5</sup></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- SUMMARY NOTE -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:20px;">
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:3px solid var(--gold);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">The common pattern</div>
+      <p style="font-size:0.86rem;color:rgba(245,240,232,0.6);line-height:1.7;margin:0;">
+        In each case the formal result converts an open question into a closed one:
+        a runtime failure becomes a pre-condition, a silent bug becomes a compile error,
+        an arbitrary hyperparameter becomes a derived constant, an infinite debugging session
+        becomes a one-function diagnosis. The theory is not replacing engineering &mdash;
+        it is specifying exactly what to engineer and why.
+      </p>
+    </div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Source &amp; reproducibility</div>
+      <p style="font-size:0.86rem;color:rgba(245,240,232,0.55);line-height:1.7;margin:0;">
+        All entries are derived from lecture notes v20 (367 pages) and the associated
+        discovery-map and implementation-map analyses.
+        Open-source tools cited are publicly available.
+        Formal section references are in the lecture notes.
+        No entry requires hardware or proprietary data beyond a standard Python/JAX environment
+        and SWI-Prolog.
+      </p>
+    </div>
+  </div>
+
+</div>
+</section>
 
 <!-- FOUNDER -->
 <section class="founder" id="founder">
@@ -2130,3 +2586,4 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+
