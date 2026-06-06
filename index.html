@@ -645,7 +645,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4/5, Claude, Gemini, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
   </p>
   <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
-    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v18).
+    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v20).
   </p>
 
   <!-- ── THREE-COLUMN HEADER ── -->
@@ -745,7 +745,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- ── KEY RESULT ── -->
   <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v18</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v20</span>
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
       <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
     </p>
@@ -759,7 +759,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- what is not ASI -->
   <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v18)</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v20)</span>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
       <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
         <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
@@ -934,7 +934,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
       </tr>
       <tr>
-        <td class="mia-td-prop">Susceptibility sharpening<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">χ<sub>L</sub> ~ L<sup>γ/ν</sup></span></td>
+        <td class="mia-td-prop">Susceptibility sharpening<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">χ<sub>L</sub> ~ L<sup>γ/ν</sup></span><br><em style="font-size:0.68rem;color:rgba(201,168,76,0.4);">(conjecture)</em></td>
         <td class="mia-td"><span class="mia-no">✗</span></td>
         <td class="mia-td"><span class="mia-yes">✓</span></td>
         <td class="mia-td"><span class="mia-yes">✓</span></td>
@@ -981,7 +981,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- FOOTNOTE -->
   <p style="font-size:0.8rem;color:rgba(245,240,232,0.35);line-height:1.65;margin-top:16px;font-family:'DM Mono',monospace;letter-spacing:0.02em;">
-    MIA formal definitions: lecture notes v18, §MIA (§2581 and §4163). GRAIL ⊂ MIA, strict inclusion.
+    MIA formal definitions: lecture notes v20, §MIA (§2581 and §4163). GRAIL ⊂ MIA, strict inclusion.
     Migration paths A (software VM), B (FPGA/ASIC), C (industrial PLC) specified in §2730.
     LoRA path (Tier 2) derived from Proposition (Legacy Inheritance) conditions (i)–(ii).
   </p>
@@ -1265,7 +1265,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     </div>
     <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">PLT as computational face</div>
-      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Programming language theory is not separate from the algebraic fields &mdash; it is their computational instantiation. Homotopy type theory: types ARE topological spaces. Lean 4's type system is algebraic topology expressed as a proof language.</p>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Programming language theory is not separate from the algebraic fields &mdash; it is their computational instantiation. Homotopy type theory: types are topological spaces. Lean 4's type system is algebraic topology expressed as a proof language.</p>
     </div>
     <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">RMT as bridge field</div>
@@ -1340,7 +1340,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">2023–25</div>
             <div class="tl-right">
               <div class="tl-event">Formal integration → ASI Necessary Seed Architecture</div>
-              <div class="tl-detail">~18,000-line lecture notes (v18), 25 patent claims, Colab verification programme M0–M7. K₂ ring of G-invariant kernels; tri-commutator [ξ,X]=iβ(t). U.S. Provisional 64/067,703 filed; non-provisional in preparation. Patent portfolio: 9+ applications filed 2025 across ASI, MIA, CEAS, operator-theoretic verification, and related methods.</div>
+              <div class="tl-detail">~290-page lecture notes (v20), 25 patent claims, Colab verification programme M0–M7. K₂ ring of G-invariant kernels; tri-commutator [ξ,X]=iβ(t). U.S. Provisional 64/067,703 filed; non-provisional in preparation. Patent portfolio: 9+ applications filed 2025 across ASI, MIA, CEAS, operator-theoretic verification, and related methods.</div>
             </div>
           </div>
         </div>
@@ -1351,8 +1351,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <span class="stat-label">Root conception<br>predates transformers</span>
         </div>
         <div class="origin-stat">
-          <span class="stat-num">264</span>
-          <span class="stat-label">Lines of proved<br>lecture notes (v18)</span>
+          <span class="stat-num">290</span>
+          <span class="stat-label">Pages of lecture<br>notes v20</span>
         </div>
         <div class="origin-stat">
           <span class="stat-num">3</span>
@@ -1675,7 +1675,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <h3>Where to read more</h3>
         <p>Technical reviewers, cryptographers, and ML researchers who want the mathematics, proofs, and working code:</p>
         <ul>
-          <li><a href="/Other%20Research" style="color:var(--gold);text-decoration:none;">Research page</a> — lecture notes v18 (~18,000 lines), Colab verification programme (M0–M7), 25-claim patent draft</li>
+          <li><a href="/Other%20Research" style="color:var(--gold);text-decoration:none;">Research page</a> — lecture notes v20 (~290 pages), Colab verification programme (M0–M7), 25-claim patent draft</li>
           <li><a href="/CEAS" style="color:var(--gold);text-decoration:none;">CEAS</a>, <a href="/GRAIL" style="color:var(--gold);text-decoration:none;">GRAIL</a>, <a href="/Ψ-Operator-Framework" style="color:var(--gold);text-decoration:none;">Ψ-Operator</a> — component pages</li>
           <li><a href="/files/william_chuang_cv.pdf" style="color:var(--gold);text-decoration:none;">CV</a> — academic background and prior work</li>
           <li>Email for NDA-gated technical briefs and evaluation materials</li>
@@ -1709,7 +1709,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </div>
 
   <p style="color:rgba(245,240,232,0.4);font-size:0.83rem;max-width:68ch;margin-bottom:20px;line-height:1.7;border-left:2px solid var(--border-dim);padding-left:0.9rem;">
-    AI agents generate ~80% of the code. Your irreplaceable contributions: architecture decisions,
+    AI agents generate ~80% of the code. Irreplaceable human contributions: architecture decisions,
     causal correctness judgements in the &Psi;-engine, and closing the Lean&nbsp;4 proof gaps.
     Timeline assumes full-time focus &mdash; part-time roughly doubles the calendar.
     Cert Level&nbsp;4 (RSI closed loop) at week 32 is the primary target; Cert Level&nbsp;5 at week 48 is the stretch target.
@@ -1726,8 +1726,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <div style="font-size:0.82rem;color:rgba(245,240,232,0.6);line-height:1.55;">&Psi;-causal engine, do-calculus, SCM inference. Logic programming is causal reasoning. User has prior Prolog background.</div>
     </div>
     <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid rgba(201,168,76,0.5);padding:14px 16px;">
-      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">SBCL Common Lisp</div>
-      <div style="font-size:0.82rem;color:rgba(245,240,232,0.6);line-height:1.55;">RSI loop, memory, audit logger. Homoiconicity: system state is S-expressions the loop can read and rewrite. Fastest Lisp runtime.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Racket (Chez Scheme)</div>
+      <div style="font-size:0.82rem;color:rgba(245,240,232,0.6);line-height:1.55;">RSI loop, <code style="font-size:0.76rem;color:var(--gold-dim);">#lang causal-dsl</code> enforcement, memory, audit. Homoiconicity + <code style="font-size:0.76rem;color:var(--gold-dim);">call/cc</code> for RSI reversion. Chez Scheme performance underneath.</div>
     </div>
     <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid rgba(201,168,76,0.5);padding:14px 16px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Python / JAX</div>
@@ -1819,7 +1819,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <div class="rq-card has-cert">
       <span class="rq-q">Weeks 12–18</span>
       <div class="rq-focus">Lean 4 + triadic integration</div>
-      <span class="rq-lang">Lean 4 + SBCL + JAX</span>
+      <span class="rq-lang">Lean 4 + Racket + JAX</span>
       <p class="rq-milestone">Machine-checked proofs running in parallel. All three components wired. J<sub>111</sub> &lt; all 7 ablation variants &mdash; triad beats every pair and singleton.</p>
       <span class="rq-cert">Cert Level 3</span>
     </div>
@@ -1829,7 +1829,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <div class="rq-card">
       <span class="rq-q">Weeks 19–22</span>
       <div class="rq-focus">Memory + inverse design</div>
-      <span class="rq-lang">SBCL + Python</span>
+      <span class="rq-lang">Racket + Python</span>
       <p class="rq-milestone">Episodic + semantic memory. Inverse design: given target state, compute action sequence. Pearl Rung 4 &mdash; LLMs cannot invert physical dynamics outside training data.</p>
       <span class="rq-demo-badge">Demo E</span>
     </div>
@@ -1837,7 +1837,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <div class="rq-card has-cert">
       <span class="rq-q">Weeks 23–32</span>
       <div class="rq-focus">RSI-0 closed loop</div>
-      <span class="rq-lang">SBCL + Lean 4 + Python</span>
+      <span class="rq-lang">Racket + Lean 4 + Python</span>
       <p class="rq-milestone">K&nbsp;=&nbsp;20 cycles. No manual edits inside the loop. Lean&nbsp;4 gate active. No public system has demonstrated this at RSI Level 7. User feedback compounds improvement nightly.</p>
       <span class="rq-cert">Cert Level 4</span>
       <span class="rq-demo-badge" style="margin-left:6px;">Demo F</span>
@@ -1898,7 +1898,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Weeks 3&ndash;4</span>
       <div class="demo-title">Causal reversal</div>
       <p class="demo-why">A dataset where X appears to prevent Y in observed data, but causes Y when you intervene. LLMs give the wrong direction. The &Psi;-engine computes P(Y|do(X=x)) by SCM mutilation &mdash; structurally correct every time.</p>
-      <div class="demo-proof">Proved impossible for Rung-1 systems &middot; &sect;4 lecture notes v18</div>
+      <div class="demo-proof">Proved impossible for Rung-1 systems &middot; &sect;4 lecture notes v20</div>
     </div>
 
     <div class="demo-card">
