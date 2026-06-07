@@ -2412,15 +2412,18 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="gold-rule"></div>
   <span class="mono" style="display:block;margin-bottom:16px;">Homoiconicity &middot; code is data, data is code</span>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
-    When weights and programs live in the same space
+    When weights and programs live on the same manifold
   </h2>
   <p style="color:rgba(245,240,232,0.6);font-size:0.93rem;max-width:72ch;margin-bottom:10px;line-height:1.78;">
-    In GRAIL, model weights and input data are both geometric parameters in
-    &Hopf;<sup>n</sup> &mdash; the same space, subject to the same isometry group.
+    In GRAIL, model weights and input data are both geometric parameters on the same
+    Riemannian manifold (M,&thinsp;G,&thinsp;&beta;) &mdash; subject to the same isometry group.
+    &Hopf;<sup>n</sup> is the canonical first implementation;
+    the general framework places weights and inputs on any Riemannian manifold
+    with the appropriate group structure.
     An isometry acts on weights and inputs simultaneously, exactly as a Lisp macro acts on code and data.
     This is not an analogy. The functor
     F: <strong>Lisp</strong> &rarr; <strong>GRAIL</strong> makes it a categorical identity:
-    substituting a Lisp expression and applying a Lorentz isometry are morphisms in the same category.
+    substituting a Lisp expression and applying an isometry are morphisms in the same category.
     Seven functional capabilities follow from this unification,
     formalised and evaluated in lecture notes v20.
   </p>
