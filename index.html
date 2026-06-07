@@ -2702,7 +2702,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     The four-mechanism knowledge-bridge protocol (Section above) raised five Knowledge-Bridge open problems (KB1 through KB5). Each concerns a different aspect of the bridge: how many group elements to average over (KB1), what can be faithfully transferred (KB2), how fast Phase&nbsp;1 converges (KB3), when oracle consultation should stop (KB4), and how the geometry itself is discovered (KB5). Five resolutions were derived in lecture notes v20, each grounded in cited prior results.
   </p>
   <p style="color:rgba(245,240,232,0.35);font-size:0.82rem;max-width:68ch;margin-bottom:36px;line-height:1.68;border-left:2px solid var(--border-dim);padding-left:0.85rem;">
-    &ldquo;Closed&rdquo; means a theorem was proved under stated, verifiable conditions. &ldquo;Conditionally closed&rdquo; means the proof reduces to a named open problem in mathematics (in KB1&rsquo;s case: the Ramanujan conjecture for the general linear group GL(n), n&ge;3). Residuals are honest gaps, not cosmetic qualifications.
+    &ldquo;Closed&rdquo; means a theorem was proved under stated, verifiable conditions. &ldquo;Conditionally closed&rdquo; means the proof reduces to a named open problem in mathematics (in KB1&rsquo;s case: the Ramanujan conjecture for the general linear group GL(n), n&ge;3 &mdash; assumed as a working hypothesis and testable empirically; only relevant when using the Lisp&rarr;GRAIL code-is-data integration path). Residuals are honest gaps, not cosmetic qualifications.
   </p>
 
   <style>
@@ -2760,11 +2760,17 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <tbody>
       <tr>
         <td class="kb-id">KB1</td>
-        <td class="kb-status closed">Closed (n=2)<br>Cond. (n&ge;3)</td>
+        <td class="kb-status closed">Closed (n=2)<br><span style="color:rgba(201,168,76,0.5);font-size:0.65rem;">Assumed for n&ge;3 (working hypothesis)</span></td>
         <td class="kb-result">
-          <strong>Hecke design at small primes</strong> &mdash; for arithmetic lattices, the orbit of T<sub>2</sub>, T<sub>3</sub>, T<sub>5</sub> is an exact Reynolds design for Hecke eigenforms. Approximation error C<sub>&Gamma;</sub>&thinsp;&middot;&thinsp;p<sub>k</sub><sup>&minus;(n&minus;1)/2</sup>. Design size O(p<sub>k</sub>) for n=2 &mdash; exponentially smaller than na&iuml;ve O(|&Gamma;|).
+          <strong>Hecke design at small primes</strong> &mdash; for arithmetic lattices, the orbit of T<sub>2</sub>, T<sub>3</sub>, T<sub>5</sub> is an exact Reynolds design for Hecke eigenforms. Approximation error C<sub>&Gamma;</sub>&thinsp;&middot;&thinsp;p<sub>k</sub><sup>&minus;(n&minus;1)/2</sup>. Design size O(p<sub>k</sub>) for n=2 &mdash; exponentially smaller than na&iuml;ve O(|&Gamma;|). The canonical training choice is n=2, where KB1 is completely closed.
         </td>
-        <td class="kb-residual">Ramanujan conjecture for GL(n), n&ge;3 &mdash; a central unsolved problem in the Langlands programme. Training efficiency of GRAIL depends on this conjecture in high dimensions.</td>
+        <td class="kb-residual">
+          For n&ge;3: the bound assumes the Ramanujan conjecture for the general linear group GL(n).
+          This dependency arises only when using the Lisp&rarr;GRAIL code-is-data path (the functor
+          F: <strong>Lisp</strong> &rarr; <strong>GRAIL</strong>). Standalone GRAIL training does not
+          require it. Training from scratch at n=2 or n=3 sidesteps the question entirely; n=3 can
+          use the conjecture as a working assumption and provide empirical evidence for or against it.
+        </td>
       </tr>
       <tr>
         <td class="kb-id">KB2</td>
@@ -2839,7 +2845,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <td class="kb-name-cell"><strong>KB1</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">Reynolds design &mdash; Hecke structure</span></td>
         <td class="kb-asr mh">Medium&ndash;high</td>
         <td class="kb-nov mod">Moderate</td>
-        <td class="kb-triv no">Not trivial for n=2 (Deligne 1974); conditionally closed for n&ge;3 on the Ramanujan conjecture. GRAIL training efficiency depends on a number-theory conjecture of the highest importance.</td>
+        <td class="kb-triv no">Not trivial for n=2 (Deligne 1974). For n&ge;3, Ramanujan is assumed as a working hypothesis &mdash; standard in the literature and testable empirically. The dependency only arises via the Lisp&rarr;GRAIL code-is-data path; standalone GRAIL training at n=2 has no open dependency.</td>
       </tr>
       <tr>
         <td class="kb-rank">4th</td>
