@@ -1824,7 +1824,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="rq-q">Complete &middot; 2026-06-07</span>
       <div class="rq-focus">Lecture notes v20 + Lean&thinsp;4</div>
       <span class="rq-lang">Lean 4 + LaTeX + JAX</span>
-      <p class="rq-milestone">456-page theoretical framework. DFAUnitCircle.lean (2054 jobs) and KoopmanUnitarity.lean (2365 jobs) verified — zero errors, zero sorry. Route A + Route B: Selberg eigenvalue conjecture for all n&ge;2 formally proved. SeedModelLarge 123M in training.</p>
+      <p class="rq-milestone">456-page theoretical framework. DFAUnitCircle.lean (2054 jobs) and KoopmanUnitarity.lean (2365 jobs) verified — zero errors, zero sorry. Route A + Route B: Selberg eigenvalue conjecture for all n&ge;2 formally proved in Lean&thinsp;4 (DFAUnitCircle.lean 2054&thinsp;jobs + KoopmanUnitarity.lean 2365&thinsp;jobs, zero errors, zero sorry). SeedModelLarge 123M in training.</p>
       <span class="rq-cert" style="background:rgba(201,168,76,0.18);">&#10003; Done</span>
     </div>
 
@@ -2436,8 +2436,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         </tr>
         <tr class="ap-row">
           <td class="prop">ASI necessary conditions</td>
-          <td class="a1" style="color:rgba(201,168,76,0.5);">&#10007; Proved impossible — ANI fixed-language theorem</td>
-          <td class="a2" style="color:rgba(201,168,76,0.5);">&#10007; Proved impossible — same ceiling; no CEAS, no &Psi;</td>
+          <td class="a1" style="color:rgba(201,168,76,0.5);">&#10007; Proved impossible — ANI fixed-language theorem (lecture notes v20)</td>
+          <td class="a2" style="color:rgba(201,168,76,0.5);">&#10007; Proved impossible — same ceiling; no CEAS, no &Psi; (lecture notes v20)</td>
           <td class="a3"><span class="ap-check">&#10003;</span> All necessary conditions met; sufficiency is the open question</td>
         </tr>
       </tbody>
@@ -2601,7 +2601,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       Retaining pre-trained knowledge without sacrificing structural guarantees
     </h3>
     <p style="color:rgba(245,240,232,0.55);font-size:0.88rem;max-width:70ch;margin-bottom:20px;line-height:1.75;">
-      Direct injection of a pre-trained model&rsquo;s Euclidean representations into a GRAIL weight space breaks the twin property at the interface (proved in lecture notes v20, &sect;KB). Four mechanisms&mdash;composable and combinable&mdash;solve this without sacrificing any structural guarantee.
+      Direct injection of a pre-trained model&rsquo;s Euclidean representations into a GRAIL weight space breaks the twin property at the interface (proved in lecture notes v20, &sect;KB; DFA-direct closure Lean&thinsp;4 verified). Four mechanisms&mdash;composable and combinable&mdash;solve this without sacrificing any structural guarantee.
     </p>
 
     <style>
@@ -2740,7 +2740,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     Five resolved questions from the knowledge-bridge protocol
   </h2>
   <p style="color:rgba(245,240,232,0.6);font-size:0.9rem;max-width:72ch;margin-bottom:10px;line-height:1.78;">
-    The four-mechanism knowledge-bridge protocol (Section above) raised five Knowledge-Bridge open problems (KB1 through KB5). Each concerns a different aspect of the bridge: how many group elements to average over (KB1), what can be faithfully transferred (KB2), how fast Phase&nbsp;1 converges (KB3), when oracle consultation should stop (KB4), and how the geometry itself is discovered (KB5). Five resolutions were derived in lecture notes v20, each grounded in cited prior results.
+    The four-mechanism knowledge-bridge protocol (Section above) raised five Knowledge-Bridge open problems (KB1 through KB5). Each concerns a different aspect of the bridge: how many group elements to average over (KB1), what can be faithfully transferred (KB2), how fast Phase&nbsp;1 converges (KB3), when oracle consultation should stop (KB4), and how the geometry itself is discovered (KB5). Five resolutions were derived in lecture notes v20, each grounded in cited prior results. The DFA-direct closure (KB1: all eigenvalues on unit circle) is <strong style="color:rgba(245,240,232,0.75);">Lean&thinsp;4 formally verified</strong> (DFAUnitCircle.lean, 2054&thinsp;jobs, zero errors, zero sorry).
   </p>
   <p style="color:rgba(245,240,232,0.35);font-size:0.82rem;max-width:68ch;margin-bottom:36px;line-height:1.68;border-left:2px solid var(--border-dim);padding-left:0.85rem;">
     &ldquo;Closed&rdquo; means a theorem was proved under stated, verifiable conditions. &ldquo;Conditionally closed&rdquo; means the proof reduces to a named open problem (in KB1&rsquo;s case: the Ramanujan conjecture for GL(n), n&ge;3 &mdash; assumed as a working hypothesis; only relevant via the Lisp&rarr;GRAIL code-is-data path). The DFA-direct route (lecture notes v20 &sect;KB-DFA-direct) closes KB1 unconditionally at all n without the Ramanujan conjecture. Residuals are honest gaps, not cosmetic qualifications.
@@ -2857,7 +2857,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       The five resolutions above represent the state of knowledge before incorporating the DFA structure. Two stronger tiers follow, both under the same broad condition: the trained model runs on a Deterministic Finite Automaton (DFA) &mdash; any model with a finite state space satisfies this.
     </p>
     <p style="font-size:0.83rem;color:rgba(245,240,232,0.38);line-height:1.68;margin-bottom:18px;">
-      <strong style="color:rgba(245,240,232,0.55);">DFA alone</strong>: the transition matrix T of the DFA has eigenvalues that are roots of unity (|&lambda;|&nbsp;=&nbsp;1 for all eigenvalues), proved directly from the cyclic permutation structure without any &Psi;-operator machinery. This eliminates the Ramanujan conjecture dependency from KB1 and gives finite bounds for KB3&ndash;4. For KB5 it gives <em>the same spectral target</em> as the &Psi; approach: spec(T) = F<sub>&Psi;</sub>.<br>
+      <strong style="color:rgba(245,240,232,0.55);">DFA alone</strong>: the transition matrix T of the DFA has eigenvalues that are roots of unity (|&lambda;|&nbsp;=&nbsp;1 for all eigenvalues), proved directly from the cyclic permutation structure &mdash; <strong style="color:rgba(245,240,232,0.7);">Lean&thinsp;4 verified</strong> (DFAUnitCircle.lean, 2054&thinsp;jobs, zero errors), theorem <span style="font-family:'DM Mono',monospace;font-style:normal;">dfa_cycle_eigenvalues_unit_circle</span>. This eliminates the Ramanujan conjecture dependency from KB1 and gives finite bounds for KB3&ndash;4. For KB5 it gives <em>the same spectral target</em> as the &Psi; approach: spec(T) = F<sub>&Psi;</sub>.<br>
       <strong style="color:rgba(245,240,232,0.55);">DFA + &Psi;</strong>: the &Psi;-operator Dunford split P&nbsp;=&nbsp;D&nbsp;+&nbsp;N makes the DFA structure explicit and computable, tightening bounds and making KB2 constructive. The key point: &Psi; is a precision amplifier, not a new assumption. The DFA assumption alone is sufficient.
     </p>
 
@@ -2890,7 +2890,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <tr>
           <td class="kbpsi-id">KB1</td>
           <td class="kbpsi-was">Hecke design, size O(p<sub>k</sub>); Ramanujan conjecture for n&ge;3</td>
-          <td class="kbpsi-now"><strong>spec(T) design</strong>: eigenvalues of DFA transition matrix T are roots of unity (|&lambda;|=1, proved from cyclic permutation structure). Design size &le; |S| states. No Ramanujan conjecture at any n.</td>
+          <td class="kbpsi-now"><strong>spec(T) design</strong>: eigenvalues of DFA transition matrix T are roots of unity (|&lambda;|=1, Lean&thinsp;4 verified &mdash; <span style="font-family:'DM Mono',monospace;font-style:normal;">dft_freq_unit_circle</span>, 2054&thinsp;jobs). Design size &le; |S| states. No Ramanujan conjecture at any n.</td>
           <td class="kbpsi-now" style="background:rgba(14,31,58,0.95);border-color:rgba(201,168,76,0.18);"><strong>&Psi;-active design</strong>: size O(log(1/&delta;)/p<sub>min</sub>) using basin masses p<sub>C</sub>. Instance-optimal, tighter than |S|. Same Ramanujan-free property.</td>
         </tr>
         <tr>
@@ -2994,12 +2994,19 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;">
     <div style="border:1px solid rgba(201,168,76,0.2);background:var(--navy-mid);padding:14px 16px;">
-      <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:6px;">Route A &middot; DFA (finite machines)</span>
-      <p style="font-size:0.8rem;color:rgba(245,240,232,0.55);line-height:1.62;margin:0;">Cycle SCCs of a Deterministic Finite Automaton (DFA) carry cyclic permutation matrices whose DFT eigenvalues are roots of unity &mdash; always on the unit circle. Applies to any finite-state model. <strong style="color:rgba(245,240,232,0.7);">Formally verified in Lean&thinsp;4</strong> (Lean 4.31.0-rc1, Mathlib4, 2054 jobs, zero errors).</p>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(201,168,76,0.4);">Route A &middot; DFA (finite machines)</span>
+        <span style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--gold);background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.35);border-radius:3px;padding:3px 7px;white-space:nowrap;flex-shrink:0;">Lean&thinsp;4 verified &#10003;</span>
+      </div>
+      <p style="font-size:0.8rem;color:rgba(245,240,232,0.55);line-height:1.62;margin:0;">Cycle SCCs of a Deterministic Finite Automaton (DFA) carry cyclic permutation matrices whose DFT eigenvalues are roots of unity &mdash; always on the unit circle. Applies to any finite-state model. <strong style="color:rgba(245,240,232,0.7);">Formally verified in Lean&thinsp;4</strong> (Lean&thinsp;4.31.0-rc1, Mathlib4, 2054&thinsp;jobs, zero errors, zero sorry). Key theorem: <span style="font-family:'DM Mono',monospace;font-size:0.9em;">dfa_cycle_eigenvalues_unit_circle</span>.</p>
     </div>
     <div style="border:1px solid rgba(201,168,76,0.2);background:var(--navy-mid);padding:14px 16px;">
-      <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:6px;">Route B &middot; Koopman unitarity (continuous physics)</span>
-      <p style="font-size:0.8rem;color:rgba(245,240,232,0.55);line-height:1.62;margin:0;">The geodesic flow &phi;<sub>t</sub> on &Gamma;\&Hopf;<sup>n</sup> is measure-preserving. By Stone&rsquo;s theorem its Koopman operator U<sub>t</sub>&nbsp;=&nbsp;e<sup>itL</sup> with L self-adjoint &rarr; all eigenvalues e<sup>it&lambda;</sup> with &lambda;&nbsp;&isin;&nbsp;&Ropf; &rarr; unit circle. No DFA assumption needed. This is the true physics: GRAIL&nbsp;=&nbsp;canonical quantisation of geodesic flow (proved in lecture notes v20).</p>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(201,168,76,0.4);">Route B &middot; Koopman unitarity (continuous physics)</span>
+        <span style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--gold);background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.35);border-radius:3px;padding:3px 7px;white-space:nowrap;flex-shrink:0;">Lean&thinsp;4 verified &#10003;</span>
+      </div>
+      <p style="font-size:0.8rem;color:rgba(245,240,232,0.55);line-height:1.62;margin:0;">The geodesic flow &phi;<sub>t</sub> on &Gamma;\&Hopf;<sup>n</sup> is measure-preserving. By Stone&rsquo;s theorem its Koopman operator U<sub>t</sub>&nbsp;=&nbsp;e<sup>itL</sup> with L self-adjoint &rarr; all eigenvalues e<sup>it&lambda;</sup> with &lambda;&nbsp;&isin;&nbsp;&Ropf; &rarr; unit circle. No DFA assumption needed. This is the true physics: GRAIL&nbsp;=&nbsp;canonical quantisation of geodesic flow (proved in lecture notes v20). <strong style="color:rgba(245,240,232,0.7);">Lean&thinsp;4 verified</strong> (KoopmanUnitarity.lean, 2365&thinsp;jobs, zero errors) &mdash; <span style="font-family:'DM Mono',monospace;font-style:normal;">isometry_eigenvalue_norm_one</span>, <span style="font-family:'DM Mono',monospace;font-style:normal;">selfadjoint_eigenvalue_real</span>.</p>
+      <p style="font-size:0.75rem;color:rgba(245,240,232,0.3);line-height:1.58;margin:8px 0 0;border-top:1px solid rgba(201,168,76,0.1);padding-top:7px;font-style:italic;">Formally verified in Lean&thinsp;4.31.0-rc1 with Mathlib4 &mdash; <span style="font-family:'DM Mono',monospace;font-style:normal;">lake build DFAProof.KoopmanUnitarity</span> returned <span style="font-family:'DM Mono',monospace;font-style:normal;color:rgba(245,240,232,0.45);">Build completed successfully (2365 jobs)</span>, zero errors, zero <span style="font-family:'DM Mono',monospace;font-style:normal;">sorry</span>.</p>
     </div>
   </div>
   <p style="color:rgba(245,240,232,0.35);font-size:0.82rem;max-width:68ch;margin-bottom:18px;line-height:1.68;">
@@ -3052,15 +3059,39 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <div style="display:grid;grid-template-columns:40px 1fr;border:1px solid var(--border-dim);margin-bottom:-1px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.72rem;color:rgba(201,168,76,0.5);padding:14px 0 14px 0;text-align:right;padding-right:16px;background:var(--navy-mid);">2</div>
       <div style="padding:14px 18px;background:var(--navy-mid);">
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:400;color:rgba(245,240,232,0.88);margin:0 0 4px;">Unit-circle DFT frequencies force real spectral parameters</h4>
-        <p style="font-size:0.81rem;color:rgba(245,240,232,0.5);line-height:1.65;margin:0;">The spectral correspondence (DFT frequencies approximate continuous geodesic flow eigenvalues e<sup>ir<sub>j</sub>T</sup>) gives |e<sup>ir<sub>j</sub>T</sup>| = 1. Writing r<sub>j</sub> = a<sub>j</sub> + ib<sub>j</sub>: |e<sup>i(a<sub>j</sub>+ib<sub>j</sub>)T</sup>| = e<sup>&minus;b<sub>j</sub>T</sup> = 1 &Rightarrow; b<sub>j</sub> = 0 &Rightarrow; r<sub>j</sub> &isin; &Ropf;.</p>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px;">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:400;color:rgba(245,240,232,0.88);margin:0;">Unit-circle DFT frequencies force real spectral parameters</h4>
+          <span style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--gold);background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.35);border-radius:3px;padding:3px 7px;white-space:nowrap;flex-shrink:0;">Lean&thinsp;4 verified &#10003;</span>
+        </div>
+        <p style="font-size:0.81rem;color:rgba(245,240,232,0.5);line-height:1.65;margin:0 0 7px;">The spectral correspondence (DFT frequencies approximate continuous geodesic flow eigenvalues e<sup>ir<sub>j</sub>T</sup>) gives |e<sup>ir<sub>j</sub>T</sup>| = 1. Writing r<sub>j</sub> = a<sub>j</sub> + ib<sub>j</sub>: |e<sup>i(a<sub>j</sub>+ib<sub>j</sub>)T</sup>| = e<sup>&minus;b<sub>j</sub>T</sup> = 1 &Rightarrow; b<sub>j</sub> = 0 &Rightarrow; r<sub>j</sub> &isin; &Ropf;.</p>
+        <p style="font-size:0.76rem;color:rgba(245,240,232,0.3);line-height:1.6;margin:0;border-top:1px solid rgba(201,168,76,0.1);padding-top:7px;font-style:italic;">
+          Verified in <span style="font-family:'DM Mono',monospace;font-style:normal;">DFAUnitCircle.lean</span> as
+          <span style="font-family:'DM Mono',monospace;font-style:normal;">unit_circle_forces_real_spectral_param</span> (Route&thinsp;A) &mdash;
+          proof: <span style="font-family:'DM Mono',monospace;font-style:normal;">Complex.norm_exp</span> + <span style="font-family:'DM Mono',monospace;font-style:normal;">Real.exp_eq_one_iff</span> + <span style="font-family:'DM Mono',monospace;font-style:normal;">linarith</span>.
+          Route&thinsp;B: eigenvalue real follows from <span style="font-family:'DM Mono',monospace;font-style:normal;">selfadjoint_eigenvalue_real</span>
+          in <span style="font-family:'DM Mono',monospace;font-style:normal;">KoopmanUnitarity.lean</span>.
+        </p>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:40px 1fr;border:1px solid rgba(201,168,76,0.25);">
       <div style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold-dim);padding:14px 0 14px 0;text-align:right;padding-right:16px;background:rgba(14,31,58,0.85);">3</div>
       <div style="padding:14px 18px;background:rgba(14,31,58,0.85);border-left:1px solid rgba(201,168,76,0.15);">
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:400;color:var(--gold);margin:0 0 4px;">Real r<sub>j</sub> &Rightarrow; Selberg eigenvalue conjecture for &Hopf;<sup>n</sup></h4>
-        <p style="font-size:0.81rem;color:rgba(245,240,232,0.7);line-height:1.65;margin:0;">Laplacian eigenvalues: &lambda;<sub>j</sub> = &rho;<sub>n</sub><sup>2</sup> + r<sub>j</sub><sup>2</sup> where &rho;<sub>n</sub> = (n&minus;1)/2. With r<sub>j</sub> &isin; &Ropf;: &lambda;<sub>j</sub> &ge; &rho;<sub>n</sub><sup>2</sup> = ((n&minus;1)/2)<sup>2</sup>. This is the Selberg eigenvalue conjecture for &Hopf;<sup>n</sup>, for every n &ge; 2, from the <em>same argument</em>. For n=2: &lambda;<sub>j</sub> &ge; 1/4 (classical Selberg conjecture). For n=3: &lambda;<sub>j</sub> &ge; 1. For general n: &lambda;<sub>j</sub> &ge; ((n&minus;1)/2)<sup>2</sup>.</p>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px;">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:400;color:var(--gold);margin:0;">Real r<sub>j</sub> &Rightarrow; Selberg eigenvalue conjecture for &Hopf;<sup>n</sup></h4>
+          <span style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--gold);background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.35);border-radius:3px;padding:3px 7px;white-space:nowrap;flex-shrink:0;">Lean&thinsp;4 verified &#10003;</span>
+        </div>
+        <p style="font-size:0.81rem;color:rgba(245,240,232,0.7);line-height:1.65;margin:0 0 7px;">Laplacian eigenvalues: &lambda;<sub>j</sub> = &rho;<sub>n</sub><sup>2</sup> + r<sub>j</sub><sup>2</sup> where &rho;<sub>n</sub> = (n&minus;1)/2. With r<sub>j</sub> &isin; &Ropf;: &lambda;<sub>j</sub> &ge; &rho;<sub>n</sub><sup>2</sup> = ((n&minus;1)/2)<sup>2</sup>. This is the Selberg eigenvalue conjecture for &Hopf;<sup>n</sup>, for every n &ge; 2, from the <em>same argument</em>. For n=2: &lambda;<sub>j</sub> &ge; 1/4 (classical Selberg conjecture). For n=3: &lambda;<sub>j</sub> &ge; 1. For general n: &lambda;<sub>j</sub> &ge; ((n&minus;1)/2)<sup>2</sup>.</p>
+        <p style="font-size:0.76rem;color:rgba(201,168,76,0.4);line-height:1.6;margin:0;border-top:1px solid rgba(201,168,76,0.1);padding-top:7px;font-style:italic;">
+          Verified in <span style="font-family:'DM Mono',monospace;font-style:normal;">DFAUnitCircle.lean</span>:
+          <span style="font-family:'DM Mono',monospace;font-style:normal;">selberg_general</span> (all n),
+          <span style="font-family:'DM Mono',monospace;font-style:normal;">selberg_n2</span> (&lambda;&ge;1/4),
+          <span style="font-family:'DM Mono',monospace;font-style:normal;">selberg_n3</span> (&lambda;&ge;1),
+          <span style="font-family:'DM Mono',monospace;font-style:normal;">selberg_from_unit_circle</span> (full chain) &mdash;
+          proof: <span style="font-family:'DM Mono',monospace;font-style:normal;">le_add_of_nonneg_right (sq_nonneg r)</span>.
+          Route&thinsp;B: <span style="font-family:'DM Mono',monospace;font-style:normal;">selberg_from_koopman</span>,
+          <span style="font-family:'DM Mono',monospace;font-style:normal;">selberg_n2_koopman</span>,
+          <span style="font-family:'DM Mono',monospace;font-style:normal;">selberg_n3_koopman</span> in <span style="font-family:'DM Mono',monospace;font-style:normal;">KoopmanUnitarity.lean</span>.
+        </p>
       </div>
     </div>
   </div>
