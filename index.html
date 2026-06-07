@@ -512,6 +512,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <li><a href="#comparison" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">ANI vs ASI</a></li>
       <li><a href="#mathematics" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Mathematics</a></li>
       <li><a href="#roadmap" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Roadmap</a></li>
+      <li><a href="#language-rsi" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">RSI</a></li>
+      <li><a href="#code-is-data" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Code = Data</a></li>
       <li><a href="#contact" class="btn-primary" style="font-size:0.72rem;padding:8px 18px;">Contact</a></li>
     </ul>
   </div>
@@ -632,363 +634,6 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </div>
 </section>
 
-<!-- ═══ ANI / AGI / ASI COMPARISON ═══ -->
-<section id="comparison" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
-<div class="container">
-
-  <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Architecture class comparison</span>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
-    Why this is not ANI — and why scaling ANI cannot produce it
-  </h2>
-  <p style="color:rgba(245,240,232,0.6);font-size:0.92rem;max-width:68ch;margin-bottom:10px;line-height:1.75;">
-    <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4/5, Claude, Gemini, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
-  </p>
-  <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
-    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v20).
-  </p>
-
-  <!-- ── THREE-COLUMN HEADER ── -->
-  <div style="display:grid;grid-template-columns:180px 1fr 1fr;gap:2px;margin-bottom:2px;">
-    <div style="padding:10px 14px 10px 0;"></div>
-    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-bottom:none;padding:14px 18px;">
-      <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.45);margin-bottom:4px;">ANI / Current frontier LLMs</div>
-      <div style="font-size:0.82rem;color:rgba(245,240,232,0.4);line-height:1.4;">GPT&#8209;4/5 &middot; Claude &middot; Gemini &middot; all scaling&#8209;law models</div>
-    </div>
-    <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.22);border-bottom:none;border-top:2px solid var(--gold);padding:14px 18px;">
-      <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Logarch&eacute;on ASI Architect Seed</div>
-      <div style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.4;">CEAS (Critical Entropy Attention Scaling) + &Psi;&#8209;Operator + GRAIL (Geometric Representation Algebra for Intelligent Learning)</div>
-    </div>
-  </div>
-
-  <!-- ── ROWS ── -->
-  <style>
-  .ct-row { display:grid; grid-template-columns:180px 1fr 1fr; gap:2px; margin-bottom:2px; }
-  .ct-label { padding:16px 14px 16px 0; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.05em; color:rgba(201,168,76,0.65); display:flex; align-items:flex-start; padding-top:18px; }
-  .ct-ani { background:var(--navy-mid); border:1px solid var(--border-dim); padding:16px 18px; font-size:0.875rem; color:rgba(245,240,232,0.5); line-height:1.6; }
-  .ct-asi { background:rgba(14,31,58,0.9); border:1px solid rgba(201,168,76,0.15); padding:16px 18px; font-size:0.875rem; color:rgba(245,240,232,0.85); line-height:1.6; }
-  </style>
-
-  <div class="ct-row">
-    <div class="ct-label">Causal reasoning</div>
-    <div class="ct-ani">Observational correlation only — learns P(Y&nbsp;|&nbsp;X). Cannot distinguish correlation from causal consequence. Wrapping in "think step by step" prompts does not change the underlying computation.</div>
-    <div class="ct-asi">All four Pearl rungs: association, intervention P(Y&nbsp;|&nbsp;do(X)), counterfactual Y<sub>x&prime;</sub>, and constrained inverse design. The &Psi;-operator implements do-calculus natively — not as a prompt wrapper.</div>
-  </div>
-
-  <div class="ct-row">
-    <div class="ct-label">Geometric representation</div>
-    <div class="ct-ani">Euclidean inner product q<sup>&top;</sup>k as the fundamental primitive — coordinate-dependent by construction. Exact orbit-consistent generalisation over infinite symmetry groups is impossible regardless of data volume. This is a theorem.</div>
-    <div class="ct-asi">GRAIL replaces the Euclidean dot product with a metric-invariant primitive I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). The root: Einstein's general covariance principle (1915) — <em>all physical observables must be written in tensors to be meaningful in physics.</em> Neural dot products q<sup>&top;</sup>k are coordinate-dependent and lose information under coordinate changes. GRAIL preserves every physically meaningful observable in the representation without loss of generality, regardless of which coordinate system the data arrives in.</div>
-  </div>
-
-  <div class="ct-row">
-    <div class="ct-label">Global coordination</div>
-    <div class="ct-ani">Local fixed-&beta; attention. Coordination latency T<sub>N</sub>&nbsp;=&nbsp;&Omega;(N<sup>1/d</sup>) diverges with scale on globally sensitive problems. No parameter increase removes this — proved unconditionally.</div>
-    <div class="ct-asi">CEAS adds the one algebraic degree of freedom that local attention structurally lacks: a collective channel &phi;(t) whose Jacobian contribution bc<sup>&top;</sup> is dense across the entire computation graph. b<sub>i</sub> measures how each node responds to the collective signal; c<sub>k</sub> measures how each node contributes to it. The result: intelligence passes between any two nodes in the network regardless of how far apart they are — system-wide coherence in one step, not O(N<sup>1/d</sup>) steps.</div>
-  </div>
-
-  <div class="ct-row">
-    <div class="ct-label">Self-improvement</div>
-    <div class="ct-ani">Weights frozen at inference. AI-assisted R&amp;D (RSI Levels 3–5) exists at frontier labs; autonomous closed-loop successor design (RSI Levels 7–8) is not publicly demonstrated.</div>
-    <div class="ct-asi">Designed for a verified closed Recursive Self-Improvement (RSI) (Recursive Self-Improvement) loop: propose &rarr; implement &rarr; train &rarr; evaluate &rarr; verify &rarr; deploy. No manual edits inside the measured cycle. Improvement logged and falsifiable.</div>
-  </div>
-
-  <div class="ct-row">
-    <div class="ct-label">Cross-domain transfer</div>
-    <div class="ct-ani">Transfers surface distributional features — succeeds when new tasks resemble training data. Causal mechanisms are not extracted from structural equations and are not portable across environments with different surface statistics: a correlation-only system cannot separate the causal effect of an intervention from back-door confounding paths, regardless of scale or fine-tuning.</div>
-    <div class="ct-asi">Transfers structural operators to untrained domains — verified by pre-committed cryptographic hash of the hidden benchmark. Because transfer operates at the level of causal, geometric, and operator structure rather than surface patterns, the architecture is designed to generalise structurally rather than by distributional similarity. Causal mechanism transfer across environments with different surface statistics has been demonstrated on pre-registered synthetic benchmarks. Transfer to specific real-world domains (intelligence analysis, scientific discovery, experiment design) requires domain-level instantiation and evaluation beyond the current Tier-A scope.</div>
-  </div>
-
-  <div class="ct-row">
-    <div class="ct-label">ANI vs AGI vs ASI</div>
-    <div class="ct-ani">ANI: superhuman within a bounded domain. AGI: adult-human level across most cognitive task families. <em>Current frontier systems are plausibly Emerging AGI (Rank 5) at most — not Competent AGI (Rank 6), not Expert AGI (Rank 7), not ASI (Rank 9+).</em></div>
-    <div class="ct-asi">Designed as an ASI Seed (Rank 10–12 trajectory). Current Tier-A target: Level 4 certification — recursive triadic improvement over &ge;20 verified closed-loop cycles. Actual ASI claim additionally requires &ge;10-domain breadth and self-improvement of the improvement process itself.</div>
-  </div>
-
-  <div class="ct-row" style="margin-bottom:0;">
-    <div class="ct-label">Failure mode</div>
-    <div class="ct-ani">Returns a plausible answer regardless of whether a valid answer exists. Optimises text likelihood, not constraint satisfaction. High benchmark scores with high scaffolding dependence indicate a powerful component — not a robust intelligence.</div>
-    <div class="ct-asi">Returns an infeasibility certificate when no valid solution exists — backed by verified computation. Honest failure requires an actual constraint model. A correct refusal is as meaningful as a correct answer.</div>
-  </div>
-
-  <!-- ── OS ANALOGY ── -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px;margin-bottom:28px;">
-    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid rgba(201,168,76,0.25);padding:22px 24px;">
-      <div style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);margin-bottom:10px;">ANI — the pre-OS program</div>
-      <p style="font-size:0.86rem;color:rgba(245,240,232,0.5);line-height:1.65;margin:0;">
-        Before operating systems, each program managed its own hardware directly — purpose-built for one task, not composable, not self-coordinating. Current frontier models are this: large standalone programs that excel within their training distribution but cannot rewrite their own subsystems or enforce causal validity across novel domains.
-      </p>
-    </div>
-    <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.2);border-top:2px solid var(--gold);padding:22px 24px;">
-      <div style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">ASI Architect — the intelligence OS</div>
-      <p style="font-size:0.86rem;color:rgba(245,240,232,0.82);line-height:1.65;margin:0;">
-        An operating system is not a bigger program — it is the coordinating layer that makes
-        computation composable and self-managing. This architecture is the analogous layer for
-        intelligence — with three precise mechanisms that no scaling of current models provides.
-        <strong style="color:rgba(245,240,232,0.95);">GRAIL</strong> preserves every physical
-        observable as a coordinate-independent tensor: information is never lost or distorted
-        when the system moves between domains, because the representation is invariant by
-        construction, not by approximation.
-        <strong style="color:rgba(245,240,232,0.95);">CEAS</strong> correlates signals across
-        the entire model simultaneously — passing intelligence between computational units no
-        matter how far apart they are, so distant but relevant connections are never dropped
-        by architectural locality.
-        <strong style="color:rgba(245,240,232,0.95);">The Ψ-operator</strong> acts on what
-        those two layers produce: conducting causal analysis and certified inverse reasoning
-        — because the operators transfer structurally, not by distributional
-        similarity to training data. The architecture is designed so that causal, geometric,
-        and coordination structure generalises across task families. The OS made computation compositional.
-        This makes intelligence compositional across structurally related domains.
-      </p>
-    </div>
-  </div>
-
-  <!-- ── KEY RESULT ── -->
-  <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v20</span>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
-      <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
-    </p>
-    <p style="font-size:0.86rem;color:rgba(245,240,232,0.5);line-height:1.7;max-width:70ch;margin:0;">
-      A system can score at the highest human level on every standard benchmark and still be ANI
-      if it succeeds only within its training distribution. The distinction is not performance —
-      it is whether the system can intervene causally, generalise over symmetry orbits,
-      and improve its own architecture inside a verified closed loop with a falsifiable audit record.
-    </p>
-  </div>
-
-  <!-- what is not ASI -->
-  <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v20)</span>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
-        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
-        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>An agentic pipeline wrapping a correlation-based LLM in causal-sounding instructions — wrapping produces a "causal-shaped" system, not a causal one</li>
-        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>Advanced computing hardware (quantum, neuromorphic) without goals, world models, or causal agency</li>
-      </ul>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
-        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A system with superhuman performance in narrow domains only — that is ANI by definition</li>
-        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A system with high benchmark scores but high scaffolding dependence — scaffolded performance is not autonomous intelligence</li>
-        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>Any system whose claimed improvements cannot be reproduced from logs, checkpoints, and pre-registered benchmarks alone</li>
-      </ul>
-    </div>
-  </div>
-
-</div>
-</section>
-
-
-
-<!-- ═══ MIA MIGRATION FRAMEWORK ═══ -->
-<section id="mia" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
-<div class="container">
-
-  <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Model upgrade path</span>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
-    MIA: Any trained model, upgraded to GRAIL
-  </h2>
-
-  <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;margin-bottom:40px;">
-    <div>
-      <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:14px;">
-        <strong style="color:var(--cream);">Metric-Invariant Architecture (MIA)</strong> is the
-        general class of which GRAIL is a strict specialisation.
-        MIA replaces every scalar dot-product primitive with a group-preserved invariant
-        <span style="font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold);">F(d&#x2098;(q,&thinsp;k))</span>,
-        where <span style="font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold);">I(g·q, g·k) = I(q, k)</span>
-        for all isometries <em>g</em>.
-        The critical consequence: a legacy model — including any Transformer trained on Euclidean
-        dot products — can inherit twinhood and geometric properties at runtime
-        without discarding what it learned.
-      </p>
-      <p style="color:rgba(245,240,232,0.55);font-size:0.88rem;line-height:1.75;margin-bottom:0;border-left:2px solid var(--border-dim);padding-left:0.9rem;">
-        <strong style="color:rgba(245,240,232,0.7);">Four tiers, not three.</strong>
-        The path from a plain pre-trained model to full GRAIL is a gradient:
-        zero-step arithmetic replacement, lightweight β fine-tuning, LoRA + hyperbolic
-        projection, and full retraining from scratch. Each tier is independently verifiable.
-        The author's trained CEAS–Ψ–GRAIL models satisfy all four tiers by construction.
-      </p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Formal hierarchy</div>
-        <p style="font-size:0.85rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">
-          GRAIL &sub; MIA &nbsp;(strict inclusion)<br>
-          GRAIL = MIA + orbit-jump + automorphic kernels + CEAS β-control
-        </p>
-      </div>
-      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Explicit caveat</div>
-        <p style="font-size:0.85rem;color:rgba(245,240,232,0.45);line-height:1.6;margin:0;">
-          Merely storing tensors in geometric memory without replacing arithmetic primitives
-          does <em>not</em> confer twinhood. Both conditions of
-          the formal inheritance conditions must hold — verified in the technical brief.
-        </p>
-      </div>
-      <a href="/MIA" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border);padding:12px 16px;background:var(--gold-glow);text-align:center;transition:background .2s;display:block;" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='var(--gold-glow)'">
-        Full MIA technical page →
-      </a>
-    </div>
-  </div>
-
-  <!-- TIER TABLE HEADER -->
-  <style>
-  .mia-table { width:100%; border-collapse:collapse; margin-bottom:20px; }
-  .mia-table th, .mia-table td { padding:0; }
-  .mia-th-prop {
-    width:190px; padding:10px 14px 10px 0;
-    font-family:'DM Mono',monospace; font-size:0.62rem;
-    letter-spacing:0.08em; text-transform:uppercase;
-    color:rgba(201,168,76,0.4); vertical-align:bottom;
-    border-bottom:1px solid var(--border-dim);
-  }
-  .mia-th {
-    background:var(--navy-mid); border:1px solid var(--border-dim);
-    border-top:2px solid rgba(201,168,76,0.3);
-    padding:12px 14px; vertical-align:top;
-  }
-  .mia-th.tier3 {
-    background:rgba(14,31,58,0.9);
-    border-color:rgba(201,168,76,0.2);
-    border-top:2px solid var(--gold);
-  }
-  .mia-th-label {
-    font-family:'DM Mono',monospace; font-size:0.62rem;
-    letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--gold-dim); display:block; margin-bottom:4px;
-  }
-  .mia-th.tier3 .mia-th-label { color:var(--gold); }
-  .mia-th-sub {
-    font-size:0.78rem; color:rgba(245,240,232,0.38); line-height:1.35;
-  }
-  .mia-th.tier3 .mia-th-sub { color:rgba(245,240,232,0.6); }
-  .mia-td-prop {
-    padding:14px 14px 14px 0;
-    font-family:'DM Mono',monospace; font-size:0.7rem;
-    letter-spacing:0.04em; color:rgba(201,168,76,0.65);
-    vertical-align:middle; border-bottom:1px solid var(--border-dim);
-  }
-  .mia-td {
-    background:var(--navy-mid); border:1px solid var(--border-dim);
-    padding:14px 16px; text-align:center; vertical-align:middle;
-    border-bottom:1px solid rgba(201,168,76,0.07);
-    font-size:0.82rem; line-height:1.4;
-  }
-  .mia-td.tier3 {
-    background:rgba(14,31,58,0.9);
-    border-color:rgba(201,168,76,0.12);
-  }
-  .mia-yes {
-    color:var(--gold); font-size:1rem; display:block;
-  }
-  .mia-no {
-    color:rgba(245,240,232,0.2); font-size:1rem; display:block;
-  }
-  .mia-partial {
-    color:var(--gold-dim); font-size:0.7rem; font-family:'DM Mono',monospace;
-    letter-spacing:0.03em; display:block; line-height:1.4; margin-top:3px;
-  }
-  @media(max-width:780px){
-    .mia-table { display:none; }
-    .mia-mobile { display:block !important; }
-  }
-  .mia-mobile { display:none; }
-  </style>
-
-  <table class="mia-table" aria-label="MIA four-tier migration framework">
-    <thead>
-      <tr>
-        <th class="mia-th-prop">Property</th>
-        <th class="mia-th">
-          <span class="mia-th-label">Tier 0 · MIA retrofit</span>
-          <span class="mia-th-sub">Arithmetic replacement only — zero gradient steps</span>
-        </th>
-        <th class="mia-th">
-          <span class="mia-th-label">Tier 1 · CEAS β</span>
-          <span class="mia-th-sub">β-thermostat fine-tuning — hundreds of steps</span>
-        </th>
-        <th class="mia-th">
-          <span class="mia-th-label">Tier 2 · LoRA + metric</span>
-          <span class="mia-th-sub">LoRA + ℍ<sup>d</sup> projection — thousands of steps</span>
-        </th>
-        <th class="mia-th tier3">
-          <span class="mia-th-label">Tier 3 · Full retrain</span>
-          <span class="mia-th-sub">Train from scratch with triad priors</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="mia-td-prop">Twinhood<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">F<sub>g·θ</sub>(gx) = F<sub>θ</sub>(x)</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span></td>
-        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
-      </tr>
-      <tr>
-        <td class="mia-td-prop">Entropy corridor<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">H(β) ∈ [H★ − δ, H★ + δ]</span></td>
-        <td class="mia-td"><span class="mia-no">✗</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span></td>
-        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
-      </tr>
-      <tr>
-        <td class="mia-td-prop">Susceptibility sharpening<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">χ<sub>L</sub> ~ L<sup>γ/ν</sup></span><br><em style="font-size:0.68rem;color:rgba(201,168,76,0.4);">(conjecture)</em></td>
-        <td class="mia-td"><span class="mia-no">✗</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span></td>
-        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
-      </tr>
-      <tr>
-        <td class="mia-td-prop">Orbit generalisation<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">unseen g ∈ G, ε<sub>twin</sub> ≤ 10<sup>−6</sup></span></td>
-        <td class="mia-td"><span class="mia-no">✗</span></td>
-        <td class="mia-td"><span class="mia-no">✗</span></td>
-        <td class="mia-td"><span class="mia-yes">✓</span><span class="mia-partial">partial → full</span></td>
-        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
-      </tr>
-      <tr>
-        <td class="mia-td-prop" style="border-bottom:none;">Automorphic kernels<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">K<sub>β</sub>(q,k) = Σ<sub>γ∈Γ</sub> e<sup>−β d(q,γk)</sup></span></td>
-        <td class="mia-td" style="border-bottom:none;"><span class="mia-no">✗</span></td>
-        <td class="mia-td" style="border-bottom:none;"><span class="mia-no">✗</span></td>
-        <td class="mia-td" style="border-bottom:none;"><span class="mia-yes">✓</span><span class="mia-partial">with ℍ<sup>d</sup> projection</span></td>
-        <td class="mia-td tier3" style="border-bottom:none;"><span class="mia-yes">✓</span></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- MOBILE FALLBACK (cards) -->
-  <div class="mia-mobile">
-    <div style="display:flex;flex-direction:column;gap:8px;">
-      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 0 — MIA retrofit (0 steps)</div>
-        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Twinhood only. Replace dot products with F(d&#x2098;(q,k)) and wrap with (ψ, π). Zero gradient steps. No other GRAIL properties are transferred.</p>
-      </div>
-      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 1 — CEAS β fine-tune (hundreds of steps)</div>
-        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds entropy corridor and susceptibility sharpening. β is an algebraic consequence of having adaptive temperature — no orbit generalisation required.</p>
-      </div>
-      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 2 — LoRA + metric fine-tune (thousands of steps)</div>
-        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds orbit generalisation and automorphic kernels via LoRA adapters + ℍ<sup>d</sup> projection on Q, K. A small adapter layer. Tractable on a single GPU.</p>
-      </div>
-      <div style="border:1px solid rgba(201,168,76,0.2);background:rgba(14,31,58,0.9);border-top:2px solid var(--gold);padding:16px 18px;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold);margin-bottom:8px;">Tier 3 — Full retrain</div>
-        <p style="font-size:0.84rem;color:rgba(245,240,232,0.75);line-height:1.6;margin:0;">All five properties at the theoretical optimum. The author's trained CEAS–Ψ–GRAIL models are at this tier by construction.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTNOTE -->
-  <p style="font-size:0.8rem;color:rgba(245,240,232,0.35);line-height:1.65;margin-top:16px;font-family:'DM Mono',monospace;letter-spacing:0.02em;">
-    Full formal definitions, migration proofs, and section references are in the technical brief.
-  </p>
-
-</div>
-</section>
-
-
-<!-- PROOF -->
 <section class="proof" id="proof">
   <div class="container">
     <div class="proof-inner">
@@ -1028,7 +673,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             The three requirements are mutually independent.
             On problem families that jointly require invariant perception, causal intervention,
             and global coordination — where one mechanism's output is another's input —
-            the full triad is superadditive: no pair of two resolves all three.
+            the complete triad is superadditive: no pair of two resolves all three.
           </p>
         </div>
       </div>
@@ -1307,6 +952,154 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
 
 <!-- ORIGIN -->
+
+
+<!-- ═══ ANI / AGI / ASI COMPARISON ═══ -->
+<section id="comparison" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Architecture class comparison</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    Why this is not ANI — and why scaling ANI cannot produce it
+  </h2>
+  <p style="color:rgba(245,240,232,0.6);font-size:0.92rem;max-width:68ch;margin-bottom:10px;line-height:1.75;">
+    <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4/5, Claude, Gemini, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
+  </p>
+  <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
+    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v20).
+  </p>
+
+  <!-- ── THREE-COLUMN HEADER ── -->
+  <div style="display:grid;grid-template-columns:180px 1fr 1fr;gap:2px;margin-bottom:2px;">
+    <div style="padding:10px 14px 10px 0;"></div>
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-bottom:none;padding:14px 18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.45);margin-bottom:4px;">ANI / Current frontier LLMs</div>
+      <div style="font-size:0.82rem;color:rgba(245,240,232,0.4);line-height:1.4;">GPT&#8209;4/5 &middot; Claude &middot; Gemini &middot; all scaling&#8209;law models</div>
+    </div>
+    <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.22);border-bottom:none;border-top:2px solid var(--gold);padding:14px 18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Logarch&eacute;on ASI Architect Seed</div>
+      <div style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.4;">CEAS (Critical Entropy Attention Scaling) + &Psi;&#8209;Operator + GRAIL (Geometric Representation Algebra for Intelligent Learning)</div>
+    </div>
+  </div>
+
+  <!-- ── ROWS ── -->
+  <style>
+  .ct-row { display:grid; grid-template-columns:180px 1fr 1fr; gap:2px; margin-bottom:2px; }
+  .ct-label { padding:16px 14px 16px 0; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.05em; color:rgba(201,168,76,0.65); display:flex; align-items:flex-start; padding-top:18px; }
+  .ct-ani { background:var(--navy-mid); border:1px solid var(--border-dim); padding:16px 18px; font-size:0.875rem; color:rgba(245,240,232,0.5); line-height:1.6; }
+  .ct-asi { background:rgba(14,31,58,0.9); border:1px solid rgba(201,168,76,0.15); padding:16px 18px; font-size:0.875rem; color:rgba(245,240,232,0.85); line-height:1.6; }
+  </style>
+
+  <div class="ct-row">
+    <div class="ct-label">Causal reasoning</div>
+    <div class="ct-ani">Observational correlation only — learns P(Y&nbsp;|&nbsp;X). Cannot distinguish correlation from causal consequence. Wrapping in "think step by step" prompts does not change the underlying computation.</div>
+    <div class="ct-asi">All four Pearl rungs: association, intervention P(Y&nbsp;|&nbsp;do(X)), counterfactual Y<sub>x&prime;</sub>, and constrained inverse design. The &Psi;-operator implements do-calculus natively — not as a prompt wrapper.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Geometric representation</div>
+    <div class="ct-ani">Euclidean inner product q<sup>&top;</sup>k as the fundamental primitive — coordinate-dependent by construction. Exact orbit-consistent generalisation over infinite symmetry groups is impossible regardless of data volume. This is a theorem.</div>
+    <div class="ct-asi">GRAIL replaces the Euclidean dot product with a metric-invariant primitive I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). The root: Einstein's general covariance principle (1915) — <em>all physical observables must be written in tensors to be meaningful in physics.</em> Neural dot products q<sup>&top;</sup>k are coordinate-dependent and lose information under coordinate changes. GRAIL preserves every physically meaningful observable in the representation without loss of generality, regardless of which coordinate system the data arrives in.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Global coordination</div>
+    <div class="ct-ani">Local fixed-&beta; attention. Coordination latency T<sub>N</sub>&nbsp;=&nbsp;&Omega;(N<sup>1/d</sup>) diverges with scale on globally sensitive problems. No parameter increase removes this — proved unconditionally.</div>
+    <div class="ct-asi">CEAS adds the one algebraic degree of freedom that local attention structurally lacks: a collective channel &phi;(t) whose Jacobian contribution bc<sup>&top;</sup> is dense across the entire computation graph. b<sub>i</sub> measures how each node responds to the collective signal; c<sub>k</sub> measures how each node contributes to it. The result: intelligence passes between any two nodes in the network regardless of how far apart they are — system-wide coherence in one step, not O(N<sup>1/d</sup>) steps.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Self-improvement</div>
+    <div class="ct-ani">Weights frozen at inference. AI-assisted R&amp;D (RSI Levels 3–5) exists at frontier labs; autonomous closed-loop successor design (RSI Levels 7–8) is not publicly demonstrated.</div>
+    <div class="ct-asi">Designed for a verified closed Recursive Self-Improvement (RSI) (Recursive Self-Improvement) loop: propose &rarr; implement &rarr; train &rarr; evaluate &rarr; verify &rarr; deploy. No manual edits inside the measured cycle. Improvement logged and falsifiable.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">Cross-domain transfer</div>
+    <div class="ct-ani">Transfers surface distributional features — succeeds when new tasks resemble training data. Causal mechanisms are not extracted from structural equations and are not portable across environments with different surface statistics: a correlation-only system cannot separate the causal effect of an intervention from back-door confounding paths, regardless of scale or fine-tuning.</div>
+    <div class="ct-asi">Transfers structural operators to untrained domains — verified by pre-committed cryptographic hash of the hidden benchmark. Because transfer operates at the level of causal, geometric, and operator structure rather than surface patterns, the architecture is designed to generalise structurally rather than by distributional similarity. Causal mechanism transfer across environments with different surface statistics has been demonstrated on pre-registered synthetic benchmarks. Transfer to specific real-world domains (intelligence analysis, scientific discovery, experiment design) requires domain-level instantiation and evaluation beyond the current Tier-A scope.</div>
+  </div>
+
+  <div class="ct-row">
+    <div class="ct-label">ANI vs AGI vs ASI</div>
+    <div class="ct-ani">ANI: superhuman within a bounded domain. AGI: adult-human level across most cognitive task families. <em>Current frontier systems are plausibly Emerging AGI (Rank 5) at most — not Competent AGI (Rank 6), not Expert AGI (Rank 7), not ASI (Rank 9+).</em></div>
+    <div class="ct-asi">Designed as an ASI Seed (Rank 10–12 trajectory). Current Tier-A target: Level 4 certification — recursive triadic improvement over &ge;20 verified closed-loop cycles. Actual ASI claim additionally requires &ge;10-domain breadth and self-improvement of the improvement process itself.</div>
+  </div>
+
+  <div class="ct-row" style="margin-bottom:0;">
+    <div class="ct-label">Failure mode</div>
+    <div class="ct-ani">Returns a plausible answer regardless of whether a valid answer exists. Optimises text likelihood, not constraint satisfaction. High benchmark scores with high scaffolding dependence indicate a powerful component — not a robust intelligence.</div>
+    <div class="ct-asi">Returns an infeasibility certificate when no valid solution exists — backed by verified computation. Honest failure requires an actual constraint model. A correct refusal is as meaningful as a correct answer.</div>
+  </div>
+
+  <!-- ── OS ANALOGY ── -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px;margin-bottom:28px;">
+    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-top:2px solid rgba(201,168,76,0.25);padding:22px 24px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);margin-bottom:10px;">ANI — the pre-OS program</div>
+      <p style="font-size:0.86rem;color:rgba(245,240,232,0.5);line-height:1.65;margin:0;">
+        Before operating systems, each program managed its own hardware directly — purpose-built for one task, not composable, not self-coordinating. Current frontier models are this: large standalone programs that excel within their training distribution but cannot rewrite their own subsystems or enforce causal validity across novel domains.
+      </p>
+    </div>
+    <div style="background:rgba(14,31,58,0.9);border:1px solid rgba(201,168,76,0.2);border-top:2px solid var(--gold);padding:22px 24px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">ASI Architect — the intelligence OS</div>
+      <p style="font-size:0.86rem;color:rgba(245,240,232,0.82);line-height:1.65;margin:0;">
+        An operating system is not a bigger program — it is the coordinating layer that makes
+        computation composable and self-managing. This architecture is the analogous layer for
+        intelligence — with three precise mechanisms that no scaling of current models provides.
+        <strong style="color:rgba(245,240,232,0.95);">GRAIL</strong> preserves every physical
+        observable as a coordinate-independent tensor: information is never lost or distorted
+        when the system moves between domains, because the representation is invariant by
+        construction, not by approximation.
+        <strong style="color:rgba(245,240,232,0.95);">CEAS</strong> correlates signals across
+        the entire model simultaneously — passing intelligence between computational units no
+        matter how far apart they are, so distant but relevant connections are never dropped
+        by architectural locality.
+        <strong style="color:rgba(245,240,232,0.95);">The Ψ-operator</strong> acts on what
+        those two layers produce: conducting causal analysis and certified inverse reasoning
+        — because the operators transfer structurally, not by distributional
+        similarity to training data. The architecture is designed so that causal, geometric,
+        and coordination structure generalises across task families. The OS made computation compositional.
+        This makes intelligence compositional across structurally related domains.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── KEY RESULT ── -->
+  <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v20</span>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
+      <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
+    </p>
+    <p style="font-size:0.86rem;color:rgba(245,240,232,0.5);line-height:1.7;max-width:70ch;margin:0;">
+      A system can score at the highest human level on every standard benchmark and still be ANI
+      if it succeeds only within its training distribution. The distinction is not performance —
+      it is whether the system can intervene causally, generalise over symmetry orbits,
+      and improve its own architecture inside a verified closed loop with a falsifiable audit record.
+    </p>
+  </div>
+
+  <!-- what is not ASI -->
+  <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v20)</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>An agentic pipeline wrapping a correlation-based LLM in causal-sounding instructions — wrapping produces a "causal-shaped" system, not a causal one</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>Advanced computing hardware (quantum, neuromorphic) without goals, world models, or causal agency</li>
+      </ul>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A system with superhuman performance in narrow domains only — that is ANI by definition</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A system with high benchmark scores but high scaffolding dependence — scaffolded performance is not autonomous intelligence</li>
+        <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>Any system whose claimed improvements cannot be reproduced from logs, checkpoints, and pre-registered benchmarks alone</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
 <section class="origin" id="origin">
   <div class="container">
     <div class="origin-inner">
@@ -1353,14 +1146,14 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">Masters</div>
             <div class="tl-right">
               <div class="tl-event">Poincaré series thesis → infinite GRAIL candidates</div>
-              <div class="tl-detail">Averaging any kernel K(q,k) over a discrete group Γ produces a Γ-invariant inner product. Canonical construction of the full GRAIL invariant family.</div>
+              <div class="tl-detail">Averaging any kernel K(q,k) over a discrete group Γ produces a Γ-invariant inner product. Canonical construction of the complete GRAIL invariant family.</div>
             </div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2023–25</div>
             <div class="tl-right">
               <div class="tl-event">Formal integration → ASI Necessary Seed Architecture</div>
-              <div class="tl-detail">367-page lecture notes (v20), 25 patent claims, Colab verification programme M0–M7. U.S. Provisional 64/067,703 filed; non-provisional in preparation. Patent portfolio: 9+ applications filed 2025 across ASI, MIA, CEAS, operator-theoretic verification, and related methods.</div>
+              <div class="tl-detail">429-page lecture notes (v20), 25 patent claims, Colab verification programme M0–M7. U.S. Provisional 64/067,703 filed; non-provisional in preparation. Patent portfolio: 9+ applications filed 2025 across ASI, MIA, CEAS, operator-theoretic verification, and related methods.</div>
             </div>
           </div>
         </div>
@@ -1371,7 +1164,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <span class="stat-label">Root conception<br>predates transformers</span>
         </div>
         <div class="origin-stat">
-          <span class="stat-num">367</span>
+          <span class="stat-num">429</span>
           <span class="stat-label">Pages of lecture<br>notes v20</span>
         </div>
         <div class="origin-stat">
@@ -1453,6 +1246,220 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </section>
 
 <!-- SECURITY -->
+
+
+<!-- ═══ MIA MIGRATION FRAMEWORK ═══ -->
+<section id="mia" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Model upgrade path</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    MIA: Any trained model, upgraded to GRAIL
+  </h2>
+
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;margin-bottom:40px;">
+    <div>
+      <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;margin-bottom:14px;">
+        <strong style="color:var(--cream);">Metric-Invariant Architecture (MIA)</strong> is the
+        general class of which GRAIL is a strict specialisation.
+        MIA replaces every scalar dot-product primitive with a group-preserved invariant
+        <span style="font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold);">F(d&#x2098;(q,&thinsp;k))</span>,
+        where <span style="font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold);">I(g·q, g·k) = I(q, k)</span>
+        for all isometries <em>g</em>.
+        The critical consequence: a legacy model — including any Transformer trained on Euclidean
+        dot products — can inherit twinhood and geometric properties at runtime
+        without discarding what it learned.
+      </p>
+      <p style="color:rgba(245,240,232,0.55);font-size:0.88rem;line-height:1.75;margin-bottom:0;border-left:2px solid var(--border-dim);padding-left:0.9rem;">
+        <strong style="color:rgba(245,240,232,0.7);">Four tiers, not three.</strong>
+        The path from a plain pre-trained model to complete GRAIL is a gradient:
+        zero-step arithmetic replacement, lightweight β fine-tuning, LoRA + hyperbolic
+        projection, and complete retraining from scratch. Each tier is independently verifiable.
+        The author's trained CEAS–Ψ–GRAIL models satisfy all four tiers by construction.
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Formal hierarchy</div>
+        <p style="font-size:0.85rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">
+          GRAIL &sub; MIA &nbsp;(strict inclusion)<br>
+          GRAIL = MIA + orbit-jump + automorphic kernels + CEAS β-control
+        </p>
+      </div>
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:18px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Explicit caveat</div>
+        <p style="font-size:0.85rem;color:rgba(245,240,232,0.45);line-height:1.6;margin:0;">
+          Merely storing tensors in geometric memory without replacing arithmetic primitives
+          does <em>not</em> confer twinhood. Both conditions of
+          the formal inheritance conditions must hold — verified in the technical brief.
+        </p>
+      </div>
+      <a href="/MIA" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border);padding:12px 16px;background:var(--gold-glow);text-align:center;transition:background .2s;display:block;" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='var(--gold-glow)'">
+        Complete MIA technical page →
+      </a>
+    </div>
+  </div>
+
+  <!-- TIER TABLE HEADER -->
+  <style>
+  .mia-table { width:100%; border-collapse:collapse; margin-bottom:20px; }
+  .mia-table th, .mia-table td { padding:0; }
+  .mia-th-prop {
+    width:190px; padding:10px 14px 10px 0;
+    font-family:'DM Mono',monospace; font-size:0.62rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:rgba(201,168,76,0.4); vertical-align:bottom;
+    border-bottom:1px solid var(--border-dim);
+  }
+  .mia-th {
+    background:var(--navy-mid); border:1px solid var(--border-dim);
+    border-top:2px solid rgba(201,168,76,0.3);
+    padding:12px 14px; vertical-align:top;
+  }
+  .mia-th.tier3 {
+    background:rgba(14,31,58,0.9);
+    border-color:rgba(201,168,76,0.2);
+    border-top:2px solid var(--gold);
+  }
+  .mia-th-label {
+    font-family:'DM Mono',monospace; font-size:0.62rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold-dim); display:block; margin-bottom:4px;
+  }
+  .mia-th.tier3 .mia-th-label { color:var(--gold); }
+  .mia-th-sub {
+    font-size:0.78rem; color:rgba(245,240,232,0.38); line-height:1.35;
+  }
+  .mia-th.tier3 .mia-th-sub { color:rgba(245,240,232,0.6); }
+  .mia-td-prop {
+    padding:14px 14px 14px 0;
+    font-family:'DM Mono',monospace; font-size:0.7rem;
+    letter-spacing:0.04em; color:rgba(201,168,76,0.65);
+    vertical-align:middle; border-bottom:1px solid var(--border-dim);
+  }
+  .mia-td {
+    background:var(--navy-mid); border:1px solid var(--border-dim);
+    padding:14px 16px; text-align:center; vertical-align:middle;
+    border-bottom:1px solid rgba(201,168,76,0.07);
+    font-size:0.82rem; line-height:1.4;
+  }
+  .mia-td.tier3 {
+    background:rgba(14,31,58,0.9);
+    border-color:rgba(201,168,76,0.12);
+  }
+  .mia-yes {
+    color:var(--gold); font-size:1rem; display:block;
+  }
+  .mia-no {
+    color:rgba(245,240,232,0.2); font-size:1rem; display:block;
+  }
+  .mia-partial {
+    color:var(--gold-dim); font-size:0.7rem; font-family:'DM Mono',monospace;
+    letter-spacing:0.03em; display:block; line-height:1.4; margin-top:3px;
+  }
+  @media(max-width:780px){
+    .mia-table { display:none; }
+    .mia-mobile { display:block !important; }
+  }
+  .mia-mobile { display:none; }
+  </style>
+
+  <table class="mia-table" aria-label="MIA four-tier migration framework">
+    <thead>
+      <tr>
+        <th class="mia-th-prop">Property</th>
+        <th class="mia-th">
+          <span class="mia-th-label">Tier 0 · MIA retrofit</span>
+          <span class="mia-th-sub">Arithmetic replacement only — zero gradient steps</span>
+        </th>
+        <th class="mia-th">
+          <span class="mia-th-label">Tier 1 · CEAS β</span>
+          <span class="mia-th-sub">β-thermostat fine-tuning — hundreds of steps</span>
+        </th>
+        <th class="mia-th">
+          <span class="mia-th-label">Tier 2 · LoRA + metric</span>
+          <span class="mia-th-sub">LoRA + ℍ<sup>d</sup> projection — thousands of steps</span>
+        </th>
+        <th class="mia-th tier3">
+          <span class="mia-th-label">Tier 3 · Complete retrain</span>
+          <span class="mia-th-sub">Train from scratch with triad priors</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mia-td-prop">Twinhood<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">F<sub>g·θ</sub>(gx) = F<sub>θ</sub>(x)</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop">Entropy corridor<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">H(β) ∈ [H★ − δ, H★ + δ]</span></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop">Susceptibility sharpening<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">χ<sub>L</sub> ~ L<sup>γ/ν</sup></span><br><em style="font-size:0.68rem;color:rgba(201,168,76,0.4);">(conjecture)</em></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop">Orbit generalisation<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">unseen g ∈ G, ε<sub>twin</sub> ≤ 10<sup>−6</sup></span></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-no">✗</span></td>
+        <td class="mia-td"><span class="mia-yes">✓</span><span class="mia-partial">partial → complete</span></td>
+        <td class="mia-td tier3"><span class="mia-yes">✓</span></td>
+      </tr>
+      <tr>
+        <td class="mia-td-prop" style="border-bottom:none;">Automorphic kernels<br><span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:rgba(201,168,76,0.35);font-weight:300;">K<sub>β</sub>(q,k) = Σ<sub>γ∈Γ</sub> e<sup>−β d(q,γk)</sup></span></td>
+        <td class="mia-td" style="border-bottom:none;"><span class="mia-no">✗</span></td>
+        <td class="mia-td" style="border-bottom:none;"><span class="mia-no">✗</span></td>
+        <td class="mia-td" style="border-bottom:none;"><span class="mia-yes">✓</span><span class="mia-partial">with ℍ<sup>d</sup> projection</span></td>
+        <td class="mia-td tier3" style="border-bottom:none;"><span class="mia-yes">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MOBILE FALLBACK (cards) -->
+  <div class="mia-mobile">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 0 — MIA retrofit (0 steps)</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Twinhood only. Replace dot products with F(d&#x2098;(q,k)) and wrap with (ψ, π). Zero gradient steps. No other GRAIL properties are transferred.</p>
+      </div>
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 1 — CEAS β fine-tune (hundreds of steps)</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds entropy corridor and susceptibility sharpening. β is an algebraic consequence of having adaptive temperature — no orbit generalisation required.</p>
+      </div>
+      <div style="border:1px solid var(--border-dim);background:var(--navy-mid);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);margin-bottom:8px;">Tier 2 — LoRA + metric fine-tune (thousands of steps)</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.6);line-height:1.6;margin:0;">Adds orbit generalisation and automorphic kernels via LoRA adapters + ℍ<sup>d</sup> projection on Q, K. A small adapter layer. Tractable on a single GPU.</p>
+      </div>
+      <div style="border:1px solid rgba(201,168,76,0.2);background:rgba(14,31,58,0.9);border-top:2px solid var(--gold);padding:16px 18px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:var(--gold);margin-bottom:8px;">Tier 3 &mdash; Complete retrain</div>
+        <p style="font-size:0.84rem;color:rgba(245,240,232,0.75);line-height:1.6;margin:0;">All five properties at the theoretical optimum. The author's trained CEAS–Ψ–GRAIL models are at this tier by construction.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- FOOTNOTE -->
+  <p style="font-size:0.8rem;color:rgba(245,240,232,0.35);line-height:1.65;margin-top:16px;font-family:'DM Mono',monospace;letter-spacing:0.02em;">
+    Complete formal definitions, migration proofs, and section references are in the technical brief.
+  </p>
+
+</div>
+</section>
+
+
+<!-- PROOF -->
+
+
 <section class="security" id="security">
   <div class="container">
     <div class="gold-rule"></div>
@@ -1472,7 +1479,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       </div>
       <div class="sec-card">
         <h3>V2 — Exported wrapper (NN/LLM)</h3>
-        <p>Adoption-first path. Wraps existing models and runtimes without full re-architecture.
+        <p>Adoption-first path. Wraps existing models and runtimes without complete re-architecture.
         Fastest path to pilots. Reduces reusable plaintext exposure in in-use pipelines
         via constrained interfaces and protected representations.</p>
       </div>
@@ -1480,7 +1487,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <h3>V3 — VM/OS/runtime posture</h3>
         <p>Extends the same non-canonical in-use discipline to OS/VM/runtime boundaries
         for general-purpose compute — not solely AI. Covers cloud instances, on-premises
-        deployments, hypervisor surfaces, and full artifact lifecycle control.</p>
+        deployments, hypervisor surfaces, and complete artifact lifecycle control.</p>
       </div>
       <div class="sec-card">
         <h3>Why Fully Homomorphic Encryption (FHE)/secure multi-party computation (MPC)/TEEs fall short</h3>
@@ -1500,6 +1507,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </section>
 
 <!-- AUDIENCE -->
+
+
 <section class="audience" id="audience">
   <div class="container">
     <div class="gold-rule"></div>
@@ -1544,6 +1553,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </section>
 
 <!-- UNDER THE HOOD -->
+
+
 <section class="hood" id="under-the-hood">
   <div class="container">
     <div class="gold-rule"></div>
@@ -1641,7 +1652,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       </div>
       <div class="hood-card">
         <h3>World model &mdash; (M, G, &beta;)</h3>
-        <p style="margin-bottom:12px;">The world model is not a separate design decision &mdash; it is already determined by the three components. M is the Riemannian manifold (GRAIL), G is the symmetry group acting on M (GRAIL), &beta; is the inverse temperature controlling information density (CEAS). The &Psi;-causal layer adds structural causal equations over M. The &Psi;-causal engine is the world model: prediction is what you get when you marginalise out the causal structure; intervention, counterfactual, and inverse design are what you get when you use it fully.</p>
+        <p style="margin-bottom:12px;">The world model is not a separate design decision &mdash; it is already determined by the three components. M is the Riemannian manifold (GRAIL), G is the symmetry group acting on M (GRAIL), &beta; is the inverse temperature controlling information density (CEAS). The &Psi;-causal layer adds structural causal equations over M. The &Psi;-causal engine is the world model: prediction is what you get when you marginalise out the causal structure; intervention, counterfactual, and inverse design are what you get when you use it completely.</p>
 
         <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Pearl rungs &mdash; what each system can answer</div>
         <div style="display:grid;grid-template-columns:auto 1fr 40px 40px 40px 40px;gap:0;margin-bottom:14px;font-size:0.78rem;">
@@ -1697,7 +1708,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <h3>Where to read more</h3>
         <p>Technical reviewers, cryptographers, and ML researchers who want the mathematics, proofs, and working code:</p>
         <ul>
-          <li><a href="/Other%20Research" style="color:var(--gold);text-decoration:none;">Research page</a> — lecture notes v20 (367 pages), Colab verification programme (M0–M7), 25-claim patent draft</li>
+          <li><a href="/Other%20Research" style="color:var(--gold);text-decoration:none;">Research page</a> — lecture notes v20 (429 pages), Colab verification programme (M0–M7), 25-claim patent draft</li>
           <li><a href="/CEAS" style="color:var(--gold);text-decoration:none;">CEAS</a>, <a href="/GRAIL" style="color:var(--gold);text-decoration:none;">GRAIL</a>, <a href="/Ψ-Operator-Framework" style="color:var(--gold);text-decoration:none;">Ψ-Operator</a> — component pages</li>
           <li><a href="/files/william_chuang_cv.pdf" style="color:var(--gold);text-decoration:none;">CV</a> — academic background and prior work</li>
           <li>Email for NDA-gated technical briefs and evaluation materials</li>
@@ -1706,6 +1717,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     </div>
   </div>
 </section>
+
 
 <!-- ═══ ROADMAP ═══ -->
 <section id="roadmap" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
@@ -1869,7 +1881,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="rq-q">Weeks 33–48</span>
       <div class="rq-focus">Physical-ASI seed evidence</div>
       <span class="rq-lang">All four languages</span>
-      <p class="rq-milestone">All 23 test batteries. J(N) = &alpha;N<sup>&minus;p</sup> with p<sub>triad</sub> &gt; p<sub>baseline</sub>. Full audit bundle on GitHub. Cert Level 5 if all 23 pass simultaneously.</p>
+      <p class="rq-milestone">All 23 test batteries. J(N) = &alpha;N<sup>&minus;p</sup> with p<sub>triad</sub> &gt; p<sub>baseline</sub>. Complete audit bundle on GitHub. Cert Level 5 if all 23 pass simultaneously.</p>
       <span class="rq-cert" style="background:rgba(201,168,76,0.18);border-color:var(--gold);">Cert Level 5 attempt</span>
     </div>
   </div>
@@ -2005,6 +2017,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
 
 <!-- LANGUAGE RSI -->
+
+
 <section id="language-rsi" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
 <div class="container">
 
@@ -2263,11 +2277,401 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
 
 <!-- THEORY TO IMPLEMENTATION -->
+
+
+<!-- ═══ RSI CEILING COMPARISON ═══ -->
+<section id="rsi-ceiling" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+<!-- ── THREE-APPROACH RSI CEILING TABLE ── -->
+  <div style="margin-top:48px;">
+    <div class="gold-rule" style="margin-bottom:20px;"></div>
+    <span class="mono" style="display:block;margin-bottom:12px;font-size:0.65rem;letter-spacing:0.1em;">Architecture ceiling under recursive self-improvement</span>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.25rem,2.2vw,1.75rem);font-weight:300;margin-bottom:10px;">
+      Adding RSI does not change the impossibility
+    </h3>
+    <p style="color:rgba(245,240,232,0.5);font-size:0.86rem;max-width:72ch;margin-bottom:28px;line-height:1.75;">
+      Equipping a standard LLM or a deep hyperbolic learning model with complete recursive self-improvement tools&mdash;Racket, Lean&nbsp;4, SWI-Prolog, JAX&mdash;does not change its architectural ceiling. The limitations are structural, not engineering. Each row is a theorem in lecture notes&nbsp;v20, not a performance estimate.
+    </p>
+
+    <style>
+    .ap-table { width:100%; border-collapse:collapse; margin-bottom:20px; }
+    .ap-th-prop { width:210px; padding:10px 14px 10px 0; font-family:'DM Mono',monospace;
+                  font-size:0.61rem; letter-spacing:0.08em; text-transform:uppercase;
+                  color:rgba(201,168,76,0.4); vertical-align:bottom;
+                  border-bottom:1px solid var(--border-dim); }
+    .ap-th { padding:12px 14px; font-family:'DM Mono',monospace; font-size:0.62rem;
+             letter-spacing:0.07em; text-transform:uppercase; vertical-align:top;
+             border:1px solid var(--border-dim); background:var(--navy-mid); }
+    .ap-th.a3 { background:rgba(14,31,58,0.9); border-color:rgba(201,168,76,0.2);
+                border-top:2px solid var(--gold); color:var(--gold); }
+    .ap-th-sub { display:block; margin-top:4px; font-size:0.72rem; font-family:'Libre Baskerville',serif;
+                 color:rgba(245,240,232,0.38); text-transform:none; letter-spacing:0; line-height:1.35; }
+    .ap-th.a3 .ap-th-sub { color:rgba(245,240,232,0.6); }
+    .ap-row td { padding:13px 14px; font-size:0.8rem; line-height:1.55;
+                 border:1px solid var(--border-dim); vertical-align:top; }
+    .ap-row td.prop { padding:13px 14px 13px 0; font-family:'DM Mono',monospace;
+                      font-size:0.68rem; letter-spacing:0.04em; color:rgba(201,168,76,0.65);
+                      border:none; border-bottom:1px solid var(--border-dim); vertical-align:middle; }
+    .ap-row td.a1 { background:var(--navy-mid); color:rgba(245,240,232,0.38); }
+    .ap-row td.a2 { background:var(--navy-mid); color:rgba(245,240,232,0.45); }
+    .ap-row td.a3 { background:rgba(14,31,58,0.9); border-color:rgba(201,168,76,0.12);
+                    color:rgba(245,240,232,0.85); }
+    .ap-check { color:var(--gold); }
+    .ap-cross { color:rgba(245,240,232,0.2); }
+    .ap-partial { color:var(--gold-dim); font-family:'DM Mono',monospace; font-size:0.72rem; }
+    @media(max-width:780px){ .ap-table { display:none; } }
+    </style>
+
+    <table class="ap-table" aria-label="Three-approach RSI ceiling comparison">
+      <thead>
+        <tr>
+          <th class="ap-th-prop"></th>
+          <th class="ap-th">
+            LLM + RSI<span class="ap-th-sub">Standard frontier model with complete toolchain — Racket, Lean, Prolog, JAX. No GRAIL, no CEAS, no&nbsp;&Psi;.</span>
+          </th>
+          <th class="ap-th">
+            Hyperbolic LLM + RSI<span class="ap-th-sub">Deep hyperbolic learning (M&ouml;bius addition, geoopt) with the same toolchain. HNN++, Hypformer class.</span>
+          </th>
+          <th class="ap-th a3">
+            CEAS + &Psi; + GRAIL<span class="ap-th-sub">Logarch&eacute;on triadic architecture. All structural guarantees active from scratch.</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ap-row">
+          <td class="prop">Automorphic kernel</td>
+          <td class="a1"><span class="ap-cross">&#10007;</span> Not defined</td>
+          <td class="a2"><span class="ap-cross">&#10007;</span> Uses distance logits; no discrete lattice &Gamma;, no Poincar&eacute; series</td>
+          <td class="a3"><span class="ap-check">&#10003;</span> K<sub>&beta;</sub>(q,k) = &Sigma;<sub>&gamma;&isin;&Gamma;</sub> e<sup>&minus;&beta;d(q,&gamma;k)</sup> with Hecke eigenvalue activations</td>
+        </tr>
+        <tr class="ap-row">
+          <td class="prop">Code = weight edit (functor)</td>
+          <td class="a1"><span class="ap-cross">&#10007;</span> No geometric weight space</td>
+          <td class="a2"><span class="ap-partial">&#126;</span> Partial — wrong morphisms (M&ouml;bius addition &oplus;<sub>c</sub> does not conjugate &Gamma;)</td>
+          <td class="a3"><span class="ap-check">&#10003;</span> Faithful functor F: <strong>Lisp</strong> &rarr; <strong>GRAIL</strong> — Lisp substitution and isometry act identically</td>
+        </tr>
+        <tr class="ap-row">
+          <td class="prop">Lattice conjugation mandatory</td>
+          <td class="a1"><span class="ap-cross">&#10007;</span></td>
+          <td class="a2"><span class="ap-cross">&#10007;</span> No &Gamma; to conjugate</td>
+          <td class="a3"><span class="ap-check">&#10003;</span> TwinOp type: no typing rule extracts <em>g</em> alone — invariant violation is structurally unwritable</td>
+        </tr>
+        <tr class="ap-row">
+          <td class="prop">Causal + geometric search unified</td>
+          <td class="a1"><span class="ap-cross">&#10007;</span> No geometric layer</td>
+          <td class="a2"><span class="ap-cross">&#10007;</span> No causal layer (&Psi; absent)</td>
+          <td class="a3"><span class="ap-check">&#10003;</span> Both are instances of the orbit-search monad M(X) = Config &rarr; List(X &times; Config)</td>
+        </tr>
+        <tr class="ap-row">
+          <td class="prop">Level-3 RSI (geometry update)</td>
+          <td class="a1"><span class="ap-cross">&#10007;</span></td>
+          <td class="a2"><span class="ap-partial">&#126;</span> Curvature <em>c</em> only — no discrete lattice to update</td>
+          <td class="a3"><span class="ap-check">&#10003;</span> Generate new &Gamma; via <span style="font-family:'DM Mono',monospace;font-size:0.82em;color:var(--gold);">eval</span>; verify axioms; update kernel — geometry itself improves</td>
+        </tr>
+        <tr class="ap-row">
+          <td class="prop">RSI ceiling</td>
+          <td class="a1">Level&nbsp;0&ndash;1 (weights + architecture)</td>
+          <td class="a2">Level&nbsp;0&ndash;1 (weights + architecture)</td>
+          <td class="a3">Level&nbsp;2&ndash;3 (language + theory RSI active; level&nbsp;4 open)</td>
+        </tr>
+        <tr class="ap-row">
+          <td class="prop">ASI necessary conditions</td>
+          <td class="a1" style="color:rgba(201,168,76,0.5);">&#10007; Proved impossible — ANI fixed-language theorem</td>
+          <td class="a2" style="color:rgba(201,168,76,0.5);">&#10007; Proved impossible — same ceiling; no CEAS, no &Psi;</td>
+          <td class="a3"><span class="ap-check">&#10003;</span> All necessary conditions met; sufficiency is the open question</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="border:1px solid var(--border-dim);border-left:3px solid rgba(201,168,76,0.4);background:rgba(10,22,40,0.6);padding:20px 24px;margin-top:4px;">
+      <p style="font-size:0.85rem;color:rgba(245,240,232,0.55);line-height:1.72;margin:0;">
+        The hyperbolic LLM ceiling is the same as the standard LLM ceiling because
+        standard deep hyperbolic learning (M&ouml;bius addition, Poincar&eacute; ball, geoopt) is <strong style="color:rgba(245,240,232,0.78);">Regime&nbsp;1</strong>
+        in the lecture-notes classification &mdash; the softmax outer structure is preserved; distances replace inner products as similarity measures.
+        GRAIL&rsquo;s <strong style="color:rgba(245,240,232,0.78);">Regime&nbsp;2</strong> replaces the scalar product <em>inside</em> attention with a distance-induced operation
+        and uses the automorphic Boltzmann partition function &zeta; for normalisation.
+        No published deep hyperbolic learning architecture implements Regime&nbsp;2,
+        and without a discrete lattice &Gamma; there is no orbit-sum kernel, no Hecke structure, no TwinOp discipline,
+        and no geometry-level RSI.
+        Scale and tooling do not bridge this gap.
+      </p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+</div>
+</section>
+
+
+<!-- ═══ CODE IS DATA: SEVEN CAPABILITIES ═══ -->
+<section id="code-is-data" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Homoiconicity &middot; code is data, data is code</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    When weights and programs live in the same space
+  </h2>
+  <p style="color:rgba(245,240,232,0.6);font-size:0.93rem;max-width:72ch;margin-bottom:10px;line-height:1.78;">
+    In GRAIL, model weights and input data are both geometric parameters in
+    &Hopf;<sup>n</sup> &mdash; the same space, subject to the same isometry group.
+    An isometry acts on weights and inputs simultaneously, exactly as a Lisp macro acts on code and data.
+    This is not an analogy. The functor
+    F: <strong>Lisp</strong> &rarr; <strong>GRAIL</strong> makes it a categorical identity:
+    substituting a Lisp expression and applying a Lorentz isometry are morphisms in the same category.
+    Seven functional capabilities follow from this unification,
+    formalised and evaluated in lecture notes v20.
+  </p>
+  <p style="color:rgba(245,240,232,0.35);font-size:0.82rem;max-width:68ch;margin-bottom:36px;line-height:1.68;border-left:2px solid var(--border-dim);padding-left:0.85rem;">
+    Capabilities are evaluated on four axes: mathematical novelty, directness of path to ASI,
+    current completeness, and substitutability. Results split into two tiers.
+    Tier&nbsp;I items are genuine theoretical contributions; Tier&nbsp;II are required infrastructure.
+  </p>
+
+  <style>
+  .cap-table { width:100%; border-collapse:collapse; margin-bottom:24px; }
+  .cap-table th { padding:10px 14px; font-family:'DM Mono',monospace; font-size:0.61rem;
+                  letter-spacing:0.08em; text-transform:uppercase; color:rgba(201,168,76,0.45);
+                  background:var(--navy-mid); border:1px solid var(--border-dim); vertical-align:bottom; }
+  .cap-table td { padding:13px 14px; font-size:0.81rem; line-height:1.55;
+                  border:1px solid var(--border-dim); vertical-align:top; }
+  .cap-td-rank { background:var(--navy-mid); color:rgba(201,168,76,0.7); font-family:'DM Mono',monospace;
+                 font-size:0.72rem; text-align:center; width:36px; }
+  .cap-td-name { background:rgba(14,31,58,0.7); color:rgba(245,240,232,0.88); width:220px; }
+  .cap-td-tier { font-family:'DM Mono',monospace; font-size:0.7rem; text-align:center; width:52px; }
+  .cap-td-tier.t1 { background:rgba(14,31,58,0.9); color:var(--gold); border-color:rgba(201,168,76,0.18); }
+  .cap-td-tier.t2 { background:var(--navy-mid); color:rgba(201,168,76,0.4); }
+  .cap-td-rel { background:var(--navy-mid); color:rgba(245,240,232,0.5); width:130px; }
+  .cap-td-rel.high { color:rgba(201,168,76,0.85); background:rgba(14,31,58,0.7); }
+  .cap-td-gap { background:var(--navy-mid); color:rgba(245,240,232,0.38); font-size:0.77rem; }
+  @media(max-width:800px){ .cap-table { display:none; } }
+  </style>
+
+  <table class="cap-table" aria-label="Seven GRAIL-Racket capability evaluation">
+    <thead>
+      <tr>
+        <th style="width:36px;">&nbsp;</th>
+        <th>Capability</th>
+        <th style="width:52px;">Tier</th>
+        <th style="width:130px;">ASI relevance</th>
+        <th>Key gap / note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cap-td-rank">3</td>
+        <td class="cap-td-name"><strong>Shared orbit-search monad</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">&Psi; causal search and GRAIL geometric search are instances of the same monad M(X) = Config &rarr; List(X &times; Config)</span></td>
+        <td class="cap-td-tier t1">I</td>
+        <td class="cap-td-rel high">High</td>
+        <td class="cap-td-gap">Group-action / codensity identity not yet verified in Lean&nbsp;4</td>
+      </tr>
+      <tr>
+        <td class="cap-td-rank">4</td>
+        <td class="cap-td-name"><strong>TwinOp indecomposable type</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">Turnstile type rule: no elimination extracts <em>g</em> alone from (TwinOp g &Gamma;). Invariant violation is structurally unwritable.</span></td>
+        <td class="cap-td-tier t1">I</td>
+        <td class="cap-td-rel high">Very high</td>
+        <td class="cap-td-gap"><span style="font-family:'DM Mono',monospace;font-size:0.75em;">eval</span>-generated code escapes type discipline &mdash; open problem C4</td>
+      </tr>
+      <tr>
+        <td class="cap-td-rank">7</td>
+        <td class="cap-td-name"><strong>Geometry-level RSI</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">Generate new lattice &Gamma; via <span style="font-family:'DM Mono',monospace;">eval</span>, verify group axioms, deploy updated automorphic kernel. The symmetry structure itself improves.</span></td>
+        <td class="cap-td-tier t1">I</td>
+        <td class="cap-td-rel high">Highest ceiling</td>
+        <td class="cap-td-gap">Mechanism specified; search policy and Mostow rigidity (n&ge;3) are open</td>
+      </tr>
+      <tr>
+        <td class="cap-td-rank">1</td>
+        <td class="cap-td-name"><strong>Group elements as closures</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">Lorentz isometries as composable Racket closures. Conjugation g&Gamma;g<sup>&minus;1</sup> is function composition. Enabling substrate for capability&nbsp;7.</span></td>
+        <td class="cap-td-tier t2">II</td>
+        <td class="cap-td-rel">Medium (enabling)</td>
+        <td class="cap-td-gap">Significance is borrowed from capability&nbsp;7</td>
+      </tr>
+      <tr>
+        <td class="cap-td-rank">2</td>
+        <td class="cap-td-name"><strong>Compile-time orbit-sum macros</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">Reynolds operator as Racket macro: orbit sum K<sub>&beta;</sub> unrolled at compile time into a fixed JAX computation graph.</span></td>
+        <td class="cap-td-tier t2">II</td>
+        <td class="cap-td-rel">Medium (performance)</td>
+        <td class="cap-td-gap">Invalidated when level-3 RSI changes &Gamma; &mdash; staged macro design needed</td>
+      </tr>
+      <tr>
+        <td class="cap-td-rank">5</td>
+        <td class="cap-td-name"><strong>Behavioral contracts</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">Racket <span style="font-family:'DM Mono',monospace;">-&gt;i</span> checks K<sub>&beta;</sub>(gq,gk,conj(&Gamma;,g)) = K<sub>&beta;</sub>(q,k,&Gamma;) at module boundaries.</span></td>
+        <td class="cap-td-tier t2">II</td>
+        <td class="cap-td-rel">Medium (safety layer)</td>
+        <td class="cap-td-gap">Trace-only &mdash; contracts + Lean&nbsp;4 gate form the complete stack</td>
+      </tr>
+      <tr>
+        <td class="cap-td-rank">6</td>
+        <td class="cap-td-name"><strong>Lazy streams for orbit traversal</strong><br><span style="font-size:0.74rem;color:rgba(245,240,232,0.45);">BFS over Cayley graph with &epsilon;-cutoff: terminates exactly when &beta; &gt; &delta;(&Gamma;) by Patterson&ndash;Sullivan theory.</span></td>
+        <td class="cap-td-tier t2">II</td>
+        <td class="cap-td-rel">Low&ndash;medium</td>
+        <td class="cap-td-gap">Infrastructure: converts an ad-hoc cutoff into a theorem</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Key result callout -->
+  <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:22px 28px;">
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:10px;">Key result &middot; lecture notes v20</span>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,1.8vw,1.35rem);font-weight:300;line-height:1.55;color:var(--cream);margin:0 0 10px;">
+      <em>Capabilities 3 and 4 together mean that the causal and geometric layers of the architecture are unified at the computational primitive level, and that unification is enforced at compile time rather than tested at runtime. Neither standard LLMs nor deep hyperbolic learning approaches can express this structure.</em>
+    </p>
+  </div>
+
+</div>
+</section><!-- ═══ KNOWLEDGE BRIDGE PROTOCOL ═══ -->
+<section id="knowledge-bridge" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Knowledge bridge protocol</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    Retaining pre-trained knowledge without sacrificing structural guarantees
+  </h2>
+
+<!-- KNOWLEDGE BRIDGE -->
+  <div style="margin-top:40px;">
+    <div class="gold-rule" style="margin-bottom:20px;"></div>
+    <span class="mono" style="display:block;margin-bottom:12px;font-size:0.65rem;letter-spacing:0.1em;">Knowledge bridge protocol</span>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:300;margin-bottom:12px;">
+      Retaining pre-trained knowledge without sacrificing structural guarantees
+    </h3>
+    <p style="color:rgba(245,240,232,0.55);font-size:0.88rem;max-width:70ch;margin-bottom:20px;line-height:1.75;">
+      Direct injection of a pre-trained model&rsquo;s Euclidean representations into a GRAIL weight space breaks the twin property at the interface (proved in lecture notes v20, &sect;KB). Four mechanisms&mdash;composable and combinable&mdash;solve this without sacrificing any structural guarantee.
+    </p>
+
+    <style>
+    .kb-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px; }
+    .kb-card { border:1px solid var(--border-dim); background:var(--navy-mid); padding:18px 20px; }
+    .kb-card.primary { border-color:rgba(201,168,76,0.2); background:rgba(14,31,58,0.8); }
+    .kb-label { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.08em;
+                text-transform:uppercase; color:rgba(201,168,76,0.5); margin-bottom:8px; display:block; }
+    .kb-card.primary .kb-label { color:var(--gold-dim); }
+    .kb-card p { font-size:0.83rem; color:rgba(245,240,232,0.5); line-height:1.65; margin:0; }
+    .kb-card.primary p { color:rgba(245,240,232,0.72); }
+    @media(max-width:680px){ .kb-grid { grid-template-columns:1fr; } }
+    </style>
+
+    <div class="kb-grid">
+      <div class="kb-card primary">
+        <span class="kb-label">Mechanism 1 &mdash; Reynolds-averaged distillation</span>
+        <p>Applies the Reynolds operator to the teacher&rsquo;s outputs before distilling:
+        <em style="color:rgba(201,168,76,0.8);">&Ropf;<sub>&Gamma;</sub>(M)(x) = (1/|&Gamma;|) &Sigma;<sub>&gamma;</sub> &gamma;<sup>&minus;1</sup>&middot;M(&gamma;x)</em>.
+        The averaged target is &Gamma;-equivariant, so gradient descent on it does not break GRAIL invariance. Uses the Hecke design at small primes to reduce the cost from O(|&Gamma;|) to O(k&middot;p<sub>k</sub>) forward passes per example.</p>
+      </div>
+      <div class="kb-card primary">
+        <span class="kb-label">Mechanism 2 &mdash; &Psi;-causal extraction</span>
+        <p>Extracts the structural causal model from the teacher&rsquo;s outputs via do-calculus&mdash;representation-independent by construction. The causal structure enters the GRAIL student via the &Psi;-layer, not the weight space. Transfers only interventionally verifiable knowledge; unverifiable associations are excluded by design.</p>
+      </div>
+      <div class="kb-card">
+        <span class="kb-label">Mechanism 3 &mdash; CEAS-mediated coordination</span>
+        <p>Runs the pre-trained model as a knowledge oracle. The CEAS entropy corridor gates access: oracle is consulted when the GRAIL student is uncertain (entropy above H&star;+&delta;), silent when the student is in the corridor. Oracle dependency &rarr;&nbsp;0 in causally deterministic domains; remains positive (correctly) in irreducibly uncertain ones.</p>
+      </div>
+      <div class="kb-card">
+        <span class="kb-label">Mechanism 4 &mdash; Orbit search for knowledge matching</span>
+        <p>Frames knowledge absorption as an orbit search: find the GRAIL weight configuration &theta;&ast; such that G<sub>&theta;&ast;</sub>(x) &asymp; M(x) on a representative domain. Uses the orbit-search monad (Capability&nbsp;3) natively&mdash;all seven structural capabilities remain active. Persistent mismatch triggers geometry-level RSI (Capability&nbsp;7) to update &Gamma;.</p>
+      </div>
+    </div>
+
+    <!-- upgrade path comparison -->
+    <style>
+    .upg-table { width:100%; border-collapse:collapse; margin-bottom:12px; }
+    .upg-table th { padding:10px 14px; font-family:'DM Mono',monospace; font-size:0.61rem;
+                    letter-spacing:0.07em; text-transform:uppercase; color:rgba(201,168,76,0.4);
+                    background:var(--navy-mid); border:1px solid var(--border-dim); }
+    .upg-table th.full { color:var(--gold); background:rgba(14,31,58,0.9);
+                         border-color:rgba(201,168,76,0.2); border-top:2px solid var(--gold); }
+    .upg-table td { padding:12px 14px; font-size:0.8rem; line-height:1.5;
+                    border:1px solid var(--border-dim); vertical-align:top; }
+    .upg-table td.prop { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.04em;
+                         color:rgba(201,168,76,0.6); background:transparent; border:none;
+                         border-bottom:1px solid var(--border-dim); padding-left:0; width:180px; }
+    .upg-table td.mia { background:var(--navy-mid); color:rgba(245,240,232,0.38); }
+    .upg-table td.hyb { background:var(--navy-mid); color:rgba(245,240,232,0.45); }
+    .upg-table td.scr { background:var(--navy-mid); color:rgba(245,240,232,0.45); }
+    .upg-table td.proto { background:rgba(14,31,58,0.9); border-color:rgba(201,168,76,0.12);
+                          color:rgba(245,240,232,0.82); }
+    .ug-yes { color:var(--gold); } .ug-no { color:rgba(245,240,232,0.2); }
+    .ug-p { color:var(--gold-dim); font-family:'DM Mono',monospace; font-size:0.7rem; }
+    @media(max-width:800px){ .upg-table { display:none; } }
+    </style>
+
+    <p style="font-size:0.82rem;color:rgba(245,240,232,0.4);margin-bottom:14px;line-height:1.65;">
+      Compared against the simpler upgrade paths, the four-mechanism protocol is the only one that retains structural guarantees globally while absorbing pre-trained knowledge:
+    </p>
+
+    <table class="upg-table" aria-label="Knowledge retention vs structural guarantees">
+      <thead>
+        <tr>
+          <th style="width:180px;"></th>
+          <th>MIA upgrade only<br><span style="font-weight:300;text-transform:none;font-family:'Libre Baskerville',serif;font-size:0.75rem;letter-spacing:0;color:rgba(245,240,232,0.35);">LoRA + exp/log, thousands of steps</span></th>
+          <th>Hybrid<br><span style="font-weight:300;text-transform:none;font-family:'Libre Baskerville',serif;font-size:0.75rem;letter-spacing:0;color:rgba(245,240,232,0.35);">MIA backbone + explicit GRAIL head</span></th>
+          <th>From scratch<br><span style="font-weight:300;text-transform:none;font-family:'Libre Baskerville',serif;font-size:0.75rem;letter-spacing:0;color:rgba(245,240,232,0.35);">Complete GRAIL training, no prior model</span></th>
+          <th class="full">Four-mechanism protocol<br><span style="font-weight:300;text-transform:none;font-family:'Libre Baskerville',serif;font-size:0.75rem;letter-spacing:0;color:rgba(245,240,232,0.6);">Mechanisms 1&ndash;4 combined</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="prop">7 capabilities (structural)</td>
+          <td class="mia"><span class="ug-no">&#10007;</span></td>
+          <td class="hyb"><span class="ug-p">head only</span></td>
+          <td class="scr"><span class="ug-yes">&#10003;</span> global</td>
+          <td class="proto"><span class="ug-yes">&#10003;</span> global throughout all phases</td>
+        </tr>
+        <tr>
+          <td class="prop">Pre-trained knowledge</td>
+          <td class="mia"><span class="ug-yes">&#10003;</span> statistical</td>
+          <td class="hyb"><span class="ug-yes">&#10003;</span> statistical</td>
+          <td class="scr"><span class="ug-no">&#10007;</span> start over</td>
+          <td class="proto"><span class="ug-yes">&#10003;</span> causal &amp; progressive</td>
+        </tr>
+        <tr>
+          <td class="prop">Exact twin construction</td>
+          <td class="mia"><span class="ug-no">&#10007;</span></td>
+          <td class="hyb"><span class="ug-p">head only</span></td>
+          <td class="scr"><span class="ug-yes">&#10003;</span></td>
+          <td class="proto"><span class="ug-yes">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td class="prop">Knowledge quality</td>
+          <td class="mia" style="color:rgba(245,240,232,0.38);font-size:0.77rem;">Statistical correlations only</td>
+          <td class="hyb" style="font-size:0.77rem;">Statistical correlations only</td>
+          <td class="scr" style="font-size:0.77rem;">Structural from scratch</td>
+          <td class="proto" style="font-size:0.77rem;">Structural + causal (Rung-2 verified)</td>
+        </tr>
+        <tr>
+          <td class="prop">Training cost</td>
+          <td class="mia">Very low</td>
+          <td class="hyb">Low&ndash;medium</td>
+          <td class="scr">High</td>
+          <td class="proto">Medium &mdash; oracle cost decays to zero as entropy reaches corridor</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<!-- KB5 PROVENANCE -->
+  <div style="margin-top:28px;border:1px solid var(--border-dim);border-left:3px solid rgba(201,168,76,0.3);background:rgba(10,22,40,0.5);padding:18px 22px;">
+    <span style="font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:8px;">Research provenance &middot; KB5</span>
+    <p style="font-size:0.83rem;color:rgba(245,240,232,0.5);line-height:1.72;margin:0;">
+      The identification of the <strong style="color:rgba(245,240,232,0.7);">Weil&ndash;Petersson metric</strong> as the natural geometry for lattice deformation search, and the
+      <strong style="color:rgba(245,240,232,0.7);">Selberg zeta function</strong> as the matching criterion for the optimal lattice, was proposed in a GitHub-archived draft approximately 3.5&nbsp;years before this formalisation.
+      The proposal was dismissed at the time without mathematical engagement.
+      The formal treatment in lecture notes v20&mdash;grounded in Ruelle&nbsp;1982, McMullen&nbsp;2008, and Borel&ndash;Prasad&nbsp;1989&mdash;is its first complete formal statement.
+      The architecture-as-lattice-discovery viewpoint, and the Teichm&uuml;ller deformation identification, preceded the published formalisation by several years.
+    </p>
+  </div>
+
+</div>
+</section>
+
+
 <section id="theory-yield" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
 <div class="container">
 
   <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v20 &middot; 367 pages &middot; theory yield</span>
+  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v20 &middot; 429 pages &middot; theory yield</span>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:14px;">
     What the theory lets you build that intuition cannot find
   </h2>
@@ -2411,7 +2815,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       </tr>
 
       <!-- Triad group -->
-      <tr class="ti-group-header"><td colspan="4">Full triad &mdash; CEAS + GRAIL + &Psi; jointly</td></tr>
+      <tr class="ti-group-header"><td colspan="4">Complete triad &mdash; CEAS + GRAIL + &Psi; jointly</td></tr>
 
       <tr class="ti-row">
         <td class="ti-td src"><strong>Cohomological uniqueness</strong>Three simultaneous obstructions<br>lecture notes v20</td>
@@ -2445,7 +2849,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">Source &amp; reproducibility</div>
       <p style="font-size:0.86rem;color:rgba(245,240,232,0.55);line-height:1.7;margin:0;">
-        All entries are derived from lecture notes v20 (367 pages) and the associated
+        All entries are derived from lecture notes v20 (429 pages) and the associated
         discovery-map and implementation-map analyses.
         Open-source tools cited are publicly available.
         Formal section references are in the lecture notes.
@@ -2459,6 +2863,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </section>
 
 <!-- FOUNDER -->
+
+
 <section class="founder" id="founder">
   <div class="container">
     <div class="founder-inner">
@@ -2533,6 +2939,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </section>
 
 <!-- CONTACT -->
+
+
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner">
