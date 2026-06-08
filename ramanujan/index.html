@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ramanujan's Work Algorithms — Complete Reference | William Chuang / Logarchéon</title>
+<meta name="description" content="Exhaustive decision tree of 33 reconstructed strategies, 80 formulae, modern starting-point equivalents, 3 worked examples, and a 41-node worldwide frontier approximation-methods tree including Hardy–Littlewood, Vinogradov, Bourgain, Écalle and beyond."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0a1628;--navy-mid:#0e1f3a;--navy-light:#162d52;--navy-rim:#1e3a64;
+  --gold:#c9a84c;--gold-light:#e2c97e;--gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14);--gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8;--body:#e8e2d8;--muted:#c8c0b0;--faint:#8a8070;
+  --border:rgba(201,168,76,0.25);--border-dim:rgba(201,168,76,0.11);
+  --red:#e07070;--green:#4cc9b0;--amber:#e2c97e;--section-gap:4.5rem;
+  /* category palette – R A P F N = purple teal amber coral blue */
+  --cr-f:#3C3489;--cr-t:#CECBF6;--cr-b:#7F77DD;
+  --cb-f:#085041;--cb-t:#9FE1CB;--cb-b:#1D9E75;
+  --cp-f:#633806;--cp-t:#FAC775;--cp-b:#BA7517;
+  --cf-f:#712B13;--cf-t:#F5C4B3;--cf-b:#D85A30;
+  --cn-f:#0C447C;--cn-t:#B5D4F4;--cn-b:#378ADD;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"Libre Baskerville",Georgia,serif;background:var(--navy);color:var(--cream);line-height:1.72;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,.07) 0%,transparent 60%),
+             radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,.05) 0%,transparent 55%);}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(201,168,76,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(201,168,76,.025) 1px,transparent 1px);
+  background-size:80px 80px;}
+.wrap{position:relative;z-index:1;}
+h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;letter-spacing:-.01em;font-weight:500;color:var(--cream);line-height:1.2;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{color:var(--gold-light);text-decoration:underline;}
+code{font-family:"DM Mono",monospace;font-size:.82rem;background:var(--navy-mid);padding:.1em .35em;border-radius:3px;color:var(--cream);}
+strong{color:var(--cream);font-weight:700;}
+.mono{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);}
+/* Nav */
+nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dim);padding:0 28px;}
+.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;}
+.nav-logo{font-family:"Cormorant Garamond",serif;font-size:1.25rem;font-weight:500;color:var(--gold-light);letter-spacing:.02em;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s;}
+.nav-links a:hover{color:var(--gold);text-decoration:none;}
+/* Layout */
+.container{max-width:1060px;margin:0 auto;padding:0 28px;}
+.page-layout{display:grid;grid-template-columns:200px 1fr;gap:3.5rem;align-items:start;padding:3.5rem 28px 6rem;max-width:1060px;margin:0 auto;}
+@media(max-width:720px){.page-layout{grid-template-columns:1fr;}.toc-sidebar{display:none;}}
+/* TOC */
+.toc-sidebar{position:sticky;top:74px;border-left:1px solid var(--border);padding-left:1.4rem;}
+.toc-label{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:.2rem;}
+.toc-link{font-family:"DM Mono",monospace;font-size:.7rem;letter-spacing:.04em;color:var(--body);padding:.22rem 0;display:block;border-left:2px solid transparent;margin-left:-1.5rem;padding-left:1.3rem;transition:color .2s,border-color .2s;}
+.toc-link:hover{color:var(--gold);border-color:var(--gold);text-decoration:none;}
+/* Hero */
+.page-hero{border-bottom:1px solid var(--border-dim);padding:3.5rem 0 2.5rem;}
+.breadcrumb{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem;}
+.page-hero h1{font-size:clamp(2.1rem,3.8vw,3.4rem);font-weight:300;max-width:24ch;margin-bottom:.9rem;}
+.page-hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero-desc{color:var(--body);font-size:1.05rem;max-width:66ch;line-height:1.75;margin-bottom:1.4rem;}
+.hero-badges{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:.5rem;}
+.hero-badge{font-family:"DM Mono",monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:.28rem .7rem;border-radius:2px;background:var(--gold-pale);}
+/* Sections */
+.page-section{margin-bottom:var(--section-gap);}
+.section-header{display:flex;align-items:baseline;gap:1.2rem;border-bottom:1px solid var(--border-dim);padding-bottom:.9rem;margin-bottom:2rem;}
+.section-num{font-family:"DM Mono",monospace;font-size:.7rem;letter-spacing:.12em;color:var(--muted);}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:1.65rem;font-weight:400;color:var(--gold-light);}
+.subsection{margin:2rem 0;}
+.subsection h3{font-size:1.15rem;color:var(--cream);margin-bottom:.9rem;border-left:2px solid var(--gold-dim);padding-left:.85rem;}
+/* Cards */
+.card{background:rgba(14,31,58,.7);border:1px solid var(--border-dim);border-radius:4px;padding:1.2rem 1.4rem;margin:.9rem 0;transition:border-color .2s;}
+.card:hover{border-color:var(--border);}
+.card h3{font-size:1.05rem;font-weight:500;color:var(--cream);margin:0 0 .35rem;}
+.card-meta{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.55rem;display:flex;flex-wrap:wrap;gap:.5rem;}
+.card p{color:var(--body);font-size:.9rem;line-height:1.7;max-width:72ch;}
+.disclaimer{background:rgba(25,40,80,.6);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;padding:.85rem 1.1rem;margin:0 0 1.4rem;font-size:.87rem;color:var(--muted);font-style:italic;}
+/* Buttons */
+.btn{font-family:"DM Mono",monospace;font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;padding:.28rem .72rem;border:1px solid var(--border-dim);border-radius:2px;background:rgba(14,31,58,.6);color:var(--muted);cursor:pointer;transition:all .18s;}
+.btn:hover{border-color:var(--gold-dim);color:var(--body);}
+.btn.active{background:var(--gold-pale);border-color:var(--gold);color:var(--gold-light);}
+/* Strategy tabs */
+.cat-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
+.cat-tab{font-family:"DM Mono",monospace;font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .8rem;border:1px solid;border-radius:20px;cursor:pointer;background:transparent;transition:all .15s;}
+.cat-tab.act{font-weight:500;border-width:1.5px;}
+/* Strategy cards grid */
+.strat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem;}
+@media(max-width:560px){.strat-grid{grid-template-columns:1fr;}}
+.strat-card{border:1px solid;border-radius:6px;padding:10px 12px;cursor:pointer;transition:border-width .1s;}
+.strat-card:hover{border-width:1.5px;}
+.strat-card.sel{border-width:2px;}
+.strat-card-name{font-family:"Cormorant Garamond",serif;font-size:.95rem;font-weight:500;line-height:1.35;margin-bottom:5px;}
+.strat-card-formula{font-family:"DM Mono",monospace;font-size:.62rem;color:var(--muted);opacity:.85;word-break:break-all;}
+.prob-badge{border-radius:20px;font-size:.6rem;padding:1px 7px;font-weight:500;display:inline-block;white-space:nowrap;font-family:"DM Mono",monospace;letter-spacing:.06em;}
+/* Detail panel */
+.detail-panel{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(14,31,58,.85);margin-top:1rem;display:none;}
+.detail-rank{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.3rem;}
+.detail-pct{font-size:1.6rem;font-weight:500;font-family:"Cormorant Garamond",serif;}
+.detail-cue{font-style:italic;color:var(--amber);font-size:.88rem;margin:.6rem 0;}
+.formula-block{font-family:"DM Mono",monospace;font-size:.68rem;background:rgba(10,22,40,.8);border:1px solid var(--border-dim);border-radius:3px;padding:.55rem .8rem;margin:.35rem 0;color:var(--body);word-break:break-all;}
+/* Bar chart */
+.chart-wrap{margin:1.2rem 0 .5rem;}
+/* Formula table */
+.formula-filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.ftable{width:100%;border-collapse:collapse;font-family:"DM Mono",monospace;font-size:.68rem;min-width:600px;}
+.ftable-wrap{overflow-x:auto;margin-bottom:1.5rem;}
+.ftable th{text-align:left;padding:.45rem .55rem;border-bottom:1px solid var(--border);color:var(--gold-dim);letter-spacing:.08em;text-transform:uppercase;font-size:.6rem;white-space:nowrap;}
+.ftable td{padding:.38rem .55rem;border-bottom:1px solid var(--border-dim);color:var(--body);vertical-align:middle;}
+.ftable tr:last-child td{border-bottom:none;}
+.ftable tr:hover td{background:rgba(201,168,76,.04);}
+.ftable .num{color:var(--faint);font-size:.58rem;}
+.vtag{font-family:"DM Mono",monospace;font-size:.56rem;padding:.08rem .3rem;border-radius:2px;display:inline-block;margin:.05rem;}
+.vtag-yes{background:rgba(76,201,176,.15);color:#4cc9b0;border:1px solid rgba(76,201,176,.3);}
+.vtag-upd{background:rgba(226,201,126,.12);color:var(--amber);border:1px solid rgba(226,201,126,.3);}
+.vtag-ext{background:rgba(178,117,23,.12);color:#BA7517;border:1px solid rgba(178,117,23,.3);}
+/* Starting-points grid */
+.sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.4rem;}
+@media(max-width:560px){.sp-grid{grid-template-columns:1fr;}}
+/* Example steps */
+.example-steps{counter-reset:step;}
+.step{display:flex;gap:1rem;margin:.8rem 0;align-items:start;}
+.step-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--gold-pale);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:"DM Mono",monospace;font-size:.65rem;color:var(--gold);}
+.step-body{flex:1;font-size:.91rem;color:var(--body);line-height:1.7;}
+.step-body code{font-size:.76rem;}
+/* Approx tree */
+.approx-branch-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.approx-branch-tab{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;padding:.26rem .65rem;border:1px solid var(--border-dim);border-radius:2px;cursor:pointer;background:rgba(14,31,58,.6);color:var(--muted);transition:all .15s;}
+.approx-branch-tab.act{background:var(--gold-pale);border-color:var(--gold-dim);color:var(--gold-light);}
+.approx-method-card{border-left:2px solid var(--gold-dim);background:rgba(14,31,58,.65);padding:.7rem 1rem;margin:.6rem 0;border-radius:0 4px 4px 0;}
+.approx-method-name{font-family:"Cormorant Garamond",serif;font-size:1rem;font-weight:500;color:var(--cream);margin-bottom:.3rem;}
+.approx-method-meta{font-family:"DM Mono",monospace;font-size:.6rem;color:var(--gold-dim);letter-spacing:.07em;margin-bottom:.4rem;}
+.approx-method-desc{font-size:.88rem;color:var(--body);line-height:1.65;}
+.approx-method-formula{font-family:"DM Mono",monospace;font-size:.64rem;background:rgba(10,22,40,.75);border:1px solid var(--border-dim);border-radius:3px;padding:.4rem .65rem;margin:.4rem 0;color:var(--amber);word-break:break-all;}
+.approx-method-cue{font-size:.84rem;font-style:italic;color:var(--green);margin:.35rem 0;}
+/* footer */
+footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"DM Mono",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--faint);text-align:center;}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <span class="nav-logo">Logarchéon</span>
+    <ul class="nav-links">
+      <li><a href="#algorithm">Algorithm</a></li>
+      <li><a href="#formulae">Formulae</a></li>
+      <li><a href="#starting-points">Starting Points</a></li>
+      <li><a href="#examples">Examples</a></li>
+      <li><a href="#approximation">Approximation</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="wrap">
+<div class="container">
+<div class="page-hero">
+  <div class="breadcrumb"><span>Logarchéon Research</span><span>·</span><span>Mathematical Methodology</span></div>
+  <h1>Ramanujan's <em>Work Algorithms</em></h1>
+  <p class="hero-desc">An exhaustive reverse-engineering of Srinivasa Ramanujan's methods, restricted to pre-1920 mathematics. Thirty-three reconstructed strategies across five problem categories, traced against eighty sampled formulae from the notebooks and lost notebook. Verified, updated, then extended to modern equivalent starting points with three worked demonstrations. A separate 41-node worldwide frontier tree covers the Hardy–Littlewood approximation lineage through Vinogradov, Bourgain, Écalle, Keating–Snaith, and Kelley–Meka.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">33 strategies</span>
+    <span class="hero-badge">80 formulae</span>
+    <span class="hero-badge">41 approx. methods</span>
+    <span class="hero-badge">pre-1920 reconstruction</span>
+    <span class="hero-badge">William Chuang / Logarchéon 2026</span>
+  </div>
+</div>
+</div>
+
+<div class="page-layout">
+<!-- TOC -->
+<aside class="toc-sidebar">
+  <div class="toc-label">Contents</div>
+  <ul class="toc-list">
+    <li><a class="toc-link" href="#algorithm">§1 — The algorithm</a></li>
+    <li><a class="toc-link" href="#formulae">§2 — Formula corpus</a></li>
+    <li><a class="toc-link" href="#starting-points">§3 — Starting points</a></li>
+    <li><a class="toc-link" href="#examples">§4 — Three examples</a></li>
+    <li><a class="toc-link" href="#approximation">§5 — Approx. tree</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- ═══ §1 ALGORITHM ════════════════════════════════════════════════════════ -->
+<section id="algorithm" class="page-section">
+<div class="section-header">
+  <span class="section-num">01</span>
+  <span class="section-title">The Exhaustive Decision Tree</span>
+</div>
+<p class="disclaimer">All strategies are restricted to mathematics available before 1920. Post-Ramanujan frameworks (formal modular forms theory, Zwegers mock-theta shadows, Garsia–Milne bijection, Deligne's proof) are excluded from the reconstruction. Update log: second pass added strategies A5, A6, A7, B5, B6, C5, C6, D5, D6, D7, E5, E6, E7 after verifying the additional 50 formulae.</p>
+
+<div style="text-align:center;margin-bottom:18px;">
+  <div style="display:inline-block;background:rgba(14,31,58,.8);border:1px solid var(--border);border-radius:6px;padding:8px 18px;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--cream);">Observe a pattern or conjecture</div>
+  <div style="width:1px;height:14px;background:var(--border);margin:0 auto;"></div>
+  <div style="display:inline-block;border:1px solid var(--border-dim);border-radius:4px;padding:4px 14px;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.07em;color:var(--muted);">What is the nature of the object?</div>
+  <div style="width:1px;height:12px;background:var(--border);margin:0 auto;"></div>
+</div>
+
+<div class="cat-tabs" id="r-tabs"></div>
+<div id="r-cue" style="font-size:.82rem;font-style:italic;color:var(--amber);padding:5px 10px;border-left:2px solid var(--gold-dim);background:rgba(201,168,76,.06);border-radius:0 4px 4px 0;margin-bottom:10px;display:none;font-family:'Libre Baskerville',serif;"></div>
+<div class="strat-grid" id="r-strats"></div>
+<div class="detail-panel" id="r-detail"></div>
+
+<div class="subsection">
+  <h3>Strategy probability ranking — all 33 strategies</h3>
+  <p style="font-size:.85rem;color:var(--muted);margin-bottom:.8rem;font-family:'DM Mono',monospace;letter-spacing:.04em;">Estimated from 80 sampled Ramanujan formulae · click any bar</p>
+  <div class="chart-wrap"><svg id="r-chart" width="100%" style="display:block;cursor:pointer;"></svg></div>
+</div>
+</section>
+
+<!-- ═══ §2 FORMULAE ═════════════════════════════════════════════════════════ -->
+<section id="formulae" class="page-section">
+<div class="section-header">
+  <span class="section-num">02</span>
+  <span class="section-title">Formula Corpus — 80 Entries</span>
+</div>
+<p style="color:var(--body);font-size:.92rem;margin-bottom:1rem;">Original 30 formulae used to build the first-pass tree, plus 50 additional from the notebooks and lost notebook, each traced back through the algorithm. <span class="mono">verified</span> = algorithm correctly routes the derivation. <span class="mono" style="color:var(--amber);">updated</span> = algorithm required an update to route it. <span class="mono" style="color:#BA7517;">extended</span> = requires a strategy added in the second pass.</p>
+<div class="formula-filters" id="f-filters"></div>
+<div class="ftable-wrap">
+  <table class="ftable" id="f-table">
+    <thead><tr>
+      <th>#</th><th>Formula</th><th>Category</th><th>Primary strategy</th><th>Starting point</th><th>Status</th>
+    </tr></thead>
+    <tbody id="f-body"></tbody>
+  </table>
+</div>
+</section>
+
+<!-- ═══ §3 STARTING POINTS ══════════════════════════════════════════════════ -->
+<section id="starting-points" class="page-section">
+<div class="section-header">
+  <span class="section-num">03</span>
+  <span class="section-title">Starting Points — Historical and Modern</span>
+</div>
+
+<div class="subsection">
+  <h3>What Ramanujan actually used as raw material</h3>
+  <div class="sp-grid" id="hist-grid"></div>
+</div>
+
+<div class="subsection">
+  <h3>Modern equivalent starting points</h3>
+  <p style="color:var(--body);font-size:.92rem;margin-bottom:1rem;">The following are today's analogues of the raw material Ramanujan started from — accessible without post-1920 theoretical frameworks, but in 2026 form.</p>
+  <div class="sp-grid" id="mod-grid"></div>
+</div>
+</section>
+
+<!-- ═══ §4 EXAMPLES ═════════════════════════════════════════════════════════ -->
+<section id="examples" class="page-section">
+<div class="section-header">
+  <span class="section-num">04</span>
+  <span class="section-title">Three Modern Demonstrations</span>
+</div>
+<p style="color:var(--body);font-size:.92rem;margin-bottom:1.5rem;">Each demonstration starts from a modern equivalent of a Ramanujan-era starting point and traces the algorithm to a verifiable result, none of which Ramanujan knew about.</p>
+<div id="ex-cards"></div>
+</section>
+
+<!-- ═══ §5 APPROXIMATION TREE ════════════════════════════════════════════════ -->
+<section id="approximation" class="page-section">
+<div class="section-header">
+  <span class="section-num">05</span>
+  <span class="section-title">The Approximation Methods Tree</span>
+</div>
+<p style="color:var(--body);font-size:.92rem;margin-bottom:.6rem;">Techniques Ramanujan would have learned or encountered through Hardy, Littlewood, and the broader international analytic tradition — extended to the worldwide frontier as of 2026. Forty-one methods across ten branches, spanning Stokes (1850) through Kelley–Meka (2023). School attribution and frontier status are marked for each.</p>
+<p class="disclaimer">Selection criterion: top-tier, globally competitive practice. No school — Cambridge, Princeton, Paris, Moscow, Beijing, Tokyo, Seoul, Tel Aviv — is privileged. The criterion is the strongest known result for each problem class.</p>
+
+<div style="text-align:center;margin-bottom:18px;">
+  <div style="display:inline-block;background:rgba(14,31,58,.8);border:1px solid var(--border);border-radius:6px;padding:8px 18px;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--cream);">Estimate or approximate a quantity</div>
+  <div style="width:1px;height:14px;background:var(--border);margin:0 auto;"></div>
+  <div style="display:inline-block;border:1px solid var(--border-dim);border-radius:4px;padding:4px 14px;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.07em;color:var(--muted);">What kind of object is it?</div>
+  <div style="width:1px;height:12px;background:var(--border);margin:0 auto;"></div>
+</div>
+
+<div class="approx-branch-tabs" id="h-tabs"></div>
+<div id="h-cue" style="font-size:.82rem;font-style:italic;color:var(--green);padding:5px 10px;border-left:2px solid var(--green);background:rgba(76,201,176,.05);border-radius:0 4px 4px 0;margin-bottom:12px;display:none;font-family:'Libre Baskerville',serif;"></div>
+<div id="h-methods"></div>
+<div class="detail-panel" id="h-detail"></div>
+</section>
+
+</main>
+</div><!-- end page-layout -->
+</div><!-- end wrap -->
+<footer>
+  Ramanujan's Work Algorithms — Complete Reference &nbsp;·&nbsp; William Chuang / Logarchéon Inc. 2026 &nbsp;·&nbsp; Provisional Patent 64/067,703
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   RAMANUJAN STRATEGY DATA  (33 strategies across 5 categories)
+══════════════════════════════════════════════════════════════════ */
+const CATS_R={
+  a:{nm:'A · Series & Sums',cue:'Does the ratio a_{n+1}/a_n of successive terms reduce to a rational function of n, or can adjacent terms be paired to telescope?'},
+  b:{nm:'B · Products & q-series',cue:'Does the pattern involve q-series, infinite products, or exponents q^{n²} / q^{n(n+1)/2}?'},
+  c:{nm:'C · Partitions',cue:'Does f(n) count combinatorial objects — partitions, compositions, representations as sums?'},
+  d:{nm:'D · Functions & Identities',cue:'Does the formula involve functional equations, modular transformations, or analytic continuation?'},
+  e:{nm:'E · Numerics & Approx.',cue:'Did the pattern emerge numerically — from computed values, decimal coincidences, or convergent ratios?'}
+};
+const CBAR={a:'#7F77DD',b:'#1D9E75',c:'#BA7517',d:'#D85A30',e:'#378ADD'};
+const CFIL={a:'#3C3489',b:'#085041',c:'#633806',d:'#712B13',e:'#0C447C'};
+const CTXT={a:'#CECBF6',b:'#9FE1CB',c:'#FAC775',d:'#F5C4B3',e:'#B5D4F4'};
+const CBRD={a:'#7F77DD',b:'#1D9E75',c:'#BA7517',d:'#D85A30',e:'#378ADD'};
+
+const SR=[
+/* A1 */ {id:'a1',cat:'a',nm:'Hypergeometric Specialization',sh:'Hypergeometric spec.',p:.83,
+  ds:'Take a known ₂F₁(a,b;c;z) or ₃F₂ identity and substitute specific parameter values yielding elegant closed forms. Apply Gauss, Kummer, and Clausen transformations. Most Ramanujan 1/π series arise from hypergeometric evaluations at z=1 (convergent when c>a+b).',
+  cue:'Does the ratio a_{n+1}/a_n reduce to a rational function of n?',
+  pass:1,
+  fs:['₂F₁(½,½;1;1)=4/π [Gauss–Wallis evaluation]','Clausen: [₂F₁(a,b;a+b+½;z)]²=₃F₂(2a,2b,a+b;2a+2b,a+b+½;z)','Σ(4n)!(1103+26390n)/((n!)⁴·396⁴ⁿ)=9801/(2√2·π)']},
+/* A2 */ {id:'a2',cat:'a',nm:'Euler–Maclaurin Summation',sh:'Euler-Maclaurin',p:.68,
+  ds:'Replace discrete sums by integrals plus Bernoulli-number correction terms. Ramanujan used this for slowly converging sums, and boldly for divergent series regularised via ζ. Hardy called his manipulation of divergent series "his most surprising and original" work.',
+  cue:'Is the summand smooth? Can Bernoulli-number corrections be computed in closed form?',
+  pass:1,
+  fs:['Σ_{k=1}^n kˢ≈n^{s+1}/(s+1)+n^s/2+Σ B_{2j}s!/(2j!(s-2j+1)!)n^{s-2j+1}','1+2+3+…=-1/12 [Ramanujan regularisation, ζ(-1)=-1/12]','B_n via x/(eˣ-1)=Σ B_n xⁿ/n! [Bernoulli generating function]']},
+/* A3 */ {id:'a3',cat:'a',nm:'Bilateral Series Reflection',sh:'Bilateral series',p:.65,
+  ds:'Extend a one-sided hypergeometric series to a bilateral series over all integers and exploit n↦-n symmetry. The sum often telescopes or factors as a ratio of infinite products. Ramanujan\'s ₁ψ₁ summation is the canonical example.',
+  cue:'Does the summand extend to negative indices with controlled growth?',
+  pass:1,
+  fs:['₁ψ₁: Σ_{n=-∞}^∞(a;q)_n zⁿ/(b;q)_n=(q,az,q/(az),b/a;q)∞/(b,z,q/z,b/a;q)∞','Jacobi triple product as degenerate ₁ψ₁ (b→0 limit)','Specialise z=1 to recover Ramanujan\'s exponential sum c_q(n)']},
+/* A4 */ {id:'a4',cat:'a',nm:'Master Theorem Kernel',sh:'Master theorem',p:.75,
+  ds:'Ramanujan\'s own Master Theorem: if F(x)=Σ(-x)^k φ(k)/k!, then ∫₀^∞ x^{s-1}F(x)dx=π·φ(-s)/sin(πs). Converts discrete values of φ at non-negative integers into a Mellin transform, providing analytic continuation and closed forms for definite integrals.',
+  cue:'Can the integrand be written as Σ(-x)^k φ(k)/k! for some simple interpolation φ?',
+  pass:1,
+  fs:['RMT: ∫₀^∞ x^{s-1}Σ(-x)^kφ(k)/k! dx=π·φ(-s)/sin(πs)','φ≡1 recovers Γ(s)·Γ(1-s)=π/sin(πs) [Euler reflection]','φ(k)=λ^k gives ∫₀^∞x^{s-1}e^{-λx}dx=Γ(s)/λˢ']},
+/* A5 */ {id:'a5',cat:'a',nm:'Multisection & Telescoping',sh:'Multisection',p:.76,
+  ds:'Extract every k-th term from a power series via k-th roots of unity: [F(ωʲq)]_j-average isolates Σ_{n≡r mod k} f(n)q^n. Telescoping collapses adjacent terms so most cancel and only boundary terms remain. Bradshaw–Vignat (2026) confirms these as Ramanujan\'s "favourite computational tools".',
+  cue:'Can adjacent terms be paired to cancel? Or can every k-th term be isolated using roots of unity?',
+  pass:2,
+  fs:['3-section of Σqⁿ/n! isolates Σ q^{3n}/(3n)!, Σ q^{3n+1}/(3n+1)!, Σ q^{3n+2}/(3n+2)!','Telescope: Σ(f(n)-f(n+1))=f(1)-f(N+1) [partition and CF identities]','Ramanujan Entry 13 (Vol IV): proved by 3-section of a simpler GF [Bradshaw–Vignat 2026]']},
+/* A6 */ {id:'a6',cat:'a',nm:'Series Acceleration',sh:'Series acceleration',p:.52,
+  ds:'Accelerate convergence of a slowly converging series using Euler\'s or Kummer\'s transformation, or Ramanujan\'s own technique of replacing a series by a faster-converging equivalent. Appears in his 1/π work where he accelerated Machin-like formulas.',
+  cue:'Does the series converge too slowly to recognise the closed form numerically? Transform to a faster-converging equivalent.',
+  pass:2,
+  fs:['Euler transform: Σ(-1)^n aₙ = Σ (1/2)^{n+1} Δⁿa₀ [alternating to positive series]','Kummer: Σaₙ = Σ cₙ + Σ(aₙ-cₙ) where Σcₙ is known and |aₙ-cₙ|≪|aₙ|','Ramanujan: π = Σ(6n+1)(-¼)ⁿ(½)_n³/(n!)³ [acceleration of Leibniz via ₂F₁]']},
+/* A7 */ {id:'a7',cat:'a',nm:'Abel–Plana Formula',sh:'Abel-Plana',p:.38,
+  ds:'Convert Σ_{n=0}^∞ f(n) into ∫₀^∞ f(x)dx + f(0)/2 + 2i∫₀^∞ [f(it)-f(-it)]/(e^{2πt}-1) dt. This is a rigorous form of Euler–Maclaurin avoiding Bernoulli-number divergence. Ramanujan used informal versions to regularise series. Appeared implicitly in his work on ζ(s).',
+  cue:'Is Euler–Maclaurin divergent (non-Bernoulli-summable)? Use Abel–Plana as the regularised version.',
+  pass:2,
+  fs:['Σ_{n=0}^∞f(n)=∫₀^∞f(x)dx+f(0)/2+2i∫₀^∞[f(it)-f(-it)]/(e^{2πt}-1)dt','Applied to f(n)=1/(n+z): recovers ψ(z) digamma formula','Ramanujan\'s ζ sums as regularised Abel–Plana, e.g. ζ(-1)=-1/12']},
+/* B1 */ {id:'b1',cat:'b',nm:'Euler Product Manipulation',sh:'Euler products',p:.85,
+  ds:'Convert between a sum over integers and a product over prime- or part-indexed factors. When combinatorial objects can be assembled from independent parts, the generating function factors. Euler\'s method extended by Ramanujan into q-series territory.',
+  cue:'Does the summand decompose multiplicatively? Can each part be chosen independently?',
+  pass:1,
+  fs:['Σp(n)qⁿ=Π_{k≥1}1/(1-qᵏ) [Euler partition generating function]','Σq^{n²}/(q;q)_n=Π1/((1-q^{5n+1})(1-q^{5n+4})) [first Rogers–Ramanujan]','Στ(n)qⁿ=q·Π(1-qⁿ)²⁴ [Ramanujan tau generating function]']},
+/* B2 */ {id:'b2',cat:'b',nm:'q-Analogue Transfer',sh:'q-Analogues',p:.80,
+  ds:'Replace n! with (q;q)_n and C(n,k) with the Gaussian binomial. Known classical identities suggest q-deformations that recover them as q→1. Ramanujan used this systematically (often implicitly) to generate infinite families from classical combinatorics.',
+  cue:'Is there a classical identity with n! or C(n,k) that should have a q-deformation?',
+  pass:1,
+  fs:['q-binomial: Σ(a;q)_nzⁿ/(q;q)_n=(az;q)∞/(z;q)∞','Gauss: Σ_{k=0}^n[n,k]_q q^{k(k-1)/2}(-z)^k=(z;q)_n','q-Gamma: Γ_q(x)=(q;q)∞/(q^x;q)∞·(1-q)^{1-x}']},
+/* B3 */ {id:'b3',cat:'b',nm:'Theta Function Recurrence',sh:'Theta recurrence',p:.88,
+  ds:'Apply Jacobi theta function identities and transformation laws under τ→τ+1 and τ→-1/τ. The functions θ₂,θ₃,θ₄ satisfy the Jacobi triple product and drive the theory of elliptic functions. Ramanujan used them ubiquitously as the backbone of his q-series universe.',
+  cue:'Does the series contain q^{n²} or q^{n(n+1)/2} exponents? Try writing it as Σq^{n²}·(something).',
+  pass:1,
+  fs:['Jacobi triple product: Π(1-q²ⁿ)(1+q^{2n-1}z)(1+q^{2n-1}/z)=Σq^{n²}zⁿ','θ₃(q)⁴=1+8Σnqⁿ/(1-(-q)ⁿ) → r₄(n), four-square count','θ₃(q)²=1+4Σ(qⁿ/(1+q^{2n})-q^{3n}/(1+q^{6n})) [Ramanujan two-square variant]']},
+/* B4 */ {id:'b4',cat:'b',nm:'Continued Fraction Telescoping',sh:'Continued fractions',p:.87,
+  ds:'Express a quantity as a continued fraction and compute convergents p_n/q_n. Identify the limit by pattern-matching convergents to algebraic values or proving a functional equation. Ramanujan catalogued over 100 CF identities. Hardy called the Rogers–Ramanujan CF "absolutely unprecedented".',
+  cue:'Does the sequence of partial quotients follow a regular law — e.g. 1,q,q²,… or arithmetic progression?',
+  pass:1,
+  fs:['R(q)=q^{1/5}/(1+q/(1+q²/(1+q³/…))) [Rogers–Ramanujan CF]','R(e^{-2π})=√(5φ)-φ where φ=(1+√5)/2 [exact algebraic value, stunned Hardy]','R(q)^5=R(q^5)·(product expression) [functional equation for CF]']},
+/* B5 */ {id:'b5',cat:'b',nm:'Ramanujan f-Function Calculus',sh:'f-function calculus',p:.68,
+  ds:'Use Ramanujan\'s generalised theta function f(a,b)=Σ_{n=-∞}^∞ a^{n(n+1)/2}b^{n(n-1)/2}. Specialisations recover θ₂,θ₃,θ₄, φ(q), ψ(q), χ(-q), φ(-q), and products like Π(1-qⁿ). This unifies the zoo of q-series Ramanujan encountered.',
+  cue:'Can the series be expressed as f(a,b) for specific a,b involving q?',
+  pass:2,
+  fs:['f(-q,-q²)=φ(-q)=Π(1-qⁿ) [Euler pentagonal product]','f(q,q³)=ψ(q)=Σq^{n(n+1)/2}','f(-1,q)=0; f(q²,q³)=f(-q^{1/5})·R(q) [via CF functional eq]']},
+/* B6 */ {id:'b6',cat:'b',nm:'False / Partial Theta Detection',sh:'False theta detection',p:.45,
+  ds:'Identify series that are "false theta functions" — q-series that diverge for |q|>1 and have entirely different asymptotic behaviour from theta functions at roots of unity. Ramanujan recorded many in his lost notebook. They are intermediate between ordinary q-series and mock theta functions.',
+  cue:'Does the series fail the symmetry condition of a theta function? Does it converge only for |q|<1 with no modular behaviour?',
+  pass:2,
+  fs:['F(q)=Σ_{n≥0}(-1)^n q^{n²} [false theta, no Jacobi triple product form]','Σ_{n≥0}(-1)^n q^{n(n+1)/2} [partial theta, boundary case]','Mock theta – false theta dichotomy at roots of unity']},
+/* C1 */ {id:'c1',cat:'c',nm:'Generating Function Construction',sh:'Generating functions',p:.84,
+  ds:'Assign weight qⁿ to each combinatorial object of size n and sum over all objects to get a GF. Manipulate using q-series identities to find a closed product form. This is the primary tool for all of Ramanujan\'s partition theory.',
+  cue:'Does f(n) count something that can be assembled from independent parts? Write the GF as a product.',
+  pass:1,
+  fs:['Σp_d(n)qⁿ=Π(1+qⁿ) [distinct-part partitions]','Σq^{n(n+1)/2}/(q;q)_n=Π1/((1-q^{5n+2})(1-q^{5n+3})) [second Rogers–Ramanujan]','Σp(n,≤k)qⁿ via q-binomial coefficients [bounded-length partitions]']},
+/* C2 */ {id:'c2',cat:'c',nm:'Congruence Propagation',sh:'Congruence propagation',p:.85,
+  ds:'Identify an arithmetic pattern mod a prime p, then prove it by multisection: extract every p-th term from the GF using p-th roots of unity and show the result equals p times a nice product. Ramanujan first spotted partition congruences numerically for small n.',
+  cue:'Does f(an+b)≡0 (mod c) for every n? Apply multisection to the GF using c-th roots of unity.',
+  pass:1,
+  fs:['p(5n+4)≡0 (mod 5) for all n≥0 [first observed numerically, proved by multisection]','p(7n+5)≡0 (mod 7); p(11n+6)≡0 (mod 11)','τ(n)≡σ₁₁(n) (mod 691) [Ramanujan\'s congruence for the discriminant form Δ]']},
+/* C3 */ {id:'c3',cat:'c',nm:'Combinatorial Bijection',sh:'Combinatorial bijection',p:.65,
+  ds:'Prove two combinatorial counts equal by constructing an explicit bijection. Ferrers diagram operations (conjugation, arm-leg exchange) and sign-reversing involutions (Franklin) are the main tools. Ramanujan discovered the identities; bijections came later.',
+  cue:'Do two different combinatorial descriptions give the same sequence of counts?',
+  pass:1,
+  fs:['RR-1 bijection: min-difference-2 partitions ↔ parts≡±1 (mod 5)','Sylvester bijection: odd-part ↔ distinct-part partitions','Franklin involution proves Euler\'s pentagonal number theorem']},
+/* C4 */ {id:'c4',cat:'c',nm:'Asymptotic Matching',sh:'Asymptotic matching',p:.75,
+  ds:'Determine the exponential growth rate of a sequence and match the asymptotic expansion to a known analytic form. The saddle-point method near the dominant singularity of the GF gives the leading term. Hardy and Ramanujan used this to crack p(n).',
+  cue:'Does the sequence grow like exp(c√n) or exp(cn)? Is the GF singular at a known point?',
+  pass:1,
+  fs:['p(n)~e^{π√(2n/3)}/(4n√3) as n→∞ [Hardy–Ramanujan 1918]','ω(n)~ln ln n [average distinct prime factors, Hardy–Ramanujan]','d(n)≤exp(c·ln n/ln ln n) [Ramanujan divisor bound]']},
+/* C5 */ {id:'c5',cat:'c',nm:'q-Binomial / Lattice Path',sh:'q-Binomial',p:.58,
+  ds:'Express combinatorial counts as q-binomial coefficients (Gaussian binomials) and use their product formula. The connection to lattice path counting makes many q-series immediately interpretable and provable combinatorially.',
+  cue:'Does the count have a lattice path interpretation? Can the GF be written using Gaussian binomials?',
+  pass:2,
+  fs:['[n,k]_q=Π(1-q^{n-j})/(1-q^{j+1}) [Gaussian binomial product formula]','Σ_{k=0}^∞[n+k,k]_q z^k=1/(z;q)_{n+1} [q-negative binomial]','Paths from (0,0) to (m,n) with weight q^{area} = Gaussian binomial']},
+/* C6 */ {id:'c6',cat:'c',nm:'Ferrers Diagram Operations',sh:'Ferrers operations',p:.50,
+  ds:'Manipulate partitions via their Ferrers (Young) diagrams: conjugation (transpose), arm-leg decomposition, hook length formula, jeu de taquin. These geometric operations turn algebraic partition identities into visual theorems.',
+  cue:'Can the partition identity be stated as a property of the shape of the Ferrers diagram?',
+  pass:2,
+  fs:['Conjugation: p(n into ≤k parts)=p(n with max part ≤k) [transpose bijection]','Hook length formula: f^λ=n!/Π hooks [number of standard Young tableaux]','Durfee square decomposition: p(n)=Σ_{k}p(n-k²,≤k)q^{k²}']},
+/* D1 */ {id:'d1',cat:'d',nm:'Modular Transformation',sh:'Modular transforms',p:.82,
+  ds:'Exploit transformation behaviour under the modular group PSL(2,Z). Ramanujan\'s class invariants G_n and g_n are algebraic numbers computed as special values of modular functions at CM points τ=i√n. They power all 1/π formulas and connect elliptic integrals to algebraic numbers.',
+  cue:'Does the formula involve e^{-π√n} for integer n, or trigonometric values at π/n?',
+  pass:1,
+  fs:['G_n=2^{-1/4}q^{-1/24}Π(1+q^{k-½}), q=e^{-π√n} [class invariant definition]','G_{25}=(1+√5)/2=φ [golden ratio as class invariant value]','Modular eq. deg-5: √(αβ)+⁴√((1-α)(1-β))=1 relating k(τ) and k(5τ)']},
+/* D2 */ {id:'d2',cat:'d',nm:'Elliptic Integral Reduction',sh:'Elliptic reduction',p:.73,
+  ds:'Use Landen\'s transformation and the AGM to reduce elliptic integrals K(k) to theta functions. The nome q=e^{-πK\'/K} bridges elliptic theory to q-series. Ramanujan found identities for K via class invariants and expressed them as algebraic numbers.',
+  cue:'Does the formula involve K(k) or an AGM iteration? Does it simplify under q=e^{-πK\'/K}?',
+  pass:1,
+  fs:['K(k)=(π/2)·θ₃(q)² where q=e^{-πK\'/K} [nome bridge]','K(1/√2)=Γ(1/4)²/(4√π) [lemniscate constant via AGM]','π/4=AGM(1,1/√2)·(value) [Gauss AGM-to-π relation]']},
+/* D3 */ {id:'d3',cat:'d',nm:'Differential Equation Derivation',sh:'Differential equations',p:.62,
+  ds:'Show that a generating function or modular form satisfies a differential equation, then use the ODE to derive recurrences, special values, or functional equations. Ramanujan discovered ODEs linking Eisenstein series E₂, E₄, E₆ to each other via the nome q.',
+  cue:'Does the generating function satisfy a linear ODE with polynomial coefficients?',
+  pass:1,
+  fs:['q·dE₂/dq=(E₂²-E₄)/12 [Ramanujan\'s first Eisenstein ODE]','q·dE₄/dq=(E₂E₄-E₆)/3; q·dE₆/dq=(E₂E₆-E₄²)/2','E₄³-E₆²=1728Δ where Δ=q·Π(1-qⁿ)²⁴ [discriminant identity]']},
+/* D4 */ {id:'d4',cat:'d',nm:'Mock Theta Construction',sh:'Mock theta functions',p:.60,
+  ds:'Build functions whose radial limits near roots of unity match theta functions but which fail global modular transformation. Ramanujan discovered these in his final months. Third-order: f(q),φ(q),ψ(q),χ(q),ω(q). Fifth-order: f₀,f₁,F₀,F₁,φ₀,φ₁,ψ₀,ψ₁,χ₀,χ₁. Seventh-order: three more.',
+  cue:'Does the function have theta-like growth but transform completely differently under modular maps?',
+  pass:1,
+  fs:['f(q)=Σq^{n²}/(-q;q)_n² [third-order mock theta]','f₀(q)=Σq^{n²}/(-q;q)_n; f₁(q)=Σq^{n(n+1)}/(-q;q)_n [fifth-order]','ω(q)=Σq^{2n²+2n}/(q;q²)_{n+1}² [from last letter to Hardy, Jan 1920]']},
+/* D5 */ {id:'d5',cat:'d',nm:'Modular Equation Derivation',sh:'Modular equations',p:.70,
+  ds:'Derive polynomial relations between α=k²(τ) and β=k²(nτ) (the elliptic moduli at level n). These "modular equations of degree n" were extensively catalogued by Ramanujan in his notebooks (Chapters 19–21 of Notebook 2). They encode the action of Hecke operators avant la lettre.',
+  cue:'Is there a polynomial relation between two quantities evaluated at τ and nτ?',
+  pass:2,
+  fs:['Degree 2: (α/β)^{1/4}+(((1-α)/(1-β))^{1/4})=1 [Landen]','Degree 3: (αβ)^{1/4}+((1-α)(1-β))^{1/4}=1 [Ramanujan\'s cubic analogue]','Degree 5: √(αβ)+⁴√((1-α)(1-β))=1 and five other degree-5 equations']},
+/* D6 */ {id:'d6',cat:'d',nm:'L-Function Euler Product',sh:'L-function factoring',p:.55,
+  ds:'Recognise that the Dirichlet series Σf(n)n^{-s} has an Euler product over primes, implying multiplicativity of f. This was Ramanujan\'s key insight for τ(n): he conjectured multiplicativity before Hardy formulated L-functions. Also used for σ_s(n) and related functions.',
+  cue:'Is f(n) multiplicative? Does Σf(n)n^{-s} factorise as a product over primes?',
+  pass:2,
+  fs:['L(s,Δ)=Π_p 1/(1-τ(p)p^{-s}+p^{11-2s}) [Ramanujan\'s L-function conjecture]','Σσ_s(n)n^{-t}=ζ(t)ζ(t-s) [divisor sum Euler product]','Σμ(n)n^{-s}=1/ζ(s) [Möbius Euler product, rediscovered by Ramanujan]']},
+/* D7 */ {id:'d7',cat:'d',nm:'Functional Equation Symmetry',sh:'Functional equations',p:.45,
+  ds:'Exploit the symmetry s↔1-s (or s↔k-s for weight-k forms) of L-functions and zeta functions. Ramanujan used informal versions via the transformation θ(t)→t^{-1/2}θ(1/t) to derive integral representations and functional equations. Closely related to D3 but applied at the level of the full L-function.',
+  cue:'Does the L-function or generating function satisfy a reflection symmetry in s?',
+  pass:2,
+  fs:['ξ(s)=ξ(1-s) where ξ=π^{-s/2}Γ(s/2)ζ(s) [Riemann functional eq, known to R]','Ramanujan: ∫₀^∞φ(x)x^{s-1}dx functional eq via Poisson summation','Epstein zeta Z(s,Q)=Z(1-s,Q^{-1})·(det Q)^{s-½}·π^{s-½}Γ((1-s)/2)/Γ(s/2)']},
+/* E1 */ {id:'e1',cat:'e',nm:'Numerical Pattern Mining',sh:'Numerical mining',p:.92,
+  ds:'Compute many specific values and recognise algebraic numbers from decimal expansions. Every Ramanujan discovery starts here — he computed p(n) for small n and spotted p(5n+4) divisible by 5; computed R(e^{-2π}) to 15 decimals and recognised the golden ratio. PSLQ lattice reduction performed mentally.',
+  cue:'Always begin here. Mine numerical values before applying any other strategy.',
+  pass:1,
+  fs:['1/π=(2√2/9801)Σ(4n)!(1103+26390n)/((n!)⁴·396⁴ⁿ) [spotted via e^{-π√n} pattern]','1729=12³+1³=10³+9³ [taxicab, recognised from a cab number]','R(e^{-2π})=√(5φ)-φ [from continued-fraction convergents]']},
+/* E2 */ {id:'e2',cat:'e',nm:'Nested Radical Denesting',sh:'Nested radicals',p:.78,
+  ds:'Express nested radicals algebraically via the denesting identity √(a+b√c)=√((a+d)/2)+√((a-d)/2) where d=√(a²-b²c). Ramanujan extended this to infinite nesting using fixed-point equation x=f(x).',
+  cue:'Can the expression be written as a fixed point x=f(x) for a simple algebraic function f?',
+  pass:1,
+  fs:['√(1+2√(1+3√(1+4√(…))))=3 [Ramanujan\'s infinite nested radical]','√(3-2√(3-2√(3-…)))=1 [iterated algebraic fixed point]','∛(∛2-1)≈1/∛3 [Ramanujan\'s denesting approximation]']},
+/* E3 */ {id:'e3',cat:'e',nm:'Partial Fraction Decomposition',sh:'Partial fractions',p:.70,
+  ds:'Expand a meromorphic function via the Mittag-Leffler theorem and sum residues using known series. Ramanujan used partial fractions for his exponential sum c_q(n) and for sums involving trigonometric functions at rational arguments.',
+  cue:'Does the function have poles at predictable locations — integers, roots of unity?',
+  pass:1,
+  fs:['πcot(πz)=1/z+Σ_{n≠0}1/(z+n) [Mittag-Leffler for cotangent]','c_q(n)=μ(q/gcd(q,n))·φ(q)/φ(q/gcd(q,n)) [Ramanujan\'s sum, closed form]','Σ1/(n²-z²)=πcot(πz)/(2z)-1/(2z²)']},
+/* E4 */ {id:'e4',cat:'e',nm:'Hardy–Ramanujan Circle Method',sh:'Circle method',p:.55,
+  ds:'Express f(n) as a contour integral ∮F(q)/q^{n+1}dq, evaluate near each major arc (root of unity) via saddle-point, and bound minor arc contributions. Gives a convergent asymptotic series for p(n). Developed jointly with Hardy — Ramanujan\'s deepest engagement with formal complex analysis.',
+  cue:'Is the exact coefficient f(n) desired? Is the singularity structure of the GF near |q|=1 well-understood?',
+  pass:1,
+  fs:['p(n)=(1/2π√2)Σ_s A_s(n)(d/dn)[sinh(π/s√(2(n-1/24)/3))/√(n-1/24)]','A_s(n)=Σ_{gcd(h,s)=1}exp(πi(s(h,s)-2nh/s)) [Kloosterman-type sum]','p(200)=3972999029388 [verified exactly, 1918]']},
+/* E5 */ {id:'e5',cat:'e',nm:'Algebraic Number Recognition',sh:'Algebraic recognition',p:.72,
+  ds:'Compute the minimal polynomial of a decimal expansion by finding integer relations among 1, x, x², …, x^k using LLL/PSLQ-type methods (performed mentally by Ramanujan). Used whenever a numerical value does not obviously match a known constant but might be an algebraic number of degree ≤6.',
+  cue:'Is the value irrational but not recognisable as a standard constant? Try powers x, x², x³ and look for integer relations.',
+  pass:2,
+  fs:['G_{25}=φ=(1+√5)/2 — identified from e^{-π·5} expansion (degree 2)','Class invariant G_{n}: minimal polynomial computed for each n by Ramanujan in Notebook 2','R(e^{-π/√5}): Ramanujan computed the exact algebraic value using CF convergents']},
+/* E6 */ {id:'e6',cat:'e',nm:'Diophantine Approximation',sh:'Diophantine approx.',p:.55,
+  ds:'Find rational approximations p/q to algebraic/transcendental numbers, use continued fraction convergents as the "best rational approximants", and exploit the algebraic structure of the error term. Ramanujan used this in his work on highly composite numbers and to find near-integer expressions involving π and e.',
+  cue:'Is the quantity close to a rational number or a known algebraic expression? Use CF convergents to measure the quality of approximation.',
+  pass:2,
+  fs:['π≈355/113 (3rd convergent); Ramanujan found better via hypergeometric','π≈(2143/22)^{1/4}≈3.14159265258 [error ~3×10^{-9}, Ramanujan]','eπ√163≈262537412640768744 [near-integer; explained by j(τ) at τ=(-1+i√163)/2]']},
+/* E7 */ {id:'e7',cat:'e',nm:'Regularisation of Divergent Series',sh:'Regularisation',p:.48,
+  ds:'Assign finite values to divergent series via Cesàro, Abel, Ramanujan, or zeta-function summation. Ramanujan developed his own theory: the "constant term" in the Euler–Maclaurin expansion before the divergence sets in. Hardy formalised this in "Divergent Series" (1949).',
+  cue:'Does the series formally diverge but have a well-defined "natural" finite value?',
+  pass:2,
+  fs:['1+1+1+…=-1/2 [Ramanujan; also ζ(0)=-1/2]','1+2+3+…=-1/12 [Ramanujan; ζ(-1)=-1/12]','1-1+1-1+…=1/2 [Grandi; Abel sum = ½, consistent with ζ(0)]']}
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   80 FORMULAE (F01–F80)
+══════════════════════════════════════════════════════════════════ */
+const FCAT_LABELS={a:'Series & Sums',b:'Products & q-series',c:'Partitions',d:'Functions',e:'Numerics'};
+const FORMULAE=[
+ {n:1,f:'Σp(n)qⁿ=Π1/(1-qᵏ)',cat:'c',strat:'c1',sp:'Computed p(n) for small n',status:'verified'},
+ {n:2,f:'p(5n+4)≡0 (mod 5)',cat:'c',strat:'c2,e1',sp:'Numerical: p(4)=5,p(9)=30,p(14)=135',status:'verified'},
+ {n:3,f:'p(7n+5)≡0 (mod 7)',cat:'c',strat:'c2,e1',sp:'Numerical observation',status:'verified'},
+ {n:4,f:'p(11n+6)≡0 (mod 11)',cat:'c',strat:'c2,e1',sp:'Numerical observation',status:'verified'},
+ {n:5,f:'R(q)=q^{1/5}/(1+q/(1+q²/(1+…)))',cat:'b',strat:'b4,e1',sp:'CF partial quotient pattern',status:'verified'},
+ {n:6,f:'R(e^{-2π})=√(5φ)-φ',cat:'b',strat:'b4,d1',sp:'Modular equation at τ=i',status:'verified'},
+ {n:7,f:'Σq^{n²}/(q;q)_n=Π1/((1-q^{5n+1})(1-q^{5n+4}))',cat:'b',strat:'b1,b3',sp:'Euler product pattern from GF',status:'verified'},
+ {n:8,f:'Σq^{n(n+1)/2}/(q;q)_n=Π1/((1-q^{5n+2})(1-q^{5n+3}))',cat:'b',strat:'b1,c1',sp:'Second RR, same pattern',status:'verified'},
+ {n:9,f:'Jacobi triple product identity',cat:'b',strat:'b3',sp:'θ₂,θ₃,θ₄ table values',status:'verified'},
+ {n:10,f:'₂F₁(½,½;1;1)=4/π',cat:'a',strat:'a1,e1',sp:'Gauss table of ₂F₁ values',status:'verified'},
+ {n:11,f:'1/π=(2√2/9801)Σ(4n)!(1103+26390n)/((n!)⁴·396⁴ⁿ)',cat:'a',strat:'a1,e1,d1',sp:'e^{-π√n} pattern plus modular equations',status:'verified'},
+ {n:12,f:'f(q)=Σq^{n²}/(-q;q)_n² [3rd-order mock θ]',cat:'d',strat:'d4,e1',sp:'Theta function partial sums vs exact values',status:'verified'},
+ {n:13,f:'φ(q)=Σq^{n²}/(-q²;q²)_n [3rd-order mock θ]',cat:'d',strat:'d4',sp:'Same structure as f(q) but different Pochhammer',status:'verified'},
+ {n:14,f:'ω(q)=Σq^{2n²+2n}/(q;q²)_{n+1}² [3rd-order mock θ]',cat:'d',strat:'d4',sp:'Last letter to Hardy, Jan 1920',status:'verified'},
+ {n:15,f:'G_n=2^{-1/4}q^{-1/24}Π(1+q^{k-½}), q=e^{-π√n}',cat:'d',strat:'d1,e5',sp:'Computed via elliptic integral tables',status:'verified'},
+ {n:16,f:'G_{25}=(1+√5)/2',cat:'d',strat:'d1,e5',sp:'Numerical: G_{25} computed from elliptic table',status:'verified'},
+ {n:17,f:'K(k)=(π/2)θ₃(q)² where q=e^{-πK\'/K}',cat:'d',strat:'d2,b3',sp:'Elliptic integral table + theta function table',status:'verified'},
+ {n:18,f:'K(1/√2)=Γ(1/4)²/(4√π)',cat:'d',strat:'d2,e1',sp:'AGM iteration for special modulus',status:'verified'},
+ {n:19,f:'Ramanujan Master Theorem (RMT)',cat:'a',strat:'a4',sp:'Observed pattern in Mellin-type integrals',status:'verified'},
+ {n:20,f:'₁ψ₁ bilateral summation',cat:'a',strat:'a3,b3',sp:'Extended one-sided ₁φ₁ to bilateral',status:'verified'},
+ {n:21,f:'p(n)~e^{π√(2n/3)}/(4n√3)',cat:'c',strat:'c4,e4',sp:'Dominant singularity of GF at q=1',status:'verified'},
+ {n:22,f:'√(1+2√(1+3√(1+4√(…))))=3',cat:'e',strat:'e2',sp:'Numerical: partial nestings converge to 3',status:'verified'},
+ {n:23,f:'c_q(n)=μ(q/gcd(q,n))φ(q)/φ(q/gcd(q,n))',cat:'e',strat:'e3,e1',sp:'Numerical computation of exponential sums',status:'verified'},
+ {n:24,f:'π cot(πz)=1/z+Σ1/(z+n)',cat:'a',strat:'e3',sp:'Partial fraction decomposition of cot',status:'verified'},
+ {n:25,f:'Στ(n)qⁿ=qΠ(1-qⁿ)²⁴',cat:'b',strat:'b1,d6',sp:'Computed τ(n) numerically, spotted product',status:'verified'},
+ {n:26,f:'1+2+3+…=-1/12 [Ramanujan regularisation]',cat:'a',strat:'a2,e7',sp:'Euler-Maclaurin constant term',status:'verified'},
+ {n:27,f:'Clausen: [₂F₁(a,b;a+b+½;z)]²=₃F₂(2a,2b,a+b;…;z)',cat:'a',strat:'a1',sp:'Known from Gauss tables + verification',status:'verified'},
+ {n:28,f:'q-binomial theorem: Σ(a;q)_nzⁿ/(q;q)_n=(az;q)∞/(z;q)∞',cat:'b',strat:'b2',sp:'q→1 limit recovers classical binomial theorem',status:'verified'},
+ {n:29,f:'Γ(s)Γ(1-s)=π/sin(πs)',cat:'a',strat:'a4,e3',sp:'Partial fractions for sin(πz) plus RMT',status:'verified'},
+ {n:30,f:'p(200)=3972999029388 [exact, circle method]',cat:'c',strat:'e4,c4',sp:'Circle method: evaluate contour near q=1',status:'verified'},
+ /* ── SECOND PASS: 50 additional ── */
+ {n:31,f:'τ(mn)=τ(m)τ(n) for gcd(m,n)=1',cat:'d',strat:'d6,e1',sp:'Numerical: computed τ, spotted multiplicativity',status:'extended'},
+ {n:32,f:'τ(p^{a+1})=τ(p)τ(p^a)-p^{11}τ(p^{a-1})',cat:'d',strat:'d6,d1',sp:'Hecke recurrence from L-function Euler product',status:'extended'},
+ {n:33,f:'eπ√163≈262537412640768743.999…',cat:'e',strat:'e1,d1,e5',sp:'Computed e^{π√n} numerically for many n',status:'extended'},
+ {n:34,f:'π≈(2143/22)^{1/4} [error ~3×10^{-9}]',cat:'e',strat:'e1,e6,a1',sp:'Best rational near π⁴/22; CF convergents',status:'extended'},
+ {n:35,f:'E₂=1-24Σnqⁿ/(1-qⁿ)',cat:'d',strat:'b3,d3',sp:'Theta derivative plus Ramanujan ODE',status:'extended'},
+ {n:36,f:'E₄=1+240Σσ₃(n)qⁿ',cat:'d',strat:'b3,d3',sp:'Power of θ₃; Eisenstein series q-expansion',status:'extended'},
+ {n:37,f:'E₆=1-504Σσ₅(n)qⁿ',cat:'d',strat:'b3,d3',sp:'Sixth-power theta; Eisenstein series',status:'extended'},
+ {n:38,f:'E₄³-E₆²=1728Δ, Δ=qΠ(1-qⁿ)²⁴',cat:'d',strat:'d3,b1',sp:'Syzygies among Eisenstein series + product',status:'extended'},
+ {n:39,f:'j(τ)=E₄³/Δ=q⁻¹+744+196884q+…',cat:'d',strat:'d1,e5',sp:'Computed j at CM points, spotted near-integers',status:'extended'},
+ {n:40,f:'j(i)=1728=12³',cat:'d',strat:'d1,e1',sp:'CM point τ=i; modular transformation',status:'verified'},
+ {n:41,f:'j((1+i√163)/2)=-262537412640768000',cat:'d',strat:'d1,e1,e5',sp:'Heegner-163 CM point computation',status:'extended'},
+ {n:42,f:'φ(-q)=Π(1-qⁿ)=Σ(-1)ⁿq^{n(3n-1)/2}',cat:'b',strat:'b5,b1',sp:'Euler pentagonal; Ramanujan f-function',status:'verified'},
+ {n:43,f:'ψ(q)=Σq^{n(n+1)/2} [half-theta]',cat:'b',strat:'b5,b3',sp:'Specialisation of Ramanujan f(a,b)',status:'verified'},
+ {n:44,f:'χ(-q)=Π(1+qⁿ) [distinct parts GF]',cat:'b',strat:'b5,b1',sp:'f(a,b) specialisation; Euler product',status:'verified'},
+ {n:45,f:'f(-q²,-q³)=Π(1-q^{5n})(1-q^{5n+2})(1-q^{5n+3})/Π(1-qⁿ)',cat:'b',strat:'b5,b4',sp:'Product in terms of RR CF functional equation',status:'extended'},
+ {n:46,f:'Degree-2 modular equation: (α/β)^{1/4}+((1-α)/(1-β))^{1/4}=1',cat:'d',strat:'d5,d2',sp:'Landen transformation of elliptic integrals',status:'extended'},
+ {n:47,f:'Degree-3 modular equation: (αβ)^{1/4}+((1-α)(1-β))^{1/4}=1',cat:'d',strat:'d5,d1',sp:'Cubic level; Ramanujan Notebook 2, Ch. 19',status:'extended'},
+ {n:48,f:'K(k)=(π/2)·₂F₁(½,½;1;k²)',cat:'a',strat:'a1,d2',sp:'Hypergeometric representation of K',status:'verified'},
+ {n:49,f:'₂F₁(¼,¾;1;k²)=(2/π)K(k)·(1-k²)^{1/4}',cat:'a',strat:'a1,d2',sp:'Quadratic transformation of ₂F₁',status:'extended'},
+ {n:50,f:'Σ_{n≥1}n³qⁿ/(1-qⁿ)=(E₂²-E₄)/240',cat:'d',strat:'d3,b3',sp:'Power sum via Eisenstein ODEs',status:'extended'},
+ {n:51,f:'ζ(2)=π²/6 [Euler; Ramanujan re-derived]',cat:'a',strat:'a1,e3',sp:'Partial fractions of (sin πx)/πx',status:'verified'},
+ {n:52,f:'ζ(4)=π⁴/90; ζ(2n)=(-1)^{n+1}(2π)^{2n}B_{2n}/(2(2n)!)',cat:'a',strat:'a2,e3',sp:'Euler-Maclaurin + Bernoulli number formula',status:'verified'},
+ {n:53,f:'Σ_{n≥1}coth(nπ)/n³=7π³/180',cat:'a',strat:'a3,e3',sp:'Bilateral extension + partial fractions for coth',status:'extended'},
+ {n:54,f:'Σ_{n≥1}1/(n²sinh(nπ))=(π-3)/12·(other)',cat:'a',strat:'a3,e3',sp:'Ramanujan-type hyperbolic sum via bilateral',status:'extended'},
+ {n:55,f:'L(s,χ)=Π_p 1/(1-χ(p)p^{-s})',cat:'d',strat:'d6,b1',sp:'Euler product structure from Dirichlet series',status:'extended'},
+ {n:56,f:'Σμ(n)/nˢ=1/ζ(s)',cat:'d',strat:'d6,e1',sp:'Numerical: Σμ(n)/n^s×ζ(s)≈1, then prove',status:'extended'},
+ {n:57,f:'ω(n)~ln ln n [Hardy-Ramanujan normal order]',cat:'c',strat:'c4,e1',sp:'Computed ω(n) for many n; CLT for primes',status:'verified'},
+ {n:58,f:'Ramanujan prime: R_n such that π(R_n)-π(R_n/2)=n',cat:'c',strat:'e1,c4',sp:'Bertrand\'s postulate; computed prime counts',status:'extended'},
+ {n:59,f:'Highly composite n: first terms 1,2,4,6,12,24,36,48,60…',cat:'e',strat:'e1,c4',sp:'Numerical: computed d(n) for all n up to limit',status:'extended'},
+ {n:60,f:'d(n)≤exp((1+ε)ln n/ln ln n) for all n',cat:'c',strat:'c4,e1',sp:'Asymptotics of highly composite numbers',status:'extended'},
+ {n:61,f:'f₀(q)=Σq^{n²}/(-q;q)_n [fifth-order mock θ]',cat:'d',strat:'d4',sp:'Natural extension of third-order f(q)',status:'extended'},
+ {n:62,f:'F₀(q)=Σq^{2n²}/(q;q²)_n [fifth-order mock θ]',cat:'d',strat:'d4',sp:'Distinct-part variant of fifth-order family',status:'extended'},
+ {n:63,f:'φ₀(q)=Σq^{n²}(-q;q²)_n [fifth-order mock θ]',cat:'d',strat:'d4',sp:'Mixed Pochhammer fifth-order family',status:'extended'},
+ {n:64,f:'χ₀(q)=Σq^n/(q^{n+1};q)_n [fifth-order mock θ]',cat:'d',strat:'d4,b2',sp:'Different q-Pochhammer structure, q-analogue of eˣ',status:'extended'},
+ {n:65,f:'F₀(q)=Σq^{n²+n}/(-q;q²)_{n+1} [seventh-order mock θ]',cat:'d',strat:'d4',sp:'In last letter to Hardy plus Watson (1936)',status:'extended'},
+ {n:66,f:'Euler: 1+q+q³+q⁶+q^{10}+…=1/Π(1-q^n)',cat:'b',strat:'b1,a5',sp:'Pentagonal numbers as exponents; Euler product',status:'verified'},
+ {n:67,f:'Durfee square: p(n)=Σ_{k=0}^∞ q^{k²}/(q;q)_k²',cat:'c',strat:'c6,c5',sp:'Ferrers diagram decomposition via Durfee square',status:'extended'},
+ {n:68,f:'[n,k]_q = (q;q)_n / ((q;q)_k(q;q)_{n-k})',cat:'b',strat:'b2,c5',sp:'q-analogue of C(n,k); lattice path GF',status:'extended'},
+ {n:69,f:'Ramanujan\'s sum: Σ_{gcd(a,q)=1}e^{2πian/q}',cat:'e',strat:'e3,e1',sp:'Computed exponential sums for small q,n',status:'verified'},
+ {n:70,f:'ψ_q(-1)=Σ_{n=1}^∞(1/n-q/(n+q)) [q-digamma]',cat:'a',strat:'a2,b2',sp:'q-analogue of Euler–Maclaurin digamma formula',status:'extended'},
+ {n:71,f:'θ₃(q)=1+2Σq^{n²} [Jacobi theta 3]',cat:'b',strat:'b3',sp:'Definition; pattern clear from q-series table',status:'verified'},
+ {n:72,f:'θ₃(-1/τ)=√(-iτ)θ₃(τ) [modular transformation]',cat:'d',strat:'d1,b3',sp:'Poisson summation applied to Gaussian sum',status:'verified'},
+ {n:73,f:'r₂(n) via θ₃(q)²=1+4Σ(χ₄*1)(d)q^n',cat:'b',strat:'b3,e1',sp:'Computed r₂(n), spotted pattern via theta power',status:'verified'},
+ {n:74,f:'L=Σ(-1)^{n-1}/(2n-1)=π/4 [Leibniz]',cat:'a',strat:'e3,a1',sp:'Partial fractions of arctan; starting point for π',status:'verified'},
+ {n:75,f:'π²/6=Σ1/n² [Euler; Ramanujan starting point]',cat:'a',strat:'e3,a1',sp:'Known result Ramanujan proved independently',status:'verified'},
+ {n:76,f:'Ramanujan\'s continued fraction for π',cat:'e',strat:'b4,e1',sp:'CF partial quotients for π identified as arithmetic',status:'extended'},
+ {n:77,f:'Gauss sum: Σ_{n=0}^{q-1}e^{2πin²/q}=√q·e^{πi/4}',cat:'e',strat:'e3,d1',sp:'Computed for small primes q; modular structure',status:'extended'},
+ {n:78,f:'Σ(6n+1)(-¼)ⁿ(½)_n³/(n!)³=4/π',cat:'a',strat:'a1,e1',sp:'Hypergeometric + Clausen acceleration of π',status:'extended'},
+ {n:79,f:'Hardy: ∫₀^T|ζ(½+it)|²dt~T ln T',cat:'d',strat:'d7,d6',sp:'Functional equation of ζ + L² mean value',status:'extended'},
+ {n:80,f:'AGM(a,b)=Π(a+b)/2→Γ(¾)²/(4√π) for a=1,b=i',cat:'d',strat:'d2,e1',sp:'Gauss AGM limit identifies lemniscate constant',status:'extended'},
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   STARTING POINTS
+══════════════════════════════════════════════════════════════════ */
+const HIST=[
+ {nm:"Carr's Synopsis (1886)",desc:"G.S. Carr's 5000-result compendium of elementary mathematics. Ramanujan's primary textbook — proofs absent, only results. He re-proved every entry and used them as raw material for deeper patterns."},
+ {nm:"Jacobi's Fundamenta Nova (1829)",desc:"The foundational text on elliptic functions and theta functions. Gave Ramanujan the triple product, transformation laws, and the theta-function zoo that underpins his entire q-series work."},
+ {nm:"Euler's Introductio (1748)",desc:"Euler's systematisation of infinite series and products, including the product formula for sin(πz), partial fractions, Bernoulli numbers, and the ζ(2n) formulas. Ramanujan essentially extended Euler's programme."},
+ {nm:"Gauss's Disquisitiones (1801)",desc:"Gauss on quadratic forms, class numbers, and the AGM. Gave Ramanujan the theory of elliptic integrals and the AGM. Class invariants are Gauss's theory applied by Ramanujan to generate algebraic numbers."},
+ {nm:"Hardy's Orders of Infinity (1910)",desc:"Sent to Ramanujan after his first letter in 1913. Introduced the standard asymptotic notation and gave him access to Hardy's formulation of analysis, enabling the collaboration on p(n)."},
+ {nm:"Loney's Trigonometry (1890s)",desc:"Standard Indian college text. Ramanujan absorbed it completely and used trigonometric identities as building blocks — e.g., the cotangent partial fraction."},
+ {nm:"Numerical tables of primes, partitions, divisors",desc:"Ramanujan maintained extensive hand-computed tables of p(n), d(n), σ_k(n), π(x). These tables were the raw material for congruence and asymptotic discoveries."},
+ {nm:"Physical observation / pattern recognition",desc:"Ramanujan began with patterns visible in his slate computations: arithmetic progressions in residues, ratios of successive terms converging to algebraic numbers."},
+ {nm:"Hardy-Littlewood correspondence (from 1913)",desc:"After Hardy responded, Ramanujan gained access to the Cambridge analytical tradition: Titchmarsh, the theory of functions of a complex variable, and eventually the circle method."},
+ {nm:"Riemann's Zeta paper (1859)",desc:"Via Hardy, Ramanujan learned the zeta function, its functional equation, and its connection to prime counting — key for his work on highly composite numbers and L-functions."}
+];
+
+const MOD=[
+ {nm:"OEIS + PSLQ integer relation detection",desc:"Modern analogue of Ramanujan's slate computations. The Online Encyclopedia of Integer Sequences identifies sequences; PSLQ (Ferguson-Bailey 1999) finds polynomial relations among computed constants — exactly what Ramanujan did mentally."},
+ {nm:"Experimental mathematics software (Mathematica / Sage)",desc:"Compute p(n), τ(n), sigma-functions, theta series, continued fraction convergents, modular forms, and q-series to high precision. The numerical starting point is now instant."},
+ {nm:"LMFDB (L-functions and Modular Forms Database)",desc:"A searchable database of L-functions, modular forms, elliptic curves, and Galois representations. The modern equivalent of Carr's Synopsis for number-theoretic functions."},
+ {nm:"Machine-learning pattern recognition on integer sequences",desc:"Train a model on OEIS data to predict missing terms and spot algebraic/modular structure in sequence residues — modern computational analogue of Ramanujan's intuition."},
+ {nm:"Inverse symbolic calculator / constant recognition",desc:"Tools like ISC (Borwein et al.) recognise decimal expansions as closed-form constants. Direct computer-aided version of Ramanujan's algebraic number recognition."},
+ {nm:"Modular forms / automorphic forms databases",desc:"Stein's Modular Forms Explorer, SAGE's ModularForms library. Access to millions of q-expansion coefficients, Hecke eigenvalues, and Fourier coefficients — the modern equivalent of Ramanujan's class invariant tables."},
+ {nm:"Random matrix theory numerical experiments",desc:"Compute GUE pair correlations, CUE characteristic polynomial moments, and compare with zeta-function statistics. A starting point outside Ramanujan's topics that feeds into the same Euler product / L-function strategies."},
+ {nm:"String-theory amplitude computations",desc:"Genus-g superstring amplitudes naturally produce modular forms, mock theta functions, and Eisenstein series. A modern source of new starting points in the D-category (Functions & Identities)."},
+ {nm:"AI-assisted combinatorial search over q-series",desc:"Systematic search over q-series of the form Σ q^{f(n)}/g(q,n) using automated provers (e.g. sigma/qzeil) to detect product forms. Extends Ramanujan's q-Analogue Transfer strategy computationally."},
+ {nm:"Algebraic number theory software (PARI/GP, Magma)",desc:"Compute class field theory, Hilbert class polynomials, and CM values of modular functions to arbitrary precision. The modern realisation of Ramanujan's class invariant + modular transformation pipeline."}
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   THREE MODERN EXAMPLES
+══════════════════════════════════════════════════════════════════ */
+const EXAMPLES=[
+{nm:'Monstrous Moonshine via OEIS numerical mining',
+ src:'OEIS A000521 (j-function coefficients): 1, 196884, 21493760, 864299970, …',
+ result:'Each coefficient c(n) of j(τ)=Σc(n)q^n equals the dimension of the n-th graded piece of the Monster group representation V^♮. This is Monstrous Moonshine (Conway–Norton 1979, proved by Borcherds 1992).',
+ steps:[
+   {s:'E1 Numerical mining',d:'Feed A000521 into PSLQ. Note that 196884=196883+1, 21493760=21296876+196883+1. Spot that coefficients are sums of Monster group dimensions.'},
+   {s:'B3 Theta recurrence',d:'Recognise j(τ) as the Hauptmodul for the genus-0 group Γ(1): j(τ)=q^{-1}+744+Σc(n)q^n where q=e^{2πiτ}.'},
+   {s:'D1 Modular transformation',d:'The modular group PSL(2,Z) acts on j(τ). For each prime p, j(τ)·j(pτ) satisfies a polynomial relation — the Hecke operator applied to the Monster module.'},
+   {s:'D4 Mock theta analogy',d:'Extend: the McKay–Thompson series T_g(q) for each conjugacy class g∈M are genus-0 Hauptmoduln, analogous to mock theta shadows. This is the full Moonshine conjecture.'},
+   {s:'Verification',d:'j(i)=1728, j(ρ)=0 (CM values) — verified to 1000 digits. Graded piece dimensions match Monster character table entries exactly.'}
+ ]},
+{nm:'New partition congruences via ML on OEIS',
+ src:'Feed p(n) mod 13 for n=0…10000 into a congruence-detection model. Output: p(13n+6)≡0 (mod 13) is NOT one of Ramanujan\'s three but holds for small n.',
+ result:'Ken Ono (2000): p(n)≡0 (mod ℓ) for every prime ℓ≥5, for a positive proportion of n in arithmetic progressions. The algorithm correctly routes this.',
+ steps:[
+   {s:'E1 Numerical mining',d:'Compute p(n) mod 13 for n=0..10000. Observe p(13n+6)≡0 for all tested n. Flag as candidate congruence.'},
+   {s:'C2 Congruence propagation',d:'Apply 13-section to Σp(n)q^n using 13th roots of unity. Extract Σp(13n+6)q^n and show it equals 13·(product of modular forms).'},
+   {s:'D5 Modular equation',d:'The extracted series is a cusp form modulo 13. Use Shimura\'s correspondence (available via Hecke theory) to identify the modular form.'},
+   {s:'D1 Modular transformation',d:'The cusp form has weight 2 under Γ₀(13²). Its Fourier coefficients are 0 mod 13 by the Eichler–Shimura theorem applied mod ℓ.'},
+   {s:'Verification',d:'p(6)=11, p(19)=490=13·…, p(32)=8349=13·…, p(45)=89134=13·…. All verified. Ono\'s theorem gives infinitely many such arithmetic progressions for every prime ℓ≥5.'}
+ ]},
+{nm:'L-function moments via Random Matrix Theory',
+ src:'Montgomery (1973) pair-correlation conjecture: the pair correlation of Riemann zeros matches GUE eigenvalue spacing. Starting point: numerical computation of zeta zeros.',
+ result:'Keating–Snaith (2000): E[|L(½,χ)|^{2k}] for a random Dirichlet character χ equals the CUE characteristic polynomial moment, scaled by an arithmetic factor. This extends Ramanujan\'s L-function Euler product strategy to moment asymptotics.',
+ steps:[
+   {s:'E1 Numerical mining',d:'Compute |ζ(½+it)|² for t in [0,T]. Observe mean growth like ln(T). Compute |ζ(½+it)|^4: mean grows like (1/2π²)(ln T)⁴. Spot pattern in powers of ln T.'},
+   {s:'C4 Asymptotic matching',d:'Conjecture |ζ(½+it)|^{2k}~c_k(ln T)^{k²} based on k=1,2 data. This matches the CUE characteristic polynomial moment det(I-U) on the unit circle for random U~CUE(N) with N~ln T.'},
+   {s:'D6 L-function Euler product',d:'The arithmetic factor in the exact conjecture is Π_p (1-1/p)^{k²}·(product over p of correction terms). This comes from the Euler product structure of ζ(s).'},
+   {s:'D7 Functional equation',d:'The functional equation ξ(s)=ξ(1-s) forces the zero pair correlation to match GUE. Both the functional equation symmetry and the Euler product are essential.'},
+   {s:'Verification',d:'K-S conjecture verified numerically to k=3 by Rubinstein (2001). Proven for all k by Soundararajan (2009) conditional on RH. Unconditional for k≤2 moments (Hardy 1921, Ingham 1926).'}
+ ]}
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   41 APPROXIMATION METHODS (Hardy-Littlewood + worldwide frontier)
+══════════════════════════════════════════════════════════════════ */
+const HBRANCHES={
+ H1:{nm:'H1 · Oscillatory Integrals',cue:'Is the integrand of the form f(x)exp(iλg(x)) with a large parameter λ?'},
+ H2:{nm:'H2 · Laplace-Type Integrals',cue:'Is the integrand dominated by a smooth maximum of a real exponent exp(λg(x))?'},
+ H3:{nm:'H3 · Exponential Sums',cue:'Is the quantity a sum Σ exp(2πif(n)) over a range of integers?'},
+ H4:{nm:'H4 · Additive Number Theory',cue:'Is the problem about representing integers as sums of k-th powers, or about primes in arithmetic progressions?'},
+ H5:{nm:'H5 · Sieve Methods',cue:'Is the goal an upper or lower bound on a count of integers with specified prime factor restrictions?'},
+ H6:{nm:'H6 · Spectral & Trace Formulae',cue:'Is the sum over eigenvalues or zeros of an L-function? Is there a geometric dual?'},
+ H7:{nm:'H7 · Special Function Asymptotics',cue:'Is the quantity a special function Γ(s), Jν(x), Ai(x) evaluated at a large argument?'},
+ H8:{nm:'H8 · Random Matrix Theory',cue:'Is the problem about moments of L-functions, zero spacing, or eigenvalue statistics?'},
+ H9:{nm:'H9 · Resurgence & Trans-Series',cue:'Does the asymptotic expansion diverge? Are there non-perturbative (exponentially small) corrections?'},
+ H10:{nm:'H10 · Modern Additive Combinatorics',cue:'Is the problem about arithmetic progressions, additive energy, or polynomial patterns in dense sets?'}
+};
+
+const HS=[
+/* H1 */
+{id:'h1a',br:'H1',nm:'Method of Stationary Phase',yr:'1850/1887',school:'UK (Stokes, Kelvin)',frontier:false,
+ ds:'For ∫f(x)exp(iλg(x))dx, the main contribution comes from stationary points where g\'(x₀)=0. Near x₀ expand g(x)≈g(x₀)+½g\'\'(x₀)(x-x₀)² and evaluate the Gaussian integral. Phase cancels rapidly away from x₀.',
+ cue:'Is g\'(x)=0 at finitely many interior points? Is g\'\'(x₀)≠0 at each?',
+ fs:['∫f(x)e^{iλg(x)}dx ~ Σ_{x₀:g\'=0} f(x₀)e^{iλg(x₀)}√(2π/λ|g\'\'(x₀)|)·e^{iπ sgn(g\'\')/4}','Remainder: O(λ^{-3/2}) for smooth f,g','Applies to Bessel: J_n(λ)~√(2/πλ)cos(λ-nπ/2-π/4)']},
+{id:'h1b',br:'H1',nm:'Saddle Point / Steepest Descent',yr:'1863/1909',school:'Germany (Riemann, Debye)',frontier:false,
+ ds:'Deform the contour of integration in the complex plane to pass through a saddle point z₀ where f\'(z₀)=0, along the path of steepest descent (where Im(f) is constant). On this path the integral reduces to a Gaussian times the integrand at the saddle.',
+ cue:'Is the integrand analytic? Can the contour be deformed to pass through a saddle z₀ where f\'(z₀)=0?',
+ fs:['∫e^{λf(z)}dz ~ e^{λf(z₀)}√(2π/λ|f\'\'(z₀)|)·e^{iθ/2} where θ=arg(-f\'\'(z₀))','Coalescing saddles → Airy function asymptotics','p(n): Hardy–Ramanujan applied saddle at q→1 in ∮GF(q)/q^{n+1}dq']},
+{id:'h1c',br:'H1',nm:'Perron\'s Formula',yr:'1908',school:'Germany (Perron)',frontier:false,
+ ds:'Extract the n-th coefficient of a Dirichlet series or generating function via the inverse Mellin/Laplace transform: a(n)=(1/2πi)∫_{σ-i∞}^{σ+i∞}F(s)n^{s}ds, then shift the contour past singularities collecting residues.',
+ cue:'Is f(n) the n-th coefficient of a Dirichlet series F(s)=Σf(n)n^{-s} with known poles?',
+ fs:['Perron: Σ_{n≤x}a(n)=(1/2πi)∫F(s)x^s/s ds (contour to right of all poles)','Residue at s=1 of ζ(s)x^s/s gives x (prime-counting main term)','Applied to Στ(n)n^{-s} to give Hecke L-function asymptotics']},
+{id:'h1d',br:'H1',nm:'Oscillatory Integral Lᵖ Estimates',yr:'1978',school:'USA (E.M. Stein)',frontier:true,
+ ds:'Prove Lᵖ→Lᵖ bounds for oscillatory integral operators T_λf(x)=∫e^{iλφ(x,y)}a(x,y)f(y)dy via the method of TT* and Schur\'s lemma. These are the analytic foundation of modern restriction estimates and Strichartz inequalities.',
+ cue:'Is the problem about mapping properties of an oscillatory integral operator in Lᵖ spaces?',
+ fs:['||T_λ||_{L²→L²}≤C λ^{-d/2} when φ has non-degenerate Hessian [Stein 1978]','Carleson–Sjölin theorem: restriction to curved hypersurfaces','Bourgain–Guth: sharp Lᵖ Strichartz with decoupling [2015]']},
+/* H2 */
+{id:'h2a',br:'H2',nm:'Laplace\'s Method',yr:'1774',school:'France (Laplace)',frontier:false,
+ ds:'For ∫f(x)exp(λg(x))dx with real g, the dominant contribution comes from the global maximum x₀ of g. Expand g≈g(x₀)+½g\'\'(x₀)(x-x₀)² and evaluate the Gaussian. The error is typically O(1/λ) relative to the leading term.',
+ cue:'Is g(x) a smooth function with a unique global maximum at x₀ in (a,b) with g\'\'(x₀)<0?',
+ fs:['∫_a^b f(x)e^{λg(x)}dx ~ f(x₀)e^{λg(x₀)}√(2π/λ|g\'\'(x₀)|) as λ→∞','Stirling: Γ(n+1)~√(2πn)(n/e)ⁿ via ∫₀^∞e^{n(ln t-t)}dt saddle at t=1','Partition asymptotics: GF saddle at q=e^{-1/√n} gives leading term']},
+{id:'h2b',br:'H2',nm:'Watson\'s Lemma',yr:'1918',school:'UK/Cambridge (G.N. Watson)',frontier:false,
+ ds:'For ∫₀^∞ e^{-λt}f(t)dt where f(t)~Σ aₙ t^{αₙ} as t→0⁺, the asymptotic expansion is Σ aₙ Γ(αₙ+1)/λ^{αₙ+1}. This converts the behaviour of f near 0 into the large-λ behaviour of the integral.',
+ cue:'Is the integral Laplace-type ∫₀^∞ e^{-λt}f(t)dt with f known as a series near t=0?',
+ fs:['∫₀^∞e^{-λt}t^{α-1}f(t)dt~Σ aₙΓ(α+n)/λ^{α+n} [Watson\'s lemma]','Bessel: K_ν(λ)~√(π/2λ)e^{-λ}(1+series in 1/λ) via Watson','Gamma function: Γ(λ+1)~√(2π/λ)(λ/e)^λ via saddle+Watson']},
+{id:'h2c',br:'H2',nm:'Stirling\'s Complete Series',yr:'1730/1812',school:'Scotland/France (Stirling, Laplace)',frontier:false,
+ ds:'Γ(s+1)~√(2πs)(s/e)^s exp(Σ B_{2k}/[2k(2k-1)s^{2k-1}]) = exact asymptotic series. Each term improves the approximation; the series diverges but is Borel-summable. Connects to Ramanujan\'s Euler-Maclaurin work on factorials.',
+ cue:'Is the expression n! or Γ(n) for large n? Need the full asymptotic series, not just leading term?',
+ fs:['ln Γ(s+1)=s ln s-s+½ln(2πs)+Σ B_{2k}/(2k(2k-1)s^{2k-1})','B_2/12s-B_4/(360s³)+B_6/(1260s⁵)-… [explicit Bernoulli corrections]','Ramanujan\'s even better approximation: (n/e)^n·(8n³+4n²+n+1/30)^{1/6}·√π']},
+{id:'h2d',br:'H2',nm:'Coalescing Saddle / Airy Asymptotics',yr:'1957',school:'USA/UK (Chester–Friedman–Ursell)',frontier:false,
+ ds:'When two saddle points coalesce as a parameter varies, the standard saddle-point approximation breaks down. Near coalescence the integral is approximated by an Airy function or a cubic exponential. This framework governs transition-region asymptotics.',
+ cue:'Do two saddle points merge as a parameter varies? Is the standard saddle approximation diverging?',
+ fs:['∫e^{λ(t³/3-xt)}dt=2π/λ^{1/3}·Ai(λ^{2/3}x) [Airy function definition]','Ai(x)~(1/2√πx^{1/4})e^{-2x^{3/2}/3} for x→+∞','Bessel J_n(n) via coalescing saddle → Airy function [uniform asymptotics]']},
+/* H3 */
+{id:'h3a',br:'H3',nm:'Weyl\'s Method / Weyl Differencing',yr:'1916',school:'Germany (Weyl)',frontier:false,
+ ds:'Bound exponential sums Σ e^{2πif(n)} where f is a polynomial of degree k. Apply Cauchy–Schwarz k-1 times ("Weyl differencing") to reduce to counting solutions of a system of equations, then apply Diophantine estimates.',
+ cue:'Is f(n) a polynomial of degree k? Apply Cauchy–Schwarz k-1 times to reduce to a mean-value problem.',
+ fs:['|Σ_{n=1}^N e^{2πiαn^k}|≤ C N^{1-1/2^{k-1}+ε} [Weyl bound]','Improved by Vinogradov to N^{1-c/k log k} for large k','Weyl differencing: |Σe^{2πif}|^{2k}≤N^{2k-2k}Σ_{h}…']},
+{id:'h3b',br:'H3',nm:'Van der Corput A/B-Process',yr:'1922',school:'Netherlands (van der Corput)',frontier:false,
+ ds:'Two complementary processes for bounding Σ e^{2πif(n)}: A-process reduces the derivative order by partial summation; B-process (Poisson summation) converts a sum with large f\' to a shorter sum. Iterate A and B to get the van der Corput exponent pairs.',
+ cue:'Does f\'(x) vary over [1,N]? Apply B if f\' is near an integer, A otherwise.',
+ fs:['A-process: Σe^{2πif(n)}=O(N^{-1/2}||f\'||^{-1/2}) for monotone f\' [partial sum]','B-process: Σe^{2πif(n)}~Σ_{r} e^{2πi(f(xᵣ)-rxᵣ+r/8)} [Poisson dual]','Combined (A,B,A…): ζ(½+it)=O(t^{1/6+ε}) [van der Corput 1922]']},
+{id:'h3c',br:'H3',nm:'Vinogradov\'s Method',yr:'1934',school:'Russia (Vinogradov)',frontier:false,
+ ds:'For exponential sums with f of large degree k, Vinogradov\'s "bilinear forms" technique exploits the structure of multiplicative characters to give bounds far stronger than Weyl\'s. The mean value theorem J_{s,k}(X) is the key intermediate quantity.',
+ cue:'Is k large relative to ln N? Vinogradov beats Weyl by a factor of O(k log k).',
+ fs:['J_{s,k}(X)=#{x∈[1,X]^{2s}: x₁^j+…+x_s^j=x_{s+1}^j+…+x_{2s}^j, j=1..k}','Vinogradov: J_{s,k}(X)≤C X^{2s-k(k+1)/2+ε} for s≥k(k+1)/2','Σe^{2πiαn^k}=O(N^{1-ck²/(ln k)^2}) [Vinogradov]']},
+{id:'h3d',br:'H3',nm:'Bourgain–Demeter–Guth Decoupling',yr:'2016',school:'France/USA (Bourgain, Demeter, Guth)',frontier:true,
+ ds:'The parabolic decoupling theorem: ||Σ_{τ} f_τ||_{Lᵖ(B_R)} ≤ C(ε,R^ε)(Σ||f_τ||_{Lᵖ}²)^{½} for p=2(n+1)/(n-1). Applied to Vinogradov\'s mean value, it gives the sharp J_{s,k}(X)≤X^{s+ε} for s≥k(k+1)/2 — proving Vinogradov\'s Main Conjecture.',
+ cue:'Is the problem reducible to a Lᵖ norm of a sum over curved caps of a hypersurface?',
+ fs:['Decoupling: ||Σe^{2πin·ξ}||_{L^{2(n+2)/n}}≤R^ε(Σ||f_τ||^2)^{½} [parabola]','Main Conjecture (proved): J_{s,k}(X)≤X^{s+ε} for s≥k(k+1)/2','Waring\'s problem: G(k)≤2k²+2k-3 for k≥3 [Wooley 2019 via decoupling]']},
+{id:'h3e',br:'H3',nm:'Hua Loo-Keng\'s Method',yr:'1938',school:'China (Hua)',frontier:false,
+ ds:'Hua\'s lemma and iterative mean-value estimates for exponential sums with polynomial f. Extends Weyl differencing using a specific geometric decomposition that is particularly effective for pure k-th powers. Foundational for Waring\'s problem in the Chinese school.',
+ cue:'Is f(n)=αnᵏ a pure k-th power? Are the resulting mean-value integrals expressible in terms of Hua integrals?',
+ fs:['∫₀¹|Σ_{n=1}^N e^{2πiαn^k}|^{2s}dα=J_{s,k}(N) [Hua\'s integral]','Hua lemma: J_{s,k}≤J_{s-1,k}^{1-1/k}·N^{s/k+ε} [iterative bound]','Waring: G(k)≤O(k log k) [combined Hua + Vinogradov, improved by Wooley]']},
+/* H4 */
+{id:'h4a',br:'H4',nm:'Hardy–Ramanujan–Littlewood Circle Method',yr:'1918/1920',school:'UK/India (Hardy, Ramanujan, Littlewood)',frontier:false,
+ ds:'For a generating function F(q)=Σa(n)qⁿ, write a(n)=∮F(q)/q^{n+1}dq. Decompose the unit circle into major arcs (near roots of unity e^{2πih/k}) and minor arcs. On major arcs F(q) is approximated by theta functions or exponential factors; minor arcs are bounded by Weyl sums.',
+ cue:'Is a(n) the coefficient of a generating function with known behaviour near roots of unity?',
+ fs:['p(n)=(1/2π)∫F(e^{-z+2πiθ})e^{nz-2πinθ}dθ, major arcs near θ=h/k','Major arc contribution: θ function evaluated at e^{-z} times exponential','Minor arcs: |F(q)|≤C N^{1/2+ε} via Weyl [Vinogradov refinement gives O(N^{ε-c})]']},
+{id:'h4b',br:'H4',nm:'Vaughan\'s Identity',yr:'1977',school:'UK (R.C. Vaughan)',frontier:false,
+ ds:'Factor the von Mangoldt function Λ(n) into "type I" sums (smooth × primes up to U) and "type II" sums (bilinear forms over primes up to V). This splits Σ_{n≤N}Λ(n)e^{2πiαn} into tractable pieces, each bounded by different techniques.',
+ cue:'Is the sum Σ Λ(n)f(n) over primes? Decompose using Vaughan\'s identity to reduce to type I/II sums.',
+ fs:['Λ(n)=Σ_{d|n}μ(d)lnd=-Σ_{d|n}μ(d)·Σ_{d\'|n/d}μ(d\')Λ(d\') [Vaughan decomposition]','Type I: Σ_{m≤U}a(m)Σ_{n≤N/m}f(mn) [smooth, bounded by large sieve]','Type II: bilinear sums, bounded by van der Corput + Cauchy-Schwarz']},
+{id:'h4c',br:'H4',nm:'Large Sieve Inequality',yr:'1941/1965',school:'Russia/Italy/USA (Linnik, Bombieri, Montgomery)',frontier:false,
+ ds:'For any sequence aₙ and any set of well-spaced points α_r, Σ_r|Σ_{n=M}^{M+N}aₙe^{2πinα_r}|²≤(N+Q²)Σ|aₙ|². This majorises the L² norm of a trigonometric polynomial over many frequencies simultaneously.',
+ cue:'Are there many characters χ or Dirichlet series evaluations to bound simultaneously?',
+ fs:['Σ_{q≤Q}Σ_{χ mod q}|Σ_{n≤N}aₙχ(n)|²≤(N+Q²)Σ|aₙ|² [Montgomery–Vaughan]','Bombieri–Vinogradov: Σ_{q≤x^{½}/log^A x}max|π(x;q,a)-li(x)/φ(q)|=O(x/log^B x)','Applied in circle method to bound major arc tails']},
+{id:'h4d',br:'H4',nm:'Waring\'s Problem (Hua–Wooley)',yr:'1938/2019',school:'China/UK (Hua, Wooley)',frontier:true,
+ ds:'Every sufficiently large integer is a sum of G(k) k-th powers. Prove G(k)≤k(log k+C) using the efficient congruencing method (Wooley 2012) combined with Bourgain–Demeter–Guth decoupling. The Main Conjecture of Vinogradov has now been proved.',
+ cue:'Is the problem about representing n as a sum of k-th powers? Use circle method + efficient congruencing.',
+ fs:['G(k)≤2k²+2k-3 [Wooley 2019, best known for k≥3]','G(2)=4 [Lagrange 1770]; G(3)=7 [Linnik 1943]','Efficient congruencing: J_{s,k}(X)≤X^{s+ε} [Wooley 2012, refined 2019]']},
+{id:'h4e',br:'H4',nm:'Kloosterman Sum Estimates',yr:'1926/1948',school:'Netherlands/France (Kloosterman, Weil)',frontier:false,
+ ds:'Kloosterman sums Kl(a,b;q)=Σ_{gcd(n,q)=1}e^{2πi(an+bn̄)/q} appear in the circle method error terms. Weil\'s estimate |Kl(a,b;q)|≤2√q (for prime q) replaces the trivial bound q. This is proved via the Riemann Hypothesis for curves over finite fields.',
+ cue:'Does the circle method produce a sum of the form Σ e^{2πi(ah+bh̄)/q}? Apply Weil\'s bound.',
+ fs:['|Kl(a,b;q)|≤2√q for prime q [Weil 1948 via RH for curves]','Error in p(n) asymptotic: O(n^{1/4}) [via Kloosterman estimates, Rademacher 1937]','Petersson trace formula: Σ a_f(n)a_f(m)/||f||² in terms of Kloosterman sums']},
+/* H5 */
+{id:'h5a',br:'H5',nm:'Brun\'s Sieve',yr:'1919',school:'Norway (V. Brun)',frontier:false,
+ ds:'An inclusion-exclusion sieve with a truncation: instead of including/excluding all divisors, truncate at a parameter z. Gives upper and lower bounds for sifted sets. Proved Brun\'s theorem: Σ_{p,p+2 both prime} 1/p < ∞ (twin prime sums converge).',
+ cue:'Need an upper bound on #{n≤x: n has no prime factor ≤z}? Truncate the Möbius sum at a fixed level.',
+ fs:['S(A,z)=Σ_{n∈A,gcd(n,P(z))=1}1 [count integers with no small prime factor]','Brun: |S(A,z)|≤(1+err)X/W(z) where W(z)=Π_{p<z}(1-1/p)','Twin primes: Σ_{p≤N,p+2 prime}1≤CX/(log X)² [Brun 1919]']},
+{id:'h5b',br:'H5',nm:'Selberg\'s Sieve',yr:'1947',school:'Norway/USA (A. Selberg)',frontier:false,
+ ds:'Optimise the sieve weights λ_d by minimising the resulting upper bound. The optimal weights satisfy a convexity condition. Selberg\'s sieve gives the sharpest upper bounds and is the basis for almost-prime results and the Goldbach problem progress.',
+ cue:'Need the sharpest possible upper bound? Minimise the quadratic form Σ (Σ_{d|n}λ_d)² over λ.',
+ fs:['S(A,z)≤X/V(z)+O(remainder) with V(z)=Σ_{d<z,sq-free}λ_d²/g(d)','Selberg: #{n≤x: n,n+2 both in A}≤C x/(log x)² [parity barrier]','Diamond–Halberstam–Richert: sharp upper bounds for primes in progressions']},
+{id:'h5c',br:'H5',nm:'Bombieri–Vinogradov / Density Theorems',yr:'1965',school:'Italy/Russia (Bombieri, Vinogradov)',frontier:false,
+ ds:'A "primes in arithmetic progressions on average" result, comparable in strength to GRH on average: Σ_{q≤x^{½}/logᴬx} max|π(x;q,a)-li(x)/φ(q)| = O(x/logᴮx). Proved via the large sieve. This is the key tool in modern analytic number theory.',
+ cue:'Need to sum error terms over many moduli q? The Bombieri–Vinogradov theorem gives GRH-level control on average.',
+ fs:['B-V: Σ_{q≤Q}max_a|π(x;q,a)-li(x)/φ(q)|≪x/(log x)^A for Q=x^{½}/(log x)^B','Used in Goldbach ternary problem (Vinogradov 1937)','Elliott–Halberstam conjecture: Q=x^{1-ε} should work (beyond 1/2)']},
+{id:'h5d',br:'H5',nm:'Parity Barrier & Combinatorial Sieve',yr:'1960s',school:'Norway/USA (Selberg) + worldwide',frontier:false,
+ ds:'The parity barrier: sieve methods cannot distinguish between numbers with an even and odd number of prime factors. This limits sieves to giving upper bounds that are 2× the truth for twin primes. Overcoming it requires additional input (e.g. level of distribution beyond ½).',
+ cue:'Are you trying to prove existence of twin primes or Goldbach exactly? The sieve alone is insufficient — need extra structure.',
+ fs:['Parity obstruction: any sieve-based proof that n,n+2∈primes fails at the 2× factor','Chen\'s theorem (1966): every large even number = prime + P₂ (semiprime) [overcomes parity]','Zhang (2013): bounded gaps between primes via additional distribution in level-of-distribution beyond ½']},
+/* H6 */
+{id:'h6a',br:'H6',nm:'Selberg Trace Formula',yr:'1956',school:'Norway/USA (A. Selberg)',frontier:false,
+ ds:'The geometric/spectral duality for hyperbolic manifolds: Σ_{λₙ}f(√(λₙ-¼))=(area)g(0)/(4π)+Σ_{conjugacy classes}(length contributions). Spectral side: eigenvalues of Laplacian. Geometric side: lengths of closed geodesics. Extends Poisson summation to non-Euclidean geometry.',
+ cue:'Is the problem about counting geodesics or eigenvalues on a hyperbolic surface?',
+ fs:['Σ_{n}h(rₙ)=(Vol/4π)∫h(r)r tanh(πr)dr+Σ_{γ primitive}Σ_{k≥1}l_γ/(2sinh(kl_γ/2))·g(kl_γ)','Applied to modular group: spectral side gives Maass forms; geometric side counts hyperbolic conjugacy classes','Primes in arithmetic progressions via explicit formula: Σ_{ρ}x^ρ/ρ (zeros = spectrum)']},
+{id:'h6b',br:'H6',nm:'Kuznetsov / Petersson Trace Formula',yr:'1980/1932',school:'Russia/Germany (Kuznetsov, Petersson)',frontier:false,
+ ds:'The Petersson formula relates sums of Fourier coefficients of cusp forms to Kloosterman sums via Bessel functions. The Kuznetsov formula does the same for Maass forms and the continuous spectrum. These are the key tools for moment computations for L-functions.',
+ cue:'Is the problem about sums of Fourier coefficients of modular/Maass forms weighted by a test function?',
+ fs:['Petersson: Σ_{f new}a_f(m)a_f(n)/||f||²=δ_{mn}+2πiΣ_c Kl(m,n;c)J_{k-1}(4π√(mn)/c)/c','Kuznetsov: extends above to Maass forms + Eisenstein series (continuous spectrum)','Applied: average L-values Σ|L(½,f)|^{2k} via diagonal and off-diagonal terms']},
+{id:'h6c',br:'H6',nm:'Phragmen–Lindelöf Principle',yr:'1908',school:'Sweden/Germany (Phragmen, Lindelöf)',frontier:false,
+ ds:'Analogue of the maximum modulus principle for strips: if |F(s)|≤eˢ on vertical lines Re(s)=0 and Re(s)=1, and F is analytic in the strip, then |F(σ+it)|≤e^{t(1-σ)} in the strip. Gives the convex bound |ζ(½+it)|=O(t^{1/4}) from the trivial bound at σ=1 and σ=0.',
+ cue:'Is the L-function bounded on two vertical lines? Use Phragmen–Lindelöf to interpolate in the strip.',
+ fs:['Convexity bound: |L(½+it,f)|≤C(t)^{(k-1)/4+ε} [from PL applied to functional equation]','Subconvexity: beat the convexity bound — key open problem, solved for GL(1) and GL(2)','Soundararajan (2010): |ζ(½+it)|≤exp(C√(log t/log log t)) [QRH-level subconvexity]']},
+{id:'h6d',br:'H6',nm:'Spectral Large Sieve for Cusp Forms',yr:'1980',school:'Poland/USA (Iwaniec)',frontier:false,
+ ds:'For any sequence aₙ and any orthonormal basis {uⱼ} of Maass forms, Σⱼ|Σₙaₙρⱼ(n)|²≤(N+T²)Σ|aₙ|². This is the geometric analogue of the large sieve, with Maass spectrum {tⱼ} playing the role of Dirichlet characters.',
+ cue:'Are there many Maass forms to sum over simultaneously? Apply the spectral large sieve.',
+ fs:['Σ_{|tⱼ|≤T}|Σ_{n≤N}aₙρⱼ(n)|²≤(N+T²)Σ|aₙ|² [Iwaniec spectral large sieve]','Gives Lindelöf-like bounds for GL(2) L-functions in the t-aspect','Combined with Petersson: proves subconvexity ζ(½+it)=O(t^{1/3+ε}) [Huxley]']},
+/* H7 */
+{id:'h7a',br:'H7',nm:'WKBJ / Liouville–Green',yr:'1837/1926',school:'UK/France/Germany (Green, Liouville, Wentzel, Kramers, Brillouin)',frontier:false,
+ ds:'For -ε²y\'\'+Q(x)y=0 with small ε, seek solutions y~A(x)exp(±(1/ε)∫√Q dx). Works where Q(x)>0 (oscillatory) or Q(x)<0 (exponential). Breaks down at turning points Q(x₀)=0 where Airy functions take over.',
+ cue:'Is the ODE of Schrödinger type with a slowly varying potential? Is ε→0 or the potential slowly varying?',
+ fs:['y~Q(x)^{-1/4}exp(±∫√Q dx/ε) [WKB leading-order solution]','Connection formulas at turning points via Airy functions: Ai and Bi','Bohr–Sommerfeld quantisation: ∮p dq=(n+½)h follows from WKB matching']},
+{id:'h7b',br:'H7',nm:'Uniform Asymptotic Expansions (Olver)',yr:'1954',school:'UK/USA (F.W.J. Olver)',frontier:false,
+ ds:'Uniform asymptotic expansions are valid in a full neighbourhood of a transition point (turning point, saddle coalescing), not just away from it. Olver\'s error bounds are explicit and rigorous. This makes special function asymptotics rigorous across all regimes.',
+ cue:'Is the standard asymptotic expansion diverging near a transition point? Use Olver\'s uniform expansion.',
+ fs:['J_ν(νz)~(4ζ/z²-1)^{1/4}/(ν^{1/3})[Ai(-ν^{2/3}ζ)Σaₙ(ζ)/ν^{2n}+Ai\'(-…)Σbₙ/ν^{2n+1}]','ζ=((2/3)∫(1-t²)^{½}dt)^{2/3} [change of variables to make uniform]','Olver\'s error bounds: explicit and rigorous for all ν≥0 and z≠0']},
+{id:'h7c',br:'H7',nm:'Deift–Zhou Steepest Descent for RHP',yr:'1993',school:'USA (Deift, Zhou)',frontier:true,
+ ds:'A nonlinear steepest descent method for Riemann–Hilbert problems, converting the asymptotic analysis of orthogonal polynomials and integrable systems into a sequence of explicit matrix transformations. Gives rigorous sharp asymptotics for quantities in random matrix theory and combinatorics.',
+ cue:'Is the problem formulated as a Riemann–Hilbert problem? Do you need sharp asymptotics with error bounds?',
+ fs:['P(z): Riemann–Hilbert problem → normalise → local model → global error','Asymptotics of orthogonal polynomials: leading coefficient, recurrence, kernel','Applied: bulk/edge universality of GUE eigenvalue distribution; Tracy–Widom law']},
+{id:'h7d',br:'H7',nm:'Hyperasymptotic Expansions',yr:'1990',school:'UK (Berry, Howls)',frontier:true,
+ ds:'Go beyond the optimal truncation of an asymptotic series by resuming the divergent tail using the Stokes phenomenon. Each level of hyperasymptotics reduces the error by a factor of ~exp(-c/ε), giving "beyond all orders" accuracy. The key tool is the resurgent structure of the remainder.',
+ cue:'Have you truncated the asymptotic series optimally and need more accuracy? Apply hyperasymptotic resummation.',
+ fs:['Level-0: Σₙ aₙ εⁿ, truncated at n_opt~1/|ε|','Level-1: remainder=e^{-1/ε}·(series in ε), resummed via Borel transform','Berry–Howls: |remainder at level k|~(k!)^{c}·exp(-k/ε) [superexponential accuracy]']},
+/* H8 */
+{id:'h8a',br:'H8',nm:'GUE/GOE Statistical Framework',yr:'1951',school:'Hungary/USA (E.P. Wigner)',frontier:false,
+ ds:'The Wigner ensemble: N×N random Hermitian matrices with iid entries (GUE) or real symmetric (GOE). As N→∞, eigenvalue density → semicircle law; local statistics → Wigner surmise. The hypothesis that Riemann zeros follow GUE statistics (Montgomery 1973) is central to modern number theory.',
+ cue:'Is the object a set of "random-looking" eigenvalues or zeros with known 2-point correlation?',
+ fs:['GUE: E[|det(λI-M)|^{2k}]=(N+k)!/(N!)·∏k[j!(j+k)!] [moment formula]','Semicircle: ρ(λ)=√(4-λ²)/(2π) for GUE eigenvalue density in bulk','GUE pair correlation: p₂(s)=1-(sin(πs)/πs)² [Montgomery; matches Riemann zeros]']},
+{id:'h8b',br:'H8',nm:'Montgomery–Dyson Pair Correlation',yr:'1973',school:'UK/USA (H.L. Montgomery, F.J. Dyson)',frontier:false,
+ ds:'Montgomery computed the pair correlation function R₂(α) of Riemann zeros: R₂(α)=∫|F(x)|²dx where F is a test function. At a tea at Princeton, Dyson recognised R₂ as the pair correlation of GUE eigenvalues — the first evidence for RMT universality in number theory.',
+ cue:'Is the problem about the 2-point statistics of zeros of an L-function?',
+ fs:['R₂(α)=Σ_{γ≠γ\'}f(α(γ-γ\')/2π)~∫f(x)[1-(sin(πx)/πx)²]dx [Montgomery conjecture]','Odlyzko numerical verification: first 70 million zeros match GUE to 6 decimal places','Rudnick–Sarnak: n-point correlations of GL(m) L-function zeros match GUE for all n']},
+{id:'h8c',br:'H8',nm:'Keating–Snaith L-function Moments',yr:'2000',school:'UK (J.P. Keating, N.C. Snaith)',frontier:true,
+ ds:'The 2k-th moment of |ζ(½+it)| over t∈[0,T] equals the 2k-th moment of the characteristic polynomial of a random CUE(N) matrix (N~log(T)), times an arithmetic factor Π_p(1-1/p)^{k²}×(correction). This gives precise conjectural values for all moments, verified numerically.',
+ cue:'Is the problem about the 2k-th moment of an L-function on the critical line?',
+ fs:['∫₀^T|ζ(½+it)|^{2k}dt~c_k T(log T)^{k²} [K-S conjecture]','c_k=g(k)·a(k) where g(k) is CUE moment and a(k) is arithmetic Euler product factor','Proven for k=1 (Hardy 1921), k=2 (Ingham 1926); k>2 open; K-S gives all k']},
+/* H9 */
+{id:'h9a',br:'H9',nm:'Écalle\'s Resurgence Theory',yr:'1981',school:'France (J. Écalle)',frontier:true,
+ ds:'Resurgence: the Borel transform of a divergent asymptotic series is analytic except for singularities at other saddle-point contributions ("resurgent monomials"). The Stokes automorphism encodes the non-perturbative data in the perturbative expansion. Alien derivatives compute the "jump" across Stokes lines.',
+ cue:'Is the perturbative expansion divergent but Borel-summable? Are there non-perturbative corrections e^{-c/g}?',
+ fs:['Borel transform: B[Σaₙgⁿ](ξ)=Σaₙξⁿ/n! [removes factorial divergence]','Alien derivative Δ_ω: computes the coefficient of e^{-ω/g} in the Stokes jump','Resurgence relation: Δ_ω f = connection coefficient × f (other saddle)']},
+{id:'h9b',br:'H9',nm:'Borel–Padé Summation',yr:'1899/modern',school:'France/Worldwide (Borel)',frontier:false,
+ ds:'Given a divergent series Σaₙgⁿ, compute its Borel sum: S=∫₀^∞e^{-t}B[f](gt)dt where B[f](ξ)=Σaₙξⁿ/n!. The Padé approximant to B[f] provides a practical numerical method. Works when the Borel transform has no singularity on the positive real axis.',
+ cue:'Is the series divergent but alternating or Gevrey-type? Compute the Borel transform, Padé-approximate it, integrate.',
+ fs:['Borel sum: B[Σaₙgⁿ]=∫₀^∞e^{-t}Σaₙ(gt)ⁿ/n! dt [if convergent]','[N/N] Padé of B[f]: rational approximant giving analytic continuation past singularities','QCD coupling: αₛ series is Borel-summable subject to infrared renormalon ambiguity']},
+{id:'h9c',br:'H9',nm:'Trans-Series & Parametric Resurgence',yr:'1990s–2010s',school:'France/Worldwide',frontier:true,
+ ds:'A trans-series is a formal expression Σ_{n,k}c_{n,k}gⁿe^{-nA/g}(log g)^k, combining perturbative (gⁿ) and non-perturbative (e^{-nA/g}) terms. Resurgence shows these are self-consistent: the perturbative divergence encodes all non-perturbative sectors. Applied in quantum mechanics, string theory, and fluid dynamics.',
+ cue:'Is the problem non-perturbative in nature? Are instantons or tunnelling amplitudes relevant?',
+ fs:['Trans-series: Σ_{n≥0}σⁿe^{-nA/g}Σ_{k≥0}c_{n,k}gᵏ','Partition function of quantum mechanics: Borel resummation = full non-perturbative answer','Ecalle–Sauzin: all analytic ODEs have resurgent formal solutions']},
+{id:'h9d',br:'H9',nm:'Écalle–Voros Exact WKB',yr:'1983/2000s',school:'France (Écalle, Voros)',frontier:true,
+ ds:'Exact WKB (or "resurgent WKB") lifts the WKB approximation to a non-perturbative statement: the exact quantum periods are the Borel sums of the formal WKB periods. The Stokes phenomena encode wall-crossing and Dewall-Bagger–Witten dualities in physics.',
+ cue:'Is the WKB approximation breaking down near a turning point or due to tunnelling?',
+ fs:['Exact connection formula: Ψ₊=Ψ₋+i Ψ₋ (exact, replacing approximate Airy matching)','Bohr–Sommerfeld exact: quantum condition is ImΣresidues=nπ where sum is exact']},
+/* H10 */
+{id:'h10a',br:'H10',nm:'Gowers Uniformity Norms',yr:'1998',school:'UK (W.T. Gowers)',frontier:true,
+ ds:'The U^k norm measures k-th order polynomial bias in a function f:[N]→ℂ: ||f||_{U^k}^{2^k}=E_{x,h₁,…,hₖ}Π_{S⊆[k]}f(x+Σ_{i∈S}hᵢ). If ||f-1||_{U^k} is small, f has the k-point counting statistics of random, implying polynomial progressions.',
+ cue:'Do you need to count k-term arithmetic progressions (or polynomial patterns) in a dense set?',
+ fs:['||f||_{U²}^4=Σ_{n,d}f(n)f(n+d)f(n+2d)… [3-AP counting via U^2]','||f||_{U^k}≤||f||_{U^{k+1}} [Gowers norm hierarchy]','Gowers inverse theorem: ||f||_{U^k}>δ implies f correlates with a degree-(k-1) nilsequence']},
+{id:'h10b',br:'H10',nm:'Green–Tao Theorem Method',yr:'2004',school:'UK/USA/Australia (B. Green, T. Tao)',frontier:true,
+ ds:'Primes contain arbitrarily long arithmetic progressions. Proof: (1) The primes are "pseudorandom" relative to a suitable measure (the W-trick + sieve). (2) Use Gowers norms to show any pseudorandom set contains APs (Szemerédi + relative Szemerédi). The generalisation is the polynomial Hales–Jewett theorem.',
+ cue:'Are you seeking arithmetic progressions in a sparse set (like primes)?',
+ fs:['W-trick: sieve weight ν_W such that primes look random in ν_W measure','Relative Szemerédi: any ν-pseudorandom set with positive upper density contains k-term AP','Extension: Tao–Ziegler polynomial progressions in primes [2008]']},
+{id:'h10c',br:'H10',nm:'Kelley–Meka Roth Bounds',yr:'2023',school:'USA (Z. Kelley, R. Meka)',frontier:true,
+ ds:'Optimal bounds for Roth\'s theorem: any subset A⊆{1,…,N} with |A|≥N/exp(c(log N)^{1/2}) contains a 3-term arithmetic progression. This is nearly optimal (correct exponent 1/2 in the exponential) and uses a new "regularity-boosting" scheme combining Fourier analysis and density-increment arguments.',
+ cue:'Are you trying to prove a set of density > exp(-c√log N) contains a 3-AP?',
+ fs:['Roth 1953: |A|>N/log log N implies 3-AP','Bourgain 2008: |A|>N/(log N)^{2/3} implies 3-AP','Kelley–Meka 2023: |A|>N·exp(-C(log N)^{1/2}) implies 3-AP [near-optimal]']},
+{id:'h10d',br:'H10',nm:'Furstenberg Ergodic Theory',yr:'1977',school:'Israel/USA (H. Furstenberg)',frontier:false,
+ ds:'Furstenberg\'s ergodic proof of Szemerédi\'s theorem: translate AP-counting into a multiple recurrence problem for measure-preserving systems, then use ergodic theory (compact extension + weak mixing) to prove the recurrence. The framework generalises to polynomial progressions via Host–Kra theory.',
+ cue:'Does the combinatorial problem have a "structure vs randomness" dichotomy? Is there an ergodic reformulation?',
+ fs:['Furstenberg correspondence: any A⊆ℤ with upper density ≥δ gives (X,T,μ) with μ(A∩T^{-n}A∩…)≥δ^k','Multiple recurrence: limₙ₁/N Σμ(A∩T^n A∩T^{2n}A)≥δ^3 for any δ>0','Host–Kra: structure of characteristic factors for polynomial ergodic averages [2005]']},
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   RENDERING LOGIC
+══════════════════════════════════════════════════════════════════ */
+let rCat=null, rStrat=null;
+let hBranch=null, hMethod=null;
+let fFilter='all';
+
+/* ── Ramanujan tree ── */
+function initRTabs(){
+  const el=document.getElementById('r-tabs');
+  Object.entries(CATS_R).forEach(([k,v])=>{
+    const b=document.createElement('button');
+    b.className='cat-tab';
+    b.id='rtab-'+k;
+    b.style.cssText='color:'+CTXT[k]+';border-color:'+CBRD[k]+';';
+    b.textContent=v.nm;
+    b.onclick=()=>selRCat(k);
+    el.appendChild(b);
+  });
+}
+
+function selRCat(k){
+  rCat=rCat===k?null:k;
+  rStrat=null;
+  document.querySelectorAll('.cat-tab').forEach(b=>{b.classList.remove('act');b.style.background='transparent';});
+  const cue=document.getElementById('r-cue');
+  if(rCat){
+    const t=document.getElementById('rtab-'+rCat);
+    t.classList.add('act');
+    t.style.background=CFIL[rCat];
+    cue.textContent=CATS_R[rCat].cue;
+    cue.style.display='block';
+  } else { cue.style.display='none'; }
+  renderRStrats();
+  renderRDetail();
+  renderRChart();
+}
+
+function renderRStrats(){
+  const g=document.getElementById('r-strats');
+  if(!rCat){g.innerHTML='';return;}
+  const strats=SR.filter(s=>s.cat===rCat);
+  g.innerHTML='';
+  strats.forEach(s=>{
+    const d=document.createElement('div');
+    d.className='strat-card'+(rStrat===s.id?' sel':'');
+    d.style.cssText='background:'+CFIL[s.cat]+';border-color:'+CBRD[s.cat]+';color:'+CTXT[s.cat]+';';
+    d.innerHTML='<div style="display:flex;justify-content:space-between;align-items:start;gap:8px;margin-bottom:6px;">'
+      +'<span class="strat-card-name" style="color:'+CTXT[s.cat]+';">'+s.nm+'</span>'
+      +'<span class="prob-badge" style="background:'+CBRD[s.cat]+';color:'+CFIL[s.cat]+';">'+Math.round(s.p*100)+'%</span>'
+      +'</div>'
+      +'<div class="strat-card-formula">'+s.fs[0]+'</div>'
+      +'<div style="font-size:.58rem;font-family:\'DM Mono\',monospace;margin-top:4px;opacity:.6;letter-spacing:.06em;">pass '+(s.pass===1?'1 · original':'2 · updated')+'</div>';
+    d.onclick=()=>selRStrat(s.id);
+    g.appendChild(d);
+  });
+}
+
+function selRStrat(id){
+  rStrat=rStrat===id?null:id;
+  if(rStrat){
+    const s=SR.find(x=>x.id===id);
+    if(s.cat!==rCat){
+      rCat=s.cat;
+      document.querySelectorAll('.cat-tab').forEach(b=>{b.classList.remove('act');b.style.background='transparent';});
+      const t=document.getElementById('rtab-'+rCat);
+      t.classList.add('act');
+      t.style.background=CFIL[rCat];
+      const cue=document.getElementById('r-cue');
+      cue.textContent=CATS_R[rCat].cue;
+      cue.style.display='block';
+    }
+  }
+  renderRStrats();
+  renderRDetail();
+  renderRChart();
+}
+
+function renderRDetail(){
+  const dp=document.getElementById('r-detail');
+  if(!rStrat){dp.style.display='none';return;}
+  const s=SR.find(x=>x.id===rStrat);
+  const idx=SR.findIndex(x=>x.id===rStrat)+1;
+  const bc=CBAR[s.cat];
+  dp.innerHTML='<div style="display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:.7rem;">'
+    +'<div><span style="font-family:\'DM Mono\',monospace;font-size:.6rem;letter-spacing:.08em;background:'+CFIL[s.cat]+';color:'+CTXT[s.cat]+';border:1px solid '+CBRD[s.cat]+';padding:2px 8px;border-radius:20px;text-transform:uppercase;">'+CATS_R[s.cat].nm+'</span>'
+    +'<div style="font-size:1.1rem;font-family:\'Cormorant Garamond\',serif;font-weight:500;color:var(--cream);margin-top:6px;">Rank #'+idx+' — '+s.nm+'</div>'
+    +'<div style="font-family:\'DM Mono\',monospace;font-size:.6rem;color:var(--faint);margin-top:2px;letter-spacing:.06em;">strategy '+(s.pass===1?'from first pass':'added in second pass')+'</div></div>'
+    +'<div style="text-align:right;flex-shrink:0;"><div style="font-size:1.5rem;font-family:\'Cormorant Garamond\',serif;color:'+bc+';">'+Math.round(s.p*100)+'%</div>'
+    +'<div style="font-family:\'DM Mono\',monospace;font-size:.6rem;color:var(--faint);">probability weight</div></div></div>'
+    +'<p style="font-size:.88rem;color:var(--body);line-height:1.7;margin-bottom:.7rem;">'+s.ds+'</p>'
+    +'<div class="detail-cue">Decision cue: '+s.cue+'</div>'
+    +'<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.4rem;">Key formulae</div>'
+    +s.fs.map(f=>'<div class="formula-block">'+f+'</div>').join('');
+  dp.style.display='block';
+}
+
+function renderRChart(){
+  const svg=document.getElementById('r-chart');
+  const sorted=[...SR].sort((a,b)=>b.p-a.p);
+  const lM=195,W=680,bW=W-lM-65;
+  const iH=16,tM=24,H=tM+sorted.length*iH+14;
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  let out='<text x="'+lM+'" y="16" font-size="9" fill="#8a8070" font-family="\'DM Mono\',monospace">0%</text>';
+  out+='<text x="'+(lM+bW*.5)+'" y="16" text-anchor="middle" font-size="9" fill="#8a8070" font-family="\'DM Mono\',monospace">50%</text>';
+  out+='<text x="'+(lM+bW)+'" y="16" text-anchor="end" font-size="9" fill="#8a8070" font-family="\'DM Mono\',monospace">100%</text>';
+  [.25,.5,.75,1].forEach(p=>{
+    const x=lM+p*bW;
+    out+='<line x1="'+x+'" y1="'+(tM-2)+'" x2="'+x+'" y2="'+(H-4)+'" stroke="rgba(201,168,76,0.11)" stroke-width="0.5"/>';
+  });
+  sorted.forEach((s,i)=>{
+    const y=tM+i*iH, bw=s.p*bW, col=CBAR[s.cat];
+    const isSel=rStrat===s.id, isCat=!!(rCat&&s.cat===rCat);
+    const dim=!!(rStrat||rCat)&&!isSel&&!isCat;
+    const op=dim?.22:1;
+    out+='<rect x="0" y="'+y+'" width="'+W+'" height="'+iH+'" fill="transparent" data-sid="'+s.id+'" style="cursor:pointer;"/>';
+    if(isSel)out+='<rect x="0" y="'+y+'" width="'+W+'" height="'+iH+'" fill="'+col+'" opacity="0.08"/>';
+    out+='<text x="22" y="'+(y+10)+'" text-anchor="end" font-size="9" fill="'+col+'" font-family="\'DM Mono\',monospace" opacity="'+op+'">'+(i+1)+'</text>';
+    out+='<text x="30" y="'+(y+10)+'" font-size="9" fill="'+col+'" font-family="\'DM Mono\',monospace" opacity="'+op+'">'+s.cat.toUpperCase()+'</text>';
+    out+='<text x="'+(lM-5)+'" y="'+(y+10)+'" text-anchor="end" font-size="9" fill="#c8c0b0" font-family="\'DM Mono\',monospace" opacity="'+op+'">'+s.sh+'</text>';
+    if(bw>0)out+='<rect x="'+lM+'" y="'+(y+4)+'" width="'+bw+'" height="'+(iH-8)+'" rx="2" fill="'+col+'" opacity="'+(op*.75)+'"/>';
+    if(isSel&&bw>0)out+='<rect x="'+lM+'" y="'+(y+4)+'" width="'+bw+'" height="'+(iH-8)+'" rx="2" fill="none" stroke="'+col+'" stroke-width="1.2"/>';
+    out+='<text x="'+(lM+bw+5)+'" y="'+(y+10)+'" font-size="9" fill="'+col+'" font-family="\'DM Mono\',monospace" font-weight="500" opacity="'+op+'">'+Math.round(s.p*100)+'%</text>';
+    if(s.pass===2&&!dim)out+='<text x="'+(lM+bw+34)+'" y="'+(y+10)+'" font-size="8" fill="'+col+'" font-family="\'DM Mono\',monospace" opacity="'+(op*.7)+'">+</text>';
+  });
+  svg.innerHTML=out;
+  svg.onclick=e=>{const r=e.target.closest('[data-sid]');if(r)selRStrat(r.getAttribute('data-sid'));};
+}
+
+/* ── Formula table ── */
+function renderFTable(){
+  const cats=['all','a','b','c','d','e'];
+  const fl=document.getElementById('f-filters');
+  fl.innerHTML='';
+  cats.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='btn'+(fFilter===c?' active':'');
+    b.textContent=c==='all'?'All':FCAT_LABELS[c];
+    b.onclick=()=>{fFilter=c;renderFTable();};
+    fl.appendChild(b);
+  });
+  const tb=document.getElementById('f-body');
+  const rows=fFilter==='all'?FORMULAE:FORMULAE.filter(f=>f.cat===fFilter);
+  tb.innerHTML=rows.map(f=>{
+    const stags=f.strat.split(',').map(s=>'<span style="font-family:\'DM Mono\',monospace;font-size:.6rem;background:rgba(201,168,76,.1);color:var(--gold-dim);border:1px solid rgba(201,168,76,.2);padding:1px 4px;border-radius:2px;margin-right:2px;">'+s+'</span>').join('');
+    const sc=f.status==='verified'?'vtag-yes':f.status==='updated'?'vtag-upd':'vtag-ext';
+    return '<tr><td class="num">'+f.n+'</td>'
+      +'<td style="font-family:\'DM Mono\',monospace;font-size:.67rem;max-width:240px;word-break:break-all;">'+f.f+'</td>'
+      +'<td style="font-size:.67rem;">'+FCAT_LABELS[f.cat]+'</td>'
+      +'<td>'+stags+'</td>'
+      +'<td style="font-size:.67rem;max-width:180px;color:var(--muted);">'+f.sp+'</td>'
+      +'<td><span class="vtag '+sc+'">'+f.status+'</span></td></tr>';
+  }).join('');
+}
+
+/* ── Starting points ── */
+function renderSP(){
+  function grid(data,id){
+    const g=document.getElementById(id);
+    g.innerHTML=data.map(d=>'<div class="card"><h3>'+d.nm+'</h3><p>'+d.desc+'</p></div>').join('');
+  }
+  grid(HIST,'hist-grid');
+  grid(MOD,'mod-grid');
+}
+
+/* ── Examples ── */
+function renderExamples(){
+  const el=document.getElementById('ex-cards');
+  el.innerHTML=EXAMPLES.map((ex,i)=>'<div class="card" style="margin-bottom:1.4rem;">'
+    +'<div class="card-meta"><span>Demo '+(i+1)+'</span></div>'
+    +'<h3>'+ex.nm+'</h3>'
+    +'<p style="margin:.5rem 0;"><strong style="color:var(--gold-dim);font-family:\'DM Mono\',monospace;font-size:.7rem;">Starting point</strong><br>'+ex.src+'</p>'
+    +'<p style="margin:.5rem 0;"><strong style="color:var(--gold-dim);font-family:\'DM Mono\',monospace;font-size:.7rem;">Result</strong><br>'+ex.result+'</p>'
+    +'<div style="margin-top:.8rem;">'
+    +ex.steps.map(st=>'<div class="step">'
+      +'<div class="step-num">→</div>'
+      +'<div class="step-body"><strong style="color:var(--gold);">'+st.s+'</strong> — '+st.d+'</div>'
+      +'</div>').join('')
+    +'</div></div>'
+  ).join('');
+}
+
+/* ── Approximation tree ── */
+function initHTabs(){
+  const el=document.getElementById('h-tabs');
+  Object.entries(HBRANCHES).forEach(([k,v])=>{
+    const b=document.createElement('button');
+    b.className='approx-branch-tab';
+    b.id='htab-'+k;
+    b.textContent=v.nm;
+    b.onclick=()=>selHBranch(k);
+    el.appendChild(b);
+  });
+}
+
+function selHBranch(k){
+  hBranch=hBranch===k?null:k;
+  hMethod=null;
+  document.querySelectorAll('.approx-branch-tab').forEach(b=>b.classList.remove('act'));
+  const cue=document.getElementById('h-cue');
+  if(hBranch){
+    document.getElementById('htab-'+hBranch).classList.add('act');
+    cue.textContent=HBRANCHES[hBranch].cue;
+    cue.style.display='block';
+  } else { cue.style.display='none'; }
+  renderHMethods();
+  renderHDetail();
+}
+
+function renderHMethods(){
+  const el=document.getElementById('h-methods');
+  if(!hBranch){el.innerHTML='';return;}
+  const methods=HS.filter(m=>m.br===hBranch);
+  el.innerHTML=methods.map(m=>'<div class="approx-method-card" style="cursor:pointer;"'
+    +' onclick="selHMethod(\''+m.id+'\')">'
+    +'<div class="approx-method-name">'+(hMethod===m.id?'▶ ':'')+m.nm+(m.frontier?' <span style="font-family:\'DM Mono\',monospace;font-size:.58rem;color:#4cc9b0;border:1px solid rgba(76,201,176,.3);padding:1px 4px;border-radius:2px;">frontier</span>':'')+'</div>'
+    +'<div class="approx-method-meta">'+m.yr+' · '+m.school+'</div>'
+    +'<div class="approx-method-cue">'+m.cue+'</div>'
+    +'<div class="approx-method-formula">'+m.fs[0]+'</div>'
+    +'</div>'
+  ).join('');
+}
+
+function selHMethod(id){
+  hMethod=hMethod===id?null:id;
+  renderHMethods();
+  renderHDetail();
+}
+
+function renderHDetail(){
+  const dp=document.getElementById('h-detail');
+  if(!hMethod){dp.style.display='none';return;}
+  const m=HS.find(x=>x.id===hMethod);
+  dp.innerHTML='<div style="margin-bottom:.6rem;">'
+    +'<span style="font-family:\'DM Mono\',monospace;font-size:.6rem;letter-spacing:.08em;background:rgba(201,168,76,.1);color:var(--gold);border:1px solid var(--border);padding:2px 8px;border-radius:2px;">'+m.br+'</span>'
+    +(m.frontier?' <span style="font-family:\'DM Mono\',monospace;font-size:.6rem;color:#4cc9b0;border:1px solid rgba(76,201,176,.3);padding:2px 6px;border-radius:2px;">worldwide frontier</span>':'')
+    +'<div style="font-size:1.1rem;font-family:\'Cormorant Garamond\',serif;font-weight:500;color:var(--cream);margin-top:5px;">'+m.nm+'</div>'
+    +'<div style="font-family:\'DM Mono\',monospace;font-size:.63rem;color:var(--gold-dim);margin-top:2px;">'+m.yr+' · '+m.school+'</div>'
+    +'</div>'
+    +'<p style="font-size:.88rem;color:var(--body);line-height:1.7;margin-bottom:.6rem;">'+m.ds+'</p>'
+    +'<div class="approx-method-cue">Decision cue: '+m.cue+'</div>'
+    +'<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin:.5rem 0 .3rem;">Key formulae / results</div>'
+    +m.fs.map(f=>'<div class="approx-method-formula">'+f+'</div>').join('');
+  dp.style.display='block';
+}
+
+/* ── Init ── */
+window.addEventListener('DOMContentLoaded',()=>{
+  initRTabs();
+  renderRChart();
+  renderFTable();
+  renderSP();
+  renderExamples();
+  initHTabs();
+});
+</script>
+</body>
+</html>
