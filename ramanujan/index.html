@@ -142,6 +142,11 @@ mjx-container{color:var(--cream) !important;}
 .approx-method-desc{font-size:.88rem;color:var(--body);line-height:1.65;}
 .approx-method-formula{font-family:"DM Mono",monospace;font-size:.64rem;background:rgba(10,22,40,.75);border:1px solid var(--border-dim);border-radius:3px;padding:.4rem .65rem;margin:.4rem 0;color:var(--amber);word-break:break-all;}
 .approx-method-cue{font-size:.84rem;font-style:italic;color:var(--green);margin:.35rem 0;}
+
+.formula-label{margin-bottom:.18rem;}
+.formula-note{font-style:italic;}
+.strat-card-formula .formula-math mjx-container{font-size:95% !important;}
+.strat-card-formula .formula-math{overflow-x:auto;}
 /* footer */
 footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"DM Mono",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--faint);text-align:center;}
 </style>
@@ -325,22 +330,43 @@ function renderMathAll(){
 /* Convert approximation-tree formula strings into MathJax display blocks.
    H1-H20 entries contain compact mathematical notation; this normalizes
    key formula/result strings so they render as displayed LaTeX. */
+function escapeHtml(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+function escapeLatexText(s){
+  return String(s == null ? '' : s)
+    .replace(/\\/g,'\\textbackslash{}')
+    .replace(/([{}_%&#$])/g,'\\$1')
+    .replace(/\^/g,'\\textasciicircum{}')
+    .replace(/~/g,'\\textasciitilde{}');
+}
+function normalizeSqrt(s){
+  return String(s)
+    .replace(/√\(([^)]*)\)/g,'\\sqrt{$1}')
+    .replace(/√([A-Za-z0-9πλμνξρστφχψωαβγδεζκΩΔΛ]+(?:_[A-Za-z0-9]+)?)/g,'\\sqrt{$1}')
+    .replace(/√/g,'\\sqrt{}');
+}
 function approxLatexNormalize(s){
   if(!s) return '';
+  let out = normalizeSqrt(String(s).trim());
   const repl = [
-    [/&/g,'\\&'],[/#/g,'\\#'],[/%/g,'\\%'],[/≤/g,'\\le '],[/≥/g,'\\ge '],[/≪/g,'\\ll '],[/≠/g,'\\ne '],[/≈/g,'\\approx '],[/∼/g,'\\sim '],[/~(?!=)/g,'\\sim '],
-    [/→/g,'\\to '],[/↔/g,'\\leftrightarrow '],[/⇒/g,'\\Rightarrow '],[/⇔/g,'\\Longleftrightarrow '],[/∈/g,'\\in '],[/⊂/g,'\\subset '],[/⊆/g,'\\subseteq '],[/∩/g,'\\cap '],[/∪/g,'\\cup '],[/∑/g,'\\sum '],[/Σ/g,'\\sum '],[/∫/g,'\\int '],[/∮/g,'\\oint '],[/∏/g,'\\prod '],[/Π/g,'\\prod '],[/√/g,'\\sqrt'],[/∞/g,'\\infty '],[/·/g,'\\cdot '],[/×/g,'\\times '],[/…/g,'\\cdots '],[/∂/g,'\\partial '],[/∇/g,'\\nabla '],[/∆/g,'\\Delta '],[/∅/g,'\\varnothing '],
+    [/&/g,'\\&'],[/#/g,'\\#'],[/%/g,'\\%'],[/≤/g,'\\le '],[/≥/g,'\\ge '],[/≪/g,'\\ll '],[/≠/g,'\\ne '],[/≈/g,'\\approx '],[/∼/g,'\\sim '],[/~(?!=)/g,'\\sim '],[/±/g,'\\pm '],[/∓/g,'\\mp '],
+    [/→/g,'\\to '],[/↔/g,'\\leftrightarrow '],[/⇒/g,'\\Rightarrow '],[/⇔/g,'\\Longleftrightarrow '],[/∈/g,'\\in '],[/⊂/g,'\\subset '],[/⊆/g,'\\subseteq '],[/∩/g,'\\cap '],[/∪/g,'\\cup '],[/∑/g,'\\sum '],[/Σ/g,'\\sum '],[/∫/g,'\\int '],[/∮/g,'\\oint '],[/∏/g,'\\prod '],[/Π/g,'\\prod '],[/∞/g,'\\infty '],[/·/g,'\\cdot '],[/×/g,'\\times '],[/…/g,'\\cdots '],[/∂/g,'\\partial '],[/∇/g,'\\nabla '],[/∆/g,'\\Delta '],[/∅/g,'\\varnothing '],
     [/ℂ/g,'\\mathbb{C}'],[/ℤ/g,'\\mathbb{Z}'],[/ℚ/g,'\\mathbb{Q}'],[/ℝ/g,'\\mathbb{R}'],[/ℕ/g,'\\mathbb{N}'],
     [/π/g,'\\pi '],[/α/g,'\\alpha '],[/β/g,'\\beta '],[/γ/g,'\\gamma '],[/δ/g,'\\delta '],[/ε/g,'\\varepsilon '],[/ζ/g,'\\zeta '],[/η/g,'\\eta '],[/θ/g,'\\theta '],[/λ/g,'\\lambda '],[/μ/g,'\\mu '],[/ν/g,'\\nu '],[/ξ/g,'\\xi '],[/ρ/g,'\\rho '],[/σ/g,'\\sigma '],[/τ/g,'\\tau '],[/φ/g,'\\varphi '],[/χ/g,'\\chi '],[/ψ/g,'\\psi '],[/ω/g,'\\omega '],[/κ/g,'\\kappa '],[/Λ/g,'\\Lambda '],[/Δ/g,'\\Delta '],[/Ψ/g,'\\Psi '],[/Ω/g,'\\Omega '],
     [/₀/g,'_0'],[/₁/g,'_1'],[/₂/g,'_2'],[/₃/g,'_3'],[/₄/g,'_4'],[/₅/g,'_5'],[/₆/g,'_6'],[/₇/g,'_7'],[/₈/g,'_8'],[/₉/g,'_9'],[/ₙ/g,'_n'],[/ⱼ/g,'_j'],[/ₖ/g,'_k'],[/ₗ/g,'_l'],[/ₘ/g,'_m'],[/ₚ/g,'_p'],[/ₛ/g,'_s'],
     [/⁰/g,'^{0}'],[/¹/g,'^{1}'],[/²/g,'^{2}'],[/³/g,'^{3}'],[/⁴/g,'^{4}'],[/⁵/g,'^{5}'],[/⁶/g,'^{6}'],[/⁷/g,'^{7}'],[/⁸/g,'^{8}'],[/⁹/g,'^{9}'],[/ⁿ/g,'^{n}'],[/ⁱ/g,'^{i}'],[/ᵏ/g,'^{k}'],[/ᴸ/g,'^{L}'],[/ᵖ/g,'^{p}'],[/⁺/g,'^{+}'],[/⁻/g,'^{-}'],[/½/g,'\\tfrac{1}{2}'],[/¼/g,'\\tfrac{1}{4}'],[/¾/g,'\\tfrac{3}{4}'],
-    [/log/g,'\\log '],[/ln/g,'\\ln '],[/det/g,'\\det '],[/exp/g,'\\exp '],[/sin/g,'\\sin '],[/cos/g,'\\cos '],[/tan/g,'\\tan '],[/tanh/g,'\\tanh '],[/sinh/g,'\\sinh '],[/arg/g,'\\arg '],[/lim/g,'\\lim '],[/sup/g,'\\sup '],[/inf/g,'\\inf '],[/max/g,'\\max '],[/min/g,'\\min '],[/Prob/g,'\\operatorname{Prob}'],[/Vol/g,'\\operatorname{Vol}'],[/Li/g,'\\operatorname{Li}'],[/Ai/g,'\\operatorname{Ai}'],[/Bi/g,'\\operatorname{Bi}'],[/Rep/g,'\\operatorname{Rep}'],[/Var/g,'\\operatorname{Var}'],[/Cov/g,'\\operatorname{Cov}'],[/Tr/g,'\\operatorname{Tr}'],[/div/g,'\\operatorname{div}']
+    [/\blog\b/g,'\\log '],[/\bln\b/g,'\\ln '],[/\bdet\b/g,'\\det '],[/\bexp\b/g,'\\exp '],[/\bsin\b/g,'\\sin '],[/\bcos\b/g,'\\cos '],[/\btan\b/g,'\\tan '],[/\btanh\b/g,'\\tanh '],[/\bsinh\b/g,'\\sinh '],[/\barg\b/g,'\\arg '],[/\blim\b/g,'\\lim '],[/\bsup\b/g,'\\sup '],[/\binf\b/g,'\\inf '],[/\bmax\b/g,'\\max '],[/\bmin\b/g,'\\min '],[/\bProb\b/g,'\\operatorname{Prob}'],[/\bVol\b/g,'\\operatorname{Vol}'],[/\bLi\b/g,'\\operatorname{Li}'],[/\bAi\b/g,'\\operatorname{Ai}'],[/\bBi\b/g,'\\operatorname{Bi}'],[/\bRep\b/g,'\\operatorname{Rep}'],[/\bVar\b/g,'\\operatorname{Var}'],[/\bCov\b/g,'\\operatorname{Cov}'],[/\bTr\b/g,'\\operatorname{Tr}'],[/\bdiv\b/g,'\\operatorname{div}']
   ];
-  let out = String(s).trim();
   repl.forEach(function(pair){ out = out.replace(pair[0], pair[1]); });
   return out;
 }
-function approxFormulaMath(s){
+function approxFormulaMathRaw(s){
   if(!s) return '';
   s = String(s).trim();
   if(/^\\\[[\s\S]*\\\]$/.test(s) || /^\$\$[\s\S]*\$\$$/.test(s)) return s;
@@ -348,7 +374,18 @@ function approxFormulaMath(s){
   if(s.indexOf('$') !== -1){
     return s.replace(/\$([^$]+)\$/g,function(_,m){ return '\\[' + m + '\\]'; });
   }
-  return '\\[\\displaystyle ' + approxLatexNormalize(s) + '\\]';
+  let note = '';
+  const noteMatch = s.match(/^(.*)\s+\[([^\]]+)\]\s*$/);
+  if(noteMatch){ s = noteMatch[1]; note = noteMatch[2]; }
+  let body = approxLatexNormalize(s);
+  if(note){ body += '\\quad \\text{(' + escapeLatexText(note) + ')}'; }
+  return '\\[\\displaystyle ' + body + '\\]';
+}
+function approxFormulaMath(s){
+  return escapeHtml(approxFormulaMathRaw(s));
+}
+function inlineMathSafe(s){
+  return escapeHtml(s);
 }
 function methodDemoSteps(m){
   if(m.demo && m.demo.length) return m.demo;
@@ -365,7 +402,118 @@ function renderMethodDemo(m){
     +'<div class="example-steps">'
     +steps.map(function(st){return '<div class="step">'
       +'<div class="step-num">?</div>'
-      +'<div class="step-body"><strong style="color:var(--green);">'+st.q+'</strong> — '+st.a
+      +'<div class="step-body"><strong style="color:var(--green);">'+escapeHtml(st.q)+'</strong> — '+inlineMathSafe(st.a)
+      +(st.formula?'<div class="approx-method-formula">'+approxFormulaMath(st.formula)+'</div>':'')
+      +'</div></div>';}).join('')
+    +'</div>';
+}
+
+
+/* ── Whole-file formula sanitation override ──
+   MathJax formulas are displayed, but prose stays prose. This prevents words
+   such as "for prime q" or "via Watson" from being rendered as adjacent math
+   letters, and it converts the Section 1 strategy cards to MathJax. */
+function isFormulaLike(s){
+  s = String(s == null ? '' : s);
+  return /\\[a-zA-Z]+|[=<>≤≥≡∼~≈≪→↔⇒⇔∈⊂⊆∩∪+*/^_{}|]|[∑Σ∫∮∏Π√ΓζπλθφψωαβγδεμνξρστχΔΛΩℝℂℤℚℕ]|\b(O|exp|log|ln|sin|cos|tan|det|lim|sup|inf|Li|Ai|Bi|AGM|Kl)\b/.test(s);
+}
+function extractTrailingNotes(s){
+  let notes=[]; s=String(s == null ? '' : s).trim(); let m;
+  while((m=s.match(/^(.*)\s+\[([^\[\]]+)\]\s*$/))){ s=m[1].trim(); notes.unshift(m[2].trim()); }
+  return {body:s, notes:notes};
+}
+function noteHtml(notes){
+  return notes.map(function(n){return '<div class="formula-note" style="font-family:\'Libre Baskerville\',serif;font-size:.72rem;color:var(--muted);line-height:1.45;margin-top:.2rem;">'+escapeHtml(n)+'</div>';}).join('');
+}
+function protectText(tex){
+  const store=[];
+  tex=String(tex == null ? '' : tex).replace(/\\text\{[^{}]*\}/g,function(m){ const k='@@TEXT'+store.length+'@@'; store.push(m); return k; });
+  return {tex:tex, restore:function(x){ store.forEach(function(v,i){ x=x.replace(new RegExp('@@TEXT'+i+'@@','g'),v); }); return x; }};
+}
+function fixMathProse(tex){
+  let p=protectText(tex); tex=p.tex;
+  tex=tex.replace(/—/g,'\\text{ -- }').replace(/–/g,'\\text{--}');
+  tex=tex.replace(/(^|[\s,{])([A-Z][A-Za-z0-9 .+\-()\/]{1,48}?):\s*/g,function(_,pre,label){
+    if(/\\|\{|\}|=|\^|_|\d\s*[+\-*/=]/.test(label)) return _;
+    return pre+'\\text{'+escapeLatexText(label+': ')+'}';
+  });
+  const phrases=['in terms of','follows from','applied to','for all','for prime','for smooth','for monotone','where','when','with','without','via','using','from','as','if','then','and','or','to give','gives','contains','matches','replacing','subject to','proved by','refined by','evaluated at','near'];
+  phrases.forEach(function(ph){
+    const re=new RegExp('(^|\\s)'+ph.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(\\s|$)','gi');
+    tex=tex.replace(re,function(_,a,b){return a+'\\text{'+ph+'}'+b;});
+  });
+  tex=tex.replace(/\(([^()]*[A-Za-z]{2,}[^()]*)\)/g,function(_,inside){
+    if(/^[A-Za-z0-9 ,.;:+\-\/']+$/.test(inside) && !/[=^_{}\\]/.test(inside)) return '\\text{('+escapeLatexText(inside)+')}';
+    return '('+inside+')';
+  });
+  tex=p.restore(tex);
+  return tex;
+}
+function displayLatex(tex, alreadyLatex){
+  let body = alreadyLatex ? String(tex).trim() : approxLatexNormalize(String(tex).trim());
+  body = fixMathProse(body);
+  body = body.replace(/\^\{-\}\^\{([^}]+)\}/g,'^{-$1}');
+  return '<div class="formula-math">'+escapeHtml('\\[\\displaystyle '+body+'\\]')+'</div>';
+}
+function splitFormulaProse(body){
+  const cuts=[' where ',' when ',' with ',' for all ',' for prime ',' for smooth ',' for monotone ',' for ',' as ',' via ',' using ',' from ',' follows from ',' in terms of ',' gives ',' then '];
+  let best=-1; const lower=body.toLowerCase();
+  cuts.forEach(function(c){ const i=lower.indexOf(c); if(i>0 && (best<0 || i<best)){best=i;} });
+  if(best>0) return {formula:body.slice(0,best).trim(), prose:body.slice(best).trim()};
+  return {formula:body.trim(), prose:''};
+}
+function richTextMathHtml(s){
+  s=String(s == null ? '' : s); let out='', last=0; const re=/\$([^$]+)\$/g; let m;
+  while((m=re.exec(s))){ out += escapeHtml(s.slice(last,m.index)); out += escapeHtml('\\('+m[1]+'\\)'); last = re.lastIndex; }
+  out += escapeHtml(s.slice(last)); return out;
+}
+function hasProsePhrase(s){
+  let t=String(s == null ? '' : s);
+  t=t.replace(/\$[^$]*\$/g,' ')
+     .replace(/\\text\{[^}]*\}/g,' ')
+     .replace(/\\operatorname\{[^}]*\}/g,' ')
+     .replace(/\\mathbb\{[^}]*\}/g,' ')
+     .replace(/\\[a-zA-Z]+/g,' ')
+     .replace(/[{}_^0-9+*\/=<>&|.,;:()\[\]\\-]/g,' ');
+  return /[A-Za-z]{3,}\s+[A-Za-z]{3,}/.test(t);
+}
+function smartFormulaHtml(raw){
+  raw=String(raw == null ? '' : raw).trim(); if(!raw) return '';
+  let ex=extractTrailingNotes(raw), s=ex.body, notes=ex.notes, html='';
+  const full=s.match(/^\$([\s\S]*)\$$/);
+  if(full){ return displayLatex(full[1], true)+noteHtml(notes); }
+  let body=s; const lm=s.match(/^([^:=]{2,80}):\s*([\s\S]+)$/);
+  if(lm && /[A-Za-z]/.test(lm[1]) && !/[=<>≤≥∑Σ∫∏√{}^_]/.test(lm[1])){
+    html += '<div class="formula-label" style="font-family:\'Libre Baskerville\',serif;font-size:.75rem;color:var(--gold-light);line-height:1.45;margin-bottom:.18rem;">'+escapeHtml(lm[1].trim())+'</div>';
+    body=lm[2].trim();
+  }
+  if(/\$[^$]+\$/.test(body)){
+    html += '<div class="formula-prose" style="font-family:\'Libre Baskerville\',serif;font-size:.78rem;color:var(--body);line-height:1.55;">'+richTextMathHtml(body)+'</div>';
+    return html+noteHtml(notes);
+  }
+  let sp=splitFormulaProse(body);
+  const cp=sp.formula.match(/^([^,;]+)[,;]\s+([A-Za-z][\s\S]*)$/);
+  if(cp && isFormulaLike(cp[1])) sp={formula:cp[1].trim(), prose:(cp[2]+' '+sp.prose).trim()};
+  const lp=sp.formula.match(/^([A-Za-z][A-Za-z .+\-\/']{2,50})\s+([A-Za-z]_[A-Za-z0-9]|[A-Z]\(|[A-Z]\w*\(|[∑Σ∫∮∏Π√ΓζπλθφψωαβγδεμνξρστχΔΛΩ]|\\[a-zA-Z]+|\|)/);
+  if(lp && hasProsePhrase(lp[1]) && isFormulaLike(sp.formula.slice(lp[1].length).trim())){
+    html += '<div class="formula-label" style="font-family:\'Libre Baskerville\',serif;font-size:.75rem;color:var(--gold-light);line-height:1.45;margin-bottom:.18rem;">'+escapeHtml(lp[1].trim())+'</div>';
+    sp.formula=sp.formula.slice(lp[1].length).trim();
+  }
+  if(isFormulaLike(sp.formula) && !hasProsePhrase(sp.formula)) html += displayLatex(sp.formula, false);
+  else html += '<div class="formula-prose" style="font-family:\'Libre Baskerville\',serif;font-size:.78rem;color:var(--body);line-height:1.55;">'+richTextMathHtml(sp.formula)+'</div>';
+  if(sp.prose){ html += '<div class="formula-prose" style="font-family:\'Libre Baskerville\',serif;font-size:.75rem;color:var(--muted);line-height:1.45;margin-top:.2rem;">'+richTextMathHtml(sp.prose)+'</div>'; }
+  return html+noteHtml(notes);
+}
+function approxFormulaMath(s){ return smartFormulaHtml(s); }
+function strategyFormulaHtml(s){ return smartFormulaHtml(s); }
+function inlineMathSafe(s){ return richTextMathHtml(s); }
+function renderMethodDemo(m){
+  const steps = methodDemoSteps(m);
+  return '<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin:.85rem 0 .35rem;">Demonstration / question ladder</div>'
+    +'<div class="example-steps">'
+    +steps.map(function(st){return '<div class="step">'
+      +'<div class="step-num">?</div>'
+      +'<div class="step-body"><strong style="color:var(--green);">'+escapeHtml(st.q)+'</strong> — '+inlineMathSafe(st.a)
       +(st.formula?'<div class="approx-method-formula">'+approxFormulaMath(st.formula)+'</div>':'')
       +'</div></div>';}).join('')
     +'</div>';
@@ -759,7 +907,7 @@ const HS=[
 {id:'h2b',br:'H2',nm:'Watson\'s Lemma',yr:'1918',school:'UK/Cambridge (G.N. Watson)',frontier:false,
  ds:'For $\\int _{0}^\\infty e^{-\\lambda t}f(t)dt$ where $f(t) \\sim \\sum a_{n} t^{\\alpha _{n}}$ as $t\\to 0^{+}$, the asymptotic expansion is $\\sum a_{n} \\Gamma (\\alpha _{n}+1)/\\lambda ^{\\alpha _{n}+1}$. This converts the behaviour of f near 0 into the $large-\\lambda$ behaviour of the integral.',
  cue:'Is the integral Laplace-type $\\int _{0}^\\infty e^{-\\lambda t}f(t)dt$ with f known as a series near $t=0?$',
- fs:['∫₀^∞e^{-λt}t^{α-1}f(t)dt~Σ aₙΓ(α+n)/λ^{α+n} [Watson\'s lemma]','Bessel: K_ν(λ)~√(π/2λ)e^{-λ}(1+series in 1/λ) via Watson','Gamma function: Γ(λ+1)~√(2π/λ)(λ/e)^λ via saddle+Watson']},
+ fs:['$\int_0^\infty e^{-\lambda t}t^{\alpha-1}f(t)\,dt\sim\sum_{n\ge0}a_n\Gamma(\alpha+n)\lambda^{-(\alpha+n)}$ [Watson lemma]','Bessel: $K_\nu(\lambda)\sim\sqrt{\pi/(2\lambda)}e^{-\lambda}(1+O(1/\lambda))$ via Watson','Gamma function: $\Gamma(\lambda+1)\sim\sqrt{2\pi\lambda}(\lambda/e)^\lambda$ via saddle point and Watson']},
 {id:'h2c',br:'H2',nm:'Stirling\'s Complete Series',yr:'1730/1812',school:'Scotland/France (Stirling, Laplace)',frontier:false,
  ds:'$\\Gamma (s+1) \\sim \\sqrt{2\\pi s}(s/e)^{s} \\exp(\\sum B_{2k}/[2k(2k-1)s^{2k-1}]) =$ exact asymptotic series. Each term improves the approximation; the series diverges but is Borel-summable. Connects to Ramanujan\'s Euler-Maclaurin work on factorials.',
  cue:'Is the expression n! or $\\Gamma (n)$ for large n? Need the full asymptotic series, not just leading term?',
@@ -803,13 +951,13 @@ const HS=[
  cue:'Are there many characters $\\chi$ or Dirichlet series evaluations to bound simultaneously?',
  fs:['Σ_{q≤Q}Σ_{χ mod q}|Σ_{n≤N}aₙχ(n)|²≤(N+Q²)Σ|aₙ|² [Montgomery–Vaughan]','Bombieri–Vinogradov: Σ_{q≤x^{½}/log^A x}max|π(x;q,a)-li(x)/φ(q)|=O(x/log^B x)','Applied in circle method to bound major arc tails']},
 {id:'h4d',br:'H4',nm:'Waring\'s Problem (Hua–Wooley)',yr:'1938/2019',school:'China/UK (Hua, Wooley)',frontier:true,
- ds:'Every sufficiently large integer is a sum of $G(k)$ k-th powers. Prove $G(k)\\le k(\\log$ k+C) using the efficient congruencing method (Wooley 2012) combined with Bourgain–Demeter–Guth decoupling. The Main Conjecture of Vinogradov has now been proved.',
+ ds:'Every sufficiently large integer is a sum of $G(k)$ k-th powers. Prove $G(k)\\le k(\\log k+C)$ using the efficient congruencing method (Wooley 2012) combined with Bourgain–Demeter–Guth decoupling. The Main Conjecture of Vinogradov has now been proved.',
  cue:'Is the problem about representing n as a sum of k-th powers? Use circle method + efficient congruencing.',
  fs:['G(k)≤2k²+2k-3 [Wooley 2019, best known for k≥3]','G(2)=4 [Lagrange 1770]; G(3)=7 [Linnik 1943]','Efficient congruencing: J_{s,k}(X)≤X^{s+ε} [Wooley 2012, refined 2019]']},
 {id:'h4e',br:'H4',nm:'Kloosterman Sum Estimates',yr:'1926/1948',school:'Netherlands/France (Kloosterman, Weil)',frontier:false,
  ds:'Kloosterman sums Kl(a,b;q)=Σ_{gcd(n,q)=1}e^{2πi(an+bn̄)/q} appear in the circle method error terms. Weil\'s estimate |Kl(a,b;q)|≤2√q (for prime q) replaces the trivial bound q. This is proved via the Riemann Hypothesis for curves over finite fields.',
  cue:'Does the circle method produce a sum of the form Σ e^{2πi(ah+bh̄)/q}? Apply Weil\'s bound.',
- fs:['|Kl(a,b;q)|≤2√q for prime q [Weil 1948 via RH for curves]','Error in p(n) asymptotic: O(n^{1/4}) [via Kloosterman estimates, Rademacher 1937]','Petersson trace formula: Σ a_f(n)a_f(m)/||f||² in terms of Kloosterman sums']},
+ fs:['$|\\operatorname{Kl}(a,b;q)|\\le 2\\sqrt{q}\\quad\\text{for prime }q\\quad[\\text{Weil 1948 via RH for curves}]$','Error in p(n) asymptotic: O(n^{1/4}) [via Kloosterman estimates, Rademacher 1937]','Petersson trace formula: Σ a_f(n)a_f(m)/||f||² in terms of Kloosterman sums']},
 /* H5 */
 {id:'h5a',br:'H5',nm:'Brun\'s Sieve',yr:'1919',school:'Norway (V. Brun)',frontier:false,
  ds:'An inclusion-exclusion sieve with a truncation: instead of including/excluding all divisors, truncate at a parameter z. Gives upper and lower bounds for sifted sets. Proved Brun\'s theorem: Σ_{p,p+2 both prime} 1/p < ∞ (twin prime sums converge).',
@@ -907,7 +1055,7 @@ const HS=[
 {id:'h10d',br:'H10',nm:'Furstenberg Ergodic Theory',yr:'1977',school:'Israel/USA (H. Furstenberg)',frontier:false,
  ds:'Furstenberg\'s ergodic proof of Szemerédi\'s theorem: translate AP-counting into a multiple recurrence problem for measure-preserving systems, then use ergodic theory (compact extension + weak mixing) to prove the recurrence. The framework generalises to polynomial progressions via Host–Kra theory.',
  cue:'Does the combinatorial problem have a "structure vs randomness" dichotomy? Is there an ergodic reformulation?',
- fs:['Furstenberg correspondence: any A⊆ℤ with upper density ≥δ gives (X,T,μ) with μ(A∩T^{-n}A∩…)≥δ^k','Multiple recurrence: limₙ₁/N Σμ(A∩T^n A∩T^{2n}A)≥δ^3 for any δ>0','Host–Kra: structure of characteristic factors for polynomial ergodic averages [2005]']},
+ fs:['Furstenberg correspondence: any A⊆ℤ with upper density ≥δ gives (X,T,μ) with μ(A∩T^{-n}A∩…)≥δ^k','Multiple recurrence: $\lim_{N\to\infty}\frac{1}{N}\sum_{n=1}^{N}\mu(A\cap T^{-n}A\cap T^{-2n}A)\ge\delta^3$ for any $\delta>0$','Host–Kra: structure of characteristic factors for polynomial ergodic averages [2005]']},
 /* H9e — added: QED perturbative series */
 {id:'h9e',br:'H9',nm:'QED Perturbation Series as Trans-Series',yr:'1952/2022',school:'UK/USA/Japan (Dyson, Aoyama, Kinoshita, Nio; Fan, Gabrielse)',frontier:true,
  ds:'The QED perturbative expansion for the electron anomalous magnetic moment a_e=Σ aₙ(α/π)ⁿ is a trans-series: formally divergent (Dyson\'s 1952 instability argument — the coupling constant α cannot be analytically continued past α=0 without pair creation), Borel-resummable, and corrected by non-perturbative terms e^{-1/α}. The series has been computed to tenth order (L=5 loops, ~12,672 Feynman diagrams) by Aoyama, Kinoshita, and Nio. Fan, Myers, Sukra, and Gabrielse (2022) measured g/2 to 0.13 parts per trillion, making the electron magnetic moment the most precisely tested quantity in physics. The discrepancy with theory is bounded by the current disagreement between two independent measurements of the fine structure constant α.',
@@ -941,7 +1089,7 @@ const HS=[
  ds:'Wu–Xue (2022): for a generic closed hyperbolic surface of genus g, as g→∞, the error term Er_{X_g}(t) in the Prime Geodesic Theorem π_{X_g}(t)=Li(t)+Er_{X_g}(t) is bounded above by g·t^{3/4+ε}. As an application, most closed geodesics of length ≪√g are simple and non-separating, while most of length ≫√g are non-simple — confirming the Lipnowski–Wright conjecture. The key tool is Mirzakhani\'s Weil–Petersson statistics and new effective bounds on intersection numbers on M_{g,n}.',
  cue:'Is the problem about the distribution of closed geodesics on a random high-genus surface? Does the answer depend on √g as a threshold?',
  frontier:true,
- fs:['π_{X_g}(t)=Li(t)+Σ_{3/4<s_j<1}Li(t^{s_j})+O_{X_g}(t^{3/4}/ln t) [Selberg trace formula]','Analogue of RH for hyperbolic surfaces: conjecture that 3/4 can be replaced by 1/2+ε','Weil-Petersson average: E_{WP}[Er_{X_g}(t)]=O(g·t^{3/4+ε}) [Wu-Xue 2022]']},
+ fs:['$\pi_{X_g}(t)=\operatorname{Li}(t)+\sum_{3/4<s_j<1}\operatorname{Li}(t^{s_j})+O_{X_g}(t^{3/4}/\log t)$ [Selberg trace formula]','Analogue of RH for hyperbolic surfaces: conjecture that $3/4$ can be replaced by $1/2+\varepsilon$','Weil-Petersson average: $\mathbb{E}_{WP}[\operatorname{Er}_{X_g}(t)]=O(g\,t^{3/4+\varepsilon})$ [Wu-Xue 2022]']},
 {id:'h12b',br:'H12',nm:'Higher Teichmüller / Hitchin Component PGT',yr:'2012',school:'UK (Pollicott, Sharp) / France (Sambarino)',frontier:true,
  ds:'Pollicott–Sharp (2012), extending Sambarino: the Hitchin component Rep(π₁(S),PSL(n,ℝ)) of higher-dimensional surface group representations admits a Prime Geodesic Theorem for the generalised length function l_ρ(α)=log|λ₁(α)/λₙ(α)| (the "width"). Labourie showed Hitchin representations are Anosov, making the symbolic dynamics and thermodynamic formalism of the classical PGT applicable. This lifts the classical Huber PGT from PSL(2,ℝ) to all higher-rank Hitchin representations.',
  cue:'Is the counting problem about representations of π₁(S) in a higher-rank Lie group PSL(n,ℝ)? Do the eigenvalues satisfy the Anosov (real split) condition?',
@@ -1022,8 +1170,9 @@ function selRCat(k){
     const t=document.getElementById('rtab-'+rCat);
     t.classList.add('act');
     t.style.background=CFIL[rCat];
-    cue.textContent=CATS_R[rCat].cue;
+    cue.innerHTML=inlineMathSafe(CATS_R[rCat].cue);
     cue.style.display='block';
+    renderMath(cue);
   } else { cue.style.display='none'; }
   renderRStrats();
   renderRDetail();
@@ -1043,11 +1192,12 @@ function renderRStrats(){
       +'<span class="strat-card-name" style="color:'+CTXT[s.cat]+';">'+s.nm+'</span>'
       +'<span class="prob-badge" style="background:'+CBRD[s.cat]+';color:'+CFIL[s.cat]+';">'+Math.round(s.p*100)+'%</span>'
       +'</div>'
-      +'<div class="strat-card-formula">'+s.fs[0]+'</div>'
+      +'<div class="strat-card-formula">'+strategyFormulaHtml(s.fs[0])+'</div>'
       +'<div style="font-size:.58rem;font-family:\'DM Mono\',monospace;margin-top:4px;opacity:.6;letter-spacing:.06em;">pass '+(s.pass===1?'1 · original':'2 · updated')+'</div>';
     d.onclick=()=>selRStrat(s.id);
     g.appendChild(d);
   });
+  renderMath(g);
 }
 
 function selRStrat(id){
@@ -1061,8 +1211,9 @@ function selRStrat(id){
       t.classList.add('act');
       t.style.background=CFIL[rCat];
       const cue=document.getElementById('r-cue');
-      cue.textContent=CATS_R[rCat].cue;
+      cue.innerHTML=inlineMathSafe(CATS_R[rCat].cue);
       cue.style.display='block';
+      renderMath(cue);
     }
   }
   renderRStrats();
@@ -1083,9 +1234,9 @@ function renderRDetail(){
     +'<div style="text-align:right;flex-shrink:0;"><div style="font-size:1.5rem;font-family:\'Cormorant Garamond\',serif;color:'+bc+';">'+Math.round(s.p*100)+'%</div>'
     +'<div style="font-family:\'DM Mono\',monospace;font-size:.6rem;color:var(--faint);">probability weight</div></div></div>'
     +'<p style="font-size:.88rem;color:var(--body);line-height:1.7;margin-bottom:.7rem;">'+s.ds+'</p>'
-    +'<div class="detail-cue">Decision cue: '+s.cue+'</div>'
+    +'<div class="detail-cue">Decision cue: '+inlineMathSafe(s.cue)+'</div>'
     +'<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.4rem;">Key formulae</div>'
-    +s.fs.map(f=>'<div class="formula-block">'+f+'</div>').join('');
+    +s.fs.map(f=>'<div class="formula-block">'+strategyFormulaHtml(f)+'</div>').join('');
   dp.style.display='block';
   renderMath(dp);
 }
@@ -1196,7 +1347,7 @@ function selHBranch(k){
   const cue=document.getElementById('h-cue');
   if(hBranch){
     document.getElementById('htab-'+hBranch).classList.add('act');
-    cue.innerHTML=HBRANCHES[hBranch].cue;
+    cue.innerHTML=inlineMathSafe(HBRANCHES[hBranch].cue);
     cue.style.display='block';
     renderMath(cue);
   } else { cue.style.display='none'; }
@@ -1210,9 +1361,9 @@ function renderHMethods(){
   const methods=HS.filter(m=>m.br===hBranch);
   el.innerHTML=methods.map(m=>'<div class="approx-method-card" style="cursor:pointer;"'
     +' onclick="selHMethod(\''+m.id+'\')">'
-    +'<div class="approx-method-name">'+(hMethod===m.id?'▶ ':'')+m.nm+(m.frontier?' <span style="font-family:\'DM Mono\',monospace;font-size:.58rem;color:#4cc9b0;border:1px solid rgba(76,201,176,.3);padding:1px 4px;border-radius:2px;">frontier</span>':'')+'</div>'
-    +'<div class="approx-method-meta">'+m.yr+' · '+m.school+'</div>'
-    +'<div class="approx-method-cue">'+m.cue+'</div>'
+    +'<div class="approx-method-name">'+(hMethod===m.id?'▶ ':'')+escapeHtml(m.nm)+(m.frontier?' <span style="font-family:\'DM Mono\',monospace;font-size:.58rem;color:#4cc9b0;border:1px solid rgba(76,201,176,.3);padding:1px 4px;border-radius:2px;">frontier</span>':'')+'</div>'
+    +'<div class="approx-method-meta">'+escapeHtml(m.yr)+' · '+escapeHtml(m.school)+'</div>'
+    +'<div class="approx-method-cue">'+inlineMathSafe(m.cue)+'</div>'
     +'<div class="approx-method-formula">'+approxFormulaMath(m.fs[0])+'</div>'
     +'</div>'
   ).join('');
@@ -1235,8 +1386,8 @@ function renderHDetail(){
     +'<div style="font-size:1.1rem;font-family:\'Cormorant Garamond\',serif;font-weight:500;color:var(--cream);margin-top:5px;">'+m.nm+'</div>'
     +'<div style="font-family:\'DM Mono\',monospace;font-size:.63rem;color:var(--gold-dim);margin-top:2px;">'+m.yr+' · '+m.school+'</div>'
     +'</div>'
-    +'<p style="font-size:.88rem;color:var(--body);line-height:1.7;margin-bottom:.6rem;">'+m.ds+'</p>'
-    +'<div class="approx-method-cue">Decision cue: '+m.cue+'</div>'
+    +'<p style="font-size:.88rem;color:var(--body);line-height:1.7;margin-bottom:.6rem;">'+inlineMathSafe(m.ds)+'</p>'
+    +'<div class="approx-method-cue">Decision cue: '+inlineMathSafe(m.cue)+'</div>'
     +'<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin:.5rem 0 .3rem;">Key formulae / results</div>'
     +m.fs.map(f=>'<div class="approx-method-formula">'+approxFormulaMath(f)+'</div>').join('')
     +renderMethodDemo(m);
