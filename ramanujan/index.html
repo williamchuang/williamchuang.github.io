@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Ramanujan's Work Algorithms — Complete Reference | William Chuang / Logarchéon</title>
-<meta name="description" content="Exhaustive decision tree of 33 reconstructed strategies, 80 formulae, modern starting-point equivalents, 3 worked examples, and a 50-node worldwide frontier approximation-methods tree across 12 branches — Hardy–Littlewood through Kelley–Meka 2023, extended to motivic periods and the cosmic Galois group (Brown), Feynman integral relations (Broadhurst–Roberts), arithmetic quantum field theory (Harvard CMSA 2024), Teichmüller dynamics and the prime geodesic theorem for large genus (Wu–Xue 2022), higher Teichmüller / Hitchin components (Pollicott–Sharp), and Mirzakhani–Eskin–Mohammadi orbit-closure rigidity — placing all branches explicitly within the Langlands programme."/>
+<meta name="description" content="Exhaustive decision tree of 33 reconstructed strategies, 80 formulae, modern starting-point equivalents, 3 worked examples, and a 82-node worldwide frontier approximation-methods tree across 20 branches — Hardy–Littlewood through Kelley–Meka 2023, extended to motivic periods and the cosmic Galois group (Brown), Feynman integral relations (Broadhurst–Roberts), arithmetic quantum field theory (Harvard CMSA 2024), Teichmüller dynamics and the prime geodesic theorem for large genus (Wu–Xue 2022), higher Teichmüller / Hitchin components (Pollicott–Sharp), and Mirzakhani–Eskin–Mohammadi orbit-closure rigidity — placing all branches explicitly within the Langlands programme."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
@@ -101,6 +101,12 @@ nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.96);bac
 .detail-rank{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.3rem;}
 .detail-pct{font-size:1.6rem;font-weight:500;font-family:"Cormorant Garamond",serif;}
 .detail-cue{font-style:italic;color:var(--amber);font-size:.88rem;margin:.6rem 0;}
+.MathJax{color:var(--cream) !important;}
+td.fcell{font-size:.9rem;line-height:1.9;padding:.5rem .7rem;min-width:240px;max-width:420px;white-space:normal;overflow-wrap:anywhere;}
+td.fcell mjx-container{white-space:normal !important;max-width:100%;overflow-x:auto;}
+mjx-container{max-width:100%;}
+.formula-block mjx-container,.approx-method-formula mjx-container{white-space:normal !important;}
+mjx-container{color:var(--cream) !important;}
 .formula-block{font-family:"DM Mono",monospace;font-size:.68rem;background:rgba(10,22,40,.8);border:1px solid var(--border-dim);border-radius:3px;padding:.55rem .8rem;margin:.35rem 0;color:var(--body);word-break:break-all;}
 /* Bar chart */
 .chart-wrap{margin:1.2rem 0 .5rem;}
@@ -139,6 +145,13 @@ nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.96);bac
 /* footer */
 footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"DM Mono",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--faint);text-align:center;}
 </style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 <nav class="site-nav">
@@ -158,11 +171,11 @@ footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"D
 <div class="page-hero">
   <div class="breadcrumb"><span>Logarchéon Research</span><span>·</span><span>Mathematical Methodology</span></div>
   <h1>Ramanujan's <em>Work Algorithms</em></h1>
-  <p class="hero-desc">An exhaustive reverse-engineering of Srinivasa Ramanujan's methods, restricted to pre-1920 mathematics. Thirty-three reconstructed strategies across five problem categories, traced against eighty sampled formulae from the notebooks and lost notebook. Verified, updated, then extended to modern equivalent starting points with three worked demonstrations. A separate 50-node worldwide frontier tree covers the Hardy&ndash;Littlewood approximation lineage through Vinogradov, Bourgain, &Eacute;calle, Keating&ndash;Snaith, and Kelley&ndash;Meka, extending to motivic periods and the cosmic Galois group (Brown), Feynman integral relations (Broadhurst&ndash;Roberts), arithmetic quantum field theory (Harvard CMSA 2024), the prime geodesic theorem for large genus (Wu&ndash;Xue 2022), higher Teichm&uuml;ller &amp; Hitchin components (Pollicott&ndash;Sharp), and SL(2,&Ropf;) orbit-closure rigidity (Eskin&ndash;Mirzakhani&ndash;Mohammadi) &mdash; twelve branches in total, placing each within the Langlands programme.</p>
+  <p class="hero-desc">An exhaustive reverse-engineering of Srinivasa Ramanujan's methods, restricted to pre-1920 mathematics. Thirty-three reconstructed strategies across five problem categories, traced against eighty sampled formulae from the notebooks and lost notebook. Verified, updated, then extended to modern equivalent starting points with three worked demonstrations. A separate 82-node worldwide frontier tree covers the Hardy&ndash;Littlewood approximation lineage through Vinogradov, Bourgain, &Eacute;calle, Keating&ndash;Snaith, and Kelley&ndash;Meka, extending to motivic periods and the cosmic Galois group (Brown), Feynman integral relations (Broadhurst&ndash;Roberts), arithmetic quantum field theory (Harvard CMSA 2024), the prime geodesic theorem for large genus (Wu&ndash;Xue 2022), higher Teichm&uuml;ller &amp; Hitchin components (Pollicott&ndash;Sharp), and SL(2,&Ropf;) orbit-closure rigidity (Eskin&ndash;Mirzakhani&ndash;Mohammadi) &mdash; twenty branches in total, placing each within the Langlands programme.</p>
   <div class="hero-badges">
     <span class="hero-badge">33 strategies</span>
     <span class="hero-badge">80 formulae</span>
-    <span class="hero-badge">50 approx. methods</span>
+    <span class="hero-badge">82 approx. methods</span>
     <span class="hero-badge">pre-1920 reconstruction</span>
     <span class="hero-badge">William Chuang / Logarchéon 2026</span>
   </div>
@@ -220,7 +233,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"D
 <p style="color:var(--body);font-size:.92rem;margin-bottom:1rem;">Original 30 formulae used to build the first-pass tree, plus 50 additional from the notebooks and lost notebook, each traced back through the algorithm. <span class="mono">verified</span> = algorithm correctly routes the derivation. <span class="mono" style="color:var(--amber);">updated</span> = algorithm required an update to route it. <span class="mono" style="color:#BA7517;">extended</span> = derivation requires an additional strategy.</p>
 <div class="formula-filters" id="f-filters"></div>
 <div class="ftable-wrap">
-  <table class="ftable" id="f-table">
+  <table class="ftable" style="table-layout:auto;width:100%;" id="f-table">
     <thead><tr>
       <th>#</th><th>Formula</th><th>Category</th><th>Primary strategy</th><th>Starting point</th><th>Status</th>
     </tr></thead>
@@ -264,7 +277,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"D
   <span class="section-num">05</span>
   <span class="section-title">The Approximation Methods Tree</span>
 </div>
-<p style="color:var(--body);font-size:.92rem;margin-bottom:.6rem;">Techniques Ramanujan would have learned or encountered through Hardy, Littlewood, and the broader international analytic tradition — extended to the worldwide frontier as of 2026. Fifty methods across twelve branches, spanning Stokes (1850) through Kelley–Meka (2023): oscillatory integrals, Laplace-type integrals, exponential sums (Weyl, van der Corput, Vinogradov, Bourgain–Demeter–Guth), circle method and additive number theory, sieve methods, spectral and trace formulae, special function asymptotics, random matrix theory, resurgence and trans-series (Écalle, QED perturbation theory), modern additive combinatorics (Gowers, Green–Tao, Kelley–Meka), motivic periods and the cosmic Galois group (Brown, Broadhurst–Roberts), and Teichmüller dynamics and spectral counting (Wu–Xue, Pollicott–Sharp, Mirzakhani, Eskin–Mirzakhani–Mohammadi). School attribution and frontier status are marked for each.</p>
+<p style="color:var(--body);font-size:.92rem;margin-bottom:.6rem;">Techniques Ramanujan would have learned or encountered through Hardy, Littlewood, and the broader international analytic tradition — extended to the worldwide frontier as of 2026. Eighty-two methods across twenty branches, spanning Stokes (1850) through Kelley–Meka (2023): oscillatory integrals, Laplace-type integrals, exponential sums (Weyl, van der Corput, Vinogradov, Bourgain–Demeter–Guth), circle method and additive number theory, sieve methods, spectral and trace formulae, special function asymptotics, random matrix theory, resurgence and trans-series (Écalle, QED perturbation theory), modern additive combinatorics (Gowers, Green–Tao, Kelley–Meka), motivic periods and the cosmic Galois group (Brown, Broadhurst–Roberts), and Teichmüller dynamics and spectral counting (Wu–Xue, Pollicott–Sharp, Mirzakhani, Eskin–Mirzakhani–Mohammadi). School attribution and frontier status are marked for each.</p>
 <p class="disclaimer">Selection criterion: top-tier, globally competitive practice. No school — Cambridge, Princeton, Paris, Moscow, Beijing, Tokyo, Seoul, Tel Aviv — is privileged. The criterion is the strongest known result for each problem class.</p>
 
 <div style="text-align:center;margin-bottom:18px;">
@@ -288,6 +301,76 @@ footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"D
 </footer>
 
 <script>
+
+/* ── MathJax dynamic typeset ── */
+function renderMath(el){
+  if(!el || !window.MathJax) return;
+  var run=function(){ return MathJax.typesetPromise([el]).catch(function(e){console.warn('MathJax',e);}); };
+  if(MathJax.startup && MathJax.startup.promise){ MathJax.startup.promise.then(run); }
+  else if(MathJax.typesetPromise){ run(); }
+}
+function renderMathAll(){
+  if(!window.MathJax) return;
+  var run=function(){ return MathJax.typesetPromise().catch(function(e){console.warn('MathJax',e);}); };
+  if(MathJax.startup && MathJax.startup.promise){ MathJax.startup.promise.then(run); }
+  else if(MathJax.typesetPromise){ run(); }
+}
+function renderMathAll(){
+  if(window.MathJax && MathJax.typesetPromise){
+    MathJax.typesetPromise().catch(function(e){console.warn('MathJax',e);});
+  }
+}
+
+
+/* Convert approximation-tree formula strings into MathJax display blocks.
+   H1-H20 entries contain compact mathematical notation; this normalizes
+   key formula/result strings so they render as displayed LaTeX. */
+function approxLatexNormalize(s){
+  if(!s) return '';
+  const repl = [
+    [/&/g,'\\&'],[/#/g,'\\#'],[/%/g,'\\%'],[/≤/g,'\\le '],[/≥/g,'\\ge '],[/≪/g,'\\ll '],[/≠/g,'\\ne '],[/≈/g,'\\approx '],[/∼/g,'\\sim '],[/~(?!=)/g,'\\sim '],
+    [/→/g,'\\to '],[/↔/g,'\\leftrightarrow '],[/⇒/g,'\\Rightarrow '],[/⇔/g,'\\Longleftrightarrow '],[/∈/g,'\\in '],[/⊂/g,'\\subset '],[/⊆/g,'\\subseteq '],[/∩/g,'\\cap '],[/∪/g,'\\cup '],[/∑/g,'\\sum '],[/Σ/g,'\\sum '],[/∫/g,'\\int '],[/∮/g,'\\oint '],[/∏/g,'\\prod '],[/Π/g,'\\prod '],[/√/g,'\\sqrt'],[/∞/g,'\\infty '],[/·/g,'\\cdot '],[/×/g,'\\times '],[/…/g,'\\cdots '],[/∂/g,'\\partial '],[/∇/g,'\\nabla '],[/∆/g,'\\Delta '],[/∅/g,'\\varnothing '],
+    [/ℂ/g,'\\mathbb{C}'],[/ℤ/g,'\\mathbb{Z}'],[/ℚ/g,'\\mathbb{Q}'],[/ℝ/g,'\\mathbb{R}'],[/ℕ/g,'\\mathbb{N}'],
+    [/π/g,'\\pi '],[/α/g,'\\alpha '],[/β/g,'\\beta '],[/γ/g,'\\gamma '],[/δ/g,'\\delta '],[/ε/g,'\\varepsilon '],[/ζ/g,'\\zeta '],[/η/g,'\\eta '],[/θ/g,'\\theta '],[/λ/g,'\\lambda '],[/μ/g,'\\mu '],[/ν/g,'\\nu '],[/ξ/g,'\\xi '],[/ρ/g,'\\rho '],[/σ/g,'\\sigma '],[/τ/g,'\\tau '],[/φ/g,'\\varphi '],[/χ/g,'\\chi '],[/ψ/g,'\\psi '],[/ω/g,'\\omega '],[/κ/g,'\\kappa '],[/Λ/g,'\\Lambda '],[/Δ/g,'\\Delta '],[/Ψ/g,'\\Psi '],[/Ω/g,'\\Omega '],
+    [/₀/g,'_0'],[/₁/g,'_1'],[/₂/g,'_2'],[/₃/g,'_3'],[/₄/g,'_4'],[/₅/g,'_5'],[/₆/g,'_6'],[/₇/g,'_7'],[/₈/g,'_8'],[/₉/g,'_9'],[/ₙ/g,'_n'],[/ⱼ/g,'_j'],[/ₖ/g,'_k'],[/ₗ/g,'_l'],[/ₘ/g,'_m'],[/ₚ/g,'_p'],[/ₛ/g,'_s'],
+    [/⁰/g,'^{0}'],[/¹/g,'^{1}'],[/²/g,'^{2}'],[/³/g,'^{3}'],[/⁴/g,'^{4}'],[/⁵/g,'^{5}'],[/⁶/g,'^{6}'],[/⁷/g,'^{7}'],[/⁸/g,'^{8}'],[/⁹/g,'^{9}'],[/ⁿ/g,'^{n}'],[/ⁱ/g,'^{i}'],[/ᵏ/g,'^{k}'],[/ᴸ/g,'^{L}'],[/ᵖ/g,'^{p}'],[/⁺/g,'^{+}'],[/⁻/g,'^{-}'],[/½/g,'\\tfrac{1}{2}'],[/¼/g,'\\tfrac{1}{4}'],[/¾/g,'\\tfrac{3}{4}'],
+    [/log/g,'\\log '],[/ln/g,'\\ln '],[/det/g,'\\det '],[/exp/g,'\\exp '],[/sin/g,'\\sin '],[/cos/g,'\\cos '],[/tan/g,'\\tan '],[/tanh/g,'\\tanh '],[/sinh/g,'\\sinh '],[/arg/g,'\\arg '],[/lim/g,'\\lim '],[/sup/g,'\\sup '],[/inf/g,'\\inf '],[/max/g,'\\max '],[/min/g,'\\min '],[/Prob/g,'\\operatorname{Prob}'],[/Vol/g,'\\operatorname{Vol}'],[/Li/g,'\\operatorname{Li}'],[/Ai/g,'\\operatorname{Ai}'],[/Bi/g,'\\operatorname{Bi}'],[/Rep/g,'\\operatorname{Rep}'],[/Var/g,'\\operatorname{Var}'],[/Cov/g,'\\operatorname{Cov}'],[/Tr/g,'\\operatorname{Tr}'],[/div/g,'\\operatorname{div}']
+  ];
+  let out = String(s).trim();
+  repl.forEach(function(pair){ out = out.replace(pair[0], pair[1]); });
+  return out;
+}
+function approxFormulaMath(s){
+  if(!s) return '';
+  s = String(s).trim();
+  if(/^\\\[[\s\S]*\\\]$/.test(s) || /^\$\$[\s\S]*\$\$$/.test(s)) return s;
+  if(/^\$[\s\S]*\$$/.test(s)) return '\\[' + s.slice(1,-1) + '\\]';
+  if(s.indexOf('$') !== -1){
+    return s.replace(/\$([^$]+)\$/g,function(_,m){ return '\\[' + m + '\\]'; });
+  }
+  return '\\[\\displaystyle ' + approxLatexNormalize(s) + '\\]';
+}
+function methodDemoSteps(m){
+  if(m.demo && m.demo.length) return m.demo;
+  return [
+    {q:'Object test',a:m.cue || 'Identify the analytic object and its dominant structure.'},
+    {q:'Ramanujan-style reduction',a:'Can the object be rewritten as a coefficient, integral, transform, Euler product, theta expression, or limiting operation?'},
+    {q:'Main computation',a:'Apply the first key formula/result below as the working reduction.',formula:m.fs && m.fs[0] ? m.fs[0] : ''},
+    {q:'Verification',a:'Check the result numerically, by asymptotic matching, by a residue/transform computation, or by comparison with a known special case.'}
+  ];
+}
+function renderMethodDemo(m){
+  const steps = methodDemoSteps(m);
+  return '<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin:.85rem 0 .35rem;">Demonstration / question ladder</div>'
+    +'<div class="example-steps">'
+    +steps.map(function(st){return '<div class="step">'
+      +'<div class="step-num">?</div>'
+      +'<div class="step-body"><strong style="color:var(--green);">'+st.q+'</strong> — '+st.a
+      +(st.formula?'<div class="approx-method-formula">'+approxFormulaMath(st.formula)+'</div>':'')
+      +'</div></div>';}).join('')
+    +'</div>';
+}
+
 /* ══════════════════════════════════════════════════════════════════
    RAMANUJAN STRATEGY DATA  (33 strategies across 5 categories)
 ══════════════════════════════════════════════════════════════════ */
@@ -318,7 +401,7 @@ const SR=[
   ds:'Extend a one-sided hypergeometric series to a bilateral series over all integers and exploit n↦-n symmetry. The sum often telescopes or factors as a ratio of infinite products. Ramanujan\'s ₁ψ₁ summation is the canonical example.',
   cue:'Does the summand extend to negative indices with controlled growth?',
   pass:1,
-  fs:['₁ψ₁: Σ_{n=-∞}^∞(a;q)_n zⁿ/(b;q)_n=(q,az,q/(az),b/a;q)∞/(b,z,q/z,b/a;q)∞','Jacobi triple product as degenerate ₁ψ₁ (b→0 limit)','Specialise z=1 to recover Ramanujan\'s exponential sum c_q(n)']},
+  fs:['$_{1}\\psi _{1}: \\sum _{n=-\\infty }^\\infty (a;q)_{n} z^{n}/(b;q)_{n}=(q,az,q/(az),b/a;q)\\infty /(b,z,q/z,b/a;q)\\infty$','$\\text{Jacobi triple product as degenerate} _{1}\\psi _{1} (b\\to 0 limit)$','$Specialise z=1 \\text{to recover Ramanujan}\'s \\text{exponential sum} c_{q}(n)$']},
 /* A4 */ {id:'a4',cat:'a',nm:'Master Theorem Kernel',sh:'Master theorem',p:.75,
   ds:'Ramanujan\'s own Master Theorem: if F(x)=Σ(-x)^k φ(k)/k!, then ∫₀^∞ x^{s-1}F(x)dx=π·φ(-s)/sin(πs). Converts discrete values of φ at non-negative integers into a Mellin transform, providing analytic continuation and closed forms for definite integrals.',
   cue:'Can the integrand be written as Σ(-x)^k φ(k)/k! for some simple interpolation φ?',
@@ -383,7 +466,7 @@ const SR=[
   ds:'Prove two combinatorial counts equal by constructing an explicit bijection. Ferrers diagram operations (conjugation, arm-leg exchange) and sign-reversing involutions (Franklin) are the main tools. Ramanujan discovered the identities; bijections came later.',
   cue:'Do two different combinatorial descriptions give the same sequence of counts?',
   pass:1,
-  fs:['RR-1 bijection: min-difference-2 partitions ↔ parts≡±1 (mod 5)','Sylvester bijection: odd-part ↔ distinct-part partitions','Franklin involution proves Euler\'s pentagonal number theorem']},
+  fs:['$RR-1 bijection: \\min-difference-2 partitions ↔ parts\\equiv \\pm 1 (mod 5)$','$\\text{Sylvester bijection}: odd-part ↔ distinct-\\text{part partitions}$','$\\text{Franklin involution proves Euler}\'s \\text{pentagonal number theorem}$']},
 /* C4 */ {id:'c4',cat:'c',nm:'Asymptotic Matching',sh:'Asymptotic matching',p:.75,
   ds:'Determine the exponential growth rate of a sequence and match the asymptotic expansion to a known analytic form. The saddle-point method near the dominant singularity of the GF gives the leading term. Hardy and Ramanujan used this to crack p(n).',
   cue:'Does the sequence grow like exp(c√n) or exp(cn)? Is the GF singular at a known point?',
@@ -458,7 +541,7 @@ const SR=[
   ds:'Compute the minimal polynomial of a decimal expansion by finding integer relations among 1, x, x², …, x^k using LLL/PSLQ-type methods (performed mentally by Ramanujan). Used whenever a numerical value does not obviously match a known constant but might be an algebraic number of degree ≤6.',
   cue:'Is the value irrational but not recognisable as a standard constant? Try powers x, x², x³ and look for integer relations.',
   pass:2,
-  fs:['G_{25}=φ=(1+√5)/2 — identified from e^{-π·5} expansion (degree 2)','Class invariant G_{n}: minimal polynomial computed for each n by Ramanujan in Notebook 2','R(e^{-π/√5}): Ramanujan computed the exact algebraic value using CF convergents']},
+  fs:['$G_{25}=\\varphi =(1+\\sqrt{5})/2 — \\text{identified from} e^{-\\pi \\cdot 5} expansion (degree 2)$','$\\text{Class invariant} G_{n}: \\text{minimal polynomial computed for each} n \\text{by Ramanujan in Notebook} 2$','$R(e^{-\\pi /\\sqrt{5}}): \\text{Ramanujan computed the exact algebraic value using CF convergents}$']},
 /* E6 */ {id:'e6',cat:'e',nm:'Diophantine Approximation',sh:'Diophantine approx.',p:.55,
   ds:'Find rational approximations p/q to algebraic/transcendental numbers, use continued fraction convergents as the "best rational approximants", and exploit the algebraic structure of the error term. Ramanujan used this in his work on highly composite numbers and to find near-integer expressions involving π and e.',
   cue:'Is the quantity close to a rational number or a known algebraic expression? Use CF convergents to measure the quality of approximation.',
@@ -476,87 +559,87 @@ const SR=[
 ══════════════════════════════════════════════════════════════════ */
 const FCAT_LABELS={a:'Series & Sums',b:'Products & q-series',c:'Partitions',d:'Functions',e:'Numerics'};
 const FORMULAE=[
- {n:1,f:'Σp(n)qⁿ=Π1/(1-qᵏ)',cat:'c',strat:'c1',sp:'Computed p(n) for small n',status:'verified'},
- {n:2,f:'p(5n+4)≡0 (mod 5)',cat:'c',strat:'c2,e1',sp:'Numerical: p(4)=5,p(9)=30,p(14)=135',status:'verified'},
- {n:3,f:'p(7n+5)≡0 (mod 7)',cat:'c',strat:'c2,e1',sp:'Numerical observation',status:'verified'},
- {n:4,f:'p(11n+6)≡0 (mod 11)',cat:'c',strat:'c2,e1',sp:'Numerical observation',status:'verified'},
- {n:5,f:'R(q)=q^{1/5}/(1+q/(1+q²/(1+…)))',cat:'b',strat:'b4,e1',sp:'CF partial quotient pattern',status:'verified'},
- {n:6,f:'R(e^{-2π})=√(5φ)-φ',cat:'b',strat:'b4,d1',sp:'Modular equation at τ=i',status:'verified'},
- {n:7,f:'Σq^{n²}/(q;q)_n=Π1/((1-q^{5n+1})(1-q^{5n+4}))',cat:'b',strat:'b1,b3',sp:'Euler product pattern from GF',status:'verified'},
- {n:8,f:'Σq^{n(n+1)/2}/(q;q)_n=Π1/((1-q^{5n+2})(1-q^{5n+3}))',cat:'b',strat:'b1,c1',sp:'Second RR, same pattern',status:'verified'},
- {n:9,f:'Jacobi triple product identity',cat:'b',strat:'b3',sp:'θ₂,θ₃,θ₄ table values',status:'verified'},
- {n:10,f:'₂F₁(½,½;1;1)=4/π',cat:'a',strat:'a1,e1',sp:'Gauss table of ₂F₁ values',status:'verified'},
- {n:11,f:'1/π=(2√2/9801)Σ(4n)!(1103+26390n)/((n!)⁴·396⁴ⁿ)',cat:'a',strat:'a1,e1,d1',sp:'e^{-π√n} pattern plus modular equations',status:'verified'},
- {n:12,f:'f(q)=Σq^{n²}/(-q;q)_n² [3rd-order mock θ]',cat:'d',strat:'d4,e1',sp:'Theta function partial sums vs exact values',status:'verified'},
- {n:13,f:'φ(q)=Σq^{n²}/(-q²;q²)_n [3rd-order mock θ]',cat:'d',strat:'d4',sp:'Same structure as f(q) but different Pochhammer',status:'verified'},
- {n:14,f:'ω(q)=Σq^{2n²+2n}/(q;q²)_{n+1}² [3rd-order mock θ]',cat:'d',strat:'d4',sp:'Last letter to Hardy, Jan 1920',status:'verified'},
- {n:15,f:'G_n=2^{-1/4}q^{-1/24}Π(1+q^{k-½}), q=e^{-π√n}',cat:'d',strat:'d1,e5',sp:'Computed via elliptic integral tables',status:'verified'},
- {n:16,f:'G_{25}=(1+√5)/2',cat:'d',strat:'d1,e5',sp:'Numerical: G_{25} computed from elliptic table',status:'verified'},
- {n:17,f:'K(k)=(π/2)θ₃(q)² where q=e^{-πK\'/K}',cat:'d',strat:'d2,b3',sp:'Elliptic integral table + theta function table',status:'verified'},
- {n:18,f:'K(1/√2)=Γ(1/4)²/(4√π)',cat:'d',strat:'d2,e1',sp:'AGM iteration for special modulus',status:'verified'},
- {n:19,f:'Ramanujan Master Theorem (RMT)',cat:'a',strat:'a4',sp:'Observed pattern in Mellin-type integrals',status:'verified'},
- {n:20,f:'₁ψ₁ bilateral summation',cat:'a',strat:'a3,b3',sp:'Extended one-sided ₁φ₁ to bilateral',status:'verified'},
- {n:21,f:'p(n)~e^{π√(2n/3)}/(4n√3)',cat:'c',strat:'c4,e4',sp:'Dominant singularity of GF at q=1',status:'verified'},
- {n:22,f:'√(1+2√(1+3√(1+4√(…))))=3',cat:'e',strat:'e2',sp:'Numerical: partial nestings converge to 3',status:'verified'},
- {n:23,f:'c_q(n)=μ(q/gcd(q,n))φ(q)/φ(q/gcd(q,n))',cat:'e',strat:'e3,e1',sp:'Numerical computation of exponential sums',status:'verified'},
- {n:24,f:'π cot(πz)=1/z+Σ1/(z+n)',cat:'a',strat:'e3',sp:'Partial fraction decomposition of cot',status:'verified'},
- {n:25,f:'Στ(n)qⁿ=qΠ(1-qⁿ)²⁴',cat:'b',strat:'b1,d6',sp:'Computed τ(n) numerically, spotted product',status:'verified'},
- {n:26,f:'1+2+3+…=-1/12 [Ramanujan regularisation]',cat:'a',strat:'a2,e7',sp:'Euler-Maclaurin constant term',status:'verified'},
- {n:27,f:'Clausen: [₂F₁(a,b;a+b+½;z)]²=₃F₂(2a,2b,a+b;…;z)',cat:'a',strat:'a1',sp:'Known from Gauss tables + verification',status:'verified'},
- {n:28,f:'q-binomial theorem: Σ(a;q)_nzⁿ/(q;q)_n=(az;q)∞/(z;q)∞',cat:'b',strat:'b2',sp:'q→1 limit recovers classical binomial theorem',status:'verified'},
- {n:29,f:'Γ(s)Γ(1-s)=π/sin(πs)',cat:'a',strat:'a4,e3',sp:'Partial fractions for sin(πz) plus RMT',status:'verified'},
- {n:30,f:'p(200)=3972999029388 [exact, circle method]',cat:'c',strat:'e4,c4',sp:'Circle method: evaluate contour near q=1',status:'verified'},
+ {n:1,f:'$\\displaystyle\\sum_{n\\ge0} p(n)q^n=\\prod_{k\\ge1}\\frac{1}{1-q^k}$',cat:'c',strat:'c1',sp:'Computed p(n) for small n',status:'verified'},
+ {n:2,f:'$p(5n+4)\\equiv0\\pmod{5}$',cat:'c',strat:'c2,e1',sp:'Numerical: p(4)=5,p(9)=30,p(14)=135',status:'verified'},
+ {n:3,f:'$p(7n+5)\\equiv0\\pmod{7}$',cat:'c',strat:'c2,e1',sp:'Numerical observation',status:'verified'},
+ {n:4,f:'$p(11n+6)\\equiv0\\pmod{11}$',cat:'c',strat:'c2,e1',sp:'Numerical observation',status:'verified'},
+ {n:5,f:'$\\displaystyle R(q)=\\cfrac{q^{1/5}}{1+\\cfrac{q}{1+\\cfrac{q^2}{1+\\cdots}}}$',cat:'b',strat:'b4,e1',sp:'CF partial quotient pattern',status:'verified'},
+ {n:6,f:'$R(e^{-2\\pi})=\\sqrt{5\\varphi}-\\varphi$',cat:'b',strat:'b4,d1',sp:'Modular equation at τ=i',status:'verified'},
+ {n:7,f:'$\\displaystyle\\sum_{n\\ge0}\\frac{q^{n^2}}{(q;q)_n}=\\prod_{n\\ge0}\\frac{1}{(1-q^{5n+1})(1-q^{5n+4})}$',cat:'b',strat:'b1,b3',sp:'Euler product pattern from GF',status:'verified'},
+ {n:8,f:'$\\displaystyle\\sum_{n\\ge0}\\frac{q^{n(n+1)/2}}{(q;q)_n}=\\prod_{n\\ge0}\\frac{1}{(1-q^{5n+2})(1-q^{5n+3})}$',cat:'b',strat:'b1,c1',sp:'Second RR, same pattern',status:'verified'},
+ {n:9,f:'$\\displaystyle\\prod_{n\\ge1}(1-q^{2n})(1+zq^{2n-1})(1+z^{-1}q^{2n-1})=\\sum_{n=-\\infty}^{\\infty}z^n q^{n^2}$',cat:'b',strat:'b3',sp:'θ₂,θ₃,θ₄ table values',status:'verified'},
+ {n:10,f:'${}_2F_1\\!\\left(\\tfrac12,\\tfrac12;1;1\\right)=\\frac{4}{\\pi}$',cat:'a',strat:'a1,e1',sp:'Gauss table of ₂F₁ values',status:'verified'},
+ {n:11,f:'$\\displaystyle\\frac{1}{\\pi}=\\frac{2\\sqrt2}{9801}\\sum_{n=0}^{\\infty}\\frac{(4n)!\\,(1103+26390n)}{(n!)^4\\,396^{4n}}$',cat:'a',strat:'a1,e1,d1',sp:'e^{-π√n} pattern plus modular equations',status:'verified'},
+ {n:12,f:'$\\displaystyle f(q)=\\sum_{n\\ge0}\\frac{q^{n^2}}{(-q;q)_n^2}\\quad[\\text{3rd-order mock }\\theta]$',cat:'d',strat:'d4,e1',sp:'Theta function partial sums vs exact values',status:'verified'},
+ {n:13,f:'$\\displaystyle\\varphi(q)=\\sum_{n\\ge0}\\frac{q^{n^2}}{(-q^2;q^2)_n}\\quad[\\text{3rd-order mock }\\theta]$',cat:'d',strat:'d4',sp:'Same structure as f(q) but different Pochhammer',status:'verified'},
+ {n:14,f:'$\\displaystyle\\omega(q)=\\sum_{n\\ge0}\\frac{q^{2n^2+2n}}{(q;q^2)_{n+1}^2}\\quad[\\text{3rd-order mock }\\theta]$',cat:'d',strat:'d4',sp:'Last letter to Hardy, Jan 1920',status:'verified'},
+ {n:15,f:'$\\displaystyle G_n=2^{-1/4}q^{-1/24}\\prod_{k\\ge1}(1+q^{k-1/2}),\\ q=e^{-\\pi\\sqrt n}$',cat:'d',strat:'d1,e5',sp:'Computed via elliptic integral tables',status:'verified'},
+ {n:16,f:'$G_{25}=\\frac{1+\\sqrt5}{2}$',cat:'d',strat:'d1,e5',sp:'Numerical: G_{25} computed from elliptic table',status:'verified'},
+ {n:17,f:'$K(k)=\\tfrac{\\pi}{2}\\,\\vartheta_3(q)^2,\\ q=e^{-\\pi K\'/K}$',cat:'d',strat:'d2,b3',sp:'Elliptic integral table + theta function table',status:'verified'},
+ {n:18,f:'$K\\!\\left(\\tfrac{1}{\\sqrt2}\\right)=\\frac{\\Gamma(\\tfrac14)^2}{4\\sqrt\\pi}$',cat:'d',strat:'d2,e1',sp:'AGM iteration for special modulus',status:'verified'},
+ {n:19,f:'$\\displaystyle\\int_0^{\\infty}\\!x^{s-1}\\!\\sum_{k=0}^{\\infty}\\frac{(-x)^k\\varphi(k)}{k!}\\,dx=\\Gamma(s)\\,\\varphi(-s)$',cat:'a',strat:'a4',sp:'Observed pattern in Mellin-type integrals',status:'verified'},
+ {n:20,f:'${}_1\\psi_1\\ \\text{bilateral summation}$',cat:'a',strat:'a3,b3',sp:'Extended one-sided ₁φ₁ to bilateral',status:'verified'},
+ {n:21,f:'$\\displaystyle p(n)\\sim\\frac{e^{\\pi\\sqrt{2n/3}}}{4n\\sqrt3}$',cat:'c',strat:'c4,e4',sp:'Dominant singularity of GF at q=1',status:'verified'},
+ {n:22,f:'$\\sqrt{1+2\\sqrt{1+3\\sqrt{1+4\\sqrt{\\cdots}}}}=3$',cat:'e',strat:'e2',sp:'Numerical: partial nestings converge to 3',status:'verified'},
+ {n:23,f:'$\\displaystyle c_q(n)=\\frac{\\mu(q/\\gcd(q,n))\\,\\varphi(q)}{\\varphi(q/\\gcd(q,n))}$',cat:'e',strat:'e3,e1',sp:'Numerical computation of exponential sums',status:'verified'},
+ {n:24,f:'$\\displaystyle\\pi\\cot(\\pi z)=\\frac{1}{z}+\\sum_{n\\ne0}\\frac{1}{z+n}$',cat:'a',strat:'e3',sp:'Partial fraction decomposition of cot',status:'verified'},
+ {n:25,f:'$\\displaystyle\\sum_{n\\ge1}\\tau(n)q^n=q\\prod_{n\\ge1}(1-q^n)^{24}$',cat:'b',strat:'b1,d6',sp:'Computed τ(n) numerically, spotted product',status:'verified'},
+ {n:26,f:'$1+2+3+\\cdots=-\\tfrac{1}{12}\\quad[\\text{Ramanujan regularisation}]$',cat:'a',strat:'a2,e7',sp:'Euler-Maclaurin constant term',status:'verified'},
+ {n:27,f:'$\\displaystyle{}_2F_1\\!\\left(a,b;a{+}b{+}\\tfrac12;z\\right)^2={}_3F_2\\!\\left(2a,2b,a{+}b;2a{+}2b,a{+}b{+}\\tfrac12;z\\right)$',cat:'a',strat:'a1',sp:'Known from Gauss tables + verification',status:'verified'},
+ {n:28,f:'$\\displaystyle\\sum_{n\\ge0}\\frac{(a;q)_n z^n}{(q;q)_n}=\\frac{(az;q)_\\infty}{(z;q)_\\infty}$',cat:'b',strat:'b2',sp:'q→1 limit recovers classical binomial theorem',status:'verified'},
+ {n:29,f:'$\\Gamma(s)\\Gamma(1-s)=\\frac{\\pi}{\\sin(\\pi s)}$',cat:'a',strat:'a4,e3',sp:'Partial fractions for sin(πz) plus RMT',status:'verified'},
+ {n:30,f:'$p(200)=3{,}972{,}999{,}029{,}388\\quad[\\text{circle method}]$',cat:'c',strat:'e4,c4',sp:'Circle method: evaluate contour near q=1',status:'verified'},
  /* ── SECOND PASS: 50 additional ── */
- {n:31,f:'τ(mn)=τ(m)τ(n) for gcd(m,n)=1',cat:'d',strat:'d6,e1',sp:'Numerical: computed τ, spotted multiplicativity',status:'extended'},
- {n:32,f:'τ(p^{a+1})=τ(p)τ(p^a)-p^{11}τ(p^{a-1})',cat:'d',strat:'d6,d1',sp:'Hecke recurrence from L-function Euler product',status:'extended'},
- {n:33,f:'eπ√163≈262537412640768743.999…',cat:'e',strat:'e1,d1,e5',sp:'Computed e^{π√n} numerically for many n',status:'extended'},
- {n:34,f:'π≈(2143/22)^{1/4} [error ~3×10^{-9}]',cat:'e',strat:'e1,e6,a1',sp:'Best rational near π⁴/22; CF convergents',status:'extended'},
- {n:35,f:'E₂=1-24Σnqⁿ/(1-qⁿ)',cat:'d',strat:'b3,d3',sp:'Theta derivative plus Ramanujan ODE',status:'extended'},
- {n:36,f:'E₄=1+240Σσ₃(n)qⁿ',cat:'d',strat:'b3,d3',sp:'Power of θ₃; Eisenstein series q-expansion',status:'extended'},
- {n:37,f:'E₆=1-504Σσ₅(n)qⁿ',cat:'d',strat:'b3,d3',sp:'Sixth-power theta; Eisenstein series',status:'extended'},
- {n:38,f:'E₄³-E₆²=1728Δ, Δ=qΠ(1-qⁿ)²⁴',cat:'d',strat:'d3,b1',sp:'Syzygies among Eisenstein series + product',status:'extended'},
- {n:39,f:'j(τ)=E₄³/Δ=q⁻¹+744+196884q+…',cat:'d',strat:'d1,e5',sp:'Computed j at CM points, spotted near-integers',status:'extended'},
- {n:40,f:'j(i)=1728=12³',cat:'d',strat:'d1,e1',sp:'CM point τ=i; modular transformation',status:'verified'},
- {n:41,f:'j((1+i√163)/2)=-262537412640768000',cat:'d',strat:'d1,e1,e5',sp:'Heegner-163 CM point computation',status:'extended'},
- {n:42,f:'φ(-q)=Π(1-qⁿ)=Σ(-1)ⁿq^{n(3n-1)/2}',cat:'b',strat:'b5,b1',sp:'Euler pentagonal; Ramanujan f-function',status:'verified'},
- {n:43,f:'ψ(q)=Σq^{n(n+1)/2} [half-theta]',cat:'b',strat:'b5,b3',sp:'Specialisation of Ramanujan f(a,b)',status:'verified'},
- {n:44,f:'χ(-q)=Π(1+qⁿ) [distinct parts GF]',cat:'b',strat:'b5,b1',sp:'f(a,b) specialisation; Euler product',status:'verified'},
- {n:45,f:'f(-q²,-q³)=Π(1-q^{5n})(1-q^{5n+2})(1-q^{5n+3})/Π(1-qⁿ)',cat:'b',strat:'b5,b4',sp:'Product in terms of RR CF functional equation',status:'extended'},
- {n:46,f:'Degree-2 modular equation: (α/β)^{1/4}+((1-α)/(1-β))^{1/4}=1',cat:'d',strat:'d5,d2',sp:'Landen transformation of elliptic integrals',status:'extended'},
- {n:47,f:'Degree-3 modular equation: (αβ)^{1/4}+((1-α)(1-β))^{1/4}=1',cat:'d',strat:'d5,d1',sp:'Cubic level; Ramanujan Notebook 2, Ch. 19',status:'extended'},
- {n:48,f:'K(k)=(π/2)·₂F₁(½,½;1;k²)',cat:'a',strat:'a1,d2',sp:'Hypergeometric representation of K',status:'verified'},
- {n:49,f:'₂F₁(¼,¾;1;k²)=(2/π)K(k)·(1-k²)^{1/4}',cat:'a',strat:'a1,d2',sp:'Quadratic transformation of ₂F₁',status:'extended'},
- {n:50,f:'Σ_{n≥1}n³qⁿ/(1-qⁿ)=(E₂²-E₄)/240',cat:'d',strat:'d3,b3',sp:'Power sum via Eisenstein ODEs',status:'extended'},
- {n:51,f:'ζ(2)=π²/6 [Euler; Ramanujan re-derived]',cat:'a',strat:'a1,e3',sp:'Partial fractions of (sin πx)/πx',status:'verified'},
- {n:52,f:'ζ(4)=π⁴/90; ζ(2n)=(-1)^{n+1}(2π)^{2n}B_{2n}/(2(2n)!)',cat:'a',strat:'a2,e3',sp:'Euler-Maclaurin + Bernoulli number formula',status:'verified'},
- {n:53,f:'Σ_{n≥1}coth(nπ)/n³=7π³/180',cat:'a',strat:'a3,e3',sp:'Bilateral extension + partial fractions for coth',status:'extended'},
- {n:54,f:'Σ_{n≥1}1/(n²sinh(nπ))=(π-3)/12·(other)',cat:'a',strat:'a3,e3',sp:'Ramanujan-type hyperbolic sum via bilateral',status:'extended'},
- {n:55,f:'L(s,χ)=Π_p 1/(1-χ(p)p^{-s})',cat:'d',strat:'d6,b1',sp:'Euler product structure from Dirichlet series',status:'extended'},
- {n:56,f:'Σμ(n)/nˢ=1/ζ(s)',cat:'d',strat:'d6,e1',sp:'Numerical: Σμ(n)/n^s×ζ(s)≈1, then prove',status:'extended'},
- {n:57,f:'ω(n)~ln ln n [Hardy-Ramanujan normal order]',cat:'c',strat:'c4,e1',sp:'Computed ω(n) for many n; CLT for primes',status:'verified'},
- {n:58,f:'Ramanujan prime: R_n such that π(R_n)-π(R_n/2)=n',cat:'c',strat:'e1,c4',sp:'Bertrand\'s postulate; computed prime counts',status:'extended'},
- {n:59,f:'Highly composite n: first terms 1,2,4,6,12,24,36,48,60…',cat:'e',strat:'e1,c4',sp:'Numerical: computed d(n) for all n up to limit',status:'extended'},
- {n:60,f:'d(n)≤exp((1+ε)ln n/ln ln n) for all n',cat:'c',strat:'c4,e1',sp:'Asymptotics of highly composite numbers',status:'extended'},
- {n:61,f:'f₀(q)=Σq^{n²}/(-q;q)_n [fifth-order mock θ]',cat:'d',strat:'d4',sp:'Natural extension of third-order f(q)',status:'extended'},
- {n:62,f:'F₀(q)=Σq^{2n²}/(q;q²)_n [fifth-order mock θ]',cat:'d',strat:'d4',sp:'Distinct-part variant of fifth-order family',status:'extended'},
- {n:63,f:'φ₀(q)=Σq^{n²}(-q;q²)_n [fifth-order mock θ]',cat:'d',strat:'d4',sp:'Mixed Pochhammer fifth-order family',status:'extended'},
- {n:64,f:'χ₀(q)=Σq^n/(q^{n+1};q)_n [fifth-order mock θ]',cat:'d',strat:'d4,b2',sp:'Different q-Pochhammer structure, q-analogue of eˣ',status:'extended'},
- {n:65,f:'F₀(q)=Σq^{n²+n}/(-q;q²)_{n+1} [seventh-order mock θ]',cat:'d',strat:'d4',sp:'In last letter to Hardy plus Watson (1936)',status:'extended'},
- {n:66,f:'Euler: 1+q+q³+q⁶+q^{10}+…=1/Π(1-q^n)',cat:'b',strat:'b1,a5',sp:'Pentagonal numbers as exponents; Euler product',status:'verified'},
- {n:67,f:'Durfee square: p(n)=Σ_{k=0}^∞ q^{k²}/(q;q)_k²',cat:'c',strat:'c6,c5',sp:'Ferrers diagram decomposition via Durfee square',status:'extended'},
- {n:68,f:'[n,k]_q = (q;q)_n / ((q;q)_k(q;q)_{n-k})',cat:'b',strat:'b2,c5',sp:'q-analogue of C(n,k); lattice path GF',status:'extended'},
- {n:69,f:'Ramanujan\'s sum: Σ_{gcd(a,q)=1}e^{2πian/q}',cat:'e',strat:'e3,e1',sp:'Computed exponential sums for small q,n',status:'verified'},
- {n:70,f:'ψ_q(-1)=Σ_{n=1}^∞(1/n-q/(n+q)) [q-digamma]',cat:'a',strat:'a2,b2',sp:'q-analogue of Euler–Maclaurin digamma formula',status:'extended'},
- {n:71,f:'θ₃(q)=1+2Σq^{n²} [Jacobi theta 3]',cat:'b',strat:'b3',sp:'Definition; pattern clear from q-series table',status:'verified'},
- {n:72,f:'θ₃(-1/τ)=√(-iτ)θ₃(τ) [modular transformation]',cat:'d',strat:'d1,b3',sp:'Poisson summation applied to Gaussian sum',status:'verified'},
- {n:73,f:'r₂(n) via θ₃(q)²=1+4Σ(χ₄*1)(d)q^n',cat:'b',strat:'b3,e1',sp:'Computed r₂(n), spotted pattern via theta power',status:'verified'},
- {n:74,f:'L=Σ(-1)^{n-1}/(2n-1)=π/4 [Leibniz]',cat:'a',strat:'e3,a1',sp:'Partial fractions of arctan; starting point for π',status:'verified'},
- {n:75,f:'π²/6=Σ1/n² [Euler; Ramanujan starting point]',cat:'a',strat:'e3,a1',sp:'Known result Ramanujan proved independently',status:'verified'},
- {n:76,f:'Ramanujan\'s continued fraction for π',cat:'e',strat:'b4,e1',sp:'CF partial quotients for π identified as arithmetic',status:'extended'},
- {n:77,f:'Gauss sum: Σ_{n=0}^{q-1}e^{2πin²/q}=√q·e^{πi/4}',cat:'e',strat:'e3,d1',sp:'Computed for small primes q; modular structure',status:'extended'},
- {n:78,f:'Σ(6n+1)(-¼)ⁿ(½)_n³/(n!)³=4/π',cat:'a',strat:'a1,e1',sp:'Hypergeometric + Clausen acceleration of π',status:'extended'},
- {n:79,f:'Hardy: ∫₀^T|ζ(½+it)|²dt~T ln T',cat:'d',strat:'d7,d6',sp:'Functional equation of ζ + L² mean value',status:'extended'},
- {n:80,f:'AGM(a,b)=Π(a+b)/2→Γ(¾)²/(4√π) for a=1,b=i',cat:'d',strat:'d2,e1',sp:'Gauss AGM limit identifies lemniscate constant',status:'extended'},
+ {n:31,f:'$\\tau(mn)=\\tau(m)\\tau(n)\\ \\text{for}\\ \\gcd(m,n)=1$',cat:'d',strat:'d6,e1',sp:'Numerical: computed τ, spotted multiplicativity',status:'extended'},
+ {n:32,f:'$\\tau(p^{a+1})=\\tau(p)\\tau(p^a)-p^{11}\\tau(p^{a-1})$',cat:'d',strat:'d6,d1',sp:'Hecke recurrence from L-function Euler product',status:'extended'},
+ {n:33,f:'$e^{\\pi\\sqrt{163}}\\approx262537412640768743.999\\ldots$',cat:'e',strat:'e1,d1,e5',sp:'Computed e^{π√n} numerically for many n',status:'extended'},
+ {n:34,f:'$\\pi\\approx\\left(\\tfrac{2143}{22}\\right)^{1/4}\\quad[\\text{error}\\sim3\\times10^{-9}]$',cat:'e',strat:'e1,e6,a1',sp:'Best rational near π⁴/22; CF convergents',status:'extended'},
+ {n:35,f:'$\\displaystyle E_2=1-24\\sum_{n\\ge1}\\frac{nq^n}{1-q^n}$',cat:'d',strat:'b3,d3',sp:'Theta derivative plus Ramanujan ODE',status:'extended'},
+ {n:36,f:'$\\displaystyle E_4=1+240\\sum_{n\\ge1}\\sigma_3(n)q^n$',cat:'d',strat:'b3,d3',sp:'Power of θ₃; Eisenstein series q-expansion',status:'extended'},
+ {n:37,f:'$\\displaystyle E_6=1-504\\sum_{n\\ge1}\\sigma_5(n)q^n$',cat:'d',strat:'b3,d3',sp:'Sixth-power theta; Eisenstein series',status:'extended'},
+ {n:38,f:'$\\displaystyle E_4^3-E_6^2=1728\\Delta,\\ \\Delta=q\\prod_{n\\ge1}(1-q^n)^{24}$',cat:'d',strat:'d3,b1',sp:'Syzygies among Eisenstein series + product',status:'extended'},
+ {n:39,f:'$j(\\tau)=E_4^3/\\Delta=q^{-1}+744+196884q+\\cdots$',cat:'d',strat:'d1,e5',sp:'Computed j at CM points, spotted near-integers',status:'extended'},
+ {n:40,f:'$j(i)=1728=12^3$',cat:'d',strat:'d1,e1',sp:'CM point τ=i; modular transformation',status:'verified'},
+ {n:41,f:'$j\\!\\left(\\tfrac{1+i\\sqrt{163}}{2}\\right)=-262537412640768000$',cat:'d',strat:'d1,e1,e5',sp:'Heegner-163 CM point computation',status:'extended'},
+ {n:42,f:'$\\displaystyle\\varphi(-q)=\\prod_{n\\ge1}(1-q^n)=\\sum_{n\\in\\mathbb{Z}}(-1)^n q^{n(3n-1)/2}$',cat:'b',strat:'b5,b1',sp:'Euler pentagonal; Ramanujan f-function',status:'verified'},
+ {n:43,f:'$\\displaystyle\\psi(q)=\\sum_{n\\ge0}q^{n(n+1)/2}\\quad[\\text{half-theta}]$',cat:'b',strat:'b5,b3',sp:'Specialisation of Ramanujan f(a,b)',status:'verified'},
+ {n:44,f:'$\\displaystyle\\chi(-q)=\\prod_{n\\ge1}(1+q^n)\\quad[\\text{distinct parts GF}]$',cat:'b',strat:'b5,b1',sp:'f(a,b) specialisation; Euler product',status:'verified'},
+ {n:45,f:'$\\displaystyle f(-q^2,-q^3)=\\frac{\\prod(1-q^{5n})(1-q^{5n+2})(1-q^{5n+3})}{\\prod(1-q^n)}$',cat:'b',strat:'b5,b4',sp:'Product in terms of RR CF functional equation',status:'extended'},
+ {n:46,f:'$(\\alpha/\\beta)^{1/4}+\\big((1-\\alpha)/(1-\\beta)\\big)^{1/4}=1$',cat:'d',strat:'d5,d2',sp:'Landen transformation of elliptic integrals',status:'extended'},
+ {n:47,f:'$(\\alpha\\beta)^{1/4}+\\big((1-\\alpha)(1-\\beta)\\big)^{1/4}=1$',cat:'d',strat:'d5,d1',sp:'Cubic level; Ramanujan Notebook 2, Ch. 19',status:'extended'},
+ {n:48,f:'$K(k)=\\tfrac{\\pi}{2}\\,{}_2F_1\\!\\left(\\tfrac12,\\tfrac12;1;k^2\\right)$',cat:'a',strat:'a1,d2',sp:'Hypergeometric representation of K',status:'verified'},
+ {n:49,f:'${}_2F_1\\!\\left(\\tfrac14,\\tfrac34;1;k^2\\right)=\\tfrac{2}{\\pi}K(k)(1-k^2)^{1/4}$',cat:'a',strat:'a1,d2',sp:'Quadratic transformation of ₂F₁',status:'extended'},
+ {n:50,f:'$\\displaystyle\\sum_{n\\ge1}\\frac{n^3 q^n}{1-q^n}=\\frac{E_2^2-E_4}{240}$',cat:'d',strat:'d3,b3',sp:'Power sum via Eisenstein ODEs',status:'extended'},
+ {n:51,f:'$\\zeta(2)=\\frac{\\pi^2}{6}\\quad[\\text{Euler; Ramanujan re-derived}]$',cat:'a',strat:'a1,e3',sp:'Partial fractions of (sin πx)/πx',status:'verified'},
+ {n:52,f:'$\\displaystyle\\zeta(4)=\\frac{\\pi^4}{90};\\ \\zeta(2n)=\\frac{(-1)^{n+1}(2\\pi)^{2n}B_{2n}}{2(2n)!}$',cat:'a',strat:'a2,e3',sp:'Euler-Maclaurin + Bernoulli number formula',status:'verified'},
+ {n:53,f:'$\\displaystyle\\sum_{n\\ge1}\\frac{\\coth(n\\pi)}{n^3}=\\frac{7\\pi^3}{180}$',cat:'a',strat:'a3,e3',sp:'Bilateral extension + partial fractions for coth',status:'extended'},
+ {n:54,f:'$\\displaystyle\\sum_{n\\ge1}\\frac{1}{n^2\\sinh(n\\pi)}\\quad[\\text{Ramanujan closed form}]$',cat:'a',strat:'a3,e3',sp:'Ramanujan-type hyperbolic sum via bilateral',status:'extended'},
+ {n:55,f:'$\\displaystyle L(s,\\chi)=\\prod_p\\frac{1}{1-\\chi(p)p^{-s}}$',cat:'d',strat:'d6,b1',sp:'Euler product structure from Dirichlet series',status:'extended'},
+ {n:56,f:'$\\displaystyle\\sum_{n\\ge1}\\frac{\\mu(n)}{n^s}=\\frac{1}{\\zeta(s)}$',cat:'d',strat:'d6,e1',sp:'Numerical: Σμ(n)/n^s×ζ(s)≈1, then prove',status:'extended'},
+ {n:57,f:'$\\omega(n)\\sim\\ln\\ln n\\quad[\\text{Hardy–Ramanujan normal order}]$',cat:'c',strat:'c4,e1',sp:'Computed ω(n) for many n; CLT for primes',status:'verified'},
+ {n:58,f:'$R_n:\\ \\pi(R_n)-\\pi(R_n/2)=n\\quad[\\text{Ramanujan prime}]$',cat:'c',strat:'e1,c4',sp:'Bertrand\'s postulate; computed prime counts',status:'extended'},
+ {n:59,f:'$\\text{Highly composite: }1,2,4,6,12,24,36,48,60,\\ldots$',cat:'e',strat:'e1,c4',sp:'Numerical: computed d(n) for all n up to limit',status:'extended'},
+ {n:60,f:'$d(n)\\le\\exp\\!\\left(\\frac{(1+\\varepsilon)\\ln n}{\\ln\\ln n}\\right)$',cat:'c',strat:'c4,e1',sp:'Asymptotics of highly composite numbers',status:'extended'},
+ {n:61,f:'$\\displaystyle f_0(q)=\\sum_{n\\ge0}\\frac{q^{n^2}}{(-q;q)_n}\\quad[\\text{5th-order mock }\\theta]$',cat:'d',strat:'d4',sp:'Natural extension of third-order f(q)',status:'extended'},
+ {n:62,f:'$\\displaystyle F_0(q)=\\sum_{n\\ge0}\\frac{q^{2n^2}}{(q;q^2)_n}\\quad[\\text{5th-order mock }\\theta]$',cat:'d',strat:'d4',sp:'Distinct-part variant of fifth-order family',status:'extended'},
+ {n:63,f:'$\\displaystyle\\varphi_0(q)=\\sum_{n\\ge0}q^{n^2}(-q;q^2)_n\\quad[\\text{5th-order mock }\\theta]$',cat:'d',strat:'d4',sp:'Mixed Pochhammer fifth-order family',status:'extended'},
+ {n:64,f:'$\\displaystyle\\chi_0(q)=\\sum_{n\\ge0}\\frac{q^n}{(q^{n+1};q)_n}\\quad[\\text{5th-order mock }\\theta]$',cat:'d',strat:'d4,b2',sp:'Different q-Pochhammer structure, q-analogue of eˣ',status:'extended'},
+ {n:65,f:'$\\displaystyle F_0(q)=\\sum_{n\\ge0}\\frac{q^{n^2+n}}{(-q;q^2)_{n+1}}\\quad[\\text{7th-order mock }\\theta]$',cat:'d',strat:'d4',sp:'In last letter to Hardy plus Watson (1936)',status:'extended'},
+ {n:66,f:'$\\displaystyle 1+q+q^3+q^6+q^{10}+\\cdots=\\frac{1}{\\prod_{n\\ge1}(1-q^n)}$',cat:'b',strat:'b1,a5',sp:'Pentagonal numbers as exponents; Euler product',status:'verified'},
+ {n:67,f:'$\\displaystyle p(n)=\\sum_{k=0}^{\\infty}\\frac{q^{k^2}}{(q;q)_k^2}\\quad[\\text{Durfee}]$',cat:'c',strat:'c6,c5',sp:'Ferrers diagram decomposition via Durfee square',status:'extended'},
+ {n:68,f:'$\\displaystyle\\binom{n}{k}_q=\\frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}}$',cat:'b',strat:'b2,c5',sp:'q-analogue of C(n,k); lattice path GF',status:'extended'},
+ {n:69,f:'$\\displaystyle\\sum_{\\gcd(a,q)=1}e^{2\\pi ian/q}\\quad[\\text{Ramanujan sum}]$',cat:'e',strat:'e3,e1',sp:'Computed exponential sums for small q,n',status:'verified'},
+ {n:70,f:'$\\displaystyle\\psi_q(-1)=\\sum_{n=1}^{\\infty}\\!\\left(\\frac{1}{n}-\\frac{q}{n+q}\\right)\\ [q\\text{-digamma}]$',cat:'a',strat:'a2,b2',sp:'q-analogue of Euler–Maclaurin digamma formula',status:'extended'},
+ {n:71,f:'$\\displaystyle\\vartheta_3(q)=1+2\\sum_{n\\ge1}q^{n^2}$',cat:'b',strat:'b3',sp:'Definition; pattern clear from q-series table',status:'verified'},
+ {n:72,f:'$\\vartheta_3(-1/\\tau)=\\sqrt{-i\\tau}\\,\\vartheta_3(\\tau)$',cat:'d',strat:'d1,b3',sp:'Poisson summation applied to Gaussian sum',status:'verified'},
+ {n:73,f:'$\\displaystyle\\vartheta_3(q)^2=1+4\\sum_{n\\ge1}(\\chi_4*1)(n)q^n\\ \\Rightarrow\\ r_2(n)$',cat:'b',strat:'b3,e1',sp:'Computed r₂(n), spotted pattern via theta power',status:'verified'},
+ {n:74,f:'$\\displaystyle L=\\sum_{n\\ge1}\\frac{(-1)^{n-1}}{2n-1}=\\frac{\\pi}{4}\\quad[\\text{Leibniz}]$',cat:'a',strat:'e3,a1',sp:'Partial fractions of arctan; starting point for π',status:'verified'},
+ {n:75,f:'$\\displaystyle\\frac{\\pi^2}{6}=\\sum_{n\\ge1}\\frac{1}{n^2}\\quad[\\text{Euler}]$',cat:'a',strat:'e3,a1',sp:'Known result Ramanujan proved independently',status:'verified'},
+ {n:76,f:'$\\text{Ramanujan continued fraction for }\\pi$',cat:'e',strat:'b4,e1',sp:'CF partial quotients for π identified as arithmetic',status:'extended'},
+ {n:77,f:'$\\displaystyle\\sum_{n=0}^{q-1}e^{2\\pi in^2/q}=\\sqrt q\\,e^{\\pi i/4}$',cat:'e',strat:'e3,d1',sp:'Computed for small primes q; modular structure',status:'extended'},
+ {n:78,f:'$\\displaystyle\\sum_{n\\ge0}(6n+1)\\!\\left(-\\tfrac14\\right)^{\\!n}\\frac{(\\tfrac12)_n^3}{(n!)^3}=\\frac{4}{\\pi}$',cat:'a',strat:'a1,e1',sp:'Hypergeometric + Clausen acceleration of π',status:'extended'},
+ {n:79,f:'$\\displaystyle\\int_0^T\\!\\left|\\zeta\\!\\left(\\tfrac12+it\\right)\\right|^2 dt\\sim T\\ln T$',cat:'d',strat:'d7,d6',sp:'Functional equation of ζ + L² mean value',status:'extended'},
+ {n:80,f:'$\\mathrm{AGM}(1,i)\\to\\frac{\\Gamma(\\tfrac34)^2}{4\\sqrt\\pi}$',cat:'d',strat:'d2,e1',sp:'Gauss AGM limit identifies lemniscate constant',status:'extended'},
 ];
 
 /* ══════════════════════════════════════════════════════════════════
@@ -625,53 +708,61 @@ const EXAMPLES=[
 ];
 
 /* ══════════════════════════════════════════════════════════════════
-   41 APPROXIMATION METHODS (Hardy-Littlewood + worldwide frontier)
+   82 APPROXIMATION METHODS (Hardy-Littlewood + worldwide frontier)
 ══════════════════════════════════════════════════════════════════ */
 const HBRANCHES={
- H1:{nm:'H1 · Oscillatory Integrals',cue:'Is the integrand of the form f(x)exp(iλg(x)) with a large parameter λ?'},
- H2:{nm:'H2 · Laplace-Type Integrals',cue:'Is the integrand dominated by a smooth maximum of a real exponent exp(λg(x))?'},
- H3:{nm:'H3 · Exponential Sums',cue:'Is the quantity a sum Σ exp(2πif(n)) over a range of integers?'},
+ H1:{nm:'H1 · Oscillatory Integrals',cue:'Is the integrand of the form $f(x)\\exp(i\\lambda g(x))$ with a large parameter $\\lambda ?$'},
+ H2:{nm:'H2 · Laplace-Type Integrals',cue:'Is the integrand dominated by a smooth maximum of a real exponent $\\exp(\\lambda g(x))?$'},
+ H3:{nm:'H3 · Exponential Sums',cue:'Is the quantity a sum $\\sum \\exp(2\\pi if(n))$ over a range of integers?'},
  H4:{nm:'H4 · Additive Number Theory',cue:'Is the problem about representing integers as sums of k-th powers, or about primes in arithmetic progressions?'},
  H5:{nm:'H5 · Sieve Methods',cue:'Is the goal an upper or lower bound on a count of integers with specified prime factor restrictions?'},
  H6:{nm:'H6 · Spectral & Trace Formulae',cue:'Is the sum over eigenvalues or zeros of an L-function? Is there a geometric dual?'},
- H7:{nm:'H7 · Special Function Asymptotics',cue:'Is the quantity a special function Γ(s), Jν(x), Ai(x) evaluated at a large argument?'},
+ H7:{nm:'H7 · Special Function Asymptotics',cue:'Is the quantity a special function $\\Gamma (s), J\\nu (x), Ai(x)$ evaluated at a large argument?'},
  H8:{nm:'H8 · Random Matrix Theory',cue:'Is the problem about moments of L-functions, zero spacing, or eigenvalue statistics?'},
  H9:{nm:'H9 · Resurgence & Trans-Series',cue:'Does the asymptotic expansion diverge? Are there non-perturbative (exponentially small) corrections?'},
  H10:{nm:'H10 · Modern Additive Combinatorics',cue:'Is the problem about arithmetic progressions, additive energy, or polynomial patterns in dense sets?'},
  H11:{nm:'H11 · Motivic Periods & Feynman Amplitudes',cue:'Is the quantity a period integral — the integral of an algebraic differential form over an algebraic cycle — arising from a Feynman graph or an L-function?'},
- H12:{nm:'H12 · Teichmüller Dynamics & Spectral Counting',cue:'Is the problem about lengths of closed geodesics on a hyperbolic surface, or about representations of surface groups in a higher-rank Lie group?'}
+ H12:{nm:'H12 · Teichmüller Dynamics & Spectral Counting',cue:'Is the problem about lengths of closed geodesics on a hyperbolic surface, or about representations of surface groups in a higher-rank Lie group?'},
+ H13:{"nm": "H13 · Real Analysis & Limiting Operations", "cue": "Is the desired identity obtained by passing a limit through a sum, integral, derivative, or asymptotic expansion?"},
+ H14:{"nm": "H14 · Measure Theory & Integration", "cue": "Is the object an integral over a measure space, quotient space, moduli space, probability space, or parameter family?"},
+ H15:{"nm": "H15 · Functional Analysis & Operator Methods", "cue": "Can the identity or estimate be encoded as a statement about an operator, norm, spectrum, dual space, or fixed point?"},
+ H16:{"nm": "H16 · Fourier & Harmonic Analysis", "cue": "Does the problem become simpler after Fourier transform, Poisson summation, Littlewood-Paley decomposition, or a singular-integral estimate?"},
+ H17:{"nm": "H17 · Harmonic Functions & Distributions", "cue": "Is the object best understood through Green functions, harmonic measure, weak derivatives, distributions, or potential kernels?"},
+ H18:{"nm": "H18 · Complex Analysis & Analytic Continuation", "cue": "Can the expression be evaluated by residues, analytic continuation, contour deformation, zeros/poles, or a product expansion?"},
+ H19:{"nm": "H19 · PDE & Evolution Methods", "cue": "Does the modern analogue of the Ramanujan identity arise as a heat, elliptic, dispersive, or microlocal evolution problem?"},
+ H20:{"nm": "H20 · Stochastic Calculus & Processes", "cue": "Can the same identity be interpreted through martingales, Brownian motion, diffusion generators, Feynman-Kac, or stochastic limits?"}
 };
 
 const HS=[
 /* H1 */
 {id:'h1a',br:'H1',nm:'Method of Stationary Phase',yr:'1850/1887',school:'UK (Stokes, Kelvin)',frontier:false,
- ds:'For ∫f(x)exp(iλg(x))dx, the main contribution comes from stationary points where g\'(x₀)=0. Near x₀ expand g(x)≈g(x₀)+½g\'\'(x₀)(x-x₀)² and evaluate the Gaussian integral. Phase cancels rapidly away from x₀.',
- cue:'Is g\'(x)=0 at finitely many interior points? Is g\'\'(x₀)≠0 at each?',
- fs:['∫f(x)e^{iλg(x)}dx ~ Σ_{x₀:g\'=0} f(x₀)e^{iλg(x₀)}√(2π/λ|g\'\'(x₀)|)·e^{iπ sgn(g\'\')/4}','Remainder: O(λ^{-3/2}) for smooth f,g','Applies to Bessel: J_n(λ)~√(2/πλ)cos(λ-nπ/2-π/4)']},
+ ds:'For $\\int f(x)\\exp(i\\lambda g(x))dx$, the main contribution comes from stationary points where $g\'(x_{0})=0$. Near $x_{0}$ expand $g(x)\\approx g(x_{0})+\\tfrac{1}{2}g\'\'(x_{0})(x-x_{0})^{2}$ and evaluate the Gaussian integral. Phase cancels rapidly away from $x_{0}$.',
+ cue:'Is $g\'(x)=0$ at finitely many interior points? Is $g\'\'(x_{0})\\ne 0$ at each?',
+ fs:['$\\int f(x)e^{i\\lambda g(x)}dx \\sim \\sum _{x_{0}:g\'=0} f(x_{0})e^{i\\lambda g(x_{0})}\\sqrt{2\\pi /\\lambda |g\'\'(x_{0})|}\\cdot e^{i\\pi sgn(g\'\')/4}$','$Remainder: O(\\lambda ^{-3/2}) \\text{for smooth} f,g$','$\\text{Applies to Bessel}: J_{n}(\\lambda ) \\sim \\sqrt{2/\\pi \\lambda }\\cos(\\lambda -n\\pi /2-\\pi /4)$']},
 {id:'h1b',br:'H1',nm:'Saddle Point / Steepest Descent',yr:'1863/1909',school:'Germany (Riemann, Debye)',frontier:false,
- ds:'Deform the contour of integration in the complex plane to pass through a saddle point z₀ where f\'(z₀)=0, along the path of steepest descent (where Im(f) is constant). On this path the integral reduces to a Gaussian times the integrand at the saddle.',
- cue:'Is the integrand analytic? Can the contour be deformed to pass through a saddle z₀ where f\'(z₀)=0?',
- fs:['∫e^{λf(z)}dz ~ e^{λf(z₀)}√(2π/λ|f\'\'(z₀)|)·e^{iθ/2} where θ=arg(-f\'\'(z₀))','Coalescing saddles → Airy function asymptotics','p(n): Hardy–Ramanujan applied saddle at q→1 in ∮GF(q)/q^{n+1}dq']},
+ ds:'Deform the contour of integration in the complex plane to pass through a saddle point $z_{0}$ where $f\'(z_{0})=0$, along the path of steepest descent (where $Im(f)$ is constant). On this path the integral reduces to a Gaussian times the integrand at the saddle.',
+ cue:'Is the integrand analytic? Can the contour be deformed to pass through a saddle $z_{0}$ where $f\'(z_{0})=0?$',
+ fs:['$\\int e^{\\lambda f(z)}dz \\sim e^{\\lambda f(z_{0})}\\sqrt{2\\pi /\\lambda |f\'\'(z_{0})|}\\cdot e^{i\\theta /2} where \\theta =\\arg(-f\'\'(z_{0}))$','$\\text{Coalescing saddles} \\to \\text{Airy function asymptotics}$','$p(n): Hardy–\\text{Ramanujan applied saddle at} q\\to 1 in \\oint GF(q)/q^{n+1}dq$']},
 {id:'h1c',br:'H1',nm:'Perron\'s Formula',yr:'1908',school:'Germany (Perron)',frontier:false,
- ds:'Extract the n-th coefficient of a Dirichlet series or generating function via the inverse Mellin/Laplace transform: a(n)=(1/2πi)∫_{σ-i∞}^{σ+i∞}F(s)n^{s}ds, then shift the contour past singularities collecting residues.',
- cue:'Is f(n) the n-th coefficient of a Dirichlet series F(s)=Σf(n)n^{-s} with known poles?',
- fs:['Perron: Σ_{n≤x}a(n)=(1/2πi)∫F(s)x^s/s ds (contour to right of all poles)','Residue at s=1 of ζ(s)x^s/s gives x (prime-counting main term)','Applied to Στ(n)n^{-s} to give Hecke L-function asymptotics']},
+ ds:'Extract the n-th coefficient of a Dirichlet series or generating function via the inverse Mellin/Laplace transform: $a(n)=(1/2\\pi i)\\int _{\\sigma -i\\infty }^{\\sigma +i\\infty }F(s)n^{s}ds$, then shift the contour past singularities collecting residues.',
+ cue:'Is $f(n)$ the n-th coefficient of a Dirichlet series $F(s)=\\sum f(n)n^{-s}$ with known poles?',
+ fs:['$Perron: \\sum _{n\\le x}a(n)=(1/2\\pi i)\\int F(s)x^{s}/s ds (\\text{contour to right of all poles})$','$\\text{Residue at} s=1 of \\zeta (s)x^{s}/s gives x (prime-\\text{counting main term})$','$\\text{Applied to} \\sum \\tau (n)n^{-s} \\text{to give Hecke} L-\\text{function asymptotics}$']},
 {id:'h1d',br:'H1',nm:'Oscillatory Integral Lᵖ Estimates',yr:'1978',school:'USA (E.M. Stein)',frontier:true,
- ds:'Prove Lᵖ→Lᵖ bounds for oscillatory integral operators T_λf(x)=∫e^{iλφ(x,y)}a(x,y)f(y)dy via the method of TT* and Schur\'s lemma. These are the analytic foundation of modern restriction estimates and Strichartz inequalities.',
+ ds:'Prove $Lᵖ\\to Lᵖ$ bounds for oscillatory integral operators $T_\\lambda f(x)=\\int e^{i\\lambda \\varphi (x,y)}a(x,y)f(y)dy$ via the method of TT* and Schur\'s lemma. These are the analytic foundation of modern restriction estimates and Strichartz inequalities.',
  cue:'Is the problem about mapping properties of an oscillatory integral operator in Lᵖ spaces?',
  fs:['||T_λ||_{L²→L²}≤C λ^{-d/2} when φ has non-degenerate Hessian [Stein 1978]','Carleson–Sjölin theorem: restriction to curved hypersurfaces','Bourgain–Guth: sharp Lᵖ Strichartz with decoupling [2015]']},
 /* H2 */
 {id:'h2a',br:'H2',nm:'Laplace\'s Method',yr:'1774',school:'France (Laplace)',frontier:false,
- ds:'For ∫f(x)exp(λg(x))dx with real g, the dominant contribution comes from the global maximum x₀ of g. Expand g≈g(x₀)+½g\'\'(x₀)(x-x₀)² and evaluate the Gaussian. The error is typically O(1/λ) relative to the leading term.',
- cue:'Is g(x) a smooth function with a unique global maximum at x₀ in (a,b) with g\'\'(x₀)<0?',
- fs:['∫_a^b f(x)e^{λg(x)}dx ~ f(x₀)e^{λg(x₀)}√(2π/λ|g\'\'(x₀)|) as λ→∞','Stirling: Γ(n+1)~√(2πn)(n/e)ⁿ via ∫₀^∞e^{n(ln t-t)}dt saddle at t=1','Partition asymptotics: GF saddle at q=e^{-1/√n} gives leading term']},
+ ds:'For $\\int f(x)\\exp(\\lambda g(x))dx$ with real g, the dominant contribution comes from the global maximum $x_{0}$ of g. Expand $g\\approx g(x_{0})+\\tfrac{1}{2}g\'\'(x_{0})(x-x_{0})^{2}$ and evaluate the Gaussian. The error is typically $O(1/\\lambda )$ relative to the leading term.',
+ cue:'Is $g(x)$ a smooth function with a unique global maximum at $x_{0}$ in (a,b) with $g\'\'(x_{0})<0?$',
+ fs:['$\\int _{a}^{b} f(x)e^{\\lambda g(x)}dx \\sim f(x_{0})e^{\\lambda g(x_{0})}\\sqrt{2\\pi /\\lambda |g\'\'(x_{0})|} as \\lambda \\to \\infty$','$Stirling: \\Gamma (n+1) \\sim \\sqrt{2\\pi n}(n/e)^{n} via \\int _{0}^\\infty e^{n(\\ln t-t)}\\text{dt saddle at} t=1$','$\\text{Partition asymptotics}: \\text{GF saddle at} q=e^{-1/\\sqrt{n}} \\text{gives leading term}$']},
 {id:'h2b',br:'H2',nm:'Watson\'s Lemma',yr:'1918',school:'UK/Cambridge (G.N. Watson)',frontier:false,
- ds:'For ∫₀^∞ e^{-λt}f(t)dt where f(t)~Σ aₙ t^{αₙ} as t→0⁺, the asymptotic expansion is Σ aₙ Γ(αₙ+1)/λ^{αₙ+1}. This converts the behaviour of f near 0 into the large-λ behaviour of the integral.',
- cue:'Is the integral Laplace-type ∫₀^∞ e^{-λt}f(t)dt with f known as a series near t=0?',
+ ds:'For $\\int _{0}^\\infty e^{-\\lambda t}f(t)dt$ where $f(t) \\sim \\sum a_{n} t^{\\alpha _{n}}$ as $t\\to 0^{+}$, the asymptotic expansion is $\\sum a_{n} \\Gamma (\\alpha _{n}+1)/\\lambda ^{\\alpha _{n}+1}$. This converts the behaviour of f near 0 into the $large-\\lambda$ behaviour of the integral.',
+ cue:'Is the integral Laplace-type $\\int _{0}^\\infty e^{-\\lambda t}f(t)dt$ with f known as a series near $t=0?$',
  fs:['∫₀^∞e^{-λt}t^{α-1}f(t)dt~Σ aₙΓ(α+n)/λ^{α+n} [Watson\'s lemma]','Bessel: K_ν(λ)~√(π/2λ)e^{-λ}(1+series in 1/λ) via Watson','Gamma function: Γ(λ+1)~√(2π/λ)(λ/e)^λ via saddle+Watson']},
 {id:'h2c',br:'H2',nm:'Stirling\'s Complete Series',yr:'1730/1812',school:'Scotland/France (Stirling, Laplace)',frontier:false,
- ds:'Γ(s+1)~√(2πs)(s/e)^s exp(Σ B_{2k}/[2k(2k-1)s^{2k-1}]) = exact asymptotic series. Each term improves the approximation; the series diverges but is Borel-summable. Connects to Ramanujan\'s Euler-Maclaurin work on factorials.',
- cue:'Is the expression n! or Γ(n) for large n? Need the full asymptotic series, not just leading term?',
+ ds:'$\\Gamma (s+1) \\sim \\sqrt{2\\pi s}(s/e)^{s} \\exp(\\sum B_{2k}/[2k(2k-1)s^{2k-1}]) =$ exact asymptotic series. Each term improves the approximation; the series diverges but is Borel-summable. Connects to Ramanujan\'s Euler-Maclaurin work on factorials.',
+ cue:'Is the expression n! or $\\Gamma (n)$ for large n? Need the full asymptotic series, not just leading term?',
  fs:['ln Γ(s+1)=s ln s-s+½ln(2πs)+Σ B_{2k}/(2k(2k-1)s^{2k-1})','B_2/12s-B_4/(360s³)+B_6/(1260s⁵)-… [explicit Bernoulli corrections]','Ramanujan\'s even better approximation: (n/e)^n·(8n³+4n²+n+1/30)^{1/6}·√π']},
 {id:'h2d',br:'H2',nm:'Coalescing Saddle / Airy Asymptotics',yr:'1957',school:'USA/UK (Chester–Friedman–Ursell)',frontier:false,
  ds:'When two saddle points coalesce as a parameter varies, the standard saddle-point approximation breaks down. Near coalescence the integral is approximated by an Airy function or a cubic exponential. This framework governs transition-region asymptotics.',
@@ -679,40 +770,40 @@ const HS=[
  fs:['∫e^{λ(t³/3-xt)}dt=2π/λ^{1/3}·Ai(λ^{2/3}x) [Airy function definition]','Ai(x)~(1/2√πx^{1/4})e^{-2x^{3/2}/3} for x→+∞','Bessel J_n(n) via coalescing saddle → Airy function [uniform asymptotics]']},
 /* H3 */
 {id:'h3a',br:'H3',nm:'Weyl\'s Method / Weyl Differencing',yr:'1916',school:'Germany (Weyl)',frontier:false,
- ds:'Bound exponential sums Σ e^{2πif(n)} where f is a polynomial of degree k. Apply Cauchy–Schwarz k-1 times ("Weyl differencing") to reduce to counting solutions of a system of equations, then apply Diophantine estimates.',
- cue:'Is f(n) a polynomial of degree k? Apply Cauchy–Schwarz k-1 times to reduce to a mean-value problem.',
+ ds:'Bound exponential sums $\\sum e^{2\\pi if(n)}$ where f is a polynomial of degree k. Apply Cauchy–Schwarz k-1 times ("Weyl differencing") to reduce to counting solutions of a system of equations, then apply Diophantine estimates.',
+ cue:'Is $f(n)$ a polynomial of degree k? Apply Cauchy–Schwarz k-1 times to reduce to a mean-value problem.',
  fs:['|Σ_{n=1}^N e^{2πiαn^k}|≤ C N^{1-1/2^{k-1}+ε} [Weyl bound]','Improved by Vinogradov to N^{1-c/k log k} for large k','Weyl differencing: |Σe^{2πif}|^{2k}≤N^{2k-2k}Σ_{h}…']},
 {id:'h3b',br:'H3',nm:'Van der Corput A/B-Process',yr:'1922',school:'Netherlands (van der Corput)',frontier:false,
- ds:'Two complementary processes for bounding Σ e^{2πif(n)}: A-process reduces the derivative order by partial summation; B-process (Poisson summation) converts a sum with large f\' to a shorter sum. Iterate A and B to get the van der Corput exponent pairs.',
+ ds:'Two complementary processes for bounding $\\sum e^{2\\pi if(n)}$: A-process reduces the derivative order by partial summation; B-process (Poisson summation) converts a sum with large f\' to a shorter sum. Iterate A and B to get the van der Corput exponent pairs.',
  cue:'Does f\'(x) vary over [1,N]? Apply B if f\' is near an integer, A otherwise.',
  fs:['A-process: Σe^{2πif(n)}=O(N^{-1/2}||f\'||^{-1/2}) for monotone f\' [partial sum]','B-process: Σe^{2πif(n)}~Σ_{r} e^{2πi(f(xᵣ)-rxᵣ+r/8)} [Poisson dual]','Combined (A,B,A…): ζ(½+it)=O(t^{1/6+ε}) [van der Corput 1922]']},
 {id:'h3c',br:'H3',nm:'Vinogradov\'s Method',yr:'1934',school:'Russia (Vinogradov)',frontier:false,
- ds:'For exponential sums with f of large degree k, Vinogradov\'s "bilinear forms" technique exploits the structure of multiplicative characters to give bounds far stronger than Weyl\'s. The mean value theorem J_{s,k}(X) is the key intermediate quantity.',
+ ds:'For exponential sums with f of large degree k, Vinogradov\'s "bilinear forms" technique exploits the structure of multiplicative characters to give bounds far stronger than Weyl\'s. The mean value theorem $J_{s,k}(X)$ is the key intermediate quantity.',
  cue:'Is k large relative to ln N? Vinogradov beats Weyl by a factor of O(k log k).',
  fs:['J_{s,k}(X)=#{x∈[1,X]^{2s}: x₁^j+…+x_s^j=x_{s+1}^j+…+x_{2s}^j, j=1..k}','Vinogradov: J_{s,k}(X)≤C X^{2s-k(k+1)/2+ε} for s≥k(k+1)/2','Σe^{2πiαn^k}=O(N^{1-ck²/(ln k)^2}) [Vinogradov]']},
 {id:'h3d',br:'H3',nm:'Bourgain–Demeter–Guth Decoupling',yr:'2016',school:'France/USA (Bourgain, Demeter, Guth)',frontier:true,
- ds:'The parabolic decoupling theorem: ||Σ_{τ} f_τ||_{Lᵖ(B_R)} ≤ C(ε,R^ε)(Σ||f_τ||_{Lᵖ}²)^{½} for p=2(n+1)/(n-1). Applied to Vinogradov\'s mean value, it gives the sharp J_{s,k}(X)≤X^{s+ε} for s≥k(k+1)/2 — proving Vinogradov\'s Main Conjecture.',
+ ds:'The parabolic decoupling theorem: $||\\sum _{\\tau } f_\\tau ||_{Lᵖ(B_{R})} \\le C(\\varepsilon ,R^\\varepsilon )(\\sum ||f_\\tau ||_{Lᵖ}^{2})^{\\tfrac{1}{2}}$ for $p=2(n+1)/(n-1)$. Applied to Vinogradov\'s mean value, it gives the sharp $J_{s,k}(X)\\le X^{s+\\varepsilon }$ for $s\\ge k(k+1)/2$ — proving Vinogradov\'s Main Conjecture.',
  cue:'Is the problem reducible to a Lᵖ norm of a sum over curved caps of a hypersurface?',
  fs:['Decoupling: ||Σe^{2πin·ξ}||_{L^{2(n+2)/n}}≤R^ε(Σ||f_τ||^2)^{½} [parabola]','Main Conjecture (proved): J_{s,k}(X)≤X^{s+ε} for s≥k(k+1)/2','Waring\'s problem: G(k)≤2k²+2k-3 for k≥3 [Wooley 2019 via decoupling]']},
 {id:'h3e',br:'H3',nm:'Hua Loo-Keng\'s Method',yr:'1938',school:'China (Hua)',frontier:false,
  ds:'Hua\'s lemma and iterative mean-value estimates for exponential sums with polynomial f. Extends Weyl differencing using a specific geometric decomposition that is particularly effective for pure k-th powers. Foundational for Waring\'s problem in the Chinese school.',
- cue:'Is f(n)=αnᵏ a pure k-th power? Are the resulting mean-value integrals expressible in terms of Hua integrals?',
+ cue:'Is $f(n)=\\alpha n^{k}$ a pure k-th power? Are the resulting mean-value integrals expressible in terms of Hua integrals?',
  fs:['∫₀¹|Σ_{n=1}^N e^{2πiαn^k}|^{2s}dα=J_{s,k}(N) [Hua\'s integral]','Hua lemma: J_{s,k}≤J_{s-1,k}^{1-1/k}·N^{s/k+ε} [iterative bound]','Waring: G(k)≤O(k log k) [combined Hua + Vinogradov, improved by Wooley]']},
 /* H4 */
 {id:'h4a',br:'H4',nm:'Hardy–Ramanujan–Littlewood Circle Method',yr:'1918/1920',school:'UK/India (Hardy, Ramanujan, Littlewood)',frontier:false,
- ds:'For a generating function F(q)=Σa(n)qⁿ, write a(n)=∮F(q)/q^{n+1}dq. Decompose the unit circle into major arcs (near roots of unity e^{2πih/k}) and minor arcs. On major arcs F(q) is approximated by theta functions or exponential factors; minor arcs are bounded by Weyl sums.',
- cue:'Is a(n) the coefficient of a generating function with known behaviour near roots of unity?',
+ ds:'For a generating function $F(q)=\\sum a(n)q^{n}$, write $a(n)=\\oint F(q)/q^{n+1}dq$. Decompose the unit circle into major arcs (near roots of unity $e^{2\\pi ih/k})$ and minor arcs. On major arcs $F(q)$ is approximated by theta functions or exponential factors; minor arcs are bounded by Weyl sums.',
+ cue:'Is $a(n)$ the coefficient of a generating function with known behaviour near roots of unity?',
  fs:['p(n)=(1/2π)∫F(e^{-z+2πiθ})e^{nz-2πinθ}dθ, major arcs near θ=h/k','Major arc contribution: θ function evaluated at e^{-z} times exponential','Minor arcs: |F(q)|≤C N^{1/2+ε} via Weyl [Vinogradov refinement gives O(N^{ε-c})]']},
 {id:'h4b',br:'H4',nm:'Vaughan\'s Identity',yr:'1977',school:'UK (R.C. Vaughan)',frontier:false,
- ds:'Factor the von Mangoldt function Λ(n) into "type I" sums (smooth × primes up to U) and "type II" sums (bilinear forms over primes up to V). This splits Σ_{n≤N}Λ(n)e^{2πiαn} into tractable pieces, each bounded by different techniques.',
- cue:'Is the sum Σ Λ(n)f(n) over primes? Decompose using Vaughan\'s identity to reduce to type I/II sums.',
+ ds:'Factor the von Mangoldt function $\\Lambda (n)$ into "type I" sums (smooth $\\times$ primes up to U) and "type II" sums (bilinear forms over primes up to V). This splits $\\sum _{n\\le N}\\Lambda (n)e^{2\\pi i\\alpha n}$ into tractable pieces, each bounded by different techniques.',
+ cue:'Is the sum $\\sum \\Lambda (n)f(n)$ over primes? Decompose using Vaughan\'s identity to reduce to type I/II sums.',
  fs:['Λ(n)=Σ_{d|n}μ(d)lnd=-Σ_{d|n}μ(d)·Σ_{d\'|n/d}μ(d\')Λ(d\') [Vaughan decomposition]','Type I: Σ_{m≤U}a(m)Σ_{n≤N/m}f(mn) [smooth, bounded by large sieve]','Type II: bilinear sums, bounded by van der Corput + Cauchy-Schwarz']},
 {id:'h4c',br:'H4',nm:'Large Sieve Inequality',yr:'1941/1965',school:'Russia/Italy/USA (Linnik, Bombieri, Montgomery)',frontier:false,
- ds:'For any sequence aₙ and any set of well-spaced points α_r, Σ_r|Σ_{n=M}^{M+N}aₙe^{2πinα_r}|²≤(N+Q²)Σ|aₙ|². This majorises the L² norm of a trigonometric polynomial over many frequencies simultaneously.',
- cue:'Are there many characters χ or Dirichlet series evaluations to bound simultaneously?',
+ ds:'For any sequence $a_{n}$ and any set of well-spaced points $\\alpha _{r}, \\sum _{r}|\\sum _{n=M}^{M+N}a_{n}e^{2\\pi in\\alpha _{r}}|^{2}\\le (N+Q^{2})\\sum |a_{n}|^{2}$. This majorises the $L^{2}$ norm of a trigonometric polynomial over many frequencies simultaneously.',
+ cue:'Are there many characters $\\chi$ or Dirichlet series evaluations to bound simultaneously?',
  fs:['Σ_{q≤Q}Σ_{χ mod q}|Σ_{n≤N}aₙχ(n)|²≤(N+Q²)Σ|aₙ|² [Montgomery–Vaughan]','Bombieri–Vinogradov: Σ_{q≤x^{½}/log^A x}max|π(x;q,a)-li(x)/φ(q)|=O(x/log^B x)','Applied in circle method to bound major arc tails']},
 {id:'h4d',br:'H4',nm:'Waring\'s Problem (Hua–Wooley)',yr:'1938/2019',school:'China/UK (Hua, Wooley)',frontier:true,
- ds:'Every sufficiently large integer is a sum of G(k) k-th powers. Prove G(k)≤k(log k+C) using the efficient congruencing method (Wooley 2012) combined with Bourgain–Demeter–Guth decoupling. The Main Conjecture of Vinogradov has now been proved.',
+ ds:'Every sufficiently large integer is a sum of $G(k)$ k-th powers. Prove $G(k)\\le k(\\log$ k+C) using the efficient congruencing method (Wooley 2012) combined with Bourgain–Demeter–Guth decoupling. The Main Conjecture of Vinogradov has now been proved.',
  cue:'Is the problem about representing n as a sum of k-th powers? Use circle method + efficient congruencing.',
  fs:['G(k)≤2k²+2k-3 [Wooley 2019, best known for k≥3]','G(2)=4 [Lagrange 1770]; G(3)=7 [Linnik 1943]','Efficient congruencing: J_{s,k}(X)≤X^{s+ε} [Wooley 2012, refined 2019]']},
 {id:'h4e',br:'H4',nm:'Kloosterman Sum Estimates',yr:'1926/1948',school:'Netherlands/France (Kloosterman, Weil)',frontier:false,
@@ -865,7 +956,40 @@ const HS=[
  ds:'The Eskin–Mirzakhani–Mohammadi theorem (2012): every SL(2,ℝ) orbit closure in a stratum of Abelian differentials is an affine invariant submanifold (an "affine manifold"). This is the analogue of Ratner\'s theorem for the Teichmüller geodesic flow. The result implies striking rigidity: all equidistribution, counting, and recurrence theorems for Teichmüller dynamics hold at the level of these affine manifolds. Dyson\'s "birds and frogs" distinction applies here — the affine invariant manifold is the "bird\'s-eye view" that unifies the specific closed geodesic counts that the "frogs" compute.',
  cue:'Is the problem about the long-time behaviour of the Teichmüller geodesic flow, or about the distribution of flat metrics on surfaces?',
  frontier:true,
- fs:['Eskin-Mirzakhani-Mohammadi: every SL(2,ℝ)-orbit closure is an affine invariant submanifold M̃⊂H(κ)','Counting in flat surfaces: #{periodic trajectories: length ≤L}~c·L² [quadratic area growth]','Lyapunov exponents of Kontsevich-Zorich cocycle: 1=λ₁≥λ₂≥…≥λ_g≥0 [relate to WP geometry]']}
+ fs:['Eskin-Mirzakhani-Mohammadi: every SL(2,ℝ)-orbit closure is an affine invariant submanifold M̃⊂H(κ)','Counting in flat surfaces: #{periodic trajectories: length ≤L}~c·L² [quadratic area growth]','Lyapunov exponents of Kontsevich-Zorich cocycle: 1=λ₁≥λ₂≥…≥λ_g≥0 [relate to WP geometry]']},
+{id:"h13a",br:"H13",nm:"Monotone Convergence Theorem (MCT)",yr:"1906/modern",school:"Lebesgue / Beppo Levi",frontier:false,ds:"Use MCT when finite Ramanujan-style truncations increase to an infinite product, series, or integral.",cue:"Do the approximants satisfy $0\le f_N\uparrow f$?",fs:["$0\le f_n\uparrow f\Longrightarrow \int f\,d\mu=\lim_{n\to\infty}\int f_n\,d\mu$","$\sum_{n\ge0}\int a_n\,d\mu=\int\sum_{n\ge0}a_n\,d\mu\quad(a_n\ge0)$","$\sum_{n\ge0}p(n)q^n=\lim_{N\to\infty}\prod_{k=1}^{N}(1-q^k)^{-1}$"],demo:[{q:"Positivity",a:"Are the finite products or partial sums nonnegative?"},{q:"Monotone limit",a:"Do they increase to the infinite object?"},{q:"Exchange",a:"Use MCT to move the limit through the integral/sum.",formula:"$0\le f_N\uparrow f\Rightarrow \int f_N\to\int f$"},{q:"Result",a:"The formal infinite product becomes a legitimate analytic limit."}]},
+{id:"h13b",br:"H13",nm:"Dominated Convergence Theorem (DCT)",yr:"1910/modern",school:"Lebesgue",frontier:false,ds:"Use DCT to justify limits, derivatives, and parameter changes under integrals in Mellin, theta, and special-function identities.",cue:"Is there $g\in L^1$ with $|f_n|\le g$ and $f_n\to f$?",fs:["$f_n\to f,\ |f_n|\le g\in L^1\Longrightarrow \lim_n\int f_n=\int f$","$\frac{d}{ds}\int_0^\infty x^{s-1}F(x)dx=\int_0^\infty x^{s-1}\log(x)F(x)dx$","$\lim_{q\uparrow1}(1-q)^{1-x}\frac{(q;q)_\infty}{(q^x;q)_\infty}=\Gamma(x)$"],demo:[{q:"Parameter",a:"Is a limit or derivative being passed through an integral?"},{q:"Majorant",a:"Can all terms be bounded by one integrable function?"},{q:"Pass limit",a:"Apply DCT.",formula:"$|f_n|\le g\in L^1,\ f_n\to f\Rightarrow \int f_n\to\int f$"},{q:"Recognize",a:"Identify the limit as a Gamma, zeta, theta, or Mellin object."}]},
+{id:"h13c",br:"H13",nm:"Fatou Lemma & Lower Semicontinuity",yr:"1906",school:"Fatou",frontier:false,ds:"Use Fatou when only one-sided convergence is available, especially for lower bounds in asymptotic matching.",cue:"Do you only control $\liminf f_n$?",fs:["$\int \liminf_{n\to\infty}f_n\,d\mu\le\liminf_{n\to\infty}\int f_n\,d\mu$","$\|f\|_p\le\liminf_n\|f_n\|_p$","$\liminf_{N\to\infty}N^{-1}\sum_{n\le N}|a_n|^2\ge0$"],demo:[{q:"Weak data",a:"Is domination unavailable?"},{q:"One-sided goal",a:"Is a lower bound enough?"},{q:"Apply Fatou",a:"Move liminf through the integral in the safe direction.",formula:"$\int\liminf f_n\le\liminf\int f_n$"},{q:"Finish",a:"Bracket the conjecture before proving equality by another method."}]},
+{id:"h13d",br:"H13",nm:"Tauberian Passage from Generating Functions",yr:"1897/1931",school:"Tauber / Hardy-Littlewood-Karamata",frontier:false,ds:"Infer coefficient asymptotics from singular behavior near $q=1$, a rigorous version of Ramanujan-Hardy asymptotic intuition.",cue:"Do you know $F(e^{-t})$ as $t\downarrow0$ and want coefficients?",fs:["$F(e^{-t})\sim C t^{-\alpha}\Longrightarrow \sum_{n\le x}a_n\sim \frac{C}{\Gamma(\alpha+1)}x^\alpha$","$A(x)\sim x^\rho L(x)\Longleftrightarrow \int_0^\infty e^{-tx}dA(x)\sim\Gamma(\rho+1)t^{-\rho}L(1/t)$","$\prod_{k\ge1}(1-e^{-kt})^{-1}\sim \exp\left(\frac{\pi^2}{6t}\right)$"],demo:[{q:"Singularity",a:"What is the dominant singular term?"},{q:"Positivity",a:"Are coefficients nonnegative or regular enough?"},{q:"Tauberian step",a:"Convert singular behavior to counting behavior.",formula:"$F(e^{-t})\sim C t^{-\alpha}\Rightarrow A(x)\sim Cx^\alpha/\Gamma(\alpha+1)$"},{q:"Output",a:"Recover leading growth of a partition or counting function."}]},
+{id:"h14a",br:"H14",nm:"Tonelli-Fubini Interchange",yr:"1907/1909",school:"Tonelli / Fubini",frontier:false,ds:"Legalizes Ramanujan-style interchanges of sums, integrals, and products.",cue:"Is the double sum/integral nonnegative or absolutely integrable?",fs:["$\int_X\sum_{n\ge0}f_n\,d\mu=\sum_{n\ge0}\int_X f_n\,d\mu\quad(f_n\ge0)$","$\int_X\int_Y |f|<\infty\Rightarrow \int_X\int_Y f=\int_Y\int_X f$","$\sum_{m,n\ge1}q^{mn}=\sum_{m\ge1}\frac{q^m}{1-q^m}$"],demo:[{q:"Interchange",a:"Is the manipulation a double-sum or sum-integral swap?"},{q:"Legality",a:"Check nonnegativity or absolute convergence."},{q:"Swap",a:"Apply Tonelli or Fubini.",formula:"$\int\sum f_n=\sum\int f_n$"},{q:"Output",a:"Lambert series and theta transforms become rigorous rearrangements."}]},
+{id:"h14b",br:"H14",nm:"Change of Variables & Pushforward Measures",yr:"modern",school:"Worldwide",frontier:false,ds:"Explains modular transformations and Mellin substitutions as measure pushforwards.",cue:"Is the identity caused by $x\mapsto1/x$ or $\tau\mapsto-1/\tau$?",fs:["$\int_Y \phi\,d(T_\#\mu)=\int_X \phi\circ T\,d\mu$","$\int_{\mathbb R^d}f(Tx)|\det T|dx=\int_{\mathbb R^d}f(y)dy$","$\vartheta(t)=t^{-1/2}\vartheta(1/t)$"],demo:[{q:"Substitution",a:"Which map transforms the object?"},{q:"Jacobian",a:"What density factor appears?"},{q:"Push forward",a:"Rewrite the integral in the new measure.",formula:"$\int \phi\,d(T_\#\mu)=\int\phi\circ T\,d\mu$"},{q:"Output",a:"A modular/theta identity emerges."}]},
+{id:"h14c",br:"H14",nm:"Radon-Nikodym & Conditional Expectation",yr:"1913/1933",school:"Radon / Nikodym / Kolmogorov",frontier:false,ds:"Turns weighted means, moduli-space averages, and conditional information into density calculations.",cue:"Is one measure absolutely continuous with respect to another?",fs:["$\nu\ll\mu\Longrightarrow d\nu=\frac{d\nu}{d\mu}d\mu$","$\mathbb E[X\mathbf 1_A]=\int_A\mathbb E[X\mid\mathcal G]d\mathbb P$","$\frac{d\mu_{WP,L}}{d\mu_{WP}}=\text{length\ density}$"],demo:[{q:"Weight",a:"Is the mysterious factor a density?"},{q:"Absolute continuity",a:"Can one measure be expressed relative to another?"},{q:"Derivative",a:"Extract the Radon-Nikodym derivative.",formula:"$d\nu=(d\nu/d\mu)d\mu$"},{q:"Output",a:"A weighted spectral or moduli average becomes an expectation."}]},
+{id:"h14d",br:"H14",nm:"Weak Convergence & Tightness",yr:"1930s/1950s",school:"Prokhorov / Levy",frontier:false,ds:"Used when zeros, eigenvalues, partitions, or surfaces converge as empirical measures.",cue:"Are measures converging through test functions?",fs:["$\mu_n\Rightarrow\mu\Longleftrightarrow \int f\,d\mu_n\to\int f\,d\mu\quad(f\in C_b)$","$\{\mu_n\}\ \text{tight}\Rightarrow\exists\mu_{n_k}\Rightarrow\mu$","$N^{-1}\sum_{j=1}^{N}\delta_{\lambda_j}\Rightarrow \rho_{sc}(x)dx$"],demo:[{q:"Empirical law",a:"Are data being counted as measures?"},{q:"Test functions",a:"Can convergence be checked against smooth tests?"},{q:"Tightness",a:"Show no mass escapes.",formula:"$\mu_n\Rightarrow\mu\iff\int f\,d\mu_n\to\int f\,d\mu$"},{q:"Output",a:"Numerics become a limiting spectral law."}]},
+{id:"h15a",br:"H15",nm:"Banach Fixed Point & Contraction Method",yr:"1922",school:"Banach",frontier:false,ds:"Useful for infinite radicals, continued fractions, recursive identities, and nonlinear integral equations.",cue:"Can the expression be written as $x=T(x)$ with $T$ a contraction?",fs:["$d(Tx,Ty)\le c d(x,y),\ 0<c<1\Longrightarrow \exists!x^*:Tx^*=x^*$","$x_{n+1}=T(x_n)\Rightarrow d(x_n,x^*)\le \frac{c^n}{1-c}d(x_1,x_0)$","$x=\sqrt{1+2\sqrt{1+3\sqrt{\cdots}}}$"],demo:[{q:"Recursion",a:"Is the radical/continued fraction self-similar?"},{q:"Contraction",a:"Find a metric where the map shrinks distances."},{q:"Uniqueness",a:"Apply Banach fixed point.",formula:"$d(Tx,Ty)\le c d(x,y)\Rightarrow x=T(x)$ uniquely"},{q:"Output",a:"The guessed value is forced as the unique limit."}]},
+{id:"h15b",br:"H15",nm:"Hahn-Banach Duality & Norm Witnesses",yr:"1927",school:"Hahn / Banach",frontier:false,ds:"Converts hard norm estimates into pairings against test functions.",cue:"Is the target an optimal bound in a normed space?",fs:["$\|x\|=\sup_{\|\ell\|\le1}|\ell(x)|$","$\|T\|_{X\to Y}=\sup_{\|x\|_X\le1,\|y^*\|_{Y^*}\le1}|\langle Tx,y^*\rangle|$","$|\int fg|\le\|f\|_p\|g\|_{p'}$"],demo:[{q:"Estimate",a:"Can the norm be tested against dual functions?"},{q:"Dualize",a:"Replace the norm by a supremum of pairings."},{q:"Bound",a:"Estimate the bilinear form.",formula:"$\|Tx\|_Y=\sup_{\|y^*\|\le1}|\langle Tx,y^*\rangle|$"},{q:"Output",a:"A norm estimate becomes an integral estimate."}]},
+{id:"h15c",br:"H15",nm:"Spectral Theorem & Compact Operators",yr:"1900-1930",school:"Hilbert / Riesz / von Neumann",frontier:false,ds:"Use when an identity is really about eigenvalues of a self-adjoint or compact operator.",cue:"Is there an operator whose spectrum encodes the formula?",fs:["$T=T^*\Longrightarrow T=\int_{\sigma(T)}\lambda\,dE_\lambda$","$K(x,y)=\sum_n\lambda_n\phi_n(x)\overline{\phi_n(y)}$","$\operatorname{Tr}(e^{-t\Delta})=\sum_n e^{-t\lambda_n}$"],demo:[{q:"Kernel",a:"Can the formula be represented by an integral kernel?"},{q:"Diagonalize",a:"Find eigenfunctions and eigenvalues."},{q:"Trace",a:"Sum the eigenvalues through a trace.",formula:"$\operatorname{Tr}(e^{-t\Delta})=\sum_n e^{-t\lambda_n}$"},{q:"Output",a:"A special-function identity becomes spectral."}]},
+{id:"h15d",br:"H15",nm:"Fredholm Determinants & Integral Equations",yr:"1903/modern",school:"Fredholm / integrable systems",frontier:true,ds:"Used for random matrix gaps, Painleve kernels, and asymptotic distributions.",cue:"Does the problem reduce to $\det(I-K)$ on $L^2$?",fs:["$\det(I+\lambda K)=1+\sum_{n\ge1}\frac{\lambda^n}{n!}\int\det(K(x_i,x_j))dx_1\cdots dx_n$","$\mathbb P(N_A=0)=\det(I-K_A)$","$F_2(s)=\det(I-K_{\operatorname{Ai}})_{L^2(s,\infty)}$"],demo:[{q:"Kernel",a:"Is there a determinantal kernel?"},{q:"Restrict",a:"Restrict the operator to the interval/region."},{q:"Determinant",a:"Compute the Fredholm determinant.",formula:"$\mathbb P(N_A=0)=\det(I-K_A)$"},{q:"Output",a:"A random-matrix probability becomes an operator determinant."}]},
+{id:"h16a",br:"H16",nm:"Poisson Summation Formula",yr:"1823/modern",school:"Poisson",frontier:false,ds:"The rigorous backbone of theta transformations and many modular identities.",cue:"Is a lattice sum easier after Fourier transform?",fs:["$\sum_{n\in\mathbb Z}f(n)=\sum_{k\in\mathbb Z}\widehat f(k)$","$\sum_{n\in\mathbb Z}e^{-\pi t n^2}=t^{-1/2}\sum_{k\in\mathbb Z}e^{-\pi k^2/t}$","$\vartheta(t)=t^{-1/2}\vartheta(1/t)$"],demo:[{q:"Lattice",a:"Does the formula contain a theta or integer lattice sum?"},{q:"Transform",a:"Compute the Fourier transform."},{q:"Dual sum",a:"Apply Poisson summation.",formula:"$\sum f(n)=\sum\widehat f(n)$"},{q:"Output",a:"Theta modularity or a zeta functional equation appears."}]},
+{id:"h16b",br:"H16",nm:"Plancherel-Parseval Energy Identity",yr:"1910",school:"Plancherel / Parseval",frontier:false,ds:"Converts second moments of trigonometric sums and zeta approximations into coefficient norms.",cue:"Is the target a second moment or energy identity?",fs:["$\|f\|_{L^2}=\|\widehat f\|_{L^2}$","$\int_0^1\left|\sum_{n\le N}a_ne^{2\pi in\alpha}\right|^2d\alpha=\sum_{n\le N}|a_n|^2$","$\int_0^T|\zeta(1/2+it)|^2dt\sim T\log T$"],demo:[{q:"Second moment",a:"Is an average square being computed?"},{q:"Orthogonality",a:"Can exponentials diagonalize the expression?"},{q:"Plancherel",a:"Convert integral energy to coefficient energy.",formula:"$\int_0^1|\sum a_ne(n\alpha)|^2d\alpha=\sum|a_n|^2$"},{q:"Output",a:"Mean values reduce to diagonal terms."}]},
+{id:"h16c",br:"H16",nm:"Interpolation: Riesz-Thorin and Marcinkiewicz",yr:"1926/1939",school:"Riesz / Thorin / Marcinkiewicz",frontier:false,ds:"Produces intermediate $L^p$ estimates from endpoint bounds.",cue:"Do you have two endpoint bounds and need the whole $L^p$ scale?",fs:["$\|T\|_{L^{p_\theta}\to L^{q_\theta}}\le M_0^{1-\theta}M_1^\theta$","$\frac1{p_\theta}=\frac{1-\theta}{p_0}+\frac{\theta}{p_1}$","$\|\widehat f\|_{p'}\le\|f\|_p\quad(1\le p\le2)$"],demo:[{q:"Endpoints",a:"Are two bounds already known?"},{q:"Parameter",a:"Choose $\theta$ for the desired $p$."},{q:"Interpolate",a:"Apply Riesz-Thorin/Marcinkiewicz.",formula:"$\|T\|_\theta\le M_0^{1-\theta}M_1^\theta$"},{q:"Output",a:"A continuum of estimates follows."}]},
+{id:"h16d",br:"H16",nm:"Calderon-Zygmund Singular Integrals",yr:"1952/modern",school:"Calderon / Zygmund",frontier:true,ds:"Controls principal-value transforms and PDE estimates behind modern harmonic analysis.",cue:"Is the operator a principal-value convolution with a singular kernel?",fs:["$Tf(x)=\operatorname{p.v.}\int K(x-y)f(y)dy$","$|K(x)|\le C|x|^{-d},\ |\nabla K(x)|\le C|x|^{-d-1}\Rightarrow T:L^p\to L^p$","$Hf(x)=\operatorname{p.v.}\frac1\pi\int\frac{f(y)}{x-y}dy$"],demo:[{q:"Singularity",a:"Does the kernel blow up at the origin?"},{q:"Cancellation",a:"Does the kernel have mean-zero cancellation?"},{q:"Bound",a:"Apply Calderon-Zygmund theory.",formula:"$T:L^p\to L^p,\ 1<p<\infty$"},{q:"Output",a:"A principal-value transform becomes stable."}]},
+{id:"h17a",br:"H17",nm:"Green Functions & Fundamental Solutions",yr:"1828/modern",school:"Green",frontier:false,ds:"Represent special functions as kernels solving elliptic or heat equations.",cue:"Is the formula a response to a point source $\delta_0$?",fs:["$Lu=\delta_y\Longrightarrow u(x)=G(x,y)$","$u(x)=\int_\Omega G(x,y)f(y)dy$","$(-\Delta)^{-1}f=c_d\int_{\mathbb R^d}|x-y|^{2-d}f(y)dy$"],demo:[{q:"Point source",a:"Can the object solve $Lu=\delta$?"},{q:"Boundary",a:"Which boundary/decay condition selects it?"},{q:"Kernel",a:"Represent the solution by Green's function.",formula:"$u(x)=\int G(x,y)f(y)dy$"},{q:"Output",a:"A special-function integral becomes a PDE kernel identity."}]},
+{id:"h17b",br:"H17",nm:"Maximum Principle and Harnack Inequality",yr:"1900s",school:"Worldwide",frontier:false,ds:"Controls harmonic or elliptic objects qualitatively before exact identification.",cue:"Does the function satisfy $\Delta u=0$ or an elliptic inequality?",fs:["$\Delta u=0\Rightarrow\max_{\overline\Omega}u=\max_{\partial\Omega}u$","$\sup_{B_r}u\le C\inf_{B_r}u\quad(u\ge0)$","$|u(x)|\le\int_{\partial\Omega}P(x,y)|u(y)|d\sigma(y)$"],demo:[{q:"Harmonicity",a:"Does the candidate solve an elliptic equation?"},{q:"Boundary",a:"What values are known on the boundary?"},{q:"Principle",a:"Use maximum/Harnack control.",formula:"$\max_{\overline\Omega}u=\max_{\partial\Omega}u$"},{q:"Output",a:"Boundary data force uniqueness."}]},
+{id:"h17c",br:"H17",nm:"Distributions and Weak Derivatives",yr:"1945/modern",school:"Schwartz",frontier:false,ds:"Makes divergent series, delta kernels, Fourier transforms, and Green functions rigorous.",cue:"Is the expression meaningful only after testing against smooth functions?",fs:["$\langle \partial^\alpha T,\varphi\rangle=(-1)^{|\alpha|}\langle T,\partial^\alpha\varphi\rangle$","$\widehat{\delta_0}=1,\ \widehat{1}=\delta_0$","$\sum_{n\in\mathbb Z}\delta_n=\sum_{k\in\mathbb Z}e^{2\pi ikx}\quad\text{in }\mathcal D'$"],demo:[{q:"Formal object",a:"Is the expression divergent or delta-like?"},{q:"Test",a:"Pair it with a smooth compactly supported function."},{q:"Derivative",a:"Move derivatives by duality.",formula:"$\langle T',\varphi\rangle=-\langle T,\varphi'\rangle$"},{q:"Output",a:"The formal identity becomes a distributional identity."}]},
+{id:"h17d",br:"H17",nm:"Potential Theory & Harmonic Measure",yr:"1900s/modern",school:"Worldwide",frontier:true,ds:"Interprets boundary-value identities through harmonic measure and Brownian exit distributions.",cue:"Is the answer an average of boundary values?",fs:["$u(x)=\int_{\partial\Omega}f(y)d\omega^x(y)$","$\omega^x(E)=\mathbb P_x(B_{\tau_\Omega}\in E)$","$P_r(\theta)=\frac{1-r^2}{1-2r\cos\theta+r^2}$"],demo:[{q:"Boundary average",a:"Is the interior value determined by boundary data?"},{q:"Harmonic measure",a:"Identify the exit distribution."},{q:"Integrate",a:"Average boundary values.",formula:"$u(x)=\int_{\partial\Omega}f\,d\omega^x$"},{q:"Output",a:"A boundary/contour identity becomes an averaging theorem."}]},
+{id:"h18a",br:"H18",nm:"Residue Theorem & Mittag-Leffler Expansion",yr:"1825/1876",school:"Cauchy / Mittag-Leffler",frontier:false,ds:"Modern rigorous form of Ramanujan partial fractions for cotangent, zeta values, and trigonometric sums.",cue:"Are the poles and residues known explicitly?",fs:["$\frac1{2\pi i}\oint_\Gamma f(z)dz=\sum_{a\in\Gamma}\operatorname{Res}(f,a)$","$\pi\cot(\pi z)=\frac1z+\sum_{n\ne0}\left(\frac1{z+n}-\frac1n\right)$","$\sum_{n\ge1}\frac1{n^2}=\frac{\pi^2}{6}$"],demo:[{q:"Poles",a:"Where are the poles and residues?"},{q:"Contour",a:"Choose a contour with controlled boundary integral."},{q:"Residues",a:"Sum the residues.",formula:"$\oint f=2\pi i\sum\operatorname{Res}f$"},{q:"Output",a:"A series value is recovered from local pole data."}]},
+{id:"h18b",br:"H18",nm:"Argument Principle, Rouche, and Zero Counting",yr:"1880s",school:"Rouche / complex analysis",frontier:false,ds:"Connects analytic functions with counting formulas, zeta zeros, and spectral determinants.",cue:"Is the target a number of zeros or poles?",fs:["$N-P=\frac1{2\pi i}\oint_\Gamma \frac{f'(z)}{f(z)}dz$","$|g|<|f|\text{ on }\Gamma\Rightarrow f\text{ and }f+g\text{ have same zero count}$","$N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)$"],demo:[{q:"Zero count",a:"Is the formula counting zeros/eigenvalues?"},{q:"Log derivative",a:"Can the count be written as $f'/f$?"},{q:"Principle",a:"Apply argument principle or Rouche.",formula:"$N-P=(2\pi i)^{-1}\oint f'/f$"},{q:"Output",a:"A zero-counting theorem follows from winding."}]},
+{id:"h18c",br:"H18",nm:"Mellin-Barnes Contours & Analytic Continuation",yr:"1888/modern",school:"Mellin / Barnes",frontier:false,ds:"Continues hypergeometric, Gamma, zeta, and Feynman-type integrals by shifting contours.",cue:"Does the expression contain Gamma factors or hypergeometric parameters?",fs:["$(1+z)^{-a}=\frac1{2\pi i}\int\frac{\Gamma(s)\Gamma(a-s)}{\Gamma(a)}z^{-s}ds$","$F(z)=\frac1{2\pi i}\int \Phi(s)z^{-s}ds$","$\operatorname{Res}_{s=-n}\Gamma(s)=\frac{(-1)^n}{n!}$"],demo:[{q:"Gamma factors",a:"Can the expression be represented with Gamma factors?"},{q:"Contour",a:"Place the contour between pole families."},{q:"Shift",a:"Move the contour and collect residues.",formula:"$F(z)=(2\pi i)^{-1}\int\Phi(s)z^{-s}ds$"},{q:"Output",a:"A hypergeometric expansion or asymptotic series appears."}]},
+{id:"h18d",br:"H18",nm:"Hadamard Products & Entire-Function Factorization",yr:"1893/modern",school:"Hadamard",frontier:true,ds:"Uses zeros to build sine, zeta, Airy, Bessel, and spectral determinant products.",cue:"Are the zeros known and the function entire of finite order?",fs:["$f(z)=z^m e^{g(z)}\prod_n E_p(z/a_n)$","$\sin(\pi z)=\pi z\prod_{n\ge1}\left(1-\frac{z^2}{n^2}\right)$","$\xi(s)=\xi(0)\prod_\rho\left(1-\frac{s}{\rho}\right)$"],demo:[{q:"Zeros",a:"Do zeros determine the function?"},{q:"Growth",a:"Estimate order/genus."},{q:"Product",a:"Build the canonical product.",formula:"$f(z)=e^{g(z)}\prod E_p(z/a_n)$"},{q:"Output",a:"A product identity is recovered from zero data."}]},
+{id:"h19a",br:"H19",nm:"Heat Kernel and Theta Asymptotics",yr:"1822/modern",school:"Fourier",frontier:false,ds:"Heat kernels explain theta transformations, modular trace formulas, and short-time asymptotics.",cue:"Can the series be interpreted as $\operatorname{Tr}(e^{-t\Delta})$?",fs:["$(\partial_t-\Delta)u=0,\ K_t(x,y)=(4\pi t)^{-d/2}e^{-|x-y|^2/4t}$","$\operatorname{Tr}(e^{-t\Delta})\sim(4\pi t)^{-d/2}\sum_{j\ge0}a_jt^j$","$\vartheta(t)=\sum_{n\in\mathbb Z}e^{-\pi n^2t}=t^{-1/2}\vartheta(1/t)$"],demo:[{q:"Heat trace",a:"Is the theta/spectral sum a heat trace?"},{q:"Short time",a:"Find the $t\downarrow0$ expansion."},{q:"Kernel",a:"Use the heat kernel.",formula:"$K_t(x,y)=(4\pi t)^{-d/2}e^{-|x-y|^2/4t}$"},{q:"Output",a:"A modular/asymptotic identity comes from heat flow."}]},
+{id:"h19b",br:"H19",nm:"Elliptic Regularity and Weak Solutions",yr:"1900s/modern",school:"PDE",frontier:false,ds:"Upgrades distributional identities to classical identities when elliptic regularity applies.",cue:"Does the candidate solve $Lu=f$ only weakly?",fs:["$Lu=f,\ f\in H^s\Rightarrow u\in H^{s+2}_{\operatorname{loc}}$","$\int \nabla u\cdot\nabla\varphi=\int f\varphi\quad\forall\varphi\in C_c^\infty$","$\|u\|_{H^{s+2}}\le C(\|Lu\|_{H^s}+\|u\|_{L^2})$"],demo:[{q:"Weak form",a:"Does the identity hold against test functions?"},{q:"Regularity",a:"Is the source in a Sobolev space?"},{q:"Upgrade",a:"Apply elliptic regularity.",formula:"$Lu=f\in H^s\Rightarrow u\in H^{s+2}_{loc}$"},{q:"Output",a:"A distributional identity becomes classical."}]},
+{id:"h19c",br:"H19",nm:"Dispersive Estimates and Strichartz Inequalities",yr:"1970s/modern",school:"Strichartz / Stein",frontier:true,ds:"Views oscillatory integrals as evolution kernels for Schrödinger, wave, or Airy equations.",cue:"Is the oscillatory integral the kernel of $e^{it\Delta}$?",fs:["$\|e^{it\Delta}f\|_{L^\infty}\le C|t|^{-d/2}\|f\|_{L^1}$","$\|e^{it\Delta}f\|_{L_t^qL_x^r}\le C\|f\|_{L^2}$","$\frac2q+\frac dr=\frac d2$"],demo:[{q:"Propagator",a:"Is the integral a PDE flow kernel?"},{q:"Decay",a:"Prove $L^1\to L^\infty$ decay."},{q:"Strichartz",a:"Integrate decay in time.",formula:"$\|e^{it\Delta}f\|_{L_t^qL_x^r}\le C\|f\|_2$"},{q:"Output",a:"An oscillatory estimate becomes a spacetime PDE bound."}]},
+{id:"h19d",br:"H19",nm:"Microlocal Analysis & Propagation of Singularities",yr:"1970s/modern",school:"Hormander school",frontier:true,ds:"Tracks phase functions, trace formulae, and spectral counting in cotangent space.",cue:"Does the problem involve wavefront sets or geodesic flow?",fs:["$\operatorname{WF}(u)\subset T^*X\setminus0$","$Pu=f\Rightarrow \operatorname{WF}(u)\setminus\operatorname{WF}(f)\ \text{propagates along Hamilton flow}$","$\operatorname{Tr}(e^{it\sqrt\Delta})\sim\sum_\gamma A_\gamma e^{iL_\gamma t}$"],demo:[{q:"Phase space",a:"Where are the singularities?"},{q:"Flow",a:"Which Hamiltonian/geodesic flow carries them?"},{q:"Trace",a:"Sum periodic trajectories in the wave trace.",formula:"$\operatorname{sing\ supp}\operatorname{Tr}(e^{it\sqrt\Delta})\subset\{L_\gamma\}$"},{q:"Output",a:"Spectral counting is tied to closed geodesics."}]},
+{id:"h20a",br:"H20",nm:"Martingale Convergence & Optional Stopping",yr:"1930s/modern",school:"Doob",frontier:false,ds:"Converts harmonic functions, stopping times, and fair-game identities into exact formulas.",cue:"Is a conserved expectation hidden in a stochastic process?",fs:["$M_t\ \text{martingale},\ \tau\ \text{bounded}\Rightarrow\mathbb E[M_\tau]=\mathbb E[M_0]$","$u(B_{t\wedge\tau})\ \text{is a martingale if }\Delta u=0$","$\mathbb P_x(B_{\tau_\Omega}\in E)=\omega^x(E)$"],demo:[{q:"Conservation",a:"Can the identity be represented by a martingale?"},{q:"Stop",a:"Choose the exit/hitting time."},{q:"Optional stopping",a:"Evaluate expectation at the stopping time.",formula:"$\mathbb E[M_\tau]=\mathbb E[M_0]$"},{q:"Output",a:"A harmonic boundary identity follows probabilistically."}]},
+{id:"h20b",br:"H20",nm:"Ito Formula and Diffusion Generators",yr:"1944/modern",school:"Ito",frontier:false,ds:"Characterizes special functions through diffusion generators and stochastic differential equations.",cue:"Can the function be evaluated along $dX_t=b(X_t)dt+\sigma(X_t)dW_t$?",fs:["$df(X_t)=\nabla f(X_t)\sigma dW_t+\left(b\cdot\nabla f+\frac12\operatorname{Tr}(\sigma\sigma^TD^2f)\right)dt$","$Lf=b\cdot\nabla f+\frac12\operatorname{Tr}(\sigma\sigma^TD^2f)$","$f(X_t)-f(X_0)-\int_0^tLf(X_s)ds\ \text{is a martingale}$"],demo:[{q:"Generator",a:"Which operator has the function as harmonic/eigenfunction?"},{q:"SDE",a:"Build a diffusion with that generator."},{q:"Ito",a:"Separate martingale and drift terms.",formula:"$df(X_t)=\nabla f\,\sigma dW_t+Lf\,dt$"},{q:"Output",a:"A differential equation becomes a stochastic identity."}]},
+{id:"h20c",br:"H20",nm:"Feynman-Kac Formula",yr:"1949/modern",school:"Feynman / Kac",frontier:true,ds:"Represents PDE solutions and spectral quantities as expectations over paths.",cue:"Does the formula solve $\partial_tu=Lu-Vu$?",fs:["$u(t,x)=\mathbb E_x\left[e^{-\int_0^tV(X_s)ds}f(X_t)\right]$","$\partial_tu=Lu-Vu,\quad u(0,x)=f(x)$","$\operatorname{Tr}(e^{-tH})=\int \mathbb E_{x,x}^{bridge}\left[e^{-\int_0^tV(B_s)ds}\right]dx$"],demo:[{q:"PDE",a:"Is the PDE heat-like with a potential?"},{q:"Process",a:"Use the diffusion generated by $L$."},{q:"Weight",a:"Insert the exponential potential functional.",formula:"$u(t,x)=\mathbb E_x[e^{-\int_0^tV(X_s)ds}f(X_t)]$"},{q:"Output",a:"A heat/spectral identity becomes a path expectation."}]},
+{id:"h20d",br:"H20",nm:"Invariance Principle, Brownian Scaling, and Local Time",yr:"1950s/modern",school:"Donsker / Levy",frontier:true,ds:"Interprets combinatorial sums, random partitions, and random matrices through Brownian scaling limits.",cue:"Does a discrete statistic converge after scaling?",fs:["$\left(n^{-1/2}S_{\lfloor nt\rfloor}\right)_{0\le t\le1}\Rightarrow (B_t)_{0\le t\le1}$","$B_{ct}\overset d=\sqrt c\,B_t$","$L_t^a=\lim_{\varepsilon\downarrow0}\frac1{2\varepsilon}\int_0^t\mathbf1_{|B_s-a|<\varepsilon}ds$"],demo:[{q:"Scaling",a:"What normalization makes the statistic nontrivial?"},{q:"Limit",a:"Prove tightness and finite-dimensional convergence."},{q:"Brownian functional",a:"Evaluate the limiting Brownian object.",formula:"$n^{-1/2}S_{\lfloor nt\rfloor}\Rightarrow B_t$"},{q:"Output",a:"A combinatorial asymptotic law becomes stochastic."}]}
+
 ];
 
 /* ══════════════════════════════════════════════════════════════════
@@ -963,6 +1087,7 @@ function renderRDetail(){
     +'<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.4rem;">Key formulae</div>'
     +s.fs.map(f=>'<div class="formula-block">'+f+'</div>').join('');
   dp.style.display='block';
+  renderMath(dp);
 }
 
 function renderRChart(){
@@ -1015,12 +1140,13 @@ function renderFTable(){
     const stags=f.strat.split(',').map(s=>'<span style="font-family:\'DM Mono\',monospace;font-size:.6rem;background:rgba(201,168,76,.1);color:var(--gold-dim);border:1px solid rgba(201,168,76,.2);padding:1px 4px;border-radius:2px;margin-right:2px;">'+s+'</span>').join('');
     const sc=f.status==='verified'?'vtag-yes':f.status==='updated'?'vtag-upd':'vtag-ext';
     return '<tr><td class="num">'+f.n+'</td>'
-      +'<td style="font-family:\'DM Mono\',monospace;font-size:.67rem;max-width:240px;word-break:break-all;">'+f.f+'</td>'
+      +'<td class="fcell">'+f.f+'</td>'
       +'<td style="font-size:.67rem;">'+FCAT_LABELS[f.cat]+'</td>'
       +'<td>'+stags+'</td>'
       +'<td style="font-size:.67rem;max-width:180px;color:var(--muted);">'+f.sp+'</td>'
       +'<td><span class="vtag '+sc+'">'+f.status+'</span></td></tr>';
   }).join('');
+  setTimeout(function(){renderMath(document.getElementById('f-body'));},0);
 }
 
 /* ── Starting points ── */
@@ -1070,8 +1196,9 @@ function selHBranch(k){
   const cue=document.getElementById('h-cue');
   if(hBranch){
     document.getElementById('htab-'+hBranch).classList.add('act');
-    cue.textContent=HBRANCHES[hBranch].cue;
+    cue.innerHTML=HBRANCHES[hBranch].cue;
     cue.style.display='block';
+    renderMath(cue);
   } else { cue.style.display='none'; }
   renderHMethods();
   renderHDetail();
@@ -1086,9 +1213,10 @@ function renderHMethods(){
     +'<div class="approx-method-name">'+(hMethod===m.id?'▶ ':'')+m.nm+(m.frontier?' <span style="font-family:\'DM Mono\',monospace;font-size:.58rem;color:#4cc9b0;border:1px solid rgba(76,201,176,.3);padding:1px 4px;border-radius:2px;">frontier</span>':'')+'</div>'
     +'<div class="approx-method-meta">'+m.yr+' · '+m.school+'</div>'
     +'<div class="approx-method-cue">'+m.cue+'</div>'
-    +'<div class="approx-method-formula">'+m.fs[0]+'</div>'
+    +'<div class="approx-method-formula">'+approxFormulaMath(m.fs[0])+'</div>'
     +'</div>'
   ).join('');
+  renderMath(el);
 }
 
 function selHMethod(id){
@@ -1110,8 +1238,10 @@ function renderHDetail(){
     +'<p style="font-size:.88rem;color:var(--body);line-height:1.7;margin-bottom:.6rem;">'+m.ds+'</p>'
     +'<div class="approx-method-cue">Decision cue: '+m.cue+'</div>'
     +'<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin:.5rem 0 .3rem;">Key formulae / results</div>'
-    +m.fs.map(f=>'<div class="approx-method-formula">'+f+'</div>').join('');
+    +m.fs.map(f=>'<div class="approx-method-formula">'+approxFormulaMath(f)+'</div>').join('')
+    +renderMethodDemo(m);
   dp.style.display='block';
+  renderMath(dp);
 }
 
 /* ── Init ── */
@@ -1122,6 +1252,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   renderSP();
   renderExamples();
   initHTabs();
+  renderHMethods&&renderHMethods();
+  setTimeout(renderMathAll,600);
 });
 </script>
 </body>
