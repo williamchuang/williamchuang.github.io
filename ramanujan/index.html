@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Ramanujan's Work Algorithms — Complete Reference | William Chuang / Logarchéon</title>
-<meta name="description" content="Exhaustive decision tree of 33 reconstructed strategies, 80 formulae, modern starting-point equivalents, 3 worked examples, and a 41-node worldwide frontier approximation-methods tree including Hardy–Littlewood, Vinogradov, Bourgain, Écalle and beyond."/>
+<meta name="description" content="Exhaustive decision tree of 33 reconstructed strategies, 80 formulae, modern starting-point equivalents, 3 worked examples, and a 50-node worldwide frontier approximation-methods tree across 12 branches — Hardy–Littlewood through Kelley–Meka 2023, extended to motivic periods and the cosmic Galois group (Brown), Feynman integral relations (Broadhurst–Roberts), arithmetic quantum field theory (Harvard CMSA 2024), Teichmüller dynamics and the prime geodesic theorem for large genus (Wu–Xue 2022), higher Teichmüller / Hitchin components (Pollicott–Sharp), and Mirzakhani–Eskin–Mohammadi orbit-closure rigidity — placing all branches explicitly within the Langlands programme."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
@@ -158,11 +158,11 @@ footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"D
 <div class="page-hero">
   <div class="breadcrumb"><span>Logarchéon Research</span><span>·</span><span>Mathematical Methodology</span></div>
   <h1>Ramanujan's <em>Work Algorithms</em></h1>
-  <p class="hero-desc">An exhaustive reverse-engineering of Srinivasa Ramanujan's methods, restricted to pre-1920 mathematics. Thirty-three reconstructed strategies across five problem categories, traced against eighty sampled formulae from the notebooks and lost notebook. Verified, updated, then extended to modern equivalent starting points with three worked demonstrations. A separate 41-node worldwide frontier tree covers the Hardy–Littlewood approximation lineage through Vinogradov, Bourgain, Écalle, Keating–Snaith, and Kelley–Meka.</p>
+  <p class="hero-desc">An exhaustive reverse-engineering of Srinivasa Ramanujan's methods, restricted to pre-1920 mathematics. Thirty-three reconstructed strategies across five problem categories, traced against eighty sampled formulae from the notebooks and lost notebook. Verified, updated, then extended to modern equivalent starting points with three worked demonstrations. A separate 50-node worldwide frontier tree covers the Hardy&ndash;Littlewood approximation lineage through Vinogradov, Bourgain, &Eacute;calle, Keating&ndash;Snaith, and Kelley&ndash;Meka &mdash; and, added in the second pass, motivic periods and the cosmic Galois group (Brown), Feynman integral relations (Broadhurst&ndash;Roberts), arithmetic quantum field theory (Harvard CMSA 2024), the prime geodesic theorem for large genus (Wu&ndash;Xue 2022), higher Teichm&uuml;ller &amp; Hitchin components (Pollicott&ndash;Sharp), and SL(2,&Ropf;) orbit-closure rigidity (Eskin&ndash;Mirzakhani&ndash;Mohammadi) &mdash; twelve branches in total, placing each within the Langlands programme.</p>
   <div class="hero-badges">
     <span class="hero-badge">33 strategies</span>
     <span class="hero-badge">80 formulae</span>
-    <span class="hero-badge">41 approx. methods</span>
+    <span class="hero-badge">50 approx. methods</span>
     <span class="hero-badge">pre-1920 reconstruction</span>
     <span class="hero-badge">William Chuang / Logarchéon 2026</span>
   </div>
@@ -264,7 +264,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.2rem 28px;font-family:"D
   <span class="section-num">05</span>
   <span class="section-title">The Approximation Methods Tree</span>
 </div>
-<p style="color:var(--body);font-size:.92rem;margin-bottom:.6rem;">Techniques Ramanujan would have learned or encountered through Hardy, Littlewood, and the broader international analytic tradition — extended to the worldwide frontier as of 2026. Forty-one methods across ten branches, spanning Stokes (1850) through Kelley–Meka (2023). School attribution and frontier status are marked for each.</p>
+<p style="color:var(--body);font-size:.92rem;margin-bottom:.6rem;">Techniques Ramanujan would have learned or encountered through Hardy, Littlewood, and the broader international analytic tradition — extended to the worldwide frontier as of 2026. Fifty methods across twelve branches, spanning Stokes (1850) through Kelley–Meka (2023), with two branches added in the second pass: H11 (Motivic Periods &amp; Feynman Amplitudes — cosmic Galois group, multiple zeta values, Bessel moments, mixed L-functions) and H12 (Teichmüller Dynamics &amp; Spectral Counting — prime geodesic theorem for large genus, Hitchin components, Mirzakhani volume recursion, SL(2,ℝ) orbit closures). School attribution and frontier status are marked for each.</p>
 <p class="disclaimer">Selection criterion: top-tier, globally competitive practice. No school — Cambridge, Princeton, Paris, Moscow, Beijing, Tokyo, Seoul, Tel Aviv — is privileged. The criterion is the strongest known result for each problem class.</p>
 
 <div style="text-align:center;margin-bottom:18px;">
@@ -637,7 +637,9 @@ const HBRANCHES={
  H7:{nm:'H7 · Special Function Asymptotics',cue:'Is the quantity a special function Γ(s), Jν(x), Ai(x) evaluated at a large argument?'},
  H8:{nm:'H8 · Random Matrix Theory',cue:'Is the problem about moments of L-functions, zero spacing, or eigenvalue statistics?'},
  H9:{nm:'H9 · Resurgence & Trans-Series',cue:'Does the asymptotic expansion diverge? Are there non-perturbative (exponentially small) corrections?'},
- H10:{nm:'H10 · Modern Additive Combinatorics',cue:'Is the problem about arithmetic progressions, additive energy, or polynomial patterns in dense sets?'}
+ H10:{nm:'H10 · Modern Additive Combinatorics',cue:'Is the problem about arithmetic progressions, additive energy, or polynomial patterns in dense sets?'},
+ H11:{nm:'H11 · Motivic Periods & Feynman Amplitudes',cue:'Is the quantity a period integral — the integral of an algebraic differential form over an algebraic cycle — arising from a Feynman graph or an L-function?'},
+ H12:{nm:'H12 · Teichmüller Dynamics & Spectral Counting',cue:'Is the problem about lengths of closed geodesics on a hyperbolic surface, or about representations of surface groups in a higher-rank Lie group?'}
 };
 
 const HS=[
@@ -815,6 +817,55 @@ const HS=[
  ds:'Furstenberg\'s ergodic proof of Szemerédi\'s theorem: translate AP-counting into a multiple recurrence problem for measure-preserving systems, then use ergodic theory (compact extension + weak mixing) to prove the recurrence. The framework generalises to polynomial progressions via Host–Kra theory.',
  cue:'Does the combinatorial problem have a "structure vs randomness" dichotomy? Is there an ergodic reformulation?',
  fs:['Furstenberg correspondence: any A⊆ℤ with upper density ≥δ gives (X,T,μ) with μ(A∩T^{-n}A∩…)≥δ^k','Multiple recurrence: limₙ₁/N Σμ(A∩T^n A∩T^{2n}A)≥δ^3 for any δ>0','Host–Kra: structure of characteristic factors for polynomial ergodic averages [2005]']},
+/* H9e — added: QED perturbative series */
+{id:'h9e',br:'H9',nm:'QED Perturbation Series as Trans-Series',yr:'1952/2022',school:'UK/USA/Japan (Dyson, Aoyama, Kinoshita, Nio; Fan, Gabrielse)',frontier:true,
+ ds:'The QED perturbative expansion for the electron anomalous magnetic moment a_e=Σ aₙ(α/π)ⁿ is a trans-series: formally divergent (Dyson\'s 1952 instability argument — the coupling constant α cannot be analytically continued past α=0 without pair creation), Borel-resummable, and corrected by non-perturbative terms e^{-1/α}. The series has been computed to tenth order (L=5 loops, ~12,672 Feynman diagrams) by Aoyama, Kinoshita, and Nio. Fan, Myers, Sukra, and Gabrielse (2022) measured g/2 to 0.13 parts per trillion, making the electron magnetic moment the most precisely tested quantity in physics. The discrepancy with theory is bounded by the current disagreement between two independent measurements of the fine structure constant α.',
+ cue:'Is the perturbative series in a coupling constant g expected to diverge factorially? Is there a physical argument (instability, tunnelling, instantons) for non-perturbative corrections?',
+ frontier:true,
+ fs:['a_e=Σ_{L≥0}aₗ(α/π)ᴸ: a₁=0.5 [Schwinger 1948], a₂=-0.328…+ζ(3)/4+…, a₅ requires 12,672 diagrams','Dyson instability: F(α) is not analytic at α=0 — perturbation series must diverge; non-perturbative terms ~ e^{-1/α}','g/2=1.001 159 652 180 59 (13) [Fan-Gabrielse 2022, 0.13 ppt] — most precisely tested SM prediction']},
+
+/* H11: Motivic Periods & Feynman Amplitudes */
+{id:'h11a',br:'H11',nm:'Motivic Cohomology & Cosmic Galois Group',yr:'2012–2016',school:'UK/France (F. Brown, IHES / All Souls Oxford)',frontier:true,
+ ds:'Every convergent Feynman integral at any loop order is, after renormalisation, a period of a mixed Tate motive over ℤ — a complex number of the form ∫_σ ω where σ is an algebraic cycle and ω an algebraic differential form on a variety defined over ℚ. The "cosmic Galois group" (Cartier–Brown) is the motivic Galois group of the category of mixed Tate motives, acting on the algebra of Feynman amplitudes by coaction. The coaction encodes all linear relations among periods and imposes the "cosmic Galois symmetry" on scattering amplitudes.',
+ cue:'Is the integral a Feynman amplitude or a period of a mixed Tate motive? Does it admit a rational coaction?',
+ frontier:true,
+ fs:['Period: I=∫_σ ω∈ℂ where σ∈H_n(X\\ Y,ℤ) and ω∈Ω^n(X) for X/ℚ algebraic','Cosmic Galois coaction: Δ(I)=Σ I\' ⊗ I\'\' [motivic Galois action on amplitude algebra]','Brown 2012: all phi^4 amplitudes through 11 loops are Multiple Zeta Values; at 7 loops non-MZV period first appears']},
+{id:'h11b',br:'H11',nm:'Multiple Zeta Values & Polylogarithms',yr:'1992–present',school:'Worldwide (Euler, Zagier, Brown, Broadhurst)',frontier:true,
+ ds:'Multiple zeta values (MZVs) ζ(n₁,…,nₖ)=Σ_{m₁>…>mₖ>0} m₁^{-n₁}…mₖ^{-nₖ} are periods of mixed Tate motives over ℤ. They satisfy a rich algebra of relations (shuffle and stuffle products), and their dimension is controlled by the Broadhurst–Kreimer conjecture (proved in low weight by Brown). The QED coefficient a₃ in the electron g-2 contains U₃,₁=Σ_{m>n>0}(-1)^{m+n}/(m³n) — a depth-2 MZV. All polylogarithms Li_n(z)=Σ z^k/k^n at algebraic arguments are MZVs or their generalisations.',
+ cue:'Does the integral evaluate to a linear combination of multiple zeta values or polylogarithms at algebraic arguments?',
+ frontier:true,
+ fs:['ζ(2)=π²/6, ζ(3) (Apéry), ζ(2,1)=ζ(3): MZV depth-1 and depth-2 examples','a₃ (QED, 2-loop)=28259/5184+17101ζ(2)/135+139ζ(3)/18−596π²log2/18−39ζ(4)/24−400U₃,₁/24−… [Broadhurst]','Hoffman basis: {ζ(n₁,…,nₖ): nᵢ∈{2,3}} — conjectured basis for all MZVs [proved in weight ≤11 by Brown]']},
+{id:'h11c',br:'H11',nm:'Non-Polylogarithmic Periods / Bessel Moments',yr:'2018',school:'UK/USA (Broadhurst, Roberts)',frontier:true,
+ ds:'At four and higher loops in QED, Feynman integrals exceed the polylogarithmic world. The leading non-polylogarithm in a₄ is a Bessel moment B=∫₀^∞ xI₀(x)K₀(x)⁵dx, evaluated to 4800 digits by Laporta. Broadhurst–Roberts (2018) establish infinite families of quadratic relations between these non-polylogarithmic Feynman integrals at all loop orders L>2. The relations arise from the de Rham cohomology of elliptic curves over ℚ, connecting QFT to elliptic L-functions.',
+ cue:'Does the Feynman integral involve Bessel functions K₀(x) or elliptic integrals? Is it a period of a non-rational variety?',
+ frontier:true,
+ fs:['B=-∫₀^∞(27550138x+35725423x³)/48600·I₀(x)K₀(x)⁵dx [weight-4 non-polylog at L=4]','a₄=P+B+E+U≈2650.565−1483.685−1036.765−132.027≈−1.912 [Laporta 2017, 4800 digits]','Quadratic relations: det of Bessel moment matrix=modular form; infinite family at all L>2 [Broadhurst-Roberts 2018]']},
+{id:'h11d',br:'H11',nm:'Mixed L-Functions & Iterated Mellin Transforms',yr:'2020',school:'UK/France (F. Brown, CERN–Elliptics)',frontier:true,
+ ds:'Brown (2020) proposes a definition of "mixed L-functions" whose special values capture all period integrals — extending classical motivic L-functions (pure motives, Beilinson–Deligne conjectures) to the mixed case. The construction uses iterated Mellin transforms: L_{f}(s₁,…,sₖ)=∫₀^∞ f(it)t^{s₁}(log t)^{s₂}… dt/t. Special values are connected to modular graph functions, multiple elliptic polylogarithms, and appear in the α\' expansion of string theory amplitudes. Directly relevant to the Langlands programme: the partition function ↔ L-function correspondence of the Harvard AQFT program (Ben-Zvi, Friedberg, Paquette, Williams 2024).',
+ cue:'Is the period of interest a value of a Dirichlet series that does not factor as a product over primes (mixed motive), but is a value of an iterated Mellin transform of a modular form?',
+ frontier:true,
+ fs:['Iterated Mellin: L_f(s)=∫₀^∞ f(it)t^{s-1}dt, then iterated for mixed case','Example: ∫∫∫(1/(1+x+y+z)(1+x⁻¹+y⁻¹+z⁻¹)-1)dx/x dy/y dz/z = 4π/√15·L(f,2) [K3 surface L-value]','AQFT correspondence: partition functions Z_M ↔ L-functions L(π,s) via geometric Langlands [Ben-Zvi et al. 2024]']},
+/* H12: Teichmüller Dynamics & Spectral Counting */
+{id:'h12a',br:'H12',nm:'Prime Geodesic Theorem for Large Genus',yr:'2022',school:'China/USA (Wu, Xue)',frontier:true,
+ ds:'Wu–Xue (2022): for a generic closed hyperbolic surface of genus g, as g→∞, the error term Er_{X_g}(t) in the Prime Geodesic Theorem π_{X_g}(t)=Li(t)+Er_{X_g}(t) is bounded above by g·t^{3/4+ε}. As an application, most closed geodesics of length ≪√g are simple and non-separating, while most of length ≫√g are non-simple — confirming the Lipnowski–Wright conjecture. The key tool is Mirzakhani\'s Weil–Petersson statistics and new effective bounds on intersection numbers on M_{g,n}.',
+ cue:'Is the problem about the distribution of closed geodesics on a random high-genus surface? Does the answer depend on √g as a threshold?',
+ frontier:true,
+ fs:['π_{X_g}(t)=Li(t)+Σ_{3/4<s_j<1}Li(t^{s_j})+O_{X_g}(t^{3/4}/ln t) [Selberg trace formula]','Analogue of RH for hyperbolic surfaces: conjecture that 3/4 can be replaced by 1/2+ε','Weil-Petersson average: E_{WP}[Er_{X_g}(t)]=O(g·t^{3/4+ε}) [Wu-Xue 2022]']},
+{id:'h12b',br:'H12',nm:'Higher Teichmüller / Hitchin Component PGT',yr:'2012',school:'UK (Pollicott, Sharp) / France (Sambarino)',frontier:true,
+ ds:'Pollicott–Sharp (2012), extending Sambarino: the Hitchin component Rep(π₁(S),PSL(n,ℝ)) of higher-dimensional surface group representations admits a Prime Geodesic Theorem for the generalised length function l_ρ(α)=log|λ₁(α)/λₙ(α)| (the "width"). Labourie showed Hitchin representations are Anosov, making the symbolic dynamics and thermodynamic formalism of the classical PGT applicable. This lifts the classical Huber PGT from PSL(2,ℝ) to all higher-rank Hitchin representations.',
+ cue:'Is the counting problem about representations of π₁(S) in a higher-rank Lie group PSL(n,ℝ)? Do the eigenvalues satisfy the Anosov (real split) condition?',
+ frontier:true,
+ fs:['Hitchin component: connected component of Rep(π₁(S),PSL(n,ℝ)) containing Fuchsian rep. ι∘ρ_m','Length function: l_ρ(α)=log|λ₁(α)/λₙ(α)| where λ₁(α)<…<λₙ(α) are distinct eigenvalues [Labourie]','PGT in Hitchin: #{[α]: l_ρ(α)≤t}~e^t/t as t→∞ [Sambarino; Pollicott-Sharp give error term]']},
+{id:'h12c',br:'H12',nm:'Mirzakhani Volume Recursion & WP Measures',yr:'2007/2022',school:'Iran/USA (M. Mirzakhani); extended by Wu-Xue, Arana-Herrera',frontier:true,
+ ds:'Mirzakhani\'s recursion formula for Weil–Petersson volumes Vol(M_{g,n}(L₁,…,Lₙ)) expresses each volume as a sum over all ways to degenerate the surface, governed by intersection numbers on M_{g,n}. This gives explicit formulas for the WP probability distribution of lengths of simple closed curves for random hyperbolic surfaces of fixed genus. The counting of simple closed curves on a surface of genus g is a polynomial in length with coefficients equal to Masur–Veech volumes, connecting Teichmüller dynamics to algebraic combinatorics.',
+ cue:'Is the problem about the expected number or distribution of simple closed curves on a random hyperbolic surface? Does it involve intersection numbers on the moduli space?',
+ frontier:true,
+ fs:['Mirzakhani recursion: V_{g,n}(L)=∫∫ V_{g-1,n+2}(L\')+Σ V_{g₁,n₁}V_{g₂,n₂} [all degenerations]','Simple closed curve counting: #{γ: l_X(γ)≤L}~c_g·L^{6g-6} [polynomial in L, coeff = WP volume]','Genus-large limit: for fixed k, Prob(no geodesic of length ≤k)→1 as g→∞ [Mirzakhani-Petri-Zograf]']},
+{id:'h12d',br:'H12',nm:'SL(2,ℝ) Orbit Closures & Teichmüller Dynamics',yr:'2012–present',school:'USA/Israel (Eskin, Mirzakhani, Mohammadi, Filip)',frontier:true,
+ ds:'The Eskin–Mirzakhani–Mohammadi theorem (2012): every SL(2,ℝ) orbit closure in a stratum of Abelian differentials is an affine invariant submanifold (an "affine manifold"). This is the analogue of Ratner\'s theorem for the Teichmüller geodesic flow. The result implies striking rigidity: all equidistribution, counting, and recurrence theorems for Teichmüller dynamics hold at the level of these affine manifolds. Dyson\'s "birds and frogs" distinction applies here — the affine invariant manifold is the "bird\'s-eye view" that unifies the specific closed geodesic counts that the "frogs" compute.',
+ cue:'Is the problem about the long-time behaviour of the Teichmüller geodesic flow, or about the distribution of flat metrics on surfaces?',
+ frontier:true,
+ fs:['Eskin-Mirzakhani-Mohammadi: every SL(2,ℝ)-orbit closure is an affine invariant submanifold M̃⊂H(κ)','Counting in flat surfaces: #{periodic trajectories: length ≤L}~c·L² [quadratic area growth]','Lyapunov exponents of Kontsevich-Zorich cocycle: 1=λ₁≥λ₂≥…≥λ_g≥0 [relate to WP geometry]']}
 ];
 
 /* ══════════════════════════════════════════════════════════════════
