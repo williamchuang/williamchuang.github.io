@@ -95,6 +95,14 @@ nav.site-nav {
 .toc-link { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.05em; color:var(--body); padding:0.25rem 0; display:block; border-left:2px solid transparent; margin-left:-1.5rem; padding-left:1.3rem; transition:color 0.2s,border-color 0.2s; }
 .toc-link:hover { color:var(--gold); border-color:var(--gold); text-decoration:none; }
 
+.toc-link.toc-section { color:var(--cream); font-size:0.74rem; }
+.toc-link.toc-sub { font-size:0.68rem; color:var(--gold-dim); }
+.toc-link.toc-subhead {
+  font-size:0.62rem; color:var(--faint); text-transform:uppercase; letter-spacing:0.1em;
+  padding-top:0.65rem; cursor:default;
+}
+.toc-link.toc-subhead:hover { color:var(--faint); border-color:transparent; text-decoration:none; }
+
 /* ── Hero ── */
 .page-hero { border-bottom:1px solid var(--border-dim); padding:3.5rem 0 2.5rem; }
 .page-hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.2rem; display:flex; align-items:center; gap:0.6rem; }
@@ -231,68 +239,96 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   <aside class="toc-sidebar">
     <div class="toc-label">Sections</div>
     <ul class="toc-list">
-      <li><a href="#policy" class="toc-link">Policy &amp; Applied Research</a></li>
-      <li><a href="#comparison" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; ANI vs. ASI Comparison</a></li>
-      <li><a href="/governance-legitimacy-index/" class="toc-link" style="color:var(--gold-dim);">Governance Legitimacy Index &#8599;</a></li>
-      <li><a href="#thucydides" class="toc-link" style="color:var(--gold-dim);">Thucydides IR/IL &#8599;</a></li>
-      <li><a href="#executive-work-algos" class="toc-link" style="color:var(--gold-dim);">Executive Work Algos &#8599;</a></li>
-      <li><a href="#lawfare-work-algos" class="toc-link" style="color:var(--gold-dim);">Lawfare Work Algos &#8599;</a></li>
-      <li><a href="#math" class="toc-link">Mathematics</a></li>
-      <li><a href="#einstein-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Einstein Work Algos &#8599;</a></li>
-      <li><a href="#feynman-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Feynman Work Algos &#8599;</a></li>
-      <li><a href="#landau-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Landau Work Algos &#8599;</a></li>
-      <li><a href="#sullivan-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Sullivan Work Algos &#8599;</a></li>
-      <li><a href="#bourgain-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Bourgain Work Algos &#8599;</a></li>
-      <li><a href="#grothendieck-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Grothendieck Work Algos &#8599;</a></li>
-      <li><a href="#erdoes-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Erdős Work Algos &#8599;</a></li>
-      <li><a href="#ford-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Ford Work Algos &#8599;</a></li>
-      <li><a href="#poincare-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Poincar&eacute; Work Algos &#8599;</a></li>
-      <li><a href="#leonardo-da-vinci-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Leonardo da Vinci Work Algos &#8599;</a></li>
-      <li><a href="#euclid-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Euclid Work Algos &#8599;</a></li>
-      <li><a href="#galilei-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Galilei Work Algos &#8599;</a></li>
-      <li><a href="#newton-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Newton Work Algos &#8599;</a></li>
-      <li><a href="#euler-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Euler Work Algos &#8599;</a></li>
-      <li><a href="#gauss-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Gauss Work Algos &#8599;</a></li>
-      <li><a href="#riemann-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Riemann Work Algos &#8599;</a></li>
-      <li><a href="#yau-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Yau Work Algos &#8599;</a></li>
-      <li><a href="#lang-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Lang Work Algos &#8599;</a></li>
-      <li><a href="#rudin-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Rudin Work Algos &#8599;</a></li>
-      <li><a href="#ahlfors-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Ahlfors Work Algos &#8599;</a></li>
-      <li><a href="#stein-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Stein Work Algos &#8599;</a></li>
-      <li><a href="#conway-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Conway Work Algos &#8599;</a></li>
-      <li><a href="#knuth-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Knuth Work Algos &#8599;</a></li>
-      <li><a href="#dirac-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Dirac Work Algos &#8599;</a></li>
-      <li><a href="#schwinger-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Schwinger Work Algos &#8599;</a></li>
-      <li><a href="#fermi-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Fermi Work Algos &#8599;</a></li>
-      <li><a href="#witten-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Witten Work Algos &#8599;</a></li>
-      <li><a href="#yang-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Yang Work Algos &#8599;</a></li>
-      <li><a href="#lee-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Lee Work Algos &#8599;</a></li>
-      <li><a href="#lin-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Lin Work Algos &#8599;</a></li>
-      <li><a href="#bowen-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Bowen Work Algos &#8599;</a></li>
-      <li><a href="#atiyah-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Atiyah Work Algos &#8599;</a></li>
-      <li><a href="#donaldson-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Donaldson Work Algos &#8599;</a></li>
-      <li><a href="#gromov-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Gromov Work Algos &#8599;</a></li>
-      <li><a href="#kontsevich-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Kontsevich Work Algos &#8599;</a></li>
-      <li><a href="#mordell-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Mordell Work Algos &#8599;</a></li>
-      <li><a href="#milnor-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Milnor Work Algos &#8599;</a></li>
-      <li><a href="#mcmullen-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; McMullen Work Algos &#8599;</a></li>
-      <li><a href="#connes-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Connes Work Algos &#8599;</a></li>
-      <li><a href="#deligne-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Deligne Work Algos &#8599;</a></li>
-      <li><a href="#selberg-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Selberg Work Algos &#8599;</a></li>
-      <li><a href="#tate-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Tate Work Algos &#8599;</a></li>
-      <li><a href="#thurston-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Thurston Work Algos &#8599;</a></li>
-      <li><a href="#isadore-singer-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Isadore Singer Work Algos &#8599;</a></li>
-      <li><a href="#finance" class="toc-link">Finance</a></li>
-      <li><a href="#faith" class="toc-link">Faith &amp; Identity</a></li>
-      <li><a href="#notes" class="toc-link">Study Notes</a></li>
-      <li><a href="/hua/" class="toc-link" style="color:var(--gold-dim);">中華 &amp; 華人 (Cross of the East &amp; Crucesignati) &#8599;</a></li>
+      <li><a href="#current-writing" class="toc-link toc-section">Current Writing</a></li>
+      <li><a href="#policy" class="toc-link toc-section">Policy &amp; Applied Research</a></li>
+      <li><a href="#lifu-sud" class="toc-link toc-sub">Focused Ultrasound / SUD</a></li>
+      <li><a href="#fus-checker" class="toc-link toc-sub">LIFU Safety Explorer</a></li>
+      <li><a href="#taiwan-holy-see-policy" class="toc-link toc-sub">Taiwan–Holy See Strategy</a></li>
+      <li><a href="#capital-flows" class="toc-link toc-sub">Capital Flows Tracker</a></li>
+      <li><a href="#governance-legitimacy-index-card" class="toc-link toc-sub">Governance Legitimacy Index</a></li>
+      <li><a href="#thucydides" class="toc-link toc-sub">Thucydides IR/IL</a></li>
+      <li><a href="#executive-work-algos" class="toc-link toc-sub">Executive Work Algos</a></li>
+      <li><a href="#lawfare-work-algos" class="toc-link toc-sub">Lawfare Work Algos</a></li>
+      <li><a href="#hua-study" class="toc-link toc-sub">中華 &amp; 華人 Study</a></li>
+      <li><a href="#scientific-cognition" class="toc-link toc-sub">Scientific Cognition / AI Threats</a></li>
+      <li><a href="#asi-architect-core" class="toc-link toc-sub">ASI Architect Core</a></li>
+      <li><a href="#comparison" class="toc-link toc-sub">ANI vs. AGI vs. ASI</a></li>
+      <li><a href="#math" class="toc-link toc-section">Mathematics</a></li>
+      <li><a href="#schottky-hausdorff" class="toc-link toc-sub">Schottky Hausdorff Dimension</a></li>
+      <li><a href="#hyperbolic-geometry-hn" class="toc-link toc-sub">Geometry of ℍⁿ</a></li>
+      <li><a href="#hyperbolic-attention-scaling" class="toc-link toc-sub">Hyperbolic Attention Scaling</a></li>
+      <li><span class="toc-link toc-subhead">Math Work Algorithms</span></li>
+      <li><a href="#sullivan-work-algos" class="toc-link toc-sub">Sullivan Work Algos</a></li>
+      <li><a href="#bourgain-work-algos" class="toc-link toc-sub">Bourgain Work Algos</a></li>
+      <li><a href="#grothendieck-work-algos" class="toc-link toc-sub">Grothendieck Work Algos</a></li>
+      <li><a href="#erdoes-work-algos" class="toc-link toc-sub">Erdős Work Algos</a></li>
+      <li><a href="#ford-work-algos" class="toc-link toc-sub">Ford Work Algos</a></li>
+      <li><a href="#poincare-work-algos" class="toc-link toc-sub">Poincaré Work Algos</a></li>
+      <li><a href="#leonardo-da-vinci-work-algos" class="toc-link toc-sub">Leonardo da Vinci Work Algos</a></li>
+      <li><a href="#euclid-work-algos" class="toc-link toc-sub">Euclid Work Algos</a></li>
+      <li><a href="#euler-work-algos" class="toc-link toc-sub">Euler Work Algos</a></li>
+      <li><a href="#gauss-work-algos" class="toc-link toc-sub">Gauss Work Algos</a></li>
+      <li><a href="#riemann-work-algos" class="toc-link toc-sub">Riemann Work Algos</a></li>
+      <li><a href="#yau-work-algos" class="toc-link toc-sub">Yau Work Algos</a></li>
+      <li><a href="#lang-work-algos" class="toc-link toc-sub">Lang Work Algos</a></li>
+      <li><a href="#rudin-work-algos" class="toc-link toc-sub">Rudin Work Algos</a></li>
+      <li><a href="#ahlfors-work-algos" class="toc-link toc-sub">Ahlfors Work Algos</a></li>
+      <li><a href="#stein-work-algos" class="toc-link toc-sub">Stein Work Algos</a></li>
+      <li><a href="#conway-work-algos" class="toc-link toc-sub">Conway Work Algos</a></li>
+      <li><a href="#knuth-work-algos" class="toc-link toc-sub">Knuth Work Algos</a></li>
+      <li><a href="#bowen-work-algos" class="toc-link toc-sub">Bowen Work Algos</a></li>
+      <li><a href="#atiyah-work-algos" class="toc-link toc-sub">Atiyah Work Algos</a></li>
+      <li><a href="#donaldson-work-algos" class="toc-link toc-sub">Donaldson Work Algos</a></li>
+      <li><a href="#gromov-work-algos" class="toc-link toc-sub">Gromov Work Algos</a></li>
+      <li><a href="#kontsevich-work-algos" class="toc-link toc-sub">Kontsevich Work Algos</a></li>
+      <li><a href="#mordell-work-algos" class="toc-link toc-sub">Mordell Work Algos</a></li>
+      <li><a href="#milnor-work-algos" class="toc-link toc-sub">Milnor Work Algos</a></li>
+      <li><a href="#mcmullen-work-algos" class="toc-link toc-sub">McMullen Work Algos</a></li>
+      <li><a href="#connes-work-algos" class="toc-link toc-sub">Connes Work Algos</a></li>
+      <li><a href="#deligne-work-algos" class="toc-link toc-sub">Deligne Work Algos</a></li>
+      <li><a href="#selberg-work-algos" class="toc-link toc-sub">Selberg Work Algos</a></li>
+      <li><a href="#tate-work-algos" class="toc-link toc-sub">Tate Work Algos</a></li>
+      <li><a href="#thurston-work-algos" class="toc-link toc-sub">Thurston Work Algos</a></li>
+      <li><a href="#isadore-singer-work-algos" class="toc-link toc-sub">Isadore Singer Work Algos</a></li>
+      <li><a href="#ramanujan-work-algos" class="toc-link toc-sub">Ramanujan Work Algos</a></li>
+      <li><span class="toc-link toc-subhead">Math References & Notes</span></li>
+      <li><a href="#teichmuller-dynamics" class="toc-link toc-sub">Teichmüller Dynamics / PGT</a></li>
+      <li><a href="#periods-motives-aqft" class="toc-link toc-sub">Periods, Motives &amp; AQFT</a></li>
+      <li><a href="#supplementary-hyperbolic-notes" class="toc-link toc-sub">Schottky / Hyperbolic Notes</a></li>
+      <li><a href="#modular-representation-notes" class="toc-link toc-sub">Modular Representation Notes</a></li>
+      <li><a href="#physics" class="toc-link toc-section">Physics &amp; Mathematical Physics</a></li>
+      <li><a href="#galilei-work-algos" class="toc-link toc-sub">Galilei Work Algos</a></li>
+      <li><a href="#newton-work-algos" class="toc-link toc-sub">Newton Work Algos</a></li>
+      <li><a href="#einstein-work-algos" class="toc-link toc-sub">Einstein Work Algos</a></li>
+      <li><a href="#feynman-work-algos" class="toc-link toc-sub">Feynman Work Algos</a></li>
+      <li><a href="#landau-work-algos" class="toc-link toc-sub">Landau Work Algos</a></li>
+      <li><a href="#dirac-work-algos" class="toc-link toc-sub">Dirac Work Algos</a></li>
+      <li><a href="#schwinger-work-algos" class="toc-link toc-sub">Schwinger Work Algos</a></li>
+      <li><a href="#fermi-work-algos" class="toc-link toc-sub">Fermi Work Algos</a></li>
+      <li><a href="#witten-work-algos" class="toc-link toc-sub">Witten Work Algos</a></li>
+      <li><a href="#yang-work-algos" class="toc-link toc-sub">Yang Work Algos</a></li>
+      <li><a href="#lee-work-algos" class="toc-link toc-sub">Lee Work Algos</a></li>
+      <li><a href="#lin-work-algos" class="toc-link toc-sub">Lin Work Algos</a></li>
+      <li><a href="#finance" class="toc-link toc-section">Quantitative Finance</a></li>
+      <li><a href="#stochastic-finance" class="toc-link toc-sub">Ψ-Structured Stochastic Finance</a></li>
+      <li><a href="#operator-projection-factor-models" class="toc-link toc-sub">Operator–Projection Factor Models</a></li>
+      <li><a href="#faith" class="toc-link toc-section">Faith &amp; Identity</a></li>
+      <li><a href="#faith-taiwan-holy-see-reference" class="toc-link toc-sub">Taiwan–Holy See Faith Note</a></li>
+      <li><a href="#plenary-indulgence-catechesis" class="toc-link toc-sub">Plenary Indulgence Catechesis</a></li>
+      <li><a href="#rule-of-life" class="toc-link toc-sub">Rule of Life</a></li>
+      <li><a href="#algerian-tavern-inscription" class="toc-link toc-sub">Algerian Tavern Inscription</a></li>
+      <li><a href="#notes" class="toc-link toc-section">Study Notes &amp; Learning</a></li>
+      <li><a href="#ongoing-learning-log" class="toc-link toc-sub">Ongoing Learning Log</a></li>
+      <li><a href="#qualifying-exam-notes" class="toc-link toc-sub">Qualifying Exam Notes</a></li>
+      <li><a href="#older-math-projects" class="toc-link toc-sub">Older Math Projects</a></li>
+      <li><a href="#youtube-github" class="toc-link toc-sub">YouTube &amp; GitHub</a></li>
     </ul>
   </aside>
 
   <main>
 
 <!-- ═══ CURRENT WORK ═══ -->
-<aside class="paper-card" style="border-left:3px solid var(--gold);background:rgba(14,31,58,0.55);margin-bottom:2rem;">
+<aside id="current-writing" class="paper-card" style="border-left:3px solid var(--gold);background:rgba(14,31,58,0.55);margin-bottom:2rem;">
   <h3 style="margin-bottom:0.4rem;">Current writing &middot; 2026</h3>
   <p style="font-size:0.78rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.9rem;">
     For editors, programme officers, and prospective collaborators
@@ -320,7 +356,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <h2 class="section-title">Policy &amp; Applied Research</h2>
   </div>
 
-  <div class="paper-card">
+  <div id="lifu-sud" class="paper-card">
     <h3>Focused Ultrasound Neuromodulation for Substance Use Disorder</h3>
     <div class="paper-meta">
       <span>Working Paper &middot; 2025</span>
@@ -532,7 +568,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   })();
   </script>
 
-  <div class="paper-card">
+  <div id="taiwan-holy-see-policy" class="paper-card">
     <h3>Identity Friction, Diplomatic Nomenclature, and Pastoral Strategy:
     Taiwan in Holy See&ndash;PRC Statecraft, 2026&ndash;2106</h3>
     <div class="paper-meta">
@@ -561,7 +597,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
   <!-- Capital Flows tracker -->
-  <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+  <div id="capital-flows" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Live tracker</div>
     <h3>Capital Flows &amp; Institutional Transparency</h3>
     <div class="paper-meta">
@@ -598,7 +634,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
   <!-- Governance Legitimacy Index -->
-  <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+  <div id="governance-legitimacy-index-card" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Working Paper &middot; 2025&ndash;2026</div>
     <h3>Governance Legitimacy Index &mdash; A Five-Indicator, Externally Verifiable Framework</h3>
     <div class="paper-meta">
@@ -755,7 +791,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
   <!-- 中華 study -->
-  <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+  <div id="hua-study" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Historical study</div>
     <h3>中華 &amp; 華人
       <span style="font-size:0.7em;font-style:italic;color:var(--gold-dim);font-weight:400;"> (Cross of the East &amp; <em>Crucesignati</em>)</span>
@@ -813,7 +849,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <div class="paper-card">
+  <div id="scientific-cognition" class="paper-card">
     <h3>Protecting U.S. Scientific Cognition from AI-Enabled Replication Threats
     &mdash; A Three-Portion Framework</h3>
     <div class="paper-meta">
@@ -849,7 +885,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
   <!-- ASI Architect / Logarchéon core work card -->
-  <div class="paper-card" style="border-left:3px solid var(--gold);background:rgba(14,31,58,0.55);">
+  <div id="asi-architect-core" class="paper-card" style="border-left:3px solid var(--gold);background:rgba(14,31,58,0.55);">
     <h3>Artificial Superintelligence Architect — Logarchéon Core Architecture</h3>
     <div class="paper-meta">
       <span>Lecture Notes &amp; Patent Portfolio &middot; 2023&ndash;2026</span>
@@ -1002,7 +1038,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <h2 class="section-title">Mathematics</h2>
   </div>
 
-  <div class="paper-card">
+  <div id="schottky-hausdorff" class="paper-card">
     <h3>Hausdorff Dimension of Well-Distributed Schottky Groups</h3>
     <div class="paper-meta"><span>Research Paper &middot; 2024&ndash;2025</span><span>Geometric Group Theory &middot; Hyperbolic Geometry &middot; Selberg&ndash;Huber Number Theory</span></div>
     <div class="paper-abstract">
@@ -1021,7 +1057,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <div class="paper-card">
+  <div id="hyperbolic-geometry-hn" class="paper-card">
     <h3>Geometry of &Hopf;&#x207F;: Foundations, Group Actions, and Quotient Constructions</h3>
     <div class="paper-meta"><span>Lecture Notes &middot; 2025</span><span>Hyperbolic Geometry &middot; Geometric Group Theory</span></div>
     <div class="paper-abstract">
@@ -1036,7 +1072,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <div class="paper-card">
+  <div id="hyperbolic-attention-scaling" class="paper-card">
     <h3>Critical Scaling in Hyperbolic Attention Mechanisms</h3>
     <div class="paper-meta"><span>Research Paper &middot; 2024</span><span>Machine Learning Theory &middot; Statistical Mechanics</span></div>
     <div class="paper-abstract">
@@ -1052,131 +1088,9 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
 
-  <!-- Einstein's Work Algorithms — interactive reference -->
-  <div id="einstein-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Einstein&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Principle, Invariance, Geometry, and Physical Reality</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Physics Methodology &middot; Relativity &middot; Quantum Foundations &middot; History of Science</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Einstein&rsquo;s papers, lectures, essays, and archival bibliographies are
-        treated here as a sequence of methodological problems: a physical concept,
-        anomaly, or foundation question; the central result; and the route by which
-        the problem is forced into mathematical form. The guiding test is
-        characteristically Einsteinian: what must remain invariant, measurable,
-        locally real, or coordinate-independent for the theory to be physically
-        meaningful?
-      </p>
-      <p>
-        Thirty-three strategies are grouped into six methodological systems: empirical
-        tensions; principle and invariance; statistical and quantum reasoning;
-        geometry and gravitation; fields and unification; and foundations and
-        exposition. The 300-case corpus spans the 1901&ndash;1955 source window,
-        including molecular-statistical work, Brownian motion, light quanta, special
-        relativity, equivalence-principle reasoning, tensor gravitation, the Einstein
-        field equations, gravitational waves, cosmology, Bose&ndash;Einstein
-        statistics, EPR-style completeness arguments, and late unified-field programs.
-        The aim is not biography, but a reusable research workflow for moving from
-        conceptual contradiction to principled mathematical structure.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/einstein/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Einstein Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>einstein/index.html</code> and place the interactive page there.
-    </p>
-  </div>
 
 
 
-  <!-- Feynman's Work Algorithms — interactive reference -->
-  <div id="feynman-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Feynman&rsquo;s Work Algorithms &mdash; Expanded 300-Case Reconstruction of Derivation, Physical Intuition, and Quantum-Amplitude Reasoning</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Physics Methodology &middot; QED &middot; Pedagogy &middot; Scientific Reasoning</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Feynman&rsquo;s public corpus is approached from the level of practice: how a
-        phenomenon becomes an experiment, an observable, a dimensional check, a
-        limiting case, a field law, a symmetry argument, or an amplitude rule. The
-        source base includes the <em>Feynman Lectures on Physics</em>, major books,
-        the Nobel lecture, selected scientific papers, gravitation lectures,
-        computation lectures, and late strong-interaction lectures.
-      </p>
-      <p>
-        The material is organized into thirty-three strategies across six
-        methodological systems: experimental imagination; symmetry and invariance;
-        fields and continuum reasoning; waves and linear systems; statistical
-        reasoning; and quantum-amplitude machinery. The 300-case corpus includes all
-        115 chapters of the Feynman Lectures and expands into QED, path integrals,
-        statistical mechanics, gravitation, computation, and public lectures on
-        physical law. The governing aim is not biographical imitation, but reusable
-        physics reasoning: convert a phenomenon into an apparatus, invariant, field,
-        mode, probability distribution, or amplitude rule.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/feynman/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Feynman Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>feynman/index.html</code> and place the interactive page there.
-    </p>
-  </div>
-
-
-
-  <!-- Landau's Work Algorithms — interactive reference -->
-  <div id="landau-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Landau&rsquo;s Work Algorithms &mdash; Theoretical Minimum Reconstruction of Variational, Symmetry, Scaling, and Continuum Reasoning</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Mathematical Physics &middot; Theoretical Minimum &middot; Landau&ndash;Lifshitz Course &middot; Physics Methodology</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        The Landau-school method is extracted from the Landau&ndash;Lifshitz
-        <em>Course of Theoretical Physics</em> and the theoretical-minimum tradition
-        as a compact decision discipline. Across section and chapter units, the
-        recurring moves are to begin from an extremal principle, choose adapted
-        variables, enforce symmetry, scale the regime, reduce by invariants, and solve
-        through canonical, spectral, kinetic, or continuum structure.
-      </p>
-      <p>
-        Volume I <em>Mechanics</em> is represented at full section resolution: all
-        fifty-two numbered sections are included because they form the variational,
-        Hamiltonian, action-angle, and effective-potential spine of the course. The
-        remaining cases range across fields, relativistic theory, quantum mechanics,
-        QED, statistical physics, fluids, elasticity, continuous media, condensed
-        matter, and physical kinetics. The governing workflow is Landau-style
-        compression: identify which structure fixes the answer first&mdash;action,
-        conservation, tensor form, Green function, spectrum, thermodynamic potential,
-        kinetic equation, or constitutive law.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/landau/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Landau Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>landau/index.html</code> and place the interactive page there.
-    </p>
-  </div>
 
 
 
@@ -1503,83 +1417,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
 
-
-  <!-- Galileo Galilei's Work Algorithms -- interactive reference -->
-  <div id="galilei-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Galileo Galilei&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Telescopic Observation, Mathematical Mechanics, Instrument Design, Scientific Rhetoric, and Experimental Method</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Telescopic Astronomy &middot; Mechanics &middot; Instruments &middot; Mathematical Proof &middot; Dialogue &middot; Scientific Method</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Galileo&rsquo;s work is reconstructed as an instrument-and-demonstration engine:
-        extend perception with a device; repeat observations until anomaly becomes
-        pattern; translate appearances into geometry; slow motion until it can be
-        measured; separate ideal law from resistance; and then recast the result as
-        diagram, ratio, experiment, letter, dialogue, or public demonstration. The
-        page follows this method through hydrostatics, centers of gravity, the
-        geometrical and military compass, telescopic lunar and Jovian observations,
-        sunspots, floating-body controversies, the comet dispute, world-system
-        comparison, relativity of motion, projectile trajectories, strength of
-        materials, and the late synthesis of the <em>Two New Sciences</em>.
-      </p>
-      <p>
-        The interactive reference contains thirty-three reconstructed strategies, a
-        300-case chapter/letter/manuscript/demonstration corpus, overlapping prevalence
-        histograms, a source spine, and worked reconstruction routes. Its emphasis is
-        not modernized Newtonian physics, but Galileo&rsquo;s own repeatable workflow:
-        instrument, observation, ratio, idealization, Euclidean proof, controversy
-        management, vernacular exposition, and censorship-aware staging.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/galilei/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Galilei Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>galilei/index.html</code> and place the interactive page there.
-    </p>
-  </div>
-
-  <!-- Isaac Newton's Work Algorithms -- interactive reference -->
-  <div id="newton-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Isaac Newton&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Mechanics, Optics, Fluxions, Algebra, Astronomy, and Manuscript Method</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Mechanics &middot; Optics &middot; Fluxions &middot; Algebra &middot; Astronomy &middot; Manuscript Method</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Newton&rsquo;s writings are approached as a discipline of proof-building:
-        stabilize phenomena, filter hypotheses, construct the diagram or table, pass
-        to ultimate ratios, and cascade propositions into a system of the world. The
-        corpus draws from the <em>Principia</em>, <em>Opticks</em>, mathematical
-        papers, algebraic lectures, correspondence, and administrative manuscripts.
-      </p>
-      <p>
-        Thirty-three strategies are grouped into six methodological systems: phenomena
-        and rules; fluxions and series; mechanics and orbits; optics and experiment;
-        algebra and curves; and manuscript/exposition. Printed books, papers, letters,
-        drafts, notebook topics, and manuscript sections are treated as lecture-style
-        thesis/result units rather than reproduced source text, with the emphasis on
-        how local demonstrations become a coherent mathematical physics.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/newton/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Newton Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>newton/index.html</code> and place the interactive page there.
-    </p>
-  </div>
 
 
 
@@ -1986,293 +1823,13 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </p>
   </div>
 
-  <div id="dirac-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Paul Dirac&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Quantum Mechanics, Relativity, Field Quantization, Constraints, and Mathematical Beauty</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Quantum Mechanics &middot; Bra-Ket Formalism &middot; Relativistic Wave Equations &middot; Field Quantization &middot; Foundations</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Dirac&rsquo;s work is reconstructed as a symbolic-compression engine: begin with a
-        physically unavoidable tension between classical mechanics, quantum discreteness,
-        relativity, radiation, or measurement; replace the problem with a compact algebra
-        of q-numbers, transformations, amplitudes, brackets, spectra, or constraints; and
-        then choose the representation only after the invariant formal structure is clear.
-        The page follows this method through noncommuting variables, the correspondence
-        principle, transformation theory, bra-ket notation, delta-function idealization,
-        spectral observables, perturbation and scattering methods, Fermi-Dirac statistics,
-        the relativistic electron equation, spinors, antiparticle inference, radiation
-        quantization, monopoles, constrained Hamiltonian dynamics, and foundational dissent.
-      </p>
-      <p>
-        The interactive reference contains thirty-three reconstructed strategies, a
-        300-case lecture-style corpus, overlapping prevalence histograms, a source spine,
-        and worked demonstrations. Its corpus combines early collected papers, later
-        publications and lectures, textbook-section cases from <em>The Principles of
-        Quantum Mechanics</em>, archive-style notes, and public foundational statements.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/dirac/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Dirac Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>dirac/index.html</code> and place the interactive page there.
-    </p>
-  </div>
+  
 
 
 
 
-  <!-- Enrico Fermi's Work Algorithms -- interactive reference -->
-
-  <!-- Julian Schwinger's Work Algorithms -- interactive reference -->
-  <div id="schwinger-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Julian Schwinger&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of QED, the Quantum Action Principle, Green Functions, Source Theory, Gauge Fields, and Electrodynamics</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Quantum Electrodynamics &middot; Action Principle &middot; Green Functions &middot; Source Theory &middot; Gauge Fields &middot; Radiation</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Schwinger&rsquo;s work is organized as a physically controlled formalism engine:
-        begin from actions, variations, sources, Green functions, symmetries, boundary
-        conditions, or measurable amplitudes; make the mathematics carry only the
-        physically normalized quantities; and then derive precision results, response
-        laws, or alternative field-theoretic languages from that foundation. The page
-        follows this method through nuclear scattering, wartime electrodynamics,
-        renormalized QED, anomalous magnetic moments, Ward identities, proper-time
-        methods, angular momentum, gauge fields, source theory, many-body response,
-        gravity, and later foundational lectures.
-      </p>
-      <p>
-        The interactive reference contains thirty-three reconstructed strategies, a
-        300-case lecture-style corpus, overlapping prevalence histograms, a source
-        spine, and worked demonstrations. It presents selected papers, book chapters,
-        lecture families, archive-style manuscript units, and public syntheses as a
-        methodological map rather than as reproduced source text.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/schwinger/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Schwinger Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>schwinger/index.html</code> and place the interactive page there.
-    </p>
-  </div>
-
-  <div id="fermi-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Enrico Fermi&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Theory, Experiment, Nuclear Physics, Reactor Criticality, and Blackboard Pedagogy</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Fermi-Dirac Statistics &middot; Beta Decay &middot; Slow Neutrons &middot; Reactor Physics &middot; Experimental Design &middot; Pedagogy</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Fermi&rsquo;s work is reconstructed as a theory-experiment compression system:
-        reduce a physical situation to the few scales and observables that matter,
-        build the minimal solvable model, estimate the answer before overfitting, and
-        close the loop through counts, cross sections, calibration, moderation,
-        criticality balance, or blackboard derivation. The page follows this method
-        across quantum statistics, degenerate electron gases, Thomas-Fermi modeling,
-        beta decay and weak interaction, artificial radioactivity, slow-neutron
-        experiments, resonance absorption, reactor-pile design, thermodynamics,
-        quantum-mechanics lecture notes, elementary-particle lectures, patents,
-        public lectures, and laboratory program-building.
-      </p>
-      <p>
-        The interactive reference contains thirty-three reconstructed strategies, a
-        300-case lecture-style corpus, overlapping prevalence histograms, a source
-        spine, and worked demonstrations. It treats collected papers, lecture notes,
-        textbooks, patents, public lectures, and archive-style case families as
-        methodological evidence for Fermi&rsquo;s distinctive habit of making theory,
-        apparatus, numerical estimate, and pedagogy operate as one instrument.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/fermi/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Fermi Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>fermi/index.html</code> and place the interactive page there.
-    </p>
-  </div>
-
-  <!-- Edward Witten's Work Algorithms -- interactive reference -->
-  <div id="witten-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Edward Witten&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Quantum Field Theory, Supersymmetry, Strings, Geometry, and Quantum Gravity</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Quantum Field Theory &middot; Supersymmetry &middot; String Theory &middot; Geometry &middot; Topology &middot; Quantum Gravity</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Witten&rsquo;s work is treated as a translation engine between physical consistency
-        and mathematical structure: begin with quantum fields, symmetries, anomalies,
-        supersymmetry, or black-hole consistency; identify protected quantities,
-        topological sectors, dual descriptions, or brane geometries; and then move the
-        problem into the language where the invariant becomes computable. The page
-        follows this method across gauge theory, anomalies, supersymmetric indices,
-        Morse theory, Chern&ndash;Simons theory, knot invariants, string dualities, M-theory,
-        Seiberg&ndash;Witten theory, geometric Langlands, twistors, amplitudes, super
-        Riemann surfaces, holography, and quantum-gravity information problems.
-      </p>
-      <p>
-        The interactive reference contains thirty-three reconstructed strategies, a
-        300-case lecture-style corpus, overlapping prevalence histograms, a source
-        spine, and worked demonstrations. It is a bibliographic and methodological
-        reconstruction rather than a reproduction of original articles: publication
-        families and public expository material provide the spine, while the thesis
-        summaries and strategy paths are interpretive.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/witten/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Witten Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>witten/index.html</code> and place the interactive page there.
-    </p>
-  </div>
-
-
-
-
-  <!-- Chen-Ning Yang's Work Algorithms -- interactive reference -->
-  <div id="yang-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Chen-Ning Yang&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Gauge Theory, Parity Violation, Statistical Mechanics, Integrability, and Gauge Geometry</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Yang&ndash;Mills Theory &middot; Parity Violation &middot; Lee&ndash;Yang Zeros &middot; Integrability &middot; Gauge Geometry</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Yang&rsquo;s work is organized as a symmetry-first research engine: begin with an
-        invariance principle, ask whether it is global or local, convert the resulting
-        constraint into a field, charge, phase, selection rule, transfer matrix, or exact
-        algebraic relation, and then test the structure against experiment, geometry, or
-        the thermodynamic limit. The reconstruction follows this method through early
-        nuclear and particle models, Yang&ndash;Mills gauge theory, non-Abelian curvature,
-        parity violation with T. D. Lee, Lee&ndash;Yang phase-transition zeros, off-diagonal
-        long-range order, the Yang&ndash;Baxter equation, Bethe ansatz systems, monopoles,
-        phase factors, and the fiber-bundle reading of gauge fields.
-      </p>
-      <p>
-        The interactive page contains thirty-three reconstructed strategies, a 300-case
-        lecture-style corpus, overlapping prevalence histograms, a source spine, and
-        worked demonstrations. It treats selected papers, lectures, commentaries, archive
-        categories, and historically important problem families as methodological cases;
-        the result is a map of Yang&rsquo;s problem-selection logic rather than a reproduction
-        of the original texts.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/yang/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Yang Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>yang/index.html</code> and place the interactive page there.
-    </p>
-  </div>
 
   <!-- Rufus Bowen's Work Algorithms -- interactive reference -->
-
-  <!-- Chia-Chiao Lin's Work Algorithms -- interactive reference -->
-
-  <!-- Tsung-Dao Lee's Work Algorithms -- interactive reference -->
-  <div id="lee-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Tsung-Dao Lee&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Parity Violation, Statistical Mechanics, Lee Model Field Theory, Solitons, Random Lattices, and Physics Institution Building</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Parity Violation &middot; Weak Interactions &middot; Lee-Yang Zeros &middot; Lee Model &middot; Solitons &middot; Random Lattices &middot; Discrete Physics</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Lee&rsquo;s work is organized as a symmetry-audit and model-building engine: take a
-        conservation law, discrete symmetry, phase structure, or field-theoretic
-        assumption that has become too familiar; separate its testable components;
-        construct the smallest model or experiment that can expose the failure mode;
-        and then rebuild the theory around observable consequences. The page follows
-        this method through early Fermi-school estimates, the Lee-Yang statistical
-        mechanics program, the Lee model, the parity revolution with C. N. Yang, weak
-        interactions, mass-singularity cancellation, current algebra, high-density
-        matter, nontopological solitons, Q-balls, random lattices, discrete time,
-        continuum limits, and late lectures on science, art, and institutions.
-      </p>
-      <p>
-        The interactive reference contains thirty-three reconstructed strategies, a
-        300-case paper/book-chapter/lecture corpus, prevalence histograms, worked
-        routes, and a source spine. It treats Lee&rsquo;s papers, selected-paper categories,
-        books, reports, lectures, and institutional programs as compact research
-        lectures for recovering reusable method.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/lee/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Lee Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>lee/index.html</code> and place the interactive page there.
-    </p>
-  </div>
-
-  <div id="lin-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
-    <h3>Chia-Chiao Lin&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Hydrodynamic Stability, Turbulence, Density Waves, Applied Mathematics, and Program Building</h3>
-    <div class="paper-meta">
-      <span>Interactive Reference &middot; 2026</span>
-      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Hydrodynamic Stability &middot; Orr-Sommerfeld Theory &middot; Turbulence &middot; Density Waves &middot; Spiral Galaxies &middot; Applied Mathematics</span>
-    </div>
-    <div class="paper-abstract">
-      <p>
-        Lin&rsquo;s work is treated as an applied-mathematical transfer engine: reduce the
-        physical system to a canonical base state, identify the governing dimensionless
-        controls, turn disturbances into spectral or wave problems, and then use
-        asymptotics, neutral curves, critical layers, dispersion relations, and
-        conservation balances to extract the mechanism. The reconstruction follows this
-        pattern through hydrodynamic stability, Orr&ndash;Sommerfeld analysis, boundary-layer
-        transition, turbulence closure, heat transfer, rotating disks, spiral-galaxy
-        density waves, resonance maps, deterministic modeling, lectures, monographs,
-        and institutional applied-mathematics programs.
-      </p>
-      <p>
-        The interactive page contains thirty-three reconstructed strategies, a 300-case
-        corpus built from papers, monograph chapters, lecture units, and institutional
-        source families, plus prevalence histograms and worked demonstrations. It maps
-        Lin&rsquo;s method as a portable bridge between fluid mechanics, astrophysics,
-        geophysical modeling, computation, and pedagogy.
-      </p>
-    </div>
-    <div class="paper-links">
-      <a href="/lin/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
-        <span class="lbl">&#8599;</span>Open Lin Work Algorithms
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
-      GitHub Pages path: create <code>lin/index.html</code> and place the interactive page there.
-    </p>
-  </div>
 
   <div id="bowen-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
@@ -2612,7 +2169,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </p>
   </div>
   <!-- Ramanujan's Work Algorithms — interactive reference -->
-  <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+  <div id="ramanujan-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
     <h3>Ramanujan&rsquo;s Work Algorithms &mdash; Exhaustive Reconstruction and Worldwide Frontier Extension</h3>
     <div class="paper-meta">
@@ -2658,7 +2215,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
   <!-- Teichmüller Dynamics, Geodesic Counting & Higher Representations -->
-  <div class="paper-card">
+  <div id="teichmuller-dynamics" class="paper-card">
     <h3>Teichm&uuml;ller Dynamics, Prime Geodesic Theorem, and Higher Representations</h3>
     <div class="paper-meta">
       <span>Research Reference &middot; 2007&ndash;2022</span>
@@ -2698,7 +2255,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
   <!-- Periods, Motives & Arithmetic Quantum Field Theory -->
-  <div class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+  <div id="periods-motives-aqft" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Research Reference &middot; 2016&ndash;2024</div>
     <h3>Periods, Motives, and Arithmetic Quantum Field Theory &mdash;
       the Langlands Frontier</h3>
@@ -2758,7 +2315,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 
   <div class="subsection">
-    <h4>Supplementary notes &mdash; Schottky groups and hyperbolic dynamics</h4>
+    <h4 id="supplementary-hyperbolic-notes">Supplementary notes &mdash; Schottky groups and hyperbolic dynamics</h4>
     <ul class="note-list">
       <li><a href="https://drive.google.com/file/d/1q0RMjbD9yqOWkomvlZDrb4xeVWCmQh1S/view?usp=sharing" target="_blank">One-Step Thermodynamic Formalism</a></li>
       <li><a href="https://drive.google.com/file/d/1Q2W80XxOzVpfq-GCjQSd7uqhFSa96jwL/view?usp=sharing" target="_blank">Thermodynamic Formalism and Patterson&ndash;Sullivan Theory</a></li>
@@ -2771,7 +2328,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <li><a href="https://drive.google.com/file/d/1Js35dKItL2zwd-Sn_iweNTMDkPxFKG84/view?usp=share" target="_blank">Simple Geodesics on Hyperbolic Surfaces: Theory and Applications</a></li>
     </ul>
 
-    <h4 style="margin-top:1.5rem;">Modular representation theory notes (Prof. Lux seminar)</h4>
+    <h4 id="modular-representation-notes" style="margin-top:1.5rem;">Modular representation theory notes (Prof. Lux seminar)</h4>
     <ul class="note-list">
       <li><a href="https://drive.google.com/file/d/1wMTtsn-sv5pzMRyydwcn41WbjOFUplUX/view?usp=sharing" target="_blank">Modular Representation Theory: Notes and Expansions</a></li>
       <li><a href="https://drive.google.com/file/d/1YfIYyYzvqeV4nxiDdsnKa52OCVaMsVt-/view?usp=sharing" target="_blank">Modular Representation Theory in Physical Systems</a></li>
@@ -2784,10 +2341,504 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 </section>
 
-<!-- ═══ §3 FINANCE ═══ -->
-<section class="page-section" id="finance">
+
+<!-- ═══ §3 PHYSICS ═══ -->
+<section class="page-section" id="physics">
   <div class="section-header">
     <span class="section-num">03</span>
+    <h2 class="section-title">Physics &amp; Mathematical Physics</h2>
+  </div>
+  <p style="color:var(--body);max-width:68ch;margin-bottom:1.5rem;line-height:1.75;">
+    Physics-oriented work-algorithm references have been separated from the mathematics
+    section so the sidebar distinguishes mathematical method from physical, field-theoretic,
+    experimental, and mathematical-physics reasoning.
+  </p>
+
+  <!-- Galileo Galilei's Work Algorithms -- interactive reference -->
+  <div id="galilei-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Galileo Galilei&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Telescopic Observation, Mathematical Mechanics, Instrument Design, Scientific Rhetoric, and Experimental Method</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Telescopic Astronomy &middot; Mechanics &middot; Instruments &middot; Mathematical Proof &middot; Dialogue &middot; Scientific Method</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Galileo&rsquo;s work is reconstructed as an instrument-and-demonstration engine:
+        extend perception with a device; repeat observations until anomaly becomes
+        pattern; translate appearances into geometry; slow motion until it can be
+        measured; separate ideal law from resistance; and then recast the result as
+        diagram, ratio, experiment, letter, dialogue, or public demonstration. The
+        page follows this method through hydrostatics, centers of gravity, the
+        geometrical and military compass, telescopic lunar and Jovian observations,
+        sunspots, floating-body controversies, the comet dispute, world-system
+        comparison, relativity of motion, projectile trajectories, strength of
+        materials, and the late synthesis of the <em>Two New Sciences</em>.
+      </p>
+      <p>
+        The interactive reference contains thirty-three reconstructed strategies, a
+        300-case chapter/letter/manuscript/demonstration corpus, overlapping prevalence
+        histograms, a source spine, and worked reconstruction routes. Its emphasis is
+        not modernized Newtonian physics, but Galileo&rsquo;s own repeatable workflow:
+        instrument, observation, ratio, idealization, Euclidean proof, controversy
+        management, vernacular exposition, and censorship-aware staging.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/galilei/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Galilei Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>galilei/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Isaac Newton's Work Algorithms -- interactive reference -->
+  <div id="newton-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Isaac Newton&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Mechanics, Optics, Fluxions, Algebra, Astronomy, and Manuscript Method</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Mechanics &middot; Optics &middot; Fluxions &middot; Algebra &middot; Astronomy &middot; Manuscript Method</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Newton&rsquo;s writings are approached as a discipline of proof-building:
+        stabilize phenomena, filter hypotheses, construct the diagram or table, pass
+        to ultimate ratios, and cascade propositions into a system of the world. The
+        corpus draws from the <em>Principia</em>, <em>Opticks</em>, mathematical
+        papers, algebraic lectures, correspondence, and administrative manuscripts.
+      </p>
+      <p>
+        Thirty-three strategies are grouped into six methodological systems: phenomena
+        and rules; fluxions and series; mechanics and orbits; optics and experiment;
+        algebra and curves; and manuscript/exposition. Printed books, papers, letters,
+        drafts, notebook topics, and manuscript sections are treated as lecture-style
+        thesis/result units rather than reproduced source text, with the emphasis on
+        how local demonstrations become a coherent mathematical physics.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/newton/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Newton Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>newton/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Einstein's Work Algorithms — interactive reference -->
+  <div id="einstein-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Einstein&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Principle, Invariance, Geometry, and Physical Reality</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Physics Methodology &middot; Relativity &middot; Quantum Foundations &middot; History of Science</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Einstein&rsquo;s papers, lectures, essays, and archival bibliographies are
+        treated here as a sequence of methodological problems: a physical concept,
+        anomaly, or foundation question; the central result; and the route by which
+        the problem is forced into mathematical form. The guiding test is
+        characteristically Einsteinian: what must remain invariant, measurable,
+        locally real, or coordinate-independent for the theory to be physically
+        meaningful?
+      </p>
+      <p>
+        Thirty-three strategies are grouped into six methodological systems: empirical
+        tensions; principle and invariance; statistical and quantum reasoning;
+        geometry and gravitation; fields and unification; and foundations and
+        exposition. The 300-case corpus spans the 1901&ndash;1955 source window,
+        including molecular-statistical work, Brownian motion, light quanta, special
+        relativity, equivalence-principle reasoning, tensor gravitation, the Einstein
+        field equations, gravitational waves, cosmology, Bose&ndash;Einstein
+        statistics, EPR-style completeness arguments, and late unified-field programs.
+        The aim is not biography, but a reusable research workflow for moving from
+        conceptual contradiction to principled mathematical structure.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/einstein/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Einstein Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>einstein/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Feynman's Work Algorithms — interactive reference -->
+  <div id="feynman-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Feynman&rsquo;s Work Algorithms &mdash; Expanded 300-Case Reconstruction of Derivation, Physical Intuition, and Quantum-Amplitude Reasoning</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Physics Methodology &middot; QED &middot; Pedagogy &middot; Scientific Reasoning</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Feynman&rsquo;s public corpus is approached from the level of practice: how a
+        phenomenon becomes an experiment, an observable, a dimensional check, a
+        limiting case, a field law, a symmetry argument, or an amplitude rule. The
+        source base includes the <em>Feynman Lectures on Physics</em>, major books,
+        the Nobel lecture, selected scientific papers, gravitation lectures,
+        computation lectures, and late strong-interaction lectures.
+      </p>
+      <p>
+        The material is organized into thirty-three strategies across six
+        methodological systems: experimental imagination; symmetry and invariance;
+        fields and continuum reasoning; waves and linear systems; statistical
+        reasoning; and quantum-amplitude machinery. The 300-case corpus includes all
+        115 chapters of the Feynman Lectures and expands into QED, path integrals,
+        statistical mechanics, gravitation, computation, and public lectures on
+        physical law. The governing aim is not biographical imitation, but reusable
+        physics reasoning: convert a phenomenon into an apparatus, invariant, field,
+        mode, probability distribution, or amplitude rule.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/feynman/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Feynman Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>feynman/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Landau's Work Algorithms — interactive reference -->
+  <div id="landau-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Landau&rsquo;s Work Algorithms &mdash; Theoretical Minimum Reconstruction of Variational, Symmetry, Scaling, and Continuum Reasoning</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Mathematical Physics &middot; Theoretical Minimum &middot; Landau&ndash;Lifshitz Course &middot; Physics Methodology</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        The Landau-school method is extracted from the Landau&ndash;Lifshitz
+        <em>Course of Theoretical Physics</em> and the theoretical-minimum tradition
+        as a compact decision discipline. Across section and chapter units, the
+        recurring moves are to begin from an extremal principle, choose adapted
+        variables, enforce symmetry, scale the regime, reduce by invariants, and solve
+        through canonical, spectral, kinetic, or continuum structure.
+      </p>
+      <p>
+        Volume I <em>Mechanics</em> is represented at full section resolution: all
+        fifty-two numbered sections are included because they form the variational,
+        Hamiltonian, action-angle, and effective-potential spine of the course. The
+        remaining cases range across fields, relativistic theory, quantum mechanics,
+        QED, statistical physics, fluids, elasticity, continuous media, condensed
+        matter, and physical kinetics. The governing workflow is Landau-style
+        compression: identify which structure fixes the answer first&mdash;action,
+        conservation, tensor form, Green function, spectrum, thermodynamic potential,
+        kinetic equation, or constitutive law.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/landau/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Landau Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>landau/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+<div id="dirac-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Paul Dirac&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Quantum Mechanics, Relativity, Field Quantization, Constraints, and Mathematical Beauty</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Quantum Mechanics &middot; Bra-Ket Formalism &middot; Relativistic Wave Equations &middot; Field Quantization &middot; Foundations</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Dirac&rsquo;s work is reconstructed as a symbolic-compression engine: begin with a
+        physically unavoidable tension between classical mechanics, quantum discreteness,
+        relativity, radiation, or measurement; replace the problem with a compact algebra
+        of q-numbers, transformations, amplitudes, brackets, spectra, or constraints; and
+        then choose the representation only after the invariant formal structure is clear.
+        The page follows this method through noncommuting variables, the correspondence
+        principle, transformation theory, bra-ket notation, delta-function idealization,
+        spectral observables, perturbation and scattering methods, Fermi-Dirac statistics,
+        the relativistic electron equation, spinors, antiparticle inference, radiation
+        quantization, monopoles, constrained Hamiltonian dynamics, and foundational dissent.
+      </p>
+      <p>
+        The interactive reference contains thirty-three reconstructed strategies, a
+        300-case lecture-style corpus, overlapping prevalence histograms, a source spine,
+        and worked demonstrations. Its corpus combines early collected papers, later
+        publications and lectures, textbook-section cases from <em>The Principles of
+        Quantum Mechanics</em>, archive-style notes, and public foundational statements.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/dirac/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Dirac Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>dirac/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Julian Schwinger's Work Algorithms -- interactive reference -->
+  <div id="schwinger-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Julian Schwinger&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of QED, the Quantum Action Principle, Green Functions, Source Theory, Gauge Fields, and Electrodynamics</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Quantum Electrodynamics &middot; Action Principle &middot; Green Functions &middot; Source Theory &middot; Gauge Fields &middot; Radiation</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Schwinger&rsquo;s work is organized as a physically controlled formalism engine:
+        begin from actions, variations, sources, Green functions, symmetries, boundary
+        conditions, or measurable amplitudes; make the mathematics carry only the
+        physically normalized quantities; and then derive precision results, response
+        laws, or alternative field-theoretic languages from that foundation. The page
+        follows this method through nuclear scattering, wartime electrodynamics,
+        renormalized QED, anomalous magnetic moments, Ward identities, proper-time
+        methods, angular momentum, gauge fields, source theory, many-body response,
+        gravity, and later foundational lectures.
+      </p>
+      <p>
+        The interactive reference contains thirty-three reconstructed strategies, a
+        300-case lecture-style corpus, overlapping prevalence histograms, a source
+        spine, and worked demonstrations. It presents selected papers, book chapters,
+        lecture families, archive-style manuscript units, and public syntheses as a
+        methodological map rather than as reproduced source text.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/schwinger/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Schwinger Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>schwinger/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Enrico Fermi's Work Algorithms -- interactive reference -->
+
+  <div id="fermi-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Enrico Fermi&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Theory, Experiment, Nuclear Physics, Reactor Criticality, and Blackboard Pedagogy</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Fermi-Dirac Statistics &middot; Beta Decay &middot; Slow Neutrons &middot; Reactor Physics &middot; Experimental Design &middot; Pedagogy</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Fermi&rsquo;s work is reconstructed as a theory-experiment compression system:
+        reduce a physical situation to the few scales and observables that matter,
+        build the minimal solvable model, estimate the answer before overfitting, and
+        close the loop through counts, cross sections, calibration, moderation,
+        criticality balance, or blackboard derivation. The page follows this method
+        across quantum statistics, degenerate electron gases, Thomas-Fermi modeling,
+        beta decay and weak interaction, artificial radioactivity, slow-neutron
+        experiments, resonance absorption, reactor-pile design, thermodynamics,
+        quantum-mechanics lecture notes, elementary-particle lectures, patents,
+        public lectures, and laboratory program-building.
+      </p>
+      <p>
+        The interactive reference contains thirty-three reconstructed strategies, a
+        300-case lecture-style corpus, overlapping prevalence histograms, a source
+        spine, and worked demonstrations. It treats collected papers, lecture notes,
+        textbooks, patents, public lectures, and archive-style case families as
+        methodological evidence for Fermi&rsquo;s distinctive habit of making theory,
+        apparatus, numerical estimate, and pedagogy operate as one instrument.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/fermi/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Fermi Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>fermi/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Edward Witten's Work Algorithms -- interactive reference -->
+  <div id="witten-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Edward Witten&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Quantum Field Theory, Supersymmetry, Strings, Geometry, and Quantum Gravity</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Quantum Field Theory &middot; Supersymmetry &middot; String Theory &middot; Geometry &middot; Topology &middot; Quantum Gravity</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Witten&rsquo;s work is treated as a translation engine between physical consistency
+        and mathematical structure: begin with quantum fields, symmetries, anomalies,
+        supersymmetry, or black-hole consistency; identify protected quantities,
+        topological sectors, dual descriptions, or brane geometries; and then move the
+        problem into the language where the invariant becomes computable. The page
+        follows this method across gauge theory, anomalies, supersymmetric indices,
+        Morse theory, Chern&ndash;Simons theory, knot invariants, string dualities, M-theory,
+        Seiberg&ndash;Witten theory, geometric Langlands, twistors, amplitudes, super
+        Riemann surfaces, holography, and quantum-gravity information problems.
+      </p>
+      <p>
+        The interactive reference contains thirty-three reconstructed strategies, a
+        300-case lecture-style corpus, overlapping prevalence histograms, a source
+        spine, and worked demonstrations. It is a bibliographic and methodological
+        reconstruction rather than a reproduction of original articles: publication
+        families and public expository material provide the spine, while the thesis
+        summaries and strategy paths are interpretive.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/witten/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Witten Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>witten/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Chen-Ning Yang's Work Algorithms -- interactive reference -->
+  <div id="yang-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Chen-Ning Yang&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Gauge Theory, Parity Violation, Statistical Mechanics, Integrability, and Gauge Geometry</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Yang&ndash;Mills Theory &middot; Parity Violation &middot; Lee&ndash;Yang Zeros &middot; Integrability &middot; Gauge Geometry</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Yang&rsquo;s work is organized as a symmetry-first research engine: begin with an
+        invariance principle, ask whether it is global or local, convert the resulting
+        constraint into a field, charge, phase, selection rule, transfer matrix, or exact
+        algebraic relation, and then test the structure against experiment, geometry, or
+        the thermodynamic limit. The reconstruction follows this method through early
+        nuclear and particle models, Yang&ndash;Mills gauge theory, non-Abelian curvature,
+        parity violation with T. D. Lee, Lee&ndash;Yang phase-transition zeros, off-diagonal
+        long-range order, the Yang&ndash;Baxter equation, Bethe ansatz systems, monopoles,
+        phase factors, and the fiber-bundle reading of gauge fields.
+      </p>
+      <p>
+        The interactive page contains thirty-three reconstructed strategies, a 300-case
+        lecture-style corpus, overlapping prevalence histograms, a source spine, and
+        worked demonstrations. It treats selected papers, lectures, commentaries, archive
+        categories, and historically important problem families as methodological cases;
+        the result is a map of Yang&rsquo;s problem-selection logic rather than a reproduction
+        of the original texts.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/yang/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Yang Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>yang/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Tsung-Dao Lee's Work Algorithms -- interactive reference -->
+  <div id="lee-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Tsung-Dao Lee&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Parity Violation, Statistical Mechanics, Lee Model Field Theory, Solitons, Random Lattices, and Physics Institution Building</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Parity Violation &middot; Weak Interactions &middot; Lee-Yang Zeros &middot; Lee Model &middot; Solitons &middot; Random Lattices &middot; Discrete Physics</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Lee&rsquo;s work is organized as a symmetry-audit and model-building engine: take a
+        conservation law, discrete symmetry, phase structure, or field-theoretic
+        assumption that has become too familiar; separate its testable components;
+        construct the smallest model or experiment that can expose the failure mode;
+        and then rebuild the theory around observable consequences. The page follows
+        this method through early Fermi-school estimates, the Lee-Yang statistical
+        mechanics program, the Lee model, the parity revolution with C. N. Yang, weak
+        interactions, mass-singularity cancellation, current algebra, high-density
+        matter, nontopological solitons, Q-balls, random lattices, discrete time,
+        continuum limits, and late lectures on science, art, and institutions.
+      </p>
+      <p>
+        The interactive reference contains thirty-three reconstructed strategies, a
+        300-case paper/book-chapter/lecture corpus, prevalence histograms, worked
+        routes, and a source spine. It treats Lee&rsquo;s papers, selected-paper categories,
+        books, reports, lectures, and institutional programs as compact research
+        lectures for recovering reusable method.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/lee/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Lee Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>lee/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Chia-Chiao Lin's Work Algorithms -- interactive reference -->
+
+  <div id="lin-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Chia-Chiao Lin&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Hydrodynamic Stability, Turbulence, Density Waves, Applied Mathematics, and Program Building</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Hydrodynamic Stability &middot; Orr-Sommerfeld Theory &middot; Turbulence &middot; Density Waves &middot; Spiral Galaxies &middot; Applied Mathematics</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        Lin&rsquo;s work is treated as an applied-mathematical transfer engine: reduce the
+        physical system to a canonical base state, identify the governing dimensionless
+        controls, turn disturbances into spectral or wave problems, and then use
+        asymptotics, neutral curves, critical layers, dispersion relations, and
+        conservation balances to extract the mechanism. The reconstruction follows this
+        pattern through hydrodynamic stability, Orr&ndash;Sommerfeld analysis, boundary-layer
+        transition, turbulence closure, heat transfer, rotating disks, spiral-galaxy
+        density waves, resonance maps, deterministic modeling, lectures, monographs,
+        and institutional applied-mathematics programs.
+      </p>
+      <p>
+        The interactive page contains thirty-three reconstructed strategies, a 300-case
+        corpus built from papers, monograph chapters, lecture units, and institutional
+        source families, plus prevalence histograms and worked demonstrations. It maps
+        Lin&rsquo;s method as a portable bridge between fluid mechanics, astrophysics,
+        geophysical modeling, computation, and pedagogy.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/lin/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Lin Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>lin/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+</section>
+
+<!-- ═══ §4 FINANCE ═══ -->
+<section class="page-section" id="finance">
+  <div class="section-header">
+    <span class="section-num">04</span>
     <h2 class="section-title">Quantitative Finance</h2>
   </div>
   <p style="color:var(--body);max-width:68ch;margin-bottom:1.5rem;line-height:1.75;">
@@ -2798,7 +2849,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     Selected highlights below.
   </p>
 
-  <div class="paper-card">
+  <div id="stochastic-finance" class="paper-card">
     <h3>A &Psi;-Structured Reformulation of Stochastic Finance</h3>
     <div class="paper-meta"><span>Formal Write-up &middot; 2025</span><span>Operator Theory &middot; Asset Pricing</span></div>
     <div class="paper-abstract">
@@ -2814,7 +2865,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <div class="paper-card">
+  <div id="operator-projection-factor-models" class="paper-card">
     <h3>Operator&ndash;Projection Factor Models: A &Psi;&ndash;Koopman Framework for Asset Pricing</h3>
     <div class="paper-meta"><span>Draft Technical Note &middot; 2025</span><span>Asset Pricing &middot; Information Geometry</span></div>
     <div class="paper-abstract">
@@ -2834,10 +2885,10 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 </section>
 
-<!-- ═══ §4 FAITH ═══ -->
+<!-- ═══ §5 FAITH ═══ -->
 <section class="page-section" id="faith">
   <div class="section-header">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
     <h2 class="section-title">Faith &amp; Identity</h2>
   </div>
   <p style="color:var(--body);max-width:68ch;margin-bottom:1.5rem;line-height:1.75;">
@@ -2851,7 +2902,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <span class="cross-ornament">&#10013;</span>
   </p>
 
-  <div class="paper-card">
+  <div id="faith-taiwan-holy-see-reference" class="paper-card">
     <h3>Identity Friction, Diplomatic Nomenclature, and Pastoral Strategy
     <span style="font-weight:300;font-size:0.85em;">&mdash; see Policy section</span></h3>
     <div class="paper-meta"><span>Working Paper &middot; 14 March 2026</span><span>Taiwan &middot; Holy See &middot; PRC</span></div>
@@ -2867,7 +2918,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <div class="paper-card">
+  <div id="plenary-indulgence-catechesis" class="paper-card">
     <h3>Plenary Indulgence as Adult Catechesis</h3>
     <div class="paper-meta"><span>Self-Study Manuscript &middot; 2025&ndash;2026</span><span>Sacramental Theology &middot; Canon Law</span></div>
     <div class="paper-abstract">
@@ -2885,7 +2936,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <div class="paper-card">
+  <div id="rule-of-life" class="paper-card">
     <h3>Rule of Life &mdash; Ignatian&ndash;Cistercian Inspired Lay Horarium</h3>
     <div class="paper-meta"><span>Devotional Guide &middot; 2025</span><span>Spirituality &middot; Lay Vocation</span></div>
     <div class="paper-abstract">
@@ -2900,7 +2951,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
   </div>
 
-  <div class="paper-card">
+  <div id="algerian-tavern-inscription" class="paper-card">
     <h3>Algerian as Tavern Inscription</h3>
     <div class="paper-meta"><span>Occasional Lecture &middot; 2025</span><span>Typography &middot; Sacred Art &middot; Catholic Aesthetics</span></div>
     <div class="paper-abstract">
@@ -2917,10 +2968,10 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </div>
 </section>
 
-<!-- ═══ §5 STUDY NOTES ═══ -->
+<!-- ═══ §6 STUDY NOTES ═══ -->
 <section class="page-section" id="notes">
   <div class="section-header">
-    <span class="section-num">05</span>
+    <span class="section-num">06</span>
     <h2 class="section-title">Study Notes &amp; Learning</h2>
   </div>
   <p style="color:var(--body);max-width:68ch;margin-bottom:1.5rem;line-height:1.75;">
@@ -2929,21 +2980,21 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   </p>
 
   <div class="subsection">
-    <h3>Ongoing learning log</h3>
+    <h3 id="ongoing-learning-log">Ongoing learning log</h3>
     <ul class="note-list">
       <li><a href="https://docs.google.com/document/d/1UqxEAHO93AGB13EOHgEJoYHHnU_dUp79-9piHkk_5Ww/" target="_blank">What I Learned Today &mdash; running log</a></li>
       <li><a href="https://docs.google.com/document/d/1ivU6hM9NQgUIczx9amPOKl1dvedrcC2WPEb-xMTPcEg/" target="_blank">What I Learned: March 2023 &ndash; March 2024</a></li>
       <li><a href="https://docs.google.com/document/d/1OpupaVvLYnqlDLmY4D29oah4xbSCnDSgV1oNZO8f5Xg/" target="_blank">What I Learned: Summer 2023</a></li>
     </ul>
 
-    <h3 style="margin-top:1.5rem;">Qualifying exam notes &amp; seminars</h3>
+    <h3 id="qualifying-exam-notes" style="margin-top:1.5rem;">Qualifying exam notes &amp; seminars</h3>
     <ul class="note-list">
       <li><a href="https://drive.google.com/drive/folders/1HDanu8evZ7ytPe4lZSUTETJmK4WZ2R2T?usp=sharing" target="_blank">Qualifying Exam Notes (Google Drive folder)</a></li>
       <li><a href="https://drive.google.com/drive/folders/1TpZ336p2Jp-0nTlH1-tTEwvwGpSBnXJD?usp=sharing" target="_blank">2023 RTG Meeting Notes (Prof. Ning Hao)</a></li>
       <li><a href="https://drive.google.com/file/d/1ULawGMKT-hykzrUzroGeAtPRr4Pq1aKt/view?usp=sharing" target="_blank">Notes on Double Coset Random Walks (Diaconis talk)</a></li>
     </ul>
 
-    <h3 style="margin-top:1.5rem;">Older math projects</h3>
+    <h3 id="older-math-projects" style="margin-top:1.5rem;">Older math projects</h3>
     <ul class="note-list">
       <li><a href="/files/Basics%20of%20Fundamental%20Group.pdf" target="_blank">Basics of Fundamental Group</a></li>
       <li><a href="/files/Nov22.pdf" target="_blank">A Study on Hom-polytopes</a></li>
@@ -2954,7 +3005,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <li><a href="/files/till_2014.pdf" target="_blank">Detailed Records Prior to 2014</a></li>
     </ul>
 
-    <h3 style="margin-top:1.5rem;">YouTube &amp; GitHub</h3>
+    <h3 id="youtube-github" style="margin-top:1.5rem;">YouTube &amp; GitHub</h3>
     <ul class="note-list">
       <li><a href="https://www.youtube.com/channel/UCdN4ayC6Q53Zs0A4_aYlBAA" target="_blank">YouTube &mdash; @william_chuang (worked math problems)</a></li>
       <li><a href="https://github.com/williamchuang" target="_blank">GitHub &mdash; williamchuang</a></li>
