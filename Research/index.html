@@ -76,9 +76,22 @@ nav.site-nav {
 }
 
 /* ── TOC ── */
-.toc-sidebar { position:sticky; top:74px; border-left:1px solid var(--border); padding-left:1.4rem; }
-.toc-label { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; }
-.toc-list { list-style:none; display:flex; flex-direction:column; gap:0.25rem; }
+.toc-sidebar {
+  position:sticky; top:74px; border-left:1px solid var(--border); padding-left:1.4rem;
+  max-height:calc(100vh - 94px);
+  display:flex; flex-direction:column; min-height:0;
+}
+.toc-label { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; flex:0 0 auto; }
+.toc-list {
+  list-style:none; display:flex; flex-direction:column; gap:0.25rem;
+  flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain;
+  padding-right:0.55rem; padding-bottom:1rem;
+  scrollbar-width:thin; scrollbar-color:var(--gold-dim) rgba(201,168,76,0.08);
+}
+.toc-list::-webkit-scrollbar { width:6px; }
+.toc-list::-webkit-scrollbar-track { background:rgba(201,168,76,0.06); border-radius:999px; }
+.toc-list::-webkit-scrollbar-thumb { background:rgba(201,168,76,0.45); border-radius:999px; }
+.toc-list::-webkit-scrollbar-thumb:hover { background:rgba(226,201,126,0.7); }
 .toc-link { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.05em; color:var(--body); padding:0.25rem 0; display:block; border-left:2px solid transparent; margin-left:-1.5rem; padding-left:1.3rem; transition:color 0.2s,border-color 0.2s; }
 .toc-link:hover { color:var(--gold); border-color:var(--gold); text-decoration:none; }
 
@@ -256,6 +269,19 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <li><a href="#lee-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Lee Work Algos &#8599;</a></li>
       <li><a href="#lin-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Lin Work Algos &#8599;</a></li>
       <li><a href="#bowen-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Bowen Work Algos &#8599;</a></li>
+      <li><a href="#atiyah-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Atiyah Work Algos &#8599;</a></li>
+      <li><a href="#donaldson-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Donaldson Work Algos &#8599;</a></li>
+      <li><a href="#gromov-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Gromov Work Algos &#8599;</a></li>
+      <li><a href="#kontsevich-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Kontsevich Work Algos &#8599;</a></li>
+      <li><a href="#mordell-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Mordell Work Algos &#8599;</a></li>
+      <li><a href="#milnor-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Milnor Work Algos &#8599;</a></li>
+      <li><a href="#mcmullen-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; McMullen Work Algos &#8599;</a></li>
+      <li><a href="#connes-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Connes Work Algos &#8599;</a></li>
+      <li><a href="#deligne-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Deligne Work Algos &#8599;</a></li>
+      <li><a href="#selberg-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Selberg Work Algos &#8599;</a></li>
+      <li><a href="#tate-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Tate Work Algos &#8599;</a></li>
+      <li><a href="#thurston-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Thurston Work Algos &#8599;</a></li>
+      <li><a href="#isadore-singer-work-algos" class="toc-link" style="font-size:0.68rem;color:var(--gold-dim);">&#8627; Isadore Singer Work Algos &#8599;</a></li>
       <li><a href="#finance" class="toc-link">Finance</a></li>
       <li><a href="#faith" class="toc-link">Faith &amp; Identity</a></li>
       <li><a href="#notes" class="toc-link">Study Notes</a></li>
@@ -2282,6 +2308,307 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
       GitHub Pages path: create <code>bowen/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+
+  <!-- Michael Atiyah's Work Algorithms -- interactive reference -->
+  <div id="atiyah-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Michael Atiyah&rsquo;s Work Algorithms &mdash; Deep 300-Case Reconstruction of K-Theory, Index Theory, Gauge Theory, and Mathematics&ndash;Physics Bridges</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>K-Theory &middot; Index Theory &middot; Vector Bundles &middot; Gauge Theory &middot; Twistor Geometry &middot; TQFT</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A deep 300-case reconstruction of Atiyah&rsquo;s method across vector bundles, K-theory, Bott periodicity, the Atiyah&ndash;Singer index theorem, equivariant localization, elliptic operators, gauge theory, instantons, monopoles, twistor geometry, topological quantum field theory, knots, and mathematics&ndash;physics synthesis.</p>
+      <p>The page treats each case as a methodological lecture: object, invariant, translation bridge, computation, theorem artifact, and source lineage. Its central workflow is Atiyah-style translation&mdash;turn geometry into topology, topology into analysis, analysis into index formulas, and index formulas back into geometry or physics.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/atiyah/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Atiyah Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>atiyah/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Simon Donaldson's Work Algorithms -- interactive reference -->
+  <div id="donaldson-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Simon K. Donaldson&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Gauge Theory, Four-Manifold Topology, Moduli Spaces, and K&auml;hler Geometry</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Gauge Theory &middot; Four-Manifold Topology &middot; Moduli Spaces &middot; Symplectic Geometry &middot; K-Stability</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A Logarch&eacute;on-style reconstruction of Donaldson&rsquo;s working method across gauge theory, four-manifold topology, moduli spaces, symplectic geometry, K&auml;hler metrics, K-stability, and exceptional holonomy.</p>
+      <p>The reference frames Donaldson&rsquo;s corpus as a theorem-producing engine: translate geometric questions into moduli problems, extract analytic compactness and transversality, build invariants, and return those invariants to topology, algebraic geometry, and mathematical physics.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/donaldson/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Donaldson Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>donaldson/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Mikhail Gromov's Work Algorithms -- interactive reference -->
+  <div id="gromov-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Mikhail Gromov&rsquo;s Work Algorithms &mdash; Deep 300-Case Reconstruction of Metric Geometry, h-Principle, Geometric Group Theory, and Symplectic Topology</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Metric Geometry &middot; h-Principle &middot; Geometric Group Theory &middot; Symplectic Topology &middot; Scalar Curvature</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A deep 300-case reconstruction of Gromov&rsquo;s mathematical workflow across metric geometry, Gromov&ndash;Hausdorff convergence, collapse, h-principle, partial differential relations, hyperbolic groups, symplectic topology, pseudoholomorphic curves, filling and systolic inequalities, scalar curvature, concentration of measure, random groups, and biological or symbolic structures.</p>
+      <p>Each case is treated as a methodological lecture: object, invariant, category shift, compactness or flexibility principle, obstruction, and field-making artifact. The governing move is Gromov-style change of scale and category: replace rigid local data by metric, coarse, flexible, or asymptotic structure until the hidden invariant becomes visible.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/gromov/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Gromov Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>gromov/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Maxim Kontsevich's Work Algorithms -- interactive reference -->
+  <div id="kontsevich-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Maxim Kontsevich&rsquo;s Work Algorithms &mdash; 300-Case Study Reconstruction of Moduli, Mirror Symmetry, Formality, Quantization, and Wall Crossing</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Moduli Spaces &middot; Mirror Symmetry &middot; Deformation Quantization &middot; Formality &middot; Operads &middot; Motives</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A 300-case study reconstruction of Kontsevich&rsquo;s work algorithms across moduli spaces, mirror symmetry, deformation quantization, formality, operads, motives, Donaldson&ndash;Thomas theory, and wall crossing.</p>
+      <p>The page treats Kontsevich&rsquo;s method as a bridge architecture: identify the correct categorical or homological language, encode geometry into algebraic or combinatorial structures, and move through deformation, quantization, and wall-crossing mechanisms until multiple mathematical worlds become equivalent.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/kontsevich/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Kontsevich Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>kontsevich/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Louis J. Mordell's Work Algorithms -- interactive reference -->
+  <div id="mordell-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Louis J. Mordell&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Diophantine Equations, Elliptic Curves, Forms, and Arithmetic Problem Culture</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Diophantine Equations &middot; Elliptic Curves &middot; Finite Basis Theorem &middot; Forms &middot; Modular Identities</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A Logarch&eacute;on-style reconstruction of Mordell&rsquo;s work algorithms across Diophantine equations, elliptic curves, the finite basis theorem, forms, modular identities, and arithmetic problem culture.</p>
+      <p>The project presents Mordell&rsquo;s method as arithmetic reduction under constraint: isolate the integer or rational obstruction, transform the equation into a more governable form, exploit descent or congruence structure, and turn difficult examples into durable problem families.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/mordell/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Mordell Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>mordell/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- John Milnor's Work Algorithms -- interactive reference -->
+  <div id="milnor-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>John Milnor&rsquo;s Work Algorithms &mdash; Deep 300-Case Reconstruction of Differential Topology, Exotic Spheres, Singularities, K-Theory, and Dynamics</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Differential Topology &middot; Exotic Spheres &middot; Cobordism &middot; Characteristic Classes &middot; Singularities &middot; Dynamics</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A deep 300-case reconstruction of Milnor&rsquo;s method across differential topology, exotic spheres, cobordism, characteristic classes, singularities, algebraic K-theory, knot and 3-manifold topology, real and complex dynamics, and mathematical exposition.</p>
+      <p>Each row is treated as a methodological lecture case: object, category, invariant, decisive construction, proof mechanism, and source lineage. The recurring workflow is Milnor-style exact example building: find the smallest object that exposes the topology, compute the invariant cleanly, and convert the example into a general method.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/milnor/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Milnor Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>milnor/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Curtis T. McMullen's Work Algorithms -- interactive reference -->
+  <div id="mcmullen-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Curtis T. McMullen&rsquo;s Work Algorithms &mdash; Deep 300-Case Reconstruction of Dynamics, Teichm&uuml;ller Theory, Hyperbolic 3-Manifolds, and Moduli Spaces</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Complex Dynamics &middot; Teichm&uuml;ller Theory &middot; Hyperbolic 3-Manifolds &middot; K3 Surfaces &middot; Billiards</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A deep 300-case reconstruction of McMullen&rsquo;s method across complex dynamics, quasiconformal surgery, renormalization, Teichm&uuml;ller theory, hyperbolic 3-manifolds, Kleinian groups, K3 surfaces, Salem numbers, billiards, translation surfaces, Hilbert modular surfaces, triangle groups, and moduli-space dynamics.</p>
+      <p>Each case is treated as a methodological lecture: object, deformation language, invariant, computation, transfer principle, and theorem form. The page emphasizes McMullen&rsquo;s capacity to move between dynamics, geometry, arithmetic, and moduli through explicit deformation and invariant calculation.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/mcmullen/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open McMullen Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>mcmullen/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Alain Connes's Work Algorithms -- interactive reference -->
+  <div id="connes-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Alain Connes&rsquo;s Work Algorithms &mdash; Deep 300-Case Reconstruction of Operator Algebras, Noncommutative Geometry, Cyclic Cohomology, and Spectral Triples</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Operator Algebras &middot; Noncommutative Geometry &middot; Cyclic Cohomology &middot; Spectral Triples &middot; Number Theory</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A deep 300-case reconstruction of Connes&rsquo;s method across operator algebras, type III factors, modular theory, noncommutative geometry, cyclic cohomology, spectral triples, foliations, groupoids, local index theory, the spectral action, renormalization, quantum theory, the adele class space, the scaling site, and absolute geometry.</p>
+      <p>Each case is treated as a methodological lecture: singular space, algebraic replacement, operator representation, invariant, pairing, local formula, and conceptual return. The central move is Connes-style noncommutative replacement: when the quotient or space breaks, replace it by an algebra and recover geometry spectrally.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/connes/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Connes Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>connes/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Pierre Deligne's Work Algorithms -- interactive reference -->
+  <div id="deligne-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Pierre Deligne&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Arithmetic Geometry, Weights, Hodge Theory, Perverse Sheaves, Motives, and Monodromy</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Arithmetic Geometry &middot; Weil Conjectures &middot; Weights &middot; Hodge Theory &middot; Perverse Sheaves &middot; Motives</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A Logarch&eacute;on-style reconstruction of Deligne&rsquo;s work algorithms across arithmetic geometry, Weil conjectures, weights, Hodge theory, perverse sheaves, motives, monodromy, Shimura varieties, and representation theory.</p>
+      <p>The page presents Deligne&rsquo;s method as a precision architecture: isolate the correct cohomological category, impose weights or filtrations, control monodromy, and turn a conjectural geometric or arithmetic pattern into a stable theorem with functorial reach.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/deligne/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Deligne Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>deligne/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Atle Selberg's Work Algorithms -- interactive reference -->
+  <div id="selberg-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Atle Selberg&rsquo;s Work Algorithms &mdash; 300-Case Reconstruction of Analytic Number Theory, Sieve Methods, Zeta Functions, Automorphic Forms, Trace Formulas, and Spectral Geometry</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Analytic Number Theory &middot; Sieve Methods &middot; Zeta Functions &middot; Automorphic Forms &middot; Trace Formulas</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A Logarch&eacute;on-style reconstruction of Selberg&rsquo;s work algorithms across analytic number theory, sieve methods, zeta functions, automorphic forms, trace formulas, and spectral geometry.</p>
+      <p>The reference organizes Selberg&rsquo;s method around analytic isolation and spectral counting: build the right test function or identity, separate main term from error, encode arithmetic through spectra or automorphic data, and obtain estimates or formulas strong enough to change the shape of the problem.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/selberg/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Selberg Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>selberg/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+
+  <!-- John Tate's Work Algorithms -- interactive reference -->
+  <div id="tate-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>John Tate&rsquo;s Work Algorithms &mdash; Preview-Safe 300-Case Reconstruction of Ad&egrave;les, Class Field Theory, Cohomology, Duality, and Arithmetic Geometry</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Number Theory &middot; Arithmetic Geometry &middot; Ad&egrave;les &amp; Id&egrave;les &middot; Class Field Theory &middot; p-adic Geometry</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A preview-safe 300-case reconstruction of John Torrence Tate&rsquo;s mathematical method across ad&egrave;les and id&egrave;les, Tate&rsquo;s thesis, Hecke L-functions, class field theory, Galois cohomology, Tate duality, abelian varieties, Tate modules, heights, elliptic curves, Lubin&ndash;Tate formal groups, rigid analytic spaces, Hodge&ndash;Tate theory, p-divisible groups, the Tate conjecture, and arithmetic-geometric correspondence culture.</p>
+      <p>The page treats Tate&rsquo;s work as a discipline of reformulation: move the problem to its natural carrier space, normalize local data precisely, encode the structure functorially, and then let duality, cohomology, representation, or analytic transform produce the theorem. It is written as a preview-safe reference with no external JavaScript requirement for core content.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/tate/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Tate Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>tate/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- William P. Thurston's Work Algorithms -- interactive reference -->
+  <div id="thurston-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>William P. Thurston&rsquo;s Work Algorithms &mdash; Deep 300-Case Reconstruction of Geometrization, Hyperbolic 3-Manifolds, Laminations, Dynamics, and Proof Culture</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Geometrization &middot; Hyperbolic 3-Manifolds &middot; Foliations &middot; Laminations &middot; Dynamics &middot; Mathematical Philosophy</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A deep 300-case reconstruction of Thurston&rsquo;s mathematical method across geometrization, hyperbolic 3-manifolds, foliations, measured laminations, surface dynamics, Kleinian groups, orbifolds, rational maps, visualization, computation, education, and the philosophy of proof.</p>
+      <p>The page treats each source unit as a methodological lecture: visible object, geometric language, invariant, deformation space, obstruction, proof route, and propagation channel. The governing workflow is Thurston-style visible structure: start with a manipulable object, translate topology into geometry or dynamics, locate the obstruction, and propagate the idea through examples, pictures, notes, and questions.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/thurston/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Thurston Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>thurston/index.html</code> and place the interactive page there.
+    </p>
+  </div>
+
+  <!-- Isadore Singer's Work Algorithms -- interactive reference -->
+  <div id="isadore-singer-work-algos" class="paper-card" style="border-left:3px solid var(--gold-dim);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Interactive Reference &middot; 2026</div>
+    <h3>Isadore Singer&rsquo;s Work Algorithms &mdash; Deep 300-Case Reconstruction of Index Theory, Holonomy, Spectral Geometry, Gauge Theory, and Mathematical Physics</h3>
+    <div class="paper-meta">
+      <span>Interactive Reference &middot; 2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Index Theory &middot; Holonomy &middot; Elliptic Operators &middot; Spectral Geometry &middot; Gauge Theory &middot; Mathematical Physics</span>
+    </div>
+    <div class="paper-abstract">
+      <p>A deep 300-case reconstruction of Singer&rsquo;s method across holonomy, connections, elliptic operators, the Atiyah&ndash;Singer index theorem, K-theory symbols, Dirac operators, heat-kernel localization, eta invariants, analytic torsion, gauge theory, operator algebras, and bridges between analysis, geometry, topology, and theoretical physics.</p>
+      <p>The page reads Singer&rsquo;s work as a pipeline from object to operator, connection, or spectrum; then from invariant to translation, proof mechanism, and bridge theorem. The GitHub Pages route is <code>/isadore/</code>, matching the spelling of Isadore Singer.</p>
+    </div>
+    <div class="paper-links">
+      <a href="/isadore/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open Isadore Singer Work Algorithms
+      </a>
+    </div>
+    <p style="font-size:0.78rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;margin-top:0.9rem;">
+      GitHub Pages path: create <code>isadore/index.html</code> and place the interactive page there.
     </p>
   </div>
   <!-- Ramanujan's Work Algorithms — interactive reference -->
