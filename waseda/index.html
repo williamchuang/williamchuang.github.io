@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waseda University — Probable Classmates of My Maternal Grandfather (b. 1923/24, Law)</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --cream: #faf7f2;
+    --muted: #5a5a5a;
+    --border: #d8d0c0;
+    --tier1: #1a3a5c;
+    --tier2: #2d6a4f;
+    --law: #6b2d3e;
+    --note: #4a3800;
+    --tag-bg: #eee8da;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    background: var(--cream);
+    color: var(--navy);
+    padding: 3rem 2rem;
+    line-height: 1.65;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .logarcheon {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  h1 {
+    font-size: 1.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding-left: 0.75rem;
+    margin: 2.5rem 0 1rem;
+  }
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 1.5rem 0 0.6rem;
+  }
+  p { margin-bottom: 0.8rem; font-size: 0.97rem; }
+  .callout {
+    background: #f0ebe0;
+    border-left: 3px solid var(--gold);
+    padding: 0.9rem 1.1rem;
+    margin: 1.2rem 0;
+    font-size: 0.93rem;
+  }
+  .callout-law {
+    background: #f9f0f2;
+    border-left: 3px solid var(--law);
+  }
+  .callout-warn {
+    background: #fffbf0;
+    border-left: 3px solid #c9941c;
+  }
+  .callout-green {
+    background: #f0f8f4;
+    border-left: 3px solid #2d6a4f;
+  }
+
+  /* Timeline grid */
+  .timeline {
+    display: grid;
+    grid-template-columns: 130px 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1.2rem 0;
+    font-size: 0.88rem;
+  }
+  .timeline .hdr {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 0.8rem;
+    font-weight: 600;
+  }
+  .timeline .cell {
+    padding: 0.55rem 0.8rem;
+    border-top: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .timeline .cell.scenario { background: #f5f2ec; font-weight: 600; color: var(--navy); }
+  .timeline .cell.window  { color: #2a5c3a; font-weight: 600; }
+  .timeline .cell.note-cell { color: var(--muted); font-style: italic; }
+
+  /* Person cards */
+  .person-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin: 1rem 0;
+  }
+  .person-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .person-card .card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background: var(--navy);
+    flex-wrap: wrap;
+  }
+  .person-card.tier2 .card-head { background: var(--tier2); }
+  .person-card.law-tier .card-head { background: var(--law); }
+  .card-name {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .card-kanji {
+    color: var(--gold-light);
+    font-size: 0.88rem;
+  }
+  .card-born {
+    margin-left: auto;
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+  }
+  .card-body {
+    padding: 0.7rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  .card-body .lbl {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.1rem;
+  }
+  .card-body .val { color: var(--navy); }
+  .card-body .val.em { font-weight: 600; color: #a00; }
+  .card-body .full { grid-column: 1 / -1; }
+  .overlap-badge {
+    display: inline-block;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    margin-top: 0.2rem;
+  }
+  .law-badge {
+    background: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+  }
+  .star-badge {
+    background: #fff3cd;
+    color: #856404;
+    border-color: #ffc107;
+    font-weight: 700;
+  }
+  .note-badge {
+    background: var(--tag-bg);
+    color: var(--note);
+    border-color: #d8c89a;
+  }
+  .correct-badge {
+    background: #e8f4e8;
+    color: #1a5c1a;
+    border-color: #b8d8b8;
+  }
+
+  /* Law faculty section */
+  .law-block {
+    background: #fdf5f7;
+    border: 1px solid #e8c4cc;
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    margin: 1.2rem 0;
+  }
+  .law-block h3 { color: var(--law); margin-top: 0; }
+
+  /* Archive table */
+  .archive-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+  }
+  .archive-table th {
+    background: var(--navy);
+    color: var(--gold-light);
+    padding: 0.5rem 0.8rem;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .archive-table td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .archive-table tr:nth-child(even) td { background: #f9f7f4; }
+  .archive-table .highlight td { background: #fff8e6; font-weight: 600; }
+  .pid {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: #1a5c3a;
+  }
+
+  /* Notes section */
+  .notes-list { list-style: none; padding: 0; }
+  .notes-list li {
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.75rem;
+  }
+  .notes-list li:last-child { border-bottom: none; }
+  .note-num {
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  footer {
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .card-body { grid-template-columns: 1fr; }
+    .card-body .full { grid-column: 1; }
+    .timeline { grid-template-columns: 1fr; }
+    .timeline .hdr:nth-child(2), .timeline .hdr:nth-child(3) { display: none; }
+  }
+
+  /* ── Back navigation ── */
+  .back-nav {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .back-nav a { color: var(--gold); text-decoration: none; }
+  .back-nav a:hover { text-decoration: underline; }
+  .back-nav .sep { color: var(--border); }
+  .back-nav .cur { color: var(--muted); }
+
+  /* ── Memorial provenance block ── */
+  .callout-memorial {
+    background: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding: 1.25rem 1.5rem;
+    margin: 0 0 2.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout-memorial .mem-label {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.85rem;
+  }
+  .callout-memorial p {
+    color: #ddd6c8;
+    font-size: 0.94rem;
+    line-height: 1.75;
+    margin-bottom: 0.65rem;
+  }
+  .callout-memorial p:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<nav class="back-nav">
+  <a href="/">Logarchéon</a>
+  <span class="sep">/</span>
+  <a href="/Research/">Research</a>
+  <span class="sep">/</span>
+  <span class="cur">Waseda Genealogical Archive</span>
+</nav>
+
+<header>
+  <div class="logarcheon">Logarchéon Inc. · Genealogical Research File</div>
+  <h1>Waseda University — Probable Classmates of My Maternal Grandfather</h1>
+  <p class="subtitle">A genealogical reference compiled in memoriam &mdash; William Chuang&rsquo;s maternal grandfather (母方の祖父), born approximately 1923&ndash;24, who read law at Waseda University (早稲田大学). Narrowed to 法学部/法律科 (Faculty of Law). Compiled June 2026.</p>
+</header>
+
+<!-- MEMORIAL PROVENANCE -->
+<div class="callout-memorial">
+  <div class="mem-label">In Memoriam &middot; Research Provenance</div>
+  <p>
+    My maternal grandfather &mdash; 母方の祖父, 外祖父 &mdash; read law at Waseda University
+    (早稲田大学), born approximately 1923&ndash;24 by the best reconstruction family record
+    permits. He died before I was born; what survives him in family memory is secondhand
+    and fragmentary. What remains more durably is the institutional trace: a Waseda law
+    degree earned by a man of the cohort that the 学徒出陣 conscripted mid-course and the
+    Pacific War ultimately spared.
+  </p>
+  <p>
+    This reference file is my way of knowing him &mdash; through the company he plausibly
+    kept, the institutional world into which he was admitted, and the generation of men who
+    shared his campus, his faculty, and his interrupted education.
+  </p>
+</div>
+
+<!-- SECTION 1: EDUCATION SYSTEM PRIMER -->
+<h2>§1 · The Enrollment Window Problem: Prewar vs. Postwar Systems</h2>
+
+<p>Japan ran two completely distinct university systems across the period a person born 1923–24 would plausibly have studied at Waseda. The family recollection of "4 years" points toward the postwar standard — but a prewar student in law was on a 3-year track. Both scenarios are reconstructed below.</p>
+
+<div class="callout callout-warn">
+  <strong>Anchor point — Takeshita's precise confirmed Waseda timeline (from Japanese Wikipedia):</strong><br>
+  Noboru Takeshita (竹下 登), born <em>exactly</em> February 26, 1924, followed this path:<br>
+  1941 → graduated 島根県立松江中学校 (Shimane Matsue Middle School)<br>
+  <strong>1942 → entered 第一早稲田高等学院</strong> (Waseda's own attached prep school — not the university proper yet)<br>
+  <strong>1947 → graduated 早稲田大学商学部</strong> (Commerce Faculty)<br>
+  He served as an Imperial Japanese Army instructor during the war, and his first wife died by suicide while he was away. This is the most reliable anchor for what a 1924-born Waseda student's wartime trajectory looked like.
+</div>
+
+<div class="timeline">
+  <div class="hdr">Scenario</div>
+  <div class="hdr">Probable years on campus</div>
+  <div class="hdr">Notes</div>
+
+  <div class="cell scenario">A · 旧制専門部<br>(Special Div., direct from middle school)</div>
+  <div class="cell window">Entry 1940–42 · Exit 1943–45</div>
+  <div class="cell note-cell">3-year law course (法律科). Could enter at age 17 directly after 旧制中学. Born 1923: fell squarely inside the first 学徒出陣 mobilization wave (Oct 1943); born 1924: faced lowered conscription age (20→19) imposed Oct 1944.</div>
+
+  <div class="cell scenario">B · 旧制大学部<br>(University Div., via higher school)</div>
+  <div class="cell window">Entry 1943–45 · Exit 1946–48</div>
+  <div class="cell note-cell">3-year 法学部. Required 旧制高等学校 completion first (entry age ~20). Disrupted by war; most resumed studies 1946–48.</div>
+
+  <div class="cell scenario">C · Via Waseda 高等学院<br>(Waseda's attached prep school)</div>
+  <div class="cell window">Prep 1940–43, then University 1943–47</div>
+  <div class="cell note-cell">Takeshita's own path (entered 1942). Feeds directly into the university. Law track available within the university division.</div>
+
+  <div class="cell scenario">D · 早稲田専門学校 (夜専)<br>(Night school, law track)</div>
+  <div class="cell window">Opened April 1924 — law track available throughout this period</div>
+  <div class="cell note-cell">A separate night school (政治経済科・法律科・商科) opened April 1924 on the Waseda campus. Accessible to working adults. A fourth legal-education pathway that is often overlooked.</div>
+
+  <div class="cell scenario">E · 新制大学<br>(Postwar 4-year system)</div>
+  <div class="cell window">Entry 1948–51 · Exit 1952–55</div>
+  <div class="cell note-cell">New system began April 1949. Born 1923–24, entry at age 24–28 was common for war returnees. The family's memory of "4 years" most strongly implies this scenario.</div>
+</div>
+
+<p>The <strong>broadest plausible campus window</strong> for someone born 1923–24 at Waseda law is roughly <strong>1940 to 1955</strong>, with the tightest probable core being <strong>1941–1948</strong> (prewar track, with wartime disruption) or <strong>1949–1953</strong> (postwar 4-year track).</p>
+
+<div class="callout callout-warn">
+  <strong>Critical wartime disruption — 学徒出陣, October 2–21, 1943:</strong> Imperial Ordinance No. 755 abolished draft deferments for all liberal-arts and law students, targeting those born between April 2, 1920 and December 1, 1923. Waseda's own 歴史館 records that over 4,500 students became newly draft-eligible, and more than 5,700 Waseda students had entered the military by March 1944. The university's 戦争犠牲者データベース (War Casualty Database) documents 4,735 Waseda student war dead — making this cohort one of the most devastated in Japanese academic history. A maternal grandfather born 1923 was in the direct mobilization wave; born 1924, he faced the next round. His studies were almost certainly interrupted mid-degree.
+</div>
+
+<!-- SECTION 2: WHOLE-UNIVERSITY CLASSMATES -->
+<h2>§2 · Whole-University Co-Campus Alumni (Documented)</h2>
+<p>All persons below have confirmed Waseda enrollment overlapping at least one plausible window above. Organized by likelihood of co-campus overlap, descending.</p>
+
+<h3>Tier A — Highest overlap probability (same birth cohort, campus 1941–1947)</h3>
+
+<div class="person-grid">
+
+  <div class="person-card law-tier">
+    <div class="card-head">
+      <span class="card-name">Tagaya Shinnen</span>
+      <span class="card-kanji">多賀谷 真稔</span>
+      <span class="card-born">b. 5 Jan 1920</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty</div>
+        <div class="val em">法学部 (Law Faculty) — confirmed</div>
+      </div>
+      <div>
+        <div class="lbl">Graduation confirmed</div>
+        <div class="val em">1943 — the mobilization year</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">Japan Socialist Party (JSP) Diet member; JSP Secretary-General (December 1977); Vice-Speaker of the House of Representatives (from 1986)</div>
+      </div>
+      <div>
+        <div class="lbl">Context</div>
+        <div class="val">Born Kure, Hiroshima. Died 1995. JSP = social democratic, NOT communist — equivalent to the UK Labour Party, distinct from the Japan Communist Party.</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge star-badge">★ ONLY confirmed 法学部 contemporary in documented record</span>
+        <span class="overlap-badge law-badge">Law Faculty — confirmed graduation 1943</span>
+        <span class="note-badge">Born 1920, 3 years ahead — could be same faculty, different graduation cohort</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-card">
+    <div class="card-head">
+      <span class="card-name">Noboru Takeshita</span>
+      <span class="card-kanji">竹下 登</span>
+      <span class="card-born">b. 26 Feb 1924</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty / Track</div>
+        <div class="val">第一早稲田高等学院 (prep, 1942–) → 商学部 (Commerce)</div>
+      </div>
+      <div>
+        <div class="lbl">On campus</div>
+        <div class="val em">1942–43 (prep) + 1943–1947 (university) · graduated 1947</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">74th Prime Minister of Japan (1987–89); Finance Minister; LDP "shadow shogun" faction leader (経世会)</div>
+      </div>
+      <div>
+        <div class="lbl">Wartime service</div>
+        <div class="val">IJA instructor; first wife died by suicide during his absence</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge">Identical birth year — most likely co-campus peer overall</span>
+        <span class="correct-badge">雄弁会 NOTE: Club was dissolved 1929, revived only in 1946. Takeshita was never officially a member — he is an honorary OB because "he would certainly have joined if the club had been active."</span>
+        <span class="note-badge">Commerce, not Law — different faculty but shared Waseda campus 1942–47</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-card">
+    <div class="card-head">
+      <span class="card-name">Rokusuke Tanaka</span>
+      <span class="card-kanji">田中 六助</span>
+      <span class="card-born">b. 23 Jan 1923</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty</div>
+        <div class="val">政治経済学部 新聞学科 (Political Economy, Journalism dept.)</div>
+      </div>
+      <div>
+        <div class="lbl">Graduation confirmed</div>
+        <div class="val em">1949 (postwar new-system)</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">LDP Secretary-General; Minister of International Trade and Industry (MITI); senior LDP power broker</div>
+      </div>
+      <div>
+        <div class="lbl">Political alignment</div>
+        <div class="val">Liberal Democratic Party (conservative/right) — a counterweight to any left-leaning assumption about this cohort</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge">Born Jan 1923 — precise co-campus generation, graduated 1949</span>
+        <span class="note-badge">Journalism/Pol.Economy, not Law — different faculty</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-card">
+    <div class="card-head">
+      <span class="card-name">Hiroyu Masaoka</span>
+      <span class="card-kanji">増岡 博之</span>
+      <span class="card-born">b. 3 Feb 1923</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty</div>
+        <div class="val">政治経済学部 (Political Economy)</div>
+      </div>
+      <div>
+        <div class="lbl">Campus period</div>
+        <div class="val em">c. 1940–43/44 (estimated from birth year)</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">Minister of Health (厚生大臣), LDP politician; died 2011</div>
+      </div>
+      <div>
+        <div class="lbl">Political alignment</div>
+        <div class="val">LDP (conservative/right)</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge">Born Feb 1923 — highly plausible co-campus period</span>
+        <span class="note-badge">Political Economy, not Law</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-card">
+    <div class="card-head">
+      <span class="card-name">Masaaki Fujita</span>
+      <span class="card-kanji">藤田 正明</span>
+      <span class="card-born">b. 3 Jan 1922</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty / Track</div>
+        <div class="val">Waseda University (faculty unconfirmed)</div>
+      </div>
+      <div>
+        <div class="lbl">Graduation confirmed</div>
+        <div class="val em">1944</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">President of the House of Councillors 1986–88; Director-General, Okinawa Development Agency 1976–77; LDP senator</div>
+      </div>
+      <div>
+        <div class="lbl">Context</div>
+        <div class="val">Born Hiroshima; received Grand Cordon of Order of the Rising Sun (1992); LDP conservative</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge">1922-born, graduated 1944 — confirmed prewar Waseda cohort</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-card">
+    <div class="card-head">
+      <span class="card-name">Shin Kyuk-ho</span>
+      <span class="card-kanji">신격호 / 重光 武雄</span>
+      <span class="card-born">b. 3 Nov 1921</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty / Track</div>
+        <div class="val">Waseda Jitsugyo High School → chemical engineering (工学部 kōgakkō)</div>
+      </div>
+      <div>
+        <div class="lbl">On campus</div>
+        <div class="val em">1941–1945+ (arrived Japan 1941, stowed away on ship)</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">Founder and chairman of Lotte Corporation (Korea/Japan conglomerate); billionaire</div>
+      </div>
+      <div>
+        <div class="lbl">Nationality context</div>
+        <div class="val">Zainichi Korean (from Ulsan); used Japanese name Takeo Shigemitsu in Japan</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge">On Waseda campus from 1941 — strong co-campus period overlap</span>
+        <span class="note-badge">Engineering track, not law — different faculty</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h3>Tier B — Probable partial overlap (entered later or confirmed postwar period only)</h3>
+
+<div class="person-grid">
+
+  <div class="person-card tier2">
+    <div class="card-head">
+      <span class="card-name">Park Tae-joon</span>
+      <span class="card-kanji">박태준 / 朴 泰俊</span>
+      <span class="card-born">b. 24 Oct 1927</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty / Track</div>
+        <div class="val">Mechanical Engineering (機械工学科); entered 1945</div>
+      </div>
+      <div>
+        <div class="lbl">Campus period</div>
+        <div class="val em">1945 only (returned to Korea after Liberation, Aug 1945)</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">Founder of POSCO (South Korea's steel industry); 32nd Prime Minister of South Korea (2000); "Korean Andrew Carnegie"</div>
+      </div>
+      <div>
+        <div class="lbl">Notable</div>
+        <div class="val">Used Waseda alumni ties to secure Japanese cooperation for POSCO financing</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge">Brief campus overlap in 1945 if maternal grandfather was still there</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-card tier2">
+    <div class="card-head">
+      <span class="card-name">Toshiki Kaifu</span>
+      <span class="card-kanji">海部 俊樹</span>
+      <span class="card-born">b. 2 Jan 1931</span>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="lbl">Faculty</div>
+        <div class="val em">第二法学部 (Second Faculty of Law — evening programme)</div>
+      </div>
+      <div>
+        <div class="lbl">Enrolled / Graduated</div>
+        <div class="val em">1952 enrolled · 1954 graduated</div>
+      </div>
+      <div>
+        <div class="lbl">Connection</div>
+        <div class="val">Member of the revived 雄弁会 (debate club, re-founded 1946); Takeshita was his 先輩 (senior) in the club</div>
+      </div>
+      <div>
+        <div class="lbl">Later became</div>
+        <div class="val">76th &amp; 77th Prime Minister of Japan 1989–91; LDP; known as "clean" leader post-Recruit scandal</div>
+      </div>
+      <div class="full">
+        <span class="overlap-badge law-badge">LAW FACULTY — enrolled 1952–1954</span>
+        <span class="overlap-badge">Overlap only under postwar scenario AND if maternal grandfather was in his final year</span>
+        <span class="note-badge">7 years younger — not a classmate; possible brief campus overlap 1952–53 only</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- SECTION 3: LAW FACULTY NARROWED -->
+<h2>§3 · Waseda Law Faculty (法学部) — Narrowed Analysis</h2>
+
+<div class="law-block">
+  <h3>Prewar Structure of Waseda Law</h3>
+  <p>Under the 旧制 (prewar) system, Waseda law had three parallel tracks:</p>
+  <p><strong>大学部 法学部</strong> (University Law Faculty): A 3-year program requiring prior 旧制高等学校 completion (entry age ~20). Prestige track.</p>
+  <p><strong>専門部 法律科</strong> (Special Division Law Course): A 3-year program accessible directly from 旧制中学 at ~17. More practical; larger cohort. Waseda's 専門部 was among the most respected in Japan for law.</p>
+  <p><strong>早稲田専門学校 法律科 (夜専 / Night School Law)</strong>: A separate night-school law track opened in April 1924, accessible to working adults and older students. Often overlooked as a third law pathway.</p>
+  <p>After 1949, these consolidated into the postwar 4-year <strong>第一法学部</strong> (day) and <strong>第二法学部</strong> (evening).</p>
+</div>
+
+<div class="callout callout-law">
+  <strong>Single confirmed 法学部 contemporary in documented records: 多賀谷真稔 (Tagaya Shinnen, b. 1920, Law Faculty, graduated 1943).</strong> He graduated in 1943 — the exact year of the 学徒出陣 mobilization — meaning he represents the last cohort of law students to graduate before the wartime disruption. If the maternal grandfather entered the 法律科 (専門部) around 1941–42, he and Tagaya would have overlapped in the law faculty for 1–2 years before Tagaya graduated. Tagaya later became JSP Secretary-General and Vice-Speaker of the House — but the JSP is a social-democratic party, emphatically not communist (see §4, Note 7).
+</div>
+
+<h3>What the law faculty co-year pool would have looked like</h3>
+
+<p>For a student born 1923–24 in the <strong>prewar 大学部 法学部</strong> (via higher school), the typical cohort entering law around 1943–44 would graduate 1946–47. For the <strong>専門部 法律科</strong> entering 1941–42, they would graduate 1943–45 (compressed by wartime). In either case the mobilization of October 1943 disrupted normal graduation. The true graduating class of this cohort in law is therefore scattered across 1943–1949 depending on individual military service length.</p>
+
+<p>Most prominent Waseda politicians of this generation studied <strong>政治経済学部 (Politics &amp; Economics)</strong> or <strong>商学部 (Commerce)</strong> rather than law. Law-track alumni who entered careers in the private sector, prefectural government, or as mid-level bureaucrats are systematically absent from public biographical records — which is precisely why the NDL alumni rosters in §6 are the most valuable next step.</p>
+
+<div class="law-block">
+  <h3>雄弁会 (Yūbenkai)</h3>
+  <p>The 雄弁会 was dissolved in 1929 and remained inactive until 1946. The club's own records note that Takeshita never officially joined during his student years — the club was suspended throughout — but is listed as an honorary OB on the grounds that "he would certainly have joined had the club been active."</p>
+  <p>The practical implication: the 雄弁会 is NOT the networking vehicle through which a 1941–1945 Waseda student would have connected with peers across faculties. That cross-faculty networking in the wartime period happened instead through IRAA (大政翼賛会) student branches, dormitory life, and the military training activities that had replaced normal club life by 1943.</p>
+  <p>The revived postwar 雄弁会 (from 1946) did become politically important, producing Kaifu, Obuchi, Mori and others — but these were students entering Waseda from roughly 1948 onward, one generation after the primary target cohort.</p>
+</div>
+
+<div class="callout callout-law">
+  <strong>Genealogical research recommendation:</strong> The most targeted archival paths for confirming co-year law classmates are the NDL alumni rosters (§6 below, especially NDL pid/9544635) and the Waseda 歴史館's 物故者在籍確認 service (also §6). Physical access to 『早稲田大学百年史』第三巻 (1987) at the Waseda University Archives (大学史資料センター, Nishi-Waseda 1-6-1) would provide per-year enrollment tables by faculty for 1941–1949.
+</div>
+
+
+<!-- SECTION 4: CONTEXTUAL NOTES -->
+<h2>§4 · Key Historical Context</h2>
+
+<ul class="notes-list">
+  <li>
+    <span class="note-num">1</span>
+    <span><strong>学徒出陣 (Gakuto Shutsujin), October 2–21, 1943 — precise figures.</strong> Imperial Ordinance No. 755 (promulgated October 2, 1943) abolished draft deferments for all liberal-arts and law students born between April 2, 1920 and December 1, 1923. The October 21 send-off at Meiji Jingū Gaien Stadium involved approximately 25,000 conscripted students from 77 Kantō-region schools, watched by roughly 50,000 science and female students. Waseda's own 歴史館 records that over 4,500 Waseda students became newly draft-eligible and more than 5,700 had entered the military by March 1944. The university's 戦争犠牲者データベース documents 4,735 Waseda student war dead (drawn from 『早稲田大学百年史』第四巻 and 『早稲田大学史記要』第34・36・39巻). A maternal grandfather born in 1923 was in the direct first wave; born in 1924, he faced the lowered conscription age (from 20 to 19) imposed in October 1944.</span>
+  </li>
+  <li>
+    <span class="note-num">2</span>
+    <span><strong>Waseda campus firebombing and reconstruction.</strong> Much of the Waseda campus was destroyed in the Tokyo firebombing raids of 1945. Classes resumed within one month of Japan's surrender in August 1945, but the university was not reorganized as a "new university" under postwar education reform until 1949. Any student enrolled 1943–46 was studying in disrupted, physically diminished conditions. The new 4-year system started accepting students in April 1949.</span>
+  </li>
+  <li>
+    <span class="note-num">3</span>
+    <span><strong>Taiwanese and Korean students at Waseda.</strong> Waseda was the first Japanese university to actively recruit Asian students. During Japan's colonial period (Taiwan: 1895–1945; Korea: 1910–1945), Taiwanese and Korean students studied as imperial subjects. If the maternal grandfather was Taiwanese or Korean, his Waseda enrollment was entirely normal for this era. Shin Kyuk-ho (Lotte founder, born 1921) is the most prominent confirmed example of a Korean student at Waseda in exactly this period. Waseda maintained a dedicated School for Chinese Students (支那人留学生の学科), whose 110th anniversary was commemorated by the university in recent years.</span>
+  </li>
+  <li>
+    <span class="note-num">4</span>
+    <span><strong>Postwar "returning student" phenomenon.</strong> A large number of men born 1918–1927 resumed or began university studies after 1945. The new 4-year system (April 1949) specifically accommodated these older students — a man born 1924 entering law in 1949 at age 25 was common, not exceptional. This is the most likely explanation for the family's memory of "4 years" (the postwar program ran 4 years; the prewar 法学部 ran only 3).</span>
+  </li>
+  <li>
+    <span class="note-num">5</span>
+    <span><strong>Waseda's law degree as a career pipeline.</strong> In Japan's prewar and postwar era, a law degree was the standard entry into the bureaucracy, judiciary, and politics. The 法学部 at Waseda and Tokyo University produced the majority of Japan's political class. A Waseda law graduate from 1923–24 who remained in Japan would most likely have entered: (a) a government ministry via the national civil service exam (高等文官試験 prewar / 国家公務員上級試験 postwar), (b) private legal practice after passing the bar examination (司法試験), (c) corporate legal counsel, or (d) local/prefectural politics. The vast majority of this cohort pursued careers in (a) or (c) — successful and influential, but not nationally famous.</span>
+  </li>
+  <li>
+    <span class="note-num">6</span>
+    <span><strong>The wartime campus political atmosphere — NOT left-wing.</strong> This is addressed directly in §4, Note 7 below, but deserves separate emphasis: the Waseda campus in 1941–1945 operated under total wartime state control. The Peace Preservation Law (治安維持法) had comprehensively suppressed all left-wing organizations by the early 1930s. Any student with communist or socialist sympathies who survived the 1930s purges was either imprisoned, in exile, or in deep underground concealment. The campus your maternal grandfather encountered in 1941–1944 was characterized by nationalism, militarism, and imperial state ideology — not Marxism.</span>
+  </li>
+  <li>
+    <span class="note-num">7</span>
+    <span><strong>Political orientation of this cohort — mostly LDP conservative, not communist.</strong> Among documented career politicians from this exact Waseda generation, the dominant political color is <em>conservative/right</em>: Takeshita (LDP PM), Masaoka (LDP Health Minister), Tanaka Rokusuke (LDP MITI Minister and Secretary-General), Fujita (LDP, House of Councillors President). The only JSP-aligned figure in the documented set is Tagaya Shinnen (多賀谷真稔) — and the JSP (Japan Socialist Party) was a social-democratic party, not communist. It was roughly equivalent to the UK Labour Party or Germany's SPD: pro-trade-union, anti-war, democratically committed, and explicitly distinct from the Japan Communist Party (日本共産党/JCP). Calling JSP members "communist" is a category error. Waseda does have a historically more liberal/independent reputation than Tokyo Imperial University, and the 1960s–70s saw strong student leftism there — but that was a different generation, 20 years after the wartime cohort.</span>
+  </li>
+</ul>
+
+
+<!-- SECTION 5: SUMMARY TABLE -->
+<h2>§5 · Consolidated Overlap Matrix</h2>
+
+<p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 1rem;">Likelihood ratings reflect confidence that both persons were on the Waseda campus at overlapping times, not that they knew each other personally.</p>
+
+<table style="width:100%; border-collapse:collapse; font-size:0.87rem;">
+  <thead>
+    <tr style="background:var(--navy); color:var(--gold-light);">
+      <th style="padding:0.6rem 0.8rem; text-align:left; font-weight:600;">Person</th>
+      <th style="padding:0.6rem 0.8rem; text-align:left; font-weight:600;">Born</th>
+      <th style="padding:0.6rem 0.8rem; text-align:left; font-weight:600;">Faculty</th>
+      <th style="padding:0.6rem 0.8rem; text-align:left; font-weight:600;">Waseda years</th>
+      <th style="padding:0.6rem 0.8rem; text-align:left; font-weight:600;">Overlap (prewar scenario)</th>
+      <th style="padding:0.6rem 0.8rem; text-align:left; font-weight:600;">Overlap (postwar scenario)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#fff8e6; border-bottom:2px solid #ffc107;">
+      <td style="padding:0.55rem 0.8rem; font-weight:600; color:var(--law);">★ Tagaya Shinnen 多賀谷真稔</td>
+      <td style="padding:0.55rem 0.8rem;">5 Jan 1920</td>
+      <td style="padding:0.55rem 0.8rem; color:var(--law); font-weight:600;">法学部 (LAW)</td>
+      <td style="padding:0.55rem 0.8rem;">graduated 1943</td>
+      <td style="padding:0.55rem 0.8rem; color:#155724; font-weight:600;">★★★ Very high (same faculty)</td>
+      <td style="padding:0.55rem 0.8rem; color:#721c24;">★ None</td>
+    </tr>
+    <tr style="background:#fff; border-bottom:1px solid var(--border);">
+      <td style="padding:0.55rem 0.8rem; font-weight:600;">Noboru Takeshita 竹下登</td>
+      <td style="padding:0.55rem 0.8rem;">26 Feb 1924</td>
+      <td style="padding:0.55rem 0.8rem;">Commerce</td>
+      <td style="padding:0.55rem 0.8rem;">1942–1947 (prep + university)</td>
+      <td style="padding:0.55rem 0.8rem; color:#155724; font-weight:600;">★★★ Very high</td>
+      <td style="padding:0.55rem 0.8rem; color:#721c24;">★ Low</td>
+    </tr>
+    <tr style="background:#f9f7f4; border-bottom:1px solid var(--border);">
+      <td style="padding:0.55rem 0.8rem; font-weight:600;">Rokusuke Tanaka 田中六助</td>
+      <td style="padding:0.55rem 0.8rem;">23 Jan 1923</td>
+      <td style="padding:0.55rem 0.8rem;">Pol. Economy / Journalism</td>
+      <td style="padding:0.55rem 0.8rem;">graduated 1949</td>
+      <td style="padding:0.55rem 0.8rem; color:#856404;">★★ Moderate (late-prewar / transition)</td>
+      <td style="padding:0.55rem 0.8rem; color:#155724; font-weight:600;">★★★ Very high</td>
+    </tr>
+    <tr style="background:#fff; border-bottom:1px solid var(--border);">
+      <td style="padding:0.55rem 0.8rem; font-weight:600;">Hiroyu Masaoka 増岡博之</td>
+      <td style="padding:0.55rem 0.8rem;">3 Feb 1923</td>
+      <td style="padding:0.55rem 0.8rem;">Pol. Economy</td>
+      <td style="padding:0.55rem 0.8rem;">c. 1940–1944</td>
+      <td style="padding:0.55rem 0.8rem; color:#155724; font-weight:600;">★★★ Very high</td>
+      <td style="padding:0.55rem 0.8rem; color:#721c24;">★ Low</td>
+    </tr>
+    <tr style="background:#f9f7f4; border-bottom:1px solid var(--border);">
+      <td style="padding:0.55rem 0.8rem; font-weight:600;">Masaaki Fujita 藤田正明</td>
+      <td style="padding:0.55rem 0.8rem;">3 Jan 1922</td>
+      <td style="padding:0.55rem 0.8rem;">Unknown</td>
+      <td style="padding:0.55rem 0.8rem;">c. 1940–1944</td>
+      <td style="padding:0.55rem 0.8rem; color:#155724; font-weight:600;">★★★ Very high</td>
+      <td style="padding:0.55rem 0.8rem; color:#721c24;">★ None</td>
+    </tr>
+    <tr style="background:#fff; border-bottom:1px solid var(--border);">
+      <td style="padding:0.55rem 0.8rem; font-weight:600;">Shin Kyuk-ho 신격호</td>
+      <td style="padding:0.55rem 0.8rem;">3 Nov 1921</td>
+      <td style="padding:0.55rem 0.8rem;">Engineering</td>
+      <td style="padding:0.55rem 0.8rem;">1941–1945+</td>
+      <td style="padding:0.55rem 0.8rem; color:#155724; font-weight:600;">★★★ Very high</td>
+      <td style="padding:0.55rem 0.8rem; color:#721c24;">★ None</td>
+    </tr>
+    <tr style="background:#f9f7f4; border-bottom:1px solid var(--border);">
+      <td style="padding:0.55rem 0.8rem; font-weight:600;">Park Tae-joon 박태준</td>
+      <td style="padding:0.55rem 0.8rem;">24 Oct 1927</td>
+      <td style="padding:0.55rem 0.8rem;">Engineering</td>
+      <td style="padding:0.55rem 0.8rem;">1945 (briefly)</td>
+      <td style="padding:0.55rem 0.8rem; color:#856404;">★★ Low–moderate</td>
+      <td style="padding:0.55rem 0.8rem; color:#721c24;">★ None</td>
+    </tr>
+    <tr style="background:#f9f7f4; border-bottom:1px solid var(--border);">
+      <td style="padding:0.55rem 0.8rem; font-weight:600;">Toshiki Kaifu 海部俊樹</td>
+      <td style="padding:0.55rem 0.8rem;">2 Jan 1931</td>
+      <td style="padding:0.55rem 0.8rem; color:var(--law); font-weight:600;">第二法学部 (LAW)</td>
+      <td style="padding:0.55rem 0.8rem;">1952–1954</td>
+      <td style="padding:0.55rem 0.8rem; color:#721c24;">★ None</td>
+      <td style="padding:0.55rem 0.8rem; color:#856404;">★★ Moderate (final-year overlap only)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout" style="margin-top:2rem;">
+  <strong>多賀谷真稔 (Tagaya Shinnen, b. 1920, 法学部, graduated 1943)</strong> is the only confirmed law-faculty peer in documented records, overlapping with the maternal grandfather's prewar enrollment window. Noboru Takeshita (b. 1924, Commerce) remains the closest same-birth-year peer across the whole university.
+</div>
+
+
+<!-- SECTION 6: PRIMARY SOURCE ARCHIVES -->
+<h2>§6 · Primary Source Archives for Direct Co-Graduate Research</h2>
+
+<p>These are the three authoritative resources for identifying named co-graduates of the maternal grandfather by department and graduation year.</p>
+
+<h3>Archive A — 国立国会図書館デジタルコレクション (NDL Digital Collections)</h3>
+<p>The most immediately actionable resource. All items below are the 早稲田大学校友会会員名簿 (Waseda Alumni Association Membership Rosters) series, confirmed via the Waseda 歴史館's own FAQ for alumni research.</p>
+
+<table class="archive-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>NDL Persistent ID (pid)</th>
+      <th>Access</th>
+      <th>Contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>校友会『会員名簿 大正4年11月調』</td>
+      <td>1915</td>
+      <td class="pid">pid/910566</td>
+      <td>Free</td>
+      <td>Alumni names + affiliation</td>
+    </tr>
+    <tr>
+      <td>校友会『会員名簿 大正14年11月調』</td>
+      <td>1925</td>
+      <td class="pid">pid/910567</td>
+      <td>Free</td>
+      <td>Alumni roster</td>
+    </tr>
+    <tr>
+      <td>校友会『会員名簿 昭和2年11月』</td>
+      <td>1927</td>
+      <td class="pid">pid/1462439</td>
+      <td>Free</td>
+      <td>Alumni roster</td>
+    </tr>
+    <tr>
+      <td>校友会『会員名簿 [昭和10年用]』</td>
+      <td>1935</td>
+      <td class="pid">pid/1454832</td>
+      <td>Free</td>
+      <td>Alumni roster</td>
+    </tr>
+    <tr>
+      <td>早稲田大学紳士録 昭和15年版</td>
+      <td>1940</td>
+      <td class="pid">pid/1461894</td>
+      <td>Free</td>
+      <td>Who's-who of notable alumni c. 1940</td>
+    </tr>
+    <tr>
+      <td>会員名簿 昭和33年</td>
+      <td>1958</td>
+      <td class="pid">pid/9580678</td>
+      <td>Login required*</td>
+      <td>Postwar alumni roster</td>
+    </tr>
+    <tr>
+      <td>会員名簿 昭和36年度版</td>
+      <td>1961</td>
+      <td class="pid">pid/9580865</td>
+      <td>Login required*</td>
+      <td>Postwar alumni roster</td>
+    </tr>
+    <tr class="highlight">
+      <td>⭐ 会員名簿 別冊(学科年度別)</td>
+      <td>1963</td>
+      <td class="pid">pid/9544635</td>
+      <td>Login required*</td>
+      <td><strong>Organized BY DEPARTMENT AND GRADUATION YEAR — the single best source for identifying 法学部/法律科 co-graduates of 1943–1954</strong></td>
+    </tr>
+    <tr>
+      <td>会員名簿 昭和40年度版</td>
+      <td>1965</td>
+      <td class="pid">pid/11622692</td>
+      <td>Login required*</td>
+      <td>Postwar alumni roster</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="font-size:0.82rem; color:var(--muted);">* NDL 個人送信サービス login is free and open to Japan residents. Register at dl.ndl.go.jp. Access these at: <code>https://dl.ndl.go.jp/pid/[NUMBER]</code></p>
+
+<h3>Archive B — 早稲田人名データベース (Waseda People Name Database)</h3>
+<div class="callout callout-warn">
+  <strong>URL:</strong> <code>https://archive.waseda.jp/archive/</code> (navigate to 早稲田人名データベース, subDB_id=16)<br>
+  <strong>Scope:</strong> All deceased faculty and alumni from the 東京専門学校 founding (1882) onward, built for the 2032 sesquicentennial 百五十年史 project.<br>
+  <strong>What to query:</strong> Search for 法学部 or 法律科 (専門部), filter by birth years 1918–1928 or graduation years 1943–1954.<br>
+  <strong>Key restriction:</strong> Database covers deceased persons (故人) only. If the maternal grandfather was a notable figure, he may already have an entry.
+</div>
+
+<h3>Archive C — Waseda 歴史館 物故者在籍確認 Service</h3>
+<div class="callout callout-green">
+  <strong>The single most authoritative confirmation method for the maternal grandfather himself.</strong> The Waseda University History Museum (歴史館) offers a 物故者在籍確認 (deceased-enrollment-confirmation) service that returns the exact faculty of enrollment, entry date, and graduation date for deceased alumni. This would definitively confirm the maternal grandfather's own faculty and graduation year, and is the foundation from which all co-student searches should be anchored.<br><br>
+  <strong>Contact:</strong> 早稲田大学大学史資料センター (University Archives), Nishi-Waseda 1-6-1, Shinjuku-ku, Tokyo 169-8050<br>
+  <strong>Note:</strong> This service does NOT return mobilization records or war-death records. For wartime service data, consult separate military demobilization records (復員局残留業務処理部 records at the National Archives).
+</div>
+
+
+<!-- SECTION 7: COHORT SIZE ESTIMATES -->
+<h2>§7 · Cohort Size: How Many Law Students Were There?</h2>
+
+<p>The following estimates are reconstructed from institutional anchors across the wartime and postwar enrollment periods.</p>
+
+<table style="width:100%; border-collapse:collapse; font-size:0.86rem; margin:1rem 0;">
+  <thead>
+    <tr style="background:var(--navy); color:var(--gold-light);">
+      <th style="padding:0.55rem 0.8rem; text-align:left;">Period</th>
+      <th style="padding:0.55rem 0.8rem; text-align:right;">Total Waseda (all divisions)</th>
+      <th style="padding:0.55rem 0.8rem; text-align:right;">Law-related tracks (all years on campus)</th>
+      <th style="padding:0.55rem 0.8rem; text-align:right;">Law annual intake (one entering cohort)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#fff; border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem 0.8rem; font-weight:600;">Pre-war peak (1938–1941)</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~14,000–18,000</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~2,100–3,500</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right; font-weight:600;">~700–1,200</td>
+    </tr>
+    <tr style="background:#f9f7f4; border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem 0.8rem; font-weight:600;">Wartime disruption (1943–1945)</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~6,000–10,000</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~600–1,200</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right; font-weight:600; color:#a00;">~150–400 ⚠ 学徒出陣</td>
+    </tr>
+    <tr style="background:#fff; border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem 0.8rem; font-weight:600;">Immediate post-war (1946–1948)</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~8,000–13,000</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~1,200–2,400</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right; font-weight:600;">~400–800</td>
+    </tr>
+    <tr style="background:#f9f7f4; border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem 0.8rem; font-weight:600;">New 4-year system (1949–1954)</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~10,000–16,000</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right;">~1,500–3,200</td>
+      <td style="padding:0.5rem 0.8rem; text-align:right; font-weight:600;">~500–900</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Of the roughly 700–1,200 law-track students entering Waseda per year in normal prewar times, most went on to careers as lawyers, bureaucrats, corporate counsel, and local politicians — successful and influential, but not nationally prominent. The NDL 会員名簿 別冊(学科年度別) (pid/9544635) is the path to named graduates from these cohorts.</p>
+
+<div class="callout">
+  <strong>Elite fraction context:</strong> In the early 1940s, Japan's total male population aged 18–25 was roughly 6–7 million. Total Japanese university enrollment across all 49 universities was approximately 80,000–100,000. Waseda law admitted roughly 700–1,200 per year — approximately 0.01–0.013% of the male age cohort. This is equivalent in rarity to Oxbridge admission in the UK or the grandes écoles in France. A maternal grandfather who earned a Waseda law degree was, by any international comparison, genuinely elite.
+</div>
+
+<footer>
+  <p>Compiled from: Wikipedia (En/Ja), Encyclopaedia Britannica, 国立国会図書館デジタルコレクション (NDL), 早稲田大学歴史館 FAQ, 早稲田大学雄弁会 official history (yu-ben.com), Japan's National Archives (国立公文書館), Asia-Pacific Journal, Ryukyu Shimpo, Prabook biographical database, and archived news sources. All enrollment dates for contemporaries are reconstructed from birth years, graduation confirmations, and documented wartime timelines. For primary-source verification: 早稲田大学大学史資料センター (Waseda University Archives), Nishi-Waseda 1-6-1, Shinjuku-ku, Tokyo 169-8050 · 国立国会図書館 (NDL), dl.ndl.go.jp · NDL pid/9544635 (会員名簿 別冊 学科年度別) is the recommended first access point.</p>
+</footer>
+
+</body>
+</html>
