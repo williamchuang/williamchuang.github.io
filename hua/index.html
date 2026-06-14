@@ -280,9 +280,35 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
   margin-top:0.9rem; line-height:1.65;
 }
 .demo-gap b { font-style:normal; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); }
+/* Euclidean preamble register */
+.reg-group { margin:1.4rem 0 1.8rem; }
+.reg-head {
+  font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:0.9rem;
+  padding-bottom:0.4rem; border-bottom:1px solid var(--border);
+  display:flex; align-items:baseline; gap:0.6rem;
+}
+.reg-head .reg-sub { font-size:0.56rem; letter-spacing:0.06em; color:var(--faint); text-transform:none; }
+.reg-list { list-style:none; margin:0; padding:0; }
+.reg-list > li {
+  position:relative; padding:0.55rem 0 0.55rem 4.2rem; margin:0;
+  font-size:0.9rem; line-height:1.68; color:var(--body);
+  border-bottom:1px solid var(--border-dim);
+}
+.reg-list > li:last-child { border-bottom:none; }
+.reg-id {
+  position:absolute; left:0; top:0.55rem; width:3.5rem;
+  font-family:"DM Mono",monospace; font-size:0.72rem; font-weight:500;
+  color:var(--gold-light); letter-spacing:0.02em;
+}
+.reg-list .reg-name { color:var(--cream); font-style:italic; }
+.reg-list .reg-src { font-family:"DM Mono",monospace; font-size:0.78rem; color:var(--muted); }
+.ref { color:var(--gold-dim); font-style:normal; white-space:nowrap; }
 @media(max-width:680px){
   .demo { padding:1.2rem 1.1rem; }
   .demo-steps > li { padding-left:2rem; font-size:0.88rem; }
+  .reg-list > li { padding-left:3.4rem; font-size:0.86rem; }
+  .reg-id { width:2.9rem; font-size:0.66rem; }
 }
 </style>
 </head>
@@ -391,6 +417,109 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
       evidence that would close it is named.</div>
   </div>
 </div>
+
+
+<!-- ═══ PREAMBLE · DEFINITIONS, POSTULATES, COMMON NOTIONS, SOURCES ═══ -->
+<section class="section" id="preamble">
+  <div class="section-header">
+    <span class="section-num" style="font-size:0.7rem;letter-spacing:0.18em;">PREAMBLE</span>
+    <h2 class="section-title">Definitions, Postulates, Common Notions, and Sources</h2>
+  </div>
+
+  <div class="prose-wide">
+    <p>
+      In the manner of Euclid, no proposition that follows uses a term, an assumption,
+      a principle of reasoning, or a source not fixed here first. The terms are defined,
+      the assumptions stated as postulates, the rules of inference declared as common
+      notions, and the evidentiary record enumerated as sources &mdash; each numbered so
+      that every later step may name exactly what licenses it. A claim cites a
+      <em>definition</em> for meaning, a <em>postulate</em> or <em>common notion</em> for
+      a rule of inference, a <em>source</em> for a fact, or a <em>prior proposition</em>
+      for a result already established. Nothing is advanced by assertion.
+    </p>
+  </div>
+
+  <div class="demo">
+    <!-- DEFINITIONS -->
+    <div class="reg-group">
+      <div class="reg-head">Definitions <span class="reg-sub">terms fixed for the whole study</span></div>
+      <ul class="reg-list">
+        <li><span class="reg-id">D1</span> <span class="reg-name">華</span> (huá): flower, and derivatively splendour and civilizational flourishing &mdash; senses the Chinese philological tradition does not separate.</li>
+        <li><span class="reg-id">D2</span> <span class="reg-name">中</span> (zhōng): centre, middle; and, in the structural reading, the meeting-point of two axes.</li>
+        <li><span class="reg-id">D3</span> <span class="reg-name">人</span> (rén): person <em>and</em> people, Chinese not marking singular from plural grammatically.</li>
+        <li><span class="reg-id">D4</span> <span class="reg-name">中華</span> (Zhōnghuá): the compound of D1 and D2 &mdash; &ldquo;the central flowering.&rdquo;</li>
+        <li><span class="reg-id">D5</span> <span class="reg-name">華人</span> (Huárén): a person, or the people, of the 華 tradition (D1 + D3); a category of orientation, not of passport.</li>
+        <li><span class="reg-id">D6</span> <span class="reg-name">Lexical claim</span>: a statement of what a character denotes. <span class="reg-name">Structural claim</span>: a statement of what its written form or symbolic field evokes. These are claims of different kinds.</li>
+        <li><span class="reg-id">D7</span> <span class="reg-name">Concealment surname</span>: a surname adopted to mask a proscribed lineage (here 朱 → 莊 / 嚴), chosen precisely to be unremarkable.</li>
+        <li><span class="reg-id">D8</span> <span class="reg-name">Demonstration</span>: a finite ordered sequence of steps in which each is a definition, a postulate, a common notion, a cited source, or a result derived from earlier steps by a named rule. Its opposite is <span class="reg-name">assertion</span> &mdash; a claim advanced without a named warrant.</li>
+        <li><span class="reg-id">D9</span> <span class="reg-name">Documented</span>: rests on a primary or scholarly source. <span class="reg-name">Demonstrated</span>: follows by valid inference from documented grounds. <span class="reg-name">Inference</span>: a probable conclusion, stronger than conjecture, short of proof. <span class="reg-name">Structural</span>: an interpretation of form or symbol, persuasive but not probative. <span class="reg-name">Conjecture</span>: a hypothesis offered for testing.</li>
+        <li><span class="reg-id">D10</span> <span class="reg-name">Spine / overlay / margin</span>: a documented link that carries the thesis; a structural reading raised to probable inference by a documented channel; a conjecture with named falsifiers on which no demonstrated conclusion depends.</li>
+        <li><span class="reg-id">D11</span> <span class="reg-name">Lawfare</span>: the deployment of legal reasoning and institutional narrative as strategic instruments, to constrain an adversary&rsquo;s options without kinetic force.</li>
+        <li><span class="reg-id">D12</span> <span class="reg-name">Documentary convergence</span>: the meeting, on a single subject, of several mutually independent self-authenticating records kept by different institutions for different purposes.</li>
+      </ul>
+    </div>
+
+    <!-- POSTULATES -->
+    <div class="reg-group">
+      <div class="reg-head">Postulates <span class="reg-sub">assumptions and rules of inference, accepted without proof</span></div>
+      <ul class="reg-list">
+        <li><span class="reg-id">P1</span> <span class="reg-name">Lexical&ndash;structural distinction.</span> A lexical claim (D6) and a structural claim (D6) are of different kinds and must be carried separately; one is not evidence for the other.</li>
+        <li><span class="reg-id">P2</span> <span class="reg-name">Indifferent witness.</span> A record made for purposes unrelated to a claim, by parties with no stake in it, is stronger corroboration than a sympathetic one.</li>
+        <li><span class="reg-id">P3</span> <span class="reg-name">Transmission privacy.</span> In the 私塾 tradition a concept may be developed and held privately within a lineage for generations before public deployment; first public use dates the disclosure, not the origination.</li>
+        <li><span class="reg-id">P4</span> <span class="reg-name">Asymmetry as evidence.</span> If a structure is deliberately built to block a reading, its builder is presumed to have recognised that reading as possible.</li>
+        <li><span class="reg-id">P5</span> <span class="reg-name">Costly signalling.</span> A choice of death over surrender is strong evidence that the commitment was genuine, not opportunistic.</li>
+        <li><span class="reg-id">P6</span> <span class="reg-name">Documentary convergence.</span> The meeting of several independent self-authenticating records (D12) on one subject raises the probability of their shared conclusion above coincidence, proportionally to the records&rsquo; independence and specificity; a record that names its own grantor or sponsor needs no external reference sample to be read.</li>
+        <li><span class="reg-id">P7</span> <span class="reg-name">Conditional value.</span> A credential one does not know one holds can be surrendered by default; ignorance of a name&rsquo;s content lowers the perceived cost of discarding it to zero, though not the real cost.</li>
+        <li><span class="reg-id">P8</span> <span class="reg-name">Channel necessity.</span> For a symbolic tradition to pass between two milieus, a documented contact pathway between them is necessary &mdash; though a pathway alone is opportunity for influence, not proof of it.</li>
+        <li><span class="reg-id">P9</span> <span class="reg-name">Convergence of independent traditions.</span> Independent traditions arriving at the same non-trivial image raise the probability of a shared source above coincidence, proportionally to the image&rsquo;s specificity and the traditions&rsquo; independence.</li>
+        <li><span class="reg-id">P10</span> <span class="reg-name">Onomastic caution.</span> Shared toponyms evidence shared population movement, not shared symbolic intent, absent further linkage.</li>
+        <li><span class="reg-id">P11</span> <span class="reg-name">Lawfare efficacy.</span> A legitimacy argument constrains an adversary&rsquo;s options to the extent it is documented, acknowledged, and citable &mdash; independent of any tribunal&rsquo;s ruling.</li>
+      </ul>
+    </div>
+
+    <!-- COMMON NOTIONS -->
+    <div class="reg-group">
+      <div class="reg-head">Common Notions <span class="reg-sub">logical principles used throughout</span></div>
+      <ul class="reg-list">
+        <li><span class="reg-id">CN1</span> <span class="reg-name">Weakest link.</span> A chain of reasoning is only as strong as its weakest necessary link; a conclusion may be asserted only at the strength of the weakest link it actually requires.</li>
+        <li><span class="reg-id">CN2</span> <span class="reg-name">Opportunity is not influence.</span> That a thing <em>could</em> have happened by a demonstrated pathway does not establish that it <em>did</em>; possibility and actuality are distinct.</li>
+        <li><span class="reg-id">CN3</span> <span class="reg-name">Resemblance is not derivation.</span> Similar forms can arise independently; a formal resemblance raises probability of a common source but does not by itself prove descent.</li>
+        <li><span class="reg-id">CN4</span> <span class="reg-name">Confinement of necessity.</span> Necessity is confined to what a demonstration establishes; an open step is marked, not disguised, and what is offered is never promoted to what is shown.</li>
+      </ul>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="reg-group">
+      <div class="reg-head">Sources <span class="reg-sub">the evidentiary record, cited by number</span></div>
+      <ul class="reg-list">
+        <li><span class="reg-id">S1</span> <span class="reg-src">大秦景教流行中國碑</span> (Nestorian / Xi&rsquo;an Stele), erected 781&nbsp;AD: records Alopen&rsquo;s arrival 635&nbsp;AD and imperial reception under Taizong; 大秦 = the Roman Empire / Byzantine Syria. Unearthed 1623&ndash;1625; Beilin Museum, Xi&rsquo;an. Corroborated by Pope John Paul II&rsquo;s 1999 letter (&ldquo;from 635 onwards&rdquo;). One qualification: the cross atop the Stele rests on a <em>lotus</em> pedestal (a Buddhist iconographic adaptation).</li>
+        <li><span class="reg-id">S2</span> <span class="reg-src">漢書·天文志</span> and <span class="reg-src">後漢書·光武帝紀</span> &mdash; Han astronomical records, maintained under capital-penalty quality control.</li>
+        <li><span class="reg-id">S3</span> <span class="reg-src">尚書 / 詩經</span> references to 上帝; <span class="reg-src">禮記</span> record of the 郊祀 border sacrifice.</li>
+        <li><span class="reg-id">S4</span> 莊起元&rsquo;s prefaces to Jesuit Catholic books, c.&nbsp;1614, and his poem 讀《七克》西書有感 &mdash; a dated Changzhou-clan response to a Jesuit text, a century before the school.</li>
+        <li><span class="reg-id">S5</span> The documented New-Text succession of named scholars (莊存與 → 莊述祖 → 劉逢祿 → 魏源 → 康有為), 1719&ndash;1927, terminating in 康有為&rsquo;s public constitutional use.</li>
+        <li><span class="reg-id">S6</span> The 莊 surname&rsquo;s standard 郡望 of 天水 (Tianshui), a Silk-Road city &mdash; a genealogical designation, <em>not</em> a proven descent.</li>
+        <li><span class="reg-id">S7</span> <span class="reg-src">中華民國</span> founded 1912; <span class="reg-src">中華人民共和國</span> founded 1949 &mdash; both open with 中華; the ROC name contains no 共和 character.</li>
+        <li><span class="reg-id">S8</span> Phonetics: 民 (mín) and 明 (míng) share tone and initial, differing only in final (-n vs. -ng); the Hongmen tradition uses phonetic substitution as an encoding tool.</li>
+        <li><span class="reg-id">S9</span> <span class="reg-src">《臺灣通史·寧靖王列傳》</span> (Lian Heng / Liang Qichao, 1918&ndash;1920): seven titled 朱 princes resident in Taiwan; Shi Lang&rsquo;s 1683 seizure of their seals (冊印); forced relocation across provinces.</li>
+        <li><span class="reg-id">S10</span> The 自縊 of 朱術桂 (Prince of Ningjing) and five consorts, 1683, registered at the 五妃廟 &mdash; an ROC first-class historic site (extant).</li>
+        <li><span class="reg-id">S11</span> 朱→莊 concealment attested (莊姓 records; Struve 1984; Wakeman 1985); 民間 phonetic gloss 莊 = 朱(zhū)+王(wáng).</li>
+        <li><span class="reg-id">S12</span> Taiwan&rsquo;s 地契/田契 land-deed registry, continuous since the Dutch&ndash;Zheng period; lineage and household records (族譜 / 戶籍) tying a family to its 四合院/祖厝 ancestral compound.</li>
+        <li><span class="reg-id">S13</span> Catholic sacramental registers (<em>libri baptizatorum</em>): Spanish Dominican (1626&ndash;1642, ~7,000 baptized in northern Formosa) and Dominican again from the 1859 restoration that built an island-wide network surviving into the Japanese occupation &mdash; each parishioner&rsquo;s name, residence, and sponsors. (Cf. P.&nbsp;Heyns, <em>Baptisms and Marriages Records in Dutch Formosa</em>, 2005.) Held in Vatican, Dominican (OP), and Jesuit (SJ) archives.</li>
+        <li><span class="reg-id">S14</span> Traditional 華 vs. simplified 华: the simplified form replaces the cross-bearing interior with 化+十-type strokes &mdash; a documented orthographic change of the PRC script reform.</li>
+        <li><span class="reg-id">S15</span> John of Montecorvino OFM at Khanbaliq, 1294; first Archbishop of Peking 1307&ndash;1308 &mdash; mission under the Jerusalem Cross.</li>
+        <li><span class="reg-id">S16</span> Jesuit access to China dependent on the Portuguese padroado and Order-of-Christ shipping; the <em>Qike</em> (七克) circulating in Jiangnan.</li>
+        <li><span class="reg-id">S17</span> Form of 華: central vertical axis, graduated horizontal registers, four-quadrant extension &mdash; a five-fold figure. Cross-with-central-flower recurs in the Cruz de São Tomé / Mar Thoma cross, the Rosicrucian Rose-Cross, and Yuan-dynasty Nestorian artefacts; Pike, <em>Morals and Dogma</em> Ch.&nbsp;30 (1871): &ldquo;in the centre of this cross blooms a rose.&rdquo;</li>
+        <li><span class="reg-id">S18</span> Sun Yat-sen born in 香山 (Xiangshan, later Zhongshan); used Honolulu (檀香山) as a principal revolutionary base; named the Republic 中華民國. 香山 and 檀香山 share the characters 香山; the Cantonese diaspora that named Honolulu came from the same district.</li>
+        <li><span class="reg-id">S19</span> ROC flag colours mapped to Judah + Levi + Benjamin via 虹→紅 substitution (§8 hypothesis), with the Kaifeng community&rsquo;s three-tribe oral tradition. <em>Hypothesis, not record.</em></li>
+        <li><span class="reg-id">S20</span> Moscow &amp; Cairo Declarations (1943): Taiwan &ldquo;shall be restored to the Republic of China&rdquo;; ROC among the Four Allied Powers, UN founding member, permanent SC seat 1945&ndash;1971. San Francisco Peace Treaty (1951), Art.&nbsp;2(b): Japan renounces title to Formosa/Pescadores without naming a recipient (the sovereignty gap). Treaty of Taipei (1952, bilateral Japan&ndash;ROC); continuous ROC administration since 1945; Montevideo Convention Art.&nbsp;1 (1933) criteria.</li>
+      </ul>
+    </div>
+
+    <div class="demo-gap"><b>Caveat on the legal material</b> &mdash; The legal argument
+      (§10) states the structure of a claim, not a legal determination; its validity is
+      decided by tribunals and states, not here. No legal advice is offered.</div>
+  </div>
+</section>
 
 
 <!-- ═══ §1 THE CHARACTER 華 ═══ -->
@@ -683,57 +812,54 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     <p class="demo-prop">
       <span class="lead-word">Prop. 1</span>
       The compound 中華 is built from two characters whose lexical senses are
-      fixed and joinable, and onto that fixed lexical core the study lays a second,
-      structural reading &mdash; 華 as cross-and-grid, 中 as meeting-point &mdash;
-      which is interpretive, not lexical.
+      fixed and joinable; onto that fixed lexical core a second, structural reading
+      &mdash; 華 as cross-and-grid, 中 as meeting-point &mdash; is laid, which is
+      interpretive, not lexical.
       <span class="estat demonstrated">Demonstrated</span>
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Def. (華)</em> huá = flower, and derivatively splendour / civilizational
-      flourishing &mdash; senses the philological tradition does not separate.
-      <em>Def. (中)</em> zhōng = centre, middle.
-      <em>Def. (人)</em> rén = person <em>and</em> people, Chinese not marking the
-      distinction grammatically.
-      <em>Postulate.</em> A lexical claim (what a character denotes) and a structural
-      claim (what its written form or symbolic field evokes) are claims of different
-      kinds and must be kept distinct.
+      <b>Grounds.</b> Definitions D1 (華), D2 (中), D3 (人), D4 (中華), D5 (華人), D6
+      (lexical vs. structural claim); Postulate P1 (lexical&ndash;structural distinction).
     </div>
 
     <ol class="demo-steps">
-      <li>By <em>Def. (華)</em> and <em>Def. (中)</em>, the juxtaposition 中華
-        composes their senses into &ldquo;the central flowering.&rdquo; This is
-        compositional and follows from the glosses alone.
-        <span class="warrant">Def. 華, Def. 中</span></li>
-      <li>By <em>Def. (人)</em>, 華人 reads at once as <em>a person of 華</em> and
-        <em>the people of 華</em>; the plural sense connects to 人民 (PRC) and to the
-        cognate 民 (ROC), so both state-names join 中華 to a word for &ldquo;the
-        people.&rdquo; This is a verifiable fact about the two official titles.
-        <span class="warrant">Def. 人; the two official names</span></li>
-      <li>The study then advances a <em>second</em> reading: that the written form of
-        華 (central vertical axis, graduated horizontal registers, four-quadrant
-        extension) presents a cross-and-grid, and that 中 names the meeting-point of
-        a cross. By the <em>Postulate</em>, this is offered as structural
-        interpretation, not as a lexical or etymological claim, and its evidential
-        weight is supplied separately in §2 (documentary) and §7 (formal comparison).
-        <span class="warrant">Postulate; forward-ref §2, §7</span></li>
-      <li>Therefore the philological core of Prop. 1 is established from the
-        definitions; the structural overlay is established only as far as §§2 and 7
-        carry it, and is labelled accordingly throughout.
-        <span class="warrant">Steps 1&ndash;3</span></li>
+      <li>By <span class="ref">Definition&nbsp;1 (華)</span> and
+        <span class="ref">Definition&nbsp;2 (中)</span>, the juxtaposition 中華 composes
+        their senses into &ldquo;the central flowering&rdquo; &mdash; which is exactly
+        <span class="ref">Definition&nbsp;4 (中華)</span>. The result follows from the
+        glosses alone. <span class="warrant">D1, D2 → D4</span></li>
+      <li>By <span class="ref">Definition&nbsp;3 (人)</span>, 華人 reads at once as
+        <em>a person of 華</em> and <em>the people of 華</em> &mdash; which is
+        <span class="ref">Definition&nbsp;5 (華人)</span>; the plural sense connects to
+        人民 (PRC) and to the cognate 民 (ROC), so by <span class="ref">Source&nbsp;7</span>
+        both state-names join 中華 to a word for &ldquo;the people.&rdquo;
+        <span class="warrant">D3 → D5; S7</span></li>
+      <li>The second, structural reading &mdash; that the written form of 華 presents a
+        cross-and-grid and that 中 names a cross&rsquo;s meeting-point &mdash; is, by
+        <span class="ref">Postulate&nbsp;1 (lexical&ndash;structural distinction)</span>, a
+        claim of a different kind from Steps&nbsp;1&ndash;2 (<span class="ref">Definition&nbsp;6</span>):
+        not lexical or etymological, and not licensed by the glosses. Its evidential
+        weight is therefore not asserted here but supplied in §2 (documentary) and §7
+        (formal comparison). <span class="warrant">P1, D6; deferred to §2, §7</span></li>
+      <li>Therefore, by Steps 1&ndash;3, the philological core of Prop. 1 is
+        <em>Demonstrated</em> from the definitions, while the structural overlay is
+        carried only as far as §§2 and 7 raise it &mdash; and is labelled accordingly,
+        per <span class="ref">Common Notion&nbsp;4 (confinement of necessity)</span>.
+        <span class="warrant">Steps 1&ndash;3; CN4</span></li>
     </ol>
 
     <div class="demo-gap"><b>Status of the structural reading</b> &mdash; The claim
       &ldquo;華 encodes the cross&rdquo; is
-      <span class="estat structural">Structural</span>: it interprets graphic form and
-      symbolic resonance. It is not asserted as the character&rsquo;s etymology, and
-      nothing downstream that is marked <em>Documented</em> or <em>Demonstrated</em>
-      depends on it. Its persuasive force is cumulative with §2 (a Holy-Land tradition
-      demonstrably present in China) and §7 (the cross-form comparison), and is
-      assessed there.</div>
+      <span class="estat structural">Structural</span> (<span class="ref">Definition&nbsp;9</span>):
+      it interprets graphic form and symbolic resonance. By
+      <span class="ref">Postulate&nbsp;1</span> it is not the character&rsquo;s etymology,
+      and by <span class="ref">Common Notion&nbsp;4</span> nothing marked
+      <em>Documented</em> or <em>Demonstrated</em> downstream depends on it. Its force is
+      cumulative with §2 (a Holy-Land tradition demonstrably present in China) and §7 (the
+      cross-form comparison), and is assessed there.</div>
 
-    <p class="qed">Lexical composition shown; structural reading entered as interpretation. ∎</p>
+    <p class="qed">Lexical composition shown from D1&ndash;D5; structural reading entered, per P1, as interpretation. ∎</p>
   </div>
 </section>
 
@@ -1665,64 +1791,56 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Source A.</em> 大秦景教流行中國碑 (Nestorian / Xi&rsquo;an Stele), erected
-      781&nbsp;AD, recording Alopen&rsquo;s arrival 635&nbsp;AD and imperial reception
-      under Taizong; 大秦 = the Roman Empire / Byzantine Syria.
-      <em>Source B.</em> 漢書·天文志 and 後漢書·光武帝紀 &mdash; Han astronomical
-      records, maintained under capital-penalty quality control.
-      <em>Source C.</em> 尚書 / 詩經 references to 上帝; 禮記 record of the 郊祀 border
-      sacrifice.
-      <em>Postulate (indifferent witness).</em> A record made for purposes unrelated
-      to a claim, by parties with no stake in it, is stronger corroboration of that
-      claim than a sympathetic one.
+      <b>Grounds.</b> Sources S1 (Nestorian Stele), S2 (Han astronomical records), S3
+      (上帝 / 郊祀); Postulate P2 (indifferent witness); Common Notion CN4 (confinement of
+      necessity).
     </div>
 
     <ol class="demo-steps">
-      <li>Source A is a physical, dated, bilingual monument, unearthed 1623&ndash;1625
-        and held in the Beilin Museum, Xi&rsquo;an. That a Daqin (Roman) faith was
-        received at the Tang court in 635&nbsp;AD therefore rests on a primary
-        artifact, not on later report. <em>This step is fully closed.</em>
-        <span class="warrant">Source A; corroborated by external scholarship</span></li>
-      <li>635&nbsp;AD precedes the Franciscan mission of 1294 (§6) by 659 years; hence
-        the &ldquo;standard account&rdquo; that begins with the Franciscans or Jesuits
-        understates the documentary record by more than six centuries. This is
-        arithmetic over dated sources.
-        <span class="warrant">Source A vs. §6 dating</span></li>
-      <li>By the <em>indifferent-witness Postulate</em>, the Han records (Source B),
-        kept for state-astrological reasons with no Christian stake, would &mdash; if
-        their identification with Gospel events holds &mdash; constitute strong
-        independent corroboration. The records&rsquo; <em>existence and wording</em>
-        are documented; the <em>identification</em> with the Star of Bethlehem and the
-        crucifixion darkness is an inference.
-        <span class="warrant">Postulate; Source B</span></li>
-      <li>The study itself confines that identification to MODERATE confidence
-        (&ldquo;a scholarly inference rather than a proven identification&rdquo;;
-        &ldquo;the causal chain cannot be closed from documentary evidence
-        alone&rdquo;). The demonstration adopts the same ceiling: the corroboration is
-        offered as <em>probable</em>, not proven.
-        <span class="warrant">stated confidence labels</span></li>
-      <li>Source C (上帝 monotheism; the 郊祀 blood sacrifice by a sovereign bearing the
-        people&rsquo;s transgression) establishes a structural convergence with
-        Levitical religion, noted since Ricci and Legge. Under the Catholic category
-        <em>praeparatio evangelica</em> (CCC 843; Ad Gentes 9) this is an authentic
-        but incomplete reaching-toward, not proof of contact.
-        <span class="warrant">Source C; named scholarship</span></li>
-      <li>Therefore: the <em>presence</em> of the faith by 635&nbsp;AD is
-        <em>Documented</em>; its <em>antiquity relative to the standard account</em> is
-        <em>Demonstrated</em>; the <em>corroboration</em> by Han records and the
-        <em>convergence</em> of 上帝/郊祀 are <em>Inference</em> and <em>Structural</em>
-        respectively &mdash; each at its own, separately stated, strength.
-        <span class="warrant">Steps 1&ndash;5</span></li>
+      <li>By <span class="ref">Source&nbsp;1</span>, a physical, dated, bilingual monument
+        (unearthed 1623&ndash;1625; Beilin Museum), a Daqin&nbsp;=&nbsp;Roman faith was
+        received at the Tang court in 635&nbsp;AD. This rests on a primary artifact, not
+        later report; the step is closed. <span class="warrant">S1</span></li>
+      <li>635&nbsp;AD precedes the Franciscan mission of 1294 (by <span class="ref">Source&nbsp;15</span>, treated in §7)
+        by 659 years; hence the &ldquo;standard account&rdquo; beginning with Franciscans
+        or Jesuits understates the documentary record by more than six centuries. This is
+        arithmetic over the dated sources. <span class="warrant">S1 vs. S15</span></li>
+      <li>By <span class="ref">Postulate&nbsp;2 (indifferent witness)</span>, the Han
+        records (<span class="ref">Source&nbsp;2</span>), kept for state-astrological
+        reasons with no Christian stake, would &mdash; <em>if</em> their identification
+        with Gospel events held &mdash; be strong independent corroboration. By
+        <span class="ref">Definition&nbsp;9</span>, the records&rsquo; existence and
+        wording are <em>Documented</em>; their identification with the Star of Bethlehem
+        and the crucifixion darkness is <em>Inference</em>.
+        <span class="warrant">P2, S2, D9</span></li>
+      <li>By <span class="ref">Common Notion&nbsp;4 (confinement of necessity)</span>, that
+        identification is held at the MODERATE confidence the record itself permits (a
+        scholarly inference, not a proven identification; the causal chain cannot be
+        closed from documentary evidence alone). The corroboration is therefore carried
+        as <em>probable</em>, not proven. <span class="warrant">CN4; stated confidence</span></li>
+      <li>By <span class="ref">Source&nbsp;3</span> (上帝 monotheism; the 郊祀 blood
+        sacrifice by a sovereign bearing the people&rsquo;s transgression), a structural
+        convergence with Levitical religion is exhibited, noted since Ricci and Legge.
+        By <span class="ref">Definition&nbsp;9</span> this is <em>Structural</em>; under
+        the Catholic category <em>praeparatio evangelica</em> (CCC 843; Ad Gentes 9) it
+        is an authentic but incomplete reaching-toward, not proof of contact.
+        <span class="warrant">S3, D9</span></li>
+      <li>Therefore, by Steps 1&ndash;5: the <em>presence</em> of the faith by 635&nbsp;AD
+        is <em>Documented</em> (Step 1); its <em>antiquity relative to the standard
+        account</em> is <em>Demonstrated</em> (Step 2); the Han <em>corroboration</em> is
+        <em>Inference</em> (Steps 3&ndash;4) and the 上帝/郊祀 <em>convergence</em> is
+        <em>Structural</em> (Step 5) &mdash; each at its separately stated strength, per
+        <span class="ref">Common Notion&nbsp;4</span>. <span class="warrant">Steps 1&ndash;5; CN4</span></li>
     </ol>
 
-    <div class="demo-gap"><b>Corroboration and one qualification</b> &mdash; The Stele&rsquo;s
-      authenticity, 781 date, 635 reception, and Daqin = Roman Empire are confirmed by
-      independent reference works (Beilin Museum holdings; Pope John Paul II&rsquo;s
-      1999 letter to Catholics in China citing &ldquo;from 635 onwards&rdquo;). One
-      qualification carries forward to §7: the cross atop the Stele rests on a
-      <em>lotus</em>, a Buddhist iconographic adaptation &mdash; a point the cross-form
-      argument must accommodate rather than omit.</div>
+    <div class="demo-gap"><b>Corroboration and one qualification</b> &mdash; By
+      <span class="ref">Source&nbsp;1</span>, the Stele&rsquo;s authenticity, 781 date,
+      635 reception, and Daqin&nbsp;=&nbsp;Roman Empire are confirmed by independent
+      reference works (Beilin Museum; John Paul II&rsquo;s 1999 letter, &ldquo;from 635
+      onwards&rdquo;). One qualification, recorded in <span class="ref">Source&nbsp;1</span>
+      and carried to §7: the cross atop the Stele rests on a <em>lotus</em>, a Buddhist
+      iconographic adaptation &mdash; a point the cross-form argument must accommodate
+      rather than omit.</div>
 
     <p class="qed">Presence demonstrated; corroboration bounded to probable. ∎</p>
   </div>
@@ -2048,56 +2166,49 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Prop. 2 (carried).</em> The 中華 tradition was present in China by
-      635&nbsp;AD.
-      <em>Source D.</em> 莊起元&rsquo;s prefaces to Jesuit Catholic books, c.&nbsp;1614
-      &mdash; Changzhou&ndash;Jesuit contact a century before the school.
-      <em>Source E.</em> The documented New-Text succession of named scholars,
-      1719&ndash;1927, terminating in 康有為&rsquo;s public constitutional use.
-      <em>Source F.</em> The 莊 surname&rsquo;s standard 郡望 of 天水 (Tianshui), a
-      Silk-Road city &mdash; a genealogical <em>designation</em>, not a proven descent.
-      <em>Postulate (transmission).</em> In the 私塾 tradition a concept may be
-      developed and held privately within a lineage for generations before public
-      deployment; first public use dates the disclosure, not the origination.
+      <b>Grounds.</b> Proposition&nbsp;2 (carried: the 中華 tradition present by 635&nbsp;AD);
+      Sources S4 (莊起元&rsquo;s 1614 Jesuit contact), S5 (the New-Text succession),
+      S6 (the 天水 郡望); Postulate P3 (transmission privacy); Common Notion CN1 (weakest link).
     </div>
 
     <ol class="demo-steps">
-      <li>By Source E, each link of the succession is a documented historical figure
-        with a documented relation to the next; the chain itself is therefore
+      <li>By <span class="ref">Source&nbsp;5</span>, each link of the succession
+        (莊存與&nbsp;→&nbsp;莊述祖&nbsp;→&nbsp;劉逢祿&nbsp;→&nbsp;魏源&nbsp;→&nbsp;康有為) is a
+        documented figure with a documented relation to the next; the chain is therefore
         established as an intellectual fact, independent of any claim about what it
-        transmitted. <span class="warrant">Source E</span></li>
-      <li>By Source D, the Changzhou milieu was in contact with Jesuit Catholic
-        literature by c.&nbsp;1614 &mdash; before the school&rsquo;s founding &mdash;
-        so the school &ldquo;did not encounter the Jesuit tradition for the first
-        time; it inherited a local habit of engaging it.&rdquo; This makes the
-        lineage a <em>plausible</em> carrier of a Holy-Land&ndash;oriented category.
-        <span class="warrant">Source D</span></li>
-      <li>By the <em>transmission Postulate</em>, that 康有為 is the first to deploy
-        中華 <em>publicly</em> (constitutional reform, 1898) does not entail that he
-        originated it; the study locates origination &ldquo;possibly as early as 莊存與
-        or 莊述祖,&rdquo; held privately. This is the Postulate applied, and is marked as
-        <em>Inference</em>, not record. <span class="warrant">Postulate; Source E</span></li>
-      <li>Combining Step 1 (a real lineage), Step 2 (documented prior Catholic
-        contact), and Prop. 2 (a real prior tradition), the conclusion follows that
-        <em>this lineage is the most credible human channel</em> by which the 635-AD
-        tradition reached modern political vocabulary &mdash; a demonstrated
-        <em>credibility</em>, not a demonstrated <em>fact of transmission</em>.
-        <span class="warrant">Steps 1&ndash;2 + Prop. 2</span></li>
-      <li>Source F (the 天水 Silk-Road 郡望) is consistent with, and decorative of,
-        this picture, but the study expressly &ldquo;cannot verify the specific
-        genealogical claims from the 族譜.&rdquo; It is therefore retained as
-        <em>Conjecture</em> and load-bears nothing in Steps 1&ndash;4.
-        <span class="warrant">Source F; stated as unverified</span></li>
+        carried. <span class="warrant">S5</span></li>
+      <li>By <span class="ref">Source&nbsp;4</span>, the Changzhou milieu was in contact
+        with Jesuit Catholic literature by c.&nbsp;1614, before the school&rsquo;s
+        founding; the school inherited a local habit of engaging it. This makes the
+        lineage a plausible carrier of a Holy-Land&ndash;oriented category.
+        <span class="warrant">S4</span></li>
+      <li>By <span class="ref">Postulate&nbsp;3 (transmission privacy)</span>, that 康有為
+        is the first to deploy 中華 <em>publicly</em> (1898) does not entail that he
+        originated it; origination may sit earlier (莊存與 or 莊述祖), held privately. By
+        <span class="ref">Definition&nbsp;9</span> this is <em>Inference</em>, not record.
+        <span class="warrant">P3, S5, D9</span></li>
+      <li>By Steps 1&ndash;2 with <span class="ref">Proposition&nbsp;2</span> (a real prior
+        tradition), it follows that this lineage is the <em>most credible human channel</em>
+        by which the 635-AD tradition reached modern political vocabulary &mdash; a
+        demonstrated <em>credibility</em>. By <span class="ref">Common Notion&nbsp;2
+        (opportunity is not influence)</span> this is not a demonstrated <em>fact of
+        transmission</em>. <span class="warrant">Steps 1&ndash;2, Prop. 2, CN2</span></li>
+      <li>By <span class="ref">Source&nbsp;6</span>, the 天水 Silk-Road 郡望 is consistent
+        with this picture, but is a genealogical designation, not a proven descent; the
+        specific 族譜 claims cannot be verified. By <span class="ref">Common Notion&nbsp;1
+        (weakest link)</span> it is held as <em>Conjecture</em> and bears no weight in
+        Steps 1&ndash;4. <span class="warrant">S6, CN1</span></li>
     </ol>
 
     <div class="demo-gap"><b>What is established, and what is not</b> &mdash;
-      Established: the lineage exists (Step 1); Jesuit contact precedes the school
-      (Step 2); public use post-dates likely private origination (Step 3). Not proven:
-      that the lineage <em>in fact</em> transmitted a specifically Holy-Land 中華
-      (Step 4 gives credibility, not proof) and that the clan <em>descends</em> from
-      Silk-Road carriers (Step 5, conjecture). The argument is airtight to the level
-      of <em>best-supported channel</em>; it claims no more.</div>
+      Established: the lineage exists (Step 1, <span class="ref">Source&nbsp;5</span>);
+      Jesuit contact precedes the school (Step 2, <span class="ref">Source&nbsp;4</span>);
+      public use post-dates likely private origination (Step 3,
+      <span class="ref">Postulate&nbsp;3</span>). Not proven: that the lineage <em>in
+      fact</em> transmitted a specifically Holy-Land 中華 (Step 4 gives credibility, not
+      proof, per <span class="ref">Common Notion&nbsp;2</span>) and that the clan
+      <em>descends</em> from Silk-Road carriers (Step 5, conjecture). The argument is
+      airtight to the level of <em>best-supported channel</em>; it claims no more.</div>
 
     <p class="qed">Lineage demonstrated; transmission shown as most-credible channel; clan origin held as conjecture. ∎</p>
   </div>
@@ -4433,54 +4544,47 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Prop. 3 (carried).</em> The Changzhou lineage brought 中華 into public use.
-      <em>Fact G.</em> 中華民國 founded 1912; 中華人民共和國 founded 1949 &mdash; both
-      open with 中華; the ROC name contains no 共和 character.
-      <em>Fact H.</em> 民 (mín) and 明 (míng) share tone and initial, differing only in
-      final (-n vs. -ng); the Hongmen tradition uses phonetic substitution as an
-      encoding tool.
-      <em>Postulate (asymmetry as evidence).</em> If a structure is deliberately built
-      to <em>block</em> a reading, the builder is presumed to have recognised that
-      reading as possible.
+      <b>Grounds.</b> Proposition&nbsp;3 (carried: the lineage brought 中華 into public
+      use); Sources S7 (the two state-names), S8 (民/明 phonetics); Postulate P4
+      (asymmetry as evidence); Common Notion CN4 (confinement of necessity).
     </div>
 
     <ol class="demo-steps">
-      <li>By Fact G, the adoption of 中華 by both states is a plain documentary
-        matter, and follows directly from Prop. 3 (the name was already in public
-        circulation to be adopted). <em>Closed.</em>
-        <span class="warrant">Fact G + Prop. 3</span></li>
-      <li>By Fact H, 民國 and 明國 are phonetically one final apart. That adjacency is
-        a <em>linguistic fact</em>; that it was <em>intended</em> as encoding is not
-        entailed by the adjacency alone. The step yields possibility, not intention.
-        <span class="warrant">Fact H</span></li>
-      <li>The study supplies the bridge from possibility to intention via the
-        <em>asymmetry Postulate</em>: the PRC name inserts 共和 between 民 and 國 and
-        expands 民→人民, so 民國 &ldquo;cannot form.&rdquo; If the encoding were mere
-        coincidence, there would be no reason to prevent it; the prevention presupposes
-        the encoding was legible. <span class="warrant">Postulate; Fact G (PRC form)</span></li>
-      <li>This is the load-bearing inference of §4, and its strength is exactly the
-        strength of the Postulate. The study itself brackets the alternative &mdash;
-        that 共和 (= <em>res publica</em>) entered simply from communist republican
-        vocabulary, with the blocking a side effect &mdash; and concedes &ldquo;the
-        effect is identical&rdquo; either way. The demonstration therefore rates the
-        <em>intentional</em> reading <em>Inference</em>, and the <em>encoding-as-such</em>
-        <em>Structural</em>. <span class="warrant">the bracketed alternative</span></li>
-      <li>Therefore Prop. 4 splits cleanly: the adoption of 中華 is
-        <em>Documented</em>; the 民≈明 encoding is a <em>Structural</em> reading raised
-        to <em>probable Inference</em> only by the asymmetry argument, and is never
-        promoted to documentary fact.
-        <span class="warrant">Steps 1&ndash;4</span></li>
+      <li>By <span class="ref">Source&nbsp;7</span> and <span class="ref">Proposition&nbsp;3</span>,
+        the adoption of 中華 by both states is a plain documentary matter (the name was
+        already in public circulation to be adopted). The step is closed.
+        <span class="warrant">S7, Prop. 3</span></li>
+      <li>By <span class="ref">Source&nbsp;8</span>, 民國 and 明國 are phonetically one
+        final apart. That adjacency is a linguistic fact; that it was <em>intended</em>
+        as encoding is not entailed by it. By <span class="ref">Common Notion&nbsp;2
+        (opportunity is not influence)</span> the step yields possibility, not
+        intention. <span class="warrant">S8, CN2</span></li>
+      <li>By <span class="ref">Postulate&nbsp;4 (asymmetry as evidence)</span> applied to
+        <span class="ref">Source&nbsp;7</span>: the PRC name inserts 共和 between 民 and 國
+        and expands 民→人民, so 民國 cannot form. Were the encoding mere coincidence, there
+        would be no reason to prevent it; the prevention presupposes the encoding was
+        legible. <span class="warrant">P4, S7</span></li>
+      <li>By <span class="ref">Common Notion&nbsp;1 (weakest link)</span>, this inference
+        is no stronger than Postulate&nbsp;4. The alternative is bracketed &mdash; that
+        共和 (=&nbsp;<em>res publica</em>) entered from communist republican vocabulary,
+        the blocking a side effect &mdash; with the effect identical either way. By
+        <span class="ref">Definition&nbsp;9</span> the <em>intentional</em> reading is
+        rated <em>Inference</em>, the <em>encoding-as-such</em> <em>Structural</em>.
+        <span class="warrant">CN1, D9; bracketed alternative</span></li>
+      <li>Therefore, by Steps 1&ndash;4: the adoption of 中華 is <em>Documented</em>; the
+        民≈明 encoding is <em>Structural</em>, raised to <em>probable Inference</em> only
+        by Postulate&nbsp;4, and by <span class="ref">Common Notion&nbsp;4</span> never
+        promoted to documentary fact. <span class="warrant">Steps 1&ndash;4; CN4</span></li>
     </ol>
 
-    <div class="demo-gap"><b>The weakest link, stated plainly</b> &mdash; The
-      whole &ldquo;Ming Kingdom&rdquo; reading rests on Step 3&rsquo;s asymmetry
-      inference. Declining the asymmetry Postulate (holding the PRC&rsquo;s
-      共和 to be ordinary republican vocabulary) leaves Step 2 only: a true but
-      non-probative phonetic adjacency. The reading is exact <em>about what it
-      is</em> &mdash; a structural inference with one supporting asymmetry &mdash; and
-      claims no more. The 朱→莊 surname-concealment basis is treated in §5,
-      where the Ming-restoration thread is argued on its own evidence.</div>
+    <div class="demo-gap"><b>The weakest link, stated plainly</b> &mdash; By
+      <span class="ref">Common Notion&nbsp;1</span>, the whole &ldquo;Ming Kingdom&rdquo;
+      reading rests on Step 3&rsquo;s <span class="ref">Postulate&nbsp;4</span>. Declining
+      that postulate (holding 共和 to be ordinary republican vocabulary) leaves Step 2
+      only: a true but non-probative phonetic adjacency. The reading is exact <em>about
+      what it is</em> &mdash; a structural inference with one supporting asymmetry &mdash;
+      and claims no more. The 朱→莊 surname-concealment basis is argued on its own
+      evidence in §5.</div>
 
     <p class="qed">Adoption demonstrated; Ming-encoding bounded to structural inference. ∎</p>
   </div>
@@ -5011,74 +5115,56 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Source I.</em> 《臺灣通史·寧靖王列傳》 (Lian Heng / Liang Qichao, 1918&ndash;1920):
-      seven titled 朱 princes resident in Taiwan; Shi Lang&rsquo;s 1683 seizure of their
-      seals (冊印); forced relocation across provinces.
-      <em>Source J.</em> The 自縊 of 朱術桂 (Prince of Ningjing) and five consorts,
-      1683, registered at the 五妃廟 &mdash; an ROC first-class historic site (extant).
-      <em>Source K.</em> 朱→莊 concealment attested (莊姓 records; Struve 1984; Wakeman
-      1985); 民間 phonetic gloss 莊 = 朱(zhū)+王(wáng).
-      <em>Source L (documentary convergence).</em> Taiwan&rsquo;s 地契/田契 land-deed
-      registry, continuous since the Dutch&ndash;Zheng period; lineage and household
-      records (族譜 / 戶籍) tying a family to its 四合院/祖厝 ancestral compound; the
-      family&rsquo;s Catholic confession; and a documented Ming-concealment surname
-      (朱 / 莊 / 嚴).
-      <em>Source M (sacramental registers).</em> The baptismal, marriage, and burial
-      registers (<em>libri baptizatorum</em>) kept by Catholic missions &mdash; Spanish
-      Dominican (1626&ndash;1642, ~7,000 baptized in northern Formosa), and Dominican
-      again from the 1859 restoration that built an island-wide network surviving into
-      the Japanese occupation &mdash; recording each parishioner&rsquo;s name, residence,
-      and sponsors. (Cf. P.&nbsp;Heyns, <em>Baptisms and Marriages Records in Dutch
-      Formosa</em>, 2005.) Because successive missions returned to the offspring of
-      earlier converts, the registers form a name-and-address chain that survives the
-      regime changes (Spanish → Dutch → Zheng → Qing → Japanese) the secular records
-      bridge. Vatican, Dominican (OP), and Jesuit (SJ) archives hold these series.
-      <em>Postulate (costly signalling).</em> A choice of death over surrender is
-      strong evidence that the commitment was genuine, not opportunistic.
-      <em>Postulate (documentary convergence).</em> The meeting of several independent,
-      self-authenticating records on one household raises the probability of the
-      shared conclusion above coincidence, proportionally to the records&rsquo;
-      independence and specificity &mdash; and a deed or register that names its own
-      grantor or sponsor needs no external reference sample to be read.
+      <b>Grounds.</b> Sources S9 (臺灣通史 dispersal record), S10 (the 自縊 at 五妃廟),
+      S11 (朱→莊 concealment attested), S12 (地契/田契 deed-chain + 族譜/戶籍), S13
+      (Catholic sacramental registers); Definition D7 (concealment surname), D12
+      (documentary convergence); Postulates P5 (costly signalling), P6 (documentary
+      convergence); Proposition&nbsp;3 (carried: the coining family&rsquo;s surname is 莊);
+      Common Notion CN1 (weakest link).
     </div>
 
     <ol class="demo-steps">
-      <li>By Source I, the dispersal is a primary-source fact: princes present, seals
-        seized, lineage scattered. The claim &ldquo;1683 did not terminate the line, it
-        dispersed it&rdquo; follows directly. <em>Closed on documentation.</em>
-        <span class="warrant">Source I</span></li>
-      <li>By Source J and the <em>costly-signalling Postulate</em>, the suicides of the
-        senior 朱 line are admissible as evidence that the restorationist commitment was
-        sincere; an opportunistic network does not die rather than submit. The 五妃廟
-        being a state-registered site makes this checkable, not anecdotal.
-        <span class="warrant">Source J; Postulate</span></li>
-      <li>By Source K, 朱→莊 is an attested concealment pattern, and the coining
-        family&rsquo;s surname (§3) is that very concealment surname &mdash; but attested
-        pattern plus shared surname is, alone, weak: concealment surnames were chosen
-        precisely to be unremarkable. The inference is raised to real strength only by
-        the <em>documentary convergence</em> of Sources L and M: where the 地契/田契 chain
-        links a family&rsquo;s 祖厝 to land held under a <em>named</em> 朱王, the 族譜/戶籍
-        tie the family to that compound, the family is Catholic, the surname is 朱/莊/嚴,
-        <em>and</em> the Catholic sacramental registers (Source M) independently record
-        that same household&rsquo;s baptisms and residence across four centuries, the
-        meeting of these independent indicators on one household makes Ming-royal descent
-        the <em>best-supported inference</em>. The registers are decisive precisely
-        because they were kept by a <em>different</em> institution, for a
-        <em>different</em> purpose, in a <em>different</em> archive (Vatican / OP / SJ),
-        and yet name the same family at the same place. This is stronger than a genetic
-        match, whose reference 朱 sample cannot be authenticated without assuming the very
-        royalty in question. <span class="warrant">Source K + Source L + Source M + Postulate (convergence) + Prop. 3</span></li>
+      <li>By <span class="ref">Source&nbsp;9</span>, the dispersal is a primary-source
+        fact: seven 朱 princes present, seals seized, lineage scattered. The claim
+        &ldquo;1683 did not terminate the line, it dispersed it&rdquo; follows directly.
+        Closed on documentation. <span class="warrant">S9</span></li>
+      <li>By <span class="ref">Source&nbsp;10</span> and <span class="ref">Postulate&nbsp;5
+        (costly signalling)</span>, the suicides of the senior 朱 line are evidence that
+        the restorationist commitment was genuine; an opportunistic network does not die
+        rather than submit. The 五妃廟 being a state-registered site makes this checkable,
+        not anecdotal. <span class="warrant">S10, P5</span></li>
+      <li>By <span class="ref">Source&nbsp;11</span>, 朱→莊 is an attested concealment
+        pattern (<span class="ref">Definition&nbsp;7</span>), and by
+        <span class="ref">Proposition&nbsp;3</span> the coining family&rsquo;s surname is
+        that very concealment surname &mdash; but, by <span class="ref">Definition&nbsp;7</span>,
+        attested pattern plus shared surname is alone weak, since concealment surnames
+        were chosen to be unremarkable. The inference is raised to real strength only by
+        <span class="ref">Postulate&nbsp;6 (documentary convergence)</span> over
+        <span class="ref">Sources&nbsp;12 and 13</span>: where the 地契/田契 chain links a
+        family&rsquo;s 祖厝 to land held under a <em>named</em> 朱王, the 族譜/戶籍 tie the
+        family to that compound, the family is Catholic, the surname is 朱/莊/嚴,
+        <em>and</em> the Catholic sacramental registers (<span class="ref">Source&nbsp;13</span>)
+        independently record that same household&rsquo;s baptisms and residence across
+        four centuries, the meeting of these independent indicators on one household
+        makes Ming-royal descent the <em>best-supported inference</em>. The registers are
+        decisive precisely because, by <span class="ref">Definition&nbsp;12</span>, they
+        were kept by a <em>different</em> institution, for a <em>different</em> purpose,
+        in a <em>different</em> archive (Vatican / OP / SJ), and yet name the same family
+        at the same place &mdash; stronger than a genetic match, whose reference 朱 sample
+        cannot be authenticated without assuming the very royalty in question.
+        <span class="warrant">S11, D7, Prop. 3, P6, S12, S13, D12</span></li>
       <li>The &ldquo;four parallel branches&rdquo; (royal-lineage memory, Tiandihui
         oath-brotherhood, overseas company self-government, modern party chain) are each
-        individually documented; their assembly into one continuous 229-year
-        transmission is the study&rsquo;s <em>structural reconstruction</em> &mdash;
-        each branch real, the through-line interpretive.
-        <span class="warrant">named sources per branch; synthesis interpretive</span></li>
-      <li>Therefore Prop. 5 holds at graded strength: dispersal <em>Documented</em>;
-        genuineness of commitment <em>Demonstrated</em> (Step 2); 朱→莊 for this clan
-        <em>Inference</em>; the single continuous chain a <em>structural reconstruction</em>
-        from individually documented parts. <span class="warrant">Steps 1&ndash;4</span></li>
+        individually documented; their assembly into one continuous 229-year transmission
+        is a <em>structural reconstruction</em> &mdash; each branch real, the through-line
+        interpretive, by <span class="ref">Common Notion&nbsp;2 (opportunity is not
+        influence)</span>. <span class="warrant">named sources per branch; CN2</span></li>
+      <li>Therefore, by Steps 1&ndash;4 and <span class="ref">Common Notion&nbsp;1
+        (weakest link)</span>, Prop. 5 holds at graded strength: dispersal
+        <em>Documented</em> (Step 1); genuineness of commitment <em>Demonstrated</em>
+        (Step 2); 朱→莊 for this clan <em>Inference</em> (Step 3); the single continuous
+        chain a <em>structural reconstruction</em> from individually documented parts
+        (Step 4). <span class="warrant">Steps 1&ndash;4; CN1</span></li>
     </ol>
 
     <div class="demo-gap"><b>Why deeds and registers, not DNA &mdash; and the proper
@@ -5086,7 +5172,8 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
       descent from whatever 朱 sample is designated the reference, and that designation is
       the very thing in question (one would need an already-authenticated royal sample to
       validate a claimed one &mdash; a circularity). The stronger instruments are
-      documentary and converge from two independent archival systems. <em>Secular:</em> a
+      documentary and, by <span class="ref">Postulate&nbsp;6</span>, converge from two
+      independent archival systems. <em>Secular</em> (<span class="ref">Source&nbsp;12</span>): a
       地契 names a grantor, grantee, parcel, and date, carrying its reference point
       <em>within the record</em>, and Taiwan has kept such deeds continuously since the
       Dutch&ndash;Zheng period. <em>Ecclesiastical:</em> Catholic missions kept baptismal,
@@ -5929,50 +6016,46 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Props. 1&ndash;5 (carried).</em> The name encodes a Holy-Land&ndash;oriented
-      tradition present since 635&nbsp;AD and transmitted to the modern states.
-      <em>Fact L.</em> Traditional 華 vs. simplified 华: the simplified form replaces the
-      cross-bearing interior with 化+十-type strokes &mdash; a documented orthographic
-      change of the PRC script reform.
-      <em>Postulate (conditional value).</em> A credential one does not know one holds
-      can be surrendered by default; ignorance of a name&rsquo;s content lowers the cost
-      of discarding it to zero in the holder&rsquo;s perception, though not in fact.
+      <b>Grounds.</b> Propositions&nbsp;1&ndash;5 (carried: the name encodes a
+      Holy-Land&ndash;oriented tradition present since 635&nbsp;AD and transmitted to the
+      modern states); Source S14 (traditional 華 vs. simplified 华); Postulate P7
+      (conditional value); Common Notion CN4 (confinement of necessity).
     </div>
 
     <ol class="demo-steps">
-      <li>By Props. 1&ndash;5, the name carries a real, documented historical content
-        (whatever one concludes about the structural overlay). Hence discarding it
-        forfeits access to that content. This is entailment from the prior propositions.
-        <span class="warrant">Props. 1&ndash;5</span></li>
-      <li>By the <em>conditional-value Postulate</em>, a diaspora community unaware of
-        that content perceives the name as pure liability and discards it at no felt
-        cost &mdash; while in fact (Step 1) forfeiting the credential. The harm is real
-        though unperceived. <span class="warrant">Postulate; Step 1</span></li>
-      <li>Fact L is a documentary matter of script reform: the simplified 华 does
-        weaken the graphic cross-reading on which §1&rsquo;s structural overlay relies.
-        This step is closed as orthographic fact; its <em>significance</em> depends on
-        §1&rsquo;s structural reading and inherits that reading&rsquo;s status.
-        <span class="warrant">Fact L + §1 (structural)</span></li>
+      <li>By <span class="ref">Propositions&nbsp;1&ndash;5</span>, the name carries a real,
+        documented historical content (whatever one concludes about the structural
+        overlay). Hence discarding it forfeits access to that content &mdash; entailment
+        from the prior propositions. <span class="warrant">Props. 1&ndash;5</span></li>
+      <li>By <span class="ref">Postulate&nbsp;7 (conditional value)</span>, a diaspora
+        community unaware of that content perceives the name as pure liability and
+        discards it at no felt cost &mdash; while, by Step 1, forfeiting the credential.
+        The harm is real though unperceived. <span class="warrant">P7, Step 1</span></li>
+      <li>By <span class="ref">Source&nbsp;14</span>, the simplified 华 weakens the graphic
+        cross-reading on which §1&rsquo;s structural overlay relies. This is closed as
+        orthographic fact; its <em>significance</em> depends on §1&rsquo;s structural
+        reading and, by <span class="ref">Definition&nbsp;9</span>, inherits that
+        reading&rsquo;s status. <span class="warrant">S14, D9; §1</span></li>
       <li>The four-step sequence (simplify → associate with PRC → await diaspora
-        abandonment → neutralise from both ends) is presented as a <em>strategy</em>.
-        The demonstration marks this <em>Inference</em>: the four effects are
-        observable, but their unification under a single designing intent is an
-        interpretation. The argument does not require intent &mdash; by Step 2 the harm
-        follows from ignorance alone, whether or not anyone designed it.
-        <span class="warrant">observed effects; intent not entailed</span></li>
-      <li>Therefore Prop. 6 stands on its documented premises (Steps 1&ndash;3): the
-        stakes are real independent of the strategy reading. The strategy (Step 4) is a
-        plausible but non-probative overlay, and nothing in the &ldquo;stakes&rdquo;
-        conclusion depends on it. <span class="warrant">Steps 1&ndash;4</span></li>
+        abandonment → neutralise from both ends) is presented as a <em>strategy</em>. By
+        <span class="ref">Common Notion&nbsp;2 (opportunity is not influence)</span> its
+        four effects are observable, but their unification under a single designing intent
+        is interpretation; by <span class="ref">Definition&nbsp;9</span> it is
+        <em>Inference</em>. The argument does not require intent &mdash; by Step 2 the harm
+        follows from ignorance alone. <span class="warrant">CN2, D9; Step 2</span></li>
+      <li>Therefore, by Steps 1&ndash;3 and <span class="ref">Common Notion&nbsp;4</span>,
+        Prop. 6 stands on its documented premises: the stakes are real independent of the
+        strategy reading. Step 4 is a plausible but non-probative overlay on which the
+        &ldquo;stakes&rdquo; conclusion does not depend. <span class="warrant">Steps 1&ndash;4; CN4</span></li>
     </ol>
 
     <div class="demo-gap"><b>Separation of the contestable</b> &mdash; Even if
-      the CCP-strategy reading (Step 4) is rejected as unfalsifiable, the core stake
-      (Steps 1&ndash;2) stands: a community discarding a name it has not
-      examined forfeits whatever the name in fact carries. The polemical and the
-      demonstrable are kept apart, so the section&rsquo;s force does not rest on
-      its most contestable element.</div>
+      the CCP-strategy reading (Step 4) is rejected as unfalsifiable, by
+      <span class="ref">Common Notion&nbsp;1 (weakest link)</span> the core stake
+      (Steps 1&ndash;2) stands: a community discarding a name it has not examined
+      forfeits whatever the name in fact carries. The polemical and the demonstrable are
+      kept apart, so the section&rsquo;s force does not rest on its most contestable
+      element.</div>
 
     <p class="qed">Stakes demonstrated from prior propositions; strategy held as inference. ∎</p>
   </div>
@@ -6482,48 +6565,41 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Source M.</em> John of Montecorvino OFM at Khanbaliq, 1294; first Archbishop
-      of Peking 1307&ndash;1308 &mdash; mission under the Jerusalem Cross.
-      <em>Source N.</em> Jesuit access to China dependent on the Portuguese padroado
-      and Order-of-Christ shipping; the <em>Qike</em> (七克) circulating in Jiangnan.
-      <em>Source O.</em> 莊起元&rsquo;s c.&nbsp;1614 poem 讀《七克》西書有感 &mdash; a
-      dated Chuang-clan response to a Jesuit text (also Source D of §3).
-      <em>Postulate (channel).</em> For a symbolic tradition to be transmitted between
-      two milieus, a documented contact pathway between them is necessary, though a
-      pathway alone does not prove transmission occurred.
+      <b>Grounds.</b> Sources S15 (Montecorvino OFM, 1294), S16 (Jesuit padroado and the
+      <em>Qike</em>), S4 (莊起元&rsquo;s 1614 response to a Jesuit text); Postulate P8
+      (channel necessity); Common Notion CN2 (opportunity is not influence).
     </div>
 
     <ol class="demo-steps">
-      <li>By Sources M and N, cross-bearing Catholic institutions reached China in two
-        waves (1294; 1580s), each carrying the Jerusalem-Cross / Order-of-Christ
-        lineage. The presence of the <em>vehicle</em> is documented.
-        <span class="warrant">Source M, Source N</span></li>
-      <li>By Source O, a named member of the very Changzhou Chuang clan (§3) read and
-        responded in writing to a Jesuit work in 1614 &mdash; a <em>specific, dated
-        point of contact</em> between the cross-tradition&rsquo;s literature and the
-        coining lineage, not a general atmosphere. <span class="warrant">Source O = Source D (§3)</span></li>
-      <li>By the <em>channel Postulate</em>, Steps 1&ndash;2 establish the
-        <em>necessary</em> precondition for §8&rsquo;s claim that 華 was shaped in part
-        by the cross-tradition: the contact pathway demonstrably existed and reached
-        the right family. <span class="warrant">Postulate; Steps 1&ndash;2</span></li>
-      <li>The Postulate&rsquo;s second clause is honored: a pathway is necessary, not
-        sufficient. That the cross-tradition <em>in fact</em> shaped the character is
-        therefore <em>Inference</em>, established no higher than §8&rsquo;s formal
-        comparison can raise it. §7 supplies the channel; §8 must supply the
-        resemblance. <span class="warrant">Postulate (second clause)</span></li>
-      <li>Therefore Prop. 7 is closed exactly at the level claimed: the transmission
-        <em>channel</em> is <em>Documented</em>; the transmission&rsquo;s
-        <em>sufficiency</em> to shape 華 is deferred to §8 as <em>Inference</em>.
-        <span class="warrant">Steps 1&ndash;4</span></li>
+      <li>By <span class="ref">Sources&nbsp;15 and 16</span>, cross-bearing Catholic
+        institutions reached China in two waves (1294; 1580s), each carrying the
+        Jerusalem-Cross / Order-of-Christ lineage. The presence of the <em>vehicle</em>
+        is documented. <span class="warrant">S15, S16</span></li>
+      <li>By <span class="ref">Source&nbsp;4</span>, a named member of the very Changzhou
+        Chuang clan (§3) read and responded in writing to a Jesuit work in 1614 &mdash; a
+        specific, dated point of contact between the cross-tradition&rsquo;s literature
+        and the coining lineage, not a general atmosphere. <span class="warrant">S4</span></li>
+      <li>By <span class="ref">Postulate&nbsp;8 (channel necessity)</span>, Steps
+        1&ndash;2 establish the <em>necessary</em> precondition for §8&rsquo;s claim that
+        華 was shaped in part by the cross-tradition: the pathway demonstrably existed and
+        reached the right family. <span class="warrant">P8; Steps 1&ndash;2</span></li>
+      <li>By <span class="ref">Common Notion&nbsp;2 (opportunity is not influence)</span>
+        and the second clause of <span class="ref">Postulate&nbsp;8</span>, a pathway is
+        necessary, not sufficient. That the cross-tradition <em>in fact</em> shaped the
+        character is therefore <em>Inference</em>, established no higher than §8 can raise
+        it: §7 supplies the channel, §8 must supply the resemblance.
+        <span class="warrant">CN2, P8</span></li>
+      <li>Therefore, by Steps 1&ndash;4, Prop. 7 is closed at the level claimed: the
+        transmission <em>channel</em> is <em>Documented</em>; its <em>sufficiency</em> to
+        shape 華 is deferred to §8 as <em>Inference</em>. <span class="warrant">Steps 1&ndash;4</span></li>
     </ol>
 
     <div class="demo-gap"><b>What this section does and does not prove</b> &mdash; It
-      proves a corridor existed and that the coining clan stood on it (Step 2). It does
-      not, by itself, prove that what travelled the corridor entered the character; that
-      is §8&rsquo;s burden. Keeping the two apart prevents the common fallacy of treating
-      a demonstrated <em>opportunity</em> for influence as a demonstrated
-      <em>influence</em>.</div>
+      proves a corridor existed and that the coining clan stood on it (Step 2). By
+      <span class="ref">Common Notion&nbsp;2</span> it does not, by itself, prove that what
+      travelled the corridor entered the character; that is §8&rsquo;s burden. Keeping the
+      two apart prevents the fallacy of treating a demonstrated <em>opportunity</em> for
+      influence as a demonstrated <em>influence</em>.</div>
 
     <p class="qed">Channel documented; sufficiency deferred to §8. ∎</p>
   </div>
@@ -7036,49 +7112,41 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Prop. 7 (carried).</em> A documented cross-bearing channel reached the
-      coining clan.
-      <em>Observation P.</em> Traditional 華: central vertical axis, graduated
-      horizontal registers, four-quadrant extension &mdash; a five-fold figure.
-      <em>Observation Q.</em> Central-flower-at-the-crossing recurs in (i) the Cruz de
-      São Tomé / Mar Thoma cross, (ii) the Rosicrucian Rose-Cross, (iii) Yuan-dynasty
-      Nestorian artefacts (§2); Pike, <em>Morals and Dogma</em> Ch.&nbsp;30 (1871),
-      &ldquo;in the centre of this cross blooms a rose.&rdquo;
-      <em>Postulate (convergence).</em> Independent traditions arriving at the same
-      non-trivial image raise the probability of a shared source above coincidence,
-      proportionally to the image&rsquo;s specificity and the traditions&rsquo;
-      independence.
+      <b>Grounds.</b> Proposition&nbsp;7 (carried: a documented cross-bearing channel
+      reached the coining clan); Source S17 (form of 華; cross-with-central-flower across
+      three traditions; Pike 1871); Postulate P9 (convergence of independent traditions);
+      Common Notion CN3 (resemblance is not derivation); Definition D9 (status terms).
     </div>
 
     <ol class="demo-steps">
-      <li>By Observation P, the cruciform reading of 華 is a fact about graphic form
-        that any reader can inspect; the five-fold figure is present in the strokes.
-        This is <em>Structural</em> &mdash; a claim about form, established by
-        inspection, not about etymology. <span class="warrant">Observation P</span></li>
-      <li>By Observation Q and the <em>convergence Postulate</em>, the recurrence of the
-        specific cross-and-central-flower image across three independent streams is
-        more than coincidence: the image is specific (not a bare cross), and the
-        streams are independent. This raises the probability of a shared symbolic
-        vocabulary. <span class="warrant">Observation Q; Postulate</span></li>
-      <li>By Prop. 7, a channel existed by which such a vocabulary could have reached
-        the coining clan. Steps 1&ndash;2 (resemblance + convergence) combined with
-        Prop. 7 (opportunity) yield the study&rsquo;s claim that 華 was &ldquo;shaped in
-        part&rdquo; by the cross-tradition &mdash; an <em>Inference</em> of real
-        strength, since all three legs are present. <span class="warrant">Steps 1&ndash;2 + Prop. 7</span></li>
-      <li>The inference is bounded by two honest limits. <em>First</em>, formal
-        resemblance never entails derivation: similar forms can arise independently, and
-        the cruciform reading remains <em>Structural</em>. <em>Second</em>, the §2
-        Nestorian Stele cross rests on a <em>lotus</em> pedestal &mdash; a Buddhist
-        iconographic adaptation &mdash; which shows the Chinese cross-tradition
-        syncretised local forms rather than importing a pure Jerusalem Cross. This
-        <em>complicates</em> a simple derivation claim and is retained, not omitted.
-        <span class="warrant">supplement from §2; honest limit</span></li>
-      <li>Therefore Prop. 8 stands as: a demonstrable <em>formal</em> resemblance
-        (Step 1), a better-than-coincidence <em>convergence</em> (Step 2), and a
-        well-supported but non-probative <em>Inference</em> of influence (Step 3),
-        explicitly bounded by the independence-of-form and lotus-syncretism caveats
-        (Step 4). <span class="warrant">Steps 1&ndash;4</span></li>
+      <li>By <span class="ref">Source&nbsp;17</span>, the cruciform reading of 華 is a fact
+        about graphic form open to inspection: the five-fold figure is present in the
+        strokes. By <span class="ref">Definition&nbsp;9</span> this is <em>Structural</em>
+        &mdash; a claim about form, not etymology. <span class="warrant">S17, D9</span></li>
+      <li>By <span class="ref">Source&nbsp;17</span> and <span class="ref">Postulate&nbsp;9
+        (convergence of independent traditions)</span>, the recurrence of the specific
+        cross-and-central-flower image across three independent streams is more than
+        coincidence: the image is specific (not a bare cross) and the streams are
+        independent. This raises the probability of a shared symbolic vocabulary.
+        <span class="warrant">S17, P9</span></li>
+      <li>By <span class="ref">Proposition&nbsp;7</span>, a channel existed by which such a
+        vocabulary could have reached the coining clan. Steps 1&ndash;2 (resemblance +
+        convergence) with Prop. 7 (opportunity) yield the claim that 華 was &ldquo;shaped
+        in part&rdquo; by the cross-tradition &mdash; an <em>Inference</em> of real
+        strength, since all three legs are present. <span class="warrant">Steps 1&ndash;2, Prop. 7</span></li>
+      <li>By <span class="ref">Common Notion&nbsp;3 (resemblance is not derivation)</span>,
+        the inference is bounded twice. <em>First</em>, formal resemblance never entails
+        derivation: similar forms can arise independently, and the cruciform reading
+        remains <em>Structural</em>. <em>Second</em>, by <span class="ref">Source&nbsp;1</span>
+        the Stele cross rests on a <em>lotus</em> pedestal, showing the Chinese
+        cross-tradition syncretised local forms rather than importing a pure Jerusalem
+        Cross &mdash; which complicates a simple derivation claim and is retained, not
+        omitted. <span class="warrant">CN3, S1</span></li>
+      <li>Therefore, by Steps 1&ndash;4, Prop. 8 stands as: a demonstrable <em>formal</em>
+        resemblance (Step 1), a better-than-coincidence <em>convergence</em> (Step 2), and
+        a well-supported but non-probative <em>Inference</em> of influence (Step 3),
+        bounded by the independence-of-form and lotus-syncretism caveats (Step 4).
+        <span class="warrant">Steps 1&ndash;4</span></li>
     </ol>
 
     <div class="demo-gap"><b>The strongest defensible statement</b> &mdash; The
@@ -8211,44 +8279,41 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Fact R.</em> Sun Yat-sen born in 香山 (Xiangshan, later renamed Zhongshan);
-      used Honolulu (檀香山) as a principal revolutionary base; named the Republic
-      中華民國.
-      <em>Observation S.</em> 香山 and 檀香山 share the two characters 香山; the
-      Cantonese diaspora that named Honolulu came from the same district.
-      <em>Hypothesis T.</em> The ROC flag&rsquo;s colours map to Judah + Levi +
-      Benjamin via 虹→紅 substitution (the study&rsquo;s §8 flag-colour hypothesis),
-      corroborated by the Kaifeng community&rsquo;s own three-tribe oral tradition.
-      <em>Postulate (onomastic caution).</em> Shared toponyms evidence shared
-      population movement, but not shared symbolic intent, absent further linkage.
+      <b>Grounds.</b> Source S18 (Sun Yat-sen&rsquo;s 香山 birth, 檀香山 base, naming of
+      the Republic; the shared 香山 toponym); Source S19 (flag-colour / three-tribe
+      hypothesis); Postulate P10 (onomastic caution); Definition D9 (status terms);
+      Common Notion CN4 (confinement of necessity).
     </div>
 
     <ol class="demo-steps">
-      <li>By Fact R, the biographical core is documentary: birthplace, operational
-        base, and authorship of the name are matters of record. <em>Closed.</em>
-        <span class="warrant">Fact R</span></li>
-      <li>By Observation S and the <em>onomastic-caution Postulate</em>, the 香山/檀香山
-        link evidences a real diaspora corridor (Xiangshan Cantonese → Honolulu) and
-        explains why Sun&rsquo;s base bore his home district&rsquo;s name. It does
-        <em>not</em>, by itself, evidence symbolic design; it is a true geographic
-        resonance held at that level. <span class="warrant">Observation S; Postulate</span></li>
-      <li>Hypothesis T (flag colours → three tribes) is presented as
-        a hypothesis, and is independently touched by the Kaifeng three-tribe tradition
-        (§2&ndash;3 grounds). It is retained as <em>Conjecture</em>: suggestive, supported
-        at one corroborating point, not established. <span class="warrant">Hypothesis T, so labelled</span></li>
-      <li>Therefore Prop. 9 separates cleanly: the founder&rsquo;s diaspora geography is
-        <em>Documented</em> (Step 1) and coheres with the thread; the toponymic and
-        flag-colour readings are an <em>Observation</em> and a <em>Conjecture</em>
-        respectively (Steps 2&ndash;3), neither promoted beyond its evidence.
-        <span class="warrant">Steps 1&ndash;3</span></li>
+      <li>By <span class="ref">Source&nbsp;18</span>, the biographical core is documentary:
+        birthplace, operational base, and authorship of the name are matters of record.
+        Closed. <span class="warrant">S18</span></li>
+      <li>By <span class="ref">Source&nbsp;18</span> and <span class="ref">Postulate&nbsp;10
+        (onomastic caution)</span>, the 香山/檀香山 link evidences a real diaspora corridor
+        (Xiangshan Cantonese → Honolulu) and explains why Sun&rsquo;s base bore his home
+        district&rsquo;s name. By Postulate&nbsp;10 it does <em>not</em>, by itself,
+        evidence symbolic design; it is a true geographic resonance held at that level.
+        <span class="warrant">S18, P10</span></li>
+      <li>By <span class="ref">Source&nbsp;19</span> (so labelled a hypothesis), the
+        flag-colour → three-tribe reading is independently touched by the Kaifeng
+        three-tribe tradition. By <span class="ref">Definition&nbsp;9</span> it is
+        <em>Conjecture</em>: suggestive, supported at one corroborating point, not
+        established. <span class="warrant">S19, D9</span></li>
+      <li>Therefore, by Steps 1&ndash;3 and <span class="ref">Common Notion&nbsp;4</span>,
+        Prop. 9 separates cleanly: the founder&rsquo;s diaspora geography is
+        <em>Documented</em> and coheres with the thread; the toponymic and flag-colour
+        readings are an <em>Observation</em> and a <em>Conjecture</em>, neither promoted
+        beyond its evidence. <span class="warrant">Steps 1&ndash;3; CN4</span></li>
     </ol>
 
-    <div class="demo-gap"><b>Coherence vs. proof</b> &mdash; The yield here
-      is <em>coherence</em>: the founder&rsquo;s life sits naturally within the
-      corridor traced across §§1&ndash;8. Coherence strengthens a cumulative case without
-      proving any single link; the flag-colour hypothesis in particular is offered for
-      testing (e.g., against contemporaneous design documents), not asserted.</div>
+    <div class="demo-gap"><b>Coherence vs. proof</b> &mdash; By
+      <span class="ref">Common Notion&nbsp;1 (weakest link)</span>, the yield here is
+      <em>coherence</em>: the founder&rsquo;s life sits naturally within the corridor
+      traced across §§1&ndash;8. Coherence strengthens a cumulative case without proving
+      any single link; the flag-colour hypothesis (<span class="ref">Source&nbsp;19</span>)
+      in particular is offered for testing (e.g., against contemporaneous design
+      documents), not asserted.</div>
 
     <p class="qed">Biography documented; geography coherent; flag-reading held as conjecture. ∎</p>
   </div>
@@ -9437,51 +9502,42 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
     </p>
 
     <div class="demo-grounds">
-      <b>Grounds.</b>
-      <em>Source U.</em> Moscow &amp; Cairo Declarations (1943): Taiwan &ldquo;shall be
-      restored to the Republic of China&rdquo;; ROC among the Four Allied Powers; ROC
-      UN founding member with a permanent SC seat 1945&ndash;1971.
-      <em>Source V.</em> San Francisco Peace Treaty (1951), Art.&nbsp;2(b): Japan
-      renounces title to Formosa/Pescadores <em>without naming a recipient</em> &mdash;
-      the deliberate sovereignty gap.
-      <em>Source W.</em> Treaty of Taipei (1952, bilateral Japan&ndash;ROC);
-      continuous ROC administration since 1945; Montevideo Convention Art.&nbsp;1
-      (1933) criteria.
-      <em>Postulate (lawfare efficacy).</em> A legitimacy argument constrains an
-      adversary&rsquo;s options to the extent it is documented, institutionally
-      acknowledged, and citable &mdash; independent of whether any tribunal has ruled on
-      it.
-      <em>Caveat.</em> The author is not a lawyer; what follows states the structure of
-      a legal argument, not a legal determination, and offers no advice.
+      <b>Grounds.</b> Source S20 (Cairo/Moscow Declarations; SFPT Art.&nbsp;2(b)
+      sovereignty gap; Treaty of Taipei; continuous administration; Montevideo criteria);
+      Definition D11 (lawfare); Postulate P11 (lawfare efficacy); Common Notion CN2
+      (opportunity is not influence); and the standing Caveat of the Preamble (the legal
+      material states a structure, not a determination; no advice is offered).
     </div>
 
     <ol class="demo-steps">
-      <li>By Sources U&ndash;W, each component is a documentary legal fact: the wartime
-        declarations, the SFPT&rsquo;s Article 2(b) silence, the bilateral 1952 treaty,
-        continuous administration, and the Montevideo criteria are all matters of
-        record. The <em>materials</em> of the architecture are <em>Documented</em>.
-        <span class="warrant">Sources U, V, W</span></li>
-      <li>By Source V, the SFPT&rsquo;s deliberate non-naming of a sovereign creates a
-        genuine gap that the PRC&rsquo;s &ldquo;natural succession&rdquo; reading does
-        not close. That the gap <em>exists</em> is documentary; how it <em>should</em> be
-        resolved is contested law, on which the demonstration takes no side.
-        <span class="warrant">Source V; Caveat</span></li>
-      <li>By the <em>lawfare-efficacy Postulate</em>, the study&rsquo;s claim is not that
-        this architecture would <em>win</em> in court but that, once published and
+      <li>By <span class="ref">Source&nbsp;20</span>, each component is a documentary legal
+        fact: the wartime declarations, the SFPT&rsquo;s Article&nbsp;2(b) silence, the
+        bilateral 1952 treaty, continuous administration, and the Montevideo criteria are
+        all matters of record. The <em>materials</em> of the architecture are
+        <em>Documented</em>. <span class="warrant">S20</span></li>
+      <li>By <span class="ref">Source&nbsp;20</span>, the SFPT&rsquo;s deliberate
+        non-naming of a sovereign creates a genuine gap the PRC&rsquo;s &ldquo;natural
+        succession&rdquo; reading does not close. That the gap <em>exists</em> is
+        documentary; how it <em>should</em> be resolved is contested law, on which, per
+        the Preamble Caveat, no side is taken. <span class="warrant">S20; Caveat</span></li>
+      <li>By <span class="ref">Definition&nbsp;11 (lawfare)</span> and
+        <span class="ref">Postulate&nbsp;11 (lawfare efficacy)</span>, the claim is not
+        that the architecture would <em>win</em> in court but that, once published and
         citable, it raises the cost of the PRC&rsquo;s narrowing of Taiwan&rsquo;s space
         &mdash; a claim about strategic effect, marked <em>Construction</em>, not legal
-        truth. <span class="warrant">Postulate</span></li>
-      <li>The assembly of documented components (Step 1) into a single &ldquo;pre-assembled
-        legitimacy architecture&rdquo; is the study&rsquo;s own synthesis &mdash; the
-        novelty it claims (&ldquo;no existing scholarly framework has connected&rdquo;
-        them). The components&rsquo; truth does not transfer automatically to the
-        synthesis&rsquo;s efficacy; the latter is argued, and stands as
-        <em>Inference</em> under the Postulate. <span class="warrant">Step 1 + Postulate</span></li>
-      <li>Therefore Prop. 10 resolves into: documented legal components (Step 1), a
-        documented sovereignty gap (Step 2), and an argued strategic construction
-        (Steps 3&ndash;4) explicitly framed as the architecture&rsquo;s structure rather
-        than as adjudicated law, under the standing non-lawyer caveat.
-        <span class="warrant">Steps 1&ndash;4</span></li>
+        truth. <span class="warrant">D11, P11</span></li>
+      <li>By <span class="ref">Common Notion&nbsp;2 (opportunity is not influence)</span>,
+        the assembly of documented components (Step 1) into a single &ldquo;pre-assembled
+        legitimacy architecture&rdquo; is a synthesis whose novelty is claimed (no
+        existing framework has connected them); the components&rsquo; truth does not
+        transfer automatically to the synthesis&rsquo;s efficacy, which is argued and
+        stands as <em>Inference</em> under Postulate&nbsp;11.
+        <span class="warrant">CN2, P11; Step 1</span></li>
+      <li>Therefore, by Steps 1&ndash;4, Prop. 10 resolves into: documented legal
+        components (Step 1), a documented sovereignty gap (Step 2), and an argued
+        strategic construction (Steps 3&ndash;4) framed as the architecture&rsquo;s
+        structure rather than as adjudicated law, under the standing Caveat.
+        <span class="warrant">Steps 1&ndash;4; Caveat</span></li>
     </ol>
 
     <div class="demo-gap"><b>The proper modesty of a legal-strategic claim</b> &mdash;
@@ -10426,11 +10482,11 @@ Cited in this study solely to document the structural cross-and-rose understandi
     </p>
 
     <div class="demo-grounds">
-      <b>Principle of synthesis.</b> A chain is only as strong as its weakest necessary
-      link (a carried Common Notion). The thesis is therefore asserted only at the
-      strength of the weakest link <em>that it actually requires</em>; claims resting on
-      a merely structural or conjectural link are flagged as such and excluded from the
-      demonstrated core.
+      <b>Principle of synthesis.</b> By <span class="ref">Common Notion&nbsp;1 (weakest
+      link)</span>, the thesis is asserted only at the strength of the weakest link it
+      actually requires; by <span class="ref">Common Notion&nbsp;4 (confinement of
+      necessity)</span>, claims resting on a merely structural or conjectural link are
+      flagged as such and excluded from the demonstrated core.
     </div>
 
     <ol class="demo-steps">
@@ -10455,7 +10511,7 @@ Cited in this study solely to document the structural cross-and-rose understandi
         named (DNA comparison; design-document checks). The thesis is constructed so
         that <em>nothing in its demonstrated core depends on these</em>.
         <span class="warrant">Props. 3,9 (margins)</span></li>
-      <li>By the <em>Principle of synthesis</em>, the thesis has two registers. Its
+      <li>By <span class="ref">Common Notion&nbsp;1 (weakest link)</span>, the thesis has two registers. Its
         <em>historical</em> claim &mdash; that a documented tradition runs from 635&nbsp;AD
         into both states&rsquo; names &mdash; rests only on the documented spine (Step 1)
         and is therefore <em>Demonstrated</em>. Its <em>symbolic</em> claim &mdash; that
