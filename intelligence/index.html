@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Intelligence Work Algorithms — Historical Case-Method Reconstruction | Logarchéon</title>
+<meta name="description" content="A rolling, public-source series of 300-case historical decision-analysis reconstructions of major intelligence figures, classified by era and institution. Logarchéon Inc. — William Chuang."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0a1628;--navy-mid:#0e1f3a;--navy-light:#162d52;--navy-rim:#1e3a64;
+  --gold:#c9a84c;--gold-light:#e2c97e;--gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14);--gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8;--body:#e8e2d8;--muted:#c8c0b0;--faint:#8a8070;
+  --border:rgba(201,168,76,0.25);--border-dim:rgba(201,168,76,0.11);
+  --green:#5dc9b0;--red:#d67a6a;--blue:#91b7dc;--glass:rgba(14,31,58,0.72);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Libre Baskerville",Georgia,serif;background:var(--navy);color:var(--cream);line-height:1.72;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 900px 600px at 12% 0%,rgba(201,168,76,0.08) 0%,transparent 60%),radial-gradient(ellipse 700px 800px at 92% 18%,rgba(145,183,220,0.05) 0%,transparent 55%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);background-size:80px 80px}
+.wrap{position:relative;z-index:1}
+h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;line-height:1.18;letter-spacing:-0.01em}
+a{color:var(--gold-light);text-decoration:none}a:hover{color:var(--cream);text-decoration:underline}
+.mono{font-family:"DM Mono",Consolas,monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold)}
+nav.top{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dim);padding:0 28px}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:"Cormorant Garamond",serif;font-size:1.28rem;color:var(--gold-light)}
+.nav-links{display:flex;gap:1.4rem;list-style:none}
+.nav-links a{font-family:"DM Mono",monospace;font-size:0.66rem;text-transform:uppercase;color:var(--muted);letter-spacing:0.06em}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);text-decoration:none}
+.hero{max-width:1280px;margin:0 auto;padding:4.5rem 28px 3.2rem;border-bottom:1px solid var(--border-dim)}
+.breadcrumb{font-family:"DM Mono",monospace;font-size:0.72rem;text-transform:uppercase;color:var(--faint);margin-bottom:1.1rem;letter-spacing:0.08em;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap}
+.hero h1{font-size:clamp(2.4rem,5vw,5rem);font-weight:300;max-width:24ch;margin-bottom:1.1rem}
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+.hero-desc{max-width:96ch;color:var(--body);font-size:1.02rem;line-height:1.75;margin-bottom:0.9rem}
+.badges{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:1.4rem}
+.badge{font-family:"DM Mono",monospace;font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);border:1px solid var(--border);padding:0.3rem 0.72rem;background:var(--gold-pale);border-radius:2px}
+.note{background:rgba(22,45,82,0.48);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;padding:0.95rem 1.15rem;margin:1.4rem 0 0;color:var(--muted);font-size:0.88rem;line-height:1.7}
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:3.6rem;padding:3.2rem 28px 6rem}
+.toc{position:sticky;top:76px;align-self:start;border-left:1px solid var(--border);padding-left:1.3rem;max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--gold-dim) rgba(201,168,76,0.08)}
+.toc::-webkit-scrollbar{width:5px}.toc::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.4);border-radius:999px}
+.toc-label{font-family:"DM Mono",monospace;font-size:0.67rem;color:var(--faint);text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.1em}
+.toc a{display:block;font-family:"DM Mono",monospace;font-size:0.69rem;color:var(--body);padding:0.25rem 0;line-height:1.35;border-left:2px solid transparent;margin-left:-1.4rem;padding-left:1.2rem;transition:color 0.2s,border-color 0.2s}
+.toc a:hover{color:var(--gold-light);border-color:var(--gold);text-decoration:none}
+.toc a.toc-sub{font-size:0.64rem;color:var(--faint)}
+.toc a.toc-sub:hover{color:var(--gold-light);border-color:var(--gold)}
+.page-section{margin-bottom:5rem}
+.section-header{display:flex;align-items:baseline;gap:1.1rem;border-bottom:1px solid var(--border-dim);padding-bottom:0.9rem;margin-bottom:0.6rem}
+.section-num{font-family:"DM Mono",monospace;font-size:0.7rem;color:var(--muted)}
+.section-title{font-size:1.85rem;color:var(--gold-light)}
+.section-desc{color:var(--body);font-size:0.9rem;max-width:90ch;line-height:1.72;margin-bottom:1.6rem}
+.fig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(370px,1fr));gap:1rem;margin-top:0.8rem}
+.fig-card{background:var(--glass);border:1px solid var(--border-dim);border-radius:5px;padding:1.1rem 1.2rem;transition:border-color 0.2s,transform 0.2s;display:flex;flex-direction:column}
+.fig-card:hover{border-color:var(--border);transform:translateY(-1px)}
+.fig-top{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.45rem}
+.fig-num{font-family:"DM Mono",monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--faint)}
+.fig-status{font-family:"DM Mono",monospace;font-size:0.58rem;letter-spacing:0.06em;text-transform:uppercase;border-radius:99px;padding:0.1rem 0.5rem;border:1px solid}
+.fig-status.border{color:var(--gold-dim);border-color:var(--gold-dim);background:rgba(160,125,58,0.12)}
+.fig-status.full{color:var(--green);border-color:var(--green);background:rgba(93,201,176,0.1)}
+.fig-card h3{font-family:"Cormorant Garamond",serif;font-size:1.18rem;color:var(--cream);margin-bottom:0.1rem;line-height:1.2}
+.fig-card h3 a{color:var(--cream)}.fig-card h3 a:hover{color:var(--gold-light);text-decoration:none}
+.fig-era{font-family:"DM Mono",monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--faint);margin-bottom:0.4rem}
+.fig-role{font-style:italic;color:var(--gold-light);font-size:0.84rem;line-height:1.4;margin-bottom:0.55rem}
+.fig-intro{color:var(--body);font-size:0.83rem;line-height:1.66;flex:1}
+.fig-links{margin-top:0.85rem;display:flex;gap:0.5rem;flex-wrap:wrap}
+.link-btn{display:inline-flex;align-items:center;gap:0.4rem;background:var(--gold-pale);border:1px solid var(--border);color:var(--cream);padding:0.32rem 0.8rem;border-radius:3px;font-family:"DM Mono",monospace;font-size:0.64rem;letter-spacing:0.05em;transition:background 0.2s,border-color 0.2s;text-decoration:none}
+.link-btn:hover{background:rgba(201,168,76,0.22);border-color:var(--gold);color:var(--cream);text-decoration:none}
+.link-btn .lbl{font-size:0.56rem;letter-spacing:0.12em;color:var(--gold);border:1px solid var(--gold-dim);padding:0.06rem 0.22rem;border-radius:2px;margin-right:0.05rem}
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.2rem 0}
+.method-card{background:var(--glass);border:1px solid var(--border-dim);border-radius:5px;padding:1rem 1.1rem}
+.method-card h3{font-size:1.1rem;color:var(--gold-light);margin-bottom:0.4rem}
+.method-card p,.method-card li{font-size:0.85rem;color:var(--body)}.method-card ul{padding-left:1.1rem;margin-top:0.4rem}
+footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:center;font-family:"DM Mono",monospace;font-size:0.72rem;color:var(--faint)}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;gap:2rem;padding:2rem 20px 4rem}
+  .toc{position:static;background:rgba(14,31,58,0.55);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.2rem;max-height:none}
+  .toc a{display:inline-block;margin-right:1rem;border-left:none;padding-left:0;margin-left:0}
+  .nav-links{display:none}
+  .fig-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body><div class="wrap">
+
+<nav class="top">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarch&eacute;on</a>
+    <ul class="nav-links">
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+      <li><a href="/MIA">MIA</a></li>
+      <li><a href="/Research/" class="active">Research</a></li>
+      <li><a href="/About">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="breadcrumb">
+    <a href="/" style="color:var(--faint);">Logarch&eacute;on</a>
+    <span style="color:var(--faint);">/</span>
+    <a href="/Research/" style="color:var(--faint);">Research</a>
+    <span style="color:var(--faint);">/</span>
+    <span>Intelligence Work Algorithms</span>
+  </div>
+  <h1>Intelligence Work Algorithms &mdash;<br><em>Historical Case-Method Reconstruction</em></h1>
+  <p class="hero-desc">
+    A rolling, public-source series of 300-case decision-analysis reconstructions of major
+    intelligence figures, classified by era and institution. Each figure page reconstructs decision
+    habits from archival, institutional, and biographical sources using a 33-strategy framework
+    organized into situation families, prevalence rankings, and worked demonstrations &mdash;
+    abstracting action patterns into questions about evidence, authority, judgment under uncertainty,
+    source management, institutional constraint, and archival accountability.
+  </p>
+  <p class="hero-desc" style="font-size:0.88rem;color:var(--muted);">
+    This is not an operational manual, a surveillance guide, or an instruction in clandestine
+    tradecraft. Every case is treated as historical decision analysis, evidence calibration,
+    institutional design, and professional accountability &mdash; not technique transfer. The series
+    is updated as reconstructions are completed; the figures below are the pages published to date.
+  </p>
+  <div class="badges">
+    <span class="badge">OSINT only &middot; No classified material</span>
+    <span class="badge">Public-source &middot; Historical only</span>
+    <span class="badge">33 strategies per figure</span>
+    <span class="badge">300 cases per figure</span>
+    <span class="badge">Rolling series &middot; 2025&ndash;</span>
+    <span class="badge">William Chuang &middot; Logarch&eacute;on Inc.</span>
+  </div>
+  <div class="note">
+    Safety and source limit: this series is a historical decision-analysis instrument, not a manual
+    for espionage, surveillance, coercion, agent recruitment, cipher exploitation, or modern
+    clandestine operations of any kind. Technical detail is kept at analytical altitude; no
+    operational tradecraft is described, endorsed, or transferred. The ethical and legal guardrails
+    of each figure&rsquo;s era are treated as part of the subject matter. Every reconstruction
+    draws exclusively on open-source intelligence (OSINT) &mdash; archival records, declassified
+    documents, published biographies, academic histories, and institutional publications. None of
+    the material derives from classified sources, and no classified information is used, inferred,
+    or reconstructed.
+  </div>
+</header>
+
+<div class="layout">
+<aside class="toc">
+  <div class="toc-label">Clusters</div>
+  <a href="#british">01 &middot; British / Proto-British Intelligence</a>
+  <a href="#fig-dee" class="toc-sub">John Dee</a>
+  <a href="#fig-walsingham" class="toc-sub">Francis Walsingham</a>
+  <a href="#fig-phelippes" class="toc-sub">Thomas Phelippes</a>
+  <a href="#fig-faunt" class="toc-sub">Nicholas Faunt</a>
+  <a href="#fig-poley" class="toc-sub">Robert Poley</a>
+  <a href="#fig-standen" class="toc-sub">Anthony Standen</a>
+  <a href="#fig-robert-cecil" class="toc-sub">Robert Cecil</a>
+  <a href="#american-rev">02 &middot; American Revolution / Early U.S. Clandestine Networks</a>
+  <a href="#fig-brewster" class="toc-sub">Caleb Brewster</a>
+  <a href="#fig-hale" class="toc-sub">Nathan Hale</a>
+  <a href="#fig-mulligan" class="toc-sub">Hercules Mulligan</a>
+  <a href="#fig-lafayette" class="toc-sub">James Armistead Lafayette</a>
+  <a href="#civil-war">03 &middot; Civil War Intelligence</a>
+  <a href="#fig-sharpe" class="toc-sub">George H. Sharpe</a>
+  <a href="#fig-baker" class="toc-sub">Lafayette Baker</a>
+  <a href="#china">04 &middot; China / KMT / CCP / PRC Intelligence</a>
+  <a href="#fig-yan-baohang" class="toc-sub">閻寶航 / Yan Baohang</a>
+  <a href="#fig-xiong-xianghui" class="toc-sub">熊向暉 / Xiong Xianghui</a>
+  <a href="#fig-li-qiang" class="toc-sub">李強 / Li Qiang</a>
+  <a href="#fig-dong-fa" class="toc-sub">董發 / Dong Fa</a>
+  <a href="#fig-luo-ruiqing" class="toc-sub">羅瑞卿 / Luo Ruiqing</a>
+  <a href="#fig-tang-zong" class="toc-sub">唐縱 / Tang Zong</a>
+  <a href="#fig-chen-lifu" class="toc-sub">陳立夫 / Chen Lifu</a>
+  <a href="#method" style="margin-top:0.6rem;">&middot; Method &amp; ethics</a>
+</aside>
+<main>
+<section id="british" class="page-section">
+  <div class="section-header"><span class="section-num">01</span><h2 class="section-title">British / Proto-British Intelligence</h2></div>
+  <p class="section-desc">Elizabethan and early-modern English intelligence. The first cluster of completed reconstructions runs from Walsingham&rsquo;s secretariat through the cipher, plot-penetration, diplomatic-agent, and dynastic-transition functions of the late-Tudor and early-Stuart intelligence state.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.01</span><span class="fig-status border">Borderline</span></div>
+      <h3 id="fig-dee"><a href="/intelligence/dee/">John Dee</a></h3>
+      <div class="fig-era">1527&ndash;1608 &middot; Elizabethan</div>
+      <p class="fig-role">Mathematical polymath, imperial geographer, and proto-intelligence figure to Elizabeth&nbsp;I</p>
+      <p class="fig-intro">Cipher knowledge, continental travel under scholarly cover, and close ties to Walsingham and Burghley place Dee at the edge of the Elizabethan intelligence system; his &ldquo;007&rdquo; signature to Burghley anchors his inclusion. <em>Borderline: not a formal intelligence chief &mdash; the page addresses that categorization directly.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/dee/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-walsingham"><a href="/intelligence/walsingham/">Francis Walsingham</a></h3>
+      <div class="fig-era">1532&ndash;1590 &middot; Elizabethan</div>
+      <p class="fig-role">Elizabeth&nbsp;I&rsquo;s principal secretary and the architect of Elizabethan systematic intelligence</p>
+      <p class="fig-intro">Built an independent continental agent network, broke the cipher correspondence that condemned Mary Queen of Scots, ran double agents against the Ridolfi and Babington plots, and produced early warning on the Armada. The anchor study for the Elizabethan cluster.</p>
+      <div class="fig-links">
+        <a href="/intelligence/walsingham/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-phelippes"><a href="/intelligence/phelippes/">Thomas Phelippes</a></h3>
+      <div class="fig-era">ca. 1556&ndash;1625 &middot; Elizabethan</div>
+      <p class="fig-role">Walsingham&rsquo;s chief cryptanalyst; the technical tradecraft function of the network</p>
+      <p class="fig-intro">Deciphered Mary Queen of Scots&rsquo; correspondence and forged the addendum that confirmed Babington&rsquo;s guilt. The foundational study of the technical role &mdash; and of the evidentiary weight that attaches to a document the analyst has decoded and may also have altered.</p>
+      <div class="fig-links">
+        <a href="/intelligence/phelippes/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-faunt"><a href="/intelligence/faunt/">Nicholas Faunt</a></h3>
+      <div class="fig-era">1554&ndash;1608 &middot; Elizabethan</div>
+      <p class="fig-role">Walsingham&rsquo;s personal secretary; the administrative intelligence function</p>
+      <p class="fig-intro">Managed correspondence, document flow, agent scheduling, and institutional memory across the busiest years of Elizabethan intelligence. The intelligence secretariat: how a clandestine network&rsquo;s administrative infrastructure runs when the principal is ill, attacked, or out of money.</p>
+      <div class="fig-links">
+        <a href="/intelligence/faunt/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.05</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-poley"><a href="/intelligence/poley/">Robert Poley</a></h3>
+      <div class="fig-era">ca. 1550&ndash;after 1601 &middot; Elizabethan</div>
+      <p class="fig-role">Elizabethan intelligencer and courier; present at Christopher Marlowe&rsquo;s death, Deptford 1593</p>
+      <p class="fig-intro">Penetrated the Babington Plot, carried diplomatic correspondence under cover, and was present at Marlowe&rsquo;s death in contested circumstances. The intersection of informant, provocateur, government operative, and private interest, in an era without professional standards or legal protection for the agent.</p>
+      <div class="fig-links">
+        <a href="/intelligence/poley/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.06</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-standen"><a href="/intelligence/standen/">Anthony Standen</a></h3>
+      <div class="fig-era">ca. 1548&ndash;1622 &middot; Elizabethan</div>
+      <p class="fig-role">Long-running Elizabethan diplomatic-intelligence agent in Italy and Spain</p>
+      <p class="fig-intro">Supplied Walsingham and later Cecil with continental strategic intelligence across decades, surviving transitions between patrons and organizations. A study in agent longevity and credibility across religious and national fault lines.</p>
+      <div class="fig-links">
+        <a href="/intelligence/standen/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.07</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-robert-cecil"><a href="/intelligence/robert-cecil/">Robert Cecil</a></h3>
+      <div class="fig-era">1563&ndash;1612 &middot; Elizabethan / Jacobean</div>
+      <p class="fig-role">Successor to the Elizabethan intelligence function; architect of the Jacobean intelligence state</p>
+      <p class="fig-intro">Managed the Essex conspiracy, presided over the Gunpowder Plot interrogations, and secured the Elizabeth-to-James succession. Intelligence as a tool of dynastic transition and institutional continuity across the death of a founding sovereign.</p>
+      <div class="fig-links">
+        <a href="/intelligence/robert-cecil/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="american-rev" class="page-section">
+  <div class="section-header"><span class="section-num">02</span><h2 class="section-title">American Revolution / Early U.S. Clandestine Networks</h2></div>
+  <p class="section-desc">Continental Army intelligence and the early federal clandestine tradition &mdash; the Culper Ring&rsquo;s courier chain and the access agents and negative cases that define what tradecraft success and failure looked like before professional intelligence existed.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-brewster"><a href="/intelligence/brewster/">Caleb Brewster</a></h3>
+      <div class="fig-era">1747&ndash;1827 &middot; American Revolution</div>
+      <p class="fig-role">Maritime courier and whaleboat captain; the transport mechanism of the Culper Ring across Long Island Sound</p>
+      <p class="fig-intro">Carried intelligence packets from Setauket to Fairfield while observing British fleet movements. The logistics and risk management of covert courier work: route selection, crew management, and the boundary between collection and military action.</p>
+      <div class="fig-links">
+        <a href="/intelligence/brewster/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-hale"><a href="/intelligence/hale/">Nathan Hale</a></h3>
+      <div class="fig-era">1755&ndash;1776 &middot; American Revolution</div>
+      <p class="fig-role">Continental Army captain and intelligence volunteer; executed September 1776</p>
+      <p class="fig-intro">His mission to gather British dispositions in New York failed for want of cover, exfiltration protocol, and a handler structure. Studied as a negative case: what the absence of professional tradecraft costs an agent in the field.</p>
+      <div class="fig-links">
+        <a href="/intelligence/hale/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-mulligan"><a href="/intelligence/mulligan/">Hercules Mulligan</a></h3>
+      <div class="fig-era">1740&ndash;1825 &middot; American Revolution</div>
+      <p class="fig-role">New York tailor and patriot access agent to British officers</p>
+      <p class="fig-intro">Provided intelligence to Washington through Alexander Hamilton, using his tailor&rsquo;s shop as natural cover; two of his reports are credited with saving Washington&rsquo;s life. The walk-in access agent: intelligence value generated by existing professional relationships rather than formal tasking.</p>
+      <div class="fig-links">
+        <a href="/intelligence/mulligan/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-lafayette"><a href="/intelligence/lafayette/">James Armistead Lafayette</a></h3>
+      <div class="fig-era">ca. 1748&ndash;1830 &middot; American Revolution</div>
+      <p class="fig-role">Double agent for the Marquis de Lafayette; contributed to the deception preceding Yorktown</p>
+      <p class="fig-intro">Operated within Cornwallis&rsquo;s networks, passing disinformation while collecting for Lafayette. A central double-agent case: managing competing intelligence relationships, and the eight-year delay before an enslaved man&rsquo;s service was institutionally recognized.</p>
+      <div class="fig-links">
+        <a href="/intelligence/lafayette/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="civil-war" class="page-section">
+  <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Civil War Intelligence</h2></div>
+  <p class="section-desc">Union intelligence across 1861&ndash;1865 &mdash; the first institutionalized all-source military intelligence analysis, and the counterintelligence and domestic-surveillance functions that grew alongside it.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-sharpe"><a href="/intelligence/sharpe/">George H. Sharpe</a></h3>
+      <div class="fig-era">1828&ndash;1900 &middot; Civil War (Union)</div>
+      <p class="fig-role">Head of the Bureau of Military Information; the first U.S. all-source military intelligence fusion center</p>
+      <p class="fig-intro">Synthesized prisoner interrogation, cavalry reconnaissance, agent reports, and captured documents into finished assessments for Meade and Grant &mdash; the first institutionalized military intelligence analysis in U.S. history. The all-source fusion problem.</p>
+      <div class="fig-links">
+        <a href="/intelligence/sharpe/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-baker"><a href="/intelligence/baker/">Lafayette Baker</a></h3>
+      <div class="fig-era">1826&ndash;1868 &middot; Civil War (Union)</div>
+      <p class="fig-role">Head of the National Detective Police; Union counterintelligence and domestic surveillance chief</p>
+      <p class="fig-intro">Ran the Union&rsquo;s counterespionage and surveillance function under Stanton, well outside its legal mandate, and led the Lincoln assassination investigation. The counterintelligence abuse problem: how concentrated wartime authority generates both capability and corruption.</p>
+      <div class="fig-links">
+        <a href="/intelligence/baker/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="china" class="page-section">
+  <div class="section-header"><span class="section-num">04</span><h2 class="section-title">China / KMT / CCP / PRC Intelligence</h2></div>
+  <p class="section-desc">The KMT and CCP intelligence systems from the 1920s through the PRC period &mdash; the underground penetration agents, communications and security pioneers, and the party-organizational and personal-secretary functions that structured both sides of the Chinese intelligence world.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-yan-baohang"><a href="/intelligence/yan-baohang/">閻寶航 / Yan Baohang</a></h3>
+      <div class="fig-era">1895&ndash;1968 &middot; United Front wartime</div>
+      <p class="fig-role">Manchurian educator and CCP-linked strategic intelligence source; attributed contributor of Barbarossa-warning intelligence</p>
+      <p class="fig-intro">Attributed with passing Operation Barbarossa planning to the Soviet channel in 1941, though the scope of his role requires careful calibration between state-media commemoration and documented archival source material. Applies ICD&nbsp;203 estimative-probability standards to the evidence.</p>
+      <div class="fig-links">
+        <a href="/intelligence/yan-baohang/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-xiong-xianghui"><a href="/intelligence/xiong-xianghui/">熊向暉 / Xiong Xianghui</a></h3>
+      <div class="fig-era">1919&ndash;2005 &middot; CCP underground</div>
+      <p class="fig-role">CCP mole who served ten years as personal secretary to KMT general Hu Zongnan</p>
+      <p class="fig-intro">Operated at the apex of KMT military planning for a decade, giving Zhou Enlai advance notice of Nationalist operations against Communist base areas, undetected throughout. The most extensively documented long-term penetration agent in Chinese intelligence history.</p>
+      <div class="fig-links">
+        <a href="/intelligence/xiong-xianghui/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-li-qiang"><a href="/intelligence/li-qiang/">李強 / Li Qiang</a></h3>
+      <div class="fig-era">1905&ndash;1996 &middot; early CCP communications</div>
+      <p class="fig-role">Pioneer of CCP radio communications and signals intelligence</p>
+      <p class="fig-intro">Built the CCP&rsquo;s first wireless network connecting Shanghai, Moscow, and the base areas, laying the technical foundation of PRC signals intelligence. <em>Note: the early CCP communications figure, not the modern PRC premier of the same pinyin.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/li-qiang/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-dong-fa"><a href="/intelligence/dong-fa/">董發 / Dong Fa</a></h3>
+      <div class="fig-era">early CCP period &middot; CCP internal security</div>
+      <p class="fig-role">CCP political-protection and security figure of the underground organizational period</p>
+      <p class="fig-intro">Served within the CCP&rsquo;s internal security and political-monitoring apparatus during its foundational underground period, when the party required both external collection and internal discipline to survive KMT counterintelligence pressure.</p>
+      <div class="fig-links">
+        <a href="/intelligence/dong-fa/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.05</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-luo-ruiqing"><a href="/intelligence/luo-ruiqing/">羅瑞卿 / Luo Ruiqing</a></h3>
+      <div class="fig-era">1906&ndash;1978 &middot; PRC public security</div>
+      <p class="fig-role">First PRC Minister of Public Security (1949&ndash;1959); builder of the PRC security-state apparatus</p>
+      <p class="fig-intro">Built the Ministry of Public Security as both a domestic surveillance organization and an intelligence service, drawing on Soviet models and CCP wartime security experience. <em>Note: surname Luo (羅) recurs in the broader series.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/luo-ruiqing/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.06</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-tang-zong"><a href="/intelligence/tang-zong/">唐縱 / Tang Zong</a></h3>
+      <div class="fig-era">1905&ndash;1981 &middot; KMT</div>
+      <p class="fig-role">Chiang Kai-shek&rsquo;s personal intelligence secretary; chief of the wartime Police Administration Bureau</p>
+      <p class="fig-intro">The intelligence aide closest to Chiang, managing information flow to the generalissimo and serving as interface between the KMT intelligence apparatus and its supreme principal. The personal intelligence secretary to an autocrat.</p>
+      <div class="fig-links">
+        <a href="/intelligence/tang-zong/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.07</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-chen-lifu"><a href="/intelligence/chen-lifu/">陳立夫 / Chen Lifu</a></h3>
+      <div class="fig-era">1900&ndash;2001 &middot; KMT party organization / CC Clique</div>
+      <p class="fig-role">CC Clique co-leader; organizer of the KMT party apparatus and the Zhongtong (中統) civilian intelligence function</p>
+      <p class="fig-intro">Controlled the KMT party machine and Zhongtong as instruments of CC Clique factional power. Party-intelligence as a factional instrument: what happens to analytical integrity when intelligence is primarily a tool of intra-party control. <em>Note: surname Chen (陳) recurs in the broader series.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/chen-lifu/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method" class="page-section">
+  <div class="section-header"><span class="section-num">00</span><h2 class="section-title">Method &amp; ethics</h2></div>
+  <p class="section-desc">
+    Every figure page in this series follows the same Logarch&eacute;on reconstruction method.
+    The unit of analysis is not &ldquo;what secret technique did this person use?&rdquo; but a
+    public-source decision unit: situation, uncertainty, a why-question ladder, an era-bounded action
+    logic, the artifact produced, and the guardrail that should constrain how the case is read today.
+  </p>
+  <div class="method-grid">
+    <div class="method-card"><h3>Public-source spine</h3><p>Each reconstruction draws only on archival, declassified, biographical, and institutional source families. Claims are calibrated to the strength of their evidence &mdash; contemporary record, memoir, state-media commemoration, or contested secondary assertion &mdash; and the calibration is kept visible.</p></div>
+    <div class="method-card"><h3>33 strategies, 300 cases</h3><p>Each figure is decomposed into 33 overlapping strategy cards and a 300-case corpus organized into situation families, with prevalence rankings and worked demonstrations. The structure abstracts decisions into reusable analytical questions rather than transferable technique.</p></div>
+    <div class="method-card"><h3>Non-operational by design</h3><p>The pages deliberately hold technical detail at analytic altitude. They are designed to teach evidence, authority, risk, institutional constraint, and historical memory &mdash; not espionage, surveillance, or coercion. Era-specific legal and ethical guardrails are part of the subject.</p></div>
+    <div class="method-card"><h3>Borderline cases marked</h3><p>Where a figure&rsquo;s intelligence role is contested or weakly documented &mdash; legend figures, single-reference sources, scholars at the edge of the system &mdash; the page is labelled borderline and treats the epistemic uncertainty as the lesson.</p></div>
+  </div>
+  <div class="note">
+    Rolling series: figures are added as their reconstructions are completed and proofed. The
+    classification mirrors the working name list &mdash; British / proto-British, American Revolution
+    and early U.S., Civil War, U.S. professionalization and cryptology, the COI&ndash;OSS&ndash;CIA&ndash;IC
+    lineage, and the China KMT/CCP/PRC system. Clusters appear here once at least one page in them is published.
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc.
+  All rights reserved. &middot; Public-source historical analysis &mdash; non-operational.
+</footer>
+
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</div>
+</body>
+</html>
