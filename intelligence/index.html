@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Intelligence Work Algorithms — Historical Case-Method Reconstruction | Logarchéon</title>
-<meta name="description" content="A rolling, public-source series of 300-case historical decision-analysis reconstructions of major intelligence figures, classified by era and institution. Logarchéon Inc. — William Chuang."/>
+<meta name="description" content="A rolling, public-source (OSINT) series of 300-case historical decision-analysis reconstructions of major intelligence figures, classified by era and institution. Logarchéon Inc. — William Chuang."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
@@ -147,8 +147,17 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
 <div class="layout">
 <aside class="toc">
   <div class="toc-label">Clusters</div>
+  <a href="#antecedents">00 &middot; Antecedents — Cryptographic, Doctrinal &amp; Statecraft Origins</a>
+  <a href="#fig-sun-tzu" class="toc-sub">Sun Tzu</a>
+  <a href="#fig-kautilya" class="toc-sub">Chanakya / Kautilya</a>
+  <a href="#fig-kircher" class="toc-sub">Athanasius Kircher</a>
+  <a href="#fig-agrippa" class="toc-sub">Cornelius Agrippa</a>
+  <a href="#fig-bernard" class="toc-sub">Bernard of Clairvaux</a>
   <a href="#british">01 &middot; British / Proto-British Intelligence</a>
   <a href="#fig-dee" class="toc-sub">John Dee</a>
+  <a href="#fig-babington" class="toc-sub">Anthony Babington</a>
+  <a href="#fig-kelley" class="toc-sub">Edward Kelley</a>
+  <a href="#fig-defoe" class="toc-sub">Daniel Defoe</a>
   <a href="#fig-walsingham" class="toc-sub">Francis Walsingham</a>
   <a href="#fig-phelippes" class="toc-sub">Thomas Phelippes</a>
   <a href="#fig-faunt" class="toc-sub">Nicholas Faunt</a>
@@ -157,26 +166,133 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
   <a href="#fig-robert-cecil" class="toc-sub">Robert Cecil</a>
   <a href="#american-rev">02 &middot; American Revolution / Early U.S. Clandestine Networks</a>
   <a href="#fig-brewster" class="toc-sub">Caleb Brewster</a>
+  <a href="#fig-woodhull" class="toc-sub">Abraham Woodhull</a>
+  <a href="#fig-tallmadge" class="toc-sub">Benjamin Tallmadge</a>
+  <a href="#fig-roe" class="toc-sub">Austin Roe</a>
+  <a href="#fig-strong" class="toc-sub">Anna Strong</a>
+  <a href="#fig-agent-355" class="toc-sub">Agent 355</a>
   <a href="#fig-hale" class="toc-sub">Nathan Hale</a>
   <a href="#fig-mulligan" class="toc-sub">Hercules Mulligan</a>
   <a href="#fig-lafayette" class="toc-sub">James Armistead Lafayette</a>
   <a href="#civil-war">03 &middot; Civil War Intelligence</a>
   <a href="#fig-sharpe" class="toc-sub">George H. Sharpe</a>
+  <a href="#fig-van-lew" class="toc-sub">Elizabeth Van Lew</a>
+  <a href="#fig-bowser" class="toc-sub">Mary Bowser</a>
+  <a href="#fig-tubman" class="toc-sub">Harriet Tubman</a>
+  <a href="#fig-webster" class="toc-sub">Timothy Webster</a>
   <a href="#fig-baker" class="toc-sub">Lafayette Baker</a>
-  <a href="#china">04 &middot; China / KMT / CCP / PRC Intelligence</a>
+  <a href="#fig-greenhow" class="toc-sub">Rose O&rsquo;Neal Greenhow</a>
+  <a href="#fig-boyd" class="toc-sub">Belle Boyd</a>
+  <a href="#fig-jordan" class="toc-sub">Thomas Jordan</a>
+  <a href="#us-prof">04 &middot; U.S. Professionalization, Cryptology, ONI, FBI, Military Intelligence</a>
+  <a href="#fig-yardley" class="toc-sub">Herbert O. Yardley</a>
+  <a href="#fig-wagner" class="toc-sub">Arthur L. Wagner</a>
+  <a href="#fig-driscoll" class="toc-sub">Agnes Meyer Driscoll</a>
+  <a href="#fig-bonaparte" class="toc-sub">Charles Bonaparte</a>
+  <a href="#fig-hoover" class="toc-sub">J. Edgar Hoover</a>
+  <a href="#fig-william-friedman" class="toc-sub">William F. Friedman</a>
+  <a href="#fig-elizebeth-friedman" class="toc-sub">Elizebeth Smith Friedman</a>
+  <a href="#fig-rochefort" class="toc-sub">Joseph Rochefort</a>
+  <a href="#fig-safford" class="toc-sub">Laurance Safford</a>
+  <a href="#fig-layton" class="toc-sub">Edwin T. Layton</a>
+  <a href="#oss-cia">05 &middot; COI / OSS / CIA / U.S. Intelligence Community</a>
+  <a href="#fig-berg" class="toc-sub">Moe Berg</a>
+  <a href="#fig-roosevelt" class="toc-sub">Kermit Roosevelt Jr.</a>
+  <a href="#fig-kent" class="toc-sub">Sherman Kent</a>
+  <a href="#fig-haines" class="toc-sub">Avril Haines</a>
+  <a href="#fig-souers" class="toc-sub">Sidney Souers</a>
+  <a href="#fig-vandenberg" class="toc-sub">Hoyt Vandenberg</a>
+  <a href="#fig-hillenkoetter" class="toc-sub">Roscoe Hillenkoetter</a>
+  <a href="#fig-smith" class="toc-sub">Walter Bedell Smith</a>
+  <a href="#fig-bissell" class="toc-sub">Richard Bissell</a>
+  <a href="#china">06 &middot; China / KMT / CCP / PRC Intelligence</a>
   <a href="#fig-yan-baohang" class="toc-sub">閻寶航 / Yan Baohang</a>
+  <a href="#fig-zhou-enlai" class="toc-sub">周恩來 / Zhou Enlai</a>
+  <a href="#fig-li-kenong" class="toc-sub">李克農 / Li Kenong</a>
+  <a href="#fig-qian-zhuangfei" class="toc-sub">錢壯飛 / Qian Zhuangfei</a>
+  <a href="#fig-hu-di" class="toc-sub">胡底 / Hu Di</a>
+  <a href="#fig-kang-sheng" class="toc-sub">康生 / Kang Sheng</a>
+  <a href="#fig-pan-hannian" class="toc-sub">潘漢年 / Pan Hannian</a>
+  <a href="#fig-chen-geng" class="toc-sub">陳賚 / Chen Geng</a>
+  <a href="#fig-dai-li" class="toc-sub">戴笠 / Dai Li</a>
+  <a href="#fig-mao-renfeng" class="toc-sub">毛人鳳 / Mao Renfeng</a>
+  <a href="#fig-xu-enzeng" class="toc-sub">徐恩曾 / Xu Enzeng</a>
   <a href="#fig-xiong-xianghui" class="toc-sub">熊向暉 / Xiong Xianghui</a>
   <a href="#fig-li-qiang" class="toc-sub">李強 / Li Qiang</a>
   <a href="#fig-dong-fa" class="toc-sub">董發 / Dong Fa</a>
   <a href="#fig-luo-ruiqing" class="toc-sub">羅瑞卿 / Luo Ruiqing</a>
   <a href="#fig-tang-zong" class="toc-sub">唐縱 / Tang Zong</a>
   <a href="#fig-chen-lifu" class="toc-sub">陳立夫 / Chen Lifu</a>
+  <a href="#foreign">07 &middot; Foreign &amp; Other Services</a>
+  <a href="#fig-akashi" class="toc-sub">明石元二郎 / Akashi Motojirō</a>
+  <a href="#fig-borodin" class="toc-sub">Mikhail Borodin</a>
+  <a href="#statecraft">08 &middot; Statecraft &amp; Intelligence Consumers</a>
+  <a href="#fig-hull" class="toc-sub">Cordell Hull</a>
+  <a href="#historiography">09 &middot; Historiography &amp; Intelligence Literature</a>
+  <a href="#fig-waller" class="toc-sub">Douglas Waller</a>
   <a href="#method" style="margin-top:0.6rem;">&middot; Method &amp; ethics</a>
 </aside>
 <main>
+<section id="antecedents" class="page-section">
+  <div class="section-header"><span class="section-num">00</span><h2 class="section-title">Antecedents — Cryptographic, Doctrinal &amp; Statecraft Origins</h2></div>
+  <p class="section-desc">Figures who precede institutional intelligence but supply its conceptual DNA &mdash; ancient statecraft and espionage theory, Renaissance cryptography and the magic-science boundary, and the doctrinal and military-order traditions that shaped how secrecy, loyalty, and intelligence were later organized. These are read as origins, not operatives.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">00.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-sun-tzu"><a href="/intelligence/sun-tzu/">Sun Tzu</a></h3>
+      <div class="fig-era">ca. 5th c. BCE &middot; Spring &amp; Autumn China</div>
+      <p class="fig-role">Author of <em>The Art of War</em>; the foundational theorist of intelligence, deception, and foreknowledge in strategy</p>
+      <p class="fig-intro">The final chapter of <em>The Art of War</em> &mdash; on the five classes of spy and the primacy of foreknowledge &mdash; is the earliest concise doctrine of intelligence as the precondition of strategy. Read as the origin of the idea that knowing in advance, by human sources, is what separates victory from ruin; the conceptual root the entire series traces forward.</p>
+      <div class="fig-links">
+        <a href="/intelligence/sun-tzu/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">00.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-kautilya"><a href="/intelligence/kautilya/">Chanakya / Kautilya</a></h3>
+      <div class="fig-era">ca. 4th c. BCE &middot; Mauryan India</div>
+      <p class="fig-role">Author of the <em>Arthashastra</em>; the earliest systematic treatise on statecraft, espionage, and intelligence organization</p>
+      <p class="fig-intro">The <em>Arthashastra</em> sets out a complete doctrine of spies, informants, surveillance, disinformation, and the ruler&rsquo;s intelligence apparatus two millennia before modern services. Read as the foundational text of intelligence-as-statecraft theory &mdash; the questions of source typology, loyalty testing, and the ethics of secret means in their first systematic form.</p>
+      <div class="fig-links">
+        <a href="/intelligence/kautilya/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">00.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-kircher"><a href="/intelligence/kircher/">Athanasius Kircher</a></h3>
+      <div class="fig-era">1602&ndash;1680 &middot; Baroque / Jesuit</div>
+      <p class="fig-role">Jesuit polymath; cryptographer, steganographer, and designer of cipher and concealment systems</p>
+      <p class="fig-intro">Kircher&rsquo;s work on universal languages, ciphers, and steganographic devices sits at the origin of systematic cryptographic thought, inside the Jesuit intellectual network. Read as a study in the cryptographic-cognition antecedent: how concealment and decipherment were theorized before they were institutionalized as a state function.</p>
+      <div class="fig-links">
+        <a href="/intelligence/kircher/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">00.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-agrippa"><a href="/intelligence/agrippa/">Cornelius Agrippa</a></h3>
+      <div class="fig-era">1486&ndash;1535 &middot; Renaissance</div>
+      <p class="fig-role">Renaissance polymath; occult philosopher and an antecedent of cryptographic and cipher tradition</p>
+      <p class="fig-intro">Agrippa&rsquo;s writing on hidden correspondences, codes, and concealed meaning belongs to the Renaissance current that produced early cryptography at the boundary of magic and proto-science. Read for the genealogy of secret writing &mdash; how the era&rsquo;s theory of hidden knowledge fed the later technical discipline of ciphers.</p>
+      <div class="fig-links">
+        <a href="/intelligence/agrippa/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">00.05</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-bernard"><a href="/intelligence/bernard/">Bernard of Clairvaux</a></h3>
+      <div class="fig-era">1090&ndash;1153 &middot; Medieval / Cistercian</div>
+      <p class="fig-role">Cistercian abbot and patron of the Knights Templar; doctrinal architect of the military-religious order</p>
+      <p class="fig-intro">Bernard authored the rule and apologia (<em>De laude novae militiae</em>) that gave the Templars their doctrinal foundation as a disciplined, secret-bound, transnational order. Read as the doctrinal-organizational antecedent: how loyalty, secrecy, rule, and mission were theorized for an order that later writers treat as an intelligence-organizational ancestor.</p>
+      <div class="fig-links">
+        <a href="/intelligence/bernard/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="british" class="page-section">
   <div class="section-header"><span class="section-num">01</span><h2 class="section-title">British / Proto-British Intelligence</h2></div>
-  <p class="section-desc">Elizabethan and early-modern English intelligence. The first cluster of completed reconstructions runs from Walsingham&rsquo;s secretariat through the cipher, plot-penetration, diplomatic-agent, and dynastic-transition functions of the late-Tudor and early-Stuart intelligence state.</p>
+  <p class="section-desc">Elizabethan and early-modern English intelligence &mdash; from Walsingham&rsquo;s secretariat through the cipher, plot-penetration, diplomatic-agent, and dynastic-transition functions of the late-Tudor and early-Stuart intelligence state.</p>
   <div class="fig-grid">
     <div class="fig-card">
       <div class="fig-top"><span class="fig-num">01.01</span><span class="fig-status border">Borderline</span></div>
@@ -189,7 +305,37 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">01.02</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">01.02</span><span class="fig-status border">Borderline</span></div>
+      <h3 id="fig-babington"><a href="/intelligence/babington/">Anthony Babington</a></h3>
+      <div class="fig-era">1561&ndash;1586 &middot; Elizabethan</div>
+      <p class="fig-role">Conspirator at the centre of the Babington Plot; the case seen from the target&rsquo;s side</p>
+      <p class="fig-intro">Babington was the conspirator whose ciphered correspondence Walsingham and Phelippes penetrated and turned into the evidence that executed Mary Queen of Scots. <em>Borderline: a target, not an officer &mdash; included to read a penetration operation from the inside, where conspiratorial tradecraft meets a state that has already broken it.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/babington/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.03</span><span class="fig-status border">Borderline</span></div>
+      <h3 id="fig-kelley"><a href="/intelligence/kelley/">Edward Kelley</a></h3>
+      <div class="fig-era">1555&ndash;1597 &middot; Elizabethan</div>
+      <p class="fig-role">John Dee&rsquo;s scryer and associate; the contested figure at the edge of Dee&rsquo;s intelligence-adjacent circle</p>
+      <p class="fig-intro">Kelley worked alongside Dee in continental travels and the angelic-conversation projects, in the same milieu where scholarship, cryptic communication, and statecraft blurred. <em>Borderline: an associate at the margin of the proto-intelligence world, included to map the network and credibility problems around Dee rather than to assert an operational role.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/kelley/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-defoe"><a href="/intelligence/defoe/">Daniel Defoe</a></h3>
+      <div class="fig-era">1660&ndash;1731 &middot; Late Stuart / early Georgian</div>
+      <p class="fig-role">Novelist, pamphleteer, and intelligence agent / network organizer for Robert Harley</p>
+      <p class="fig-intro">Defoe ran informants and gathered political intelligence for Harley across England and Scotland, notably around the 1707 Union, while building the propaganda-and-pamphlet craft of his public career. A study in the writer-as-operative: open influence work and covert collection in the same person, and how literary cover and political intelligence reinforced each other.</p>
+      <div class="fig-links">
+        <a href="/intelligence/defoe/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">01.05</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-walsingham"><a href="/intelligence/walsingham/">Francis Walsingham</a></h3>
       <div class="fig-era">1532&ndash;1590 &middot; Elizabethan</div>
       <p class="fig-role">Elizabeth&nbsp;I&rsquo;s principal secretary and the architect of Elizabethan systematic intelligence</p>
@@ -199,7 +345,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">01.03</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">01.06</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-phelippes"><a href="/intelligence/phelippes/">Thomas Phelippes</a></h3>
       <div class="fig-era">ca. 1556&ndash;1625 &middot; Elizabethan</div>
       <p class="fig-role">Walsingham&rsquo;s chief cryptanalyst; the technical tradecraft function of the network</p>
@@ -209,7 +355,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">01.04</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">01.07</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-faunt"><a href="/intelligence/faunt/">Nicholas Faunt</a></h3>
       <div class="fig-era">1554&ndash;1608 &middot; Elizabethan</div>
       <p class="fig-role">Walsingham&rsquo;s personal secretary; the administrative intelligence function</p>
@@ -219,7 +365,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">01.05</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">01.08</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-poley"><a href="/intelligence/poley/">Robert Poley</a></h3>
       <div class="fig-era">ca. 1550&ndash;after 1601 &middot; Elizabethan</div>
       <p class="fig-role">Elizabethan intelligencer and courier; present at Christopher Marlowe&rsquo;s death, Deptford 1593</p>
@@ -229,17 +375,18 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">01.06</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">01.09</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-standen"><a href="/intelligence/standen/">Anthony Standen</a></h3>
       <div class="fig-era">ca. 1548&ndash;1622 &middot; Elizabethan</div>
       <p class="fig-role">Long-running Elizabethan diplomatic-intelligence agent in Italy and Spain</p>
       <p class="fig-intro">Supplied Walsingham and later Cecil with continental strategic intelligence across decades, surviving transitions between patrons and organizations. A study in agent longevity and credibility across religious and national fault lines.</p>
       <div class="fig-links">
         <a href="/intelligence/standen/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+        <a href="/intelligence/standen2/" class="link-btn" style="border-color:var(--gold-dim);"><span class="lbl">II</span>Second edition</a>
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">01.07</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">01.10</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-robert-cecil"><a href="/intelligence/robert-cecil/">Robert Cecil</a></h3>
       <div class="fig-era">1563&ndash;1612 &middot; Elizabethan / Jacobean</div>
       <p class="fig-role">Successor to the Elizabethan intelligence function; architect of the Jacobean intelligence state</p>
@@ -267,6 +414,56 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
     </div>
     <div class="fig-card">
       <div class="fig-top"><span class="fig-num">02.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-woodhull"><a href="/intelligence/woodhull/">Abraham Woodhull</a></h3>
+      <div class="fig-era">1750&ndash;1826 &middot; American Revolution</div>
+      <p class="fig-role">Primary Culper Ring agent in Setauket (Samuel Culper Sr.); collecting inside British-occupied Long Island</p>
+      <p class="fig-intro">Passed intelligence through the courier chain to Tallmadge and Washington under cover. The ground-level agent: the psychological burden of operating in a community of mixed loyalty, exposure anxiety, and the limits of what a civilian observer can reliably collect.</p>
+      <div class="fig-links">
+        <a href="/intelligence/woodhull/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-tallmadge"><a href="/intelligence/tallmadge/">Benjamin Tallmadge</a></h3>
+      <div class="fig-era">1754&ndash;1835 &middot; American Revolution</div>
+      <p class="fig-role">Continental Army intelligence officer and principal handler of the Culper Ring (alias John Bolton)</p>
+      <p class="fig-intro">Designed the Ring&rsquo;s tradecraft &mdash; cover names, numerical cipher, courier chain &mdash; and translated Washington&rsquo;s requirements into tasking. The handler study: how a case officer designs a source network and manages agent anxiety across a four-year program.</p>
+      <div class="fig-links">
+        <a href="/intelligence/tallmadge/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-roe"><a href="/intelligence/roe/">Austin Roe</a></h3>
+      <div class="fig-era">1748&ndash;1830 &middot; American Revolution</div>
+      <p class="fig-role">Culper Ring overland courier between Setauket and New York City</p>
+      <p class="fig-intro">Carried Woodhull&rsquo;s packets overland using a commercial route as cover &mdash; the critical link between ground collector and maritime handoff. How a mundane errand becomes a covert link, and what the chain depends on when one person&rsquo;s reliability is the whole channel.</p>
+      <div class="fig-links">
+        <a href="/intelligence/roe/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.05</span><span class="fig-status border">Borderline</span></div>
+      <h3 id="fig-strong"><a href="/intelligence/strong/">Anna Strong</a></h3>
+      <div class="fig-era">1740&ndash;1812 &middot; American Revolution</div>
+      <p class="fig-role">Culper Ring-associated signal and support figure; borderline &mdash; documentation contested</p>
+      <p class="fig-intro">Traditionally credited with a laundry-signal system indicating Brewster&rsquo;s crossings; the documentation is limited. <em>Borderline: included to study how legend forms around support figures, and how historians evaluate roles that were deliberately undocumented.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/strong/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.06</span><span class="fig-status border">Borderline</span></div>
+      <h3 id="fig-agent-355"><a href="/intelligence/agent-355/">Agent 355</a></h3>
+      <div class="fig-era">identity unknown &middot; American Revolution</div>
+      <p class="fig-role">Unidentified Culper Ring female source in New York; borderline &mdash; identity and role disputed</p>
+      <p class="fig-intro">Mentioned once in Woodhull&rsquo;s correspondence; identity unknown, proposed identifications speculative. <em>Borderline: a study in epistemic discipline under archival silence &mdash; reasoning responsibly about a single reference without overclaiming.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/agent-355/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">02.07</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-hale"><a href="/intelligence/hale/">Nathan Hale</a></h3>
       <div class="fig-era">1755&ndash;1776 &middot; American Revolution</div>
       <p class="fig-role">Continental Army captain and intelligence volunteer; executed September 1776</p>
@@ -276,7 +473,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">02.03</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">02.08</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-mulligan"><a href="/intelligence/mulligan/">Hercules Mulligan</a></h3>
       <div class="fig-era">1740&ndash;1825 &middot; American Revolution</div>
       <p class="fig-role">New York tailor and patriot access agent to British officers</p>
@@ -286,7 +483,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">02.04</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">02.09</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-lafayette"><a href="/intelligence/lafayette/">James Armistead Lafayette</a></h3>
       <div class="fig-era">ca. 1748&ndash;1830 &middot; American Revolution</div>
       <p class="fig-role">Double agent for the Marquis de Lafayette; contributed to the deception preceding Yorktown</p>
@@ -300,7 +497,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
 
 <section id="civil-war" class="page-section">
   <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Civil War Intelligence</h2></div>
-  <p class="section-desc">Union intelligence across 1861&ndash;1865 &mdash; the first institutionalized all-source military intelligence analysis, and the counterintelligence and domestic-surveillance functions that grew alongside it.</p>
+  <p class="section-desc">Union and Confederate intelligence across 1861&ndash;1865 &mdash; the first institutionalized all-source military intelligence analysis, the network organizers and placement agents, the field intelligence-to-action operators, and the social-access and cipher functions on both sides.</p>
   <div class="fig-grid">
     <div class="fig-card">
       <div class="fig-top"><span class="fig-num">03.01</span><span class="fig-status full">300-case page</span></div>
@@ -314,6 +511,46 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
     </div>
     <div class="fig-card">
       <div class="fig-top"><span class="fig-num">03.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-van-lew"><a href="/intelligence/van-lew/">Elizabeth Van Lew</a></h3>
+      <div class="fig-era">1818&ndash;1900 &middot; Civil War (Union)</div>
+      <p class="fig-role">Richmond Unionist who organized the most effective Union spy network in the Confederate capital</p>
+      <p class="fig-intro">Funded and coordinated a chain of agents &mdash; household servants, Confederate officials, businesspeople &mdash; under hostile counterintelligence pressure for four years. Network organization: recruitment, compartmentation, source protection, and courier-chain management where exposure was potentially capital.</p>
+      <div class="fig-links">
+        <a href="/intelligence/van-lew/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-bowser"><a href="/intelligence/bowser/">Mary Bowser</a></h3>
+      <div class="fig-era">ca. 1839&ndash;after 1867 &middot; Civil War (Union)</div>
+      <p class="fig-role">Freed Black woman and Van Lew network agent; domestic employee in the Confederate White House</p>
+      <p class="fig-intro">Reportedly provided intelligence from direct observation of Jefferson Davis and his papers, exploiting the assumption that she posed no intelligence risk. The placement agent with unmonitored access to the adversary&rsquo;s decision environment &mdash; and the systematic erasure of Black women&rsquo;s intelligence work from the record.</p>
+      <div class="fig-links">
+        <a href="/intelligence/bowser/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-tubman"><a href="/intelligence/tubman/">Harriet Tubman</a></h3>
+      <div class="fig-era">ca. 1822&ndash;1913 &middot; Civil War (Union)</div>
+      <p class="fig-role">Scout and organizer of the Combahee River Raid; the Union&rsquo;s most operationally consequential intelligence-to-action figure</p>
+      <p class="fig-intro">Organized the June 1863 Combahee River Raid on prior intelligence collection, liberating over 700 enslaved people in a combined military-intelligence action. The field intelligence officer and action agent: terrain analysis, network recruitment, source validation, and intelligence translated into precision operations.</p>
+      <div class="fig-links">
+        <a href="/intelligence/tubman/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.05</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-webster"><a href="/intelligence/webster/">Timothy Webster</a></h3>
+      <div class="fig-era">1822&ndash;1862 &middot; Civil War (Union)</div>
+      <p class="fig-role">Pinkerton operative; the most sophisticated Union penetration of Confederate networks until exposure and execution</p>
+      <p class="fig-intro">Operated in Richmond under deep cover until betrayal by fellow Pinkerton agents led to his arrest and hanging in April 1862. The classic deep-cover penetration study: cover maintenance, illness under operational conditions, and the catastrophic vulnerability of a network when its handling chain is itself penetrated.</p>
+      <div class="fig-links">
+        <a href="/intelligence/webster/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.06</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-baker"><a href="/intelligence/baker/">Lafayette Baker</a></h3>
       <div class="fig-era">1826&ndash;1868 &middot; Civil War (Union)</div>
       <p class="fig-role">Head of the National Detective Police; Union counterintelligence and domestic surveillance chief</p>
@@ -322,15 +559,252 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
         <a href="/intelligence/baker/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
       </div>
     </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.07</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-greenhow"><a href="/intelligence/greenhow/">Rose O&rsquo;Neal Greenhow</a></h3>
+      <div class="fig-era">ca. 1813&ndash;1864 &middot; Civil War (Confederate)</div>
+      <p class="fig-role">Confederate agent whose intelligence to Beauregard contributed to Confederate preparation for First Bull Run</p>
+      <p class="fig-intro">Operated from her Washington social connections, providing warning intelligence before First Bull Run, and continued operating from house arrest and from prison. Social-access intelligence and signals-security failure in elite civilian environments.</p>
+      <div class="fig-links">
+        <a href="/intelligence/greenhow/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.08</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-boyd"><a href="/intelligence/boyd/">Belle Boyd</a></h3>
+      <div class="fig-era">1844&ndash;1900 &middot; Civil War (Confederate)</div>
+      <p class="fig-role">Confederate courier and intelligence source; multiple arrests; cooperation with Stonewall Jackson&rsquo;s Shenandoah campaign</p>
+      <p class="fig-intro">Supplied intelligence to Jackson&rsquo;s Valley campaign through a combination of audacity and gender assumptions that underestimated her. How charisma functions as both intelligence asset and operational liability, and what separates sustainable tradecraft from personality-driven risk.</p>
+      <div class="fig-links">
+        <a href="/intelligence/boyd/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+        <a href="/intelligence/boyd2/" class="link-btn" style="border-color:var(--gold-dim);"><span class="lbl">II</span>Second edition</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">03.09</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-jordan"><a href="/intelligence/jordan/">Thomas Jordan</a></h3>
+      <div class="fig-era">1819&ndash;1895 &middot; Civil War (Confederate)</div>
+      <p class="fig-role">Confederate officer who designed an early cipher and built the initial Confederate spy network in Washington</p>
+      <p class="fig-intro">Created a Vigen&egrave;re-type cipher and recruited Greenhow and other Washington sources before the war. The amateur network designer: how an untrained officer builds, encodes, and structures an underground organization &mdash; and which structural weaknesses a professional counterintelligence service can exploit.</p>
+      <div class="fig-links">
+        <a href="/intelligence/jordan/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="us-prof" class="page-section">
+  <div class="section-header"><span class="section-num">04</span><h2 class="section-title">U.S. Professionalization, Cryptology, ONI, FBI, Military Intelligence</h2></div>
+  <p class="section-desc">The period when the United States built professional cryptologic and investigative intelligence capability &mdash; the Black Chamber and the SIGINT foundations, the FBI&rsquo;s domestic counterintelligence apparatus, and the Pacific-War cryptanalysts and fleet intelligence officers whose work turned codebreaking into operational advantage.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-yardley"><a href="/intelligence/yardley/">Herbert O. Yardley</a></h3>
+      <div class="fig-era">1889&ndash;1958 &middot; WWI &ndash; interwar</div>
+      <p class="fig-role">Chief of MI-8 and the Black Chamber; first American SIGINT professional; author of <em>The American Black Chamber</em> (1931)</p>
+      <p class="fig-intro">Broke Japanese diplomatic codes at the 1921&ndash;22 Washington Naval Conference, then &mdash; after the Black Chamber was closed &mdash; published an account that revealed U.S. SIGINT capabilities and damaged American cryptology for a decade. What a SIGINT professional owes to secrecy when the organization that employed him no longer exists.</p>
+      <div class="fig-links">
+        <a href="/intelligence/yardley/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-wagner"><a href="/intelligence/wagner/">Arthur L. Wagner</a></h3>
+      <div class="fig-era">1853&ndash;1905 &middot; Gilded Age</div>
+      <p class="fig-role">U.S. Army officer and principal theorist of modern American military-intelligence doctrine</p>
+      <p class="fig-intro">His 1893 <em>The Service of Security and Information</em> became the doctrinal foundation for U.S. military intelligence organization and training through World War&nbsp;I. The intelligence intellectual: how theory shapes institutional structure, training, and practice.</p>
+      <div class="fig-links">
+        <a href="/intelligence/wagner/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-driscoll"><a href="/intelligence/driscoll/">Agnes Meyer Driscoll</a></h3>
+      <div class="fig-era">1889&ndash;1971 &middot; WWI &ndash; WWII</div>
+      <p class="fig-role">Most significant U.S. Navy cryptanalyst before WWII; broke the Japanese M-1 cipher machine</p>
+      <p class="fig-intro">Developed methods later used against JN-25 and broke the M-1 machine in the 1930s, building Navy cryptanalytic capability before institutional structures existed to support it. The pre-institutional expert who shapes a function the organization has not yet formalized.</p>
+      <div class="fig-links">
+        <a href="/intelligence/driscoll/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-bonaparte"><a href="/intelligence/bonaparte/">Charles Bonaparte</a></h3>
+      <div class="fig-era">1851&ndash;1921 &middot; Progressive Era</div>
+      <p class="fig-role">U.S. Attorney General who founded the Bureau of Investigation (1908), the FBI&rsquo;s direct predecessor</p>
+      <p class="fig-intro">Created the Bureau of Investigation over Congressional objection, establishing a standing federal investigative force. The founding-mandate question: how a new federal investigative body is created, justified, and bounded &mdash; and the institutional pattern those first choices set.</p>
+      <div class="fig-links">
+        <a href="/intelligence/bonaparte/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.05</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-hoover"><a href="/intelligence/hoover/">J. Edgar Hoover</a></h3>
+      <div class="fig-era">1895&ndash;1972 &middot; 1924&ndash;1972</div>
+      <p class="fig-role">Director of the FBI for 48 years; builder of the dominant U.S. domestic intelligence and counterintelligence apparatus</p>
+      <p class="fig-intro">Built COINTELPRO, maintained personal files on political figures, and ran counterintelligence against Communist and civil-rights organizations. The central U.S. study of intelligence power without adequate accountability: the structural conditions that make a director politically unremovable, and the constitutional damage that produces.</p>
+      <div class="fig-links">
+        <a href="/intelligence/hoover/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.06</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-william-friedman"><a href="/intelligence/william-friedman/">William F. Friedman</a></h3>
+      <div class="fig-era">1891&ndash;1969 &middot; WWII and Cold War</div>
+      <p class="fig-role">The most important U.S. cryptologist of the 20th century; broke PURPLE; co-founded the Signal Intelligence Service</p>
+      <p class="fig-intro">His team broke PURPLE, the Japanese diplomatic cipher machine, in 1940 without physical access to the device, and his statistical methods defined American SIGINT tradecraft. <em>Note: the surname Friedman recurs &mdash; this page covers William F. Friedman; see also Elizebeth Smith Friedman.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/william-friedman/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.07</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-elizebeth-friedman"><a href="/intelligence/elizebeth-friedman/">Elizebeth Smith Friedman</a></h3>
+      <div class="fig-era">1892&ndash;1980 &middot; Prohibition &ndash; WWII</div>
+      <p class="fig-role">Major cryptanalyst; broke rum-runner codes and Nazi spy-network communications; work long attributed to the FBI</p>
+      <p class="fig-intro">Broke the communications of rum-running syndicates and of Nazi spy radio networks in South America &mdash; work largely classified and credited to the FBI for decades. A cryptanalytic achievement case and a study in the systematic institutional erasure of women&rsquo;s intelligence contributions. <em>Note: see also William F. Friedman.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/elizebeth-friedman/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+        <a href="/intelligence/elizebeth-friedman2/" class="link-btn" style="border-color:var(--gold-dim);"><span class="lbl">II</span>Second edition</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.08</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-rochefort"><a href="/intelligence/rochefort/">Joseph Rochefort</a></h3>
+      <div class="fig-era">1900&ndash;1976 &middot; WWII Pacific</div>
+      <p class="fig-role">Commander of Station HYPO; cryptanalytic work enabled the U.S. victory at Midway</p>
+      <p class="fig-intro">Broke enough of JN-25 to identify Midway as the Japanese target, giving Nimitz the basis for the ambush that destroyed four fleet carriers in June 1942. The operational SIGINT commander under time pressure &mdash; and the political destruction of a brilliant officer by institutional rivals.</p>
+      <div class="fig-links">
+        <a href="/intelligence/rochefort/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.09</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-safford"><a href="/intelligence/safford/">Laurance Safford</a></h3>
+      <div class="fig-era">1893&ndash;1973 &middot; interwar &ndash; WWII</div>
+      <p class="fig-role">Navy SIGINT organizer who built OP-20-G and directed pre-Pearl Harbor signals intelligence operations</p>
+      <p class="fig-intro">Built the Navy&rsquo;s cryptanalytic section across the interwar period and directed its operations before Pearl Harbor, later central to the investigations into the failure. The SIGINT institutional builder and the distribution failure: when collection capacity outruns the mechanisms needed to deliver warning.</p>
+      <div class="fig-links">
+        <a href="/intelligence/safford/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">04.10</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-layton"><a href="/intelligence/layton/">Edwin T. Layton</a></h3>
+      <div class="fig-era">1903&ndash;1984 &middot; WWII Pacific</div>
+      <p class="fig-role">Pacific Fleet intelligence officer and Nimitz&rsquo;s principal intelligence adviser through the Pacific War</p>
+      <p class="fig-intro">Translated signals intelligence into fleet-commander assessments, serving as the analyst-consumer interface between Rochefort&rsquo;s cryptanalysis and Nimitz&rsquo;s planning through the war&rsquo;s turning points. All-source synthesis and the production of an estimate a commander can act on.</p>
+      <div class="fig-links">
+        <a href="/intelligence/layton/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+        <a href="/intelligence/layton2/" class="link-btn" style="border-color:var(--gold-dim);"><span class="lbl">II</span>Second edition</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="oss-cia" class="page-section">
+  <div class="section-header"><span class="section-num">05</span><h2 class="section-title">COI / OSS / CIA / U.S. Intelligence Community</h2></div>
+  <p class="section-desc">From the OSS through the founding of the CIA and the early Director of Central Intelligence line &mdash; the unconventional field officers, the first DCIs who built the agency before and after its statutory creation, and the covert-action and technical-collection architects of the early Cold War.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-berg"><a href="/intelligence/berg/">Moe Berg</a></h3>
+      <div class="fig-era">1902&ndash;1972 &middot; OSS WWII</div>
+      <p class="fig-role">Professional baseball catcher and OSS officer; assessed Werner Heisenberg&rsquo;s nuclear-program knowledge in Zurich, 1944</p>
+      <p class="fig-intro">Attended Heisenberg&rsquo;s December 1944 lecture authorized to kill him if it revealed Germany was near an atomic bomb; assessed it did not, and did not shoot. The unconventional agent and the high-stakes single-source assessment, where one judgment carries consequential operational weight.</p>
+      <div class="fig-links">
+        <a href="/intelligence/berg/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-roosevelt"><a href="/intelligence/roosevelt/">Kermit Roosevelt Jr.</a></h3>
+      <div class="fig-era">1916&ndash;2000 &middot; early Cold War CIA</div>
+      <p class="fig-role">CIA covert-action officer; managed Operation AJAX, the 1953 coup against Iranian PM Mosaddegh</p>
+      <p class="fig-intro">Ran AJAX &mdash; organizing protests, payments, and military contacts to restore the Shah &mdash; and later wrote the first inside account of CIA regime change. The foundational covert-action case: what &ldquo;success&rdquo; means, and the long-term cost of short-term operational victories.</p>
+      <div class="fig-links">
+        <a href="/intelligence/roosevelt/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-kent"><a href="/intelligence/kent/">Sherman Kent</a></h3>
+      <div class="fig-era">1903&ndash;1986 &middot; OSS / Cold War CIA</div>
+      <p class="fig-role">CIA analytical founder; author of <em>Strategic Intelligence for American World Policy</em>; architect of the National Intelligence Estimate</p>
+      <p class="fig-intro">Established the intellectual framework of American intelligence analysis: analytic standards, estimative language, and the analyst-policymaker boundary. The intelligence-epistemology study &mdash; reasoning under uncertainty and communicating probabilistic judgment to policymakers who prefer certainty.</p>
+      <div class="fig-links">
+        <a href="/intelligence/kent/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-haines"><a href="/intelligence/haines/">Avril Haines</a></h3>
+      <div class="fig-era">1969&ndash; &middot; contemporary IC</div>
+      <p class="fig-role">First woman Director of National Intelligence (2021&ndash;2025); former CIA Deputy Director</p>
+      <p class="fig-intro">Managed the National Intelligence Council process and represented community-wide judgment to the President across great-power competition, pandemic, and domestic turbulence. The NIC coordination role at the analytical apex of a sixteen-component community.</p>
+      <div class="fig-links">
+        <a href="/intelligence/haines/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.05</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-souers"><a href="/intelligence/souers/">Sidney Souers</a></h3>
+      <div class="fig-era">1892&ndash;1973 &middot; early Cold War</div>
+      <p class="fig-role">First Director of Central Intelligence (Jan&ndash;Jun 1946); organizer of the Central Intelligence Group</p>
+      <p class="fig-intro">Established the CIG as the immediate CIA predecessor, setting the precedent of a centralized intelligence coordinator within the executive before the agency had statutory authority. The foundational politics of intelligence coordination among jealous service and department equities.</p>
+      <div class="fig-links">
+        <a href="/intelligence/souers/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.06</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-vandenberg"><a href="/intelligence/vandenberg/">Hoyt Vandenberg</a></h3>
+      <div class="fig-era">1899&ndash;1954 &middot; early Cold War</div>
+      <p class="fig-role">Second Director of Central Intelligence (1946&ndash;1947); positioned the CIG for statutory authority</p>
+      <p class="fig-intro">Expanded the CIG&rsquo;s analytic production and collection ahead of the 1947 National Security Act, establishing CIA as an institution before it legally existed. Intelligence pre-authorization: building institutional facts that make an organization hard to shut down before its mandate is settled.</p>
+      <div class="fig-links">
+        <a href="/intelligence/vandenberg/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.07</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-hillenkoetter"><a href="/intelligence/hillenkoetter/">Roscoe Hillenkoetter</a></h3>
+      <div class="fig-era">1897&ndash;1982 &middot; early Cold War CIA</div>
+      <p class="fig-role">First CIA Director (1947&ndash;1950); presided over the Korean War intelligence failure</p>
+      <p class="fig-intro">Oversaw the CIA&rsquo;s establishment as a statutory body and the failure to predict the June 1950 North Korean invasion despite indicators in CIA reporting. The strategic intelligence failure problem: how an organization with collection assets nonetheless fails to predict a major event.</p>
+      <div class="fig-links">
+        <a href="/intelligence/hillenkoetter/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.08</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-smith"><a href="/intelligence/smith/">Walter Bedell Smith</a></h3>
+      <div class="fig-era">1895&ndash;1961 &middot; early Cold War CIA</div>
+      <p class="fig-role">CIA Director (1950&ndash;1953) who professionalized the agency after Hillenkoetter</p>
+      <p class="fig-intro">Reorganized the analytic functions, built the clandestine service&rsquo;s capacity, and recruited career officers to replace the wartime OSS generation. The organizational turnaround: what a military-disciplined director does to an agency expanding its mandate while failing the expectations that mandate created.</p>
+      <div class="fig-links">
+        <a href="/intelligence/smith/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">05.09</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-bissell"><a href="/intelligence/bissell/">Richard Bissell</a></h3>
+      <div class="fig-era">1909&ndash;1994 &middot; Cold War CIA</div>
+      <p class="fig-role">CIA Deputy Director for Plans; architect of the U-2 program and the Bay of Pigs invasion</p>
+      <p class="fig-intro">Oversaw the U-2 overhead-reconnaissance revolution and then the catastrophic Bay of Pigs. The covert-action / technical-collection interface: how an organization produces extraordinary technical collection and a catastrophic operational failure at once, and how the confidence from the former feeds the latter.</p>
+      <div class="fig-links">
+        <a href="/intelligence/bissell/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="china" class="page-section">
-  <div class="section-header"><span class="section-num">04</span><h2 class="section-title">China / KMT / CCP / PRC Intelligence</h2></div>
+  <div class="section-header"><span class="section-num">06</span><h2 class="section-title">China / KMT / CCP / PRC Intelligence</h2></div>
   <p class="section-desc">The KMT and CCP intelligence systems from the 1920s through the PRC period &mdash; the underground penetration agents, communications and security pioneers, and the party-organizational and personal-secretary functions that structured both sides of the Chinese intelligence world.</p>
   <div class="fig-grid">
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">04.01</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">06.01</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-yan-baohang"><a href="/intelligence/yan-baohang/">閻寶航 / Yan Baohang</a></h3>
       <div class="fig-era">1895&ndash;1968 &middot; United Front wartime</div>
       <p class="fig-role">Manchurian educator and CCP-linked strategic intelligence source; attributed contributor of Barbarossa-warning intelligence</p>
@@ -340,7 +814,107 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">04.02</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">06.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-zhou-enlai"><a href="/intelligence/zhou-enlai/">周恩來 / Zhou Enlai</a></h3>
+      <div class="fig-era">1898&ndash;1976 &middot; CCP underground – PRC</div>
+      <p class="fig-role">Organizer of the CCP underground intelligence apparatus and the Central Special Branch (中央特科)</p>
+      <p class="fig-intro">Built the CCP&rsquo;s clandestine function in late-1920s Shanghai and recruited the &ldquo;three moles&rdquo; who penetrated KMT intelligence. The revolutionary intelligence organizer: how a party in hiding builds a professional clandestine service under constant counterintelligence threat, with party loyalty as the accountability mechanism.</p>
+      <div class="fig-links">
+        <a href="/intelligence/zhou-enlai/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.03</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-li-kenong"><a href="/intelligence/li-kenong/">李克農 / Li Kenong</a></h3>
+      <div class="fig-era">1899&ndash;1962 &middot; CCP underground – PRC</div>
+      <p class="fig-role">One of the &ldquo;three moles&rdquo;; PRC intelligence chief; Korean War armistice intelligence coordinator</p>
+      <p class="fig-intro">Operated inside the KMT investigation bureau under Zhou&rsquo;s direction, intercepted the warning of Gu Shunzhang&rsquo;s defection that saved the CCP Central Committee in 1931, and later coordinated intelligence for Panmunjom. <em>Note: surname Li (李) recurs &mdash; see also Li Qiang.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/li-kenong/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.04</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-qian-zhuangfei"><a href="/intelligence/qian-zhuangfei/">錢壯飛 / Qian Zhuangfei</a></h3>
+      <div class="fig-era">1895&ndash;1935 &middot; CCP underground</div>
+      <p class="fig-role">CCP mole as personal secretary to KMT intelligence chief Xu Enzeng; preserved the CCP Central Committee</p>
+      <p class="fig-intro">Served as Xu Enzeng&rsquo;s trusted secretary while feeding Zhou&rsquo;s network systematic access to KMT communications; his relay of the Gu Shunzhang telegram gave the CCP time to evacuate Shanghai. A single act of agent intelligence that prevented the destruction of the party.</p>
+      <div class="fig-links">
+        <a href="/intelligence/qian-zhuangfei/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.05</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-hu-di"><a href="/intelligence/hu-di/">胡底 / Hu Di</a></h3>
+      <div class="fig-era">1905&ndash;1935 &middot; CCP underground</div>
+      <p class="fig-role">Third of the CCP &ldquo;three moles&rdquo;; killed during CCP internal security campaigns</p>
+      <p class="fig-intro">Operated within KMT intelligence alongside Qian Zhuangfei under Li Kenong&rsquo;s coordination, then died during the party&rsquo;s own internal security campaigns. A study in the risk an intelligence asset faces from its own organization when internal terror becomes the primary threat.</p>
+      <div class="fig-links">
+        <a href="/intelligence/hu-di/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.06</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-kang-sheng"><a href="/intelligence/kang-sheng/">康生 / Kang Sheng</a></h3>
+      <div class="fig-era">1898&ndash;1975 &middot; CCP security / PRC</div>
+      <p class="fig-role">CCP head of the Social Affairs Department; the party&rsquo;s chief of security and intelligence for three decades</p>
+      <p class="fig-intro">Trained with Soviet security services and applied their methods to the Yan&rsquo;an Rectification, organizing mass interrogation and denunciation. The central study in CCP security-state method: how internal political security becomes the dominant function of an intelligence apparatus.</p>
+      <div class="fig-links">
+        <a href="/intelligence/kang-sheng/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.07</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-pan-hannian"><a href="/intelligence/pan-hannian/">潘漢年 / Pan Hannian</a></h3>
+      <div class="fig-era">1906&ndash;1977 &middot; CCP underground – PRC</div>
+      <p class="fig-role">CCP underground intelligence figure and United Front liaison; destroyed by political terror in 1955</p>
+      <p class="fig-intro">Ran agents and strategic intelligence across Shanghai, Hong Kong, and occupied territory before his 1955 arrest on espionage charges and 1982 rehabilitation. One of the most significant studies of CCP internal terror directed against its own intelligence professionals.</p>
+      <div class="fig-links">
+        <a href="/intelligence/pan-hannian/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.08</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-chen-geng"><a href="/intelligence/chen-geng/">陳賚 / Chen Geng</a></h3>
+      <div class="fig-era">1903&ndash;1961 &middot; CCP underground – PLA</div>
+      <p class="fig-role">Ran the CCP Special Services Section in Shanghai; later a major PLA general</p>
+      <p class="fig-intro">Commanded the CCP&rsquo;s Special Services Section in the early 1930s before a distinguished military career in Korea and Vietnam. The intersection of underground intelligence work and military command, and what transfers between them. <em>Note: surname Chen (陳) recurs &mdash; see also Chen Lifu.</em></p>
+      <div class="fig-links">
+        <a href="/intelligence/chen-geng/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.09</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-dai-li"><a href="/intelligence/dai-li/">戴笠 / Dai Li</a></h3>
+      <div class="fig-era">1897&ndash;1946 &middot; Republican China KMT</div>
+      <p class="fig-role">Director of the KMT Military Statistics Bureau (軍統 / Juntong); Chiang Kai-shek&rsquo;s personal intelligence chief</p>
+      <p class="fig-intro">Built the KMT&rsquo;s surveillance, covert-action, and assassination apparatus, becoming the most feared intelligence officer in Republican China and a key figure in wartime Sino-American cooperation. The KMT intelligence anchor: power concentrated in a single personality, and its institutional consequences. Died in a 1946 plane crash.</p>
+      <div class="fig-links">
+        <a href="/intelligence/dai-li/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.10</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-mao-renfeng"><a href="/intelligence/mao-renfeng/">毛人鳳 / Mao Renfeng</a></h3>
+      <div class="fig-era">1898&ndash;1956 &middot; KMT / ROC Taiwan</div>
+      <p class="fig-role">Dai Li&rsquo;s successor as Juntong chief; managed KMT intelligence through Civil War defeat and the Taiwan transition</p>
+      <p class="fig-intro">Inherited Dai Li&rsquo;s empire after 1946 and managed it through the retreat to Taiwan and the early ROC-on-Taiwan counterintelligence period. The institutional survivor: how an intelligence organization transitions from mainland to exile and rebuilds under American partnership.</p>
+      <div class="fig-links">
+        <a href="/intelligence/mao-renfeng/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.11</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-xu-enzeng"><a href="/intelligence/xu-enzeng/">徐恩曾 / Xu Enzeng</a></h3>
+      <div class="fig-era">1899&ndash;1985 &middot; KMT civilian intelligence</div>
+      <p class="fig-role">Chief of the KMT Central Bureau of Investigation and Statistics (中統 / Zhongtong)</p>
+      <p class="fig-intro">Directed the KMT&rsquo;s civilian party intelligence organization during the very period Qian Zhuangfei was his personal secretary and feeding the CCP. Studied from the target side: how a counterintelligence body fails to detect a penetration of its own leadership staff.</p>
+      <div class="fig-links">
+        <a href="/intelligence/xu-enzeng/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">06.12</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-xiong-xianghui"><a href="/intelligence/xiong-xianghui/">熊向暉 / Xiong Xianghui</a></h3>
       <div class="fig-era">1919&ndash;2005 &middot; CCP underground</div>
       <p class="fig-role">CCP mole who served ten years as personal secretary to KMT general Hu Zongnan</p>
@@ -350,7 +924,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">04.03</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">06.13</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-li-qiang"><a href="/intelligence/li-qiang/">李強 / Li Qiang</a></h3>
       <div class="fig-era">1905&ndash;1996 &middot; early CCP communications</div>
       <p class="fig-role">Pioneer of CCP radio communications and signals intelligence</p>
@@ -360,7 +934,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">04.04</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">06.14</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-dong-fa"><a href="/intelligence/dong-fa/">董發 / Dong Fa</a></h3>
       <div class="fig-era">early CCP period &middot; CCP internal security</div>
       <p class="fig-role">CCP political-protection and security figure of the underground organizational period</p>
@@ -370,7 +944,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">04.05</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">06.15</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-luo-ruiqing"><a href="/intelligence/luo-ruiqing/">羅瑞卿 / Luo Ruiqing</a></h3>
       <div class="fig-era">1906&ndash;1978 &middot; PRC public security</div>
       <p class="fig-role">First PRC Minister of Public Security (1949&ndash;1959); builder of the PRC security-state apparatus</p>
@@ -380,7 +954,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">04.06</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">06.16</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-tang-zong"><a href="/intelligence/tang-zong/">唐縱 / Tang Zong</a></h3>
       <div class="fig-era">1905&ndash;1981 &middot; KMT</div>
       <p class="fig-role">Chiang Kai-shek&rsquo;s personal intelligence secretary; chief of the wartime Police Administration Bureau</p>
@@ -390,13 +964,74 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
       </div>
     </div>
     <div class="fig-card">
-      <div class="fig-top"><span class="fig-num">04.07</span><span class="fig-status full">300-case page</span></div>
+      <div class="fig-top"><span class="fig-num">06.17</span><span class="fig-status full">300-case page</span></div>
       <h3 id="fig-chen-lifu"><a href="/intelligence/chen-lifu/">陳立夫 / Chen Lifu</a></h3>
       <div class="fig-era">1900&ndash;2001 &middot; KMT party organization / CC Clique</div>
       <p class="fig-role">CC Clique co-leader; organizer of the KMT party apparatus and the Zhongtong (中統) civilian intelligence function</p>
       <p class="fig-intro">Controlled the KMT party machine and Zhongtong as instruments of CC Clique factional power. Party-intelligence as a factional instrument: what happens to analytical integrity when intelligence is primarily a tool of intra-party control. <em>Note: surname Chen (陳) recurs in the broader series.</em></p>
       <div class="fig-links">
         <a href="/intelligence/chen-lifu/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foreign" class="page-section">
+  <div class="section-header"><span class="section-num">07</span><h2 class="section-title">Foreign &amp; Other Services</h2></div>
+  <p class="section-desc">Intelligence figures from services outside the British, American, and Chinese institutional lines that anchor the rest of the series &mdash; included where their operations intersect those lines, and read on the same OSINT, non-operational, historical-analysis terms.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">07.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-akashi"><a href="/intelligence/akashi/">明石元二郎 / Akashi Motojirō</a></h3>
+      <div class="fig-era">1864&ndash;1919 &middot; Imperial Japan</div>
+      <p class="fig-role">Imperial Japanese Army intelligence officer; ran subversion and revolutionary-funding operations during the Russo-Japanese War</p>
+      <p class="fig-intro">Akashi financed and coordinated revolutionary and dissident movements inside the Russian Empire from neutral capitals during 1904&ndash;05, an early large-scale strategic subversion campaign. A study in covert political warfare: funding others&rsquo; movements as an instrument of state strategy, and the difficulty of assessing such a campaign&rsquo;s real effect from the public record.</p>
+      <div class="fig-links">
+        <a href="/intelligence/akashi/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">07.02</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-borodin"><a href="/intelligence/borodin/">Mikhail Borodin</a></h3>
+      <div class="fig-era">1884&ndash;1951 &middot; Comintern / Soviet</div>
+      <p class="fig-role">Comintern agent and Soviet adviser to the KMT in Canton, 1923&ndash;1927</p>
+      <p class="fig-intro">Borodin organized the Soviet advisory mission that reshaped the KMT along Leninist lines and shaped the early KMT&ndash;CCP United Front before its violent collapse in 1927. The external organizer: how a foreign service builds influence inside another state&rsquo;s revolutionary apparatus, and how that influence is read by all sides afterward.</p>
+      <div class="fig-links">
+        <a href="/intelligence/borodin/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="statecraft" class="page-section">
+  <div class="section-header"><span class="section-num">08</span><h2 class="section-title">Statecraft &amp; Intelligence Consumers</h2></div>
+  <p class="section-desc">Senior principals who are not intelligence officers but whose decisions define how intelligence is commissioned, weighed, trusted, or ignored &mdash; the consumer side of the intelligence relationship, where collection meets policy and the value of an assessment is decided by whether a statesman acts on it.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">08.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-hull"><a href="/intelligence/hull/">Cordell Hull</a></h3>
+      <div class="fig-era">1871&ndash;1955 &middot; WWII era</div>
+      <p class="fig-role">U.S. Secretary of State (1933&ndash;1944); the intelligence-consumer and statecraft principal</p>
+      <p class="fig-intro">Hull sat at the receiving end of diplomatic and signals intelligence through the approach to and conduct of WWII, including the MAGIC decrypts and the final pre-Pearl Harbor exchanges with Japan. The consumer study: how a senior principal weighs intelligence against diplomacy, and how warning is received, trusted, or discounted at the policy level.</p>
+      <div class="fig-links">
+        <a href="/intelligence/hull/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="historiography" class="page-section">
+  <div class="section-header"><span class="section-num">09</span><h2 class="section-title">Historiography &amp; Intelligence Literature</h2></div>
+  <p class="section-desc">Not intelligence officers but the writers and biographers who shape how intelligence history is recorded and understood. Their inclusion is reflexive: the series depends on published biography and history as OSINT sources, so the historians of intelligence are themselves part of the evidentiary picture and worth reading critically.</p>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-top"><span class="fig-num">09.01</span><span class="fig-status full">300-case page</span></div>
+      <h3 id="fig-waller"><a href="/intelligence/waller/">Douglas Waller</a></h3>
+      <div class="fig-era">contemporary &middot; United States</div>
+      <p class="fig-role">Journalist and biographer of American intelligence; author of major lives of Donovan and the OSS / early CIA generation</p>
+      <p class="fig-intro">Waller&rsquo;s biographies of Wild Bill Donovan and his contemporaries are among the standard public-source accounts the series draws on. Included as a historiography case: how the biographer&rsquo;s framing, access, and source choices shape the record &mdash; and why an OSINT-based project should read its own secondary sources with the same scrutiny it applies to primary ones.</p>
+      <div class="fig-links">
+        <a href="/intelligence/waller/" class="link-btn"><span class="lbl">&#8599;</span>Open 300-case reconstruction</a>
       </div>
     </div>
   </div>
@@ -411,7 +1046,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
     logic, the artifact produced, and the guardrail that should constrain how the case is read today.
   </p>
   <div class="method-grid">
-    <div class="method-card"><h3>Public-source spine</h3><p>Each reconstruction draws only on archival, declassified, biographical, and institutional source families. Claims are calibrated to the strength of their evidence &mdash; contemporary record, memoir, state-media commemoration, or contested secondary assertion &mdash; and the calibration is kept visible.</p></div>
+    <div class="method-card"><h3>OSINT-only spine</h3><p>Each reconstruction draws solely on open-source intelligence &mdash; archival, declassified, biographical, academic, and institutional source families. No classified material is used, inferred, or reconstructed. Claims are calibrated to the strength of their evidence, and the calibration is kept visible.</p></div>
     <div class="method-card"><h3>33 strategies, 300 cases</h3><p>Each figure is decomposed into 33 overlapping strategy cards and a 300-case corpus organized into situation families, with prevalence rankings and worked demonstrations. The structure abstracts decisions into reusable analytical questions rather than transferable technique.</p></div>
     <div class="method-card"><h3>Non-operational by design</h3><p>The pages deliberately hold technical detail at analytic altitude. They are designed to teach evidence, authority, risk, institutional constraint, and historical memory &mdash; not espionage, surveillance, or coercion. Era-specific legal and ethical guardrails are part of the subject.</p></div>
     <div class="method-card"><h3>Borderline cases marked</h3><p>Where a figure&rsquo;s intelligence role is contested or weakly documented &mdash; legend figures, single-reference sources, scholars at the edge of the system &mdash; the page is labelled borderline and treats the epistemic uncertainty as the lesson.</p></div>
@@ -429,7 +1064,7 @@ footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;text-align:cen
 
 <footer>
   &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc.
-  All rights reserved. &middot; Public-source historical analysis &mdash; non-operational.
+  All rights reserved. &middot; Open-source (OSINT) historical analysis &mdash; non-operational.
 </footer>
 
 <script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
