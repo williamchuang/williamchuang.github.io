@@ -179,11 +179,510 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 <p style="font-size:.86rem;color:var(--muted);line-height:1.65">Each number may be <strong>positive or negative</strong> and need not be a whole number. Each generator must be hyperbolic: its two diagonal numbers add to more than 2 or less than −2, checked live.</p>
 </div>
 </div>
+<!-- ════════════════ ALGEBRAIC CONSTRUCTIONS SECTION (inject before footer) ════════════════ -->
+<style>
+.alg-wrap{margin:2.4rem 0 1rem;border:1px solid var(--border-dim);border-radius:6px;background:var(--navy-mid);padding:1.4rem 1.5rem}
+.alg-wrap h3.alg-h{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:400;color:var(--cream);border-left:3px solid var(--gold);padding-left:.8rem;margin:0 0 .5rem;line-height:1.25}
+.alg-lead{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:74ch;margin-bottom:1.1rem}
+.alg-lead strong{color:var(--cream)}
+.alg-seg-row{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start;margin:.4rem 0 1rem}
+.alg-seg-group .seglab{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
+.alg-vseg{display:flex;flex-wrap:wrap;gap:.4rem}
+.alg-vseg button{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;padding:.5rem .85rem;cursor:pointer;transition:all .2s}
+.alg-vseg button:hover{border-color:var(--gold-dim);color:var(--cream)}
+.alg-vseg button.active{background:rgba(201,168,76,.12);border-color:var(--gold);color:var(--gold)}
+.alg-vdesc{font-size:.85rem;color:var(--muted);line-height:1.6;background:var(--navy);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;padding:.7rem .9rem;margin-bottom:1rem}
+.alg-vdesc strong{color:var(--cream)}
+.alg-keybox{background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;padding:.9rem 1rem;margin-bottom:1rem}
+.alg-keybox h4{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:0 0 .2rem}
+.alg-keyhint{font-size:.78rem;color:var(--faint);line-height:1.5;margin-bottom:.7rem}
+.alg-gens{display:flex;flex-wrap:wrap;gap:1rem}
+.alg-gen{flex:0 0 190px}
+.alg-gen.hidden{display:none}
+.alg-gen .glab{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--muted);margin-bottom:.3rem;display:flex;justify-content:space-between;align-items:baseline}
+.alg-gen .gtrace{font-size:.62rem}
+.alg-gen .gtrace.ok{color:var(--ok)} .alg-gen .gtrace.bad{color:var(--err)}
+.alg-mat{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;width:100%}
+.alg-mat input{width:100%;min-width:0;box-sizing:border-box;background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:3px;color:var(--cream);font-family:'DM Mono',monospace;font-size:.8rem;padding:.4rem .45rem;text-align:center}
+.alg-mat input:focus{outline:none;border-color:var(--gold-dim)}
+.alg-mat input.cellbad{border-color:var(--err)}
+.alg-keyactions{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.alg-mini{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:3px;padding:.35rem .6rem;cursor:pointer;transition:all .2s}
+.alg-mini:hover{border-color:var(--gold-dim);color:var(--cream)}
+.alg-schnote{font-size:.76rem;color:var(--faint);font-style:italic;margin-top:.3rem}
+.alg-io{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.6rem 0}
+@media(max-width:680px){.alg-io{grid-template-columns:1fr}}
+.alg-col h4{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:0 0 .4rem;display:flex;justify-content:space-between;align-items:baseline}
+.alg-col textarea{width:100%;box-sizing:border-box;min-height:80px;background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;color:var(--cream);font-family:'DM Mono',monospace;font-size:.82rem;padding:.6rem;resize:vertical;line-height:1.5}
+.alg-col textarea:focus{outline:none;border-color:var(--gold-dim)}
+.alg-conactions{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.4rem;align-items:center}
+.alg-btn{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);border-radius:4px;padding:.55rem 1rem;cursor:pointer;margin:.5rem .4rem .2rem 0;transition:all .2s}
+.alg-btn:hover{background:rgba(201,168,76,.2)}
+.alg-btn:disabled{opacity:.4;cursor:not-allowed}
+.alg-status{font-family:'DM Mono',monospace;font-size:.74rem;margin:.5rem 0;min-height:1.1em;line-height:1.5}
+.alg-status.ok{color:var(--ok)} .alg-status.err{color:var(--err)} .alg-status.run{color:var(--gold)} .alg-status.warn{color:#d9a441}
+.alg-status .cpybtn{margin-left:.6rem}
+.alg-panel{margin-top:1rem;border-top:1px solid var(--border-dim);padding-top:1rem;display:none}
+.alg-panel.show{display:block}
+.alg-panel h4{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:0 0 .5rem}
+.alg-grid2{display:grid;grid-template-columns:1.1fr 1fr;gap:1.2rem;align-items:start}
+@media(max-width:680px){.alg-grid2{grid-template-columns:1fr}}
+.alg-data .row{display:flex;gap:.6rem;font-family:'DM Mono',monospace;font-size:.76rem;margin-bottom:.4rem;line-height:1.5}
+.alg-data .row .lab{color:var(--gold-dim);min-width:5.5em;flex:0 0 auto}
+.alg-data .row .val{color:var(--cream);word-break:break-word}
+.alg-spy{display:block;margin:0 auto;background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;max-width:100%}
+.alg-spy-cap{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--faint);text-align:center;margin-top:.4rem}
+.alg-note{font-size:.78rem;color:var(--faint);line-height:1.55;margin-top:.8rem;font-style:italic}
+.alg-dec-wrap{margin-top:1.8rem;border-top:2px solid var(--border-dim);padding-top:1.4rem}
+.alg-dec-wrap h3.alg-h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;font-weight:400;color:var(--cream);border-left:3px solid var(--gold-dim);padding-left:.8rem;margin:0 0 .4rem}
+.alg-dec-lead{font-size:.85rem;color:var(--muted);line-height:1.6;max-width:74ch;margin-bottom:.9rem}
+</style>
+<div class="alg-wrap" id="algWrap">
+  <h3 class="alg-h">Algebraic constructions — companion matrices &amp; trace recovery</h3>
+  <p class="alg-lead">The tool above uses the hashed FO-KEM path. The constructions here demonstrate the <strong>algebraic core</strong> of MSIA directly: each character’s count becomes a companion block of <em>x<sup>ℓ</sup>−·1</em>; the blocks are assembled by block-diagonal concatenation and disguised by a random diagonal similarity <em>D<sup>−¹1</sup>AD</em>; and for the pure-algebraic variant, decryption recovers the message by solving the Vandermonde system from the power-trace vector <em>T</em> — no hash involved.</p>
+
+  <div class="alg-seg-row">
+    <div class="alg-seg-group">
+      <div class="seglab">Construction</div>
+      <div class="alg-vseg" id="algVseg">
+        <button data-v="sparse" class="active">Sparse · trace-driven</button>
+        <button data-v="cca">Distinct + Frobenius/Brauer · CCA2</button>
+        <button data-v="schottky">Schottky group · SL₂(𝔽ₚ)</button>
+      </div>
+    </div>
+    <div class="alg-seg-group" id="algGenSegGroup">
+      <div class="seglab">Generators</div>
+      <div class="alg-vseg" id="algGenSeg">
+        <button data-g="2" class="active">2 · G1 G2</button>
+        <button data-g="3">3 · G1 G2 G3</button>
+      </div>
+    </div>
+  </div>
+  <div class="alg-vdesc" id="algVdesc"></div>
+
+  <div class="alg-keybox" id="algKeybox">
+    <h4>Encryption key — generator matrices</h4>
+    <div class="alg-keyhint">The key is a set of 2×2 generators. Each must be hyperbolic: |trace| &gt; 2. Lengths ℓ are derived from these, exactly like the tutorial. Three generators deepen the key space — a ciphertext made with 3 must be decrypted with 3.</div>
+    <div class="alg-gens" id="algGensHost">
+      <div class="alg-gen" data-i="0">
+        <div class="glab"><span>G1 (T₁)</span><span class="gtrace" id="algTr0"></span></div>
+        <div class="alg-mat"><input id="alg_g0_00" inputmode="decimal" placeholder="a"><input id="alg_g0_01" inputmode="decimal" placeholder="b"><input id="alg_g0_10" inputmode="decimal" placeholder="c"><input id="alg_g0_11" inputmode="decimal" placeholder="d"></div>
+      </div>
+      <div class="alg-gen" data-i="1">
+        <div class="glab"><span>G2 (T₂)</span><span class="gtrace" id="algTr1"></span></div>
+        <div class="alg-mat"><input id="alg_g1_00" inputmode="decimal" placeholder="a"><input id="alg_g1_01" inputmode="decimal" placeholder="b"><input id="alg_g1_10" inputmode="decimal" placeholder="c"><input id="alg_g1_11" inputmode="decimal" placeholder="d"></div>
+      </div>
+      <div class="alg-gen hidden" data-i="2" id="algGen2">
+        <div class="glab"><span>G3 (T₃)</span><span class="gtrace" id="algTr2"></span></div>
+        <div class="alg-mat"><input id="alg_g2_00" inputmode="decimal" placeholder="a"><input id="alg_g2_01" inputmode="decimal" placeholder="b"><input id="alg_g2_10" inputmode="decimal" placeholder="c"><input id="alg_g2_11" inputmode="decimal" placeholder="d"></div>
+      </div>
+    </div>
+    <div class="alg-keyactions">
+      <button class="alg-mini" id="algKeyDemo">Use demo key</button>
+      <button class="alg-mini" id="algKeyRand">Random hyperbolic key</button>
+    </div>
+    <div class="alg-schnote" id="algSchNote" style="display:none">The Schottky variant generates its own random SL₂(𝔽ₚ) generators per encryption — the key boxes above are not used for it.</div>
+  </div>
+
+  <div class="alg-io">
+    <div class="alg-col">
+      <h4><span>Message</span><span id="algCount" style="font-family:'DM Mono',monospace;font-size:.66rem;color:var(--faint);text-transform:none;letter-spacing:0">0 / 128 bytes</span></h4>
+      <textarea id="algIn" placeholder="Type a short message (demo cap: 128 bytes)…">MSIA companion-matrix demo</textarea>
+      <button class="alg-btn" id="algEncBtn">Encrypt →</button>
+    </div>
+    <div class="alg-col">
+      <h4><span>Ciphertext object (JSON)</span></h4>
+      <textarea id="algBlob" placeholder="Encrypt to produce the algebraic object…"></textarea>
+      <div class="alg-conactions">
+        <button class="alg-mini" id="algCopy">Copy</button>
+        <button class="alg-mini" id="algSave">Save .json</button>
+        <button class="alg-mini" id="algUpload">Upload .json</button>
+        <input type="file" id="algFile" accept="application/json,.json" style="display:none">
+        <button class="alg-btn" id="algDecBtn" style="margin:0 0 0 auto">← Decrypt</button>
+      </div>
+    </div>
+  </div>
+  <div class="alg-status" id="algStatus"></div>
+
+  <div class="alg-panel" id="algPanel">
+    <h4>Companion structure (chunk 1)</h4>
+    <div class="alg-grid2">
+      <div class="alg-data" id="algData"></div>
+      <div><canvas class="alg-spy" id="algSpy" width="220" height="220"></canvas><div class="alg-spy-cap" id="algSpyCap"></div></div>
+    </div>
+    <p class="alg-note" id="algRecNote"></p>
+  </div>
+
+  <!-- ===== second, standalone DECRYPT console ===== -->
+  <div class="alg-dec-wrap">
+    <h3 class="alg-h2">Decrypt console — paste or upload a ciphertext</h3>
+    <p class="alg-dec-lead">A clean station for the receiving side. Paste a JSON ciphertext (or upload the saved file) and decrypt it on its own — the variant and generator count are read from the object, and the companion structure is shown as it recovers the message.</p>
+    <div class="alg-col">
+      <h4><span>Ciphertext object (JSON)</span></h4>
+      <textarea id="algDIn" placeholder="Paste a ciphertext JSON here, or upload one…"></textarea>
+      <div class="alg-conactions">
+        <button class="alg-mini" id="algDUpload">Upload .json</button>
+        <input type="file" id="algDFile" accept="application/json,.json" style="display:none">
+        <button class="alg-mini" id="algDClear">Clear</button>
+        <button class="alg-btn" id="algDDecBtn" style="margin:0 0 0 auto">Decrypt →</button>
+      </div>
+    </div>
+    <div class="alg-status" id="algDStatus"></div>
+    <div class="alg-col" style="margin-top:.6rem">
+      <h4>Recovered message</h4>
+      <textarea id="algDOut" placeholder="The recovered plaintext appears here…" readonly></textarea>
+    </div>
+    <div class="alg-panel" id="algDPanel">
+      <h4>Companion structure (chunk 1)</h4>
+      <div class="alg-grid2">
+        <div class="alg-data" id="algDData"></div>
+        <div><canvas class="alg-spy" id="algDSpy" width="220" height="220"></canvas><div class="alg-spy-cap" id="algDSpyCap"></div></div>
+      </div>
+      <p class="alg-note" id="algDRecNote"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const ALG_P=131071n, ALG_EXT=2n, ALG_KEY_BYTES=32;
+function _amp(b,e,m){b%=m;if(b<0n)b+=m;let r=1n;while(e>0n){if(e&1n)r=(r*b)%m;b=(b*b)%m;e>>=1n;}return r;}
+function _ainv(a,m){return _amp(((a%m)+m)%m,m-2n,m);}
+function _am2(a,b){return[[a[0][0]*b[0][0]+a[0][1]*b[1][0],a[0][0]*b[0][1]+a[0][1]*b[1][1]],[a[1][0]*b[0][0]+a[1][1]*b[1][0],a[1][0]*b[0][1]+a[1][1]*b[1][1]]];}
+function _apow2(base,n){let res=[[1,0],[0,1]],B=[base[0].slice(),base[1].slice()];while(n>0){if(n&1)res=_am2(res,B);B=_am2(B,B);n=Math.floor(n/2);}return res;}
+function _alenG(gens,idx,scale){let M=_apow2(gens[0],idx+1);for(let k=1;k<gens.length;k++)M=_am2(M,gens[k]);const tr=Math.abs(M[0][0]+M[1][1])/2;const L=2*Math.acosh(tr);let l=BigInt(Math.round(scale*L))%ALG_P;if(l<0n)l+=ALG_P;return l===0n?1n:l;}
+function _alen(G1,G2,idx,scale){return _alenG([G1,G2],idx,scale);}
+function _atraces(slots){const t=slots.length,T=[];for(let k=0;k<t;k++){let s=0n;for(const[l,c]of slots){s=(s+BigInt(c)*_amp(l,BigInt(k),ALG_P))%ALG_P;}T.push(s);}return T;}
+function _avand(ells,T){const t=ells.length,M=[];for(let k=0;k<t;k++){const row=[];for(let j=0;j<t;j++)row.push(_amp(ells[j],BigInt(k),ALG_P));row.push(((T[k]%ALG_P)+ALG_P)%ALG_P);M.push(row);}
+ for(let i=0;i<t;i++){let piv=-1;for(let r=i;r<t;r++){if(M[r][i]!==0n){piv=r;break;}}if(piv<0)throw new Error('singular Vandermonde (ℓ not distinct?)');[M[i],M[piv]]=[M[piv],M[i]];const inv=_ainv(M[i][i],ALG_P);M[i]=M[i].map(x=>(x*inv)%ALG_P);for(let r=0;r<t;r++){if(r!==i&&M[r][i]!==0n){const fac=M[r][i];for(let c=0;c<=t;c++)M[r][c]=(((M[r][c]-fac*M[i][c])%ALG_P)+ALG_P)%ALG_P;}}}
+ return M.map(row=>row[t]);}
+function _adim(slots){let n=0n;for(const[l,c]of slots)n+=l*BigInt(c);return n;}
+function _afrob(x,power,p,n){const mod=(p**n)-1n;const e=_amp(p,BigInt(power),mod);return _amp(x,e,p**n);}
+class _ABrauer{constructor(){this.map=new Map();}hide(x){const k=x.toString();if(!this.map.has(k))this.map.set(k,BigInt(this.map.size+1));return this.map.get(k);}}
+async function _asha512(b){const d=await crypto.subtle.digest('SHA-512',b);return new Uint8Array(d);}
+async function _ahmac(k,m){const key=await crypto.subtle.importKey('raw',k,{name:'HMAC',hash:'SHA-512'},false,['sign']);return new Uint8Array(await crypto.subtle.sign('HMAC',key,m));}
+function _axor(key,data){const o=new Uint8Array(data.length);for(let i=0;i<data.length;i++)o[i]=data[i]^key[i%key.length];return o;}
+function _ai2b(x,nb){const o=new Uint8Array(nb);let v=x;for(let i=nb-1;i>=0;i--){o[i]=Number(v&0xffn);v>>=8n;}return o;}
+function _akeybuf(clsIds){const nb=Math.floor((ALG_P.toString(2).length+7)/8);const t=new Uint8Array(clsIds.length*nb);clsIds.forEach((x,i)=>t.set(_ai2b(x,nb),i*nb));return t;}
+
+function _aEncSparseG(gens,pt,chunk,scale){const data=new TextEncoder().encode(pt);const chunks=[];let off=0;
+ for(let ci=0;ci<Math.ceil(data.length/chunk);ci++){const blk=data.slice(ci*chunk,(ci+1)*chunk);const seen=new Set(),slots=[];
+  for(let j=0;j<blk.length;j++){let l=_alenG(gens,off+j,scale);while(seen.has(l.toString())){l=(l+1n)%ALG_P;if(l===0n)l=1n;}seen.add(l.toString());slots.push([l,blk[j]]);}
+  off+=blk.length;const ells=slots.map(s=>s[0]),T=_atraces(slots),n=_adim(slots);
+  chunks.push({ells:ells.map(x=>x.toString()),T:T.map(x=>x.toString()),n:n.toString(),bytes:blk.length});}
+ return{variant:'sparse',ngen:gens.length,chunks,origLen:data.length};}
+function _aDecSparse(ct){const out=[];for(const ch of ct.chunks){const ells=ch.ells.map(x=>BigInt(x)),T=ch.T.map(x=>BigInt(x));const cv=_avand(ells,T);for(const c of cv)out.push(Number(((c%256n)+256n)%256n));}return new TextDecoder().decode(new Uint8Array(out.slice(0,ct.origLen)));}
+
+async function _aEncCCAG(gens,pt,chunk,scale){const data=new TextEncoder().encode(pt);const brauer=new _ABrauer();const chunks=[];let off=0;
+ for(let ci=0;ci<Math.ceil(data.length/chunk);ci++){const blk=data.slice(ci*chunk,(ci+1)*chunk);const seen=new Set(),slots=[],clsIds=[];
+  for(let j=0;j<blk.length;j++){let l=_alenG(gens,off+j,scale);while(seen.has(l.toString())){l=(l+1n)%ALG_P;if(l===0n)l=1n;}seen.add(l.toString());const tw=_afrob(l,1,ALG_P,ALG_EXT)%ALG_P;clsIds.push(brauer.hide(tw));slots.push([l,blk[j]]);}
+  off+=blk.length;const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=_axor(K,blk);const tag=await _ahmac(K,ctB);const T=_atraces(slots);
+  chunks.push({ct:Array.from(ctB),tag:Array.from(tag),clsIds:clsIds.map(x=>x.toString()),ells:slots.map(s=>s[0].toString()),T:T.map(x=>x.toString()),n:_adim(slots).toString(),bytes:blk.length});}
+ return{variant:'cca',ngen:gens.length,chunks,origLen:data.length};}
+async function _aDecCCA(ct){const out=[];for(const ch of ct.chunks){const clsIds=ch.clsIds.map(x=>BigInt(x));const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=new Uint8Array(ch.ct),tag=new Uint8Array(ch.tag);const calc=await _ahmac(K,ctB);let ok=calc.length===tag.length;for(let i=0;i<tag.length;i++)if(calc[i]!==tag[i])ok=false;if(!ok)throw new Error('MAC verification failed — CCA detected');const blk=_axor(K,ctB);const ells=ch.ells.map(x=>BigInt(x)),T=ch.T.map(x=>BigInt(x));const cv=_avand(ells,T);for(let i=0;i<cv.length;i++)if(Number(((cv[i]%256n)+256n)%256n)!==blk[i])throw new Error('Trace mismatch — tampering suspected');for(const b of blk)out.push(b);}return new TextDecoder().decode(new Uint8Array(out.slice(0,ct.origLen)));}
+
+function _aRandBelow(maxEx){const bits=maxEx.toString(2).length;let r;do{let v=0n;for(let i=0;i<bits;i+=32)v=(v<<32n)|BigInt(Math.floor(Math.random()*0x100000000));r=v%(1n<<BigInt(bits));}while(r>=maxEx);return r;}
+function _aRandSL2(p){const a=_aRandBelow(p-1n)+1n,b=_aRandBelow(p-1n)+1n,c=_aRandBelow(p-1n)+1n;const d=(_ainv(a,p)*((1n+b*c)%p))%p;return[[a,b],[c,d]];}
+function _aSchottkyTrace(a,b,wl,p){let M=[[1n,0n],[0n,1n]];const ia=[[a[1][1],(-a[0][1]%p+p)%p],[(-a[1][0]%p+p)%p,a[0][0]]];const ib=[[b[1][1],(-b[0][1]%p+p)%p],[(-b[1][0]%p+p)%p,b[0][0]]];const gens=[a,b,ia,ib];for(let i=0;i<wl;i++){const G=gens[Math.floor(Math.random()*4)];M=[[(M[0][0]*G[0][0]+M[0][1]*G[1][0])%p,(M[0][0]*G[0][1]+M[0][1]*G[1][1])%p],[(M[1][0]*G[0][0]+M[1][1]*G[1][0])%p,(M[1][0]*G[0][1]+M[1][1]*G[1][1])%p]];}return((M[0][0]+M[1][1])%p+p)%p;}
+async function _aEncSchottky(pt){const data=new TextEncoder().encode(pt);const a=_aRandSL2(ALG_P),b=_aRandSL2(ALG_P);const brauer=new _ABrauer();const clsIds=[];for(let i=0;i<data.length;i++){const tr=_aSchottkyTrace(a,b,i+5,ALG_P);const tw=_afrob(tr,1,ALG_P,ALG_EXT);clsIds.push(brauer.hide(tw));}const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=_axor(K,data);const tag=await _ahmac(K,ctB);return{variant:'schottky',ct:Array.from(ctB),tag:Array.from(tag),clsIds:clsIds.map(x=>x.toString()),origLen:data.length};}
+async function _aDecSchottky(ct){const clsIds=ct.clsIds.map(x=>BigInt(x));const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=new Uint8Array(ct.ct),tag=new Uint8Array(ct.tag);const calc=await _ahmac(K,ctB);let ok=calc.length===tag.length;for(let i=0;i<tag.length;i++)if(calc[i]!==tag[i])ok=false;if(!ok)throw new Error('HMAC verification failed');return new TextDecoder().decode(_axor(K,ctB).slice(0,ct.origLen));}
+
+/* ===== Pyodide-side Python (faithful to notebooks, scipy-free so it loads reliably) ===== */
+const ALG_PY = String.raw`import math, hashlib, hmac, json, secrets
+from math import acosh, ceil
+ALG_P=131071; ALG_EXT=2; KEY_BYTES=32
+def _vand(ells,T,P):
+    t=len(ells); M=[[pow(ells[j],k,P) for j in range(t)]+[T[k]%P] for k in range(t)]
+    for i in range(t):
+        piv=next(r for r in range(i,t) if M[r][i]); M[i],M[piv]=M[piv],M[i]
+        inv=pow(M[i][i],P-2,P); M[i]=[(x*inv)%P for x in M[i]]
+        for r in range(t):
+            if r!=i and M[r][i]:
+                f=M[r][i]; M[r]=[(M[r][c]-f*M[i][c])%P for c in range(t+1)]
+    return [row[-1] for row in M]
+def _mul2(a,b): return [[a[0][0]*b[0][0]+a[0][1]*b[1][0],a[0][0]*b[0][1]+a[0][1]*b[1][1]],[a[1][0]*b[0][0]+a[1][1]*b[1][0],a[1][0]*b[0][1]+a[1][1]*b[1][1]]]
+def _pow2(base,n):
+    res=[[1.0,0.0],[0.0,1.0]]; B=[r[:] for r in base]
+    while n:
+        if n&1: res=_mul2(res,B)
+        B=_mul2(B,B); n>>=1
+    return res
+def _lenG(gens,idx,scale,P):
+    M=_pow2(gens[0],idx+1)
+    for k in range(1,len(gens)): M=_mul2(M,gens[k])
+    L=2*acosh(abs(M[0][0]+M[1][1])/2); l=int(round(scale*L))%P; return l or 1
+def _len(G1,G2,idx,scale,P): return _lenG([G1,G2],idx,scale,P)
+def _traces(slots,P):
+    T=[]
+    for k in range(len(slots)):
+        s=0
+        for l,c in slots: s=(s+c*pow(l,k,P))%P
+        T.append(s)
+    return T
+def _dim(slots): return sum(l*c for l,c in slots)
+def _frob(x,power,p,n): return pow(x,pow(p,power,p**n-1),p**n)
+class _Br:
+    def __init__(self): self.m={}
+    def hide(self,x):
+        if x not in self.m: self.m[x]=len(self.m)+1
+        return self.m[x]
+def _dk(cls,P):
+    nb=(P.bit_length()+7)//8; return hashlib.sha512(b''.join(int(x).to_bytes(nb,'big') for x in cls)).digest()[:KEY_BYTES]
+def _xor(k,d):
+    ks=(k*((len(d)//len(k))+1))[:len(d)]; return bytes(a^b for a,b in zip(d,ks))
+def alg_enc_sparse_g(gens,pt,chunk,scale):
+    data=pt.encode(); chunks=[]; off=0
+    for ci in range(ceil(len(data)/chunk)):
+        blk=data[ci*chunk:(ci+1)*chunk]; seen=set(); slots=[]
+        for j,by in enumerate(blk):
+            l=_lenG(gens,off+j,scale,ALG_P)
+            while l in seen: l=(l+1)%ALG_P or 1
+            seen.add(l); slots.append((l,by))
+        off+=len(blk); T=_traces(slots,ALG_P)
+        chunks.append({'ells':[str(l) for l,_ in slots],'T':[str(x) for x in T],'n':str(_dim(slots)),'bytes':len(blk)})
+    return json.dumps({'variant':'sparse','ngen':len(gens),'chunks':chunks,'origLen':len(data)})
+def alg_dec_sparse(blob):
+    o=json.loads(blob); out=[]
+    for ch in o['chunks']:
+        cv=_vand([int(x) for x in ch['ells']],[int(x) for x in ch['T']],ALG_P); out.extend(c%256 for c in cv)
+    return bytes(out[:o['origLen']]).decode('utf-8')
+def alg_enc_cca_g(gens,pt,chunk,scale):
+    data=pt.encode(); br=_Br(); chunks=[]; off=0
+    for ci in range(ceil(len(data)/chunk)):
+        blk=data[ci*chunk:(ci+1)*chunk]; seen=set(); slots=[]; cls=[]
+        for j,by in enumerate(blk):
+            l=_lenG(gens,off+j,scale,ALG_P)
+            while l in seen: l=(l+1)%ALG_P or 1
+            seen.add(l); tw=_frob(l,1,ALG_P,ALG_EXT)%ALG_P; cls.append(br.hide(tw)); slots.append((l,by))
+        off+=len(blk); K=_dk(cls,ALG_P); ct=_xor(K,blk); tag=hmac.new(K,ct,hashlib.sha512).digest(); T=_traces(slots,ALG_P)
+        chunks.append({'ct':list(ct),'tag':list(tag),'clsIds':[str(x) for x in cls],'ells':[str(l) for l,_ in slots],'T':[str(x) for x in T],'n':str(_dim(slots)),'bytes':len(blk)})
+    return json.dumps({'variant':'cca','ngen':len(gens),'chunks':chunks,'origLen':len(data)})
+def alg_dec_cca(blob):
+    o=json.loads(blob); out=[]
+    for ch in o['chunks']:
+        cls=[int(x) for x in ch['clsIds']]; K=_dk(cls,ALG_P); ct=bytes(ch['ct']); tag=bytes(ch['tag'])
+        if not hmac.compare_digest(tag,hmac.new(K,ct,hashlib.sha512).digest()): raise ValueError('MAC verification failed — CCA detected')
+        blk=_xor(K,ct); cv=_vand([int(x) for x in ch['ells']],[int(x) for x in ch['T']],ALG_P)
+        if any((c%256)!=blk[i] for i,c in enumerate(cv)): raise ValueError('Trace mismatch — tampering suspected')
+        out.extend(blk)
+    return bytes(out[:o['origLen']]).decode('utf-8')
+def _rsl2(p):
+    a=secrets.randbelow(p-1)+1; b=secrets.randbelow(p-1)+1; c=secrets.randbelow(p-1)+1; d=(pow(a,p-2,p)*((1+b*c)%p))%p; return [[a,b],[c,d]]
+def _strace(a,b,wl,p):
+    M=[[1,0],[0,1]]; ia=[[a[1][1],(-a[0][1])%p],[(-a[1][0])%p,a[0][0]]]; ib=[[b[1][1],(-b[0][1])%p],[(-b[1][0])%p,b[0][0]]]; gens=[a,b,ia,ib]
+    for _ in range(wl):
+        G=secrets.choice(gens); M=[[(M[0][0]*G[0][0]+M[0][1]*G[1][0])%p,(M[0][0]*G[0][1]+M[0][1]*G[1][1])%p],[(M[1][0]*G[0][0]+M[1][1]*G[1][0])%p,(M[1][0]*G[0][1]+M[1][1]*G[1][1])%p]]
+    return (M[0][0]+M[1][1])%p
+def alg_enc_schottky(pt):
+    data=pt.encode(); a=_rsl2(ALG_P); b=_rsl2(ALG_P); br=_Br(); cls=[]
+    for i,by in enumerate(data):
+        tr=_strace(a,b,i+5,ALG_P); tw=_frob(tr,1,ALG_P,ALG_EXT); cls.append(br.hide(tw))
+    K=_dk(cls,ALG_P); ct=_xor(K,data); tag=hmac.new(K,ct,hashlib.sha512).digest()
+    return json.dumps({'variant':'schottky','ct':list(ct),'tag':list(tag),'clsIds':[str(x) for x in cls],'origLen':len(data)})
+def alg_dec_schottky(blob):
+    o=json.loads(blob); cls=[int(x) for x in o['clsIds']]; K=_dk(cls,ALG_P); ct=bytes(o['ct']); tag=bytes(o['tag'])
+    if not hmac.compare_digest(tag,hmac.new(K,ct,hashlib.sha512).digest()): raise ValueError('HMAC verification failed')
+    return _xor(K,ct)[:o['origLen']].decode('utf-8')
+
+def alg_enc_sparse(G1,G2,pt,chunk,scale): return alg_enc_sparse_g([G1,G2],pt,chunk,scale)
+def alg_enc_cca(G1,G2,pt,chunk,scale): return alg_enc_cca_g([G1,G2],pt,chunk,scale)
+`;
+
+
+function _aEncSparse(G1,G2,pt,chunk,scale){return _aEncSparseG([G1,G2],pt,chunk,scale);}
+async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,chunk,scale);}
+
+/* ===== UI wiring v3 (N-gen key + 2/3 selector + watchdog + decrypt console) ===== */
+(function(){
+ let algVariant='sparse', algNgen=2, algEngine=null, algPy=null;
+ const MSG_BYTE_CAP=128; // evidence-based: keeps runtime ~instant and stays below float-overflow of the length map; far too small for an image
+ const $=id=>document.getElementById(id);
+ function byteLen(s){return new TextEncoder().encode(s).length;}
+ function updCount(){ const v=$('algIn').value; const nb=byteLen(v), nc=[...v].length; const el=$('algCount');
+  el.textContent=nb+' / '+MSG_BYTE_CAP+' bytes'+(nb!==nc?(' \u00b7 '+nc+' chars'):''); el.className='alg-count'+(nb>MSG_BYTE_CAP?' over':''); }
+ function setStatus(el,t,c){el.innerHTML=t;el.className='alg-status'+(c?' '+c:'');}
+ const status=$('algStatus'), dstatus=$('algDStatus');
+ const VDESC={
+  sparse:'<strong>Sparse \u00b7 trace-driven.</strong> The pure-algebraic construction with no hash. Each byte\u2019s count becomes a companion block of x<sup>\u2113</sup>\u22121; blocks are assembled block-diagonally and disguised by a random diagonal similarity D<sup>\u22121</sup>AD. Decryption recovers the message by solving the Vandermonde system from the power-trace vector T. The companion matrix is the algebraic object; recovery is by trace inversion.',
+  cca:'<strong>Distinct + Frobenius/Brauer \u00b7 CCA2.</strong> Distinct lengths \u2113 are passed through a Frobenius twist and Brauer-class hiding to derive the key, wrapped with the Fujisaki\u2013Okamoto KEM (XOR + HMAC-SHA-512) for IND-CCA2 authentication. The power-trace vector T is retained as a tamper-consistency check. Recovery is by the hashed KEM; the trace check runs alongside.',
+  schottky:'<strong>Schottky group \u00b7 SL\u2082(\U0001D53D\u209A).</strong> Lengths come from random Schottky words over SL\u2082(\U0001D53D\u209A) generators rather than a fixed pair, twisted and hidden as above, then FO-KEM wrapped. The companion matrix and its eigenvalues are shown as the algebraic object; recovery is by the hashed KEM. Each encryption uses fresh random generators, so a ciphertext is self-contained.'
+ };
+
+ /* ---- key input ---- */
+ function parseNum(raw){ if(typeof raw!=='string')return NaN; let s=raw.trim(); if(s==='')return NaN;
+  s=s.replace(/\u2212/g,'-').replace(/[\u00a0\u2007\u202f]/g,'');
+  if(!/^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$/.test(s))return NaN; const v=Number(s); return Number.isFinite(v)?v:NaN; }
+ function readGen(i){ const v=['00','01','10','11'].map(rc=>parseNum($('alg_g'+i+'_'+rc).value));
+  ['00','01','10','11'].forEach((rc,k)=>{ const el=$('alg_g'+i+'_'+rc); if(el&&el.value.trim()!==''&&Number.isNaN(v[k]))el.classList.add('cellbad'); else if(el)el.classList.remove('cellbad'); });
+  return [[v[0],v[1]],[v[2],v[3]]]; }
+ function traceOf(G){ return G[0][0]+G[1][1]; }
+ function updTrace(){ for(let i=0;i<algNgen;i++){ const G=readGen(i); const tr=traceOf(G); const el=$('algTr'+i); if(!el)continue;
+   if([G[0][0],G[0][1],G[1][0],G[1][1]].some(x=>Number.isNaN(x))){ el.textContent='incomplete'; el.className='gtrace'; }
+   else if(Math.abs(tr)>2){ el.textContent='trace '+tr.toFixed(2)+' \u2713'; el.className='gtrace ok'; }
+   else { el.textContent='trace '+tr.toFixed(2)+' \u2717 need |tr|>2'; el.className='gtrace bad'; } } }
+ function getGens(){ const g=[]; for(let i=0;i<algNgen;i++)g.push(readGen(i)); return g; }
+ function gensValid(){ const gs=getGens(); for(const G of gs){ if([G[0][0],G[0][1],G[1][0],G[1][1]].some(x=>Number.isNaN(x)))return false; if(Math.abs(traceOf(G))<=2)return false; } return true; }
+ function setGen(i,G){ const f=['00','01','10','11'],flat=[G[0][0],G[0][1],G[1][0],G[1][1]]; f.forEach((rc,k)=>{ const el=$('alg_g'+i+'_'+rc); if(el)el.value=flat[k]; }); }
+ function demoKey(){ const s=[1.2,1.5,1.1];
+  setGen(0,[[Math.cosh(s[0])+Math.sinh(s[0]),Math.sinh(s[0])],[Math.sinh(s[0]),Math.cosh(s[0])-Math.sinh(s[0])]]);
+  setGen(1,[[Math.cosh(s[1]),Math.sinh(s[1])],[Math.sinh(s[1]),Math.cosh(s[1])]]);
+  setGen(2,[[Math.cosh(s[2])+0.3,Math.sinh(s[2])],[Math.sinh(s[2]),Math.cosh(s[2])-0.3]]); updTrace(); }
+ function randKey(){ for(let i=0;i<3;i++){ const s=0.8+Math.random()*1.4;
+   const a=Math.cosh(s)+Math.sinh(s)*(Math.random()<.5?1:-1), b=Math.sinh(s)*(0.5+Math.random()), c=Math.sinh(s)*(0.5+Math.random()), d=(1+b*c)/a;
+   setGen(i,[[a,b],[c,d]]); } updTrace(); }
+ ['0','1','2'].forEach(i=>['00','01','10','11'].forEach(rc=>{ const el=$('alg_g'+i+'_'+rc); if(el)el.addEventListener('input',updTrace); }));
+ $('algKeyDemo').addEventListener('click',demoKey);
+ $('algKeyRand').addEventListener('click',randKey);
+ $('algIn').addEventListener('input',updCount); updCount();
+
+ /* ---- generator-count selector ---- */
+ function setNgen(n){ algNgen=n;
+  $('algGenSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('active',+b.dataset.g===n));
+  $('algGen2').classList.toggle('hidden',n<3); updTrace(); }
+ $('algGenSeg').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>setNgen(+btn.dataset.g)));
+
+ /* ---- variant selector ---- */
+ $('algVseg').querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+   $('algVseg').querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+   btn.classList.add('active'); algVariant=btn.dataset.v; $('algVdesc').innerHTML=VDESC[algVariant];
+   $('algPanel').classList.remove('show');
+   const sch=algVariant==='schottky';
+   $('algSchNote').style.display=sch?'block':'none';
+   $('algKeybox').style.opacity=sch?'.5':'1';
+   $('algGenSegGroup').style.opacity=sch?'.5':'1';
+  });
+ });
+ $('algVdesc').innerHTML=VDESC.sparse;
+ demoKey(); setNgen(2);
+
+ /* ---- engine: JS first (instant). Reuse Pyodide only if the main tool already loaded it, OR if user opts in. ---- */
+ let algPyLoading=null;
+ function loadPyodideForAlg(){ if(algPyLoading)return algPyLoading;
+  algPyLoading=new Promise((res,rej)=>{
+   if(window.loadPyodide){res();return;}
+   const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/pyodide/v0.27.3/full/pyodide.js';
+   s.onload=()=>res();s.onerror=()=>rej(new Error('loader'));document.head.appendChild(s);
+   setTimeout(()=>rej(new Error('timeout')),60000);});
+  return algPyLoading; }
+ async function ensureCPython(stEl){ // explicit opt-in path
+  if(algEngine==='pyodide')return true;
+  setStatus(stEl,'Loading CPython engine (Pyodide) \u2014 this downloads ~10MB and may take a minute on first use\u2026','run');
+  try{ if(window.pyodide && window.loadPyodide){ algPy=window.pyodide; } else { await loadPyodideForAlg(); algPy=await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.3/full/'}); }
+   await algPy.runPythonAsync(ALG_PY); algEngine='pyodide'; return true;
+  }catch(e){ setStatus(stEl,'Could not load CPython ('+e.message+'). Staying on the JavaScript engine.','warn'); return false; } }
+ function ensureJS(){ if(!algEngine)algEngine='js'; }
+
+ /* ---- watchdog: if a JS op runs unexpectedly long, tell the user and offer CPython ---- */
+ function startWatch(stEl,label){
+  const t0=Date.now();
+  const id=setTimeout(()=>{ setStatus(stEl,label+' is taking longer than expected on the JavaScript engine. It should still finish \u2014 or you can <button class="alg-mini cpybtn" id="algCpyOffer">switch to CPython</button>.','warn');
+    const off=$('algCpyOffer'); if(off)off.addEventListener('click',()=>ensureCPython(stEl)); },30000);
+  return {done:()=>{clearTimeout(id);return Date.now()-t0;}};
+ }
+
+ /* ---- sparsity sketch (shared) ---- */
+ function drawSpy(canvasId,ells){ const cv=$(canvasId),ctx=cv.getContext('2d'),W=cv.width,H=cv.height; ctx.clearRect(0,0,W,H);
+  const css=getComputedStyle(document.documentElement);
+  const gold=(css.getPropertyValue('--gold')||'#c9a84c').trim(); const dim=(css.getPropertyValue('--border-dim')||'#1e3a64').trim();
+  const blocks=ells.map(x=>Number(x)); const total=blocks.reduce((a,b)=>a+b,0); if(total===0)return;
+  const scale=Math.min(W,H)/total; ctx.strokeStyle=dim;ctx.lineWidth=1;ctx.strokeRect(.5,.5,W-1,H-1); let off=0;
+  for(const b of blocks){ const x=off*scale,sz=b*scale; ctx.strokeStyle=dim;ctx.strokeRect(x,x,sz,sz); ctx.fillStyle=gold;
+   const step=Math.max(sz/b,0.8);
+   for(let i=1;i<b;i++){ const px=x+(i-1)*step, py=x+i*step; ctx.fillRect(px,py,Math.max(step*.7,1),Math.max(step*.7,1)); }
+   ctx.fillRect(x+(b-1)*step, x, Math.max(step*.7,1), Math.max(step*.7,1)); off+=b; } }
+ function showPanel(panelId,dataId,spyId,capId,noteId,blobObj){ const ch=(blobObj.chunks?blobObj.chunks[0]:blobObj); const ells=ch.ells||[]; let rows='';
+  const ng=blobObj.ngen?(' \u00b7 '+blobObj.ngen+' generators'):'';
+  if(blobObj.variant!=='schottky'){
+   rows+='<div class="row"><span class="lab">dim n</span><span class="val">'+(ch.n||'\u2014')+' &nbsp;(\u03a3 \u2113\u00b7c, block-diagonal'+ng+')</span></div>';
+   rows+='<div class="row"><span class="lab">\u2113 vector</span><span class="val">['+ells.join(', ')+']</span></div>';
+   if(ch.T)rows+='<div class="row"><span class="lab">trace T</span><span class="val">['+ch.T.join(', ')+']</span></div>';
+  } else {
+   rows+='<div class="row"><span class="lab">class IDs</span><span class="val">['+(blobObj.clsIds||[]).slice(0,16).join(', ')+(blobObj.clsIds&&blobObj.clsIds.length>16?', \u2026':'')+']</span></div>';
+   rows+='<div class="row"><span class="lab">length</span><span class="val">'+(blobObj.origLen||0)+' bytes \u00b7 random SL\u2082(\U0001D53D\u209A) generators</span></div>';
+  }
+  $(dataId).innerHTML=rows; const cap=$(capId);
+  if(blobObj.variant!=='schottky' && ells.length){ drawSpy(spyId,ells); cap.textContent='block-diagonal companion structure (chunk 1)'; }
+  else { const ctx=$(spyId).getContext('2d'); ctx.clearRect(0,0,220,220); cap.textContent='(Schottky uses random generators \u2014 no fixed block layout)'; }
+  const note=$(noteId);
+  if(blobObj.variant==='sparse') note.textContent='Recovery path: solve \u03a3 c\u1d62 \u2113\u1d62\u1d4f = T\u2096 for the byte counts c\u1d62 via Gauss\u2013Jordan over \U0001D53D_P, then c\u1d62 mod 256. No hash is used \u2014 this is the pure trace-inversion path.';
+  else if(blobObj.variant==='cca') note.textContent='Recovery path: derive the key from the Brauer class-IDs, verify HMAC-SHA-512, XOR-decrypt, then re-solve the Vandermonde trace system as a tamper-consistency check.';
+  else note.textContent='Recovery path: derive the key from the Brauer class-IDs of the Schottky-word traces, verify HMAC-SHA-512, XOR-decrypt. The companion matrix is shown as the algebraic object.';
+  $(panelId).classList.add('show'); }
+
+ /* ---- encrypt (main station) ---- */
+ async function doEnc(){ const msg=$('algIn').value; if(!msg){setStatus(status,'Type a message first.','err');return;}
+  if(byteLen(msg)>MSG_BYTE_CAP){ setStatus(status,'Message is '+byteLen(msg)+' bytes \u2014 the demo caps at '+MSG_BYTE_CAP+' bytes to keep the construction fast and text-only. Please shorten it.','err'); updCount(); return; }
+  if(algVariant!=='schottky' && !gensValid()){ setStatus(status,'Set a valid key first \u2014 every generator needs |trace| > 2.','err'); updTrace(); return; }
+  $('algEncBtn').disabled=true;$('algDecBtn').disabled=true; setStatus(status,'Working\u2026','run');
+  const w=startWatch(status,'Encryption');
+  try{ ensureJS(); const gens=getGens(); let blob;
+   if(algEngine==='pyodide'){ algPy.globals.set('_gs',algPy.toPy(gens)); algPy.globals.set('_m',msg);
+    if(algVariant==='sparse')blob=await algPy.runPythonAsync('alg_enc_sparse_g(_gs.to_py(),_m,5,10)');
+    else if(algVariant==='cca')blob=await algPy.runPythonAsync('alg_enc_cca_g(_gs.to_py(),_m,8,10)');
+    else blob=await algPy.runPythonAsync('alg_enc_schottky(_m)'); blob=JSON.parse(blob);
+   } else { if(algVariant==='sparse')blob=_aEncSparseG(gens,msg,5,10);
+    else if(algVariant==='cca')blob=await _aEncCCAG(gens,msg,8,10); else blob=await _aEncSchottky(msg); }
+   const ms=w.done(); $('algBlob').value=JSON.stringify(blob);
+   showPanel('algPanel','algData','algSpy','algSpyCap','algRecNote',blob);
+   setStatus(status,'Encrypted \u00b7 '+algVariant+(blob.ngen?(' \u00b7 '+blob.ngen+' gens'):'')+' \u00b7 '+(algEngine==='pyodide'?'CPython':'JavaScript')+' \u00b7 '+ms+' ms.','ok');
+  }catch(e){ w.done(); setStatus(status,'Error: '+e.message,'err'); } $('algEncBtn').disabled=false;$('algDecBtn').disabled=false; }
+
+ /* ---- decrypt (main station, in place) ---- */
+ async function doDec(){ const raw=$('algBlob').value.trim(); if(!raw){setStatus(status,'Nothing to decrypt.','err');return;}
+  $('algEncBtn').disabled=true;$('algDecBtn').disabled=true; setStatus(status,'Working\u2026','run');
+  const w=startWatch(status,'Decryption');
+  try{ ensureJS(); const obj=JSON.parse(raw); const v=obj.variant||algVariant; let pt;
+   if(algEngine==='pyodide'){ algPy.globals.set('_b',raw);
+    if(v==='sparse')pt=await algPy.runPythonAsync('alg_dec_sparse(_b)'); else if(v==='cca')pt=await algPy.runPythonAsync('alg_dec_cca(_b)'); else pt=await algPy.runPythonAsync('alg_dec_schottky(_b)');
+   } else { if(v==='sparse')pt=_aDecSparse(obj); else if(v==='cca')pt=await _aDecCCA(obj); else pt=await _aDecSchottky(obj); }
+   const ms=w.done(); $('algIn').value=pt; showPanel('algPanel','algData','algSpy','algSpyCap','algRecNote',obj);
+   setStatus(status,'Decrypted \u00b7 recovered '+pt.length+' char(s) \u00b7 '+(algEngine==='pyodide'?'CPython':'JavaScript')+' \u00b7 '+ms+' ms.','ok');
+  }catch(e){ w.done(); setStatus(status,'Decrypt failed: '+e.message,'err'); } $('algEncBtn').disabled=false;$('algDecBtn').disabled=false; }
+
+ /* ---- console actions (main station) ---- */
+ function doCopy(){ const t=$('algBlob').value; if(!t){setStatus(status,'Nothing to copy \u2014 encrypt first.','err');return;}
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(()=>setStatus(status,'Ciphertext copied to clipboard.','ok'),()=>fallbackCopy(t)); } else fallbackCopy(t); }
+ function fallbackCopy(t){ const ta=$('algBlob'); ta.focus(); ta.select(); try{ document.execCommand('copy'); setStatus(status,'Ciphertext copied.','ok'); }catch(e){ setStatus(status,'Copy not supported \u2014 select the text manually.','err'); } }
+ function saveBlob(text,name,stEl){ if(!text){setStatus(stEl,'Nothing to save.','err');return;} const blob=new Blob([text],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); setStatus(stEl,'Saved '+name,'ok'); }
+ $('algCopy').addEventListener('click',doCopy);
+ $('algSave').addEventListener('click',()=>saveBlob($('algBlob').value,'msia_'+algVariant+'_ciphertext.json',status));
+ $('algUpload').addEventListener('click',()=>$('algFile').click());
+ $('algFile').addEventListener('change',function(ev){ const f=ev.target.files[0]; if(!f)return; const r=new FileReader();
+  r.onload=()=>{ try{ const obj=JSON.parse(r.result); $('algBlob').value=JSON.stringify(obj);
+    if(obj.variant){ algVariant=obj.variant; $('algVseg').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.v===obj.variant)); $('algVdesc').innerHTML=VDESC[obj.variant]||''; }
+    if(obj.ngen) setNgen(obj.ngen);
+    setStatus(status,'Loaded '+f.name+' \u2014 click Decrypt to recover.','ok'); }catch(e){ setStatus(status,'That file is not valid JSON.','err'); } };
+  r.readAsText(f); ev.target.value=''; });
+ $('algEncBtn').addEventListener('click',doEnc);
+ $('algDecBtn').addEventListener('click',doDec);
+
+ /* ===== standalone DECRYPT console ===== */
+ async function doDecConsole(){ const raw=$('algDIn').value.trim(); if(!raw){setStatus(dstatus,'Paste or upload a ciphertext first.','err');return;}
+  try{ const peek=JSON.parse(raw); if(peek&&peek.origLen&&peek.origLen>MSG_BYTE_CAP*4){ setStatus(dstatus,'This ciphertext declares '+peek.origLen+' bytes, beyond the demo limit. Decryption is blocked to keep the construction fast.','err'); return; } }catch(e){}
+  $('algDDecBtn').disabled=true; setStatus(dstatus,'Working\u2026','run'); const w=startWatch(dstatus,'Decryption');
+  try{ ensureJS(); const obj=JSON.parse(raw); const v=obj.variant; if(!v)throw new Error('missing "variant" field \u2014 is this an MSIA ciphertext?'); let pt;
+   if(algEngine==='pyodide'){ algPy.globals.set('_b',raw);
+    if(v==='sparse')pt=await algPy.runPythonAsync('alg_dec_sparse(_b)'); else if(v==='cca')pt=await algPy.runPythonAsync('alg_dec_cca(_b)'); else pt=await algPy.runPythonAsync('alg_dec_schottky(_b)');
+   } else { if(v==='sparse')pt=_aDecSparse(obj); else if(v==='cca')pt=await _aDecCCA(obj); else pt=await _aDecSchottky(obj); }
+   const ms=w.done(); $('algDOut').value=pt; showPanel('algDPanel','algDData','algDSpy','algDSpyCap','algDRecNote',obj);
+   setStatus(dstatus,'Decrypted \u00b7 '+v+(obj.ngen?(' \u00b7 '+obj.ngen+' gens'):'')+' \u00b7 recovered '+pt.length+' char(s) \u00b7 '+(algEngine==='pyodide'?'CPython':'JavaScript')+' \u00b7 '+ms+' ms.','ok');
+  }catch(e){ w.done(); setStatus(dstatus,'Decrypt failed: '+e.message,'err'); $('algDOut').value=''; } $('algDDecBtn').disabled=false; }
+ $('algDDecBtn').addEventListener('click',doDecConsole);
+ $('algDUpload').addEventListener('click',()=>$('algDFile').click());
+ $('algDFile').addEventListener('change',function(ev){ const f=ev.target.files[0]; if(!f)return; const r=new FileReader();
+  r.onload=()=>{ try{ const obj=JSON.parse(r.result); $('algDIn').value=JSON.stringify(obj); setStatus(dstatus,'Loaded '+f.name+' \u2014 click Decrypt to recover.','ok'); }catch(e){ setStatus(dstatus,'That file is not valid JSON.','err'); } };
+  r.readAsText(f); ev.target.value=''; });
+ $('algDClear').addEventListener('click',()=>{ $('algDIn').value=''; $('algDOut').value=''; $('algDPanel').classList.remove('show'); setStatus(dstatus,'','');});
+})();
+
+</script>
+<!-- ════════════════ END ALGEBRAIC CONSTRUCTIONS SECTION ════════════════ -->
+
 <div class="rs-warn" style="margin:1.5rem 0 .5rem;font-size:.82rem">
   <strong>Research proof-of-concept.</strong> MSIA is not an accredited or independently audited cipher. Security numbers measure SHA-512 and Grover resistance (Option A). For any sensitive use, operate only within procedures accredited by your own organization.
 </div>
 <footer><span class="mono">Logarchéon Inc. · Modular Symbolic Intelligence Architecture</span>
-The blob stores only ciphertext and HMAC-SHA-512 tag — never the key — and records generator count and precision so the receiver can match them. Security rests on SHA-512.
+The blob stores only ciphertext and an HMAC-SHA-512 tag — never the key — and records the generator count and precision so the receiver can match them. The geometric construction is implemented faithfully; pending the formal hardness proofs, the cipher key is derived through SHA-512 so a guaranteed security floor is in place today.
 <div class="engine" id="engineNote"></div></footer>
 <script>
 /* ===== verified MSIA JS core (g generators, both presets) ===== */
