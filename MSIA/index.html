@@ -445,7 +445,7 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 <div class="secpanel algebraic"><h3>Pure algebraic (Sparse)</h3><span class="tag weak">not secure as-is</span>
 <div class="body">Decryption by Vandermonde inversion of the power-sum traces — no hash. Mathematically closest to the bare construction; not cryptographically secure on its own and carries no authentication.</div></div>
 <div class="secpanel hashed"><h3>Hashed FO-KEM (this demo)</h3><span class="tag ok">authenticated</span>
-<div class="body">Lengths → SHA-512 → 256-bit key, XOR keystream, HMAC-SHA-512 tag. Gives authentication (CCA2-style). Security rests on SHA-512; the brute-force and quantum figures in the live panel above measure SHA-512 resistance. The geometric hardness (Option B) is the open research direction.</div></div>
+<div class="body">Lengths → SHA-512 → 256-bit key, XOR keystream, HMAC-SHA-512 tag. Gives authentication (CCA2-style). The demo faithfully implements the geometric construction, but since the formal hardness proofs are still in progress, it derives the cipher key through SHA-512 so a guaranteed security floor is in place today; the brute-force and quantum figures in the live panel above measure that SHA-512 floor. Treating the geometry itself as the trapdoor (Option B) is the open research direction.</div></div>
 </div>
 
 <div class="nbody" style="padding:.8rem 0 .4rem">
@@ -558,12 +558,12 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
       <div class="rs-hard">
         <div class="htag">Option A · Current implementation</div>
         <h4>Hashed / FO-KEM (SHA-512 security)</h4>
-        <p>The geodesic lengths ℓ<sub>i</sub> derived from the key are fed into SHA-512, which outputs the actual cipher key K. Decryption recomputes the ℓ<sub>i</sub> from the generators and re-derives K. Security rests on SHA-512 and HMAC — the geometry is used to generate the lengths, but the actual cryptographic protection is the hash. This is what the demo implements. Under Grover's algorithm, SHA-512's effective quantum security is 2<sup>128</sup> at High mode with g≥3 generators — the NIST quantum-safe bar.</p>
+        <p>The full geometric construction is implemented faithfully — the geodesic lengths ℓ<sub>i</sub> are derived from the key generators exactly as the scheme specifies. Because the formal hardness proofs (Lean 4 verification and external cryptanalysis) are not yet finished, the demo does not yet rely on the geometric inversion problem for its security guarantee; instead it feeds the ℓ<sub>i</sub> into SHA-512 to produce the actual cipher key K, with an HMAC tag for authentication. This gives a guaranteed, well-understood security floor today, independent of how the geometric hardness ultimately resolves. Decryption recomputes the ℓ<sub>i</sub> from the generators and re-derives K. Under Grover's algorithm, SHA-512's effective quantum security is 2<sup>128</sup> at High mode with g≥3 generators — the NIST quantum-safe bar.</p>
       </div>
       <div class="rs-hard">
         <div class="htag">Option B · Research direction</div>
         <h4>Geometric trapdoor (spectral hardness)</h4>
-        <p>The characteristic polynomial χ(z) is the genuine ciphertext, and decryption requires inverting the length-spectrum map — recovering the ℓ<sub>i</sub> from χ(z) without the key. This is the version where the geometry itself is the cryptographic primitive. Its security would rest on the inverse spectral problem for Kleinian groups, which is an open problem in arithmetic geometry. This version is <strong>not implemented in this demo</strong> — it is the research direction whose formalization is ongoing.</p>
+        <p>The characteristic polynomial χ(z) is treated as the genuine ciphertext, and decryption requires inverting the length-spectrum map — recovering the ℓ<sub>i</sub> from χ(z) without the key. This is the version where the geometry itself carries the security guarantee, resting on the inverse spectral problem for Kleinian groups, an open problem in arithmetic geometry. The geometric construction is already built (Option A uses the same lengths); what Option B requires, and what is <strong>not yet established</strong>, is the formal proof that recovering those lengths is hard. Until that proof and external cryptanalysis are complete, the demo keeps the SHA-512 floor rather than relying on the geometric hardness alone.</p>
       </div>
     </div>
 
@@ -746,13 +746,97 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
     <h3>Scale of the Program</h3>
     <p>This program is comparable to what lattice cryptography represented in 1996 before Ajtai's worst-case to average-case reduction — a mathematical structure with deep hardness properties that had not yet been translated into a cryptographic framework. Three differences favour this program: the mathematical depth is greater (the Langlands program and quantum gravity are harder than lattice geometry); the work is already further along (two working implementations, a provisional patent, formal hardness papers); and the timing is better (NIST has just standardized lattice systems and the field is actively seeking diversity of hardness assumptions).</p>
 
+    <h3>Why Hardness is Rare — and Where This Construction Sits</h3>
+    <p>The core identity det(I&nbsp;&minus;&nbsp;zA)<sup>&minus;1</sup> = exp(&Sigma; Tr(A<sup>m</sup>)z<sup>m</sup>/m) holds for any matrix over any commutative ring — formally, there are infinitely many zeta-function-based constructions. Genuine cryptographic hardness, however, appears only when the inverse problem is computationally deep. The table below shows why most zeta functions do not yield hard cryptosystems, and which ones do.</p>
+    <div style="overflow-x:auto;margin:1rem 0 1.4rem">
+    <table class="rs-ptable">
+      <thead><tr><th>Zeta function</th><th>Primitives</th><th>Inverse problem</th><th>Hard?</th></tr></thead>
+      <tbody>
+        <tr><td>Riemann ζ(s)</td><td>Rational primes {2,3,5,…}</td><td>Factor integers / recover primes</td><td style="color:var(--err)">No — primes are explicitly constructible</td></tr>
+        <tr><td>Ihara ζ(X) of a graph</td><td>Prime cycles in finite graph</td><td>Factor the Ihara zeta polynomial</td><td style="color:var(--muted)">Moderate — depends on graph structure</td></tr>
+        <tr><td>Ruelle ζ for generic map</td><td>Periodic orbits of f</td><td>Recover f from its orbit count</td><td style="color:var(--muted)">Depends entirely on f</td></tr>
+        <tr class="pnow"><td><strong>Selberg ζ<sub>Γ</sub>(s) — MSIA</strong></td><td>Primitive closed geodesics of ℍⁿ/Γ</td><td>Recover length spectrum from Γ</td><td style="color:var(--ok)"><strong>Yes — inverse spectral problem is open</strong></td></tr>
+        <tr class="pnear"><td>Artin L-function of Galois rep ρ</td><td>Frobenius conjugacy classes</td><td>Recover ρ from L(ρ,s)</td><td style="color:var(--ok)">Yes — inverse Galois problem</td></tr>
+        <tr class="pnear"><td>Automorphic L-function</td><td>Hecke eigenvalues</td><td>Recover automorphic form from L-function</td><td style="color:var(--ok)">Yes — conjectured hard; Langlands core</td></tr>
+        <tr class="pfar"><td>Hasse-Weil ζ(V/𝔽<sub>q</sub>)</td><td>Points of variety over 𝔽<sub>q<sup>m</sup></sub></td><td>Recover variety from zeta</td><td style="color:var(--ok)">Yes — Torelli problem</td></tr>
+        <tr class="pfar"><td>Motivic zeta functions</td><td>Motivic cohomology classes</td><td>Recover motive from ζ</td><td style="color:var(--ok)">Yes — deeply open</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The hard cases are not arbitrary — they cluster around the same objects: automorphic forms, algebraic varieties over finite fields, Galois representations, and hyperbolic geometry. The Langlands program conjectures that all of these L-functions are instances of a single object (automorphic L-functions attached to representations of adèle groups), which would mean the different hard constructions may not yield <em>independent</em> hardness assumptions but rather different encodings of the same underlying problem. This is the direct analogue of how RSA, Diffie-Hellman, and ECDLP all seemed independent until Shor revealed they share abelian group structure. Whether that unification holds in the Langlands case remains an open conjecture — which is itself part of what makes this territory hard.</p>
+
+    <h3>Why the Kleinian / Geodesic Instantiation is Particularly Suited</h3>
+    <p>Among the hard instantiations in the table, the Selberg / Kleinian construction has four properties that distinguish it from the others as a cryptographic primitive.</p>
+    <ul>
+      <li><strong>Mostow rigidity (n≥3).</strong> For hyperbolic manifolds of dimension 3 or higher, the geometry uniquely determines the group Γ up to isometry. The inverse problem has a unique answer — the attacker is not searching for "any group that fits" but for the specific one. Uniqueness makes the problem harder, not easier.</li>
+      <li><strong>Prime Geodesic Theorem as a calibration tool.</strong> The precise asymptotic #{γ : ℓ(γ) ≤ L} ~ e<sup>hL</sup>/hL gives exact control over the density of primitive geodesics used as key material. This is the analogue of knowing exactly how many RSA primes exist below a bound — it lets security parameters be calibrated rigorously.</li>
+      <li><strong>No abelian Fourier structure.</strong> The geodesic flow on ℍⁿ/Γ has non-abelian symmetry for n≥2. For n≥3 the isometry group SO(n,1) is simple and non-abelian in a way that has no known Fourier sampling structure. Shor's algorithm has no obvious application.</li>
+      <li><strong>Selberg's analogue of RH is proven.</strong> The zeros of the Selberg zeta function ζ<sub>Γ</sub>(s) are the eigenvalues of the Laplacian on ℍⁿ/Γ. The Riemann Hypothesis analogue for ζ<sub>Γ</sub> is proved (Selberg 1956 for n=2; subsequently for n>2). The distribution of the "cryptographic primes" (geodesics) is provably well-controlled — a stronger foundation than classical cryptography has for rational primes, where RH is still open.</li>
+    </ul>
+
+    <h3>Open Problems: Usable Identities Beyond Zeta Functions</h3>
+    <p>Abstracting away the zeta / L-function structure entirely, the operative pattern is: a mathematical identity that translates between two representations, where the forward direction is efficient and the inverse direction connects to a deeply open problem. This pattern appears in several areas outside the Langlands hierarchy, constituting a broader landscape of potential post-quantum primitives.</p>
+
+    <div class="rs-compute-grid" style="grid-template-columns:1fr 1fr;margin:1rem 0">
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Topology</div>
+        <h4>Knot invariants / Chern-Simons TQFT</h4>
+        <p>The Jones polynomial V(L;&thinsp;t) = Z(ℝ³, L) (Chern-Simons partition function on link L). Computing V from L is #P-hard in general. The inverse — recovering L from V(L;&thinsp;t) — is an open problem in low-dimensional topology. Quantum resistant: the relevant group structure (quantum groups at roots of unity) is non-abelian with no known Fourier sampling structure.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Topology</div>
+        <h4>Mapping class groups / pseudo-Anosov dilatation</h4>
+        <p>The mapping class group Mod(Σ) of a surface contains the hard conjugacy problem and subsurface projection machinery. The identity connecting pseudo-Anosov maps to their dilatation spectra (Thurston's geometrization) is a potential encryption primitive, with hardness from the conjugacy problem in Mod(Σ).</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Algebraic Geometry</div>
+        <h4>Dessins d'Enfants / Belyi correspondence</h4>
+        <p>A finite bipartite graph on a Riemann surface (dessin) corresponds bijectively to a Belyi pair (X, β). The absolute Galois group Gal(Q̄/Q) acts on dessins in a way that is still deeply mysterious. Identity: dessin ↔ Belyi pair. Hard problem: given a dessin, recover the algebraic curve over Q̄. Grothendieck's conjecture (faithfulness of the Galois action on dessins) is still open. Already listed as A3 in Track A above — this is the same territory reached from a different angle.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Algebraic Geometry</div>
+        <h4>Anabelian geometry / étale fundamental group</h4>
+        <p>Mochizuki proved that the étale fundamental group π₁<sup>ét</sup>(X, x̄) completely determines X for hyperbolic curves over number fields. Identity: X → π₁<sup>ét</sup>(X). Hard problem: recover X from π₁<sup>ét</sup>(X). The proof is existential — no efficient algorithm is known. Hardness comes from the profinite structure of Gal(Q̄/Q).</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Analysis / Inverse Problems</div>
+        <h4>Inverse scattering (3D)</h4>
+        <p>The 1D inverse scattering problem (given S-matrix, recover potential V(x)) is solved via the Marchenko equation. The 3D case remains open. Identity: V(x) → S-matrix via the Lippmann-Schwinger equation. Hard problem: recover V from S in 3 dimensions. Resistant to quantum attacks because the problem is analytic and spectral, not algebraic.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Analysis / Inverse Problems</div>
+        <h4>Phase retrieval / crystallographic phase problem</h4>
+        <p>Given |F̂(k)|² (diffraction magnitudes) but not the phase of F̂(k) = &int;ρ(x)e<sup>ikx</sup>dx, recover ρ(x). Open in full generality for 2D and 3D. Identity: Fourier transform ρ ↔ F̂. Already used in some cryptographic proposals, though the hardness basis is less deep than the Langlands / spectral route.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Representation Theory</div>
+        <h4>Yang-Baxter / quantum groups</h4>
+        <p>Solutions R to R₁₂R₁₃R₂₃ = R₂₃R₁₃R₁₂ classify braided tensor categories. The identity connects R-matrices to knot invariants via the Reshetikhin-Turaev construction. Hard problem: given a knot invariant, recover R. Relevant to topological quantum computation; no known Fourier sampling vulnerability.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Representation Theory</div>
+        <h4>Tensor decomposition</h4>
+        <p>Computing tensor rank is NP-hard. Identity: a rank-r tensor T = &Sigma;<sub>i</sub> a<sub>i</sub> ⊗ b<sub>i</sub> ⊗ c<sub>i</sub>. Hard problem: given T, find its minimal decomposition. Resistant to known quantum attacks. The hardness is combinatorial rather than number-theoretic, distinguishing it from the Langlands cluster.</p>
+      </div>
+
+    </div>
+    <p>These alternatives converge on the same structural insight: deep mathematical hardness in the inverse direction tends to appear precisely where the relevant symmetry group is non-abelian and where the global mathematics community has worked for decades without a constructive inversion algorithm. The zeta / L-function route and the topological / anabelian route are different doors into the same territory — and the Langlands program conjectures they are ultimately different views of the same object.</p>
+
     <h3>Relation to ASI Architecture and Indo-Pacific Lawfare</h3>
     <p>This cryptographic study sits alongside, and is informed by, Logarchéon's two primary research tracks: <strong>ASI seed architecture</strong> (the CEAS / Ψ-operator / GRAIL triadic framework for recursive intelligence) and <strong>Indo-Pacific lawfare</strong> (legal-strategic analysis of the Taiwan Strait and associated legal instruments). The same spectral-geometric methods that appear in MSIA — Kleinian groups, geodesic flow, trace formulas — appear in the mathematical substrate of the CEAS architecture. The same concern with asymmetric capability gaps that drives the lawfare analysis drives the cryptographic research: encryption whose hardness assumptions are not yet in the adversary's threat model.</p>
   </div>
 </div>
 
 <footer><span class="mono">Logarchéon Inc. · Modular Symbolic Intelligence Architecture</span>
-The blob stores only ciphertext and an HMAC-SHA-512 tag — never the key — and records the generator count and precision so the receiver can match them. Security in this demo rests on SHA-512.
+The blob stores only ciphertext and an HMAC-SHA-512 tag — never the key — and records the generator count and precision so the receiver can match them. The geometric construction is implemented faithfully; pending the formal hardness proofs, the cipher key is derived through SHA-512 so a guaranteed security floor is in place today.
 <div class="engine" id="engineNote"></div></footer></div>
 <script>
 /* ===== verified MSIA JS core (g generators, both presets) ===== */
