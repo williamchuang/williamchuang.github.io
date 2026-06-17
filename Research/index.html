@@ -258,6 +258,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <li><a href="#schottky-hausdorff" class="toc-link toc-sub">Schottky Hausdorff Dimension</a></li>
       <li><a href="#hyperbolic-geometry-hn" class="toc-link toc-sub">Geometry of ℍⁿ</a></li>
       <li><a href="#hyperbolic-attention-scaling" class="toc-link toc-sub">Hyperbolic Attention Scaling</a></li>
+      <li><a href="#msia-card" class="toc-link toc-sub">MSIA — Geodesic Encryption</a></li>
       <li><span class="toc-link toc-subhead">Math Work Algorithms</span></li>
       <li><a href="#sullivan-work-algos" class="toc-link toc-sub">Sullivan Work Algos</a></li>
       <li><a href="#bourgain-work-algos" class="toc-link toc-sub">Bourgain Work Algos</a></li>
@@ -1126,6 +1127,66 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <div class="paper-links">
       <a href="/files/Critical Scaling in Hyperbolic Attention Mechanisms.pdf" class="link-btn" target="_blank"><span class="lbl">PDF</span>Full Paper</a>
+    </div>
+  </div>
+
+  <!-- ── MSIA ── -->
+  <div id="msia-card" class="paper-card" style="border-left:3px solid var(--gold);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);background:rgba(14,31,58,0.9);padding:0.25rem 0.65rem;border-bottom-left-radius:4px;">Working Demo &middot; Patent Pending</div>
+    <h3>MSIA &mdash; Modular Symbolic Intelligence Architecture: Keyed Geodesic Encryption from the Selberg Zeta Function</h3>
+    <div class="paper-meta">
+      <span>Working System &middot; 2025&ndash;2026</span>
+      <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span>Post-Quantum Cryptography &middot; Hyperbolic Geometry &middot; Selberg &zeta; &middot; Langlands Program</span>
+      <span>U.S. Provisional Patent 64/067,703</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        A post-quantum keyed encryption scheme built from the geodesic length spectrum of a
+        Fuchsian/Kleinian group. The key is a set of M&ouml;bius generator matrices in
+        SL(2, &#x211D;); encryption derives the cipher key from geodesic lengths via the Selberg
+        trace formula; decryption requires recovering those lengths from the same generators.
+        Security at the mathematical level rests on the <strong>length-spectrum inverse
+        problem</strong> &mdash; recovering &Gamma; from its geodesic spectrum &mdash; which is
+        deeply open for Kleinian groups in &#x210D;<sup>n</sup>, n &ge; 3, where Mostow rigidity
+        guarantees uniqueness of the answer but no efficient algorithm is known. The working
+        demo&rsquo;s security rests on SHA-512; the geometric trapdoor (Option B) is the open
+        research direction.
+      </p>
+      <p>
+        Supports 2&ndash;6 generators (each adds ~97 bits of key space at High precision),
+        Standard and High precision modes (High + g &ge; 3 reaches the SHA-512 Grover floor
+        of 2<sup>128</sup>, the NIST quantum-safe bar), and an optional AES-GCM outer wrap
+        for indistinguishability. Runs entirely in the browser via Python/WebAssembly
+        (Pyodide) with a pure-JavaScript fallback using Web Crypto; works air-gapped once
+        loaded. Cross-engine verified across all generator counts, both precision modes, and
+        full Unicode (every script, emoji, and symbol round-trips).
+      </p>
+      <p>
+        MSIA sits at the Selberg / automorphic level of a Langlands-based cryptographic
+        hierarchy &mdash; above current NIST post-quantum standards (Module-LWE, ML-KEM)
+        and below the full automorphic L-function level. The construction originated in the
+        matrix identity det(I &minus; zA)<sup>&minus;1</sup> = exp(&Sigma; Tr(A<sup>m</sup>)
+        z<sup>m</sup> / m), which translates simultaneously between symbolic dynamics, linear
+        algebra, and spectral geometry. It anchors a two-track research program: an
+        <strong>algebraic / discrete track</strong> climbing the Langlands hierarchy (Dessins
+        &rarr; Artin L-functions &rarr; MSIA &rarr; automorphic &rarr; motivic) and a
+        <strong>geometric / continuous track</strong> built on hyperbolic holography, the two
+        connected through Kapustin&ndash;Witten S-duality. The geometric track&rsquo;s forward
+        identity is computable today &mdash; in thermal AdS<sub>3</sub>/BTZ it is literally the
+        same Selberg product MSIA uses; in higher dimensions it is the numerically-computed
+        boundary Green&rsquo;s function.
+      </p>
+      <p>
+        This is one small worked example from a larger study of post-quantum cryptographic
+        primitives rooted in the Langlands program and hyperbolic geometry. That study sits
+        alongside Logarch&eacute;on&rsquo;s primary research tracks in <strong>AI</strong> and
+        <strong>Indo-Pacific lawfare</strong>.
+      </p>
+    </div>
+    <div class="paper-links">
+      <a href="/MSIA/" class="link-btn"><span class="lbl">Tutorial</span>Guided Tutorial</a>
+      <a href="/tool/" class="link-btn"><span class="lbl">Tool</span>Encrypt &amp; decrypt</a>
     </div>
   </div>
 
