@@ -1165,7 +1165,12 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         AES-GCM outer wrap adds indistinguishability. Runs entirely in the browser via
         Python/WebAssembly (Pyodide) with a pure-JavaScript fallback using Web Crypto; works
         air-gapped once loaded. Cross-engine verified across all generator counts, both precision
-        modes, and full Unicode (every script, emoji, and symbol round-trips).
+        modes, and full Unicode (every script, emoji, and symbol round-trips). Alongside the
+        hashed everyday tool, the working demo also implements the <strong>pure-algebraic
+        construction</strong> directly &mdash; companion blocks of x<sup>ℓ</sup>&minus;1, block-diagonal
+        assembly, diagonal-similarity disguise, and message recovery by solving the Vandermonde
+        system from the power-trace vector &mdash; in three selectable variants (sparse trace-driven,
+        distinct + Frobenius/Brauer with CCA2 authentication, and Schottky-group).
       </p>
       <p>
         MSIA sits at the Selberg / automorphic level of a Langlands-based cryptographic
