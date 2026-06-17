@@ -1149,18 +1149,23 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         Security at the mathematical level rests on the <strong>length-spectrum inverse
         problem</strong> &mdash; recovering &Gamma; from its geodesic spectrum &mdash; which is
         deeply open for Kleinian groups in &#x210D;<sup>n</sup>, n &ge; 3, where Mostow rigidity
-        guarantees uniqueness of the answer but no efficient algorithm is known. The working
-        demo&rsquo;s security rests on SHA-512; the geometric trapdoor (Option B) is the open
-        research direction.
+        guarantees uniqueness of the answer but no efficient algorithm is known. The demo is a
+        faithful implementation of this geometric construction; because the formal hardness
+        proofs (Lean&nbsp;4 verification and cryptanalysis) are still in progress, it additionally
+        derives its cipher key through SHA-512, so a guaranteed, well-understood security floor
+        is in place today regardless of how the geometric hardness ultimately resolves. Treating
+        the geometry itself as the trapdoor (Option B) is the open research direction.
       </p>
       <p>
-        Supports 2&ndash;6 generators (each adds ~97 bits of key space at High precision),
-        Standard and High precision modes (High + g &ge; 3 reaches the SHA-512 Grover floor
-        of 2<sup>128</sup>, the NIST quantum-safe bar), and an optional AES-GCM outer wrap
-        for indistinguishability. Runs entirely in the browser via Python/WebAssembly
-        (Pyodide) with a pure-JavaScript fallback using Web Crypto; works air-gapped once
-        loaded. Cross-engine verified across all generator counts, both precision modes, and
-        full Unicode (every script, emoji, and symbol round-trips).
+        Supports 2&ndash;6 generators (each adds ~97 bits of key space at High precision) and
+        Standard / High precision modes. At High precision with g &ge; 3, the geodesic key space
+        exceeds the 256-bit hash key, so the security floor is set by SHA-512 itself: under
+        Grover&rsquo;s algorithm that floor is 2<sup>128</sup>, the NIST quantum-safe bar &mdash;
+        a guaranteed bound that holds even before the geometric hardness is proven. An optional
+        AES-GCM outer wrap adds indistinguishability. Runs entirely in the browser via
+        Python/WebAssembly (Pyodide) with a pure-JavaScript fallback using Web Crypto; works
+        air-gapped once loaded. Cross-engine verified across all generator counts, both precision
+        modes, and full Unicode (every script, emoji, and symbol round-trips).
       </p>
       <p>
         MSIA sits at the Selberg / automorphic level of a Langlands-based cryptographic
