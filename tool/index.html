@@ -1,0 +1,499 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSIA Encryption Tool — Logarchéon</title>
+<meta name="description" content="MSIA keyed encryption tool — geodesic Fuchsian group cipher, selectable generators 2–6, Standard/High precision, AES-GCM wrap option, live keyspace estimates. Runs in-browser. U.S. Patent Pending 64/067,703.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy-mid:#0e1f3a;--navy-light:#162d52;--gold:#c9a84c;--gold-light:#e2c97e;--gold-dim:#8c6e2f;
+--gold-glow:rgba(201,168,76,0.06);--cream:#f5f0e8;--muted:rgba(245,240,232,0.6);--faint:rgba(245,240,232,0.35);
+--border:rgba(201,168,76,0.18);--border-dim:rgba(201,168,76,0.09);--ok:#7fc99a;--err:#e08a7a;--enc:#7fb0c9;--dec:#c9a84c;--purp:#d4b96a}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}body{font-family:'Libre Baskerville',Georgia,serif;background:var(--navy);color:var(--cream);line-height:1.65;overflow-x:hidden;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07),transparent 60%),radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,0.05),transparent 55%)}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:80px 80px}
+.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:3rem 1.25rem 5rem}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-0.01em;color:var(--cream)}
+.mono{font-family:'DM Mono',monospace;font-weight:300;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+header{margin-bottom:1.4rem}.eyebrow{margin-bottom:.9rem}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:300;line-height:1.08;margin-bottom:.8rem}h1 .accent{color:var(--gold-light);font-style:italic;font-weight:400}
+.lede{color:var(--muted);font-size:.9rem;max-width:66ch;line-height:1.7}.lede a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--border-dim)}
+.howto{background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:4px;padding:1.2rem 1.3rem;margin:1.2rem 0 1.4rem}
+@media(max-width:560px){.trainer .trow{grid-template-columns:1fr}}
+.howto h2{font-size:1.3rem;color:var(--gold-light);margin-bottom:.7rem;font-weight:400}
+.howto ol{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:.6rem}
+.howto li{counter-increment:step;position:relative;padding-left:2.4rem;font-size:.9rem;line-height:1.55}
+.howto li::before{content:counter(step);position:absolute;left:0;top:-.1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-weight:500;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.howto .plain{color:var(--muted);font-size:.82rem}
+#status{font-family:'DM Mono',monospace;font-size:.76rem;letter-spacing:.04em;color:var(--muted);background:var(--navy-mid);border:1px solid var(--border-dim);border-left:2px solid var(--gold-dim);border-radius:3px;padding:.7rem .9rem;margin-bottom:1.4rem;min-height:1.2em;line-height:1.5}
+#status.ok{color:var(--ok);border-left-color:var(--ok)}#status.err{color:var(--err);border-left-color:var(--err)}#status code{background:var(--navy);padding:.05rem .35rem;border-radius:2px;color:var(--gold-light)}
+.controls{background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:4px;padding:1rem 1.2rem;margin-bottom:1rem}
+.ctl-row{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:flex-start;overflow-x:auto}
+.ctl{display:flex;flex-direction:column;gap:.4rem}.ctl .lbl{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:3px;overflow:hidden;flex-wrap:wrap}
+.seg button{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;background:transparent;color:var(--muted);border:none;padding:.45rem .85rem;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
+.seg button.active{background:var(--gold);color:var(--navy);font-weight:500}.seg button:not(.active):hover{background:var(--gold-glow);color:var(--gold-light)}
+.ctl-desc{font-size:.8rem;color:var(--muted);line-height:1.55;margin-top:.7rem;width:100%}
+.secbar{background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:4px;padding:1rem 1.2rem;margin-bottom:1.6rem}
+.secbar h3{font-size:.9rem;color:var(--gold-light);font-weight:400;margin-bottom:.7rem;font-family:'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+.secgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
+.seccell{background:var(--navy);border:1px solid var(--border-dim);border-radius:3px;padding:.7rem .8rem}
+.seccell .k{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.3rem}
+.seccell .v{font-family:'DM Mono',monospace;font-size:1.05rem;color:var(--gold-light)}
+.seccell .s{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);margin-top:.2rem}
+.qverdict{margin-top:.8rem;font-family:'DM Mono',monospace;font-size:.74rem;letter-spacing:.03em;padding:.5rem .7rem;border-radius:3px}
+.qverdict.safe{color:var(--ok);background:rgba(127,201,154,0.08);border:1px solid rgba(127,201,154,0.25)}
+.qverdict.unsafe{color:var(--err);background:rgba(224,138,122,0.08);border:1px solid rgba(224,138,122,0.25)}
+.qverdict .hint{color:var(--faint);font-size:.68rem;margin-top:.25rem;display:block}
+.station{border-radius:4px;padding:1.4rem 1.5rem;margin-bottom:1.5rem;border:1px solid var(--border-dim);background:var(--navy-mid)}
+.station.encrypt{border-top:3px solid var(--enc)}.station.decrypt{border-top:3px solid var(--dec)}
+.station>h2{font-size:1.7rem;font-weight:400;margin-bottom:.2rem}.station.encrypt>h2{color:#8fa3b5}.station.decrypt>h2{color:var(--gold-light)}
+.station .sub{font-size:.84rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.55}
+.field{margin-bottom:1.1rem}.field .step{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}.field .step b{color:var(--gold-light)}
+.field .explain{font-size:.8rem;color:var(--muted);margin:.15rem 0 .55rem;line-height:1.5}
+.gens{display:flex;flex-wrap:wrap;gap:.9rem;overflow-x:auto;padding-bottom:.3rem}
+.genbox{flex:0 0 210px;min-width:190px}
+.genbox .glabel{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;width:100%}
+.matrix input{font-family:'DM Mono',monospace;font-size:.82rem;text-align:center;background:var(--navy);color:var(--cream);border:1px solid var(--border-dim);border-radius:3px;padding:.5rem .35rem;width:100%;min-width:0;box-sizing:border-box}
+.matrix input:focus{outline:none;border-color:var(--border);box-shadow:0 0 0 2px var(--gold-glow)}
+.matrix input.cellbad{border-color:var(--err);box-shadow:0 0 0 2px rgba(224,138,122,0.18)}
+.keystatus{font-family:'DM Mono',monospace;font-size:.71rem;margin-top:.6rem;line-height:1.5}
+.keystatus.good{color:var(--ok)}.keystatus.bad{color:var(--err)}.keystatus.idle{color:var(--faint)}
+.preset{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--border);border-radius:3px;padding:.35rem .7rem;cursor:pointer;transition:background .2s}.preset:hover{background:var(--gold-glow)}
+.keyhead{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.4rem}
+textarea{width:100%;background:var(--navy);color:var(--cream);border:1px solid var(--border-dim);border-radius:3px;padding:.8rem;font-family:'DM Mono',monospace;font-size:.82rem;line-height:1.5;resize:vertical}
+textarea:focus{outline:none;border-color:var(--border);box-shadow:0 0 0 2px var(--gold-glow)}textarea:disabled{opacity:.5}
+.counter{display:block;text-align:right;font-family:'DM Mono',monospace;font-size:.68rem;color:var(--faint);margin-top:.35rem}
+label.filelabel{display:inline-block;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);cursor:pointer;border:1px solid var(--border);border-radius:3px;padding:.4rem .9rem;margin-bottom:.7rem;transition:background .2s}label.filelabel:hover{background:var(--gold-glow)}
+input[type=file]{display:none}
+button.btn{font-family:'DM Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;cursor:pointer;padding:.62rem 1.5rem;margin:.2rem .5rem .2rem 0;transition:background .2s,transform .15s;display:inline-block}
+button.btn-primary{color:var(--navy);background:var(--gold);border:none}button.btn-primary:hover:not(:disabled){background:var(--gold-light);transform:translateY(-1px)}
+button.btn-secondary{color:var(--gold);background:transparent;border:1px solid var(--border)}button.btn-secondary:hover:not(:disabled){background:var(--gold-glow)}
+button.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.console{margin-top:1rem}.console .chead{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem}
+.console .ctitle{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.console pre{white-space:pre-wrap;word-break:break-all;font-family:'DM Mono',monospace;font-size:.73rem;line-height:1.5;background:#070a10;color:var(--muted);border:1px solid var(--border-dim);border-radius:3px;padding:.9rem;min-height:3rem;max-height:280px;overflow:auto;margin:0}
+.console pre.ok{color:var(--ok);border-color:rgba(127,201,154,0.3)}.console pre.err{color:var(--err);border-color:rgba(224,138,122,0.3)}
+.console pre .placeholder{color:var(--faint)}.console .ctools{display:flex;gap:.4rem;flex-wrap:wrap}.console .ctools button{margin:0}
+.timing{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold-dim);margin-top:.55rem;line-height:1.5}
+.bigout{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem;color:var(--ok);word-break:break-word}
+.notes{margin-top:1.8rem}.notes h2{font-size:1.4rem;color:var(--gold-light);font-weight:400;margin-bottom:.8rem}
+.secpanels{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.9rem;margin:1rem 0 1.4rem}
+.secpanel{background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:4px;padding:1.1rem}
+.secpanel.algebraic{border-top:3px solid var(--enc)}.secpanel.hashed{border-top:3px solid var(--gold)}.secpanel.optionb{border-top:3px solid var(--purp)}
+.secpanel h3{font-size:1.15rem;font-weight:400;margin-bottom:.15rem;color:var(--gold-light)}
+.secpanel .tag{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem;display:inline-block;padding:.15rem .45rem;border-radius:2px}
+.secpanel .tag.ok{color:var(--ok);background:rgba(127,201,154,0.1)}.secpanel .tag.weak{color:var(--err);background:rgba(224,138,122,0.1)}.secpanel .tag.research{color:var(--purp);background:rgba(212,185,106,0.1)}
+.secpanel .body{font-size:.8rem;color:var(--muted);line-height:1.6}
+.notes details{background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:4px;margin-bottom:.7rem;overflow:hidden}
+.notes summary{cursor:pointer;list-style:none;padding:.85rem 1.1rem;font-family:'DM Mono',monospace;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.6rem}
+.notes summary::-webkit-details-marker{display:none}.notes summary::before{content:'+';color:var(--gold-dim);font-size:1rem;width:1rem;text-align:center}
+.notes details[open] summary::before{content:'\2212'}.notes summary:hover{background:var(--gold-glow)}
+.notes .nbody{padding:0 1.1rem 1.1rem;font-size:.86rem;color:var(--muted);line-height:1.65}.notes .nbody p{margin-bottom:.7rem}.notes .nbody strong{color:var(--cream)}
+.notes .nbody code{background:var(--navy);padding:.05rem .35rem;border-radius:2px;color:var(--gold-light);font-family:'DM Mono',monospace}
+.notes .warn{border-left:2px solid var(--gold-dim);padding-left:.8rem;color:var(--faint);font-size:.82rem}
+.bftable{width:100%;border-collapse:collapse;margin:.7rem 0;font-family:'DM Mono',monospace;font-size:.7rem}
+.bftable th,.bftable td{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--border-dim)}
+.bftable th{color:var(--gold);font-weight:400;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase}.bftable td{color:var(--muted)}
+.bftable .safe{color:var(--ok)}.bftable .danger{color:var(--err)}
+footer{margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--border-dim);font-size:.75rem;color:var(--faint);line-height:1.7}
+footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.06em;color:var(--faint);text-transform:uppercase;margin-top:.4rem}
+</style></head><body><div class="wrap">
+<header>
+<div class="mono eyebrow">Logarchéon · MSIA Encryption</div>
+<h1>MSIA <span class="accent">Encryption</span> Tool</h1>
+<p class="lede"><strong>Set your key, type a message, and press Encrypt.</strong> The scrambled code can only be read by someone with the same key and settings. Everything runs on your device — nothing leaves your browser.<br>
+<span style="color:var(--faint);font-size:.85em">New here? <a href="../MSIA/" style="color:var(--gold);border-bottom:1px solid var(--border-dim)">Start with the tutorial ←</a> · U.S. Patent Pending 64/067,703 · <a href="#" id="srcLink" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid var(--border-dim)">Source</a></span></p>
+</header>
+<div class="howto" style="padding:.85rem 1.1rem;margin:.7rem 0 1rem">
+<ol style="gap:.4rem"><li><b>Set the key</b> — <span class="plain">same for sender and reader. Tap <em>Load demo key</em> or type your own numbers.</span></li>
+<li><b>Encrypt</b> — <span class="plain">blue box: type message → Encrypt → Copy the code.</span></li>
+<li><b>Decrypt</b> — <span class="plain">gold box: same key + settings → paste code → Decrypt.</span></li>
+</ol></div>
+<div id="status" class="anchor-top">Initializing…</div>
+<div class="controls"><div class="ctl-row">
+<div class="ctl"><span class="lbl">Strength <span style="color:var(--faint);text-transform:none;letter-spacing:0">(generators)</span></span><div class="seg" id="genSeg">
+<button data-g="2" onclick="setG(2)">2</button><button data-g="3" class="active" onclick="setG(3)">3</button>
+<button data-g="4" onclick="setG(4)">4</button><button data-g="5" onclick="setG(5)">5</button><button data-g="6" onclick="setG(6)">6</button></div></div>
+<div class="ctl"><span class="lbl">Mode <span style="color:var(--faint);text-transform:none;letter-spacing:0">(precision)</span></span><div class="seg" id="precSeg">
+<button data-p="standard" onclick="setPrec('standard')">Standard</button><button data-p="high" class="active" onclick="setPrec('high')">High (safer)</button></div></div>
+<div class="ctl"><span class="lbl">Hide method <span style="color:var(--faint);text-transform:none;letter-spacing:0">(extra lock)</span></span><div class="seg" id="wrapSeg">
+<button data-w="off" class="active" onclick="setWrap('off')">Off</button><button data-w="on" onclick="setWrap('on')">On</button></div></div>
+</div><div class="ctl-desc" id="ctlDesc"></div></div>
+<div class="secbar"><h3>How hard is it to crack? (changes with your settings)</h3>
+<div class="secgrid">
+<div class="seccell"><div class="k">Number of possible keys</div><div class="v" id="sc_keyspace">—</div><div class="s" id="sc_keyspace_s"></div></div>
+<div class="seccell"><div class="k">Time to crack — normal computer</div><div class="v" id="sc_cls">—</div><div class="s">fastest computers today</div></div>
+<div class="seccell"><div class="k">Time to crack — future quantum computer</div><div class="v" id="sc_q">—</div><div class="s" id="sc_q_s"></div></div>
+</div><div class="qverdict" id="qverdict"></div></div>
+<div class="station encrypt"><h2>① Send a secret message</h2><p class="sub">Put in your key, type your message, and press Encrypt. You'll get scrambled code to copy and send.</p>
+<div class="field"><div class="keyhead"><div class="step">Step 1 · <b>Your secret key</b> — the numbers</div>
+<button class="preset" onclick="loadPreset('e')">Load demo key</button></div>
+<div class="explain">These boxes are your key. Tap <b>Load demo key</b> for a ready-made one, or type your own numbers (decimals and negatives are fine). The page shows a green check when the numbers work. <span style="color:var(--faint)">(Advanced: each box-set is a 2×2 generator matrix; each must be hyperbolic — its two corner-to-corner numbers add to more than 2, or less than −2.)</span></div>
+<div class="gens" id="e_gens"></div>
+<div class="keystatus idle" id="e_keyStatus">Fill the boxes, or tap Load demo key.</div></div><div class="field"><div class="step">Step 2 · <b>Your message</b></div>
+<div class="explain">Type anything — any language, emoji, or symbols.</div>
+<textarea id="ptext" rows="2" placeholder="Type your secret message here" disabled oninput="updateCounter()"></textarea>
+<span class="counter">message size: <span id="cnt">0</span> / <span id="cntMax">64</span> <span id="cntChars" style="color:var(--faint)"></span></span></div>
+<div class="field" style="margin-bottom:.4rem"><div class="step">Step 3 · <b>Scramble it</b></div>
+<button class="btn btn-primary" id="encBtn" onclick="doEncrypt()" disabled>Encrypt (scramble my message)</button></div>
+<div class="console"><div class="chead"><span class="ctitle">Scrambled code — copy this and send it</span>
+<div class="ctools"><button class="btn btn-secondary" id="copyBtn" onclick="copyBlob()" disabled>Copy</button>
+<button class="btn btn-secondary" id="dlBtn" onclick="downloadBlob()" disabled>Save as file</button></div></div>
+<pre id="encOut"><span class="placeholder">Your scrambled code will appear here. Send it to your friend along with the key and settings.</span></pre>
+<div class="timing" id="encTiming"></div></div></div><div class="station decrypt"><h2>② Read a secret message</h2><p class="sub">Use the same key and settings the sender used, paste their scrambled code, and press Decrypt.</p>
+<div class="field"><div class="keyhead"><div class="step">Step 1 · <b>The same secret key</b></div>
+<button class="preset" onclick="loadPreset('d')">Load demo key</button></div>
+<div class="explain">Enter the exact same numbers the sender used. If even one is different, it won't open. <span style="color:var(--faint)">(And set the same Strength and Mode at the top.)</span></div>
+<div class="gens" id="d_gens"></div>
+<div class="keystatus idle" id="d_keyStatus">Enter the same numbers the sender gave you.</div></div><div class="field"><div class="step">Step 2 · <b>The scrambled code</b></div>
+<div class="explain">Paste the code your friend sent, or open their saved file.</div>
+<label class="filelabel" for="blobFile">Open a saved file</label><input type="file" id="blobFile" accept=".json,.txt" onchange="loadFile()">
+<textarea id="btext" rows="4" placeholder="Paste the scrambled code here" disabled></textarea></div>
+<div class="field" style="margin-bottom:.4rem"><div class="step">Step 3 · <b>Open it</b></div>
+<button class="btn btn-primary" id="decBtn" onclick="doDecrypt()" disabled>Decrypt (show my message)</button></div>
+<div class="console"><div class="chead"><span class="ctitle">The message</span></div>
+<pre id="decOut"><span class="placeholder">The secret message will appear here.</span></pre></div></div><div class="notes"><h2>Notes</h2>
+<div class="secpanels">
+<div class="secpanel algebraic"><h3>Pure algebraic (Sparse)</h3><span class="tag weak">not secure as-is</span>
+<div class="body">Decryption by Vandermonde inversion of power-sum traces — no hash. Mathematically closest to the bare construction; not cryptographically secure on its own and carries no authentication.</div></div>
+<div class="secpanel hashed"><h3>Hashed FO-KEM (this demo)</h3><span class="tag ok">authenticated</span>
+<div class="body">Lengths → SHA-512 → 256-bit key, XOR keystream, HMAC-SHA-512 tag. Gives authentication (CCA2-style). Security rests on SHA-512; the geometric hardness (Option B) is the open research direction.</div></div>
+</div>
+<div class="nbody" style="padding:.8rem 0 .4rem">
+<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Brute-force &amp; quantum resistance</h3>
+<p style="font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:.6rem">Each generator adds four real key parameters (~97 bits at High precision). At High + g≥3 the geodesic keyspace exceeds the 256-bit derived key, so SHA-512's Grover floor of 2¹²⁸ dominates — the NIST quantum-safe bar.</p>
+<table class="bftable"><tr><th>config</th><th>key space</th><th>classical</th><th>quantum (Grover)</th><th>quantum-safe?</th></tr>
+<tr><td>Standard g=2</td><td>2⁶¹</td><td>~21 min (nation-state)</td><td>instant</td><td class="danger">no</td></tr>
+<tr><td>High g=2</td><td>2¹⁹⁴</td><td>&gt; age of universe</td><td>~10⁶ yr</td><td class="danger">no (2⁹⁷)</td></tr>
+<tr><td>High g=3</td><td>2²⁵⁶ (SHA-capped)</td><td>&gt; age of universe</td><td>&gt; age of universe</td><td class="safe">yes (2¹²⁸)</td></tr>
+<tr><td>High g≥4</td><td>2²⁵⁶ (SHA-capped)</td><td>&gt; age of universe</td><td>&gt; age of universe</td><td class="safe">yes (margin)</td></tr></table>
+</div>
+<div class="nbody" style="padding:.8rem 0 .4rem">
+<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Offline &amp; air-gapped use</h3>
+<p style="font-size:.86rem;color:var(--muted);line-height:1.65">All computation runs <strong>locally in your browser</strong>. Once loaded, no network is needed — disconnect Wi-Fi and encrypt/decrypt still work.</p>
+</div>
+<div class="nbody" style="padding:.8rem 0 .4rem">
+<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Choosing the key</h3>
+<p style="font-size:.86rem;color:var(--muted);line-height:1.65">Each number may be <strong>positive or negative</strong> and need not be a whole number. Each generator must be hyperbolic: its two diagonal numbers add to more than 2 or less than −2, checked live.</p>
+</div>
+</div>
+<div class="rs-warn" style="margin:1.5rem 0 .5rem;font-size:.82rem">
+  <strong>Research proof-of-concept.</strong> MSIA is not an accredited or independently audited cipher. Security numbers measure SHA-512 and Grover resistance (Option A). For any sensitive use, operate only within procedures accredited by your own organization.
+</div>
+<footer><span class="mono">Logarchéon Inc. · Modular Symbolic Intelligence Architecture</span>
+The blob stores only ciphertext and HMAC-SHA-512 tag — never the key — and records generator count and precision so the receiver can match them. Security rests on SHA-512.
+<div class="engine" id="engineNote"></div></footer>
+<script>
+/* ===== verified MSIA JS core (g generators, both presets) ===== */
+const PRESETS={standard:{scale:10,P:131071n},high:{scale:1000000,P:(2n**61n-1n)}};
+function mul2(a,b){return [
+ [a[0][0]*b[0][0]+a[0][1]*b[1][0], a[0][0]*b[0][1]+a[0][1]*b[1][1]],
+ [a[1][0]*b[0][0]+a[1][1]*b[1][0], a[1][0]*b[0][1]+a[1][1]*b[1][1]]];}
+function matpow(M,n){let R=[[1,0],[0,1]],B=[M[0].slice(),M[1].slice()];
+ while(n>0){if(n&1)R=mul2(R,B);B=mul2(B,B);n=Math.floor(n/2);}return R;}
+function lengthFrom(gens,idx,scale,P){
+ let M=[[1,0],[0,1]];
+ for(let k=0;k<gens.length;k++) M=mul2(M,matpow(gens[k],idx+1+k));
+ let tr=Math.abs(M[0][0]+M[1][1])/2; if(tr<1.0000000000001)tr=1.0000000000001;
+ const raw=Math.round(scale*2*Math.acosh(tr));
+ let l=BigInt(raw)%P; if(l<0n)l+=P; return l===0n?1n:l;
+}
+function validate(gens){for(const G of gens) if(!isFinite(G[0][0]+G[1][1])||Math.abs(G[0][0]+G[1][1])<=2) return false; return true;}
+function chunkElls(gens,off,blen,scale,P){const seen=new Set(),e=[];
+ for(let j=0;j<blen;j++){let l=lengthFrom(gens,off+j,scale,P);
+  while(seen.has(l.toString())){l=(l+1n)%P;if(l===0n)l=1n;}seen.add(l.toString());e.push(l);}return e;}
+function nbFor(P){return Math.ceil(P.toString(2).length/8);}
+function big2b(x,nb){const o=new Uint8Array(nb);let v=x;for(let i=nb-1;i>=0;i--){o[i]=Number(v&0xffn);v>>=8n;}return o;}
+function cat(a){let t=0;a.forEach(x=>t+=x.length);const o=new Uint8Array(t);let p=0;a.forEach(x=>{o.set(x,p);p+=x.length;});return o;}
+async function sha512(u){return new Uint8Array(await crypto.subtle.digest('SHA-512',u));}
+async function deriveKey(ells,P){const nb=nbFor(P);const h=cat(ells.map(e=>big2b(e,nb)));return (await sha512(cat([h,h]))).slice(0,32);}
+function xs(k,d){const o=new Uint8Array(d.length);for(let i=0;i<d.length;i++)o[i]=d[i]^k[i%k.length];return o;}
+async function hmac512(k,d){const ik=await crypto.subtle.importKey('raw',k,{name:'HMAC',hash:'SHA-512'},false,['sign']);return new Uint8Array(await crypto.subtle.sign('HMAC',ik,d));}
+const hex=u=>Array.from(u).map(b=>b.toString(16).padStart(2,'0')).join('');
+const unhex=h=>{const u=new Uint8Array(h.length/2);for(let i=0;i<u.length;i++)u[i]=parseInt(h.substr(i*2,2),16);return u;};
+function eq(a,b){if(a.length!==b.length)return false;let d=0;for(let i=0;i<a.length;i++)d|=a[i]^b[i];return d===0;}
+async function jsEncrypt(prec,gens,text,ch=8){
+ if(!validate(gens))throw new Error('invalid key');
+ const {scale,P}=PRESETS[prec];const data=new TextEncoder().encode(text);const C=[];let off=0;
+ for(let ci=0;ci<Math.ceil(data.length/ch);ci++){const blk=data.slice(ci*ch,(ci+1)*ch);const el=chunkElls(gens,off,blk.length,scale,P);off+=blk.length;
+  const k=await deriveKey(el,P);const ct=xs(k,blk);C.push({ct:hex(ct),tag:hex(await hmac512(k,ct)),len:blk.length});}
+ return JSON.stringify({prec,g:gens.length,c:C,n:data.length,ch});}
+async function jsDecrypt(gens,blob){
+ if(!validate(gens))throw new Error('invalid key');
+ const d=JSON.parse(blob);const {scale,P}=PRESETS[d.prec];
+ if(d.g!==gens.length)throw new Error('generator count mismatch');
+ const out=[];let off=0;
+ for(const c of d.c){const el=chunkElls(gens,off,c.len,scale,P);off+=c.len;const k=await deriveKey(el,P);
+  const ct=unhex(c.ct);if(!eq(unhex(c.tag),await hmac512(k,ct)))throw new Error('WRONG KEY');
+  const pt=xs(k,ct);for(const b of pt)out.push(b);}
+ return new TextDecoder('utf-8',{ignoreBOM:true}).decode(new Uint8Array(out.slice(0,d.n)));}
+
+const SEC={'standard_2':{rb:61,cb:61,qb:31,ct:'21 min',qt:'8e-7 s',qs:false},'standard_3':{rb:92,cb:92,qb:46,ct:'7e4 yr',qt:'3e-2 s',qs:false},'standard_4':{rb:122,cb:122,qb:61,ct:'1e14 yr',qt:'21 min',qs:false},'standard_5':{rb:153,cb:153,qb:76,ct:'2e23 yr',qt:'2 yr',qs:false},'standard_6':{rb:183,cb:183,qb:92,ct:'3e32 yr',qt:'7e4 yr',qs:false},'high_2':{rb:194,cb:194,qb:97,ct:'4e35 yr',qt:'3e6 yr',qs:false},'high_3':{rb:291,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true},'high_4':{rb:388,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true},'high_5':{rb:485,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true},'high_6':{rb:582,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true}};
+const PY_CODE = String.raw`import math, hashlib, hmac, json
+P_PRESETS={'standard':(10,131071),'high':(10**6,2**61-1)}
+def mul2(a,b):
+    return [[a[0][0]*b[0][0]+a[0][1]*b[1][0], a[0][0]*b[0][1]+a[0][1]*b[1][1]],
+            [a[1][0]*b[0][0]+a[1][1]*b[1][0], a[1][0]*b[0][1]+a[1][1]*b[1][1]]]
+def matpow(M,n):
+    R=[[1.0,0.0],[0.0,1.0]];B=[r[:] for r in M]
+    while n:
+        if n&1:R=mul2(R,B)
+        B=mul2(B,B);n>>=1
+    return R
+def length_from(gens,idx,scale,P):
+    M=[[1.0,0.0],[0.0,1.0]]
+    for k in range(len(gens)):
+        M=mul2(M,matpow(gens[k], idx+1+k))
+    tr=abs(M[0][0]+M[1][1])/2.0
+    if tr<1.0000000000001: tr=1.0000000000001
+    return (int(round(scale*2*math.acosh(tr)))%P) or 1
+def chunk_ells(gens,off,blen,scale,P):
+    seen=set();e=[]
+    for j in range(blen):
+        l=length_from(gens,off+j,scale,P)
+        while l in seen:l=(l+1)%P or 1
+        seen.add(l);e.append(l)
+    return e
+def validate(gens):
+    for G in gens:
+        if abs(G[0][0]+G[1][1])<=2.0: return False
+    return True
+def derive_key(ells,P):
+    nb=(P.bit_length()+7)//8;buf=b''.join(int(x).to_bytes(nb,'big') for x in ells);return hashlib.sha512(buf+buf).digest()[:32]
+def xs(k,d):ks=(k*((len(d)//len(k))+1))[:len(d)];return bytes(a^b for a,b in zip(d,ks))
+def py_encrypt(prec,gens,text,ch=8):
+    if not validate(gens): raise ValueError("invalid key")
+    scale,P=P_PRESETS[prec];data=text.encode();C=[];off=0
+    for ci in range(math.ceil(len(data)/ch)):
+        blk=data[ci*ch:(ci+1)*ch];el=chunk_ells(gens,off,len(blk),scale,P);off+=len(blk)
+        k=derive_key(el,P);ct=xs(k,blk)
+        C.append({'ct':ct.hex(),'tag':hmac.new(k,ct,hashlib.sha512).digest().hex(),'len':len(blk)})
+    return json.dumps({'prec':prec,'g':len(gens),'c':C,'n':len(data),'ch':ch})
+def py_decrypt(gens,blob):
+    if not validate(gens): raise ValueError("invalid key")
+    d=json.loads(blob);scale,P=P_PRESETS[d['prec']]
+    if d['g']!=len(gens): raise ValueError("generator count mismatch")
+    out=bytearray();off=0
+    for c in d['c']:
+        el=chunk_ells(gens,off,c['len'],scale,P);off+=c['len'];k=derive_key(el,P)
+        ct=bytes.fromhex(c['ct'])
+        if not hmac.compare_digest(bytes.fromhex(c['tag']),hmac.new(k,ct,hashlib.sha512).digest()):raise ValueError("WRONG KEY")
+        out.extend(xs(k,ct))
+    return bytes(out[:d['n']]).decode('utf-8')
+`;
+
+/* ===== state ===== */
+let engine=null, pyodide=null, lastBlob=null;
+let g=3, prec='high', wrapMode='off';
+const FAST_MAX=64, FAITHFUL_MAX=24;
+
+const PRECDESC={
+ standard:'<b>Standard:</b> good for trying things out. Easier to crack.',
+ high:'<b>High (safer):</b> much harder to crack — recommended. Uses bigger numbers behind the scenes.'
+};
+function curMax(){return FAST_MAX;}
+
+function setG(n){g=n;
+ document.querySelectorAll('#genSeg button').forEach(b=>b.classList.toggle('active',+b.dataset.g===n));
+ buildGenPanels('e'); buildGenPanels('d'); refreshDesc(); updateSecBar(); onKeyEdit('e'); onKeyEdit('d');}
+function setPrec(p){prec=p;
+ document.querySelectorAll('#precSeg button').forEach(b=>b.classList.toggle('active',b.dataset.p===p));
+ refreshDesc(); updateSecBar();}
+function setWrap(w){wrapMode=w;
+ document.querySelectorAll('#wrapSeg button').forEach(b=>b.classList.toggle('active',b.dataset.w===w));
+ refreshDesc();}
+function refreshDesc(){document.getElementById('ctlDesc').innerHTML=PRECDESC[prec]+'<br><b>Strength '+g+':</b> higher is stronger. Each step adds 4 more key numbers ('+(4*g)+' boxes to fill in total).'+
+ (wrapMode==='on'?'<br><b>Hide method on:</b> adds a second standard lock on top and makes the code look like plain random text, so no one can tell which tool made it. Your friend still needs the same key and settings.':'<br><b>Hide method off:</b> the code is in the normal format.');}
+
+function expFmt(str){
+ // turn '2e54 yr' -> '2×10⁵⁴ yr', '8e-7 s' -> '8×10⁻⁷ s'; leave plain text ('21 min') untouched
+ const sup={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+ return str.replace(/(\d+(?:\.\d+)?)e([+-]?\d+)/g,(m,mant,exp)=>{
+   const e=exp.replace('+','').split('').map(c=>sup[c]||c).join('');
+   return mant+'×10'+e;
+ });
+}
+function updateSecBar(){
+ const s=SEC[prec+'_'+g]; if(!s)return;
+ const digits=Math.round(s.rb*Math.LN2/Math.LN10); // decimal digits in the number of keys
+ document.getElementById('sc_keyspace').innerHTML='2<sup>'+s.rb+'</sup>';
+ document.getElementById('sc_keyspace_s').textContent='about a '+digits+'-digit number of keys'+((s.rb>s.cb)?' (locked tight)':'');
+ document.getElementById('sc_cls').innerHTML=expFmt(s.ct);
+ document.getElementById('sc_q').innerHTML=expFmt(s.qt);
+ document.getElementById('sc_q_s').textContent='even with a quantum computer';
+ const v=document.getElementById('qverdict');
+ if(s.qs){v.className='qverdict safe';v.innerHTML='✓ Strong enough to resist even future quantum computers.<span class="hint">Meets the standard expert safety level (2¹²⁸). The strength comes from SHA-512 — see Notes.</span>';}
+ else{v.className='qverdict unsafe';v.innerHTML='✗ Not strong enough against a future quantum computer at these settings.<span class="hint">Tip: choose Mode = High and Strength = 3 or more to reach the safe level.</span>';}
+}
+
+/* ===== dynamic generator key panels ===== */
+function buildGenPanels(p){
+ const host=document.getElementById(p+'_gens'); host.innerHTML='';
+ for(let i=0;i<g;i++){
+  const div=document.createElement('div'); div.className='genbox';
+  div.innerHTML='<div class="glabel">T'+(i+1)+' (matrix G'+(i+1)+')</div><div class="matrix">'+
+   ['00','01','10','11'].map(rc=>'<input id="'+p+'_g'+i+'_'+rc+'" inputmode="decimal" placeholder="'+
+     ({'00':'a','01':'b','10':'c','11':'d'}[rc])+'" oninput="onKeyEdit(\''+p+'\')">').join('')+'</div>';
+  host.appendChild(div);
+ }
+}
+
+/* ===== strict number parser ===== */
+function parseNum(raw){
+ if(typeof raw!=='string')return NaN; let s=raw.trim(); if(s==='')return NaN;
+ s=s.replace(/\u2212/g,'-').replace(/[\u00a0\u2007\u202f]/g,'');
+ if(/^[+-]?\d+,\d{1,2}$/.test(s)&&s.indexOf('.')===-1)s=s.replace(',','.');
+ if(!/^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$/.test(s))return NaN;
+ const v=Number(s); return Number.isFinite(v)?v:NaN;
+}
+function readGens(p){
+ const gens=[]; let bad=0, empty=0;
+ for(let i=0;i<g;i++){
+  const row=[];
+  for(const rc of ['00','01','10','11']){
+   const el=document.getElementById(p+'_g'+i+'_'+rc); const raw=el.value;
+   if(raw.trim()===''){empty++;el.classList.remove('cellbad');row.push(NaN);continue;}
+   const v=parseNum(raw);
+   if(Number.isNaN(v)){bad++;el.classList.add('cellbad');}else el.classList.remove('cellbad');
+   row.push(v);
+  }
+  gens.push([[row[0],row[1]],[row[2],row[3]]]);
+ }
+ return {gens,bad,empty};
+}
+function validGensOf(p){
+ const {gens,bad,empty}=readGens(p);
+ if(bad||empty)return null;
+ return validate(gens)?gens:null;
+}
+function onKeyEdit(p){
+ const ks=document.getElementById(p+'_keyStatus'); const {gens,bad,empty}=readGens(p);
+ if(bad){ks.innerHTML='✗ '+bad+' box'+(bad>1?'es are':' is')+' not a valid number. Use plain digits like <b>2</b>, <b>-1.5</b>, <b>3.0</b>.';ks.className='keystatus bad';}
+ else if(empty){ks.textContent='Fill all '+(4*g)+' numbers ('+empty+' empty).';ks.className='keystatus idle';}
+ else if(!validate(gens)){
+   const bads=[]; gens.forEach((G,i)=>{if(Math.abs(G[0][0]+G[1][1])<=2)bads.push('T'+(i+1)+' (trace '+(G[0][0]+G[1][1]).toFixed(3)+')');});
+   ks.innerHTML='✗ Not hyperbolic — '+bads.join(', ')+' must have |trace| &gt; 2. Try other numbers.';ks.className='keystatus bad';
+ } else {
+   ks.innerHTML='✓ Valid key — '+gens.map((G,i)=>'T'+(i+1)+' '+(G[0][0]+G[1][1]).toFixed(2)).join(', ')+'. All hyperbolic.';ks.className='keystatus good';
+ }
+ if(p==='e')updateCounter(); else updateDecBtn();
+}
+function loadPreset(p){
+ // g generators: alternate two hyperbolic families with distinct params
+ for(let i=0;i<g;i++){
+  const s=1.2+0.13*i; const kind=i%2;
+  const G = kind===0
+   ? [[Math.cosh(s)+Math.sinh(s),Math.sinh(s)],[Math.sinh(s),Math.cosh(s)-Math.sinh(s)]]
+   : [[Math.cosh(s),Math.sinh(s)],[Math.sinh(s),Math.cosh(s)]];
+  const set=(rc,val)=>document.getElementById(p+'_g'+i+'_'+rc).value=val;
+  set('00',G[0][0].toFixed(6));set('01',G[0][1].toFixed(6));set('10',G[1][0].toFixed(6));set('11',G[1][1].toFixed(6));
+ }
+ onKeyEdit(p);
+}
+
+/* ===== message counter ===== */
+function utf8len(s){return new TextEncoder().encode(s).length;}
+function updateCounter(){
+ const s=document.getElementById('ptext').value;
+ const nb=utf8len(s), nc=[...s].length, max=curMax(), over=nb>max;
+ const cnt=document.getElementById('cnt'); cnt.textContent=nb; cnt.style.color=over?'var(--err)':'inherit';
+ document.getElementById('cntMax').textContent=max;
+ document.getElementById('cntChars').textContent=over?'· too long — shorten it':('· '+nc+' character'+(nc===1?'':'s'));
+ const ok=validGensOf('e')&&engine!==null;
+ document.getElementById('encBtn').disabled=!(ok&&nb>0&&!over);
+}
+function updateDecBtn(){document.getElementById('decBtn').disabled=!(validGensOf('d')&&engine!==null);}
+
+/* ===== engine boot ===== */
+function setEngineNote(){document.getElementById('engineNote').textContent=engine==='pyodide'?'Engine: Pyodide (CPython via WebAssembly).':'Engine: pure JavaScript (Web Crypto).';}
+async function boot(){
+ const status=document.getElementById('status');
+ if(location.protocol==='file:'){engine='js';setEngineNote();status.innerHTML='Pure-JavaScript engine (works from disk). For Pyodide serve over <code>http(s)://</code>.';status.className='ok';enableUI();return;}
+ status.textContent='Loading Pyodide…';
+ try{pyodide=await loadPyodideSafe();await pyodide.loadPackage([]);await pyodide.runPythonAsync(PY_CODE);engine='pyodide';setEngineNote();status.textContent='Ready — Pyodide engine loaded.';status.className='ok';}
+ catch(e){engine='js';setEngineNote();status.textContent='Pyodide unavailable — using the fast JavaScript engine.';status.className='ok';}
+ enableUI();
+}
+function loadPyodideSafe(){return new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/pyodide/v0.27.3/full/pyodide.js';s.onload=()=>loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.3/full/'}).then(res,rej);s.onerror=()=>rej(new Error('loader'));document.head.appendChild(s);setTimeout(()=>rej(new Error('timeout')),25000);});}
+function enableUI(){['ptext','btext'].forEach(id=>document.getElementById(id).disabled=false);onKeyEdit('e');onKeyEdit('d');}
+
+/* ===== outer AES-GCM wrap (WebCrypto; runs regardless of inner engine) ===== */
+async function aesKeyFromGens(gens){
+ const txt='MSIA-OUTER-v1|'+gens.map(G=>[G[0][0],G[0][1],G[1][0],G[1][1]].join(',')).join(';');
+ const dig=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(txt));
+ return crypto.subtle.importKey('raw',dig,{name:'AES-GCM'},false,['encrypt','decrypt']);
+}
+function b64enc(u){let s='';for(let i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s);}
+function b64dec(b){const s=atob(b);const u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u;}
+async function wrapBlob(gens,inner){
+ const key=await aesKeyFromGens(gens);const iv=crypto.getRandomValues(new Uint8Array(12));
+ const ct=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(inner)));
+ const out=new Uint8Array(12+ct.length);out.set(iv,0);out.set(ct,12);return b64enc(out);
+}
+async function unwrapBlob(gens,b64){
+ const key=await aesKeyFromGens(gens);const buf=b64dec(b64.trim());
+ const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(0,12)},key,buf.slice(12));
+ return new TextDecoder().decode(pt);
+}
+function looksWrapped(s){const t=s.trim();return t.length>0 && t[0]!=='{' && /^[A-Za-z0-9+/=\s]+$/.test(t);}
+
+/* ===== run ===== */
+async function runEncrypt(gens,text){
+ if(engine==='pyodide'){pyodide.globals.set('_p',prec);pyodide.globals.set('_g',pyodide.toPy(gens));pyodide.globals.set('_t',text);
+  return await pyodide.runPythonAsync('py_encrypt(_p,_g.to_py(),_t)');}
+ return await jsEncrypt(prec,gens,text);
+}
+async function runDecrypt(gens,blob){
+ if(engine==='pyodide'){pyodide.globals.set('_g',pyodide.toPy(gens));pyodide.globals.set('_b',blob);
+  return await pyodide.runPythonAsync('py_decrypt(_g.to_py(),_b)');}
+ return await jsDecrypt(gens,blob);
+}
+async function doEncrypt(){
+ const gens=validGensOf('e');const text=document.getElementById('ptext').value;
+ const out=document.getElementById('encOut'),timing=document.getElementById('encTiming');
+ if(!gens){alert('Enter a valid key first.');return;}
+ if(!text){alert('Type a message first.');return;}
+ const nb=utf8len(text);if(nb>curMax()){alert('Message is '+nb+' bytes; limit is '+curMax()+'.');return;}
+ out.className='';out.textContent='Scrambling…';timing.textContent='';
+ document.getElementById('copyBtn').disabled=true;document.getElementById('dlBtn').disabled=true;document.getElementById('encBtn').disabled=true;
+ const t0=performance.now();
+ try{let blob=await runEncrypt(gens,text);
+  if(wrapMode==='on'){blob=await wrapBlob(gens,blob);}
+  lastBlob=blob;out.textContent=blob;out.className='ok';
+  timing.textContent='Done in '+((performance.now()-t0)/1000).toFixed(2)+'s · '+prec+' · g='+g+' · '+engine+' engine'+(wrapMode==='on'?' · AES-GCM wrapped (opaque)':' · key not in blob');
+  document.getElementById('copyBtn').disabled=false;document.getElementById('dlBtn').disabled=false;
+ }catch(e){out.textContent='Error: '+e.message;out.className='err';}
+ document.getElementById('encBtn').disabled=false;
+}
+function copyBlob(){if(!lastBlob)return;navigator.clipboard.writeText(lastBlob).then(()=>{const b=document.getElementById('copyBtn');const t=b.textContent;b.textContent='Copied ✓';setTimeout(()=>b.textContent=t,1400);});}
+function downloadBlob(){if(!lastBlob)return;const ext=wrapMode==='on'?'txt':'json';const blob=new Blob([lastBlob],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='msia_g'+g+'_'+prec+'.'+ext;a.click();}
+function loadFile(){const f=document.getElementById('blobFile').files[0];if(!f)return;const r=new FileReader();r.onload=e=>document.getElementById('btext').value=e.target.result;r.readAsText(f);}
+async function doDecrypt(){
+ const gens=validGensOf('d');const raw=document.getElementById('btext').value;const out=document.getElementById('decOut');
+ if(!gens){alert('Enter a valid key first.');return;}
+ out.className='';if(!raw.trim()){out.textContent='Paste the scrambled code above.';out.className='err';return;}
+ out.textContent='Unscrambling…';document.getElementById('decBtn').disabled=true;
+ try{
+  let inner=raw;
+  if(looksWrapped(raw)){ // auto-detect opaque AES-GCM wrap and peel it
+   try{inner=await unwrapBlob(gens,raw);}
+   catch(we){throw new Error('WRAP FAIL');}
+  }
+  const pt=await runDecrypt(gens,inner);
+  out.innerHTML='<span class="bigout"></span>';out.querySelector('.bigout').textContent=pt;out.className='ok';
+ }
+ catch(e){const em=e.message||'';let msg;
+  if(em.includes('WRAP FAIL'))msg='✗ Wrong key for the outer wrap — the opaque code didn\'t open with these numbers. Check the key, g, and that this is the wrapped output.';
+  else if(em.includes('WRONG KEY'))msg='✗ Wrong key — these numbers don\'t match the ones used to scramble it. Check with the sender.';
+  else if(em.includes('generator count'))msg='✗ Generator count mismatch — set g to the same value (2–6) the sender used.';
+  else msg='Error: '+em;
+  out.textContent=msg;out.className='err';}
+ document.getElementById('decBtn').disabled=false;
+}
+
+/* init */
+buildGenPanels('e');buildGenPanels('d');setG(3);setPrec('high');setWrap('off');refreshDesc();updateSecBar();boot();
+
+</script></body></html>
