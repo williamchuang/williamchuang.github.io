@@ -17,7 +17,7 @@
   --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
   --section-gap:4rem;
 }
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; overflow-wrap:break-word; word-break:break-word; }
 html { scroll-behavior:smooth; }
 body {
   font-family:"Libre Baskerville",Georgia,serif;
@@ -156,6 +156,7 @@ nav.site-nav {
 .cross-panel {
   background:rgba(14,31,58,0.5); border:1px solid var(--border-dim);
   border-radius:4px; padding:1.2rem 1.4rem; margin:1.4rem 0;
+  overflow:hidden; overflow-wrap:break-word; word-break:break-word;
 }
 .cross-panel .panel-label { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; }
 .cross-panel .cross-row { display:flex; align-items:flex-end; gap:2rem; flex-wrap:wrap; }
@@ -204,12 +205,15 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
   padding:1.5rem 1.7rem 1.55rem;
   margin:2rem 0;
   position:relative;
+  overflow:hidden;
+  overflow-wrap:break-word;
+  word-break:break-word;
   box-shadow:0 1px 0 rgba(201,168,76,0.05) inset;
 }
 .demo-tag {
   font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.16em;
   text-transform:uppercase; color:var(--gold-dim);
-  display:flex; align-items:center; gap:0.6rem; margin-bottom:0.9rem;
+  display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.9rem;
 }
 .demo-tag::before {
   content:"❧"; color:var(--gold); font-size:0.85rem; line-height:1;
@@ -221,6 +225,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
   font-family:"Cormorant Garamond",Georgia,serif;
   font-size:1.18rem; line-height:1.45; color:var(--cream);
   font-weight:500; margin-bottom:0.4rem;
+  overflow-wrap:break-word; word-break:break-word;
 }
 .demo-prop .lead-word {
   font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.1em;
@@ -231,6 +236,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
   font-size:0.8rem; color:var(--muted); line-height:1.7;
   border-top:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim);
   padding:0.7rem 0; margin:0.9rem 0 1rem;
+  overflow-wrap:break-word; word-break:break-word;
 }
 .demo-grounds b {
   font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.08em;
@@ -240,6 +246,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
 .demo-steps > li {
   position:relative; padding-left:2.3rem; margin-bottom:0.85rem;
   font-size:0.92rem; line-height:1.72; color:var(--body);
+  overflow-wrap:break-word; word-break:break-word;
 }
 .demo-steps > li::before {
   counter-increment:demostep; content:counter(demostep);
@@ -255,6 +262,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
   display:inline; font-family:"DM Mono",monospace; font-size:0.68rem;
   letter-spacing:0.03em; color:var(--gold-dim);
   white-space:normal;
+  overflow-wrap:break-word; word-break:break-word;
 }
 .warrant::before { content:"["; color:var(--faint); }
 .warrant::after  { content:"]"; color:var(--faint); }
@@ -278,6 +286,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
   font-size:0.82rem; color:var(--muted); font-style:italic;
   border-left:2px solid var(--gold-dim); padding:0.4rem 0 0.4rem 0.9rem;
   margin-top:0.9rem; line-height:1.65;
+  overflow-wrap:break-word; word-break:break-word;
 }
 .demo-gap b { font-style:normal; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); }
 /* Euclidean preamble register */
