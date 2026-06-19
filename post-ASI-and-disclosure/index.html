@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Post-ASI and ET-Direct-Creation Disclosure — Logarchéon</title>
+<meta name="description" content="Theological demand, intelligence formation, and new operational methods under ASI-longevity and ET-direct-creation disclosure. ODE and spin-lattice models with Year-1 convention. William Chuang, Logarchéon Inc."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>MathJax={tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]]},options:{skipHtmlTags:["script","noscript","style","textarea","code","pre"]}};</script>
+<style>
+/* ── Reference palette (exact match to research index) ── */
+:root {
+  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
+  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
+  --section-gap:5rem;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"Libre Baskerville",Georgia,serif;background:var(--navy);color:var(--cream);line-height:1.72;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,0.05) 0%,transparent 55%);}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);background-size:80px 80px;}
+.wrap{position:relative;z-index:1;}
+
+/* ── Typography ── */
+h1,h2,h3,h4,h5{font-family:"Cormorant Garamond",Georgia,serif;letter-spacing:-0.01em;font-weight:500;color:var(--cream);line-height:1.2;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{color:var(--gold-light);text-decoration:underline;}
+code{font-family:"DM Mono",monospace;font-size:0.82rem;background:var(--navy-mid);padding:0.1em 0.35em;border-radius:3px;color:var(--cream);}
+strong{color:var(--cream);font-weight:700;}
+em{font-style:italic;}
+.mono{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}
+
+/* ── Nav ── */
+nav.site-nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dim);padding:0 28px;}
+.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;}
+.nav-logo{font-family:"Cormorant Garamond",serif;font-size:1.25rem;font-weight:500;color:var(--gold-light);letter-spacing:0.02em;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);text-decoration:none;}
+
+/* ── Layout ── */
+.container{max-width:1060px;margin:0 auto;padding:0 clamp(16px,4vw,28px);}
+.page-layout{display:grid;grid-template-columns:210px 1fr;gap:4rem;align-items:start;padding:4rem clamp(16px,4vw,28px) 6rem;max-width:1060px;margin:0 auto;}
+
+/* ── TOC ── */
+.toc-sidebar{position:sticky;top:74px;border-left:1px solid var(--border);padding-left:1.4rem;max-height:calc(100vh - 94px);display:flex;flex-direction:column;min-height:0;}
+.toc-label{font-family:"DM Mono",monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem;flex:0 0 auto;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:0.25rem;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-right:0.55rem;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:var(--gold-dim) rgba(201,168,76,0.08);}
+.toc-list::-webkit-scrollbar{width:6px;}
+.toc-list::-webkit-scrollbar-track{background:rgba(201,168,76,0.06);border-radius:999px;}
+.toc-list::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.45);border-radius:999px;}
+.toc-link{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.05em;color:var(--body);padding:0.25rem 0;display:block;border-left:2px solid transparent;margin-left:-1.5rem;padding-left:1.3rem;transition:color 0.2s,border-color 0.2s;}
+.toc-link:hover{color:var(--gold);border-color:var(--gold);text-decoration:none;}
+.toc-link.toc-section{color:var(--cream);font-size:0.74rem;}
+.toc-link.toc-sub{font-size:0.68rem;color:var(--gold-dim);}
+.toc-link.toc-subhead{font-size:0.62rem;color:var(--faint);text-transform:uppercase;letter-spacing:0.1em;padding-top:0.65rem;cursor:default;}
+.toc-link.toc-subhead:hover{color:var(--faint);border-color:transparent;text-decoration:none;}
+
+/* ── Hero ── */
+.page-hero{border-bottom:1px solid var(--border-dim);padding:3.5rem 0 2.5rem;}
+.page-hero .breadcrumb{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.6rem;}
+.page-hero h1{font-size:clamp(1.7rem,4vw,3.2rem);font-weight:300;max-width:100%;margin-bottom:1rem;line-height:1.25;}
+.page-hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero-desc{color:var(--body);font-size:1.05rem;max-width:min(62ch,100%);line-height:1.75;margin-bottom:1.5rem;}
+.hero-badges{display:flex;gap:0.7rem;flex-wrap:wrap;margin-bottom:0.5rem;}
+.hero-badge{font-family:"DM Mono",monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:0.28rem 0.7rem;border-radius:2px;background:var(--gold-pale);}
+
+/* ── Sections ── */
+.page-section{margin-bottom:var(--section-gap);}
+.section-header{display:flex;align-items:baseline;gap:1.2rem;border-bottom:1px solid var(--border-dim);padding-bottom:0.9rem;margin-bottom:2.2rem;}
+.section-num{font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.12em;color:var(--muted);}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:1.7rem;font-weight:400;color:var(--gold-light);}
+
+/* ── Paper cards ── */
+.paper-card{background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-radius:4px;padding:1.4rem 1.6rem;margin:1.2rem 0;transition:border-color 0.2s;}
+.paper-card:hover{border-color:var(--border);}
+.paper-card h3{font-size:1.15rem;font-weight:500;color:var(--cream);margin:0 0 0.4rem;}
+.paper-meta{font-family:"DM Mono",monospace;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.6rem;display:flex;flex-wrap:wrap;gap:0.6rem;}
+.paper-meta span::after{content:" ·";margin-left:0.3rem;}
+.paper-meta span:last-child::after{content:"";}
+.paper-abstract{color:var(--body);font-size:0.92rem;line-height:1.7;margin-bottom:0.75rem;max-width:66ch;}
+.paper-abstract p{margin-bottom:0.5rem;}
+.paper-links{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.6rem;}
+
+/* ── Links ── */
+.link-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold-pale);border:1px solid var(--border);color:var(--cream);padding:0.35rem 0.85rem;border-radius:3px;font-family:"DM Mono",monospace;font-size:0.68rem;letter-spacing:0.05em;transition:background 0.2s,border-color 0.2s;text-decoration:none;}
+.link-btn:hover{background:rgba(201,168,76,0.22);border-color:var(--gold);color:var(--cream);text-decoration:none;}
+.link-btn .lbl{font-size:0.6rem;letter-spacing:0.12em;color:var(--gold);border:1px solid var(--gold-dim);padding:0.08rem 0.25rem;border-radius:2px;margin-right:0.1rem;}
+
+/* ── Sub-groups ── */
+.subsection{margin:2rem 0;}
+.subsection h3{font-size:1.2rem;color:var(--cream);margin-bottom:1rem;border-left:2px solid var(--gold-dim);padding-left:0.85rem;}
+.subsection h4{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:1.2rem 0 0.6rem;}
+
+/* ── Disclaimer/note box ── */
+.theory-disclaimer{background:rgba(25,40,80,0.6);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;padding:0.9rem 1.2rem;margin:0 0 1.5rem;font-size:0.88rem;color:var(--muted);font-style:italic;}
+
+/* ── Ref list ── */
+.ref-list{list-style:none;display:grid;gap:0.5rem;}
+.ref-list li{color:var(--body);font-size:0.88rem;padding-left:1.5rem;position:relative;}
+.ref-list li::before{content:"";position:absolute;left:0;top:0.6em;width:0.8rem;height:1px;background:var(--gold-dim);}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--border-dim);padding:2.4rem 28px;font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.06em;color:var(--faint);text-align:center;}
+
+/* ── Responsive ── */
+/* ══ Responsive utility grids ══ */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:0.7rem;}
+.g2.gap-sm{gap:0.8rem;}
+
+/* ══ Global word-wrap and overflow ══ */
+*{-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word;word-break:break-word;}
+code,pre,.cv-body code,.mono,.yr1,.rc-val,.ach-table td{
+  -webkit-hyphens:none;hyphens:none;overflow-wrap:normal;word-break:normal;}
+pre{word-break:normal;white-space:pre;}
+
+/* ══ MathJax overflow on narrow screens ══ */
+mjx-container{overflow-x:auto;max-width:100%;display:block;}
+.MJX_Display{overflow-x:auto;padding-bottom:0.3rem;}
+
+/* ══ Equations: allow horizontal scroll ══ */
+p mjx-container,li mjx-container{display:inline-block;max-width:100%;}
+
+/* ══ Prose line-width cap for readability ══ */
+.euclid .ebody p,.demo-body,.rc-note,.paper-abstract p,.hero-desc,
+.theory-disclaimer,.yr1-box-body,
+.page-section>p[style]{max-width:72ch;}
+
+/* ══ Tables: always scroll, never overflow ══ */
+.data-wrap,.ach-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;
+  border-radius:3px;}
+.data-table{min-width:480px;}
+.ach-table{min-width:560px;}
+
+/* ══ 860 px — tablet / small laptop ══ */
+@media(max-width:860px){
+  .page-layout{grid-template-columns:1fr;gap:2rem;padding:2rem 20px 4rem;}
+  .toc-sidebar{display:none;}
+  .result-grid{grid-template-columns:1fr;}
+  .g2{grid-template-columns:1fr;}
+  .g3{grid-template-columns:1fr 1fr;}
+  .container{padding:0 20px;}
+  .page-hero{padding:2.5rem 0 1.8rem;}
+  .page-hero h1{font-size:clamp(1.8rem,5vw,2.8rem);max-width:100%;}
+}
+
+/* ══ 640 px — large phone, portrait tablet ══ */
+@media(max-width:640px){
+  .g3{grid-template-columns:1fr;}
+  .hero-badges{flex-direction:column;align-items:flex-start;}
+  .hero-badge{width:fit-content;}
+  .paper-links{flex-wrap:wrap;}
+  .paper-links .link-btn{flex:1 1 calc(50% - 0.3rem);justify-content:center;text-align:center;}
+  .section-title{font-size:1.45rem;}
+  .euclid{padding:0.75rem 0.95rem;}
+  .demo{padding:0.75rem 0.9rem;}
+  .result-card{padding:0.85rem 1rem;}
+  .yr1-box{padding:0.9rem 1.1rem;}
+  .rc-row{flex-wrap:wrap;gap:0.2rem;}
+  .rc-key{min-width:100%;font-size:0.68rem;}
+  .rc-val{font-size:0.78rem;}
+  .data-table{font-size:0.72rem;}
+  .data-table thead th,.data-table tbody td{padding:0.32rem 0.5rem;}
+  .ach-table{font-size:0.74rem;}
+  .ach-table thead th,.ach-table tbody td{padding:0.35rem 0.5rem;}
+  .cv-body code{font-size:0.7rem;}
+  .code-viewer{margin:0.8rem 0;}
+}
+
+/* ══ 480 px — standard phone portrait ══ */
+@media(max-width:480px){
+  body{font-size:0.96rem;}
+  .page-hero h1{font-size:1.65rem;}
+  .page-hero .breadcrumb{font-size:0.65rem;gap:0.4rem;}
+  .paper-links .link-btn{flex:1 1 100%;justify-content:center;}
+  .hero-desc{font-size:0.95rem;}
+  .section-title{font-size:1.3rem;}
+  .section-num{font-size:0.65rem;}
+  .page-section{margin-bottom:3.5rem;}
+  .paper-card{padding:1rem 1.1rem;}
+  .paper-card h3{font-size:1.05rem;}
+  .paper-abstract{font-size:0.88rem;}
+  .euclid .ehead{font-size:0.62rem;}
+  .euclid .ebody{font-size:0.88rem;}
+  .demo-body{font-size:0.84rem;}
+  .theory-disclaimer{font-size:0.84rem;padding:0.75rem 0.95rem;}
+  .yr1-box-body{font-size:0.88rem;}
+  .subsection h3{font-size:1.05rem;}
+  nav.site-nav .nav-links{display:none;}
+  .nav-inner{justify-content:flex-start;gap:1rem;}
+  .data-table{min-width:380px;font-size:0.69rem;}
+  .ach-table{min-width:440px;}
+  .result-grid{gap:0.75rem;}
+  .cv-header{flex-wrap:wrap;gap:0.4rem;}
+  .cv-title{width:100%;}
+}
+
+[id]{scroll-margin-top:70px;}
+
+/* ══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC ADDITIONS — all within the reference palette
+   ══════════════════════════════════════════════════════════ */
+
+/* Euclidean theorem blocks — variants of theory-disclaimer */
+.euclid{border-radius:0 4px 4px 0;padding:0.85rem 1.2rem;margin:0.9rem 0;font-size:0.9rem;line-height:1.72;}
+.euclid .ehead{font-family:"DM Mono",monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+.euclid .ebody{color:var(--body);}
+.euclid.def{background:rgba(14,31,58,0.5);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);}
+.euclid.def .ehead{color:var(--gold-dim);}
+.euclid.post{background:rgba(14,31,58,0.4);border:1px solid var(--border-dim);border-left:3px solid var(--muted);}
+.euclid.post .ehead{color:var(--muted);}
+.euclid.cn{background:rgba(14,31,58,0.35);border:1px solid var(--border-dim);border-left:3px solid var(--faint);}
+.euclid.cn .ehead{color:var(--faint);}
+.euclid.prop{background:rgba(14,31,58,0.75);border:1px solid var(--border-dim);border-left:3px solid var(--gold);}
+.euclid.prop .ehead{color:var(--gold);}
+.euclid.cor{background:rgba(14,31,58,0.5);border:1px solid var(--border-dim);border-left:3px solid var(--gold-light);}
+.euclid.cor .ehead{color:var(--gold-light);}
+
+/* Demonstration sub-box */
+.demo{background:rgba(6,16,34,0.85);border:1px solid var(--border-dim);border-radius:3px;padding:0.9rem 1.1rem;margin:0.75rem 0;}
+.demo-head{font-family:"DM Mono",monospace;font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.6rem;}
+.demo-body{color:var(--body);font-size:0.88rem;line-height:1.7;}
+.step{margin-bottom:0.5rem;}
+.step-lbl{font-family:"DM Mono",monospace;font-size:0.72rem;color:var(--gold);margin-right:0.5rem;}
+
+/* Year-1 convention callout — prominent gold border */
+.yr1-box{background:rgba(14,31,58,0.75);border:2px solid var(--gold);border-radius:4px;padding:1.1rem 1.5rem;margin:1.4rem 0;}
+.yr1-box-head{font-family:"DM Mono",monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+.yr1-box-body{color:var(--body);font-size:0.92rem;line-height:1.75;}
+.yr1{font-style:italic;color:var(--body);}
+
+/* ACH table */
+.ach-wrap{overflow-x:auto;margin:1.2rem 0;}
+.ach-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+.ach-table thead th{background:var(--navy-light);border:1px solid var(--border-dim);padding:0.5rem 0.7rem;font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);text-align:center;white-space:nowrap;}
+.ach-table thead th.ev-h{text-align:left;min-width:210px;}
+.ach-table tbody td{border:1px solid var(--border-dim);padding:0.42rem 0.7rem;color:var(--body);text-align:center;vertical-align:middle;}
+.ach-table tbody td.ev-cell{text-align:left;font-size:0.85rem;}
+.ach-table tbody tr:hover td{background:rgba(201,168,76,0.03);}
+.cell-c{color:var(--gold-dim);}
+.cell-i{color:var(--cream);font-weight:700;}
+.cell-na{color:var(--faint);}
+.ach-table tfoot td{border-top:2px solid var(--border);padding:0.5rem 0.7rem;font-family:"DM Mono",monospace;font-size:0.72rem;font-weight:700;text-align:center;}
+.disc-winner{color:var(--gold-light);}
+.disc-loser{color:var(--muted);}
+
+/* Data tables */
+.data-wrap{overflow-x:auto;margin:1.1rem 0;}
+.data-table{width:100%;border-collapse:collapse;font-family:"DM Mono",monospace;font-size:0.8rem;}
+.data-table thead th{background:var(--navy-light);border:1px solid var(--border-dim);padding:0.45rem 0.8rem;color:var(--gold);text-align:right;white-space:nowrap;}
+.data-table thead th.col-left{text-align:left;}
+.data-table tbody td{border:1px solid var(--border-dim);padding:0.38rem 0.8rem;color:var(--body);text-align:right;}
+.data-table tbody td.col-left{text-align:left;color:var(--gold-light);font-weight:500;}
+.data-table tbody tr:hover td{background:rgba(201,168,76,0.03);}
+.data-table tfoot td{border-top:2px solid var(--border);padding:0.42rem 0.8rem;color:var(--faint);font-size:0.72rem;font-style:italic;}
+
+/* Result cards for lattice output */
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0;}
+.result-card{background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:4px;padding:1rem 1.2rem;}
+.result-card.cascade{border-left:3px solid var(--muted);}
+.result-card.stable{border-left:3px solid var(--gold);}
+.result-card.first{border-left:3px solid var(--gold-light);}
+.result-card h4{font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:0.55rem;}
+.rc-row{display:flex;justify-content:space-between;font-family:"DM Mono",monospace;font-size:0.72rem;padding:0.2rem 0;border-bottom:1px solid var(--border-dim);}
+.rc-row:last-of-type{border:none;}
+.rc-key{color:var(--muted);}
+.rc-val{color:var(--cream);}
+.rc-note{font-size:0.78rem;color:var(--faint);font-style:italic;margin-top:0.5rem;font-family:"Libre Baskerville",serif;line-height:1.55;}
+
+/* Code viewer */
+.code-viewer{background:rgba(8,18,38,0.96);border:1px solid var(--border-dim);border-radius:4px;margin:1.2rem 0;overflow:hidden;}
+.cv-header{display:flex;align-items:center;justify-content:space-between;padding:0.65rem 1rem;background:var(--navy-light);border-bottom:1px solid var(--border-dim);}
+.cv-title{font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}
+.cv-lang{font-family:"DM Mono",monospace;font-size:0.63rem;color:var(--faint);background:rgba(201,168,76,0.09);padding:0.12rem 0.45rem;border-radius:2px;border:1px solid var(--border-dim);}
+.cv-toggle{font-family:"DM Mono",monospace;font-size:0.67rem;color:var(--muted);background:none;border:1px solid var(--border-dim);padding:0.18rem 0.5rem;border-radius:2px;cursor:pointer;transition:color 0.2s,border-color 0.2s;}
+.cv-toggle:hover{color:var(--gold);border-color:var(--gold);}
+.cv-body{display:none;overflow-x:auto;max-height:480px;padding:1rem 1.2rem;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--gold-dim) rgba(201,168,76,0.06);}
+.cv-body.open{display:block;}
+.cv-body pre{margin:0;}
+.cv-body code{font-family:"DM Mono",monospace;font-size:0.75rem;line-height:1.65;background:none;padding:0;color:#c8d8f0;white-space:pre;}
+.tk-kw{color:#c8a4dc;}.tk-st{color:#b8d8a0;}.tk-cm{color:#546e8a;font-style:italic;}.tk-nu{color:#e8b88a;}.tk-fn{color:#90b8f8;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarch&eacute;on</a>
+    <ul class="nav-links">
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Psi-Operator-Framework">Ψ-Operator</a></li>
+      <li><a href="/MIA">MIA</a></li>
+      <li><a href="/Research/" class="active">Research</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="container">
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="/" style="color:var(--faint)">Logarch&eacute;on</a>
+      <span style="color:var(--faint)">/</span>
+      <a href="/Research/" style="color:var(--faint)">Research</a>
+      <span style="color:var(--faint)">/</span>
+      <span>Post-ASI &amp; ET Disclosure</span>
+    </div>
+    <h1>Post-ASI and ET-Direct-Creation Disclosure:<br>
+    <em>Theological Demand, Intelligence Formation,<br>and New Operational Methods</em></h1>
+    <p class="hero-desc">
+      A stress-scenario modeling note in the Euclidean manner: ODE and spin-lattice
+      models for Christian-faith-based intelligence formation under the joint shock
+      of ASI-enabled longevity and ET-direct-creation disclosure, with new
+      variables Op(<em>t</em>) and Nu(<em>t</em>). ACH applied to the central
+      institutional question. Six regions modeled. Year-1 convention enforced throughout.
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge">Working Note &middot; 2026</span>
+      <span class="hero-badge">William Chuang &middot; Logarch&eacute;on Inc.</span>
+      <span class="hero-badge">ODE + Spin-Lattice &middot; 6 Regions</span>
+      <span class="hero-badge">Euclidean Method &middot; ACH Protocol</span>
+      <span class="hero-badge">Baseline year est. 2028 per CFR 2025&ndash;26 assessment</span>
+    </div>
+
+    <div class="theory-disclaimer" style="font-style:normal;color:var(--body);border-left-color:var(--gold);margin:1.2rem 0;">
+      <strong style="color:var(--cream);">Working assumption on timing — with longevity caveat.</strong>
+      Based on recent Council on Foreign Relations assessments (CFR Technology and Innovation working group, 2025–26), transformative general-capability AI may arrive within approximately two years of this writing, placing Year 1 near <strong>2028</strong>. Projections are equivalently expressible as <strong>2028+n</strong> (Year 1+10 ≈ 2038; Year 1+25 ≈ 2053; Year 1+50 ≈ 2078).
+      <br><br>
+      <strong style="color:var(--cream);">Critical caveat: ASI arrival ≠ practical longevity.</strong>
+      Year 1 (~2028) marks ASI <em>capability</em> — not the year longevity technology becomes clinically deployable. ASI dramatically accelerates longevity research through high-throughput in-silico drug discovery, protein-structure prediction, and adaptive trial design; but translating that research capacity into accessible clinical medicine takes an estimated additional 10–20 years. In the model, this lag is encoded in L(<em>t</em>)'s sigmoid inflection at Year 1+18: at Year 1 itself, L(0) ≈ 0.013 — longevity plausibility is essentially negligible in the relevant population. L crosses its midpoint (L = 0.5) at <strong>Year 1+18 ≈ 2046</strong>, and approaches its scenario ceiling at <strong>Year 1+25 ≈ 2053</strong>. The primary institutional stress on the Memento Mori control structure therefore materializes not in 2028 but in approximately <strong>2043–2053</strong>. The cascade window for CIA-type formations opens at Year 1+9 ≈ <strong>2037</strong> — nine years after ASI, but well before longevity is fully realized — driven by the early rise of ASI institutional disruption (I) and ET-credibility (X), not yet by longevity itself.
+    </div>
+
+    <div class="paper-links">
+      <a href="https://drive.google.com/file/d/1qPXHa05PJwojlt_5OJEsYKKoCeoWMwLX/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>26-Page Working Note</a>
+      <a href="post_asi_disclosure_v2.tex" class="link-btn" target="_blank"><span class="lbl">TeX</span>LaTeX Source</a>
+      <a href="https://drive.google.com/file/d/1D-4PI6kyF2w_qiRwUX1ov6Bzy52D7xHL/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PY</span>Simulation v5</a>
+      <a href="#ach" class="link-btn"><span class="lbl">↓</span>ACH Matrix</a>
+    </div>
+
+    <!-- Reader's guide for IR/IL audience -->
+    <div style="background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-radius:4px;padding:1.3rem 1.6rem;margin-top:1.6rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.9rem;">Interpretive conventions: scales, cascade criterion, and projection units</div>
+      <div class="g2">
+        <div>
+          <p style="font-size:0.88rem;color:var(--body);line-height:1.72;margin-bottom:0.6rem;">
+            <strong>Variable scale.</strong> Each stress variable (I, L, H, X, Op, Nu) is a dimensionless proportion bounded by 0 and 1, calibrated to the scenario's maximum credible level rather than to any absolute physical quantity. A value of 0 indicates the force is absent at baseline; a value of 1 indicates it has reached the scenario ceiling. Op&nbsp;=&nbsp;0.795 at 2053 (Year&nbsp;1+25) therefore indicates that roughly 80% of the traditional Christian-faith-based formation and recruitment toolkit — sacrifice-willingness derived from <em>Memento Mori</em>, transcendent mission justification, anti-communist theological conviction — has become ineffective for the ASI-accessible population by that date.
+          </p>
+          <p style="font-size:0.88rem;color:var(--body);line-height:1.72;">
+            <strong>Cohesion index m(t).</strong> In the spin-lattice model, each organizational unit holds a binary state: holding its pre-shock formation structure (+1) or having transitioned away from it (&minus;1). The magnetization m(t) is the mean of these binary states across all units — an institutional cohesion score on a scale from &minus;1 to +1. m&nbsp;=&nbsp;+0.97 indicates that 98.5% of units remain in the pre-shock state; m&nbsp;=&nbsp;&minus;0.97 indicates that 98.5% have transitioned — institutional transformation is near-complete; m&nbsp;=&nbsp;0 is the critical fifty-fifty threshold.
+          </p>
+        </div>
+        <div>
+          <p style="font-size:0.88rem;color:var(--body);line-height:1.72;margin-bottom:0.6rem;">
+            <strong>Cascade criterion.</strong> A cascade is registered when the cohesion index drops more than 45 percentage points within a single five-year window — consistent with roughly one-third of all organizational units transitioning simultaneously. Historical analogies for comparable speed: the dissolution of Soviet ideological formation infrastructure in 1989–91, and the collapse of ARVN unit cohesion in early 1975. Once this criterion is satisfied, the model assessment is that organic recovery is unavailable; reconstitution requires deliberate institutional rebuilding rather than continuation of existing adaptation processes.
+          </p>
+          <p style="font-size:0.88rem;color:var(--body);line-height:1.72;">
+            <strong>Projection units.</strong> For religious regions, P<sub>r</sub>(t) is an estimated count of active ordained Catholic priests — the proxy stock for Christian-faith-based institutional formation capacity (source: Vatican Annuario Pontificio; CARA regional estimates). For the US Intelligence Community, P<sub>r</sub>(t) = 100 at baseline is a normalized index, not a headcount; a reading of 53 at 2053 indicates that roughly half of pre-shock Christian-faith-based operational formation capacity remains under this scenario.
+          </p>
+        </div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--faint);line-height:1.65;margin-top:0.8rem;font-style:italic;">
+        These are stress-scenario projections, not forecasts. The projections identify structural vulnerabilities and estimate the timing of intervention windows under a specific dual-shock assumption. They do not predict that these outcomes will occur; they project what would occur <em>if</em> both shocks materialize near 2028 as the CFR assessment suggests.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Layout ── -->
+<div class="page-layout">
+
+<aside class="toc-sidebar">
+  <div class="toc-label">Contents</div>
+  <ul class="toc-list">
+    <li><a href="#preamble" class="toc-link toc-section">I · Preamble</a></li>
+    <li><a href="#defs" class="toc-link toc-sub">Definitions</a></li>
+    <li><a href="#postulates" class="toc-link toc-sub">Postulates</a></li>
+    <li><a href="#cn" class="toc-link toc-sub">Common Notions</a></li>
+    <li><a href="#shocks" class="toc-link toc-section">II · The Two Shocks</a></li>
+    <li><a href="#longevity" class="toc-link toc-sub">ASI-Longevity &amp; Memento Mori</a></li>
+    <li><a href="#response-ab" class="toc-link toc-sub">Response A vs Response B</a></li>
+    <li><a href="#etdc" class="toc-link toc-sub">ET-Direct-Creation</a></li>
+    <li><a href="#cia" class="toc-link toc-section">III · Christians In Action</a></li>
+    <li><a href="#weakening" class="toc-link toc-section">IV · Old Methods Weakened</a></li>
+    <li><a href="#prob-tables" class="toc-link toc-sub">Probability Tables</a></li>
+    <li><a href="#methods" class="toc-link toc-section">V · New Methods</a></li>
+    <li><a href="#six-methods" class="toc-link toc-sub">Six Concrete Methods</a></li>
+    <li><a href="#qtl" class="toc-link toc-section">VI · Question-Tree Leadership</a></li>
+    <li><a href="#ode" class="toc-link toc-section">VII · ODE Model</a></li>
+    <li><a href="#variables" class="toc-link toc-sub">Stress Variables</a></li>
+    <li><a href="#trajectories" class="toc-link toc-sub">Year-1 Trajectories</a></li>
+    <li><a href="#projections" class="toc-link toc-sub">ODE Projections</a></li>
+    <li><a href="#lattice" class="toc-link toc-section">VIII · Spin-Lattice</a></li>
+    <li><a href="#cascade-result" class="toc-link toc-sub">Cascade Results</a></li>
+    <li><a href="#ach" class="toc-link toc-section">IX · ACH Applied</a></li>
+    <li><a href="#implications" class="toc-link toc-section">X · Implications</a></li>
+    <li><a href="#simulation" class="toc-link toc-section">∎ &nbsp;Simulation Code</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- ══ PART I: PREAMBLE ══ -->
+<section class="page-section" id="preamble">
+  <div class="section-header">
+    <span class="section-num">I</span>
+    <h2 class="section-title">Preamble — Definitions, Postulates, Common Notions</h2>
+  </div>
+  <p style="color:var(--body);font-size:0.95rem;line-height:1.75;max-width:68ch;margin-bottom:1.5rem;">
+    Following Euclid: all key terms are fixed, all foundational assumptions stated, all
+    general logical principles declared before any proposition is attempted. No claim
+    in Parts II–X invokes a term or assumption not introduced here.
+  </p>
+
+  <div class="subsection" id="defs">
+    <h3>Definitions</h3>
+
+    <div class="euclid def">
+      <div class="ehead">Definition · Year 1</div>
+      <div class="ebody"><span class="yr1">Year 1</span> is the calendar year in which the dual-shock threshold is crossed: (i)&nbsp;ASI-level artificial intelligence is publicly confirmed to be operational; and/or (ii)&nbsp;credible public evidence for ET-direct-creation of the human biological platform is available. <span class="yr1">Year 1</span> is not a known calendar year as of this writing. Any analysis that substitutes a specific calendar year for <span class="yr1">Year 1</span> is advancing an assertion that requires independent demonstration.</div>
+    </div>
+
+    <div class="euclid def">
+      <div class="ehead">Definition · Year-1 Relative Time</div>
+      <div class="ebody">For any non-negative integer k, <span class="yr1">Year 1+k</span> denotes the year that is k years after <span class="yr1">Year 1</span>. The model variable <em>t</em> measures elapsed years since <span class="yr1">Year 1</span>; \(t=0\) at <span class="yr1">Year 1</span>, \(t=k\) at <span class="yr1">Year 1+k</span>.</div>
+    </div>
+
+    <div class="euclid def">
+      <div class="ehead">Definition · Memento Mori Control Structure</div>
+      <div class="ebody">The institutional mechanism by which certainty of biological death organizes confession, penance, sacrifice, vocation, just-war acceptance, and eschatological urgency in Catholic and Hospitaller formation. It is not merely a piety; it is the primary generator of sacrifice willingness and operational risk tolerance in Christian-faith-based intelligence formations.</div>
+    </div>
+
+    <div class="euclid def">
+      <div class="ehead">Definition · Creaturehood Frame</div>
+      <div class="ebody">An institutional anthropology centered on <em>ontological dependence</em> rather than biological mortality: the claim that a person remains contingent, non-self-grounding, and morally accountable regardless of biological lifespan. The creaturehood frame is logically independent of the Memento Mori control structure; it survives both shocks.</div>
+    </div>
+
+    <div class="euclid def">
+      <div class="ehead">Definition · Op(t) — Operational Method Obsolescence</div>
+      <div class="ebody">
+        $$\mathrm{Op}(t) = L(t)\bigl(0.50 + 0.50\,X(t)\bigr)$$
+        where \(L(t)\) is ASI-longevity plausibility and \(X(t)\) is ET-direct-creation credibility, both in years since <span class="yr1">Year 1</span>. At \(X=0\): longevity alone reduces sacrifice willingness at half the maximum rate. At \(L=0\): Op \(\equiv 0\) regardless of X — the destructive case requires <em>both</em> shocks.
+      </div>
+    </div>
+
+    <div class="euclid def">
+      <div class="ehead">Definition · Nu(t) — New Method Readiness</div>
+      <div class="ebody">
+        $$\mathrm{Nu}(t) = \frac{\Phi(t)\bigl(1 + 0.30\,X(t)\bigr)}{1.30}$$
+        where \(\Phi(t)=0.40I+0.20L+0.15H+0.10X+0.15D\) is the frontier-knowledge position-capture field. Nu(t) rises faster when X is high: ET-contact potential amplifies the advantage of ASI-based intelligence.
+      </div>
+    </div>
+
+    <div class="euclid def">
+      <div class="ehead">Definition · Conditional Proposition</div>
+      <div class="ebody">A claim of the form: <em>If</em> [antecedent], <em>then</em> [consequent]. All propositions whose conclusions refer to post-<span class="yr1">Year 1</span> states are conditional propositions. A conditional proposition asserts only what follows from a stated condition, not a fact about the world.</div>
+    </div>
+  </div>
+
+  <div class="subsection" id="postulates">
+    <h3>Postulates</h3>
+
+    <div class="euclid post">
+      <div class="ehead">Postulate · Year-1 Agnosticism</div>
+      <div class="ebody">The analyst does not know when <span class="yr1">Year 1</span> will occur. Any projection expressed in calendar-year terms without a demonstrated prediction of <span class="yr1">Year 1</span>'s calendar value contains a hidden assumption. A hidden assumption cannot be challenged and therefore cannot be corrected.</div>
+    </div>
+
+    <div class="euclid post">
+      <div class="ehead">Postulate · Asymmetry of Evidence</div>
+      <div class="ebody">A single piece of disconfirmatory evidence eliminates a hypothesis from the viable set. Any number of confirmations leaves all consistent hypotheses in competition.</div>
+    </div>
+
+    <div class="euclid post">
+      <div class="ehead">Postulate · Structural Discontinuity at Year 1</div>
+      <div class="ebody">The dual-shock threshold introduces a structural discontinuity in institutional formation dynamics that cannot be modeled as a linear continuation of pre-threshold trends. The present is a smooth continuation of the past; <span class="yr1">Year 1</span> is not.</div>
+    </div>
+  </div>
+
+  <div class="subsection" id="cn">
+    <h3>Common Notions</h3>
+
+    <div class="euclid cn">
+      <div class="ehead">Common Notion · If Not Now, Then Year 1</div>
+      <div class="ebody">All analytical claims about post-threshold institutional states are conditional on <span class="yr1">Year 1</span> having been reached. A demonstrated claim must show: (i)&nbsp;what follows if <span class="yr1">Year 1</span> has been reached; (ii)&nbsp;the stress dynamics producing the outcome; (iii)&nbsp;that no calendar year is substituted for <span class="yr1">Year 1</span>.</div>
+    </div>
+
+    <div class="euclid cn">
+      <div class="ehead">Common Notion · Simultaneous Hypothesis Testing</div>
+      <div class="ebody">Any analytical procedure that does not explicitly identify and test all competing hypotheses simultaneously is susceptible to satisficing at the moment the analyst first encounters a plausible hypothesis.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART II: THE TWO SHOCKS ══ -->
+<section class="page-section" id="shocks">
+  <div class="section-header">
+    <span class="section-num">II</span>
+    <h2 class="section-title">The Two Shocks and the Creator-Chain Argument</h2>
+  </div>
+
+  <div class="euclid prop" id="longevity">
+    <div class="ehead">Proposition · ASI-Longevity Weakens the Memento Mori Structure — With Lag</div>
+    <div class="ebody">
+      <strong>If</strong> Year 1 is reached and L(<em>t</em>) follows its calibrated sigmoid trajectory, <strong>then</strong> the Memento Mori control structure will have lost approximately 84% of its social force by Year 1+25 (~2053). <strong>Caveat:</strong> this weakening does not begin at Year 1 (~2028). At Year 1 itself, L(0) ≈ 0.013 — longevity technology is in the ASI-accelerated research phase but is not yet clinically deployed. The primary stress materializes during Year 1+15 to Year 1+25 (~2043–2053), as ASI-driven research translates into medicine accessible to the strategically relevant population.
+      <div class="demo">
+        <div class="demo-head">Demonstration — four steps</div>
+        <div class="demo-body">
+          <div class="step"><span class="step-lbl">Step 1 (at Year 1, ~2028).</span> \(M_{\mathrm{mor}}(0)=1-L(0)\approx 0.987\) — the Memento Mori control structure is 99% intact at ASI arrival, because clinical longevity medicine is not yet deployed. The stress on formation institutions at Year 1 is driven by ASI institutional disruption I(t), not yet by L(t).</div>
+          <div class="step"><span class="step-lbl">Step 2 (at Year 1+18, ~2046).</span> \(L(18)=0.500\), so \(M_{\mathrm{mor}}(18)\approx 0.500\) — the inflection point of the sigmoid: longevity plausibility crosses 50% in the relevant population as ASI-derived longevity medicine reaches widespread clinical trial phase and early deployment. The control structure has lost half its force eighteen years after ASI arrives.</div>
+          <div class="step"><span class="step-lbl">Step 3 (at Year 1+25, ~2053).</span> \(L(25)\approx 0.843\), so \(M_{\mathrm{mor}}(25)\approx 0.157\) — approximately 84% of the mechanism's driving force has been removed for the ASI-accessible population.</div>
+          <div class="step"><span class="step-lbl">Step 4 (cascade vs. longevity timing).</span> The US Intelligence Community cascade triggers at Year 1+9 (~2037), twelve years before longevity reaches its sigmoid midpoint. At that point, L(9) ≈ 0.085: longevity is visible on the strategic horizon and beginning to reshape elite recruitment calculus, but has not yet reached mass clinical deployment. The cascade is driven primarily by the early rise of I(t) and X(t). The implication is that institutional formations must act before longevity becomes practically significant — waiting for the full longevity transition forfeits the entire pre-cascade preparation window.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection" id="response-ab">
+    <h3>Response A vs Response B: The Institutional Choice</h3>
+
+    <div class="g2 gap-sm" style="margin:1rem 0;">
+      <div class="euclid def" style="border-left-color:var(--muted);">
+        <div class="ehead" style="color:var(--muted);">Response A — Retain Memento Mori</div>
+        <div class="ebody">Maintain existing rhetoric: &#8220;you will die soon, so prepare for judgment.&#8221; Structurally fragile: if ASI medicine makes 200–1,000 year lifespans credible for elite populations, the assertion &#8220;you will die soon&#8221; becomes verifiably false. Precedent: naive Genesis literalism after Copernicus. Eliminated by Proposition · ASI-Longevity.</div>
+      </div>
+      <div class="euclid def" style="border-left-color:var(--gold);">
+        <div class="ehead" style="color:var(--gold);">Response B — Shift to Creaturehood</div>
+        <div class="ebody">Reframe from mortality to ontological dependence: you remain contingent, non-self-grounding, and morally accountable even at 10,000 years old. ASI cannot directly refute this. A technologically repaired body is still not a glorified body. Survives both shocks by Definition · Creaturehood Frame.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="euclid prop" id="etdc">
+    <div class="ehead">Proposition · ET-Direct-Creation Creates Origin-Chain Displacement</div>
+    <div class="ebody">
+      <strong>If</strong> <span class="yr1">Year 1</span> is reached and ET-direct-creation disclosure is credible, <strong>then</strong> origin-seeking contact shifts from transcendent-vertical (faith, sacraments, prayer) to empirically tractable-horizontal (government disclosure programs), and the institutional monopoly of clergy as the only legitimate mediators is disrupted.
+      <br><br>
+      <strong>Remark:</strong> The regress — <em>who created the ETs?</em> — does not terminate the displacement but is a strategic asset: the first-layer contact position is inherently non-terminal, guaranteeing permanent institutional relevance in the origin-seeking domain. Structurally identical to the role that scholastic theology played in the medieval university.
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART III: CHRISTIANS IN ACTION ══ -->
+<section class="page-section" id="cia">
+  <div class="section-header">
+    <span class="section-num">III</span>
+    <h2 class="section-title">&#8220;Christians In Action&#8221; — Historical Formation Capital</h2>
+  </div>
+
+  <div class="euclid prop">
+    <div class="ehead">Lemma · CIA-Type Formation Depends on the Memento Mori Structure</div>
+    <div class="ebody">
+      The CIA-type institutional complex (CIA and its predecessor OSS) drew its founding operational culture from six structural features of Catholic formation, five of which are directly degraded by the dual shock.
+
+      <div class="demo" style="margin-top:0.8rem;">
+        <div class="demo-head">Six Formation Features — Degradation Assessment</div>
+        <div class="demo-body">
+          <div class="step"><span class="step-lbl">F1.</span> <strong>Sacrificial ethos</strong> — theology of martyrdom, just war, defense of the faith. <em>Degraded</em> by Proposition · ASI-Longevity: sacrifice willingness falls as mortality becomes technologically optional.</div>
+          <div class="step"><span class="step-lbl">F2.</span> <strong>Secrecy discipline</strong> — confessor-penitent seal predisposed officers toward compartmentalization. <em>Partially degraded</em>: not directly attacked, but theological grounding weakens.</div>
+          <div class="step"><span class="step-lbl">F3.</span> <strong>Hierarchical authority</strong> — Catholic formation normalizes obedience to hierarchy. <em>Partially degraded</em> by ET-disclosure: if Church authority rested on vertical divine mediation, ET interposition reduces that specific authority.</div>
+          <div class="step"><span class="step-lbl">F4.</span> <strong>Transnational network</strong> — Catholic affiliation gave access to networks across Latin America, Europe, East Asia. <em>Degraded</em> more slowly as the underlying theological framework disrupts network trust coherence.</div>
+          <div class="step"><span class="step-lbl">F5.</span> <strong>Anti-communist conviction</strong> — Catholic doctrine opposed communism on theological grounds. <em>Degraded</em> by both shocks: defense of Christian civilization against godless materialism is disrupted when both the civilization's formation structure and its origin narrative are under attack.</div>
+          <div class="step"><span class="step-lbl">F6.</span> <strong>Transcendent mission modifier</strong> — officers defending Christian civilization could not easily be turned by cash or ego appeal. <em>Degraded</em>: the transcendent modifier is precisely what both shocks remove.</div>
+        </div>
+      </div>
+      Five of six structural features are partially or completely degraded. This establishes the lemma.
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART IV: WEAKENING ══ -->
+<section class="page-section" id="weakening">
+  <div class="section-header">
+    <span class="section-num">IV</span>
+    <h2 class="section-title">How the Dual Shock Weakens Old Methods</h2>
+  </div>
+
+  <div class="euclid prop">
+    <div class="ehead">Proposition · Op(t) Formalizes the Joint Weakening [Conditional]</div>
+    <div class="ebody">
+      <strong>If</strong> <span class="yr1">Year 1</span> is reached, <strong>then</strong> \(\mathrm{Op}(t)=L(t)(0.50+0.50\,X(t))\) rises from \(\approx 0.007\) at <span class="yr1">Year 1</span> to \(\approx 0.795\) by <span class="yr1">Year 1+25</span>. If only one shock is present, obsolescence is at most half the maximum rate.
+    </div>
+  </div>
+
+  <div class="subsection" id="prob-tables">
+    <h3>Probabilistic Weakening Estimates Under Complete Dual Shock</h3>
+    <div class="theory-disclaimer" style="font-style:normal;">
+      <strong style="color:var(--cream);">Methodological basis.</strong>
+      Low and High are <em>expert-judgment estimates of the proportion of the mechanism's strength that would be lost</em> under complete dual-shock activation (both shocks at maximum intensity: L&nbsp;&rarr;&nbsp;1, X&nbsp;&rarr;&nbsp;0.9). They are <strong>not</strong> measured statistical frequencies or empirical probabilities.
+      A range of 70%–90% means: under this scenario, the mechanism retains only 10%–30% of its pre-shock effectiveness for the relevant (ASI-accessible) population — not that it disappears entirely.
+      The methodology follows Heuer's structured estimative-probability approach: each estimate is made by specifying (i)&nbsp;the formation mechanism being evaluated, (ii)&nbsp;the attack pathway (ASI-longevity, ET-disclosure, or both), and (iii)&nbsp;the plausible range of institutional adaptation. The estimates are intended to be conservative in the sense that they assume partial but not total institutional adaptation — organizations do not simply collapse; they adapt, but the relevant question is how much of the original mechanism's effectiveness survives adaptation.
+      <br><br>
+      The last row is the sole <em>positive</em> entry: it shows the estimated <em>retention</em> of operational effectiveness through the lead-by-knowledge new methods, not a weakening.
+    </div>
+
+    <div class="data-wrap">
+      <table class="data-table">
+        <thead><tr>
+          <th class="col-left" style="min-width:260px;">Mechanism — Catholic &amp; Intel Formation</th>
+          <th>Low</th><th>High</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="col-left"><em>Memento Mori</em> as universal mortality-control axiom</td><td>70%</td><td>90%</td></tr>
+          <tr><td class="col-left">Sacrifice willingness / transcendent mission modifier</td><td>70%</td><td>90%</td></tr>
+          <tr><td class="col-left">Recruitment via mortality-fear-converted conviction</td><td>70%</td><td>92%</td></tr>
+          <tr><td class="col-left">Anti-communist theological conviction</td><td>65%</td><td>85%</td></tr>
+          <tr><td class="col-left">Heaven/hell urgency for near-indefinite populations</td><td>60%</td><td>80%</td></tr>
+          <tr><td class="col-left">Knight-of-Malta / crusader-mission narrative</td><td>60%</td><td>80%</td></tr>
+          <tr><td class="col-left">Transnational Catholic network trust-coherence</td><td>45%</td><td>70%</td></tr>
+          <tr><td class="col-left">Hierarchical authority from Church structure</td><td>50%</td><td>75%</td></tr>
+          <tr><td class="col-left">ET-contact displacement of God-contact origin-seeking</td><td>55%</td><td>85%</td></tr>
+          <tr><td class="col-left">Confessor-silence secrecy discipline</td><td>30%</td><td>55%</td></tr>
+          <tr><td class="col-left" style="color:var(--gold-dim);font-style:italic;"><em>Retention via lead-by-knowledge (new method)</em></td><td style="color:var(--gold-dim);">45%</td><td style="color:var(--gold-dim);">70% retained</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART V: NEW METHODS ══ -->
+<section class="page-section" id="methods">
+  <div class="section-header">
+    <span class="section-num">V</span>
+    <h2 class="section-title">New Methods Under Post-Disclosure Conditions</h2>
+  </div>
+
+  <div class="euclid prop">
+    <div class="ehead">Proposition · Nu(t) Quantifies New Method Readiness [Conditional]</div>
+    <div class="ebody">
+      <strong>If</strong> <span class="yr1">Year 1</span> is reached, <strong>then</strong> \(\mathrm{Nu}(t)\) rises from \(\approx 0.035\) at <span class="yr1">Year 1</span> to \(\approx 0.775\) by <span class="yr1">Year 1+25</span>. The gap \(\mathrm{Op}(t)-\mathrm{Nu}(t)>0\) persists through <span class="yr1">Year 1+25</span>, reaching its maximum around <span class="yr1">Year 1+15</span>–<span class="yr1">Year 1+20</span>: the window of greatest organizational fragility.
+    </div>
+  </div>
+
+  <div class="subsection" id="six-methods">
+    <h3>Six New Methods Survive the Dual Shock — Each a Conditional Proposition</h3>
+    <div class="theory-disclaimer">Derived by the criterion that each method must not depend on the mortality assumption (L=0) or the God-as-sole-creator assumption (X=0) that the dual shock destroys. All claims are conditional on <span class="yr1">Year 1</span> having been reached.</div>
+
+    <div style="display:grid;gap:0.75rem;margin:1rem 0;">
+      <div class="paper-card" style="border-left:3px solid var(--gold);margin:0;">
+        <h3 style="font-size:0.95rem;margin-bottom:0.3rem;"><span class="mono" style="font-size:0.65rem;margin-right:0.5rem;">M1</span> ASI Option-Tree Intelligence</h3>
+        <div class="paper-abstract" style="max-width:none;">If <span class="yr1">Year 1</span> is reached, ASI-generated option-tree adversary modeling replaces human-network HUMINT as the primary intelligence advantage. The lead-by-knowledge dominance relation \(\mathcal{L}_K = K_F + T_\Omega + A_{\mathrm{early}} + S_{\mathrm{pos}} \succ \mathrm{ICE},\mathrm{SPAM}\) holds regardless of the formation's theological substrate.</div>
+      </div>
+      <div class="paper-card" style="border-left:3px solid var(--gold);margin:0;">
+        <h3 style="font-size:0.95rem;margin-bottom:0.3rem;"><span class="mono" style="font-size:0.65rem;margin-right:0.5rem;">M2</span> First-Layer ET-Contact Program</h3>
+        <div class="paper-abstract" style="max-width:none;">If <span class="yr1">Year 1</span> is reached with credible ET disclosure, the organization establishing first-contact management occupies the highest-prestige position in the post-threshold social order, analogous to what the OSS occupied in 1940s Europe via Catholic-network intelligence. The regress (&#8220;who created the ETs?&#8221;) guarantees permanent institutional relevance.</div>
+      </div>
+      <div class="paper-card" style="border-left:3px solid var(--gold);margin:0;">
+        <h3 style="font-size:0.95rem;margin-bottom:0.3rem;"><span class="mono" style="font-size:0.65rem;margin-right:0.5rem;">M3</span> Longevity-Technology Position Capture</h3>
+        <div class="paper-abstract" style="max-width:none;">If <span class="yr1">Year 1</span> is reached and ASI-longevity medicine becomes clinically real, differential access to longevity medicine acquires a recruitment and retention handle more powerful than any existing ICE–SPAM component. Frame: &#8220;serve with distinction, receive extended biological life&#8221; replaces the old transcendent-reward structure.</div>
+      </div>
+      <div class="paper-card" style="border-left:3px solid var(--gold-light);margin:0;">
+        <h3 style="font-size:0.95rem;margin-bottom:0.3rem;"><span class="mono" style="font-size:0.65rem;margin-right:0.5rem;">M4</span> Creaturehood-Anthropology Narrative Control</h3>
+        <div class="paper-abstract" style="max-width:none;">If <span class="yr1">Year 1</span> is reached, the creaturehood frame (Definition) is logically independent of both \(L\) and \(X\), and therefore the most structurally durable replacement for the Memento Mori control structure. New recruitment frame: &#8220;we defend the dignity of the contingent person against posthuman erasure.&#8221;</div>
+      </div>
+      <div class="paper-card" style="border-left:3px solid var(--gold-dim);margin:0;">
+        <h3 style="font-size:0.95rem;margin-bottom:0.3rem;"><span class="mono" style="font-size:0.65rem;margin-right:0.5rem;">M5</span> Post-Disclosure Social Order Navigation</h3>
+        <div class="paper-abstract" style="max-width:none;">If <span class="yr1">Year 1</span> triggers credible ET-disclosure, extreme social and institutional volatility follows. If an organization has pre-positioned analytical frameworks, communication protocols, and decision trees for the post-<span class="yr1">Year 1</span> environment, it gains first-mover advantage. Requires disclosure-scenario planning at the same level of seriousness as Cold War nuclear war planning.</div>
+      </div>
+      <div class="paper-card" style="border-left:3px solid var(--gold-dim);margin:0;">
+        <h3 style="font-size:0.95rem;margin-bottom:0.3rem;"><span class="mono" style="font-size:0.65rem;margin-right:0.5rem;">M6</span> Lead-by-Knowledge Network Formation</h3>
+        <div class="paper-abstract" style="max-width:none;">If <span class="yr1">Year 1</span> is reached, replacing the transnational Catholic-trust network with a transnational knowledge-superiority network — membership based on demonstrated frontier-knowledge access — produces a more resilient network because it is not vulnerable to the theological disruption that destroys the old one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART VI: QTL ══ -->
+<section class="page-section" id="qtl">
+  <div class="section-header">
+    <span class="section-num">VI</span>
+    <h2 class="section-title">Question-Tree Leadership and Lead-by-Knowledge</h2>
+  </div>
+  <p style="color:var(--body);font-size:0.95rem;line-height:1.75;max-width:68ch;margin-bottom:1rem;">
+    The core insight of this section is that <strong>the organization that generates the most complete option tree first and acts earliest into the best position retains operational authority even after its traditional motivational toolkit has degraded.</strong> This is lead-by-knowledge strategy, formalized as:
+    $$\mathcal{L}_K = K_F + T_\Omega + A_{\mathrm{early}} + S_{\mathrm{pos}} \;\succ\; \mathrm{ICE},\;\mathrm{SPAM}$$
+  </p>
+
+  <div class="theory-disclaimer" style="font-style:normal;">
+    <strong style="color:var(--cream);">Plain-English reading of the equation above.</strong>
+    The left side (&Lscr;<sub>K</sub>) represents four components of knowledge-based operational authority: K<sub>F</sub> = frontier knowledge (access to ASI output and ET-contact intelligence that no competitor has); T<sub>&Omega;</sub> = complete option-tree prediction (the ability to map every plausible adversary action and response before the adversary does); A<sub>early</sub> = early action (moving into the strategically best position while competitors are still deliberating); and S<sub>pos</sub> = strategic-position capture (securing the origin-chain mediation role, longevity-technology access, or first-layer ET-contact position before anyone else).
+    <br><br>
+    The right side (ICE, SPAM) refers to the two standard HUMINT motivational frameworks used across NATO intelligence communities: <em>Ideology, Compromise, Ego</em> (the classical CIA triad for agent recruitment) and <em>Sympathy, Pride, Ambition, Money</em> (the expanded seven-factor model). The &succ; symbol means &ldquo;dominates&rdquo; in the operational sense: an organization that leads by knowledge can analyze, reverse-engineer, and pre-empt every ICE–SPAM approach a competitor might use, making the knowledge-leading organization harder to penetrate and more effective at recruitment simultaneously.
+    <br><br>
+    <strong style="color:var(--cream);">Why this matters after the dual shock.</strong> The dual shock degrades the <em>transcendent mission modifier</em> — the amplifier that historically made Catholic-heritage officers resistant to ICE–SPAM recruitment pitches. Lead-by-knowledge is the replacement modifier: an officer who understands the ET-contact landscape, the ASI option space, and the post-disclosure social order better than any competitor is valuable in a way that does not depend on mortality-derived conviction.
+  </div>
+
+  <p style="color:var(--body);font-size:0.88rem;line-height:1.72;max-width:70ch;margin-top:0.8rem;">
+    The question-tree leadership reserve Q(t) = (I&nbsp;+&nbsp;L&nbsp;+&nbsp;H&nbsp;+&nbsp;X&nbsp;+&nbsp;D)/5 is the simple average disruption intensity across all five stress dimensions simultaneously. At Q&nbsp;=&nbsp;0.760 by 2053 (Year 1+25), the average across ASI disruption (I&nbsp;=&nbsp;0.91), longevity plausibility (L&nbsp;=&nbsp;0.84), hybridization pressure (H&nbsp;=&nbsp;0.36), ET-credibility (X&nbsp;=&nbsp;0.89), and creator-contact displacement (D&nbsp;=&nbsp;0.80) reaches 76% of its scenario ceiling — meaning that three-quarters of the environmental conditions historically associated with formation collapse are simultaneously present by 2053. An intelligence formation that has institutionalized M1 (ASI option-tree intelligence) before this point retains the capacity to map the strategic option space even as its motivational toolkit degrades, because Q measures the problem size that confronts the formation, not the formation's resilience. High Q is a warning that the environment demands new methods, not evidence that old ones still suffice.
+  </p>
+</section>
+
+<!-- ══ PART VII: ODE MODEL ══ -->
+<section class="page-section" id="ode">
+  <div class="section-header">
+    <span class="section-num">VII</span>
+    <h2 class="section-title">ODE Model Under Dual Shock</h2>
+  </div>
+
+  <div class="subsection" id="variables">
+    <h3>Stress and Response Variables — All Indexed to Year 1</h3>
+    <p style="color:var(--body);font-size:0.9rem;line-height:1.72;max-width:70ch;margin-bottom:1rem;">
+      Let \(t\) be years since <span class="yr1">Year 1</span> (so \(t=0\) at <span class="yr1">Year 1</span>). The model uses eleven stress and response variables, each a <strong>dimensionless credibility or disruption index running from 0 to 1</strong>. A value of 0 means the force is absent; a value of 1 means it has reached its maximum credible level for this scenario. The sigmoid inflection-point parameters (12, 18, 26, 15) are model years since <span class="yr1">Year 1</span>, not calendar years.
+    </p>
+
+    <!-- Plain-English variable reference -->
+    <div class="data-wrap" style="margin-bottom:1.2rem;">
+      <table class="data-table">
+        <thead><tr>
+          <th class="col-left" style="min-width:48px;">Symbol</th>
+          <th class="col-left" style="min-width:160px;">Variable</th>
+          <th class="col-left">Plain-English meaning (scale: 0 = absent → 1 = maximum)</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="col-left">I(t)</td><td class="col-left" style="color:var(--body);">ASI institutional disruption</td><td style="text-align:left;color:var(--body);font-size:0.82rem;">Share of traditional authority (catechesis, bureaucracy, legal interpretation) displaced by AI systems. At I&nbsp;=&nbsp;0.63 (Year&nbsp;1+15): roughly two-thirds of traditional advisory authority has been displaced.</td></tr>
+          <tr><td class="col-left">L(t)</td><td class="col-left" style="color:var(--body);">ASI-longevity plausibility</td><td style="text-align:left;color:var(--body);font-size:0.82rem;"><strong>Encodes the lag between ASI capability and practical longevity.</strong> Fraction of the strategically relevant elite population that credibly believes biological death can be postponed using ASI-enabled medicine. Sigmoid inflection at Year 1+18 (≈ 2046): L(Year 1) ≈ 0.013 — negligible, because at Year 1 ASI has arrived but longevity medicine is still in the research phase; L(Year 1+10) ≈ 0.128 — early translational phase; L(Year 1+18) = 0.500 — midpoint, longevity technology becoming clinically significant; L(Year 1+25) ≈ 0.843 — widely credible in the relevant population. <em>Practical longevity is a downstream product of ASI research, lagging Year 1 by approximately 10–20 years.</em></td></tr>
+          <tr><td class="col-left">H(t)</td><td class="col-left" style="color:var(--body);">AI–human hybridization</td><td style="text-align:left;color:var(--body);font-size:0.82rem;">Degree to which the boundary between biological and synthetic cognition has become contested at the level relevant to sacramental eligibility and organizational membership rules.</td></tr>
+          <tr><td class="col-left">X(t)</td><td class="col-left" style="color:var(--body);">ET-direct-creation credibility</td><td style="text-align:left;color:var(--body);font-size:0.82rem;">Fraction of the strategically relevant population that accepts credible evidence that non-human intelligences directly engineered the human biological platform. X reaches its scenario ceiling of 0.90 because the model treats 10% residual skepticism as irreducible.</td></tr>
+          <tr><td class="col-left">D(t)</td><td class="col-left" style="color:var(--body);">Creator-contact displacement</td><td style="text-align:left;color:var(--body);font-size:0.82rem;">Combined force driving origin-seeking away from transcendent-vertical (prayer, sacraments) toward empirically tractable-horizontal (ET-contact programs). D&nbsp;=&nbsp;X(0.35&nbsp;+&nbsp;0.65L) — the longevity motive amplifies ET-displacement because the proximate creator also holds the longevity-technology.</td></tr>
+          <tr><td class="col-left">Op(t)</td><td class="col-left" style="color:var(--body);">Operational method obsolescence</td><td style="text-align:left;color:var(--body);font-size:0.82rem;"><strong>The central diagnostic variable.</strong> Proportion of the traditional formation and recruitment toolkit that has stopped working for the ASI-accessible population. Op&nbsp;=&nbsp;0.795 at Year&nbsp;1+25 means roughly 80% of the old toolkit is no longer effective — sacrifice-willingness, transcendent mission, Memento Mori — for the relevant recruits.</td></tr>
+          <tr><td class="col-left">Nu(t)</td><td class="col-left" style="color:var(--body);">New method readiness</td><td style="text-align:left;color:var(--body);font-size:0.82rem;">Proportion of the replacement toolkit (M1–M6: ASI option-tree intelligence, ET-contact management, longevity-access, creaturehood narrative, etc.) that is institutionalized and operational. Nu&nbsp;=&nbsp;0.775 at Year&nbsp;1+25 — nearly as large as Op, but the gap is widest at Year&nbsp;1+15, the critical intervention window.</td></tr>
+          <tr><td class="col-left">Q(t)</td><td class="col-left" style="color:var(--body);">Question-tree reserve</td><td style="text-align:left;color:var(--body);font-size:0.82rem;">Combined reserve of option-generating capacity across all stress variables. An organization with high Q can still map more of the option space than its adversaries even while its traditional toolkit degrades — this is the basis of lead-by-knowledge strategy.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="color:var(--body);font-size:0.88rem;line-height:1.72;max-width:70ch;margin-bottom:0.8rem;">
+      <strong>Mathematical form.</strong> Each primary variable follows a logistic (S-curve) growth function — the same functional form used in epidemiological diffusion models and technology adoption models. The inflection point is the year (measured from <span class="yr1">Year 1</span>) at which the force is growing fastest:
+    </p>
+    $$I(t)=\frac{1}{1+e^{-0.18(t-12)}},\quad L(t)=\frac{1}{1+e^{-0.24(t-18)}},\quad H(t)=\frac{0.80}{1+e^{-0.18(t-26)}},\quad X(t)=\frac{0.90}{1+e^{-0.42(t-15)}}$$
+  </div>
+
+  <div class="subsection">
+    <h3>The Corrected Regional ODE — What the Growth-Rate Equation Does</h3>
+    <p style="color:var(--body);font-size:0.88rem;line-height:1.72;max-width:70ch;margin-bottom:0.7rem;">
+      The model tracks each region's organizational capacity P<sub>r</sub>(t) — the operational stock of formation-capable institutions and personnel — as it grows or decays over time. The <em>growth rate</em> \(\lambda_r(t)\) is the rate at which capacity changes each year, expressed as a fraction (e.g., &minus;0.03 means 3% annual decline).
+    </p>
+    $$\frac{dP_r}{dt}=\lambda_r(t)\,P_r(t)$$
+    $$\lambda_r(t)=g_{0,r}-\alpha_r I-\beta_r L-\eta_r H-\delta_r X-\chi_r D+\gamma_r K+\rho_r Q-\kappa_r\Phi-\omega_r\mathrm{Op}+\nu_r\mathrm{Nu}$$
+    <div class="theory-disclaimer" style="margin-top:0.9rem;">
+      <strong style="color:var(--cream);font-style:normal;">Structural interpretation of the growth-rate equation.</strong> Each coefficient modifies the instantaneous rate of change in formation capacity. Negative coefficients (α, β, η, δ, χ, ω) are structural-exposure parameters: they determine how rapidly each stress force removes capacity from a given regional formation system. Positive coefficients (γ, ρ, ν) are adaptation parameters: they determine how effectively the system can convert its reserves of question-tree leadership (Q), frontier-knowledge capture (Φ), and new-method readiness (Nu) into compensating capacity gains. The term &minus;ω<sub>r</sub>Op(t) is the primary novelty of this model: ω captures how strongly a region's capacity depends on the old Memento Mori–derived motivational toolkit, and Op(t) measures how much of that toolkit has ceased to function for the ASI-accessible recruitable population.
+      <br><br>
+      <strong style="color:var(--cream);font-style:normal;">ICE–SPAM</strong> is the standard HUMINT motivation framework used across NATO intelligence communities: <em>Ideology, Compromise, Ego</em> (the classical CIA triad) and <em>Sympathy, Pride, Ambition, Money</em> (the expanded version). The model's argument is that the <em>transcendent mission modifier</em> — defending Christian civilization — historically acted as a multiplicative amplifier on top of ICE–SPAM, making Catholic-heritage officers harder to turn by any single ICE–SPAM handle. Both shocks remove this amplifier simultaneously.
+      <br><br>
+      <strong style="color:var(--cream);font-style:normal;">&omega;<sub>r</sub> (omega)</strong> is the sensitivity coefficient measuring how quickly a region's organizational capacity responds to old-method obsolescence Op(t). The US Intelligence Community carries &omega;&nbsp;=&nbsp;0.0080 — the highest of all six regions — because its operational culture was more structurally dependent on the Memento Mori-derived sacrificial ethos than any other modeled region. &omega; functions as an "exposure score" to the old-toolkit shock: regions with higher &omega; cascade faster when Op(t) rises above their structural tolerance threshold.
+    </div>
+  </div>
+
+  <div class="subsection" id="trajectories">
+    <h3>Stress Trajectories — Calendar dates assume Year 1&nbsp;=&nbsp;2028 (CFR assessment)</h3>
+    <div class="theory-disclaimer">
+      <strong style="font-style:normal;color:var(--cream);">Variable conventions.</strong>
+      All variables are dimensionless proportions on a 0–1 scale, representing fractions of their scenario ceiling. Calendar dates in the first column apply the CFR 2025–26 working assumption (Year 1 ≈ 2028); all dates shift uniformly if the threshold arrives earlier or later. Op&nbsp;=&nbsp;0.237 in 2043 indicates that 24% of the traditional Catholic intelligence-formation toolkit — sacrifice-willingness derived from <em>Memento Mori</em>, transcendent mission justification for operational risk — has ceased to function for the recruitable population with access to ASI-longevity medicine. The fragility gap (Op&minus;Nu) quantifies the net operational disadvantage at each date: a positive value indicates that the old toolkit is decaying faster than the replacement toolkit is becoming operational.
+    </div>
+
+    <div class="data-wrap">
+      <table class="data-table">
+        <thead><tr>
+          <th class="col-left">Year-1 time</th>
+          <th title="ASI institutional disruption (0=absent, 1=maximum)">I<br><small style="font-size:0.6rem;font-weight:normal;color:var(--faint);">disruption<br>index</small></th>
+          <th title="ASI-longevity plausibility (0=not credible, 1=widely credible)">L<br><small style="font-size:0.6rem;font-weight:normal;color:var(--faint);">longevity<br>index</small></th>
+          <th title="AI–human hybridization (0=absent, 1=maximum)">H<br><small style="font-size:0.6rem;font-weight:normal;color:var(--faint);">hybrid<br>index</small></th>
+          <th title="ET-direct-creation credibility (0=not credible, 0.9=scenario ceiling)">X<br><small style="font-size:0.6rem;font-weight:normal;color:var(--faint);">ET credib.<br>index</small></th>
+          <th title="Op(t): fraction of traditional toolkit that is no longer effective (0=fully effective, 1=fully obsolete)">Op<br><small style="font-size:0.6rem;font-weight:normal;color:var(--faint);">old-toolkit<br>decay frac.</small></th>
+          <th title="Nu(t): fraction of new replacement toolkit that is operational (0=none ready, 1=fully ready)">Nu<br><small style="font-size:0.6rem;font-weight:normal;color:var(--faint);">new-toolkit<br>ready frac.</small></th>
+          <th title="Op minus Nu: positive = losing faster than gaining (fragility window)">Op&minus;Nu<br><small style="font-size:0.6rem;font-weight:normal;color:var(--faint);">fragility<br>gap</small></th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="col-left"><strong>2028</strong><br><small style="color:var(--faint);font-size:0.7rem;">t=0 (baseline)</small></td><td>0.103</td><td>0.013</td><td>0.007</td><td>0.002</td><td>0.007<br><small style="color:var(--faint);">~1% decayed</small></td><td>0.035<br><small style="color:var(--faint);">~4% ready</small></td><td style="color:var(--gold-dim);">+0.028</td></tr>
+          <tr><td class="col-left"><strong>2038</strong><br><small style="color:var(--faint);font-size:0.7rem;">t=10</small></td><td>0.411</td><td>0.128</td><td>0.043</td><td>0.098</td><td>0.070<br><small style="color:var(--faint);">~7% decayed</small></td><td>0.168<br><small style="color:var(--faint);">~17% ready</small></td><td style="color:var(--gold-dim);">+0.098</td></tr>
+          <tr style="background:rgba(201,168,76,0.05);"><td class="col-left"><strong>2043</strong><br><small style="color:var(--gold-dim);font-size:0.7rem;">⚠ cascade window</small></td><td>0.632</td><td>0.327</td><td>0.097</td><td>0.450</td><td><strong>0.237</strong><br><small style="color:var(--gold-dim);">~24% decayed</small></td><td>0.363<br><small style="color:var(--faint);">~36% ready</small></td><td style="color:var(--gold);font-weight:700;">+0.126<br><small style="font-weight:normal;font-size:0.68rem;">peak gap</small></td></tr>
+          <tr style="background:rgba(201,168,76,0.05);"><td class="col-left"><strong>2048</strong><br><small style="color:var(--gold-dim);font-size:0.7rem;">⚠ peak fragility</small></td><td>0.808</td><td>0.618</td><td>0.203</td><td>0.802</td><td><strong>0.557</strong><br><small style="color:var(--gold-dim);">~56% decayed</small></td><td>0.618<br><small style="color:var(--faint);">~62% ready</small></td><td style="color:var(--gold);font-weight:700;">&minus;0.061<br><small style="font-weight:normal;font-size:0.68rem;">gap closing</small></td></tr>
+          <tr><td class="col-left"><strong>2053</strong><br><small style="color:var(--faint);font-size:0.7rem;">t=25</small></td><td>0.912</td><td>0.843</td><td>0.364</td><td>0.887</td><td>0.795<br><small style="color:var(--faint);">~80% decayed</small></td><td>0.775<br><small style="color:var(--faint);">~78% ready</small></td><td style="color:var(--gold-dim);">+0.020</td></tr>
+          <tr><td class="col-left"><strong>2068</strong></td><td>0.994</td><td>0.995</td><td>0.740</td><td>0.900</td><td>0.945</td><td>0.911</td><td style="color:var(--faint);">+0.034</td></tr>
+          <tr><td class="col-left"><strong>2078</strong></td><td>0.999</td><td>1.000</td><td>0.789</td><td>0.900</td><td>0.950</td><td>0.921</td><td style="color:var(--faint);">+0.029</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="8">All indices dimensionless (0–1 scale). Calendar dates assume Year 1&nbsp;=&nbsp;2028 (CFR 2025–26 assessment); shift uniformly if that estimate changes. The fragility gap (Op&minus;Nu) peaks in 2043, when the old toolkit is decaying fastest relative to the new toolkit's readiness. The US Intel Community crosses the cascade criterion by 2037 — before the gap even reaches its peak — because its &omega; sensitivity coefficient is the highest in the model.</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+
+  <div class="subsection" id="projections">
+    <h3>ODE Projections — Organizational Capacity (Year 1&nbsp;=&nbsp;2028)</h3>
+    <div class="theory-disclaimer" style="font-style:normal;">
+      <strong style="color:var(--cream);">What these numbers represent.</strong>
+      For the five religious regions, P<sub>r</sub>(t) is the estimated count of <strong>active ordained Catholic priests</strong> — the proxy metric for formation-capable institutional personnel. Baseline figures are drawn from Vatican Annuario Pontificio data and CARA (Center for Applied Research in the Apostolate) regional estimates. For the <strong>US Intelligence Community</strong>, P<sub>r</sub>(t) is a <em>normalized capacity index</em> (not a headcount): baseline&nbsp;100 represents pre-shock Christian-faith-based operational formation capacity, so a reading of 53 in 2053 means roughly <em>half the pre-shock operational formation capacity remains under this scenario</em>.
+      <br><br>
+      <strong style="color:var(--cream);">These are stress-scenario projections, not forecasts.</strong> They show what happens to each regional organizational stock if both shocks arrive in 2028 and neither Response&nbsp;B (creaturehood reframe) nor the six new methods (M1–M6) are institutionalized before the cascade window closes by 2037.
+    </div>
+
+    <div class="data-wrap">
+      <table class="data-table">
+        <thead><tr>
+          <th class="col-left">Region</th>
+          <th>Year 1<br><small style="font-size:0.6rem;font-weight:normal;">baseline</small></th>
+          <th>Year 1+10<br><small style="font-size:0.6rem;font-weight:normal;">10 yrs post</small></th>
+          <th>Year 1+25<br><small style="font-size:0.6rem;font-weight:normal;">25 yrs post</small></th>
+          <th><strong>2078</strong><br><small style="font-size:0.6rem;font-weight:normal;">50 yrs post</small></th>
+          <th>Unit</th>
+          <th>Decline<br>Year 1→50</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-left">Worldwide</td><td>406,996</td><td>395,280</td><td>332,119</td><td>198,592</td>
+            <td style="text-align:left;font-size:0.78rem;color:var(--faint);">active priests (estimated)</td>
+            <td style="color:var(--muted);">&minus;51%</td>
+          </tr>
+          <tr>
+            <td class="col-left">Europe</td><td>155,065</td><td>130,082</td><td>79,533</td><td>23,547</td>
+            <td style="text-align:left;font-size:0.78rem;color:var(--faint);">active priests (estimated)</td>
+            <td style="color:var(--muted);">&minus;85%</td>
+          </tr>
+          <tr>
+            <td class="col-left">United States</td><td>44,906</td><td>39,070</td><td>24,474</td><td>7,160</td>
+            <td style="text-align:left;font-size:0.78rem;color:var(--faint);">active priests (estimated)</td>
+            <td style="color:var(--muted);">&minus;84%</td>
+          </tr>
+          <tr>
+            <td class="col-left">Taiwan</td><td>551</td><td>518</td><td>350</td><td>110</td>
+            <td style="text-align:left;font-size:0.78rem;color:var(--faint);">active priests (estimated)</td>
+            <td style="color:var(--muted);">&minus;80%</td>
+          </tr>
+          <tr>
+            <td class="col-left">East Asian ref set</td><td>7,802</td><td>7,288</td><td>5,224</td><td>2,034</td>
+            <td style="text-align:left;font-size:0.78rem;color:var(--faint);">active priests (estimated)</td>
+            <td style="color:var(--muted);">&minus;74%</td>
+          </tr>
+          <tr>
+            <td class="col-left" style="color:var(--gold-light);"><strong>US Intel Community</strong></td>
+            <td>100</td><td>90</td><td>53</td><td>12</td>
+            <td style="text-align:left;font-size:0.78rem;color:var(--faint);">normalized capacity index (100&nbsp;=&nbsp;pre-shock baseline)</td>
+            <td style="color:var(--muted);">&minus;88%</td>
+          </tr>
+        </tbody>
+        <tfoot><tr><td colspan="7">Priest-stock baselines: Vatican Annuario Pontificio / CARA regional estimates. US Intel Community index is normalized (100 = pre-shock operational capacity); it is not a headcount. All projections assume Year 1&nbsp;=&nbsp;2028 (CFR assessment); shift dates uniformly if timeline changes. Projections assume neither M1–M6 nor Response B is adopted before the cascade window closes in 2037.</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART VIII: SPIN-LATTICE ══ -->
+<section class="page-section" id="lattice">
+  <div class="section-header">
+    <span class="section-num">VIII</span>
+    <h2 class="section-title">Spin-Lattice and Phase-Transition Model</h2>
+  </div>
+
+  <!-- Plain-English model explanation -->
+  <div style="background:rgba(14,31,58,0.7);border:1px solid var(--border-dim);border-radius:4px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.8rem;">What the spin-lattice model is doing — in plain terms</div>
+    <div class="g2">
+      <div>
+        <p style="font-size:0.88rem;color:var(--body);line-height:1.72;margin-bottom:0.6rem;">
+          <strong>The case for a second model.</strong> The ODE describes the direction and rate of change in formation capacity under smooth parametric drift, but structural discontinuities — phase transitions in which large numbers of independent units shift simultaneously — are invisible to it. A relevant precedent is Soviet military operational cohesion from 1989 to 1991: the ODE-level decline was gradual, but the actual institutional event was a near-simultaneous collapse across many independently functioning units. The spin-lattice model is designed specifically to detect and date such threshold transitions.
+        </p>
+        <p style="font-size:0.88rem;color:var(--body);line-height:1.72;">
+          <strong>Cohesion index m(t).</strong> The model distributes each region's formation network across a set of organizational units (lattice sites). Each unit carries a binary state: aligned with the pre-shock formation structure (+1) or having transitioned away from it (&minus;1). The magnetization m(t) is the mean of these binary states across all units, yielding a continuous cohesion score bounded between &minus;1 and +1:
+        </p>
+      </div>
+      <div>
+        <div style="background:rgba(6,16,34,0.8);border:1px solid var(--border-dim);border-radius:3px;padding:0.9rem 1rem;font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.8;">
+          <div style="color:var(--gold-dim);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">m(t) cohesion scale</div>
+          <div><span style="color:var(--gold-light);">+1.00</span> <span style="color:var(--faint);">→</span> <span style="color:var(--body);">100% of units holding</span></div>
+          <div><span style="color:var(--gold-light);">+0.97</span> <span style="color:var(--faint);">→</span> <span style="color:var(--body);">98.5% holding, 1.5% shifted</span></div>
+          <div><span style="color:var(--gold-light);">+0.54</span> <span style="color:var(--faint);">→</span> <span style="color:var(--body);">77% holding — cascade just triggered</span></div>
+          <div style="border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);margin:0.3rem 0;padding:0.3rem 0;color:var(--cream);"><span style="color:var(--muted);">0.00</span> <span style="color:var(--faint);">→</span> <span>50% / 50% — critical threshold</span></div>
+          <div><span style="color:var(--muted);">&minus;0.72</span> <span style="color:var(--faint);">→</span> <span style="color:var(--body);">86% shifted, 14% holding</span></div>
+          <div><span style="color:var(--muted);">&minus;0.97</span> <span style="color:var(--faint);">→</span> <span style="color:var(--body);">98.5% shifted — near-complete</span></div>
+          <div><span style="color:var(--muted);">&minus;1.00</span> <span style="color:var(--faint);">→</span> <span style="color:var(--body);">100% shifted — transformation complete</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.88rem;color:var(--body);line-height:1.72;margin-top:0.8rem;">
+      <strong>Cascade criterion and operational interpretation.</strong> A cascade is triggered when m(t) declines by more than 0.45 within a five-year window — consistent with roughly one-third of all organizational units transitioning simultaneously. The relevant historical precedents are the collapse of ARVN unit cohesion in early 1975 and the dissolution of the Soviet KGB's operational networks after August 1991: in both cases, ODE-level decline had been accumulating for years, but the observable institutional transition was compressed into months. Once the cascade criterion is satisfied, this model's assessment is that organic recovery is no longer available — reconstitution requires deliberate institutional rebuilding rather than reliance on existing adaptive processes.
+    </p>
+    <p style="font-size:0.82rem;color:var(--faint);font-style:italic;margin-top:0.5rem;">
+      Technical note: 96 independent simulation runs per region (seeds 4000–4095), 5 Glauber sweeps per year. m(t) reported as the median across runs. All results are Year-1 relative and conditional on <span class="yr1">Year 1</span> having been reached.
+    </p>
+  </div>
+
+  <div class="subsection" id="cascade-result">
+    <h3>Simulation Results — Cohesion Index m(t), by Region</h3>
+    <div class="result-grid">
+      <div class="result-card first">
+        <h4>US Intel Community &mdash; Cascades First</h4>
+        <div class="rc-row"><span class="rc-key">Cascade at</span><span class="rc-val" style="color:var(--gold-light);">2037 &mdash; earliest of all regions</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2038</span><span class="rc-val">m = 0.539 &mdash; 77% still holding</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2053</span><span class="rc-val">m = &minus;0.969 &mdash; 98% of units shifted</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2078</span><span class="rc-val">m = &minus;1.000 &mdash; transformation complete</span></div>
+        <div class="rc-row"><span class="rc-key">&omega; sensitivity</span><span class="rc-val">0.0080 — highest of 6 regions</span></div>
+        <p class="rc-note"><strong>Operational reading:</strong> The CIA-type formation complex crosses the tipping point nine years after the threshold — by 2037 under the CFR 2028 estimate — before the fragility gap even reaches its peak. By Year&nbsp;1+25, 98% of organizational units have transitioned away from the old Christian-faith-based motivational structure. The &omega;&nbsp;=&nbsp;0.0080 coefficient means this system is more structurally exposed to old-toolkit decay than any other modeled region. High &nu;<sub>r</sub>&nbsp;=&nbsp;0.0060 (fastest new-method adoption capacity) only partially compensates — because the cascade happens before new methods can be fully institutionalized.</p>
+      </div>
+      <div class="result-card stable">
+        <h4>Worldwide — No Cascade by Year 1+50</h4>
+        <div class="rc-row"><span class="rc-key">Cascade</span><span class="rc-val">None by 2078</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2038</span><span class="rc-val">m = 0.975 &mdash; 99% of units holding</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2053</span><span class="rc-val">m = 0.794 &mdash; 90% holding, stressed</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2078</span><span class="rc-val">m = 0.218 &mdash; 61% holding, severe pressure</span></div>
+        <p class="rc-note"><strong>Operational reading:</strong> Global Catholicism does not cross the tipping point within 50 years of <span class="yr1">Year 1</span>, because African and South/Southeast Asian demographic growth provides a countervailing formation stock. By Year&nbsp;1+50, roughly 61% of global organizational units are still holding — a large global institution under severe long-term stress, but not in cascade. This is the strategic rationale for shifting formation investment to high-growth regions before the Western cascade window closes.</p>
+      </div>
+      <div class="result-card cascade">
+        <h4>Europe</h4>
+        <div class="rc-row"><span class="rc-key">Cascade at</span><span class="rc-val">2038 (Year 1+10)</span></div>
+        <div class="rc-row"><span class="rc-key">m(Year 1+25)</span><span class="rc-val">&minus;0.951 <span style="font-weight:normal;font-size:0.7rem;color:var(--faint);">≈ 98% shifted</span></span></div>
+        <div class="rc-row"><span class="rc-key">Strongest window</span><span class="rc-val">Year 1+14 to Year 1+19</span></div>
+        <p class="rc-note"><strong>Operational reading:</strong> The most exposed Catholic region. By Year&nbsp;1+25, roughly 98% of European organizational units have transitioned away from old formation. The five-year window Year&nbsp;1+14 to Year&nbsp;1+19 is when the cascade is moving fastest — analogous to the speed of Eastern European de-Christianization between 1947 and 1952, but driven by structural incentives rather than state coercion.</p>
+      </div>
+      <div class="result-card cascade">
+        <h4>United States</h4>
+        <div class="rc-row"><span class="rc-key">Cascade at</span><span class="rc-val">2038 (Year 1+10)</span></div>
+        <div class="rc-row"><span class="rc-key">m(Year 1+25)</span><span class="rc-val">&minus;0.936 <span style="font-weight:normal;font-size:0.7rem;color:var(--faint);">≈ 97% shifted</span></span></div>
+        <div class="rc-row"><span class="rc-key">Strongest window</span><span class="rc-val">Year 1+14 to Year 1+19</span></div>
+        <p class="rc-note"><strong>Operational reading:</strong> By Year&nbsp;1+25, 97% of US organizational units have shifted. Resource-rich but faces the same operational-method obsolescence as Europe — the structural driver is the Memento Mori decay (Op), not institutional poverty. Domain walls (the spread of the cascade from unit to unit) move fast when youth belief, family transmission, and ASI-mediated meaning systems change together across a networked society.</p>
+      </div>
+      <div class="result-card cascade">
+        <h4>Taiwan</h4>
+        <div class="rc-row"><span class="rc-key">Cascade at</span><span class="rc-val">2039</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2053</span><span class="rc-val">m = &minus;0.860 &mdash; 93% of units shifted</span></div>
+        <p class="rc-note"><strong>Operational reading:</strong> Formation ecology is small (551 active priests at Year&nbsp;1) and memory-rich, giving short-term resilience — hence the one-year delay relative to Europe and the US. But small networks are also highly threshold-sensitive: once the cascade begins, it propagates rapidly through the entire network. By Year&nbsp;1+25, 93% of Taiwanese organizational units have transitioned.</p>
+      </div>
+      <div class="result-card cascade">
+        <h4>East Asian ref set</h4>
+        <div class="rc-row"><span class="rc-key">Cascade at</span><span class="rc-val">2040</span></div>
+        <div class="rc-row"><span class="rc-key">Cohesion 2053</span><span class="rc-val">m = &minus;0.717 &mdash; 86% of units shifted</span></div>
+        <p class="rc-note"><strong>Operational reading:</strong> South Korea's larger and more active Catholic formation network buffers the reference set, producing the latest cascade and the smallest shift by Year&nbsp;1+25. Even so, 86% of units have transitioned. The joint Op(t)/ET-creation stress produces a sharper threshold than a single-shock model, because the two forces compound each other through the D(t) displacement term.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART IX: ACH ══ -->
+<section class="page-section" id="ach">
+  <div class="section-header">
+    <span class="section-num">IX</span>
+    <h2 class="section-title">Analysis of Competing Hypotheses — Applied</h2>
+  </div>
+
+  <div class="theory-disclaimer" style="font-style:normal;color:var(--body);border-left-color:var(--gold);">
+    <strong style="color:var(--gold)">The Question:</strong> If <span class="yr1">Year 1</span> is reached, what happens to Christian-faith-based intelligence formation and what institutional form, if any, replaces it?
+  </div>
+
+  <div class="subsection">
+    <h3>Five Competing Hypotheses — All Conditional on Year 1</h3>
+    <ul class="ref-list" style="margin-bottom:1.2rem;">
+      <li><strong>H₁ Intact Survival</strong> — If <span class="yr1">Year 1</span> is reached, formation adapts and survives substantially intact; institutional adaptation is sufficient to absorb the dual shock.</li>
+      <li><strong>H₂ Collapse Without Replacement</strong> — If <span class="yr1">Year 1</span> is reached, formation collapses and no viable replacement emerges; the capacity for Christian-heritage intelligence formation is lost.</li>
+      <li><strong>H₃ Structured Replacement</strong> — If <span class="yr1">Year 1</span> is reached, old formation collapses but M1–M6 replace it with a different but functional institutional form.</li>
+      <li><strong>H₄ Class Bifurcation</strong> — If <span class="yr1">Year 1</span> is reached, formation bifurcates between ASI-accessible and non-accessible populations; two institutional regimes coexist.</li>
+      <li><strong>H₅ Theological Migration</strong> — If <span class="yr1">Year 1</span> is reached, formation migrates from the Memento Mori structure to the creaturehood frame, preserving institutional continuity.</li>
+    </ul>
+  </div>
+
+  <div class="subsection">
+    <h3>ACH Matrix — Eight Evidence Items</h3>
+    <div class="ach-wrap">
+      <table class="ach-table">
+        <thead><tr>
+          <th class="ev-h">Evidence (Year-1 relative)</th>
+          <th>H₁<br><small>Intact</small></th>
+          <th>H₂<br><small>Collapse</small></th>
+          <th>H₃<br><small>Replace</small></th>
+          <th>H₄<br><small>Bifurcate</small></th>
+          <th>H₅<br><small>Migrate</small></th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="ev-cell"><strong>E₁</strong> Historical Catholic resilience (Galileo, Darwin, Vatican II)</td>
+            <td class="cell-c">C</td><td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td>
+          </tr>
+          <tr>
+            <td class="ev-cell"><strong>E₂</strong> Op(Year 1+25) ≈ 0.795: near-complete obsolescence <span style="font-size:0.75rem;color:var(--gold-dim);">[diagnostic vs H₁]</span></td>
+            <td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td>
+          </tr>
+          <tr>
+            <td class="ev-cell"><strong>E₃</strong> US Intel cascade at Year 1+9, earliest of all 6 regions <span style="font-size:0.75rem;color:var(--gold-dim);">[diagnostic vs H₁]</span></td>
+            <td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td>
+          </tr>
+          <tr>
+            <td class="ev-cell"><strong>E₄</strong> Memento Mori weakened 70–90% under complete dual shock <span style="font-size:0.75rem;color:var(--gold-dim);">[diagnostic vs H₁]</span></td>
+            <td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-na">N/A</td>
+          </tr>
+          <tr>
+            <td class="ev-cell"><strong>E₅</strong> ET-contact organizations emerge as first-layer mediators after Year 1 <span style="font-size:0.75rem;color:var(--gold-dim);">[diagnostic vs H₂]</span></td>
+            <td class="cell-na">N/A</td><td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-na">N/A</td>
+          </tr>
+          <tr>
+            <td class="ev-cell"><strong>E₆</strong> Creaturehood argument logically independent of L and X; survives both shocks <span style="font-size:0.75rem;color:var(--gold-dim);">[diagnostic vs H₂]</span></td>
+            <td class="cell-na">N/A</td><td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-na">N/A</td><td class="cell-c">C</td>
+          </tr>
+          <tr>
+            <td class="ev-cell"><strong>E₇</strong> Six new methods derivable from 𝒫<sub>K</sub> dominance relation <span style="font-size:0.75rem;color:var(--gold-dim);">[diagnostic vs H₂]</span></td>
+            <td class="cell-na">N/A</td><td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td>
+          </tr>
+          <tr>
+            <td class="ev-cell"><strong>E₈</strong> <em>Dei Verbum</em> and post-Galileo migration: theological migration historically precedented <span style="font-size:0.75rem;color:var(--gold-dim);">[diagnostic vs H₂]</span></td>
+            <td class="cell-na">N/A</td><td class="cell-i">I</td><td class="cell-c">C</td><td class="cell-c">C</td><td class="cell-c">C</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td style="text-align:left;color:var(--gold);font-family:'DM Mono',monospace;font-size:0.7rem;">Disconfirmations</td>
+            <td class="disc-loser">3 — eliminated</td>
+            <td class="disc-loser">5 — eliminated</td>
+            <td class="disc-winner">0 — survives</td>
+            <td class="disc-winner">0 — survives</td>
+            <td class="disc-winner">0 — survives</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="theory-disclaimer">
+      Key: C = consistent &middot; <strong>I</strong> = inconsistent (bold; diagnostic weight) &middot; N/A = not applicable. E₁ is non-diagnostic among H₁, H₃, H₄, H₅: prior adaptations (Galileo, Darwin) left the Memento Mori structure untouched, making them non-diagnostic for the specific question of dual-shock attack on that structure. H₃, H₄, H₅ are mutually compatible: the post-<span class="yr1">Year 1</span> state most likely combines all three.
+    </div>
+  </div>
+</section>
+
+<!-- ══ PART X: IMPLICATIONS ══ -->
+<section class="page-section" id="implications">
+  <div class="section-header">
+    <span class="section-num">X</span>
+    <h2 class="section-title">Implications as Conditional Propositions</h2>
+  </div>
+  <ul class="ref-list" style="gap:0.75rem;">
+    <li><strong>I1.</strong> If <span class="yr1">Year 1</span> is reached, CIA-type formations will have crossed the cascade criterion by <strong>2037</strong>, before other modeled regions, because their ω (sacrificial-motivation sensitivity) is highest.</li>
+    <li><strong>I2.</strong> If <span class="yr1">Year 1</span> is reached, the transitional gap Op(t) &minus; Nu(t) &gt; 0 will persist through at least <strong>2053</strong>. The window of maximum fragility is <strong>2043</strong>&ndash;<strong>2048</strong>.</li>
+    <li><strong>I3.</strong> If <span class="yr1">Year 1</span> is reached with credible ET disclosure, first-layer ET-contact management is the highest-value new intelligence asset: it combines origin-chain position capture, longevity-technology transfer potential, and post-disclosure social legitimacy.</li>
+    <li><strong>I4.</strong> If <span class="yr1">Year 1</span> is reached, the creaturehood frame is more structurally durable than Memento Mori because ontological dependence survives both \(L\to 1\) and \(X\to 0.9\).</li>
+    <li><strong>I5.</strong> If <span class="yr1">Year 1</span> is reached and Response&nbsp;A is adopted, the formation will lose credibility with ASI-accessible recruits at accelerating rates because the central mortality assertion becomes verifiably false from personal medical experience.</li>
+    <li><strong>I6.</strong> If <span class="yr1">Year 1</span> is reached, the philosophical regress (&#8220;who created the ETs?&#8221;) is a strategic asset: the first-layer contact position is non-terminal, ensuring permanent institutional relevance in the origin-seeking domain.</li>
+    <li><strong>I7.</strong> If <span class="yr1">Year 1</span> is reached, worldwide Catholic organizational capacity will not undergo complete cascade by <span class="yr1"><strong>2078</strong></span>: demographic heterogeneity (Africa, parts of Asia) supplies countervailing growth. The cascade is concentrated in Western formations.</li>
+    <li><strong>I8.</strong> If <span class="yr1">Year 1</span> is reached and new-method investment begins before <span class="yr1">Year 1</span>, Nu(t) will be higher at each time step, reducing the fragility gap. Pre-threshold investment in M1–M6 is therefore the primary institutional hedge against the cascade.</li>
+  </ul>
+</section>
+
+<!-- ══ SIMULATION CODE ══ -->
+<section class="page-section" id="simulation">
+  <div class="section-header">
+    <span class="section-num">∎</span>
+    <h2 class="section-title">Simulation Code — redo_sim_v5.py</h2>
+  </div>
+  <p style="color:var(--body);font-size:0.92rem;max-width:68ch;margin-bottom:1rem;line-height:1.72;">
+    Implements all eleven stress variables including Op(t) and Nu(t), six regional parameter sets,
+    the ODE series, and the spin-lattice summarizer with 96-seed median magnetization and
+    phase-transition detection. Run with <code>python3 redo_sim_v5.py</code>.
+    Note: the <code>transition_year</code> and year labels in the output are internal model parameters
+    referenced to <span class="yr1">Year 1</span> = t=0, not the current calendar year.
+  </p>
+
+  <div class="code-viewer">
+    <div class="cv-header">
+      <span class="cv-title">redo_sim_v5.py — ODE + Spin-Lattice with Op(t) and Nu(t)</span>
+      <div style="display:flex;align-items:center;gap:0.6rem;">
+        <span class="cv-lang">Python 3</span>
+        <button class="cv-toggle" onclick="toggleCode('sim-code','sim-btn')" id="sim-btn">Show code ↓</button>
+      </div>
+    </div>
+    <div class="cv-body" id="sim-code"><pre><code><span class="tk-kw">import</span> numpy <span class="tk-kw">as</span> np<span class="tk-op">,</span> math
+
+<span class="tk-cm"># t = 0 corresponds to Year 1 (not a calendar year)
+# All temporal outputs should be read as Year 1 + t</span>
+
+<span class="tk-kw">def</span> <span class="tk-fn">sig</span>(t,k,t0,A=<span class="tk-nu">1.0</span>):
+    <span class="tk-kw">return</span> A/(<span class="tk-nu">1</span>+math.<span class="tk-fn">exp</span>(-k*(t-t0)))
+
+
+<span class="tk-kw">def</span> <span class="tk-fn">stresses</span>(t):
+    I=<span class="tk-fn">sig</span>(t,<span class="tk-nu">0.18</span>,<span class="tk-nu">12</span>,<span class="tk-nu">1.0</span>)
+    L=<span class="tk-fn">sig</span>(t,<span class="tk-nu">0.24</span>,<span class="tk-nu">18</span>,<span class="tk-nu">1.0</span>)
+    H=<span class="tk-fn">sig</span>(t,<span class="tk-nu">0.18</span>,<span class="tk-nu">26</span>,<span class="tk-nu">0.80</span>)
+    X=<span class="tk-fn">sig</span>(t,<span class="tk-nu">0.42</span>,<span class="tk-nu">15</span>,<span class="tk-nu">0.90</span>)
+    C=L*X
+    D=X*(<span class="tk-nu">0.35</span>+<span class="tk-nu">0.65</span>*L)          <span class="tk-cm"># proximate creator-contact displacement</span>
+    K=(I+L+H+X)/<span class="tk-nu">4</span>               <span class="tk-cm"># ordinary adaptive-response field</span>
+    Q=(I+L+H+X+D)/<span class="tk-nu">5</span>             <span class="tk-cm"># question-tree leadership field</span>
+    Phi=<span class="tk-nu">0.40</span>*I+<span class="tk-nu">0.20</span>*L+<span class="tk-nu">0.15</span>*H+<span class="tk-nu">0.10</span>*X+<span class="tk-nu">0.15</span>*D
+    Op=L*(<span class="tk-nu">0.50</span>+<span class="tk-nu">0.50</span>*X)          <span class="tk-cm"># Op(t) — operational method obsolescence</span>
+    Nu=Phi*(<span class="tk-nu">1</span>+<span class="tk-nu">0.30</span>*X)/<span class="tk-nu">1.30</span>      <span class="tk-cm"># Nu(t) — new method readiness</span>
+    <span class="tk-kw">return</span> I,L,H,X,C,D,K,Q,Phi,Op,Nu
+
+
+regions={
+    <span class="tk-st">'Worldwide'</span>:          <span class="tk-fn">dict</span>(P0=<span class="tk-nu">406996</span>, g0=<span class="tk-nu">-0.002</span>, alpha=<span class="tk-nu">0.0025</span>, beta=<span class="tk-nu">0.0050</span>,
+                               eta=<span class="tk-nu">0.0025</span>, delta=<span class="tk-nu">0.0040</span>, chi=<span class="tk-nu">0.0080</span>,
+                               gamma=<span class="tk-nu">0.0022</span>, rho=<span class="tk-nu">0.0010</span>, kappa=<span class="tk-nu">0.0012</span>,
+                               omega=<span class="tk-nu">0.0015</span>, nu_r=<span class="tk-nu">0.0008</span>),
+    <span class="tk-st">'US Intel Community'</span>: <span class="tk-fn">dict</span>(P0=<span class="tk-nu">100</span>,    g0=<span class="tk-nu">-0.008</span>, alpha=<span class="tk-nu">0.0080</span>, beta=<span class="tk-nu">0.0150</span>,
+                               eta=<span class="tk-nu">0.0060</span>, delta=<span class="tk-nu">0.0100</span>, chi=<span class="tk-nu">0.0200</span>,
+                               gamma=<span class="tk-nu">0.0040</span>, rho=<span class="tk-nu">0.0025</span>, kappa=<span class="tk-nu">0.0030</span>,
+                               omega=<span class="tk-nu">0.0080</span>, nu_r=<span class="tk-nu">0.0060</span>),  <span class="tk-cm"># highest omega</span>
+}  <span class="tk-cm"># (Europe, US, Taiwan, East Asian set follow same pattern)</span>
+
+
+<span class="tk-kw">def</span> <span class="tk-fn">lam</span>(t,p):
+    I,L,H,X,C,D,K,Q,Phi,Op,Nu=<span class="tk-fn">stresses</span>(t)
+    <span class="tk-kw">return</span> (p[<span class="tk-st">'g0'</span>]
+            -p[<span class="tk-st">'alpha'</span>]*I -p[<span class="tk-st">'beta'</span>]*L  -p[<span class="tk-st">'eta'</span>]*H -p[<span class="tk-st">'delta'</span>]*X -p[<span class="tk-st">'chi'</span>]*D
+            +p[<span class="tk-st">'gamma'</span>]*K +p[<span class="tk-st">'rho'</span>]*Q  -p[<span class="tk-st">'kappa'</span>]*Phi
+            -p[<span class="tk-st">'omega'</span>]*Op +p[<span class="tk-st">'nu_r'</span>]*Nu)
+
+
+<span class="tk-kw">def</span> <span class="tk-fn">summarize</span>(region, runs=<span class="tk-nu">96</span>):
+    <span class="tk-cm"># Returns transition_t in years since Year 1 (t=0 = Year 1)</span>
+    <span class="tk-cm"># transition_year field is DEPRECATED — use transition_t instead</span>
+    ...
+</code></pre></div>
+  </div>
+
+  <div class="code-viewer" style="margin-top:1rem;">
+    <div class="cv-header">
+      <span class="cv-title">post_asi_disclosure_v2.tex — Preamble (Year-1 Definitions)</span>
+      <div style="display:flex;align-items:center;gap:0.6rem;">
+        <span class="cv-lang">LaTeX</span>
+        <button class="cv-toggle" onclick="toggleCode('tex-code','tex-btn')" id="tex-btn">Show source ↓</button>
+      </div>
+    </div>
+    <div class="cv-body" id="tex-code"><pre><code><span class="tk-cm">%% Year-1 convention commands</span>
+\<span class="tk-fn">newcommand</span>{<span class="tk-st">\YOne</span>}{\<span class="tk-fn">textbf</span>{Year~1}}
+\<span class="tk-fn">newcommand</span>{<span class="tk-st">\Yk</span>}[1]{\<span class="tk-fn">textbf</span>{Year~$1{+}#1$}}
+
+<span class="tk-cm">%% Key definition</span>
+\<span class="tk-fn">begin</span>{eucliddef}[Year 1]\<span class="tk-fn">label</span>{def:year1}
+\<span class="tk-fn">YOne</span>{} is the calendar year in which the dual-shock
+threshold is crossed: (i) ASI-level artificial intelligence
+is publicly confirmed; and/or (ii) credible public evidence
+for ET-direct-creation of the human biological platform is
+available. \<span class="tk-fn">YOne</span>{} is \<span class="tk-fn">emph</span>{not} a known calendar year.
+\<span class="tk-fn">end</span>{eucliddef}
+
+<span class="tk-cm">%% Key postulate</span>
+\<span class="tk-fn">begin</span>{postulate}[Year-1 Agnosticism]
+The analyst does not know when \<span class="tk-fn">YOne</span>{} will occur.
+Any projection in calendar-year terms without demonstrated
+prediction of \<span class="tk-fn">YOne</span>{}'s calendar value contains a hidden
+assumption. A hidden assumption cannot be corrected.
+\<span class="tk-fn">end</span>{postulate}
+
+<span class="tk-cm">%% Sample conditional proposition</span>
+\<span class="tk-fn">begin</span>{proposition}
+\<span class="tk-fn">textbf</span>{If} \<span class="tk-fn">YOne</span>{} is reached and $L(t)$ rises to $0.843$
+by \<span class="tk-fn">Yk</span>{25}, \<span class="tk-fn">textbf</span>{then} the Memento Mori control structure
+has lost approximately $84$\% of its social force...
+\<span class="tk-fn">end</span>{proposition}
+</code></pre></div>
+  </div>
+
+  <div class="paper-links" style="margin-top:1.2rem;">
+    <a href="https://drive.google.com/file/d/1qPXHa05PJwojlt_5OJEsYKKoCeoWMwLX/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>Complete 26-Page Note</a>
+    <a href="post_asi_disclosure_v2.tex" class="link-btn" target="_blank"><span class="lbl">TeX</span>LaTeX Source</a>
+    <a href="https://drive.google.com/file/d/1D-4PI6kyF2w_qiRwUX1ov6Bzy52D7xHL/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PY</span>Simulation v5</a>
+  </div>
+</section>
+
+</main>
+</div><!-- /page-layout -->
+
+<footer>
+  &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc.
+  All rights reserved. &middot; U.S. Patent Portfolio: 9+ Applications Filed 2025.
+</footer>
+
+</div><!-- /wrap -->
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+function toggleCode(bodyId,btnId){
+  var b=document.getElementById(bodyId),t=document.getElementById(btnId);
+  var o=b.classList.toggle("open");
+  t.textContent=o?"Hide ↑":"Show code ↓";
+}
+</script>
+</body>
+</html>
