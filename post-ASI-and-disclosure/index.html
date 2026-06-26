@@ -413,6 +413,10 @@ p mjx-container,li mjx-container{display:inline-block;max-width:100%;}
     <li><a href="#theol-fraternal" class="toc-link toc-sub">Fraternal Formation</a></li>
     <li><a href="#theol-latent" class="toc-link toc-sub">R₁–R₈ Latent Space</a></li>
     <li><a href="#theol-greene" class="toc-link toc-sub">Greene — R₈ Adversary Literacy</a></li>
+    <li><a href="#theol-selection" class="toc-link toc-sub">Model Selection — Catholic & Post-ASI</a></li>
+    <li><a href="#theol-phases" class="toc-link toc-sub">Phases: Jesus · Ignatius · Benedict · Greenleaf vs Carnegie · Greene · Pfeffer</a></li>
+    <li><a href="#theol-carnegie" class="toc-link toc-sub">Carnegie: Insufficient but Permissible &mdash; Formal Proof</a></li>
+    <li><a href="#theol-detection" class="toc-link toc-sub">Greene &middot; Pfeffer &middot; Carnegie: Incompatibility and Six Diagnostic Tests</a></li>
     <li><a href="#conclusion" class="toc-link toc-section">XII · Conclusion</a></li>
     <li><a href="#simulation" class="toc-link toc-section">∎ &nbsp;Simulation Code</a></li>
     <li><a href="#references" class="toc-link toc-section">§ &nbsp;References</a></li>
@@ -1779,6 +1783,1196 @@ p mjx-container,li mjx-container{display:inline-block;max-width:100%;}
     </div>
     </div>
   </div>
+
+  <!-- VIII: Catholic Suitability + Post-ASI Selection -->
+  <div class="subsection" id="theol-selection">
+    <h3>VIII · Leadership Model Selection — Catholic Organisations and Post-ASI Resilience</h3>
+
+    <p style="color:var(--body);font-size:0.88rem;line-height:1.75;max-width:72ch;margin-bottom:1.2rem;">
+      Of the 107 distinct leadership models in the full academic, applied, and domain-specific
+      literature, a necessary condition for use in any Catholic organisation is non-empty
+      intersection with the union J&nbsp;∪&nbsp;S&nbsp;∪&nbsp;L — the Jesus-leadership,
+      Servant Leadership, and Level&nbsp;5 manifolds. This follows from CCC&nbsp;2235
+      ("those who exercise authority must do so as a service"): Catholic authority is
+      constitutively servant-oriented and mission-ordered. Models in R₈&nbsp;=&nbsp;X&nbsp;∖&nbsp;U
+      — with no J, S, or L intersection — prescribe authority that can be exercised without
+      service, mission ordered to personal power rather than the common good, and a completely
+      absent theological anchor. They are not appropriate as normative frameworks at any level,
+      from the parish to the diocesan chancery. The dual shock of the post-ASI era refines the
+      ranking further: models anchored in the three theological survivors (Thomistic prudentia,
+      fraternal caritas, and the creaturehood frame) remain fully resilient; models whose
+      effectiveness depends on mortality-derived sacrifice willingness or charismatic divine-aura
+      authority are specifically fragile.
+    </p>
+
+
+    <!-- Interactive 107-model table — embedded directly into post-ASI page -->
+    <style>
+    .cat-tbl{width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed}
+    .cat-tbl col.k0{width:165px}.cat-tbl col.k1{width:140px}.cat-tbl col.k2{width:120px}.cat-tbl col.k3{width:95px}.cat-tbl col.k4{width:52px}.cat-tbl col.k5{width:90px}
+    .cat-tbl thead th{background:rgba(6,16,34,0.95);font-size:9.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:6px 7px;border-bottom:1px solid var(--border-dim);text-align:left;cursor:pointer;white-space:nowrap;user-select:none;overflow:hidden;position:sticky;top:0;z-index:2}
+    .cat-tbl thead th:hover{color:var(--gold-dim)}
+    .cat-tbl .cat-grp td{background:rgba(6,16,34,0.8);font-weight:500;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dim);padding:4px 7px;border-bottom:1px solid var(--border-dim)}
+    .cat-tbl tbody td{padding:5px 7px;border-bottom:1px solid var(--border-dim);vertical-align:top;line-height:1.38;color:var(--body);overflow:hidden;font-size:11px}
+    .cat-tbl tbody td.mnm{font-weight:500;color:var(--cream);font-size:11.5px}
+    .cat-tbl tbody tr:hover td{background:rgba(201,168,76,0.04)}
+    .cb{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;white-space:nowrap}
+    .cr1{background:rgba(29,158,117,0.25);color:#9FE1CB}
+    .cr2{background:rgba(12,68,124,0.35);color:#B5D4F4}
+    .cr3{background:rgba(39,80,10,0.35);color:#C0DD97}
+    .cr4{background:rgba(60,52,137,0.35);color:#CECBF6}
+    .cr5{background:rgba(99,56,6,0.35);color:#FAC775}
+    .cr6{background:rgba(114,36,62,0.35);color:#F4C0D1}
+    .cr7{background:rgba(99,56,6,0.25);color:#FAC775}
+    .cr8{background:rgba(121,31,31,0.35);color:#F7C1C1}
+    .crd{background:rgba(40,40,40,0.5);color:var(--muted);border:1px solid var(--border-dim)}
+    .rres{background:rgba(29,158,117,0.2);color:#9FE1CB}
+    .rrob{background:rgba(39,80,10,0.25);color:#C0DD97}
+    .rpar{background:rgba(99,56,6,0.25);color:#FAC775}
+    .rfrag{background:rgba(121,31,31,0.25);color:#F7C1C1}
+    .rdiag{background:rgba(40,40,40,0.5);color:var(--muted);border:1px solid var(--border-dim)}
+    .mbar{height:4px;border-radius:2px;background:rgba(255,255,255,0.1);width:45px;margin-top:3px}
+    .mfill{height:4px;border-radius:2px}
+    .mstat{display:inline-block;font-size:10px;font-weight:500;min-width:18px;text-align:right;color:var(--gold)}
+    #mcount{font-size:11px;color:var(--muted);margin-left:auto;line-height:28px}
+    .mcontrols{display:flex;gap:8px;margin-bottom:.75rem;flex-wrap:wrap;align-items:center}
+    .mcontrols label{font-size:11px;color:var(--muted)}
+    .mcontrols select,.mcontrols input{font-size:11px;color:var(--body);background:rgba(6,16,34,0.9);border:1px solid var(--border-dim);border-radius:4px;padding:3px 6px}
+    .mtbl-wrap{max-height:500px;overflow-y:auto;border:1px solid var(--border-dim);border-radius:8px;margin-bottom:1.2rem}
+    .mstats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1rem}
+    .mstat-tile{background:rgba(6,16,34,0.6);border:1px solid var(--border-dim);border-radius:6px;padding:.65rem .8rem}
+    .mstat-tile .mv{font-size:18px;font-weight:500;color:var(--cream);margin:2px 0}
+    .mstat-tile .ml{font-size:10.5px;color:var(--muted);line-height:1.4}
+    </style>
+
+    <h4 style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 0.7rem;">Complete catalogue — 107 models · sortable · filterable</h4>
+
+    <div class="mstats">
+      <div class="mstat-tile"><div class="ml">Total catalogued</div><div class="mv">107</div><div class="ml">All leadership traditions incl. Jesus, Ignatian, Benedictine, Carnegie, Greene</div></div>
+      <div class="mstat-tile"><div class="ml">Suitable for Catholic orgs</div><div class="mv" id="mn-suit">—</div><div class="ml">Non-empty intersection with J∪S∪L</div></div>
+      <div class="mstat-tile"><div class="ml">Post-ASI resilient</div><div class="mv" id="mn-res">—</div><div class="ml">J-anchored or caritas-based; survives dual shock</div></div>
+      <div class="mstat-tile"><div class="ml">Not appropriate</div><div class="mv" id="mn-r8">—</div><div class="ml">R₈ = X∖U; adversarial diagnostic use only</div></div>
+    </div>
+
+    <div class="mcontrols">
+      <label>Search: <input id="msearch" type="text" placeholder="name, theorist, region…" style="width:150px;margin-left:4px"></label>
+      <label style="margin-left:6px">Category: <select id="mcatFilter">
+        <option value="">All categories</option>
+        <option>Christian / Catholic Leadership</option>
+        <option>Foundational / Historical</option>
+        <option>Contingency / Situational</option>
+        <option>Transformational / Charismatic</option>
+        <option>Servant / Authentic / Ethical</option>
+        <option>Emotional / Social Intelligence</option>
+        <option>Relational / Follower-centered</option>
+        <option>Power / Political</option>
+        <option>Distributed / Shared</option>
+        <option>Systems / Complexity / Adaptive</option>
+        <option>Positive / Strengths</option>
+        <option>Developmental / Stage-based</option>
+        <option>Spiritual / Meaning</option>
+        <option>Cross-cultural / Global</option>
+        <option>Military / Public Sector</option>
+        <option>Non-Western Traditions</option>
+        <option>Contemporary / Applied</option>
+      </select></label>
+      <label style="margin-left:6px">Resilience: <select id="mresFilter">
+        <option value="">All</option>
+        <option value="Resilient">✓ Resilient</option>
+        <option value="Robust">~ Robust</option>
+        <option value="Partial">~ Partial</option>
+        <option value="Fragile">⚠ Fragile</option>
+        <option value="Diagnostic">✗ Diagnostic</option>
+      </select></label>
+      <span id="mcount"></span>
+    </div>
+
+    <div class="mtbl-wrap">
+    <table class="cat-tbl" id="mTable">
+    <colgroup><col class="k0"><col class="k1"><col class="k2"><col class="k3"><col class="k4"><col class="k5"></colgroup>
+    <thead><tr>
+      <th onclick="msort('nm')">Model <span class="arr" id="marr-nm"></span></th>
+      <th onclick="msort('th')">Theorist / year <span class="arr" id="marr-th"></span></th>
+      <th onclick="msort('cat')">Category <span class="arr" id="marr-cat"></span></th>
+      <th onclick="msort('reg')">Region <span class="arr" id="marr-reg"></span></th>
+      <th onclick="msort('sc')">Score <span class="arr" id="marr-sc"></span></th>
+      <th onclick="msort('res')">Post-ASI resilience <span class="arr" id="marr-res"></span></th>
+    </tr></thead>
+    <tbody id="mtbody"></tbody>
+    </table>
+    </div>
+
+    <script>
+    (function(){
+    var MDATA=[
+["Jesus / Christ-centered Leadership","Gospel accounts (Mt·Mk·Lk·Jn) · Blanchard & Hodges 2005 · Ford 1991","Christian / Catholic Leadership","R₁/R₅ — paradigmatic case",10.0,"Resilient"],
+["Ignatian / Jesuit Leadership","Loyola, Spiritual Exercises 1548 · Lowney 2003 · Kolvenbach SJ","Christian / Catholic Leadership","R₁ approaching",9.5,"Resilient"],
+["Benedictine Leadership (Rule of St. Benedict)","Benedict of Nursia c.516 · de Waal 1984 · Heitink 2019","Christian / Catholic Leadership","R₁/R₂ approaching",9.0,"Resilient"],
+["Great Man Theory","Carlyle 1840s · Galton 1869","Foundational / Historical","R₈ (deterministic)",null,"Diagnostic"],
+["Trait Theory","Stogdill 1948 · Kirkpatrick & Locke 1991","Foundational / Historical","Diagnostic",3.5,"Partial"],
+["Ohio State Studies","Fleishman & Hemphill 1945–57","Foundational / Historical","Diagnostic (S-dim. only)",4.0,"Partial"],
+["Michigan Studies","Likert 1961","Foundational / Historical","Diagnostic",4.0,"Partial"],
+["Lewin Three Styles","Lewin 1939","Foundational / Historical","Diagnostic",3.5,"Partial"],
+["McGregor Theory X and Y","McGregor 1960","Foundational / Historical","R₄ approaching",5.0,"Robust"],
+["Blake & Mouton Managerial Grid","Blake & Mouton 1964","Foundational / Historical","Diagnostic",4.5,"Partial"],
+["Likert System 4 / Participative","Likert 1961–67","Foundational / Historical","R₆",5.5,"Partial"],
+["Barnard Authority / Functions","Barnard 1938","Foundational / Historical","R₈ institutional",3.0,"Diagnostic"],
+["Zaleznik Managers vs Leaders","Zaleznik 1977 HBR","Foundational / Historical","Diagnostic",5.5,"Partial"],
+["Drucker Effective Executive","Drucker 1966","Foundational / Historical","R₇",4.5,"Robust"],
+["Fiedler Contingency Model","Fiedler 1967","Contingency / Situational","Diagnostic / R₈",3.0,"Diagnostic"],
+["Path-Goal Theory","House 1971 · Evans 1970","Contingency / Situational","Diagnostic",4.0,"Partial"],
+["Situational Leadership (Hersey & Blanchard)","Hersey & Blanchard 1969/1977","Contingency / Situational","R₈ contingency",3.5,"Partial"],
+["Vroom-Yetton-Jago Decision Model","Vroom & Yetton 1973 · Jago 1988","Contingency / Situational","Diagnostic",4.0,"Partial"],
+["Burns Transformational / Moral","Burns 1978","Transformational / Charismatic","R₃/R₄",6.8,"Robust"],
+["Bass Full Range Leadership Model","Bass 1985 · Bass & Avolio 1994","Transformational / Charismatic","R₃/R₄",6.5,"Robust"],
+["House Charismatic Leadership","House 1976/1977","Transformational / Charismatic","R₃/R₈ high var.",4.5,"Fragile"],
+["Conger & Kanungo Charismatic","Conger & Kanungo 1987","Transformational / Charismatic","R₃/R₈ high var.",4.5,"Fragile"],
+["Weber Charismatic Authority","Weber 1922","Transformational / Charismatic","Diagnostic",3.5,"Diagnostic"],
+["Shamir-House-Arthur Motivational","Shamir, House & Arthur 1993","Transformational / Charismatic","R₃",5.0,"Fragile"],
+["Kouzes & Posner Five Practices","Kouzes & Posner 1987","Transformational / Charismatic","R₄ → R₁",6.5,"Robust"],
+["Nanus Visionary Leadership","Nanus 1992","Transformational / Charismatic","R₃",5.5,"Partial"],
+["Bennis & Nanus Leaders","Bennis & Nanus 1985","Transformational / Charismatic","R₃/R₄",6.0,"Robust"],
+["Kotter Leading Change","Kotter 1996","Transformational / Charismatic","R₄",5.5,"Robust"],
+["Greenleaf Servant Leadership","Greenleaf 1970","Servant / Authentic / Ethical","R₂ → R₁",8.0,"Resilient"],
+["Spears Servant Leader Characteristics","Spears 1995","Servant / Authentic / Ethical","R₂",7.5,"Resilient"],
+["Patterson Servant Leadership","Patterson 2003","Servant / Authentic / Ethical","R₂",7.5,"Resilient"],
+["Laub Servant Organizational Leadership","Laub 1999","Servant / Authentic / Ethical","R₂",7.0,"Resilient"],
+["Collins Level 5 Leadership","Jim Collins 2001 Good to Great","Servant / Authentic / Ethical","R₄ → R₁",7.5,"Robust"],
+["George Authentic Leadership","George 2003","Servant / Authentic / Ethical","R₂/R₃",6.5,"Robust"],
+["George True North","George 2007","Servant / Authentic / Ethical","R₂/R₄",7.0,"Robust"],
+["Avolio & Gardner Authentic Leadership","Avolio & Gardner 2004/2005","Servant / Authentic / Ethical","R₂",6.5,"Robust"],
+["Luthans & Avolio Authentic Dev.","Luthans & Avolio 2003","Servant / Authentic / Ethical","R₂",6.5,"Partial"],
+["Ciulla Ethical / Moral Leadership","Ciulla 1998","Servant / Authentic / Ethical","R₃/J-adjacent",7.0,"Resilient"],
+["Brown & Treviño Ethical Leadership","Brown & Treviño 2006","Servant / Authentic / Ethical","R₃",6.5,"Robust"],
+["Manz & Sims Super-Leadership","Manz & Sims 1989","Servant / Authentic / Ethical","R₄",5.0,"Partial"],
+["Goleman Emotional Intelligence","Goleman 1995","Emotional / Social Intelligence","R₂/R₆",5.5,"Robust"],
+["Goleman Six Leadership Styles","Goleman 2000 HBR","Emotional / Social Intelligence","Diagnostic",5.0,"Robust"],
+["Boyatzis & McKee Resonant Leadership","Boyatzis & McKee 2005","Emotional / Social Intelligence","R₆/R₂",5.8,"Robust"],
+["George Social Intelligence","George 2007","Emotional / Social Intelligence","R₂",5.5,"Partial"],
+["LMX Theory","Graen & Uhl-Bien 1972/1995","Relational / Follower-centered","R₆",5.0,"Partial"],
+["Kelley Followership","Kelley 1988/1992","Relational / Follower-centered","Diagnostic",4.5,"Partial"],
+["Chaleff Courageous Followership","Chaleff 1995","Relational / Follower-centered","R₄",5.5,"Robust"],
+["Kellerman Following","Kellerman 2008","Relational / Follower-centered","Diagnostic",4.0,"Partial"],
+["Komives Relational Leadership Model","Komives, Lucas & McMahon 1998/2013","Relational / Follower-centered","R₂/R₆",6.0,"Robust"],
+["Bolman & Deal Four Frames","Bolman & Deal 1984/2017","Relational / Follower-centered","Diagnostic",5.0,"Robust"],
+["Drath Meaning-Making Leadership","Drath & Palus 1994 · Drath 2001","Relational / Follower-centered","R₄",5.5,"Partial"],
+["Uhl-Bien Relational Leadership","Uhl-Bien 2006","Relational / Follower-centered","R₆",5.5,"Partial"],
+["French & Raven Power Bases","French & Raven 1959","Power / Political","Diagnostic",3.0,"Diagnostic"],
+["Kotter Power and Influence","Kotter 1985","Power / Political","R₈ realist",3.0,"Diagnostic"],
+["Pfeffer Power in Organizations","Pfeffer 1981/1992","Power / Political","R₈ realist",2.5,"Diagnostic"],
+["Mintzberg Managerial Roles","Mintzberg 1973","Power / Political","Diagnostic",4.0,"Partial"],
+["Burns Political Leadership","Burns 1978","Power / Political","R₃/R₄",6.0,"Robust"],
+["Alinsky Community Organizing","Alinsky 1971","Power / Political","R₈/R₃ boundary",4.5,"Diagnostic"],
+["Gronn Distributed Leadership","Gronn 2000/2002","Distributed / Shared","R₆",5.5,"Robust"],
+["Spillane Distributed Leadership","Spillane 2006","Distributed / Shared","R₆",5.5,"Robust"],
+["Pearce & Conger Shared Leadership","Pearce & Conger 2003","Distributed / Shared","R₆",5.5,"Robust"],
+["Fletcher Post-heroic Relational","Fletcher 2004","Distributed / Shared","R₂/R₆",6.0,"Robust"],
+["Heifetz Adaptive Leadership","Heifetz 1994 · Heifetz & Linsky 2002","Systems / Complexity / Adaptive","R₄ → R₁",7.5,"Resilient"],
+["Senge Learning Organization","Senge 1990","Systems / Complexity / Adaptive","R₄",6.5,"Robust"],
+["Uhl-Bien Complexity Leadership","Uhl-Bien, Marion & McKelvey 2007","Systems / Complexity / Adaptive","R₄",5.5,"Partial"],
+["Snowden & Boone Cynefin","Snowden & Boone 2007","Systems / Complexity / Adaptive","Diagnostic",4.5,"Partial"],
+["Stacey Complexity and Mgmt","Stacey 1996+","Systems / Complexity / Adaptive","R₄",5.0,"Partial"],
+["Cameron Positive Leadership","Cameron 2008","Positive / Strengths","R₄",6.5,"Robust"],
+["Seligman PERMA + Positive","Seligman 2011","Positive / Strengths","R₂/R₄",6.0,"Partial"],
+["Luthans PsyCap","Luthans 2007","Positive / Strengths","R₄",5.5,"Partial"],
+["StrengthsBased Leadership (Gallup)","Rath & Conchie 2008","Positive / Strengths","R₄",5.5,"Robust"],
+["Torbert Action Logics","Torbert & Fisher 2004","Developmental / Stage-based","Developmental",6.5,"Partial"],
+["Kegan Constructive-Developmental","Kegan & Lahey 2009","Developmental / Stage-based","Developmental",6.0,"Partial"],
+["Cook-Greuter Ego Development","Cook-Greuter 1999","Developmental / Stage-based","Developmental",5.5,"Partial"],
+["Wilber Integral Leadership","Wilber 2000s","Developmental / Stage-based","R₁ approaching",6.5,"Partial"],
+["Loevinger Ego Development","Loevinger 1970s","Developmental / Stage-based","Foundational",5.0,"Partial"],
+["Fry Spiritual Leadership","Fry 2003","Spiritual / Meaning","R₅/J-adjacent",6.5,"Resilient"],
+["Benefiel Soul at Work","Benefiel 2005","Spiritual / Meaning","R₂/R₅",6.5,"Resilient"],
+["Bolman & Deal Leading with Soul","Bolman & Deal 1995","Spiritual / Meaning","R₂",6.5,"Robust"],
+["Hougaard & Carter Conscious","Hougaard & Carter 2019","Spiritual / Meaning","R₂/R₄",6.5,"Partial"],
+["GLOBE Study","House et al. 2004","Cross-cultural / Global","Diagnostic",4.5,"Robust"],
+["Hofstede Cultural Dimensions","Hofstede 1980/2001","Cross-cultural / Global","Diagnostic",4.5,"Robust"],
+["Trompenaars Seven Dimensions","Trompenaars 1993","Cross-cultural / Global","Diagnostic",4.5,"Partial"],
+["Cultural Intelligence (CQ)","Earley & Ang 2003","Cross-cultural / Global","Diagnostic",4.5,"Robust"],
+["Eagly & Carli Female Leadership","Eagly & Carli 2007","Cross-cultural / Global","Diagnostic",5.5,"Partial"],
+["Social Identity Leadership","Haslam, Platow et al. 2011","Cross-cultural / Global","Diagnostic",5.0,"Partial"],
+["US Army FM 6-22 (Be-Know-Do)","US Army 2006/2012","Military / Public Sector","R₃/R₄",6.5,"Robust"],
+["Mission Command / Auftragstaktik","Moltke · von Clausewitz","Military / Public Sector","R₃",6.0,"Partial"],
+["West Point Leadership Model","USMA various","Military / Public Sector","R₃/R₄",6.5,"Robust"],
+["Crisis Leadership","Heifetz & Linsky · Leonard & Howitt HKS","Military / Public Sector","R₃/R₄",6.0,"Robust"],
+["Ganz Narrative / Story Leadership","Ganz HKS 2011","Military / Public Sector","R₄",6.0,"Partial"],
+["Ubuntu Leadership","African philosophy (Tutu et al.)","Non-Western Traditions","R₂/R₁-adjacent",7.0,"Resilient"],
+["Confucian Leadership","Analects · Li 2012","Non-Western Traditions","R₄",6.5,"Robust"],
+["Taoist / Lao Tzu Leadership","Tao Te Ching (classical)","Non-Western Traditions","R₂/R₆",6.0,"Partial"],
+["Buddhist / Dharmic Leadership","Various traditions","Non-Western Traditions","R₂",6.5,"Partial"],
+["Islamic Shura Leadership","Quranic principles · various","Non-Western Traditions","R₂/R₄",6.5,"Partial"],
+["Sinek Start With Why","Sinek 2009","Contemporary / Applied","R₃/R₄",6.0,"Robust"],
+["Sinek Infinite Game","Sinek 2019","Contemporary / Applied","R₄",6.5,"Robust"],
+["Brown Daring Leadership","Brown 2018","Contemporary / Applied","R₂/R₄",6.5,"Robust"],
+["Arbinger Leadership & Self-Deception","Arbinger Institute 2000/2018","Contemporary / Applied","R₁ approaching",7.5,"Resilient"],
+["Lencioni Five Dysfunctions","Lencioni 2002 (practicing Catholic)","Contemporary / Applied","R₄",5.5,"Robust"],
+["Edmondson Teaming / Psych. Safety","Edmondson 1999/2012/2018","Contemporary / Applied","R₂/R₆",6.5,"Robust"],
+["Collins Built to Last","Collins & Porras 1994","Contemporary / Applied","R₄",7.0,"Robust"],
+["Kouzes & Posner (Leadership Challenge)","Kouzes & Posner 1987 (all editions)","Contemporary / Applied","R₄ → R₁",6.5,"Robust"],
+["Bennis On Becoming a Leader","Bennis 1989","Contemporary / Applied","R₃/R₄",6.0,"Partial"],
+["Carnegie — How to Win Friends","Dale Carnegie 1936","Contemporary / Applied","R₈/S boundary — surface mimicry",4.5,"Diagnostic"],
+["Greene — Power Corpus (48 Laws etc.)","Robert Greene 1998–2022","Contemporary / Applied","R₈ Machiavellian/warrior-king",1.5,"Diagnostic"]
+    ];
+
+    var mtbody=document.getElementById('mtbody');
+    var msearchEl=document.getElementById('msearch');
+    var mcatEl=document.getElementById('mcatFilter');
+    var mresEl=document.getElementById('mresFilter');
+    var msortKey='cat';var msortDir=1;
+    function mRegClass(r){if(!r)return 'crd';if(r.match(/R₁/))return 'cr1';if(r.match(/R₂/))return 'cr2';if(r.match(/R₃/))return 'cr3';if(r.match(/R₄/))return 'cr4';if(r.match(/R₅/))return 'cr5';if(r.match(/R₆/))return 'cr6';if(r.match(/R₇/))return 'cr7';if(r.match(/R₈/))return 'cr8';return 'crd';}
+    function mResClass(r){var m={Resilient:'rres',Robust:'rrob',Partial:'rpar',Fragile:'rfrag',Diagnostic:'rdiag'};return m[r]||'rdiag';}
+    function mResLabel(r){var m={Resilient:'✓ Resilient',Robust:'~ Robust',Partial:'~ Partial',Fragile:'⚠ Fragile',Diagnostic:'✗ Diagnostic'};return m[r]||r;}
+    function mBarColor(s){if(s>=7)return '#c9a84c';if(s>=6)return '#9fb87e';if(s>=5)return '#eda100';return '#E24B4A';}
+    function mRender(){
+      var q=(msearchEl.value||'').toLowerCase(),cat=mcatEl.value,res=mresEl.value;
+      var rows=MDATA.filter(function(d){
+        if(cat&&d[2]!==cat)return false;
+        if(res&&d[5]!==res)return false;
+        if(q){var s=(d[0]+d[1]+d[2]+d[3]+(d[5]||'')).toLowerCase();if(!s.includes(q))return false;}
+        return true;
+      });
+      var ki={nm:0,th:1,cat:2,reg:3,sc:4,res:5};
+      if(msortKey==='sc'){rows.sort(function(a,b){return msortDir*((b[4]||0)-(a[4]||0));});}
+      else{var k=ki[msortKey]||0;rows.sort(function(a,b){return msortDir*(String(a[k]||'').localeCompare(String(b[k]||'')));});}
+      var html='',lastCat='';
+      rows.forEach(function(d){
+        if(d[2]!==lastCat&&!cat){html+='<tr class="cat-grp"><td colspan="6">'+d[2]+'</td></tr>';lastCat=d[2];}
+        var sc=d[4]===null||d[4]===undefined?'N/A':Number(d[4]).toFixed(1);
+        var bar=d[4]?'<div class="mbar"><div class="mfill" style="width:'+(d[4]*10)+'%;background:'+mBarColor(d[4])+'"></div></div>':'';
+        html+='<tr><td class="mnm">'+d[0]+'</td><td>'+d[1]+'</td><td>'+d[2]+'</td><td><span class="cb '+mRegClass(d[3])+'">'+d[3]+'</span></td><td><span class="mstat">'+sc+'</span>'+bar+'</td><td><span class="cb '+mResClass(d[5])+'">'+mResLabel(d[5])+'</span></td></tr>';
+      });
+      mtbody.innerHTML=html||'<tr><td colspan="6" style="text-align:center;padding:1rem;color:var(--muted)">No models match.</td></tr>';
+      document.getElementById('mcount').textContent=rows.length+' shown';
+      document.getElementById('mn-suit').textContent=MDATA.filter(function(d){return d[3]&&!d[3].includes('R₈')&&d[5]!=='Diagnostic';}).length;
+      document.getElementById('mn-res').textContent=MDATA.filter(function(d){return d[5]==='Resilient';}).length;
+      document.getElementById('mn-r8').textContent=MDATA.filter(function(d){return d[5]==='Diagnostic';}).length;
+    }
+    function msort(k){if(msortKey===k)msortDir*=-1;else{msortKey=k;msortDir=1;}
+      document.querySelectorAll('[id^="marr-"]').forEach(function(e){e.textContent='';});
+      var a=document.getElementById('marr-'+k);if(a)a.textContent=msortDir===1?' ↑':' ↓';mRender();}
+    msearchEl.addEventListener('input',mRender);mcatEl.addEventListener('change',mRender);mresEl.addEventListener('change',mRender);
+    mRender();
+    })();
+    </script>
+
+    <!-- SUITABILITY MAP — HTML grid replacing SVG (no overlap) -->
+    <div style="margin-bottom:1.4rem;">
+
+      <!-- Tier styles -->
+      <style>
+      .tier{border-radius:6px;padding:.85rem 1rem;margin-bottom:.55rem}
+      .tier-lbl{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:.55rem}
+      .tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem .9rem}
+      .tier-grid.single{grid-template-columns:1fr}
+      .tier-item .ti-name{font-size:0.92rem;font-weight:500;color:var(--cream);line-height:1.35;margin-bottom:.18rem}
+      .tier-item .ti-meta{font-size:0.78rem;line-height:1.55}
+      .tier-note{font-size:0.78rem;font-style:italic;margin-top:.45rem;line-height:1.55}
+
+      .t1{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.38)}
+      .t1 .tier-lbl{color:var(--gold)}
+      .t1 .ti-meta{color:rgba(201,168,76,0.75)}
+      .t1 .tier-note{color:rgba(201,168,76,0.6)}
+
+      .t2{background:rgba(29,158,117,0.10);border:1px solid rgba(29,158,117,0.32)}
+      .t2 .tier-lbl{color:#5dcaa5}
+      .t2 .ti-meta{color:rgba(93,202,165,0.75)}
+
+      .t3{background:rgba(55,138,221,0.08);border:1px solid rgba(55,138,221,0.25)}
+      .t3 .tier-lbl{color:#85b7eb}
+      .t3 .ti-meta{color:rgba(133,183,235,0.75)}
+
+      .t4{background:rgba(186,117,23,0.10);border:1px solid rgba(186,117,23,0.28)}
+      .t4 .tier-lbl{color:#ef9f27}
+      .t4 .ti-meta{color:rgba(239,159,39,0.75)}
+
+      .t5{background:rgba(226,75,74,0.08);border:1px solid rgba(226,75,74,0.25)}
+      .t5 .tier-lbl{color:#f09595}
+      .t5 .ti-meta{color:rgba(240,149,149,0.75)}
+
+      @media(max-width:620px){
+        .tier-grid{grid-template-columns:1fr}
+      }
+      </style>
+
+      <!-- Tier 1 -->
+      <div class="tier t1">
+        <div class="tier-lbl">Tier 1 &middot; R₁ — Native Catholic framework &middot; all eras</div>
+        <div class="tier-grid">
+          <div class="tier-item">
+            <div class="ti-name">Jesus / Christ-centred Leadership</div>
+            <div class="ti-meta">Gospel accounts &middot; Blanchard &amp; Hodges 2005 &middot; R₁/R₅ &middot; score 10.0</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Ignatian / Jesuit Leadership</div>
+            <div class="ti-meta">Loyola, Spiritual Exercises 1548 &middot; R₁ approaching &middot; score 9.5</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Benedictine Leadership</div>
+            <div class="ti-meta">Benedict of Nursia c.516 &middot; Rule of St. Benedict &middot; R₁/R₂ approaching &middot; score 9.0</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Greenleaf Servant Leadership</div>
+            <div class="ti-meta">Greenleaf 1970 &middot; S-manifold &middot; R₂→R₁ &middot; score 8.0</div>
+          </div>
+        </div>
+        <div class="tier-note">All four share J (theological anchor) + S (caritas) + L (mission discipline). J-component survives both ASI-longevity and origin-chain displacement shocks.</div>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="tier t2">
+        <div class="tier-lbl">Tier 2 &middot; R₂/R₄ — Post-ASI resilient supplements</div>
+        <div class="tier-grid">
+          <div class="tier-item">
+            <div class="ti-name">Heifetz Adaptive Leadership</div>
+            <div class="ti-meta">HKS 1994 &middot; R₄→R₁ &middot; score 7.5 &middot; technical/adaptive distinction is the secular name for the Year 1 institutional problem</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Collins Level 5 Leadership</div>
+            <div class="ti-meta">Collins 2001 &middot; R₄→R₁ &middot; score 7.5 &middot; succession discipline = Response B institutional architecture</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Arbinger Self-Deception</div>
+            <div class="ti-meta">Arbinger Institute 2000/2018 &middot; R₁ approaching &middot; score 7.5 &middot; inward/outward mindset = creaturehood frame; no shock-sensitive content</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Ubuntu Leadership</div>
+            <div class="ti-meta">African philosophy (Tutu et al.) &middot; R₂/R₁-adjacent &middot; score 7.0 &middot; "I am because we are" = fraternal caritas; communal ontology not disrupted by either shock</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Ciulla Ethical / Moral Leadership</div>
+            <div class="ti-meta">Ciulla 1998 &middot; R₃/J-adjacent &middot; score 7.0 &middot; "good leadership done well" = constitutive ethics survives; no specific institutional authority claim attacked</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Fry Spiritual Leadership &middot; Benefiel Soul at Work</div>
+            <div class="ti-meta">Fry 2003 &middot; R₅/J-adjacent &middot; score 6.5 &middot; explicitly invoke transcendence; survive origin-chain displacement because creaturehood remains at any creator level</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="tier t3">
+        <div class="tier-lbl">Tier 3 &middot; R₃/R₄ — Robust with explicit J-reanchoring</div>
+        <div class="tier-grid">
+          <div class="tier-item">
+            <div class="ti-name">Burns / Bass Transformational Leadership</div>
+            <div class="ti-meta">Burns 1978 &middot; Bass 1985 &middot; score 6.8/6.5 &middot; moral elevation survives; transcendent inspiration must be reanchored in creaturehood frame rather than eschatological urgency</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">George True North / Authentic Leadership</div>
+            <div class="ti-meta">George 2003/2007 &middot; score 7.0/6.5 &middot; values-anchored self-awareness survives; True North must be received (through formation, discernment) not self-derived</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Lencioni Five Dysfunctions</div>
+            <div class="ti-meta">Lencioni 2002 (practicing Catholic) &middot; score 5.5 &middot; trust/vulnerability architecture directly compatible with fraternal caritas; widely used in Catholic diocesan offices</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Kouzes &amp; Posner Five Practices</div>
+            <div class="ti-meta">Kouzes &amp; Posner 1987 &middot; score 6.5 &middot; values practices survive; add creaturehood anthropology as the normative anchor for modelled behaviour</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Senge Learning Organisation</div>
+            <div class="ti-meta">Senge 1990 &middot; score 6.5 &middot; systems thinking = institutional competency required for M1–M6; resilient with J-reanchoring</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Distributed / Shared Leadership &middot; Positive Leadership</div>
+            <div class="ti-meta">Pearce &amp; Conger 2003 &middot; Cameron 2008 &middot; subsidiarity-compatible decentralised caritas networks; flourishing orientation maps onto bonum commune</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 4 -->
+      <div class="tier t4">
+        <div class="tier-lbl">Tier 4 &middot; R₃/R₇ — Fragile under dual shock &middot; supplementary use only</div>
+        <div class="tier-grid">
+          <div class="tier-item">
+            <div class="ti-name">Charismatic Leadership — all variants</div>
+            <div class="ti-meta">Conger &amp; Kanungo 1987 &middot; Weber 1922 &middot; most vulnerable model post-ASI: divine-aura authority degraded by X(t); primary E-handle exploitation vector; supplement strongly with S and L frameworks</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Transactional Leadership</div>
+            <div class="ti-meta">Burns 1978 &middot; Bass &middot; score 3.0 &middot; organisational loyalty mechanisms weakened by L(t); exchange-based authority loses force as temporal incentive structures shift; instrumental use only</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 5 -->
+      <div class="tier t5">
+        <div class="tier-lbl">Tier 5 &middot; R₈ — Not appropriate as normative framework &middot; adversarial diagnostic only</div>
+        <div class="tier-grid">
+          <div class="tier-item">
+            <div class="ti-name">Robert Greene — Power Corpus (48 Laws etc.)</div>
+            <div class="ti-meta">Greene 1998–2022 &middot; R₈ Machiavellian &middot; score 1.5 &middot; R₈ behaviour unchanged by dual shock; read defensively as adversary field manual for formation officers — never as a normative model</div>
+          </div>
+          <div class="tier-item">
+            <div class="ti-name">Carnegie — How to Win Friends &middot; Pfeffer Power Works</div>
+            <div class="ti-meta">Carnegie 1936 &middot; Pfeffer 1981/1992/2022 &middot; Carnegie problem intensifies post-ASI: transition window is when Carnegie-trained R₈ adversary is most dangerous; adversarial diagnostic only</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;color:var(--faint);margin-top:.4rem;line-height:1.7">
+        J = theological anchor (kenosis, caritas) &nbsp;&middot;&nbsp;
+        S = servant / people-first &nbsp;&middot;&nbsp;
+        L = fierce institutional discipline &nbsp;&middot;&nbsp;
+        R₁ = J∩S∩L &nbsp;&middot;&nbsp;
+        R₈ = X∖U (no J, S, or L) &nbsp;&middot;&nbsp;
+        Scores = R₁ proximity /10
+      </div>
+    </div>
+
+    <!-- Prose: suitability criterion -->
+    <div class="euclid prop" style="margin-bottom:1rem;">
+      <div class="ehead">Proposition · The Necessary Condition for Catholic Organisational Leadership</div>
+      <div class="ebody">
+        <p style="margin-bottom:0.65rem;">
+          A leadership model is appropriate for Catholic organisations if and only if its formal framework has non-empty intersection with J∪S∪L. This follows from CCC&nbsp;2235 (authority as service), CCC&nbsp;1905 (bonum commune as formal objective), and Phil&nbsp;2:5–8 (kenosis as the paradigmatic form of authority). Models in R₈ — the complement of J∪S∪L — prescribe authority whose formal object can be personal power (R₈ Machiavellian), institutional dominance (R₈ authoritarian), or exchange-only efficiency (R₈ technocratic). None of these is compatible with the Gospel norm regardless of how effectively they may achieve organisational results; CCC&nbsp;1749–1756 establishes that intrinsically disordered means cannot be justified by outcomes.
+        </p>
+        <p style="margin-bottom:0.65rem;">
+          Within R₁–R₇, the hierarchy of suitability is:
+          R₁ (J∩S∩L) — fully appropriate, the normative standard;
+          R₂/R₃ — appropriate, with one manifold missing;
+          R₄ — the closest secular approximation, requiring J-reanchoring in Catholic contexts;
+          R₅/R₆/R₇ — appropriate with qualification; the absent manifolds must be supplemented;
+          R₈ — not appropriate as normative frameworks. The R₈ corpus (Greene, Pfeffer power works, purely contingency-instrumental models) retains value read defensively — as adversary intelligence for formation officers who need to recognise when R₈ actors are deploying these methods against their own networks. This is precisely the function of ICE–SPAM literacy within the formation model.
+        </p>
+        <p>
+          The full interactive catalogue of all 107 models with sortable R₁-proximity scores and post-ASI resilience classifications is maintained as a companion reference document at <code>williamchuang.github.io/post-ASI-and-disclosure/</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Prose: post-ASI selection -->
+    <div class="euclid prop">
+      <div class="ehead">Proposition · Post-ASI Leadership Selection — From Parishioners to Institutional Leaders</div>
+      <div class="ebody">
+        <p style="margin-bottom:0.65rem;">
+          The dual shock does not change which models are compatible with Catholic authority — R₈ remains incompatible before and after Year&nbsp;1. What it changes is the internal ranking among R₁–R₇: models anchored in the three theological survivors of the dual shock (Thomistic prudentia, fraternal caritas, and the creaturehood frame) retain their full effectiveness after Year&nbsp;1; models whose effectiveness depends on Memento Mori-derived sacrifice willingness or God-as-sole-creator institutional monopoly are specifically fragile.
+        </p>
+        <div class="demo">
+          <div class="demo-head">Post-ASI selection by institutional level</div>
+          <div class="demo-body">
+            <div class="step"><span class="step-lbl">Parish and community level.</span> The primary framework is Jesus/Christ-centred leadership (R₁) supplemented by Greenleaf Servant Leadership (R₂→R₁) for pastoral team management. Heifetz Adaptive Leadership provides the diagnostic tool for distinguishing technical parish problems (solvable with existing resources and expertise) from adaptive challenges (requiring community learning and changed behaviours — which is exactly the post-disclosure pastoral task). Lencioni's Five Dysfunctions is practically the best secular supplement for building trust-based parish teams; Patrick Lencioni is a practicing Catholic and his framework is deeply compatible with Catholic anthropology. Ubuntu Leadership is particularly resilient at the community level: "I am because we are" maps directly onto the fraternal caritas bonds that survive the dual shock.</div>
+            <div class="step"><span class="step-lbl">Diocesan and institutional level.</span> The primary framework remains R₁ (Ignatian or Benedictine as appropriate to the institution's charism). Collins Level 5 is the most appropriate secular supplement for long-range institutional planning and succession: humility + fierce will maps onto Thomistic <em>humilitas</em> (ST&nbsp;II-II, Q.161) and <em>fortitudo</em> (Q.123), and the succession orientation is exactly what Response B requires (building institutional capacity before the Year&nbsp;1+9 cascade). Burns/Bass Transformational Leadership is appropriate for change leadership with explicit J-reanchoring: the moral elevation dimension survives the dual shock; the transcendent inspiration element must be reanchored in the creaturehood frame rather than eschatological urgency. Senge's Learning Organisation is the most appropriate framework for the adaptive capacity that M1–M6 requires institutionally — building the capacity to learn in real time from the post-disclosure information environment.</div>
+            <div class="step"><span class="step-lbl">Religious formation and seminary level.</span> Ignatian discernment and Benedictine community structure are the native frameworks. Authentic Leadership (George) provides a useful secular supplement for formation directors helping candidates discern genuine vocation from performance — but True North must be treated as received through discernment (Ignatian <em>consolación</em>) rather than self-derived from personal history. Arbinger's Self-Deception is directly useful at this level: the inward/outward mindset distinction provides a secular vocabulary for what Catholic moral theology calls the movement from self-love to charity, and it is entirely anchored in the creaturehood frame without depending on any specific theological content that the dual shock could challenge. Developmental stage models (Torbert Action Logics, Kegan) have limited value at this level without explicit theological reframing.</div>
+            <div class="step"><span class="step-lbl">Military, intelligence, and security organisations within Catholic networks.</span> Heifetz Adaptive Leadership is the primary framework — its distinction between technical problems and adaptive challenges is the most precise secular description of the Year&nbsp;1 institutional challenge. Collins Level 5 provides the succession architecture. The US Army's Be-Know-Do (FM 6-22) is compatible and widely used in Catholic military chaplaincy contexts. The post-ASI environment requires that officers in these roles also maintain working defensive literacy about the R₈ playbook (Greene, Pfeffer, Carnegie) — not to adopt R₈ methods, but to detect when R₈ actors are deploying them against Catholic formation networks during the transition window.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leadership Phase Comparison Section -->
+  <div class="subsection" id="theol-phases">
+    <h3>IX · Leadership Development by Phase — The Four Catholic Models versus Greene, Pfeffer, and Carnegie</h3>
+
+    <style>
+    /* Phase section styles — namespaced .lp- prefix */
+    .lp-intro{font-size:0.88rem;color:var(--body);line-height:1.75;max-width:72ch;margin-bottom:1.4rem}
+    .lp-model{border:1px solid var(--border-dim);border-radius:8px;margin-bottom:1.2rem;overflow:hidden}
+    .lp-model-hdr{padding:.7rem 1rem;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.3rem}
+    .lp-model-hdr h4{font-size:0.98rem;font-weight:500;color:var(--cream);margin:0}
+    .lp-model-meta{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:.05em;color:var(--muted)}
+    .lp-model-body{padding:.75rem 1rem 1rem}
+    .lp-phase{display:grid;grid-template-columns:120px 1fr;gap:.35rem .9rem;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+    .lp-phase:last-child{border-bottom:none;padding-bottom:0}
+    .lp-phase-lbl{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:.06em;text-transform:uppercase;padding-top:.12rem;line-height:1.4}
+    .lp-phase-body{font-size:0.84rem;color:var(--body);line-height:1.7}
+    .lp-phase-body strong{color:var(--cream);font-weight:500}
+    .lp-contrast-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin-bottom:1.2rem}
+    .lp-contrast-card{border:1px solid var(--border-dim);border-radius:6px;padding:.75rem .9rem}
+    .lp-contrast-card h5{font-size:0.78rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.6rem}
+    .lp-contrast-card .lp-phase{grid-template-columns:90px 1fr}
+    .lp-contrast-card .lp-phase-body{font-size:0.8rem}
+    .lp-scen{border:1px solid var(--border-dim);border-radius:8px;margin-bottom:1rem;overflow:hidden}
+    .lp-scen-hdr{padding:.6rem 1rem;border-bottom:1px solid var(--border-dim)}
+    .lp-scen-hdr h4{font-size:0.9rem;font-weight:500;color:var(--cream);margin:0}
+    .lp-scen-hdr p{font-size:0.8rem;color:var(--muted);margin:.2rem 0 0;line-height:1.5;font-style:italic}
+    .lp-scen-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+    .lp-scen-col{padding:.75rem .9rem;border-right:1px solid var(--border-dim)}
+    .lp-scen-col:last-child{border-right:none}
+    .lp-scen-col h5{font-size:0.7rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+    .lp-scen-col p{font-size:0.8rem;color:var(--body);line-height:1.65;margin-bottom:.4rem}
+    .lp-scen-col p:last-child{margin-bottom:0}
+    .lp-sum-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:.5rem}
+    .lp-sum-table th{font-size:0.68rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--border-dim);text-align:left;background:rgba(6,16,34,0.6)}
+    .lp-sum-table td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--body);vertical-align:top;line-height:1.5}
+    .lp-sum-table td:first-child{font-weight:500;color:var(--cream);white-space:nowrap}
+    .lp-sum-table tr:last-child td{border-bottom:none}
+    .lp-verdict{font-size:0.84rem;color:var(--body);line-height:1.75;border-top:1px solid var(--border-dim);padding-top:1rem;margin-top:1rem}
+    /* hdr colours per model */
+    .lp-m-jesus .lp-model-hdr{background:rgba(201,168,76,0.12);border-bottom:1px solid rgba(201,168,76,0.28)}
+    .lp-m-jesus .lp-phase-lbl{color:var(--gold)}
+    .lp-m-ignatius .lp-model-hdr{background:rgba(29,158,117,0.10);border-bottom:1px solid rgba(29,158,117,0.28)}
+    .lp-m-ignatius .lp-phase-lbl{color:#5dcaa5}
+    .lp-m-benedict .lp-model-hdr{background:rgba(55,138,221,0.08);border-bottom:1px solid rgba(55,138,221,0.25)}
+    .lp-m-benedict .lp-phase-lbl{color:#85b7eb}
+    .lp-m-greenleaf .lp-model-hdr{background:rgba(114,36,62,0.10);border-bottom:1px solid rgba(114,36,62,0.25)}
+    .lp-m-greenleaf .lp-phase-lbl{color:#c97fa0}
+    .lp-c-carnegie h5{color:#ef9f27}
+    .lp-c-greene h5{color:#f09595}
+    .lp-c-pfeffer h5{color:#85b7eb}
+    @media(max-width:640px){
+      .lp-phase{grid-template-columns:1fr;gap:.2rem}
+      .lp-contrast-grid{grid-template-columns:1fr}
+      .lp-scen-body{grid-template-columns:1fr}
+      .lp-scen-col{border-right:none;border-bottom:1px solid var(--border-dim)}
+      .lp-scen-col:last-child{border-bottom:none}
+    }
+    </style>
+
+    <p class="lp-intro">Collins described five ascending competence levels — Highly Capable Individual through Level 5 Executive — each building on the ones below. The four Catholic models use a different axis entirely: <em>interior transformation producing exterior authority</em>. The phases below trace that arc for each model, then show what Carnegie, Greene, and Pfeffer teach at each equivalent stage, followed by two concrete scenarios that make the difference visible in practice.</p>
+
+    <!-- ── MODEL 1: JESUS ─────────────────────────────────────────────── -->
+    <div class="lp-model lp-m-jesus">
+      <div class="lp-model-hdr">
+        <h4>Jesus / Christ-centred Leadership</h4>
+        <span class="lp-model-meta">Gospel accounts &middot; Blanchard &amp; Hodges 2005 &middot; R₁/R₅ &middot; score 10.0</span>
+      </div>
+      <div class="lp-model-body">
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 0<br>Hidden years</div>
+          <div class="lp-phase-body">Thirty years before any public role — carpentry, prayer, formation in Nazareth. Growing "in wisdom and stature and in favour with God and men" (Lk 2:52). <strong>Leadership formation precedes leadership function by a very long time.</strong> No authority, no followers, no position. Only the slow interior work that makes everything subsequent possible.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 1<br>Entry: refuse corrupt power</div>
+          <div class="lp-phase-body">Baptism marks public entry into authority. The Spirit immediately drives Jesus into the desert — forty days, three temptations (Lk 4:1–13). Each is a form of corrupt power: <em>turn stones to bread</em> (use power for your own material security), <em>jump from the temple</em> (build influence through spectacle and perception management), <em>receive all kingdoms</em> (accept worldly authority by compromising your purpose). Jesus refuses all three. <strong>Entry into authentic authority begins with an explicit refusal of every corrupt form of it.</strong></div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 2<br>Build through service</div>
+          <div class="lp-phase-body">Jesus does not campaign, network, or position himself. He teaches, heals, and feeds people. Authority accumulates because the acts are real and verifiable — "He taught them as one who had authority, and not as their scribes" (Mt 7:29). The Lead Like Jesus model: <strong>self-promotion (pride) and self-protection (fear) dominate today's leadership style.</strong> Phase 2 inverts this: authority comes from genuinely serving, not appearing to serve.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 3<br>Use authority as service</div>
+          <div class="lp-phase-body">The night before his death — with full knowledge that Judas is betraying him and Peter will deny him — Jesus washes the feet of all twelve. "If I then, your Lord and Teacher, have washed your feet, you also ought to wash one another's feet" (Jn 13:13–14). The operating principle: <strong>authority is expressed as service to the specific persons in front of you, including the ones you know are about to betray you.</strong> This cannot be performed. Everyone in the room knows the difference. The four domains: Heart (serving vs. self-serving), Head (servant vision), Hands (coaching each follower where they are), Habits (solitude, prayer, Scripture, accountability).</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 4<br>Kenosis paradox</div>
+          <div class="lp-phase-body">The Cross — Phil 2:5–8: "He emptied himself, taking the form of a servant... obedient to death, even death on a cross. Therefore God has highly exalted him." <strong>Maximum authority through maximum self-emptying.</strong> Power is not obtained; it is generated by its opposite. The moment this becomes a technique it is no longer kenosis. The leader who has fully traversed these phases neither seeks power nor protects it — power becomes a consequence of who they are, not what they have accumulated.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MODEL 2: IGNATIUS ───────────────────────────────────────────── -->
+    <div class="lp-model lp-m-ignatius">
+      <div class="lp-model-hdr">
+        <h4>Ignatian / Jesuit Leadership</h4>
+        <span class="lp-model-meta">Loyola, Spiritual Exercises 1548 &middot; Lowney 2003 &middot; R₁ approaching &middot; score 9.5</span>
+      </div>
+      <div class="lp-model-body">
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 0<br>Principle &amp; Foundation</div>
+          <div class="lp-phase-body">"The human being is created to praise, reverence, and serve God our Lord." Everything else — health, wealth, position, reputation, long life or short — is to be used insofar as it helps toward that end and renounced insofar as it hinders. This is <em>indifferencia</em>: freedom from disordered attachment. <strong>You cannot lead well if you need to keep your position. You cannot lead well if you need to be liked.</strong> Phase 0 is the audit of every hidden need that will distort your judgment.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 1<br>First Week: shadow audit</div>
+          <div class="lp-phase-body">A structured examination of sin — not moral inventory only, but disciplined mapping of the disordered patterns in your motivations. The question: "What in me consistently bends my judgment toward my own advantage in ways I do not fully see?" <strong>Without this, your leadership is systematically distorted by blind spots you cannot correct because you do not know they exist.</strong> Greenleaf calls the result "awareness"; Loyola builds the curriculum that produces it.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 2<br>Two Standards &amp; Election</div>
+          <div class="lp-phase-body">The Two Standards meditation: the standard of Christ (poverty, humility, service) versus the standard of Lucifer (riches, honour, pride). Both are recruiting. The leader must discern which they are actually following in the concrete daily choices of institutional life — resource allocation, credit-sharing, personnel decisions. The <em>election</em> follows: choosing the greater good, not the safer good, under conditions of <em>consolation</em> (clarity, freedom), never under <em>desolation</em> (anxiety, pressure). <strong>The quality of your decision depends partly on the interior state from which you make it.</strong></div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 3<br>Cura personalis</div>
+          <div class="lp-phase-body">Third Week: following Christ into the Passion — accompanying suffering rather than solving it. The leadership skill produced is the capacity to remain present and ordered under institutional failure, opposition, and loss. <em>Cura personalis</em> — care for the whole person — is the distinctive Jesuit institutional practice: every person attended to as a complete human being, not a role-holder. <strong>The Jesuits were explicitly prepared for missions requiring absorbing severe cost without abandoning fidelity to governing purpose.</strong></div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 4<br>Contemplation in action</div>
+          <div class="lp-phase-body">The mature Ignatian leader practices discernment continuously — not as periodic retreat but as the texture of daily leadership. The <em>Examen</em> (twice-daily review of interior movements) keeps orientation calibrated. The signature is <em>magis</em> — always the greater: not merely the good, not merely the sufficient, but the more complete, the more faithful. <strong>Always moving toward the more rather than resting in the adequate.</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MODEL 3: BENEDICT ───────────────────────────────────────────── -->
+    <div class="lp-model lp-m-benedict">
+      <div class="lp-model-hdr">
+        <h4>Benedictine Leadership</h4>
+        <span class="lp-model-meta">Benedict of Nursia c.516 &middot; Rule of St. Benedict &middot; R₁/R₂ approaching &middot; score 9.0</span>
+      </div>
+      <div class="lp-model-body">
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 0<br><em>Obsculta</em></div>
+          <div class="lp-phase-body">The Rule begins with a single Latin imperative: <em>Obsculta</em> — "Listen." Before any leadership, before any teaching, before any action: listen. "Listen with the ear of your heart." The novice entering a monastery has no authority, no vote, no position. Their first task is to learn the rhythm of the community by doing it, not evaluating it. <strong>The leader who cannot listen cannot lead.</strong></div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 1<br>Novitiate: follow first</div>
+          <div class="lp-phase-body">Rule Chapter 58: at least one year proving oneself by the capacity to follow, not the capacity to lead. The community observes whether the candidate shows "eagerness to work, to obey, and to endure" (<em>si revera Deum quaerit</em>). <strong>This is the feature most radically different from every secular model: leadership readiness is demonstrated by followership quality, not by initiative or influence.</strong> The candidate who immediately proposes improvements is showing they have not yet learned to listen.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 2<br>Twelve Degrees of Humility</div>
+          <div class="lp-phase-body">Rule Chapter 7: twelve degrees ascending from external restraint (controlling restless speech and laughter) to interior conviction (genuinely believing others' perspectives contain what one's own does not). These are developmental stages traversed over years. <strong>Genuine authority accumulates as the practitioner ascends these degrees — not because humility impresses observers but because it progressively frees the leader from the disordered self-interest that distorts judgment.</strong> A leader at degree twelve listens to the novice and the eccentric because they might be right.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 3<br>The Abbot's responsibilities</div>
+          <div class="lp-phase-body">Rule Chapter 2 is precise: "Let him understand what a difficult and arduous task he has undertaken in governing souls and <em>accommodating himself</em> to a variety of character." Authority requires adapting yourself to each person — not requiring each person to adapt to you. "He will be held accountable to God for all the souls under his care." "Let him teach more by deeds than words." <strong>"Knowing his own weakness, let him be mindful not to bruise the bruised reed."</strong> The recognition of personal limitation is itself a requirement of this phase.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 4<br><em>Stabilitas</em></div>
+          <div class="lp-phase-body">The Benedictine vow of <em>stabilitas</em> — remaining in the community to which one has been assigned — is the feature most foreign to the modern leadership imagination, which treats mobility as evidence of advancement. <strong>The person who stays, who works through conflict rather than transferring away from it, develops a form of authority genuinely unavailable to the career mobile.</strong> Over twenty or thirty years in one place, the Benedictine leader knows things about the community, its history, and its people that cannot be synthesised from assessment reports.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MODEL 4: GREENLEAF ──────────────────────────────────────────── -->
+    <div class="lp-model lp-m-greenleaf">
+      <div class="lp-model-hdr">
+        <h4>Greenleaf Servant Leadership</h4>
+        <span class="lp-model-meta">Greenleaf 1970 &middot; S-manifold &middot; R₂→R₁ &middot; score 8.0</span>
+      </div>
+      <div class="lp-model-body">
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 0<br>Entry test: servant first</div>
+          <div class="lp-phase-body">"The servant-leader is servant first. It begins with the natural feeling that one wants to serve, to serve first. Then conscious choice brings one to aspire to lead." The test of entry is motivational: <em>why do you want to lead?</em> If the honest answer is that leading is the best means of serving — enter. If the honest answer involves the word "want" applied to leading itself — pause. <strong>The person who leads because they want to lead will, over time, structure their leadership to serve their own need to be leading.</strong></div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 1<br>Listening &amp; awareness</div>
+          <div class="lp-phase-body">Before any decision, vision-casting, or structural change: listen receptively to what is being said and, especially, what is <em>not</em> being said — the concerns that have not found a forum, the dissatisfactions that have not crystallised into articulate objections. Awareness follows: seeing the institution with as little distortion as possible. <strong>Most leaders see what confirms their existing framework. Awareness is the capacity to see the actual.</strong></div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 2<br>Healing &amp; empathy</div>
+          <div class="lp-phase-body">The servant-leader recognises that the people who come to them carry damage — from previous institutional experiences, from personal circumstances, from the institution's own past failures. <strong>A person who has been treated as an object will function as an object. A person treated as a person with a genuine interior life will function as a person.</strong> The difference in institutional output is measurable even when the cause is not immediately visible.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 3<br>Foresight</div>
+          <div class="lp-phase-body">"Foresight is the 'lead' that the leader has. Once he loses this lead and events start to force his hand, he is leader in name only." The servant-leader who has genuinely listened to everyone in the community knows things about its capacity, unspoken fears, unexploited strengths, and real vulnerabilities that the leader who has merely managed them does not. <strong>Service produces insight.</strong> This is the intellectual contribution of the model: a theory of why the servant sees further.</div>
+        </div>
+        <div class="lp-phase">
+          <div class="lp-phase-lbl">Phase 4<br>The ultimate test</div>
+          <div class="lp-phase-body">"Do those served grow as persons? Do they, while being served, become healthier, wiser, freer, more autonomous, more likely themselves to become servants?" The mature servant-leader measures success by the growth of the community served, with particular attention to the least advantaged members. <strong>The institution that has been well led will not need the same leader indefinitely — it will have produced its own next generation of servant-leaders.</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTRAST: Carnegie / Greene / Pfeffer ──────────────────────── -->
+    <div class="euclid prop" style="margin-bottom:1.2rem">
+      <div class="ehead">Carnegie, Greene, and Pfeffer — the same developmental arc, different formal object</div>
+      <div class="ebody">
+        <p style="font-size:0.85rem;color:var(--body);line-height:1.7;margin-bottom:.9rem">Each secular model has a coherent developmental arc. The phases are structurally parallel to the Catholic models above. The difference is not the external shape of the arc but the formal object that orients it — and what happens when success requires personal cost.</p>
+        <div class="lp-contrast-grid">
+
+          <div class="lp-contrast-card lp-c-carnegie">
+            <h5>Carnegie — How to Win Friends</h5>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Entry</div>
+              <div class="lp-phase-body">No formation required. Begin immediately: become genuinely interested in others. Smile. Remember names. The entry point is social, not interior.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Build</div>
+              <div class="lp-phase-body">Apply the thirty principles systematically. Avoid criticism and complaint. Give sincere appreciation — Carnegie insists on sincerity, because performed appreciation is detectable. Listen genuinely. Talk in terms of others' interests. Make them feel important.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Deploy</div>
+              <div class="lp-phase-body">Once relational capital is established, deploying it is frictionless. You need something from someone; you have invested considerably in making them feel valued; asking now feels to them like a request from a trusted friend. The caring was real — but it was structured to produce this moment.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Mature</div>
+              <div class="lp-phase-body">Universally liked, apparently effortlessly. No visible enemies. Gets what they want without visible pressure. Appears selfless because the investment phase genuinely involved real interest in other people. The formal object was never the other person's good — it was the agent's influence portfolio.</div>
+            </div>
+          </div>
+
+          <div class="lp-contrast-card lp-c-greene">
+            <h5>Greene — Power Corpus</h5>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Entry</div>
+              <div class="lp-phase-body">"The world is a dangerous place and everyone is after power." Law 1: Never outshine the master — understand hierarchy and play within it until strong enough to change it. Law 23: Concentrate your forces. The entry point is strategic, not interior.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Build</div>
+              <div class="lp-phase-body">Accumulate without showing it. Law 7: Get others to do the work but always take the credit. Law 11: Keep people dependent on you. Law 13: Appeal to self-interest, never to mercy or gratitude. Law 16: Use absence to increase respect.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Deploy</div>
+              <div class="lp-phase-body">Wield power with clean hands. Law 26: Never be directly associated with the dirty work. Law 33: Discover each person's thumbscrew — their specific psychological vulnerability. Law 17: Cultivate an air of unpredictability; keep others in suspended tension.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Mature</div>
+              <div class="lp-phase-body">Appears to have no agenda while controlling everything. Works through others so completely that direct involvement is invisible. Opposition feels dangerous without any specific threat being made. An aura of inevitability has replaced the need for force.</div>
+            </div>
+          </div>
+
+          <div class="lp-contrast-card lp-c-pfeffer">
+            <h5>Pfeffer — Power Works</h5>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Entry</div>
+              <div class="lp-phase-body">"Think and act like a political scientist, not an idealist." Map the real power structure first: who has resources, relationships, information, and formal authority? Where are the leverage points? The entry point is empirical, not interior.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Build</div>
+              <div class="lp-phase-body">Rule 1 — "Get out of your own way": stop letting moral discomfort prevent you from building power. Rule 3: Appear powerful, act powerful — your behaviour defines others' perceptions more than any credential. Rule 4: Build a powerful brand. Rule 5: Network relentlessly before you need the network.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Deploy</div>
+              <div class="lp-phase-body">Rule 6: Use your power — hesitation signals weakness. Power that is not exercised atrophies. Rule 7: Success excuses almost everything — the moral quality of methods is evaluated more charitably when the outcome is success. This is Pfeffer being empirically honest about how institutions actually work.</div>
+            </div>
+            <div class="lp-phase">
+              <div class="lp-phase-lbl">Mature</div>
+              <div class="lp-phase-body"><em>Leadership BS</em> (2015) acknowledges the honest endgame: the skills that build power are not the skills that use it wisely, and most powerful people eventually lose access to honest feedback. Pfeffer's is the darkest of the three secular arcs because he is an empiricist who tells you what actually happens.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCENARIO A ──────────────────────────────────────────────────── -->
+    <div class="lp-scen">
+      <div class="lp-scen-hdr">
+        <h4>Scenario A — Your superior takes credit for your work</h4>
+        <p>Mid-level administrator in a Catholic hospital. Your supervisor routinely presents your work to senior leadership as their own. You have documentation. The injustice is real.</p>
+      </div>
+      <div class="lp-scen-body">
+        <div class="lp-scen-col">
+          <h5 style="color:var(--gold)">Jesus / Christ-centred</h5>
+          <p>The Heart question first — is this the injustice to the mission (legitimate) or injury to your reputation (to be examined)? Having done that interior work: go to the supervisor privately and directly, naming what you have observed (Mt 18:15: "If your brother sins against you, go and tell him his fault, between you and him alone"). Once, clearly, without drama. If it continues, involve the next level through proper channels.</p>
+          <p>Do the work excellently for its own sake, not for the credit. You may not receive the recognition. You may leave that hospital. What you will not do is allow the injustice to make you either passive (CCC 2235 — justice requires naming real wrongs) or vengeful.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#5dcaa5">Ignatian</h5>
+          <p>Before acting, take it to the Examen. Is your desire to be recognised disordered — are you attached to credit in a way that distorts your judgment? Examine that honestly first. If the injustice is genuine and harms the mission (not just your feelings), name it clearly to the supervisor, then to their superior if unaddressed.</p>
+          <p>Throughout, check your interior state: are you seeking justice or managing your career? The Ignatian leader can pursue both simultaneously but must be clear about which is actually driving the decision.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#85b7eb">Benedictine</h5>
+          <p><em>Stabilitas</em> — do not immediately seek another position. The situation is teaching something; identify what. Raise the matter through proper channels, once, with specific documentation. If the superior is unjust, the community's own structures will eventually address it. Benedictine trust in communal self-correction is earned by fifteen centuries of observing that communities with good structural rules correct themselves over time.</p>
+          <p>Your task is faithful work and one clear statement of the truth, not escalating campaigns.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#c97fa0">Greenleaf</h5>
+          <p>Do not primarily ask "how do I get credit?" but "how does the mission suffer when credit is systematically misattributed?" If the mission suffers — if people producing excellent work are being demoralised, if the institution is getting false information about who its capable people are — then addressing the pattern is an act of service, not self-promotion. State it in those terms.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#ef9f27">Carnegie</h5>
+          <p>Build a stronger relationship with the supervisor. Find something to genuinely appreciate about them. Over time, develop your relationship with their supervisor through projects that naturally make your capabilities visible without requiring you to claim credit explicitly. Let the supervisor feel that attributing your work to themselves reflects well on them as a developer of talent — eventually they may become your advocate rather than your competitor.</p>
+          <p>Never confront. Never put them in a position where they lose face. Reframe everything in terms of their interests.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#f09595">Greene</h5>
+          <p>Recognise your supervisor is practising Law 7 on you. Counter: Law 18 — "Do not build fortresses; isolation is dangerous." Build alliances with their peers and with the next level through collaborations that create broader awareness of your work. Appear to be the supervisor's most loyal supporter (Law 1 — never outshine the master, for now).</p>
+          <p>Your goal is not a direct confrontation — you will lose that — but to make your capabilities so broadly visible that the supervisory relationship becomes irrelevant to your trajectory.</p>
+        </div>
+        <div class="lp-scen-col" style="grid-column:1/-1;border-right:none;border-top:1px solid var(--border-dim)">
+          <h5 style="color:#85b7eb">Pfeffer</h5>
+          <p>Document everything with timestamps and circulation records. Build relationships with your supervisor's peers through genuine collaborative work — not strategically initiated but strategically maintained. When the superior's superior has a question requiring the work to be traced, you are positioned to be the accurate source without naming the misattribution directly. "Success excuses almost everything" — produce results so clearly visible that the credit question becomes obvious to anyone paying attention.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCENARIO B ──────────────────────────────────────────────────── -->
+    <div class="lp-scen">
+      <div class="lp-scen-hdr">
+        <h4>Scenario B — A meeting is moving toward a decision you believe is seriously wrong</h4>
+        <p>You are present. You have substantive reasons for your opposition. Speaking openly will put you in the minority and may cost you standing.</p>
+      </div>
+      <div class="lp-scen-body">
+        <div class="lp-scen-col">
+          <h5 style="color:var(--gold)">Jesus / Christ-centred</h5>
+          <p>"Let your yes mean yes and your no mean no" (Mt 5:37). State clearly what you think is wrong and why. Once. With reasons that serve the mission, not your preferences. If overruled by legitimate authority and the decision is not immoral: comply faithfully and implement it excellently. If the decision is genuinely immoral: refuse and state why, accepting whatever consequences follow.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#5dcaa5">Ignatian</h5>
+          <p>The day <em>before</em> this meeting is when Ignatian leadership happens. Have you consulted your spiritual director about whether your opposition comes from genuine discernment or from ego? Do you actually have the better answer, or do you have a preference? If you have done that work and remain convinced: state your position once, clearly, with reasons ordered to the mission and not to your own rightness. Then yield if outweighed — while retaining the right to raise the question again if new evidence emerges. Ignatian leadership does not confuse conviction with infallibility.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#85b7eb">Benedictine</h5>
+          <p>Rule Chapter 3 is explicit: "Whenever any important business is to be done in the monastery, let the Abbot call together the whole community... The reason why we have said all should be called for counsel is that the Lord often reveals what is better to the younger." Speak — even if you are the most junior person in the room. Then accept the community's decision and implement it faithfully, while having registered your dissent in the formal record.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#c97fa0">Greenleaf</h5>
+          <p>Before the meeting: have you listened to what the people who will be affected by this decision actually think? If not, delay the decision to do so. In the meeting: name what you are hearing from those affected parties and explain why the current direction does not match it. Greenleaf's concern is not primarily who wins the debate but whether the decision reflects genuine hearing of all affected voices. That is the argument — not your personal view of the right outcome.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#ef9f27">Carnegie</h5>
+          <p>Before the meeting: find the key decision-makers privately and express your concerns as questions — "I've been wondering whether we've fully considered..." Plant seeds of doubt without triggering defensiveness. In the meeting: begin with sincere appreciation for the proposal (Principle 24). Reframe your alternative as an extension of, not a refutation of, the dominant view. Never say "you're wrong" (Principle 17). Ask questions that lead the group toward your conclusion — let the other person think the idea is theirs (Principle 26). If overruled: support the decision publicly while positioning yourself to note "I had some reservations" if it fails.</p>
+        </div>
+        <div class="lp-scen-col">
+          <h5 style="color:#f09595">Greene</h5>
+          <p>The meeting is already too late. Law 9: "Win through your actions, never through argument" — by the time the group is in the room, the decision should already be moving in your direction through pre-meeting conversations with the people who matter. If you didn't do that work, today you are a spectator. Law 38: "Think as you like but behave like others" — appear to support the consensus while working your alternative through back-channels after. Your goal: be on record as having had reservations (for when it fails) while not having openly opposed those who made it (so they don't make you pay for the loss).</p>
+        </div>
+        <div class="lp-scen-col" style="grid-column:1/-1;border-right:none;border-top:1px solid var(--border-dim)">
+          <h5 style="color:#85b7eb">Pfeffer</h5>
+          <p><em>Managing with Power</em>: "By the time you walk into the room, you should already know what the decision is going to be and whether you have the votes to change it. If you do not have the votes, speaking in the meeting is purely theatrical. The meeting is a ratification, not a deliberation." If you have the votes — because you have built the coalitions beforehand — the decision has already shifted before formal discussion begins, and you need not speak forcefully at all. If you do not: sit, protect your relationship with the winning side, and prepare for the next decision.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SUMMARY TABLE ───────────────────────────────────────────────── -->
+    <div class="euclid prop">
+      <div class="ehead">Summary — what each model requires that the others do not</div>
+      <div class="ebody">
+        <div class="data-wrap">
+        <table class="lp-sum-table">
+          <thead><tr>
+            <th>Dimension</th>
+            <th style="color:var(--gold)">Catholic models</th>
+            <th style="color:#ef9f27">Carnegie</th>
+            <th style="color:#f09595">Greene</th>
+            <th style="color:#85b7eb">Pfeffer</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Direct speech</td><td>Required — once, clearly, accepting cost</td><td>Avoided — reframed as question or appreciation</td><td>Rarely — win through action, not argument</td><td>Only when you already have the votes</td></tr>
+            <tr><td>Pre-meeting work</td><td>Interior: Examen, prayer, discernment, shadow audit</td><td>Relational: build rapport with key people</td><td>Political: build coalitions before the room convenes</td><td>Electoral: count votes; secure the outcome beforehand</td></tr>
+            <tr><td>When overruled</td><td>Comply faithfully or refuse on moral grounds; accept the cost either way</td><td>Support publicly; hedge privately; note reservations if it fails</td><td>Work the back-channel; position for the next decision</td><td>Protect relationship with winners; wait for the next decision</td></tr>
+            <tr><td>Success criterion</td><td>Did I serve the mission truthfully, including when it cost me?</td><td>Did I maintain the relationship? Am I still liked?</td><td>Am I better positioned than I was before this?</td><td>Did I win? Did the outcome go my way?</td></tr>
+            <tr><td>Failure criterion</td><td>Did I compromise what I know to be true or abandon a person who depended on me?</td><td>Did I damage the relationship or trigger defensiveness?</td><td>Did I lose power, visibility, or strategic position?</td><td>Did I appear weak, hesitant, or unable to deliver?</td></tr>
+            <tr><td>What you protect</td><td>The truth and your integrity — these are non-negotiable</td><td>The relationship — at nearly any cost to candour</td><td>Your strategic position — at nearly any cost to loyalty</td><td>Your power — at nearly any cost to moral consistency</td></tr>
+            <tr><td>When personal cost arrives</td><td>Bear it. This is the test.</td><td>Find a way to avoid it through relational management</td><td>Ensure someone else bears it (Law 26: keep your hands clean)</td><td>"Success excuses almost everything" — win first, then the cost disappears</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="lp-verdict">The deepest difference is what each model says you do when speaking the truth will cost you something. The Catholic models say: speak it and bear the cost. Carnegie says: find a way to speak it that costs nothing. Greene says: do not speak it — work around it. Pfeffer says: do not speak it unless you have already won. The Catholic models produce leaders who can be trusted under adversarial pressure. The secular models produce leaders who are effective under normal conditions and unreliable under conditions where effectiveness requires personal cost. In the post-ASI transition window — precisely the period when the formation network is most vulnerable to R₈ penetration — this difference is the operationally decisive one.</p>
+      </div>
+    </div>
+
+  </div><!-- /theol-phases -->
+
+  <!-- X: Carnegie formal proof -->
+  <div class="subsection" id="theol-carnegie">
+    <h3>X &middot; Carnegie &mdash; Insufficient but Permissible: Historical Record and Formal Proof</h3>
+
+    <style>
+    .fp-intro{font-size:0.88rem;color:var(--body);line-height:1.75;max-width:72ch;margin-bottom:1.2rem}
+    .fp-record-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin-bottom:1.2rem}
+    .fp-record-card{border:1px solid var(--border-dim);border-radius:6px;padding:.8rem .9rem}
+    .fp-record-card h5{font-size:0.7rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.5rem;color:var(--gold-dim)}
+    .fp-record-card p{font-size:0.81rem;color:var(--body);line-height:1.65;margin:0}
+    .fp-proof-header{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:.07em;text-transform:uppercase;margin:.25rem 0 .5rem;color:var(--muted)}
+    .fp-claim{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.25);border-radius:6px;padding:.65rem .9rem;margin-bottom:.8rem}
+    .fp-claim p{font-size:0.85rem;line-height:1.65;color:var(--body);margin:0}
+    .fp-claim strong{color:var(--cream)}
+    .fp-failure-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin:.8rem 0}
+    .fp-failure-card{border:1px solid var(--border-dim);border-radius:6px;padding:.75rem .9rem}
+    .fp-failure-card h5{font-size:0.7rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem;color:#ef9f27}
+    .fp-failure-card p{font-size:0.81rem;color:var(--body);line-height:1.6;margin:0}
+    @media(max-width:640px){
+      .fp-record-grid,.fp-failure-grid{grid-template-columns:1fr}
+    }
+    </style>
+
+    <p class="fp-intro">The two propositions proved below — P (Carnegie is insufficient as a Catholic framework) and Q (Carnegie's techniques, reanchored, are permissible) — resolve the apparent contradiction raised by the institutional endorsements of 黑幼龍 in Taiwan and Dale Carnegie's origin in Protestant Christian contexts. The proof depends on a distinction between the <em>formal object</em> of a framework and its <em>external techniques</em> — a distinction that is standard in Catholic moral theology (CCC 1750–1756) but typically absent from secular leadership analysis.</p>
+
+    <!-- Historical record -->
+    <div class="euclid prop" style="margin-bottom:1.1rem">
+      <div class="ehead">Historical Record &mdash; the three endorsement cases</div>
+      <div class="ebody">
+        <div class="fp-record-grid">
+          <div class="fp-record-card">
+            <h5>YMCA origin (1912)</h5>
+            <p>Carnegie began teaching public-speaking courses at the YMCA on 125th Street in Harlem in 1912. The Young Men's <em>Christian</em> Association is Protestant, not Catholic. Scholarly analysis confirms Carnegie "used the psychological man to rearticulate the religious, masculine ethos of the nineteenth century for the business world, while retaining ethical checks derived from religious discourses." This is a <em>secularisation</em> of Protestant Christian moral tradition for commercial use &mdash; not its theologically intact expression. A rearticulation is not an identity.</p>
+          </div>
+          <div class="fp-record-card">
+            <h5>Warren Buffett</h5>
+            <p>Buffett took the Dale Carnegie public-speaking course around age 20 and as of 2009 kept the diploma in his office, calling it "life-changing." He is not Catholic &mdash; he has described himself as agnostic. His endorsement concerns the <em>public speaking</em> dimension of the Carnegie course specifically, not <em>How to Win Friends</em> as a leadership theology. Secular effectiveness is not the same as Catholic compatibility. The endorsement is orthogonal to the theological question.</p>
+          </div>
+          <div class="fp-record-card">
+            <h5>黑幼龍 in Taiwan (1987)</h5>
+            <p>黑幼龍 introduced Carnegie Training to Taiwan in 1987 as a Protestant Christian who explicitly integrated Christian <em>agap&#275;</em> (caritas) as the motivational ground for the techniques. He did not adopt Carnegie's original formal object; he replaced it with Christian love. This is precisely the reanchoring operation described in Proof Q below &mdash; it confirms the argument rather than refuting it. The credit for the transformation belongs to the Christian theological tradition he brought to it, not to Carnegie's original framework.</p>
+          </div>
+        </div>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.6">Conclusion: the YMCA is Protestant, not Catholic; Buffett's endorsement is secular and pertains to public speaking; 黑幼龍 performed the reanchoring operation. None of these constitutes a Catholic Church endorsement of Carnegie as a normative leadership framework.</p>
+      </div>
+    </div>
+
+    <!-- Proposition P -->
+    <div class="euclid prop" style="margin-bottom:1.1rem">
+      <div class="ehead">Proof of P &mdash; Carnegie&apos;s framework, with its original formal object, cannot substitute for Catholic leadership theology</div>
+      <div class="ebody">
+        <div class="fp-claim">
+          <p><strong>Claim P:</strong> Carnegie's framework, applied with its original formal object, is not equivalent to and cannot substitute for Catholic leadership theology.</p>
+        </div>
+        <div class="demo">
+          <div class="demo-head">Five steps</div>
+          <div class="demo-body">
+            <div class="step"><span class="step-lbl">Step 1 &mdash; Define both formal objects precisely.</span> Let F(C) denote the formal object of Carnegie's framework. From <em>How to Win Friends</em>, Chapter 1: "The only way on earth to influence other people is to talk about what <em>they</em> want and show them how to get it." The purpose of discovering what they want is explicitly instrumental &mdash; it is in service of getting what <em>you</em> want from the relationship. The title encodes the formal object: <em>win friends</em> (accumulate relationships useful to you) and <em>influence people</em> (move them toward your goals). Therefore <strong>F(C) = personal effectiveness through relational investment ordered to the agent's own goals</strong>. Let F(K) denote the formal object of Catholic leadership. CCC 1905: "The common good comprises the sum total of social conditions which allow people... to reach their fulfilment more completely and more easily." CCC 2235: "Those who exercise authority must do so as a service." Therefore <strong>F(K) = the bonum commune of those governed, ordered to their genuine flourishing</strong>.</div>
+            <div class="step"><span class="step-lbl">Step 2 &mdash; Show the formal objects are structurally distinct.</span> F(C) is agent-directed: Agent &rarr; invest in relationship &rarr; gain influence &rarr; achieve agent's goals. <em>The other person is an instrument in a chain that terminates in the agent.</em> F(K) is other-directed: Agent &rarr; discern the genuine good of the governed &rarr; order authority toward that good &rarr; serve it regardless of personal cost. <em>The other person is the terminal point of the chain, not an instrument in it.</em> These are not different emphases of the same thing. They have different logical structures with the other person occupying categorically different positions.</div>
+            <div class="step"><span class="step-lbl">Step 3 &mdash; Show the distinction is structural, not merely motivational.</span> CCC 1752: "The object of the choice can by itself vitiate an act, even if the intention is good." Carnegie's techniques are <em>designed</em> to discover the other person's interests in order to leverage those interests for the agent's influence. Even if the subjective intention is good, the structural design places the other person's interests as an input to the agent's influence calculation, not as a terminal goal. This is the distinction Aristotle draws between <em>friendship of utility</em> (the other is valued because they are useful to you) and <em>friendship of virtue</em> (the other is valued for who they are). Aquinas (ST II-II, Q.23) identifies the latter with <em>caritas</em> and describes it as the form of all virtues. A technique structurally designed for friendship of utility cannot produce friendship of virtue.</div>
+            <div class="step"><span class="step-lbl">Step 4 &mdash; Show that institutional endorsement does not close the gap.</span> The YMCA's adoption of Carnegie demonstrated that his techniques are useful within a Christian institutional context &mdash; it did not demonstrate that his framework is equivalent to Christian leadership theology. Carnegie <em>rearticulated</em> the Christian ethos: he took its external forms and redeployed them in a different teleological frame. A rearticulation is not an identity. The fact that the rearticulated version retained Christian external characteristics does not make it theologically equivalent to the original any more than a translation of a text into a new language makes it the same text.</div>
+            <div class="step"><span class="step-lbl">Step 5 &mdash; Conclusion of P.</span> Since F(C) &ne; F(K) (Steps 1&ndash;2), and since this distinction is structural rather than merely motivational (Step 3), and since institutional endorsement addresses external form but not formal object (Step 4), Carnegie's framework applied with its original formal object cannot substitute for Catholic leadership theology. <strong>P is proved. &#9633;</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proposition Q -->
+    <div class="euclid prop" style="margin-bottom:1.1rem">
+      <div class="ehead">Proof of Q &mdash; Carnegie&apos;s techniques, reanchored in the Catholic formal object, are morally permissible</div>
+      <div class="ebody">
+        <div class="fp-claim">
+          <p><strong>Claim Q:</strong> Carnegie's techniques, detached from their original formal object and reanchored in the Catholic formal object (bonum commune), are morally permissible for Catholic practitioners.</p>
+        </div>
+        <div class="demo">
+          <div class="demo-head">Four steps</div>
+          <div class="demo-body">
+            <div class="step"><span class="step-lbl">Step 1 &mdash; Are the techniques intrinsically disordered?</span> CCC 1756: intrinsically evil acts are "such that they are always forbidden, regardless of circumstances and of intentions." Is genuinely listening to another person intrinsically evil? Is remembering someone's name intrinsically evil? Is expressing sincere appreciation intrinsically evil? Plainly not. Aquinas (ST II-II, Q.109&ndash;116) enumerates a series of virtues governing social interaction &mdash; truthfulness, friendliness, <em>urbanitas</em> (pleasant social behaviour) &mdash; that map almost exactly onto Carnegie's techniques. Friendliness (<em>amicitia</em> in the social sense, Q.114) includes precisely the dispositions Carnegie teaches: making social exchanges pleasant, remembering others' circumstances, speaking in terms others can receive. These are virtues, not techniques of manipulation.</div>
+            <div class="step"><span class="step-lbl">Step 2 &mdash; Moral quality depends on object, intention, and circumstances together.</span> CCC 1750: "The morality of human acts depends on the object chosen; the end in view or the intention; the circumstances of the action." Carnegie's techniques, when practised by a Catholic leader whose formal object is the bonum commune, whose intention is the genuine flourishing of those governed, and whose circumstances are the normal contexts of pastoral or institutional service &mdash; these constitute virtuous acts. The technique is morally neutral; the intention and the formal goal determine the act's moral quality.</div>
+            <div class="step"><span class="step-lbl">Step 3 &mdash; Reanchoring is standard in Catholic moral tradition.</span> The Catholic tradition regularly appropriates external practices from non-Catholic sources and reanchors them in Catholic theology. The Scholastics appropriated Aristotle's ethical framework &mdash; a pagan system with no theological grounding &mdash; and reanchored it in <em>caritas</em> as the form of all virtues (Aquinas, ST I-II, Q.65). The result was not Aristotelian ethics with a Catholic veneer but a genuinely new synthesis in which Aristotle's categories were transformed by their new formal object. The same operation is available to the Catholic practitioner who takes Carnegie's listening technique and practises it as an expression of <em>caritas</em> toward the concrete other person &mdash; genuinely ordered to their good, not to their influence value.</div>
+            <div class="step"><span class="step-lbl">Step 4 &mdash; Conclusion of Q.</span> Since the Carnegie techniques are not intrinsically disordered (Step 1), and since moral quality depends on the conjunction of object, intention, and formal goal (Step 2), and since the Catholic tradition routinely performs reanchoring operations of this type (Step 3), Carnegie's techniques practised within a Catholic formal object are morally permissible. <strong>Q is proved. &#9633;</strong></div>
+          </div>
+        </div>
+        <p style="font-size:0.84rem;color:var(--body);line-height:1.7;margin-top:.7rem"><strong style="color:var(--cream)">Resolution.</strong> P and Q together yield the precise formal conclusion: <em>Carnegie's framework is insufficient but its techniques are permissible.</em> Insufficient because the original formal object is not the Catholic formal object. Permissible because the techniques are not intrinsically disordered and can be reanchored by a practitioner who explicitly replaces Carnegie's teleology with the Catholic one. This resolves the 黑幼龍 paradox: he did not endorse Carnegie's framework with its original formal object. He performed the reanchoring operation and produced something genuinely valuable. The credit belongs to the Christian theological tradition he brought to it.</p>
+      </div>
+    </div>
+
+    <!-- Three failure modes -->
+    <div class="euclid prop">
+      <div class="ehead">Three Failure Modes &mdash; why the reanchoring must be structurally complete</div>
+      <div class="ebody">
+        <p style="font-size:0.85rem;color:var(--body);line-height:1.7;margin-bottom:.8rem">The reanchoring must not merely be intentional but structurally complete at every level of the technique's operation. Three failure modes occur when the reanchoring is absent, partial, or undetected.</p>
+        <div class="fp-failure-grid">
+          <div class="fp-failure-card">
+            <h5>Failure mode 1 &mdash; Unreanchored adoption</h5>
+            <p>A Catholic parish council adopts Carnegie training verbatim, including the explicit goal of "winning friends and influencing people" for the council's mission. The members become skilled at listening, appreciating, and making people feel important &mdash; but the teleological frame remains Carnegie's: these are techniques for building support for the council's agenda. This is not <em>caritas</em>; it is organisational influence management in pastoral clothing. The parish council has adopted Carnegie, not the Gospel.</p>
+          </div>
+          <div class="fp-failure-card">
+            <h5>Failure mode 2 &mdash; Partial reanchoring</h5>
+            <p>A Catholic leader takes Carnegie and adds the intention of caring for others &mdash; but does not change the structural design of the techniques. They still listen primarily when it serves relationship-building. They still appreciate primarily when it generates goodwill. The formal object has been nominally replaced but the technique's built-in structure still serves influence. This is the most common failure mode &mdash; it feels like genuine <em>caritas</em> but the underlying wiring is still Carnegie's. Over time, the Carnegie wiring wins because it is structurally embedded.</p>
+          </div>
+          <div class="fp-failure-card">
+            <h5>Failure mode 3 &mdash; Detection failure</h5>
+            <p>A Carnegie-trained actor entering a Catholic community is indistinguishable from a genuine <em>caritas</em> practitioner in most interactions &mdash; including interactions with Catholics who have themselves been Carnegie-trained and therefore recognise the techniques without recognising the formal-object difference. Two people doing identical things in a room &mdash; one with <em>caritas</em> as formal object, one with influence as formal object &mdash; cannot be distinguished by observing the room. They can only be distinguished over time, under pressure, and when advantage runs out.</p>
+          </div>
+        </div>
+        <p style="font-size:0.84rem;color:var(--body);line-height:1.7;margin-top:.5rem"><strong style="color:var(--cream)">The formal Catholic verdict:</strong> Carnegie as framework &mdash; <em>insufficient</em>. Carnegie as reanchored technique &mdash; <em>permissible</em>. The burden falls on the Catholic practitioner to make the reanchoring explicit, deliberate, and structurally complete &mdash; not merely to add a prayer before the Carnegie session but to genuinely replace the formal object at every level of the technique's operation. Without that replacement, what is produced looks like Catholic leadership, sounds like Catholic leadership, and makes everyone feel cared for &mdash; but its underlying teleology is still oriented toward the agent's influence rather than the other's flourishing. That is the Carnegie problem in its most precise form.</p>
+      </div>
+    </div>
+
+  </div><!-- /theol-carnegie -->
+
+  <!-- XI: Structural incompatibility and detection -->
+  <div class="subsection" id="theol-detection">
+    <h3>XI &middot; Structural Incompatibility &mdash; Greene, Pfeffer, Carnegie: Concrete Differences and Six Diagnostic Tests</h3>
+
+    <style>
+    .sd-intro{font-size:0.88rem;color:var(--body);line-height:1.75;max-width:72ch;margin-bottom:1.2rem}
+    .sd-author-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin-bottom:1.2rem}
+    .sd-author{border:1px solid var(--border-dim);border-radius:7px;overflow:hidden}
+    .sd-author-hdr{padding:.6rem .85rem;border-bottom:1px solid var(--border-dim)}
+    .sd-author-hdr h5{font-size:0.85rem;font-weight:500;margin:0}
+    .sd-author-hdr span{font-size:0.68rem;font-family:'DM Mono',monospace;letter-spacing:.05em;color:var(--muted)}
+    .sd-author-body{padding:.7rem .85rem}
+    .sd-author-body p{font-size:0.81rem;color:var(--body);line-height:1.65;margin-bottom:.45rem}
+    .sd-author-body p:last-child{margin-bottom:0}
+    .sd-author-body .sd-key{font-size:0.78rem;color:var(--muted);font-style:italic;border-top:1px solid rgba(255,255,255,.06);padding-top:.4rem;margin-top:.3rem}
+    .sd-ex-pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border-dim);border-radius:7px;overflow:hidden;margin-bottom:.7rem}
+    .sd-ex-col{padding:.7rem .9rem}
+    .sd-ex-col:first-child{border-right:1px solid var(--border-dim)}
+    .sd-ex-col h6{font-size:0.7rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem}
+    .sd-ex-col p{font-size:0.8rem;color:var(--body);line-height:1.65;margin-bottom:.3rem}
+    .sd-ex-col p:last-child{margin-bottom:0}
+    .sd-ex-scene{grid-column:1/-1;padding:.65rem .9rem;background:rgba(201,168,76,0.04);border-top:1px solid rgba(201,168,76,0.15)}
+    .sd-ex-scene h6{font-size:0.68rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.3rem}
+    .sd-ex-scene p{font-size:0.8rem;color:var(--body);line-height:1.65;margin:0}
+    .sd-test-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.8rem 0}
+    .sd-test{border:1px solid var(--border-dim);border-radius:6px;padding:.75rem .9rem}
+    .sd-test-n{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:.08em;color:var(--gold-dim);margin-bottom:.2rem}
+    .sd-test h5{font-size:0.82rem;font-weight:500;color:var(--cream);margin-bottom:.45rem}
+    .sd-test p{font-size:0.8rem;color:var(--body);line-height:1.62;margin-bottom:.3rem}
+    .sd-test p:last-child{margin-bottom:0}
+    .sd-test .sd-signal{font-size:0.78rem;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);padding-top:.35rem;margin-top:.2rem;font-style:italic}
+    .sd-sum-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.8rem}
+    .sd-sum-card{border:1px solid var(--border-dim);border-radius:6px;padding:.65rem .85rem}
+    .sd-sum-card h5{font-size:0.7rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem}
+    .sd-sum-card p{font-size:0.82rem;color:var(--body);line-height:1.62;margin:0}
+    @media(max-width:640px){
+      .sd-author-grid,.sd-test-grid,.sd-sum-grid{grid-template-columns:1fr}
+      .sd-ex-pair{grid-template-columns:1fr}
+      .sd-ex-col:first-child{border-right:none;border-bottom:1px solid var(--border-dim)}
+      .sd-ex-scene{grid-column:1}
+    }
+    </style>
+
+    <p class="sd-intro">Catholic moral theology (CCC 1752) holds that the moral quality of an act is determined by three things simultaneously: the object (what you are actually doing), the intention (why you are doing it), and the circumstances. External behaviour alone cannot tell you whether an act is morally ordered. This is the precise point at which Greene, Pfeffer, and Carnegie fail the Catholic standard &mdash; not because their techniques always produce bad outcomes, but because the formal object of their frameworks is categorically different from the Catholic one. The Catholic formal object in leadership is the <em>bonum commune</em> of those governed (CCC 1905) &mdash; their genuine flourishing, not the leader's effectiveness, influence portfolio, or career trajectory.</p>
+
+    <!-- Three author analyses -->
+    <div class="sd-author-grid">
+      <div class="sd-author">
+        <div class="sd-author-hdr" style="background:rgba(121,31,31,0.12)">
+          <h5 style="color:#f09595">Robert Greene &mdash; R₈ is not a close call</h5>
+          <span>48 Laws &middot; Laws of Human Nature &middot; score 1.5&ndash;4.8 (corpus range)</span>
+        </div>
+        <div class="sd-author-body">
+          <p>Greene is the clearest case and therefore the least dangerous in practice: his R₈ position is explicit and self-announced. The <em>48 Laws of Power</em> opens with the observation that power is amoral. Law 3: "Conceal your intentions." Law 15: "Crush your enemy totally." Law 33: "Discover each man's thumbscrew" &mdash; find each person's psychological vulnerability and use it. This is not a misreading; it is the stated doctrine.</p>
+          <p>CCC 2487: truth is owed to our neighbour as a requirement of justice. CCC 2489: the duty to communicate truthfully in ordinary dealings. Concealing intentions from people whose decisions depend on accurate information about yours is a lie of action &mdash; a violation of the eighth commandment. Law 3 of the 48 Laws is not a nuanced application of prudence; it is a recommendation to commit what Aquinas (ST II-II, Q.111) calls <em>dolus</em> &mdash; fraud directed at the intellect of another.</p>
+          <p>Ezekiel 34 is the scriptural benchmark: "Woe to the shepherds of Israel who have been feeding themselves! Should not shepherds feed the sheep?" The entire Greene corpus is a training manual for the Ezekiel-34 shepherd &mdash; the one who has learned to appear pastoral while feeding themselves.</p>
+          <div class="sd-key">The only Catholic use of Greene: adversary field manual for formation officers who need to recognise when these methods are being deployed against their community &mdash; never as a normative leadership model.</div>
+        </div>
+      </div>
+      <div class="sd-author">
+        <div class="sd-author-hdr" style="background:rgba(55,138,221,0.08)">
+          <h5 style="color:#85b7eb">Jeffrey Pfeffer &mdash; the brackets that break everything</h5>
+          <span>Managing with Power &middot; 7 Rules of Power &middot; score 2.5 (power corpus)</span>
+        </div>
+        <div class="sd-author-body">
+          <p>Pfeffer is more interesting than Greene because he is an empirical social scientist, not a prescriptive manipulator. His <em>Leadership BS</em> (2015) is one of the most analytically honest books written about the gap between what leadership theories claim and what organisations actually do. His <em>Dying for a Paycheck</em> (2018) is essentially Catholic Social Teaching in secular dress &mdash; <em>Laborem Exercens</em> (John Paul II, 1981) arrived empirically rather than theologically. <em>These</em> Pfeffer works are compatible with Catholic Social Teaching and genuinely useful.</p>
+          <p>The problem is his power corpus. The fatal phrase appears in <em>Managing with Power</em>: "Whether getting and using power is ethical&hellip; is separate from whether it is effective." This single sentence is the consequentialist position that CCC 1749&ndash;1756 formally rejects: "A good intention&hellip; does not make behaviour that is intrinsically disordered, such as lying and calumny, good or just." The moral quality of an act is not separable from its object. Pfeffer's explicit methodological choice to bracket ethics is not a footnote; it is the operating principle of his entire power framework.</p>
+          <p>Rule 1 of <em>7 Rules of Power</em>: "Get out of your own way" &mdash; suppress your moral discomfort with acquiring power; your discomfort is a self-imposed obstacle to effectiveness. For the Catholic leader, that discomfort is not an obstacle &mdash; it is conscience (CCC 1776), the proximate norm of morality.</p>
+          <div class="sd-key"><em>Leadership BS</em> and <em>Dying for a Paycheck</em>: diagnostically valuable and compatible with CST. The power corpus: not appropriate as a normative framework.</div>
+        </div>
+      </div>
+      <div class="sd-author">
+        <div class="sd-author-hdr" style="background:rgba(186,117,23,0.10)">
+          <h5 style="color:#ef9f27">Dale Carnegie &mdash; the subtle and therefore most dangerous problem</h5>
+          <span>How to Win Friends &middot; score 4.5 &middot; R₈/S boundary</span>
+        </div>
+        <div class="sd-author-body">
+          <p>Carnegie is the most dangerous of the three for Catholic communities precisely because he is the most benign in intention and the most R₁-adjacent in external behaviour. Greene is detectable because his tactics are explicit. Pfeffer is detectable because his ethics-bracketing is explicit. Carnegie is not detectable from external behaviour alone.</p>
+          <p>His 30 principles, taken one at a time, are compatible with Catholic social virtue: "Become genuinely interested in other people" (CCC 2711 &mdash; contemplative listening); "Make the other person feel important" (CCC 1700 &mdash; dignity of the person); "Give honest and sincere appreciation" (ST II-II, Q.106 &mdash; <em>gratitudo</em> as a form of justice); "Be a good listener" (CCC 1829 &mdash; fraternal correction requires understanding). Every single one of these is a Catholic virtue when practised for the right reason.</p>
+          <p>The problem is the formal object. Carnegie's book is titled <em>How to <strong>Win Friends</strong> and <strong>Influence</strong> People</em>. The "influence" clause is not incidental. The formal object is personal effectiveness &mdash; winning relationships that serve your goals. When this coincides with the other person's genuine good (which it frequently does), the behaviour is identical to caritas. When they diverge, the difference becomes visible in the concrete examples below.</p>
+          <div class="sd-key">The Carnegie problem: two people doing identical things &mdash; one with caritas, one with influence as formal object &mdash; cannot be distinguished by observing the room. They can only be distinguished over time, under pressure, and when advantage runs out.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concrete examples -->
+    <div class="euclid prop" style="margin-bottom:1.2rem">
+      <div class="ehead">Four concrete examples where the Carnegie/Catholic difference becomes visible</div>
+      <div class="ebody">
+
+        <div class="lp-phase-lbl" style="color:var(--muted);font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem">Example 1 &mdash; The difficult conversation</div>
+        <div class="sd-ex-pair" style="margin-bottom:.9rem">
+          <div class="sd-ex-col">
+            <h6 style="color:#ef9f27">Carnegie approach</h6>
+            <p>Principle 11: "If you're wrong, admit it quickly." Principle 22: "Try to see things from their perspective." Principle 24: "If you must point out a mistake, begin with praise." The architecture of the Carnegie conversation minimises friction, maintains rapport, and avoids anything that might damage the relationship. You will rarely hear a Carnegie-trained person say "I think you are making a serious error that will harm you and others" &mdash; because that risks the relationship.</p>
+          </div>
+          <div class="sd-ex-col">
+            <h6 style="color:var(--gold)">Catholic approach</h6>
+            <p>Fraternal correction (CCC 1829): "He who rebukes a man will afterward find more favour than he who flatters with his tongue" (Proverbs 28:23). Canon 212 §3: the faithful have not merely the right but the <em>duty</em> to manifest their opinions to pastors when the good of the Church requires it. The Jesuit <em>correctio fraterna</em>: charitable but direct naming of what is observed. A Catholic leader who never challenges, never corrects, never says "I disagree with this decision and here is why" has not achieved harmony. They have achieved Carnegie.</p>
+          </div>
+          <div class="sd-ex-scene">
+            <h6>Concrete scene</h6>
+            <p>A diocesan chancellor observes a bishop about to sign a financial commitment that will cause serious harm. The Carnegie-trained chancellor expresses "mild concerns" diplomatically, framed as questions rather than objections, and defers when the bishop proceeds. The R₁ Catholic chancellor says clearly: "Your Excellency, I believe this will harm the diocese in the following specific ways. I am asking you to pause before signing." One is fraternal correction; the other is management of the interpersonal relationship.</p>
+          </div>
+        </div>
+
+        <div class="lp-phase-lbl" style="color:var(--muted);font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem">Example 2 &mdash; Appreciation and acknowledgment</div>
+        <div class="sd-ex-pair" style="margin-bottom:.9rem">
+          <div class="sd-ex-col">
+            <h6 style="color:#ef9f27">Carnegie approach</h6>
+            <p>"Give honest and sincere appreciation" &mdash; recommended because it builds goodwill that enables influence. The appreciation is instrumentally motivated. When appreciation is not strategically useful, the Carnegie practitioner stops giving it.</p>
+          </div>
+          <div class="sd-ex-col">
+            <h6 style="color:var(--gold)">Catholic approach</h6>
+            <p>Gratitude is a sub-virtue of justice in Aquinas (ST II-II, Q.106) &mdash; it is what you <em>owe</em> to someone who has benefited you. When a parishioner gives their Saturday to serve at the food bank, expressing appreciation is an act of justice. It is not a technique for building future goodwill. The Catholic gives appreciation because it is due; the Carnegie practitioner gives it because it is effective. Justice does not stop when it becomes inconvenient.</p>
+          </div>
+        </div>
+
+        <div class="lp-phase-lbl" style="color:var(--muted);font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem">Example 3 &mdash; Listening</div>
+        <div class="sd-ex-pair" style="margin-bottom:.9rem">
+          <div class="sd-ex-col">
+            <h6 style="color:#ef9f27">Carnegie approach</h6>
+            <p>"Be a good listener. Encourage others to talk about themselves." The motivation is to gather information about the other person's interests and to make them feel heard so they like you and become receptive to your influence. The Carnegie listener is gathering material for the next move.</p>
+          </div>
+          <div class="sd-ex-col">
+            <h6 style="color:var(--gold)">Catholic approach</h6>
+            <p>Contemplative listening (CCC 2711&ndash;2712) &mdash; listening as an act of recognition that the other person's reality is genuinely other, genuinely valuable, and not reducible to what you can use. The Catholic listener is trying to understand the person's genuine situation in order to serve that situation. After the conversation, the Catholic leader is genuinely troubled by the family's difficulty and takes action on their behalf even when that action is costly and earns no social return.</p>
+          </div>
+          <div class="sd-ex-scene">
+            <h6>The difference is what happens after the conversation ends</h6>
+            <p>Both the Carnegie-trained leader and the Catholic leader listen attentively to a parishioner's family difficulty, reflect back, ask follow-up questions, make the person feel deeply heard. In the room, they are indistinguishable. The Carnegie leader leaves with a strengthened relationship with a now-loyal parishioner. The Catholic leader leaves troubled and takes costly action. Same room; different formal object; different outcome.</p>
+          </div>
+        </div>
+
+        <div class="lp-phase-lbl" style="color:var(--muted);font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem">Example 4 &mdash; Making others feel important</div>
+        <div class="sd-ex-pair">
+          <div class="sd-ex-col">
+            <h6 style="color:#ef9f27">Carnegie approach</h6>
+            <p>"Make the other person feel important &mdash; and do it sincerely." Carnegie insists on sincerity; he is recommending that you genuinely cultivate the habit of seeing something admirable in every person, because this is an effective way to win friends. When the person is difficult, ungrateful, or politically inconvenient, the Carnegie technique has no grip &mdash; there is no impression worth managing.</p>
+          </div>
+          <div class="sd-ex-col">
+            <h6 style="color:var(--gold)">Catholic approach</h6>
+            <p>CCC 1700 &mdash; the dignity of the person is not a feeling to be generated; it is an ontological fact about what the person <em>actually is</em>. The Catholic leader who acknowledges someone's dignity is recognising a reality. When the person is difficult, ungrateful, or politically inconvenient, the Catholic obligation remains &mdash; their dignity is unchanged by their behaviour. The difference is not the action; it is the ground from which the action proceeds.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Six detection tests -->
+    <div class="euclid prop">
+      <div class="ehead">Six Diagnostic Tests &mdash; detecting Carnegie in Catholic disguise</div>
+      <div class="ebody">
+        <p style="font-size:0.85rem;color:var(--body);line-height:1.7;margin-bottom:.9rem">A Carnegie-trained actor within a Catholic community will display behaviour superficially identical to genuine <em>caritas</em>: warm, attentive, appreciative, non-confrontational, an excellent listener, skilled at making others feel valued. The following six tests distinguish Carnegie from caritas. None is conclusive in a single interaction; several require time. The failure mode 3 (detection failure) is most dangerous when the observer has themselves been Carnegie-trained and recognises the techniques but not the formal-object difference.</p>
+        <div class="sd-test-grid">
+
+          <div class="sd-test">
+            <div class="sd-test-n">Test 1 &mdash; most reliable · longitudinal</div>
+            <h5>The absence-of-advantage test</h5>
+            <p>When the Carnegie-trained person can no longer derive personal benefit from the relationship &mdash; they have achieved what they needed, or you have become a cost rather than a resource &mdash; does the warmth persist?</p>
+            <p><strong>Genuine caritas:</strong> yes, because the formal object is the other person's good, which does not change when they stop being useful.</p>
+            <p><strong>Carnegie:</strong> the warmth recalibrates. The person becomes "busy," less responsive, slower to initiate. The quality of the relationship tracks the quality of your usefulness to them. This is a longitudinal test; it cannot be done in a single interaction.</p>
+            <div class="sd-signal">Signal: warmth-to-usefulness correlation across multiple contexts and time periods.</div>
+          </div>
+
+          <div class="sd-test">
+            <div class="sd-test-n">Test 2 &mdash; fastest single-encounter diagnostic</div>
+            <h5>The difficult truth test</h5>
+            <p>Does this person ever tell you something you don't want to hear, when your genuine good requires it?</p>
+            <p>Carnegie's Principle 22 produces extraordinary empathy and conflict-avoidance. It does not produce fraternal correction. A Carnegie-trained person will almost never say "I think you are making a serious mistake" &mdash; because that risks the rapport. If a person in a position of pastoral responsibility has never challenged you, never corrected you, never expressed disagreement with a decision you made &mdash; that is not spiritual generosity.</p>
+            <div class="sd-signal">Signal: a pattern of agreement and empathy across multiple significant decisions, including ones that were subsequently wrong.</div>
+          </div>
+
+          <div class="sd-test">
+            <div class="sd-test-n">Test 3 &mdash; structural asymmetry</div>
+            <h5>The asymmetric self-disclosure test</h5>
+            <p>Carnegie's strategy involves asking questions and encouraging others to talk about themselves. This produces a dynamic where the Carnegie practitioner knows a great deal about you and you know relatively little about them.</p>
+            <p>Genuine caritas involves mutual self-disclosure. The Ignatian tradition requires <em>manifestaci&oacute;n</em> &mdash; transparency about one's interior movements and struggles &mdash; as a positive spiritual virtue. A person who is always the listener and rarely the discloser, who knows everything about your family situation and shares nothing of their own &mdash; this asymmetry is a Carnegie tell.</p>
+            <div class="sd-signal">Signal: the ratio of information you hold about them to information they hold about you. Carnegie trains an asymmetry in their favour.</div>
+          </div>
+
+          <div class="sd-test">
+            <div class="sd-test-n">Test 4 &mdash; active probe</div>
+            <h5>The "no" test</h5>
+            <p>Say no to something the Carnegie-trained person wants from you, and observe.</p>
+            <p><strong>Genuine caritas:</strong> accepts "no" without recalibrating the warmth, because the other person's dignity and value do not change because they declined a request.</p>
+            <p><strong>Carnegie:</strong> the warmth persists for a socially acceptable interval, then cools. The next request is framed differently &mdash; more indirect, with more social obligation built in. If you say no repeatedly, the relationship eventually ends on some pretext. Their interest in you was always conditioned on the probability of your compliance.</p>
+            <div class="sd-signal">Signal: the trajectory of warmth over a sequence of refusals.</div>
+          </div>
+
+          <div class="sd-test">
+            <div class="sd-test-n">Test 5 &mdash; Matthew 25 inversion</div>
+            <h5>The consistency-across-audiences test</h5>
+            <p>Observe the person in three contexts: (a) with someone who can help their career or give access to resources; (b) with a peer of equal status; (c) with someone who has nothing to offer &mdash; a junior parishioner, a new volunteer, someone socially peripheral.</p>
+            <p>Carnegie teaches warmth as a universal technique because it works on everyone. But the <em>calibration</em> of the warmth often tracks the perceived importance of the audience. A small but consistent asymmetry &mdash; slightly longer conversations with the important, slightly less attentive listening with the peripheral &mdash; is the signal.</p>
+            <div class="sd-signal">The Catholic benchmark is Matthew 25: the most important people in the community are the ones who have the least to offer. A leader whose attentiveness <em>inverts</em> with worldly importance is practising Matthew 25; a leader whose attentiveness <em>tracks</em> worldly importance is practising Carnegie.</div>
+          </div>
+
+          <div class="sd-test">
+            <div class="sd-test-n">Test 6 &mdash; cost-to-warmth correlation</div>
+            <h5>The Lincoln test</h5>
+            <p>Carnegie's highest-scoring book in the R₁&ndash;R₈ analysis is <em>Lincoln the Unknown</em> (1932, score 6.5) &mdash; his biography of Abraham Lincoln. Carnegie admired Lincoln intensely without being able to articulate why. Lincoln's warmth endured under catastrophic personal cost &mdash; political isolation, the death of children, a war he was responsible for continuing. His magnanimity toward his enemies ("malice toward none") persisted when political hardness would have served him better.</p>
+            <p>Does this person's warmth and care persist when it costs them something significant? When maintaining the relationship requires absorbing a real cost with no benefit?</p>
+            <div class="sd-signal"><strong>Carnegie-trained:</strong> the calculation eventually wins; the warmth was always downstream of advantage. <strong>Genuine caritas:</strong> the warmth is upstream of advantage, grounded in the other's ontological dignity &mdash; it persists because its ground has not changed.</div>
+          </div>
+
+        </div>
+
+        <!-- Summary distinctions -->
+        <div style="margin-top:1rem">
+          <p style="font-size:0.8rem;font-family:'DM Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Summary distinction &mdash; one sentence each</p>
+          <div class="sd-sum-grid">
+            <div class="sd-sum-card" style="border-color:rgba(121,31,31,0.4)">
+              <h5 style="color:#f09595">What Greene teaches</h5>
+              <p>Take what you need; use whatever means are necessary; make sure no one can stop you.</p>
+            </div>
+            <div class="sd-sum-card" style="border-color:rgba(55,138,221,0.3)">
+              <h5 style="color:#85b7eb">What Pfeffer teaches</h5>
+              <p>Here is what effective people actually do to acquire and exercise power; the moral question is separate and not my department.</p>
+            </div>
+            <div class="sd-sum-card" style="border-color:rgba(186,117,23,0.35)">
+              <h5 style="color:#ef9f27">What Carnegie teaches</h5>
+              <p>If you genuinely care about people and make them feel valued, they will give you what you want &mdash; and the genuineness of the caring is part of what makes it work.</p>
+            </div>
+            <div class="sd-sum-card" style="border-color:rgba(201,168,76,0.4)">
+              <h5 style="color:var(--gold)">What Catholic leadership teaches</h5>
+              <p>Care for the person in front of you because they are made in the image of God and their genuine flourishing is what authority exists to serve, regardless of what they can do for you, regardless of whether your care is seen, and regardless of whether it costs you something to give it.</p>
+            </div>
+          </div>
+          <p style="font-size:0.84rem;color:var(--body);line-height:1.75;margin-top:.8rem">The first three can be performed. The fourth cannot &mdash; or rather, it can be performed briefly, but it cannot be sustained under adversarial pressure without the interior reality to sustain it. This is why the creaturehood frame is the diagnostic: a person who actually believes that the other's dignity is ontologically grounded in their being a creature of God does not need an advantage calculation to decide whether to keep caring. They care because the ground of caring has not changed. A person who has only internalised Carnegie has a technique, not a ground. The technique holds until the cost exceeds the benefit. The ground does not.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /theol-detection -->
 
   <!-- Summary corollary -->
   <div class="euclid cor" style="margin-top:2rem;">
