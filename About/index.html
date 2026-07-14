@@ -69,11 +69,11 @@ nav.site-nav {
   margin-bottom:3.5rem;
 }
 .hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem; display:flex; align-items:center; gap:0.6rem; }
-.hero-grid { display:grid; grid-template-columns:1fr 260px; gap:3rem; align-items:start; }
+.hero-grid { display:grid; grid-template-columns:1fr; gap:2rem; align-items:start; }
 .hero-left h1 { font-size:clamp(2.4rem,4.5vw,4rem); font-weight:300; margin-bottom:0.6rem; }
 .hero-left h1 em { font-style:italic; color:var(--gold-light); }
 .hero-left .title-line { font-family:"DM Mono",monospace; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:1.4rem; }
-.hero-left .lead { font-size:1.05rem; line-height:1.8; color:var(--body); max-width:58ch; }
+.hero-left .lead { font-size:1.05rem; line-height:1.8; color:var(--body); }
 .hero-badges { display:flex; flex-wrap:wrap; gap:0.55rem; margin-top:1.6rem; }
 .badge {
   font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase;
@@ -97,13 +97,13 @@ nav.site-nav {
 .section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
 
 /* Prose blocks */
-.prose { max-width:70ch; }
+.prose { width:100%; }
 .prose p { color:var(--body); }
 .prose p + p { margin-top:0.9rem; }
 .prose strong { color:var(--cream); }
 
-/* Two-column prose */
-.prose-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+/* Single-column prose */
+.prose-grid { display:grid; grid-template-columns:1fr; gap:2rem; }
 
 /* Research programme card */
 .programme-card {
@@ -118,7 +118,7 @@ nav.site-nav {
 .programme-card .card-meta span { line-height:1.5; }
 .programme-card p { color:var(--body); font-size:0.9rem; line-height:1.7; margin-bottom:0; }
 .programme-card p + p { margin-top:0.7rem; }
-.cite-chip { font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--gold); white-space:nowrap; }
+.cite-chip { font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--gold); white-space:normal; word-break:break-word; }
 .programme-card figure { margin:1rem 0; text-align:center; }
 .programme-card figcaption { font-family:"DM Mono",monospace; font-size:0.65rem; color:var(--faint); line-height:1.6; margin-top:0.5rem; text-align:left; }
 
@@ -136,7 +136,7 @@ nav.site-nav {
 .collab-credentials li::before { content:"✓"; position:absolute; left:0; color:var(--gold); font-size:0.7rem; }
 
 /* Tech identity cards */
-.tech-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.2rem; }
+.tech-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1.2rem; }
 .tech-card {
   background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
   border-radius:4px; padding:1.1rem 1.3rem;
@@ -154,7 +154,7 @@ nav.site-nav {
 
 /* Faith section */
 .cross { color:var(--gold-dim); font-size:1rem; margin:0 0.3rem; }
-.patron-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
+.patron-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1rem; }
 .patron-card { background:rgba(14,31,58,0.5); border:1px solid var(--border-dim); border-radius:4px; padding:1rem 1.2rem; }
 .patron-card h4 { font-size:0.97rem; color:var(--cream); margin-bottom:0.3rem; }
 .patron-card p { color:var(--muted); font-size:0.83rem; line-height:1.6; margin-bottom:0; }
@@ -162,7 +162,7 @@ nav.site-nav {
 .daily-prayer .prayer-source { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin-top:0.8rem; display:block; font-style:normal; }
 
 /* Contact */
-.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-top:1rem; }
+.contact-grid { display:grid; grid-template-columns:1fr; gap:0.8rem; margin-top:1rem; }
 .contact-item { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; }
 .contact-item .label { color:var(--faint); text-transform:uppercase; letter-spacing:0.1em; font-size:0.62rem; display:block; margin-bottom:0.2rem; }
 .contact-item a,.contact-item span { color:var(--body); }
@@ -171,15 +171,10 @@ nav.site-nav {
 /* Footer */
 footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--faint); text-align:center; }
 
-/* Responsive */
+/* Responsive — single-column layout is now the baseline; these are kept for any future additions */
 @media(max-width:820px) {
-  .hero-grid { grid-template-columns:1fr; }
-  .hero-right { display:none; }
-  .prose-grid { grid-template-columns:1fr; }
-  .patron-grid { grid-template-columns:1fr; }
-}
-@media(max-width:520px) {
-  .tech-grid { grid-template-columns:1fr; }
+  .research-table th:nth-child(4),
+  .research-table td:nth-child(4) { display:none; }
 }
 
 /* Research table */
@@ -189,7 +184,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.09em;
   text-transform:uppercase; color:var(--gold-dim); font-weight:400;
   padding:0.6rem 0.9rem; border-bottom:1px solid var(--border-dim);
-  text-align:left; white-space:nowrap;
+  text-align:left; white-space:normal;
 }
 .research-table td {
   padding:0.75rem 0.9rem; border-bottom:1px solid var(--border-dim);
@@ -219,10 +214,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 .assess-pct { font-family:"DM Mono",monospace; font-size:1rem; color:var(--gold-light); letter-spacing:0.04em; }
 .assess-icd { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); }
 
-@media(max-width:820px) {
-  .research-table th:nth-child(4),
-  .research-table td:nth-child(4) { display:none; }
-}
 </style>
 </head>
 <body>
@@ -1384,17 +1375,26 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
             <span>盛公館掌門人 1916&ndash;1927</span>
           </div>
           <p style="font-size:0.88rem;line-height:1.7;">
-            莊德華與莊畹玉為同一人。她是清末民初實業家盛宣懷的繼室（第二任夫人），
-            生卒年為1866年至1927年。出身毗陵莊氏，為乾隆四十五年進士莊述祖的曾孫女。
-            盛宣懷逝世（1916年）後，莊德華執掌盛公館家政長達十一年，
-            主持清算遺產總額銀元1,349萬兩；世人盛贊其「有王熙鳳的手段」——
-            知書達理，頗有遠識，行事雷厲風行。捐資興建上海靜安寺玉佛寺。
-            其七女盛愛頤（「盛七小姐」，1900&ndash;1983）就讀上海聖約翰大學，
-            歷創民國首例女性遺產繼承案（1928年勝訴）及百樂門舞廳（1932年），
-            係民國十大才女中唯一的女實業家。
-            莊德華之親侄（內侄）莊鑄九後娶盛愛頤（1932年），
-            形成常州莊氏對盛氏的雙重聯姻，
-            於莊元端身上達成莊述祖血脈的雙重聚合。
+            莊德華 and 莊畹玉 are one and the same person. She was the second wife
+            (繼室) of the late-Qing and early-Republican industrialist 盛宣懷,
+            born 1866, died 1927. From the 毗陵莊氏 (Piling Chuang clan),
+            great-granddaughter of 莊述祖 &mdash; <em>jinshi</em> of the 45th year
+            of the Qianlong reign. After 盛宣懷's death in 1916 she managed the
+            盛 household (盛公館) for eleven years, overseeing settlement of an
+            estate totalling 13,490,000 silver taels; she was praised with the epithet
+            <em>「有王熙鳳的手段」</em> &mdash; learned and principled,
+            far-sighted, decisive and swift in action. She donated funds for the
+            construction of the Jade Buddha Temple (玉佛寺) at Jing'an, Shanghai.
+            Her seventh daughter 盛愛頤 (&ldquo;Seventh Miss Sheng,&rdquo;
+            1900&ndash;1983) studied at St. John's University, Shanghai;
+            won the Republic's first female inheritance lawsuit in 1928;
+            and founded the Paramount Dance Hall (百樂門) in 1932 &mdash;
+            the only female industrialist among the Republic's
+            &ldquo;Ten Most Talented Women.&rdquo;
+            莊德華's internal nephew (內侄) 莊鑄九 later married 盛愛頤 in 1932,
+            forming a double matrimonial alliance between the Changzhou Chuang and
+            Sheng clans, achieving a double convergence of 莊述祖's bloodline
+            in the person of 莊元端.
           </p>
         </div>
 
@@ -1434,7 +1434,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           </div>
 
           <!-- Three traditions grid -->
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.75rem;margin-bottom:1rem;">
+          <div style="display:grid;grid-template-columns:1fr;gap:0.75rem;margin-bottom:1rem;">
 
             <!-- Tradition I -->
             <div style="background:rgba(14,31,58,0.7);border:0.5px solid var(--border-dim);border-top:2px solid var(--gold-dim);border-radius:0 0 4px 4px;padding:0.85rem 1rem;">
@@ -1610,16 +1610,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
             The 常州莊氏 presence within and adjacent to the 盛氏 commercial
             sphere therefore operated simultaneously at the level of kinship,
             estate management, and independent institutional founding.
-          </p>
-          <p style="font-size:0.86rem;line-height:1.7;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.015em;">
-            出身常州；信義洋行買辦（comprador）。莊得之為莊德華（莊畹玉）之弟，
-            即盛宣懷之小舅子，是常州莊氏在商業與親屬網絡交匯點上的重要人物。
-            莊得之為<strong>上海商業儲蓄銀行</strong>（1915年創立）共同創辦人之一，
-            該行為民國時期中國最重要的私立銀行之一，是華資在通商口岸金融基礎設施中的支柱。
-            莊德華執掌盛氏家政（1916–1927）；其弟莊得之從事信義洋行買辦業務
-            並協助創辦上海主要私立銀行；其侄莊鑄九則後娶盛愛頤。
-            常州莊氏在盛氏商業圈內及其周邊的在場，因此同時運作於親屬、
-            遺產管理與獨立機構創辦三個層次之上。
           </p>
         </div>
 
@@ -1819,7 +1809,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 
           <!-- Diagram -->
           <div style="background:rgba(10,22,40,0.75);border:0.5px solid var(--border-dim);border-radius:4px;padding:1.2rem 1.4rem;margin-bottom:1rem;overflow-x:auto;">
-<pre style="font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.9;color:var(--muted);margin:0;white-space:pre;">         明朝遺民意識 / Ming loyalist consciousness
+<pre style="font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.9;color:var(--muted);margin:0;white-space:pre-wrap;">         明朝遺民意識 / Ming loyalist consciousness
                   ↓                    ↓
      常州學派 / 莊述祖派           洪門 / 天地會
    (intellectual expression)   (organizational expression)
@@ -2106,7 +2096,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           </p>
 
           <!-- Seven figures grid -->
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.7rem;margin-bottom:1.2rem;">
+          <div style="display:grid;grid-template-columns:1fr;gap:0.7rem;margin-bottom:1.2rem;">
 
             <div style="background:rgba(10,22,40,0.7);border:0.5px solid var(--border-dim);border-radius:4px;padding:0.75rem 1rem;">
               <div style="display:flex;align-items:baseline;gap:0.6rem;margin-bottom:0.25rem;">
@@ -2227,7 +2217,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
               Two descendants of 洪亮吉 carry genealogical significance beyond the 姻親 connection itself.
             </p>
 
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.7rem;">
+            <div style="display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:0.7rem;">
               <div style="background:rgba(10,22,40,0.6);border:0.5px solid var(--border-dim);border-left:2px solid var(--gold-dim);border-radius:4px;padding:0.75rem 1rem;">
                 <p style="font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.3rem;">
                   玄孫 / Great-great-grandson
@@ -2687,7 +2677,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
             <span>結構類比 &nbsp;·&nbsp; structural analogy, not genealogical claim</span>
             <span>盛宣懷 × 李嘉誠</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:0.8rem;">
+          <div style="display:grid;grid-template-columns:1fr;gap:1.4rem;margin-top:0.8rem;">
             <div>
               <p style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.55rem;">
                 盛氏軸心 / Sheng axis
@@ -2777,14 +2767,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           identification, and distinguishing each evidentiary tier with
           explicit confidence gradations &mdash; set the standard for
           a generation of Chinese historical scholarship.
-        </p>
-        <p style="font-size:0.86rem;line-height:1.7;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.015em;">
-          生於安徽懷寧，錢穆門人。嚴耕望為二十世紀中國制度史與行政地理學最重要的學者之一。
-          其《中國地方行政制度史》重建了秦漢魏晉至隋唐兩千年間的地方行政地理；
-          六卷本《唐代交通圖考》至今仍是唐代道路、水系與通訊網絡研究的權威圖志。
-          1949年後任職於中央研究院歷史語言研究所，後執教於香港中文大學。
-          其方法論的嚴謹性——對每一行政歸屬和地名考證均要求一手文獻依據，
-          並明確標示各層級證據的置信度——為一整代中國史學立下了學術標準。
         </p>
       </div>
 
@@ -2883,15 +2865,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           figures documented throughout this page, places a 朱-surname figure
           at the commercial nexus of the 莊&ndash;嚴 convergence.
         </p>
-        <p style="font-size:0.85rem;line-height:1.7;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.015em;">
-          出身定海（舟山）；寧波幫核心人物。1897年與嚴信厚、葉澄衷共同創辦
-          中國通商銀行（中國第一家華資銀行），任九總董之一。
-          後被推舉為上海商務總會協理。上海光復後出任上海軍政府財政正長。
-          民國建立後擔任中國國民黨上海分部副部長，任中華銀行董事長。
-          「庄嚴蔣石朱，五姓同一祖」：朱葆三在九總董中與嚴信厚並列，
-          並與本頁所記錄的莊、嚴兩系在民國上海金融網絡中交叉，
-          呈現出朱氏與莊嚴宗親網絡在商業層面的聚合。
-        </p>
       </div>
 
       <!-- 朱時茂 -->
@@ -2906,11 +2879,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           lineage hypothesis as 朱葆三 illustrates the structural parallel across
           centuries — the surname opens the inquiry; independent documentary
           corroboration decides its weight.
-        </p>
-        <p style="font-size:0.85rem;line-height:1.7;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.015em;">
-          出身山東臨沂臨沭，生於煙台市福山縣。
-          收錄於此作為當代朱姓人物之一例，與朱葆三在宗族假說中的位置呈跨世代結構對應。
-          宗族假說之確認仍有待獨立文獻佐證。
         </p>
       </div>
 
@@ -2934,14 +2902,6 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           documented on this page.
           Full primary-source documentation of specific posts and dates
           awaits archival verification.
-        </p>
-        <p style="font-size:0.85rem;line-height:1.7;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.015em;">
-          費市嚴家第二代，嚴信厚之後。民國時期延續家族在上海的文化與商業地位，
-          傳承嚴信厚所開創的書法藝術傳統。在民國上海的在場，
-          使其成為費市嚴家從嚴信厚晚清先驅成就到民國時期持續制度性存在的
-          代際橋樑——同代人包括嚴子均（嚴氏三姐妹之父，含嚴幼韻）
-          及本頁所記錄的費市嚴家網絡諸人。
-          具體職位與生卒年期待原始檔案查證。
         </p>
       </div>
 
@@ -3245,7 +3205,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           training on the <strong>SR-71 Blackbird</strong>:
           <strong>Chuang Jen-liang (莊人亮) and Chang Hsieh (張燮) are the only two ROC Air
           Force pilots ever to have received SR-71 training</strong>
-          <a href="https://gkjlai.pixnet.net/blog/posts/9462684356" target="_blank" rel="noopener" class="cite-chip">[<em>Heroes of the High Altitude: An Oral History of the Black Cat Squadron</em> (高空的勇者：黑貓中隊口述歷史), via gkjlai.pixnet.net]</a>
+          <span class="cite-chip">[<em>Heroes of the High Altitude: An Oral History of the Black Cat Squadron</em> (高空的勇者：黑貓中隊口述歷史)]</span>
           &mdash; a distinction shared by no other pilot in the service's
           history. He retired as a major in 1969, pursued further study and
           founded a business in the United States, and died in Taipei on
