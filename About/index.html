@@ -114,10 +114,13 @@ nav.site-nav {
 }
 .programme-card:hover { border-left-color:var(--gold); }
 .programme-card h3 { font-size:1.05rem; color:var(--cream); margin-bottom:0.35rem; }
-.programme-card .card-meta { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.5rem; }
-.programme-card .card-meta span::after { content:" ·"; margin-left:0.25rem; }
-.programme-card .card-meta span:last-child::after { content:""; }
+.programme-card .card-meta { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.7rem; display:flex; flex-direction:column; gap:0.28rem; }
+.programme-card .card-meta span { line-height:1.5; }
 .programme-card p { color:var(--body); font-size:0.9rem; line-height:1.7; margin-bottom:0; }
+.programme-card p + p { margin-top:0.7rem; }
+.cite-chip { font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--gold); white-space:nowrap; }
+.programme-card figure { margin:1rem 0; text-align:center; }
+.programme-card figcaption { font-family:"DM Mono",monospace; font-size:0.65rem; color:var(--faint); line-height:1.6; margin-top:0.5rem; text-align:left; }
 
 /* Collaborator card */
 .collab-card {
@@ -282,7 +285,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           <li>Theoretical physics, National Taiwan University &amp; National Dong Hwa University (1st in cohort)</li>
           <li>Founder &amp; sole researcher, Logarcheon Inc. (est. 2024)</li>
           <li>Active Indo-Pacific IR/IL research programme (pre-publication)</li>
-          <li>ORCID: <a href="https://orcid.org/0009-0008-0796-9478" target="_blank">0009-0008-0796-9478</a></li>
+          <li>ORCID: <a href="https://orcid.org/0009-0008-0796-9478" target="_blank" rel="noopener noreferrer">0009-0008-0796-9478</a></li>
         </ul>
       </div>
     </div>
@@ -1456,7 +1459,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
                 fortune&rdquo; accumulated through correct omen-reading &mdash;
                 virtue as what accumulates when the eye reads the sacred axis
                 correctly.
-                <a href="https://zhuanlan.zhihu.com/p/106937575" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.64rem;color:var(--gold);">[Zhihu]</a>
+                <a href="https://zhuanlan.zhihu.com/p/106937575" target="_blank" rel="noopener" class="cite-chip">[Zhihu]</a>
               </p>
             </div>
 
@@ -1470,7 +1473,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
                 Boodberg: early 直 graphs show a straight line over 目 (eye);
                 he translates 德 as <em>arrective</em> — potent but not coercive,
                 influencing by orientation rather than force.
-                <a href="https://www.163.com/dy/article/JIIHFUGL0556660T.html" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.64rem;color:var(--gold);">[NetEase]</a>
+                <a href="https://www.163.com/dy/article/JIIHFUGL0556660T.html" target="_blank" rel="noopener" class="cite-chip">[NetEase]</a>
               </p>
               <p style="font-size:0.82rem;color:var(--muted);line-height:1.68;margin-bottom:0.45rem;">
                 <strong>德 =</strong> the king's or virtuous person's unobstructed
@@ -1681,7 +1684,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
                 The foundation stone of the new Hall on The Bund was laid in July 1865,
                 and was one of the first buildings of pleasing character to appear on
                 the waterfront.&rdquo;
-                <a href="http://service.shanghai.gov.cn/sheninfo/specialdetail.aspx?Id=d6d123fb-2b30-4a52-b100-621a47e8ed0b" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Shanghai.gov.cn]</a>
+                <a href="http://service.shanghai.gov.cn/sheninfo/specialdetail.aspx?Id=d6d123fb-2b30-4a52-b100-621a47e8ed0b" target="_blank" rel="noopener" class="cite-chip">[Shanghai.gov.cn]</a>
                 The president of 聖約翰大學 &mdash; the defining figure of the institution
                 during 盛愛頤's years there &mdash; regarded Freemasonry as
                 part of Shanghai's civic landscape, not as something alien to his world.
@@ -1697,7 +1700,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
                 the article establishes that Masonic social networks were the
                 operational infrastructure through which Shanghai's Anglican institutional
                 life was physically built.
-                <a href="https://www.cambridge.org/core/journals/enterprise-and-society/article/abs/organizational-improvisation-architectural-piggybacking-and-masonic-networking-in-the-international-settlement-shanghai-building-an-anglican-cathedral-18641869/1FC1DE307332BCA28D76133758B800E4" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Cambridge Core]</a>
+                <a href="https://www.cambridge.org/core/journals/enterprise-and-society/article/abs/organizational-improvisation-architectural-piggybacking-and-masonic-networking-in-the-international-settlement-shanghai-building-an-anglican-cathedral-18641869/1FC1DE307332BCA28D76133758B800E4" target="_blank" rel="noopener" class="cite-chip">[Cambridge Core]</a>
                 The Anglican cathedral and 聖約翰大學 share the same founding social
                 world &mdash; and that world was Masonic.
               </p>
@@ -1714,7 +1717,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
                 聖約翰大學 from its inception. They maintained their own hall:
                 &ldquo;The American lodges had built a hall adjoining Avenue P&eacute;tain&rdquo;
                 (今恆山路 / today's Hengshan Road).
-                <a href="http://service.shanghai.gov.cn/sheninfo/specialdetail.aspx?Id=d6d123fb-2b30-4a52-b100-621a47e8ed0b" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Shanghai.gov.cn]</a>
+                <a href="http://service.shanghai.gov.cn/sheninfo/specialdetail.aspx?Id=d6d123fb-2b30-4a52-b100-621a47e8ed0b" target="_blank" rel="noopener" class="cite-chip">[Shanghai.gov.cn]</a>
               </p>
               <p style="color:var(--body);font-size:0.86rem;line-height:1.78;margin-bottom:0.5rem;">
                 The chain from 莊德華's lineage to this world runs directly:
@@ -1758,13 +1761,13 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
               陳光甫和張仁奎換了帖子，成為異性兄弟 &mdash;
               陳光甫 and the Green Gang boss 張仁奎 exchanged written pledges
               and became sworn brothers.
-              <a href="https://www.alumni.cuhk.edu.hk/aahcp/Article%202016%20-%205568-IanHuen.pdf" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[CUHK]</a>
+              <a href="https://www.alumni.cuhk.edu.hk/aahcp/Article%202016%20-%205568-IanHuen.pdf" target="_blank" rel="noopener" class="cite-chip">[CUHK]</a>
               換帖 is not a business courtesy: it is the specific ritual act of
               initiatic brotherhood — the same register as 洪門 oath-taking.
               陳光甫 then became 杜月笙's close personal friend and subsequently
               sat on the board of 杜月笙's 中匯銀行:
               銀行界名人如錢新之和陳光甫都是中匯銀行的董事.
-              <a href="https://www.alumni.cuhk.edu.hk/aahcp/Article%202016%20-%205568-IanHuen.pdf" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[CUHK]</a>
+              <a href="https://www.alumni.cuhk.edu.hk/aahcp/Article%202016%20-%205568-IanHuen.pdf" target="_blank" rel="noopener" class="cite-chip">[CUHK]</a>
             </p>
             <p style="color:var(--body);font-size:0.87rem;line-height:1.78;">
               The wider coercion mechanism is documented in Wikipedia's article on 青幫:
@@ -1772,7 +1775,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
               讓他們購買國債 &mdash; T.V. Soong (盛愛頤's rejected suitor, an SCSB shareholder)
               jointly deployed the Green Gang to pressure Shanghai banks into buying
               government bonds.
-              <a href="https://zh.wikipedia.org/zh-tw/%E9%9D%92%E5%B9%AB" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Wikipedia &mdash; 青幫]</a>
+              <a href="https://zh.wikipedia.org/zh-tw/%E9%9D%92%E5%B9%AB" target="_blank" rel="noopener" class="cite-chip">[Wikipedia &mdash; 青幫]</a>
               The Green Gang was not an external force acting on the SCSB world from outside:
               it was woven into it at the CEO level (sworn brotherhood), the directorship
               level (中匯銀行 board), and the shareholder-coercion level simultaneously.
@@ -2011,7 +2014,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
               &mdash; making the relationship span at least
               <strong>three human generations</strong>:
               盛康 ↔ 莊俊甫 → 盛宣懷 × 莊德華 → 盛愛頤 × 莊鑄九.
-              <a href="https://zh.wikipedia.org/zh-cn/%E7%9B%9B%E5%BA%B7" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Wikipedia &mdash; 盛康]</a>
+              <a href="https://zh.wikipedia.org/zh-cn/%E7%9B%9B%E5%BA%B7" target="_blank" rel="noopener" class="cite-chip">[Wikipedia &mdash; 盛康]</a>
             </p>
             <p style="color:var(--muted);font-size:0.85rem;line-height:1.78;font-family:'DM Mono',monospace;letter-spacing:0.015em;">
               據維基百科〈盛康〉條目：1879年——盛宣懷與莊德華成婚（1891年）前十二年——
@@ -2034,7 +2037,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
               Lü Simian, Zhao Yi, and Qu Qiubai. The 莊 family itself treats the
               盛 connection as a formal, documented genealogical bond on their side &mdash;
               not merely a social tie recorded from the 盛 perspective.
-              <a href="http://news.jstv.com/a/20160626/1466923883426.shtml" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[JSTV]</a>
+              <a href="http://news.jstv.com/a/20160626/1466923883426.shtml" target="_blank" rel="noopener" class="cite-chip">[JSTV]</a>
             </p>
             <p style="color:var(--muted);font-size:0.85rem;line-height:1.78;font-family:'DM Mono',monospace;letter-spacing:0.015em;">
               2008年版<strong>毗陵莊氏族譜</strong>為正式族譜文獻，其姻亲欄明確列有
@@ -2057,7 +2060,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
               <strong>姑表婚</strong> / cross-cousin marriage that closes a loop rather
               than extends a chain. 盛愛頤 married someone already within her family
               network, not an outsider arriving from a separate lineage.
-              <a href="https://zh.wikipedia.org/zh-hant/%E7%9B%9B%E7%88%B1%E9%A2%90" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Wikipedia &mdash; 盛愛頤]</a>
+              <a href="https://zh.wikipedia.org/zh-hant/%E7%9B%9B%E7%88%B1%E9%A2%90" target="_blank" rel="noopener" class="cite-chip">[Wikipedia &mdash; 盛愛頤]</a>
             </p>
             <p style="color:var(--body);font-size:0.87rem;line-height:1.78;margin-bottom:0.45rem;">
               莊元端 is therefore not the product of two sequential exogamous marriages
@@ -2241,7 +2244,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
                   naming practice: in the 常州 elite world where 洪亮吉 and
                   莊述祖 were intellectual peers and simultaneous residents,
                   the shared naming element is unlikely to be coincidental.
-                  <a href="https://zh.wikipedia.org/wiki/%E6%B4%AA%E8%BF%B0%E7%A5%96" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Wikipedia &mdash; 洪述祖]</a>
+                  <a href="https://zh.wikipedia.org/wiki/%E6%B4%AA%E8%BF%B0%E7%A5%96" target="_blank" rel="noopener" class="cite-chip">[Wikipedia &mdash; 洪述祖]</a>
                 </p>
               </div>
 
@@ -2261,7 +2264,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
                   character), placing her within the same generational stratum
                   of the 洪 clan — a branch of the same 洪 lineage that the
                   毗陵莊氏族譜 formally registers as 姻親 through 洪亮吉.
-                  <a href="https://zh.wikipedia.org/wiki/%E6%B4%AA%E9%87%91%E5%AF%B6" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--gold);">[Wikipedia &mdash; 洪金寶]</a>
+                  <a href="https://zh.wikipedia.org/wiki/%E6%B4%AA%E9%87%91%E5%AF%B6" target="_blank" rel="noopener" class="cite-chip">[Wikipedia &mdash; 洪金寶]</a>
                 </p>
               </div>
             </div>
@@ -3124,7 +3127,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           from the Western Regions (西域) who came to settle in China began to
           adopt Chinese surnames in the course of assimilating into local society;
           these included the surname Chuang (莊).&rdquo;
-          <a href="https://zh.wikipedia.org/zh-tw/%E8%8E%8A%E5%A7%93" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--gold);">[莊姓, zh.wikipedia.org]</a>
+          <a href="https://zh.wikipedia.org/zh-tw/%E8%8E%8A%E5%A7%93" target="_blank" rel="noopener" class="cite-chip">[莊姓, zh.wikipedia.org]</a>
           This parallels the documented case of 李 (Li) = Levi: the Kaifeng Jewish
           community confirmed that the Li family&rsquo;s original Hebrew name
           was <strong>Levi</strong>. If the Chuang surname carried a similar
@@ -3209,18 +3212,18 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 
       <!-- Chuang Jen-liang / Black Cat Squadron U-2 pilot -->
       <div class="programme-card" style="margin-top:1.4rem;">
-        <h3 style="font-size:1rem;">Chuang Jen-liang <span style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--faint);font-weight:400;">1937&ndash;2013 &nbsp;·&nbsp; ROC Air Force Academy, 39th class &nbsp;·&nbsp; Black Cat Squadron U-2C</span></h3>
+        <h3 style="font-size:1rem;">莊人亮 Chuang Jen-liang <span style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--faint);font-weight:400;">1937&ndash;2013 &nbsp;·&nbsp; ROC Air Force Academy, 39th class &nbsp;·&nbsp; Black Cat Squadron U-2C</span></h3>
         <div class="card-meta">
           <span>ROCAF 35th Reconnaissance Squadron (Black Cat Squadron) &nbsp;·&nbsp; 10 deep-penetration missions</span>
           <span>&ldquo;Tabasco&rdquo; sensor-drop over Lop Nur, 7 May 1967 &nbsp;·&nbsp; One of only two ROC pilots ever trained on the SR-71</span>
         </div>
         <p style="font-size:0.88rem;line-height:1.75;margin-bottom:0.7rem;">
-          <strong>Chuang Jen-liang</strong>, a graduate of the 39th class of the
-          ROC Air Force Academy, was assigned in 1957 to the 28th Squadron of
+          <strong>Chuang Jen-liang (莊人亮)</strong>, a graduate of the 39th class of the
+          ROC Air Force Academy (空軍官校39期), was assigned in 1957 to the 28th Squadron of
           the 3rd Group, flying the F-86F and later the F-104. In 1965 he was
           transferred to the <strong>35th Reconnaissance Squadron</strong>
-          &mdash; the <strong>Black Cat Squadron</strong>, the joint
-          ROCAF&ndash;CIA U-2 unit operating out of Taoyuan under Project Razor
+          &mdash; the <strong>Black Cat Squadron (黑貓中隊)</strong>, the joint
+          ROCAF&ndash;CIA U-2 unit operating out of Taoyuan under Project Razor (快刀計畫)
           &mdash; where he flew the U-2C on <strong>ten deep-penetration
           strategic reconnaissance missions</strong> over the mainland. In July
           1966, over Kunming, he evaded a PLA SA-2 surface-to-air missile attack
@@ -3229,48 +3232,25 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           air-defence missile attack while executing photo-reconnaissance
           missions, and on both occasions relied on his superb airmanship to
           turn peril into safety and complete the mission
-          <a href="https://www.mnd.gov.tw/File/17925" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--gold);">[ROC Ministry of National Defense, mnd.gov.tw/File/17925]</a>.
+          <a href="https://www.mnd.gov.tw/File/17925" target="_blank" rel="noopener" class="cite-chip">[ROC Ministry of National Defense, mnd.gov.tw/File/17925]</a>.
           On <strong>7 May 1967</strong> he departed Takhli air base in Thailand
           to execute the <strong>&ldquo;Tabasco&rdquo;</strong> mission
           (task number C167C), penetrating deep into mainland China to drop
-          <strong>two sensor devices at the Lop Nur nuclear test site</strong>
+          <strong>two sensor devices at the Lop Nur (羅布泊) nuclear test site</strong>
           in Xinjiang &mdash; per the same MND record, successfully gathering
           nuclear-weapons-related intelligence on mainland China for the
           Republic of China &mdash; one of the most audacious single-aircraft
           intelligence operations of the Cold War. Later in 1967 he was sent,
-          together with Chang Hsieh, to the United States for conversion
+          together with Chang Hsieh (張燮), to the United States for conversion
           training on the <strong>SR-71 Blackbird</strong>:
-          <strong>Chuang Jen-liang and Chang Hsieh are the only two ROC Air
+          <strong>Chuang Jen-liang (莊人亮) and Chang Hsieh (張燮) are the only two ROC Air
           Force pilots ever to have received SR-71 training</strong>
-          <a href="https://gkjlai.pixnet.net/blog/posts/9462684356" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--gold);">[<em>Heroes of the High Altitude: An Oral History of the Black Cat Squadron</em>, via gkjlai.pixnet.net]</a>
+          <a href="https://gkjlai.pixnet.net/blog/posts/9462684356" target="_blank" rel="noopener" class="cite-chip">[<em>Heroes of the High Altitude: An Oral History of the Black Cat Squadron</em> (高空的勇者：黑貓中隊口述歷史), via gkjlai.pixnet.net]</a>
           &mdash; a distinction shared by no other pilot in the service's
           history. He retired as a major in 1969, pursued further study and
           founded a business in the United States, and died in Taipei on
           11 May 2013, aged 76.
         </p>
-        <figure style="margin:1rem 0;text-align:center;">
-          <img src="/file/L55664.png" alt="Arizona operator's license L 55664 of Jen-Liang Chuang, issued 21 October 1964, Tucson, Arizona" style="max-width:100%;width:420px;border:1px solid rgba(212,175,55,0.35);border-radius:4px;" loading="lazy">
-          <figcaption style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--faint);line-height:1.6;margin-top:0.5rem;text-align:left;">
-            Arizona operator's license L&nbsp;55664 of Jen-Liang Chuang, issued
-            21 October 1964 in Tucson, Arizona (archived copy:
-            <a href="/file/L55664.png" style="color:var(--gold);">/file/L55664.png</a>).
-            This image circulates in several PRC sources, which falsely describe
-            it as a &ldquo;U-2 license.&rdquo; It is nothing of the kind: it is
-            an ordinary Arizona driver's license (an &ldquo;operator's
-            license&rdquo; in the terminology of the era), and its layout,
-            typography, and restriction fields can be compared directly against
-            other surviving Arizona operator's licenses of the same period.
-            The natural explanation for its existence is mundane &mdash;
-            Black Cat Squadron pilots underwent U-2 training in the United
-            States, including at bases in Arizona, and needed to drive.
-            Provenance caveat: this item derives from open-source (OSINT)
-            circulation, so its authenticity cannot be guaranteed; the
-            photograph and the personal data on the card (date of birth,
-            June 1937, consistent with his death at 76 in May 2013) do match
-            the documented record. The license number itself &mdash;
-            L&nbsp;55664 &mdash; is, at minimum, a memorable one.
-          </figcaption>
-        </figure>
         <p style="font-size:0.88rem;line-height:1.75;margin-bottom:0.7rem;">
           His ten mission dates, in the squadron's cumulative numbering:
           (066)&nbsp;1965-07-21 · (079)&nbsp;1965-11-28 · (080)&nbsp;1966-03-28 ·
@@ -3278,13 +3258,13 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           (093)&nbsp;1967-05-07 (Tabasco) · (098)&nbsp;1967-08-20 ·
           (102)&nbsp;1967-12-13.
         </p>
-        <figure style="margin:1rem 0;text-align:center;">
-          <img src="/file/L55664.png" alt="Arizona operator's license No. L 55664 issued to Jen-liang Chuang, Tucson, 21 October 1964" style="max-width:100%;width:420px;border:1px solid var(--faint);border-radius:4px;" loading="lazy">
-          <figcaption style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--faint);margin-top:0.5rem;line-height:1.5;text-align:left;">
+        <figure>
+          <img src="/files/L55664.png" alt="Arizona operator's license No. L 55664 issued to Jen-liang Chuang (莊人亮), Tucson, 21 October 1964" style="max-width:100%;width:420px;border:1px solid var(--border);border-radius:4px;background:var(--navy-mid);" loading="lazy" decoding="async">
+          <figcaption>
             Arizona operator's license No. L&nbsp;55664, issued to Jen-liang
-            Chuang at Tucson, Arizona, 21 October 1964 (date of birth
+            Chuang (莊人亮) at Tucson, Arizona, 21 October 1964 (date of birth
             14 June 1937; renewal due on his 1967 birthday). Archived at
-            <a href="/file/L55664.png" style="color:var(--gold);">/file/L55664.png</a>.
+            <a href="/files/L55664.png" style="color:var(--gold);">/files/L55664.png</a>.
             Source-criticism note: this image circulates in several PRC-origin
             sources with the false caption that it is his &ldquo;U-2
             licence.&rdquo; It is nothing of the kind &mdash; no such document
@@ -3294,21 +3274,25 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
             of the period. The likely origin of the document is mundane: U-2
             conversion training was conducted at Davis-Monthan AFB, Tucson,
             where ROC pilots in training would naturally have obtained local
-            driver's licences. The miscaption is retained here as a small
+            driver's licences. Provenance caveat: the item derives from
+            open-source (OSINT) circulation, so its authenticity cannot be
+            guaranteed, though the photograph and personal data match the
+            documented record. The miscaption is retained here as a small
             worked example of the evidentiary discipline this page applies
             throughout: a genuine artifact, correctly dated and attributed,
-            wrapped in a false claim about what it is.
+            wrapped in a false claim about what it is. The license number
+            itself &mdash; L&nbsp;55664 &mdash; is, at minimum, a memorable one.
           </figcaption>
         </figure>
         <p style="font-size:0.88rem;line-height:1.75;margin-bottom:0.7rem;">
           A detail relevant to the surname-convergence pattern traced throughout
           this page: among his Air Force Academy classmates was
-          <strong>Sheng Shih-li</strong> &mdash; himself selected for the same
+          <strong>Sheng Shih-li (盛士禮)</strong> &mdash; himself selected for the same
           Black Cat Squadron U-2 programme. Sheng twice survived U-2 training
           accidents in the United States (Idaho, 14 August 1964; Arizona,
           19 December 1964), returned to Taiwan after withdrawing from the
           programme, and died on 12 June 1973 flying an F-104G. That a
-          <strong>Chuang</strong> and a <strong>Sheng</strong> &mdash; the two
+          <strong>Chuang (莊)</strong> and a <strong>Sheng (盛)</strong> &mdash; the two
           surnames whose matrimonial and institutional convergence this page
           documents from Changzhou through Shanghai &mdash; appear side by side
           in the same academy class and the same elite CIA-partnered
@@ -3319,9 +3303,9 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         <p style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--faint);margin-top:0.7rem;margin-bottom:0;line-height:1.5;">
           Sources: ROC Ministry of National Defense official record,
           <a href="https://www.mnd.gov.tw/File/17925" target="_blank" rel="noopener" style="color:var(--gold);">mnd.gov.tw/File/17925</a>;
-          MND Office of Historical Compilation and Translation,
+          MND Office of Historical Compilation and Translation (國防部史政編譯室),
           <em>Heroes of the High Altitude: An Oral History of the Black Cat
-          Squadron</em> (2010); Black Cat Squadron entries, Chinese and English
+          Squadron</em> (高空的勇者：黑貓中隊口述歷史) (2010); Black Cat Squadron entries, Chinese and English
           Wikipedia. Mission-log numbering follows the squadron's cumulative
           task ordering.
         </p>
@@ -3394,13 +3378,13 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 
       <!-- Ching Ban-lee / Philippine Chuang lineage -->
       <div class="programme-card" style="margin-top:1.4rem;">
-        <h3 style="font-size:1rem;">Ching Ban-lee <span style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--faint);font-weight:400;">1899&ndash;1965 &nbsp;·&nbsp; Jinjiang, Fujian &nbsp;·&nbsp; Manila &nbsp;·&nbsp; Chuang lineage, Philippine branch</span></h3>
+        <h3 style="font-size:1rem;">庄萬里 Ching Ban-lee <span style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--faint);font-weight:400;">1899&ndash;1965 &nbsp;·&nbsp; Jinjiang, Fujian &nbsp;·&nbsp; Manila &nbsp;·&nbsp; Chuang lineage, Philippine branch</span></h3>
         <div class="card-meta">
           <span>Wealthiest figure of the Philippine-Chinese business community &nbsp;·&nbsp; Founder of the Liangtu Xuan collection</span>
           <span>233 Song&ndash;Qing paintings and calligraphies donated to the Shanghai Museum, 2000</span>
         </div>
         <p style="font-size:0.88rem;line-height:1.75;margin-bottom:0.7rem;">
-          <strong>Ching Ban-lee</strong>, born in Jinjiang, Fujian, emigrated to
+          <strong>Ching Ban-lee (庄萬里)</strong>, born in Jinjiang (晉江), Fujian, emigrated to
           the Philippines at eighteen and built the family firm into one of the
           largest Chinese business houses in Manila &mdash; vegetable-oil
           milling, steel, tobacco, and textiles &mdash; becoming the wealthiest
@@ -3413,44 +3397,44 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           College, the Chinese School, the Philippine Chuang Clan Association,
           and other economic and cultural bodies. He died in Boston on
           19 October 1965
-          <a href="https://baike.baidu.com/item/%E5%BA%84%E4%B8%87%E9%87%8C/3340584" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--gold);">[Baidu Baike]</a>.
+          <a href="https://baike.baidu.com/item/%E5%BA%84%E4%B8%87%E9%87%8C/3340584" target="_blank" rel="noopener" class="cite-chip">[Baidu Baike]</a>.
           A devoted collector who grieved the dispersal of Chinese art abroad,
           he assembled in his Manila studio &mdash; the
-          <strong>Liangtu Xuan</strong> (&ldquo;Studio of the Two Paths&rdquo;)
+          <strong>Liangtu Xuan (兩塗軒)</strong>
           &mdash; one of Asia's foremost private collections of classical
           Chinese painting and calligraphy; in 2000 his children, honouring his
           wish that the works return home intact, donated 233 pieces spanning
           the Song through Qing dynasties to the Shanghai Museum, which
           maintains a dedicated Liangtu Xuan gallery in his name. His eldest
-          grandson, the composer <strong>Jeffrey Ching</strong>, has built an
+          grandson, the composer <strong>Jeffrey Ching (庄祖欣)</strong>, has built an
           international career writing orchestral works steeped in classical
           Chinese sources &mdash; a cycle of symphonies named for Chinese
           dynasties, including one staging a musical dialogue between the Ming
-          music theorist Zhu Zaiyu and Bach.
+          music theorist Zhu Zaiyu (朱載堉) and Bach.
         </p>
       </div>
 
       <!-- Tzu-i Chuang Mullinax -->
       <div class="programme-card" style="margin-top:1.4rem;">
-        <h3 style="font-size:1rem;">Tzu-i Chuang Mullinax <span style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--faint);font-weight:400;">b. 1974, Taipei &nbsp;·&nbsp; Chuang lineage, Taiwan branch &nbsp;·&nbsp; writer &amp; chef</span></h3>
+        <h3 style="font-size:1rem;">莊祖宜 Tzu-i Chuang Mullinax <span style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--faint);font-weight:400;">b. 1974, Taipei &nbsp;·&nbsp; Chuang lineage, Taiwan branch &nbsp;·&nbsp; writer &amp; chef</span></h3>
         <div class="card-meta">
           <span>Author of <em>The Kitchen Anthropologist</em> &nbsp;·&nbsp; Wife of the last U.S. Consul General in Chengdu</span>
           <span>Target of a state-amplified online campaign, 2020&ndash;2021</span>
         </div>
         <p style="font-size:0.88rem;line-height:1.75;margin-bottom:0.7rem;">
-          <strong>Tzu-i Chuang Mullinax</strong>, born in Taipei in 1974 to a
+          <strong>Tzu-i Chuang Mullinax (莊祖宜)</strong>, born in Taipei in 1974 to a
           Shanghainese father and the soprano and Soochow University music
-          professor Fan Yu-wen, graduated in English from National Taiwan
+          professor Fan Yu-wen (范宇文), graduated in English from National Taiwan
           Normal University, took a master's degree in anthropology at
           Columbia, and entered the doctoral programme in anthropology at the
           University of Washington &mdash; where she met her husband, the
-          American diplomat James Mullinax &mdash; before abandoning the PhD
+          American diplomat James Mullinax (林傑偉) &mdash; before abandoning the PhD
           for a diploma at the Cambridge School of Culinary Arts. Her books
-          <em>The Kitchen Anthropologist</em> and <em>Actually, Everyone Wants
-          to Cook</em> made her one of the best-known food writers in the
+          <em>The Kitchen Anthropologist</em> (廚房裡的人類學家) and <em>Actually, Everyone Wants
+          to Cook</em> (其實，大家都想做菜) made her one of the best-known food writers in the
           Chinese-speaking world; during her husband's Shanghai posting she
           filmed <strong>68 short cooking films</strong> in the
-          <em>Kitchen Anthropologist</em> series. Her husband served as the
+          <em>Kitchen Anthropologist</em> (廚房裡的人類學家) series. Her husband served as the
           <strong>last United States Consul General in Chengdu</strong>, the
           post closed by Beijing in July 2020 in retaliation for the American
           closure of the Chinese consulate in Houston.
@@ -3480,25 +3464,25 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
           of fake news &mdash; the original text plainly compared the
           <em>virus</em>, not China, to the Nazis &mdash; and the rest a
           campaign of misogynist personal attack by state-aligned commenters.
-          In a 2024 interview with the journalist Chai Jing she disclosed that
+          In a 2024 interview with the journalist Chai Jing (柴靜) she disclosed that
           during the 2020 storm, individuals on <em>both</em> sides of the
           strait &mdash; including well-placed, highly educated accusers in
           Taiwan &mdash; reported her to the U.S. government as a Chinese spy,
           triggering an investigation of her family; the experience, she said,
           taught her that evil is a matter of human nature, not of political
           system
-          <a href="https://zh.wikipedia.org/wiki/%E8%8E%8A%E7%A5%96%E5%AE%9C" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--gold);">[Chinese Wikipedia]</a>.
+          <a href="https://zh.wikipedia.org/wiki/%E8%8E%8A%E7%A5%96%E5%AE%9C" target="_blank" rel="noopener" class="cite-chip">[Chinese Wikipedia]</a>.
         </p>
         <p style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--faint);margin-top:0.7rem;margin-bottom:0;line-height:1.5;">
           Disambiguation: her elder sister, a Taiwan-born painter and writer
-          resident in Germany, shares the exact Chinese name of the composer
-          Jeffrey Ching (grandson of Ching Ban-lee, above); the two are
+          resident in Germany, shares the exact Chinese name (莊祖欣) of the composer
+          Jeffrey Ching (grandson of Ching Ban-lee 庄萬里, above); the two are
           unrelated individuals who happen to bear identical characters.
         </p>
       </div>
 
       <p>
-        <strong>Susan Zhuang</strong>, New York City Council member for
+        <strong>Susan Zhuang (莊文怡)</strong>, New York City Council member for
         Brooklyn's 43rd district, was the subject of an August 2025
         New York Times investigation reporting that she appeared with
         officials of the Chinese consulate on at least 30 occasions and
@@ -3672,7 +3656,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 
   <p style="margin-top:1.4rem;color:var(--body);font-size:0.92rem;">
     <a href="https://drive.google.com/file/d/1iSI7cg7w9mKDKltg6gaxNAKUIs8xFpb_/view?usp=sharing"
-       target="_blank">
+       target="_blank" rel="noopener noreferrer">
       Read the full lecture notes (PDF) &rarr;
     </a>
   </p>
@@ -3869,9 +3853,9 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <h4>Catholic Works &amp; Resources</h4>
       <p>
         <a href="/Research#faith">Taiwan / Holy See pastoral strategy paper &rarr;</a><br>
-        <a href="https://drive.google.com/file/d/1IFu_0nuuAQfeySwB_esI6RyAnRZrMZjt/view?usp=sharing" target="_blank">Plenary Indulgence adult catechesis &rarr;</a><br>
-        <a href="https://drive.google.com/file/d/1z2DScf5YcLpmvriAV2tGQspHBHSB_o4T/view?usp=sharing" target="_blank">Rule of Life (Ignatian&ndash;Cistercian lay horarium) &rarr;</a><br>
-        <a href="https://drive.google.com/file/d/1_bDq1rkjYoNoNCNpw43WRFs-QeE7CyMM/view?usp=sharing" target="_blank">Algerian as Tavern Inscription (typography &amp; sacred art) &rarr;</a>
+        <a href="https://drive.google.com/file/d/1IFu_0nuuAQfeySwB_esI6RyAnRZrMZjt/view?usp=sharing" target="_blank" rel="noopener noreferrer">Plenary Indulgence adult catechesis &rarr;</a><br>
+        <a href="https://drive.google.com/file/d/1z2DScf5YcLpmvriAV2tGQspHBHSB_o4T/view?usp=sharing" target="_blank" rel="noopener noreferrer">Rule of Life (Ignatian&ndash;Cistercian lay horarium) &rarr;</a><br>
+        <a href="https://drive.google.com/file/d/1_bDq1rkjYoNoNCNpw43WRFs-QeE7CyMM/view?usp=sharing" target="_blank" rel="noopener noreferrer">Algerian as Tavern Inscription (typography &amp; sacred art) &rarr;</a>
       </p>
     </div>
   </div>
@@ -4006,15 +3990,15 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <div class="contact-item">
       <span class="label">GitHub</span>
-      <a href="https://github.com/williamchuang" target="_blank">github.com/williamchuang</a>
+      <a href="https://github.com/williamchuang" target="_blank" rel="noopener noreferrer">github.com/williamchuang</a>
     </div>
     <div class="contact-item">
       <span class="label">LinkedIn</span>
-      <a href="https://linkedin.com/in/chuang-william" target="_blank">linkedin.com/in/chuang-william</a>
+      <a href="https://linkedin.com/in/chuang-william" target="_blank" rel="noopener noreferrer">linkedin.com/in/chuang-william</a>
     </div>
     <div class="contact-item">
       <span class="label">ORCID</span>
-      <a href="https://orcid.org/0009-0008-0796-9478" target="_blank">0009-0008-0796-9478</a>
+      <a href="https://orcid.org/0009-0008-0796-9478" target="_blank" rel="noopener noreferrer">0009-0008-0796-9478</a>
     </div>
     <div class="contact-item">
       <span class="label">Research Page</span>
