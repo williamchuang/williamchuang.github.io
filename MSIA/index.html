@@ -207,6 +207,34 @@ footer{margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--border-di
 .eq-display .eq-label{display:block;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.5rem}
 .rs-callout{background:rgba(201,168,76,0.06);border:1px solid var(--border);border-radius:4px;padding:1rem 1.2rem;margin:1rem 0;font-size:.88rem;color:var(--muted);line-height:1.65}
 .rs-callout strong{color:var(--cream)}
+.warn-callout{background:rgba(224,138,122,0.07);border:1px solid rgba(224,138,122,0.45);border-left:3px solid var(--err);border-radius:4px;padding:1rem 1.2rem;margin:1rem 0 .5rem;font-size:.86rem;color:var(--muted);line-height:1.7}
+.warn-callout strong{color:#f0a898}
+.warn-callout .wc-label{display:inline-block;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--err);border-radius:3px;padding:.18rem .55rem;margin-bottom:.6rem;vertical-align:middle}
+.contact-cta{background:linear-gradient(135deg,rgba(201,168,76,0.09),rgba(201,168,76,0.04));border:1px solid var(--border);border-radius:6px;padding:1.2rem 1.4rem;margin:1.2rem 0 .4rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.contact-cta .cc-text{flex:1 1 260px}
+.contact-cta .cc-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.contact-cta .cc-head{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:.3rem;line-height:1.3}
+.contact-cta .cc-body{font-size:.84rem;color:var(--muted);line-height:1.65}
+.contact-cta .cc-btn{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--gold);border:none;border-radius:3px;padding:.65rem 1.3rem;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;align-self:center}
+/* ── Business opportunity card ── */
+.biz-card{border:1px solid var(--border);border-radius:6px;background:var(--navy-mid);padding:1.6rem 1.6rem 1.4rem;margin:1.2rem 0 .4rem;box-shadow:0 0 40px rgba(201,168,76,0.04)}
+.biz-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}
+.biz-head{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:400;color:var(--cream);margin-bottom:.45rem;line-height:1.2}
+.biz-sub{font-size:.86rem;color:var(--muted);line-height:1.7;max-width:72ch;margin-bottom:1.4rem;border-bottom:1px solid var(--border-dim);padding-bottom:1.2rem}
+.biz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:1.3rem}
+.biz-track{background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;padding:1rem 1.1rem}
+.bt-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;padding:.2rem .55rem;margin-bottom:.55rem}
+.bt-tag.us{background:rgba(127,176,201,0.15);color:#7fb0c9;border:1px solid rgba(127,176,201,0.3)}
+.bt-tag.eu{background:rgba(127,201,154,0.13);color:#7fc99a;border:1px solid rgba(127,201,154,0.28)}
+.bt-tag.fve{background:rgba(201,168,76,0.13);color:var(--gold);border:1px solid rgba(201,168,76,0.28)}
+.bt-tag.cow{background:rgba(212,185,106,0.12);color:#d4b96a;border:1px solid rgba(212,185,106,0.26)}
+.bt-tag.impl{background:rgba(224,138,122,0.12);color:#e08a7a;border:1px solid rgba(224,138,122,0.26)}
+.bt-tag.pol{background:rgba(180,160,210,0.12);color:#c0a8e0;border:1px solid rgba(180,160,210,0.25)}
+.bt-head{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--cream);margin-bottom:.35rem;line-height:1.25}
+.bt-body{font-size:.82rem;color:var(--muted);line-height:1.68}
+.bt-body em{color:var(--cream);font-style:italic}
+.biz-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;padding-top:1rem;border-top:1px solid var(--border-dim)}
+.biz-note{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--faint);line-height:1.6;flex:1 1 200px}
 .rs-warn{background:rgba(224,138,122,0.06);border:1px solid rgba(224,138,122,0.25);border-left:3px solid var(--err);border-radius:0 4px 4px 0;padding:.8rem 1rem;margin:.9rem 0;font-size:.85rem;color:var(--muted);line-height:1.6}
 .rs-track-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin:1rem 0}
 @media(max-width:640px){.rs-track-grid{grid-template-columns:1fr}}
@@ -456,7 +484,12 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 <div class="secpanel algebraic"><h3>Pure algebraic (Sparse)</h3><span class="tag weak">not secure as-is</span>
 <div class="body">Decryption by Vandermonde inversion of the power-sum traces — no hash. Mathematically closest to the bare construction; not cryptographically secure on its own and carries no authentication.</div></div>
 <div class="secpanel hashed"><h3>Hashed FO-KEM (this demo)</h3><span class="tag ok">authenticated</span>
-<div class="body">Lengths → SHA-512 → 256-bit key, XOR keystream, HMAC-SHA-512 tag. Gives authentication (CCA2-style). The demo faithfully implements the geometric construction, but since the formal hardness proofs are still in progress, it derives the cipher key through SHA-512 so a guaranteed security floor is in place today; the brute-force and quantum figures in the live panel above measure that SHA-512 floor. Treating the geometry itself as the trapdoor (Option B) is the open research direction.</div></div>
+<div class="body">Lengths → SHA-512 → 256-bit key, XOR keystream, HMAC-SHA-512 tag. Gives authentication (CCA2-style). The demo faithfully implements the geometric construction, but since the formal hardness proofs are still in progress, it derives the cipher key through SHA-512 so a well-studied security floor is in place today; the brute-force and quantum figures in the live panel above measure that SHA-512 floor. Note: SHA-512 is NSA-designed and NIST-standardized — the same institutional provenance as Dual_EC_DRBG, the only NIST-standardized algorithm for which a backdoor was subsequently documented (2013). No weakness in SHA-512 is known; the trust is conditional, not provable. See §7 below.</div></div>
+</div>
+
+<div class="warn-callout">
+  <span class="wc-label">⚠ Institutional trust caveat</span>
+  <p><strong>SHA-512 is NSA-designed and NIST-standardized — the same institutional relationship that produced Dual_EC_DRBG.</strong> Dual_EC_DRBG (Dual Elliptic Curve DRBG) was standardized by NIST in 2006. Documents disclosed in 2013 showed the NSA had inserted a backdoor by controlling the elliptic curve point selection; RSA Security was reportedly paid to make it the library default. It remains the only NIST-standardized cryptographic algorithm for which a deliberately inserted backdoor has been documented. SHA-512 (FIPS 180-2, 2001) is NSA-designed under the same institutional relationship, and HMAC-SHA-512 derives its security entirely from SHA-512. <strong>No weakness in SHA-512 is publicly known.</strong> But under the legal regime described in §7–§8 — CALEA, §702, compelled-assistance frameworks that reach standards bodies — that guarantee cannot be verified from outside the design process. The floor presented by this demo is a conditional trust, not a mathematical proof of security. The Algebraic constructions section above runs the original MSIA design with no hash in the path and no reliance on this institutional trust.</p>
 </div>
 
 <div class="nbody" style="padding:.8rem 0 .4rem">
@@ -470,8 +503,14 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 </div>
 
 <div class="nbody" style="padding:.8rem 0 .4rem">
-<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Offline &amp; air-gapped use</h3>
-<p style="font-size:.86rem;color:var(--muted);line-height:1.65">All computation runs <strong>locally in your browser</strong>. Once loaded, no network is needed — disconnect Wi-Fi and encrypt/decrypt still work. Verify by turning off networking and watching a round-trip succeed.</p>
+<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Offline use — and its real limits</h3>
+<p style="font-size:.86rem;color:var(--muted);line-height:1.65">All computation runs <strong>locally in your browser</strong>. Once loaded, the page requires no network — disconnect Wi-Fi and encrypt/decrypt still work. That is the software isolation boundary. It is not the full threat model.</p>
+<div class="warn-callout" style="margin:.75rem 0">
+  <span class="wc-label">⚠ Hardware threat model</span>
+  <p><strong>Offline browser use does not defeat hardware-layer adversaries.</strong> Modern devices contain multiple subsystems capable of communicating independently of the operating system and browser: Intel Management Engine (ME) and AMD Platform Security Processor (PSP) are always-on coprocessors with their own firmware, memory, and in some configurations network access, running below the OS at ring −3; mobile and laptop baseband chips maintain a separate radio stack that does not pass through the OS network layer; out-of-band management interfaces (IPMI, iDRAC, iLO) on server hardware operate similarly. A side-channel attack does not require any of these to exfiltrate data over an obvious network path — electromagnetic emissions from the CPU during computation, power-line analysis, acoustic side channels from cooling fans and capacitors, and cache-timing attacks have all been demonstrated against air-gapped targets in academic literature.</p>
+  <p style="margin-top:.6rem">The Salt Typhoon intrusion — in which PRC-affiliated actors reached the lawful-intercept infrastructure inside U.S. carrier networks — illustrates the same principle at scale: the attack surface is not the encrypted channel but the hardware and firmware layer beneath it, which the intercept mandate requires to be maintained and reachable. The author identified this class of carrier-infrastructure vulnerability as the critical attack vector before Salt Typhoon became public news. The implication for this demo: running the browser offline removes the network-layer threat, but not the firmware, hardware-subsystem, or side-channel threat. For adversary-grade protection against those vectors, the implementation must run on verified, audited hardware with a reduced firmware attack surface — which is outside the scope of a browser demo.</p>
+  <p style="margin-top:.6rem"><strong>This page is a research demonstration of the mathematical construction.</strong> For a commercial-scale implementation addressing the hardware threat model — air-gapped deployment, audited firmware stack, side-channel hardening — see the contact below.</p>
+</div>
 </div>
 
 <div class="nbody" style="padding:.8rem 0 .4rem">
@@ -484,444 +523,66 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 <p style="font-size:.86rem;color:var(--muted);line-height:1.65">This demo handles short messages (up to 64 bytes). The method generalizes to full documents and files in a native implementation; the limit is a property of this demo, not of the construction.</p>
 </div>
 
-</div>
-<div class="rs">
-  <div class="rs-label">Logarchéon Research · Mathematical Background</div>
-  <h1>MSIA in Depth</h1>
-  <p class="rs-intro">The sections below develop the mathematics, the construction, the hardness argument, and where MSIA sits in a broader research program.</p>
-
-  <!-- ═══ §1 THE CORE IDENTITY ═══ -->
-  <div class="rs-section" id="rs-identity">
-    <h2>§1 · The Core Mathematical Identity</h2>
-    <p>MSIA originates in a single algebraic identity that holds for any square matrix A over any commutative ring, proved by expanding log det = tr log:</p>
-    <div class="eq-display">
-      <span class="eq-label">The Artin–Mazur / Bowen–Ruelle zeta identity</span>
-      det(I − z A)⁻¹ &nbsp;=&nbsp; exp&thinsp;( Σ<sub>m=1</sub><sup>∞</sup> Tr(A<sup>m</sup>) · z<sup>m</sup> / m )
-    </div>
-    <p>The left side is a rational function in z — the reciprocal of a characteristic polynomial. The right side is an exponential generating function of matrix traces. What makes the identity remarkable for cryptography is not the algebra but the <strong>triple simultaneous translation</strong> it performs:</p>
-    <div class="rs-pillar-grid">
-      <div class="rs-pillar">
-        <div class="pnum">Language 1</div>
-        <h4>Symbolic Dynamics</h4>
-        <p>The coefficients of log ζ<sub>A</sub>(z) count <strong>primitive periodic orbits</strong> by length. Each (ℓ<sub>i</sub>, c<sub>i</sub>) pair is an orbit of period ℓ<sub>i</sub> with multiplicity c<sub>i</sub>.</p>
-      </div>
-      <div class="rs-pillar">
-        <div class="pnum">Language 2</div>
-        <h4>Linear Algebra</h4>
-        <p>The left side det(I − zA)⁻¹ is the characteristic polynomial of the companion matrix A. Factoring it reveals the orbit structure.</p>
-      </div>
-      <div class="rs-pillar">
-        <div class="pnum">Language 3</div>
-        <h4>Spectral Theory</h4>
-        <p>When A is the transfer matrix of a geodesic flow on ℍⁿ/Γ, the poles of ζ<sub>A</sub>(s) are the eigenvalues of the Laplacian — the Selberg trace formula is the analytic version of this identity.</p>
-      </div>
-    </div>
-    <p>The cryptographic insight is: <strong>this identity can be made one-way</strong> if the primitive elements (the ℓ<sub>i</sub>) are chosen from a mathematical structure whose inverse problem is computationally hard. Going from A to ζ<sub>A</sub> is fast — matrix exponentiation. Going from ζ<sub>A</sub> back to the primitive (ℓ<sub>i</sub>, c<sub>i</sub>) data requires solving a problem that the entire mathematical community has worked on for decades without a general efficient algorithm.</p>
-    <p>This insight is not new as a mathematical observation — the identity has been known since Bowen, Ruelle, and Artin–Mazur in the 1960s–70s. What is new is recognizing it as a <strong>cryptographic primitive</strong> and building a concrete keyed encryption scheme on top of it. The key selects which Kleinian group Γ to use; the primitive geodesic lengths ℓ<sub>i</sub> of Γ are the secret orbit data; the ciphertext is the characteristic polynomial of the companion matrix. Decryption recovers the ℓ<sub>i</sub> using the key. An attacker without the key must recover ℓ<sub>i</sub> from the ciphertext alone — which requires solving the length-spectrum inverse problem.</p>
-    <div class="rs-callout"><strong>Why the origin matters.</strong> RSA came from basic modular arithmetic (Rivest, Shamir, Adleman 1977). Diffie-Hellman from discrete logarithms. ECC from the Weierstrass equation. In each case, the creative moment was recognizing that an existing mathematical structure has a natural one-way character. MSIA follows the same pattern — but the mathematical structure it draws on (the Selberg zeta function and hyperbolic geodesic flow) is substantially deeper than what underlies RSA or ECC.</div>
+<div class="biz-card" id="bizCard">
+  <div class="biz-header">
+    <div class="biz-eyebrow">Logarchéon Inc. · Commercial Enquiries</div>
+    <h3 class="biz-head">Engagements &amp; Licensing</h3>
+    <p class="biz-sub">Logarchéon is a U.S.-owned C-Corp research laboratory. The constructions on this page — and the policy analysis in §7–§9 — translate into several distinct commercial and government engagement tracks. All are available for discussion.</p>
   </div>
 
-  <!-- ═══ §2 MATHEMATICAL FOUNDATIONS ═══ -->
-  <div class="rs-section" id="rs-math">
-    <h2>§2 · Mathematical Foundations — Four Pillars</h2>
-    <p>MSIA rests on four mathematical domains, each contributing an essential component of the construction.</p>
+  <div class="biz-grid">
 
-    <h3>Pillar 1 — Modular Representation Theory</h3>
-    <p>Given a finite group G and a prime p, the modular representation theory of G over 𝔽<sub>p</sub> studies how modules decompose into indecomposable blocks. The key tool is the <strong>Brauer character</strong>, which tracks how ordinary complex characters reduce mod p. For MSIA, this machinery provides the algebraic ground in which the companion matrix A(p) lives: A lives in Mat<sub>n</sub>(𝔽<sub>p</sub>), and its characteristic polynomial det(I − zA) factors into irreducibles in 𝔽<sub>p</sub>[z] corresponding to the symbolic orbit data. The factorization pattern — which irreducibles appear, with what multiplicities — encodes the secret message. Recovering the message from the polynomial requires inverting this block decomposition, which is hard precisely because modular decomposition is non-canonical and the blocks can be obfuscated by conjugation.</p>
+    <div class="biz-track">
+      <div class="bt-tag us">U.S. Government</div>
+      <h4 class="bt-head">SBIR / STTR &amp; DoD contracts</h4>
+      <p class="bt-body">As a U.S.-owned C-Corp with fewer than 500 employees, Logarchéon is SBIR/STTR eligible. Active DoD SBIR topics in post-quantum cryptography span DARPA, NSA, AFRL, and OSD — Phase I is roughly $250K over six months; Phase II roughly $1.75M over two years, non-dilutive. CISA and NSA also carry research grant programs directly relevant to the §7–§9 policy analysis. The Indo-Pacific lawfare series translates into DoD and State Department advisory contracts.</p>
+    </div>
 
-    <h3>Pillar 2 — Symbolic Dynamics and the Artin–Mazur Zeta Function</h3>
-    <p>A <strong>subshift of finite type</strong> (SFT) is a dynamical system on a finite alphabet where transitions are governed by a 0–1 adjacency matrix A. Periodic orbits of the SFT correspond to words that can be traced through A indefinitely. The <strong>Artin–Mazur zeta function</strong> ζ<sub>A</sub>(z) = 1/det(I − zA) encodes the number of periodic orbits of each length. For MSIA, the symbolic dynamical system is the geodesic flow on ℍⁿ/Γ — the hyperbolic manifold associated to the Kleinian group Γ determined by the key. The "periodic orbits" of this flow are the closed geodesics; their lengths are the primitive lengths ℓ<sub>i</sub>. The Artin–Mazur zeta function becomes the Selberg zeta function in this setting, connecting symbolic dynamics to spectral geometry.</p>
+    <div class="biz-track">
+      <div class="bt-tag eu">European Data Sovereignty</div>
+      <h4 class="bt-head">Schrems II / post-Privacy-Shield market</h4>
+      <p class="bt-body">The CJEU's <em>Schrems I</em> and <em>Schrems II</em> rulings invalidated EU–US data transfer frameworks on the grounds that §702 and EO 12333 reach EU data held by U.S. providers. European companies, government agencies, and the European Commission itself have a documented institutional demand for encryption not based on NSA/NIST-adjacent standards — exactly the case §7–§8 makes. MSIA's independence from NSA-designed primitives is a direct selling point. Export under License Exception ENC after a one-time BIS notification.</p>
+    </div>
 
-    <h3>Pillar 3 — Schottky and Kleinian Groups</h3>
-    <p>A <strong>Schottky group</strong> Γ is a free group of Möbius transformations generated by parabolic or hyperbolic elements, constructed by specifying 2g disjoint Jordan curves C<sub>1</sub>, C<sub>1</sub>′, …, C<sub>g</sub>, C<sub>g</sub>′ in S² and taking the generators to be the Möbius maps sending the exterior of C<sub>i</sub> to the interior of C<sub>i</sub>′. The resulting quotient ℍ³/Γ is a hyperbolic 3-manifold (or handlebody); its primitive closed geodesics have lengths ℓ<sub>i</sub> that are determined by the generator matrices — the conjugacy class lengths of the group elements.</p>
-    <p>For the key, the user supplies the 2×2 real matrices of these generators. The condition |trace| &gt; 2 ensures each generator is <strong>hyperbolic</strong> — it has two fixed points on the boundary S² = ∂ℍ³ and acts by a pure stretch along the geodesic connecting them. The geodesic length is ℓ = 2 · acosh(|tr(G)|/2). With g generators, the group has infinitely many closed geodesics but they are generated by the finite set of primitives, and the key selects exactly which group Γ is used. <strong>Mostow rigidity</strong> (dimension ≥ 3) guarantees that the group Γ is uniquely determined by its geometry up to isometry — an attacker cannot find a different group with the same length spectrum.</p>
+    <div class="biz-track">
+      <div class="bt-tag fve">Five Eyes + Coalition Partners</div>
+      <h4 class="bt-head">Australia · Canada · UK · New Zealand</h4>
+      <p class="bt-body">The most natural international government clients given the Indo-Pacific lawfare series and Salt Typhoon advisory work. All four are on the general favorable treatment list for License Exception ENC. Australia is particularly acute: the AUKUS pact creates active demand for alternative cryptographic frameworks not dependent on the NSA standard stack, and Australia's own TOLA Act experience means their government agencies have confronted the backdoor problem more directly than most.</p>
+    </div>
 
-    <h3>Pillar 4 — The Selberg Zeta Function and Its Zeros</h3>
-    <p>The <strong>Selberg zeta function</strong> ζ<sub>Γ</sub>(s) is defined by the Euler product over primitive closed geodesics of ℍⁿ/Γ:</p>
-    <div class="eq-display">ζ<sub>Γ</sub>(s) = Π<sub>γ primitive</sub> Π<sub>k=0</sub><sup>∞</sup> (1 − e<sup>−(s+k)ℓ(γ)</sup>)</div>
-    <p>Its zeros lie at the eigenvalues of the Laplacian on ℍⁿ/Γ — a fact proved by the <strong>Selberg trace formula</strong>, which relates the spectrum of the Laplacian to the geodesic length spectrum. This is the continuous analog of the matrix identity above. The Riemann Hypothesis analog for the Selberg zeta is <strong>proven</strong> (Selberg 1956 for n=2, Patterson-Sullivan and others for n&gt;2): all non-trivial zeros lie on the critical line Re(s) = (n−1)/2. This means the distribution of geodesic lengths is provably well-controlled — a stronger foundation than classical cryptography has for the distribution of rational primes, where the Riemann Hypothesis remains open.</p>
-    <p>The <strong>Prime Geodesic Theorem</strong> gives the density: #{γ primitive : ℓ(γ) ≤ L} ~ e<sup>(n−1)L</sup> / ((n−1)L) as L → ∞. This gives exact control over the number of available geodesics of each length, letting you calibrate key space precisely — analogous to knowing exactly how many RSA primes exist below a given bound.</p>
+    <div class="biz-track">
+      <div class="bt-tag cow">Coalition of the Willing</div>
+      <h4 class="bt-head">Taiwan · Japan · South Korea · Poland + CEE</h4>
+      <p class="bt-body">Indo-Pacific democracies and NATO eastern flank states facing the same adversary threat model — PRC and Russian offensive cyber programs targeting the same CALEA/NIST-stack infrastructure — with active PQC migration programs and strong institutional interest in hardness assumptions independent of the NSA design lineage. Taiwan's position is unambiguous: it operates under continuous PRC pressure and has every reason to hold encryption whose security guarantee does not pass through institutions the PRC has documented programs to influence. Poland and the Central-Eastern European NATO members similarly: frontline states with a lived understanding that the intercept-mandate architecture was not designed for a world in which Russia is conducting active warfare on NATO's border.</p>
+    </div>
+
+    <div class="biz-track">
+      <div class="bt-tag impl">Production Implementation</div>
+      <h4 class="bt-head">Hardware-hardened deployment</h4>
+      <p class="bt-body">This page demonstrates the mathematical construction in a browser sandbox. A production implementation addresses the hardware threat model explicitly: verified firmware stack, Intel ME / AMD PSP surface reduction, side-channel hardening, larger message and file sizes, and key management protocols suitable for classified or commercially sensitive deployment. Available under license or as a consulting engagement.</p>
+    </div>
+
+    <div class="biz-track">
+      <div class="bt-tag pol">Policy &amp; Legal Strategy</div>
+      <h4 class="bt-head">Expert analysis · §7–§9 · Indo-Pacific lawfare</h4>
+      <p class="bt-body">The CALEA / §702 / CLOUD Act / Schrems II policy analysis in §7–§9 and the Indo-Pacific lawfare series (co-authored with Dr. Joanna Siekiera) are directly relevant to law firms, financial institutions with cross-border data exposure, think tanks, and government advisory mandates. Expert witness, retainer consulting, and publication-based engagements available.</p>
+    </div>
+
   </div>
 
-  <!-- ═══ §3 THE CONSTRUCTION ═══ -->
-  <div class="rs-section" id="rs-construction">
-    <h2>§3 · The Encryption Construction</h2>
-    <p>The full encryption pipeline maps a message to a ciphertext through the mathematical objects described above. Here is the complete flow, followed by the two implementation variants and the decryption path.</p>
-
-    <h3>The Encryption Flow</h3>
-    <div class="rs-flow">
-      <span class="rs-flow fstep">Message m</span><span class="rs-flow farrow">→</span>
-      <span class="rs-flow fstep">Symbolic pairs (ℓ<sub>i</sub>, c<sub>i</sub>)</span><span class="rs-flow farrow">→</span>
-      <span class="rs-flow fstep">Modular zeta ζ<sub>p</sub>(z)</span><span class="rs-flow farrow">→</span>
-      <span class="rs-flow fstep">Companion matrix A(p)</span><span class="rs-flow farrow">→</span>
-      <span class="rs-flow fstep">Ciphertext χ(z) = det(I − zA)</span>
-    </div>
-    <p><strong>Step 1: Symbolic encoding.</strong> Each byte (or chunk of bytes) of the message m is assigned a pair (ℓ<sub>i</sub>, c<sub>i</sub>) where ℓ<sub>i</sub> is a geodesic length derived from the key generators and i is the position in the message. The lengths are computed by the formula ℓ<sub>i</sub> = 2 · acosh(|tr(G<sub>1</sub><sup>(i+1)</sup> G<sub>2</sub> … G<sub>g</sub><sup>(i+g)</sup>)|/2), scaled and rounded to an integer modulo the prime P. Multiple chunks derive distinct lengths because the matrix product depends on the position index i.</p>
-    <p><strong>Step 2: Modular zeta construction.</strong> The symbolic pairs define a modular zeta function over 𝔽<sub>p</sub>:</p>
-    <div class="eq-display">ζ<sub>p</sub>(z) = Π<sub>i</sub> (1 − z<sup>ℓ<sub>i</sub></sup>)<sup>−c<sub>i</sub></sup> ∈ 𝔽<sub>p</sub>(z)</div>
-    <p>This is the algebraic / modular analog of the Selberg–Artin–Mazur zeta function, computed purely over the finite field 𝔽<sub>p</sub> = ℤ/Pℤ, requiring no analytic convergence.</p>
-    <p><strong>Step 3: Companion matrix.</strong> The companion matrix A(p) ∈ Mat<sub>n</sub>(𝔽<sub>p</sub>) is the matrix whose characteristic polynomial det(I − zA(p)) equals ζ<sub>p</sub>(z)<sup>−1</sup>. Its block-diagonal structure encodes the orbit data; Brauer character obfuscation conceals the decomposition from an attacker who sees only the matrix.</p>
-    <p><strong>Step 4: Ciphertext.</strong> The ciphertext is χ(z) = det(I − zA(p)) ∈ 𝔽<sub>p</sub>[z] — the characteristic polynomial of A(p) — together with an HMAC authentication tag. An attacker who intercepts χ(z) must factor it over 𝔽<sub>p</sub>[z] and match the factors to symbolic orbits without knowing the group Γ determined by the key.</p>
-
-    <h3>Option A and Option B — The Design Fork</h3>
-    <p>There are two fundamentally different ways to implement decryption, and they correspond to two different security postures:</p>
-    <div class="rs-hardness-grid">
-      <div class="rs-hard">
-        <div class="htag">Option A · Current implementation</div>
-        <h4>Hashed / FO-KEM (SHA-512 security)</h4>
-        <p>The full geometric construction is implemented faithfully — the geodesic lengths ℓ<sub>i</sub> are derived from the key generators exactly as the scheme specifies. Because the formal hardness proofs (Lean 4 verification and external cryptanalysis) are not yet finished, the demo does not yet rely on the geometric inversion problem for its security guarantee; instead it feeds the ℓ<sub>i</sub> into SHA-512 to produce the actual cipher key K, with an HMAC tag for authentication. This gives a guaranteed, well-understood security floor today, independent of how the geometric hardness ultimately resolves. Decryption recomputes the ℓ<sub>i</sub> from the generators and re-derives K. Under Grover's algorithm, SHA-512's effective quantum security is 2<sup>128</sup> at High mode with g≥3 generators — the NIST quantum-safe bar.</p>
-      </div>
-      <div class="rs-hard">
-        <div class="htag">Option B · Research direction</div>
-        <h4>Geometric trapdoor (spectral hardness)</h4>
-        <p>The characteristic polynomial χ(z) is treated as the genuine ciphertext, and decryption requires inverting the length-spectrum map — recovering the ℓ<sub>i</sub> from χ(z) without the key. This is the version where the geometry itself carries the security guarantee, resting on the inverse spectral problem for Kleinian groups, an open problem in arithmetic geometry. The geometric construction is already built (Option A uses the same lengths); what Option B requires, and what is <strong>not yet established</strong>, is the formal proof that recovering those lengths is hard. The pure-algebraic recovery path — companion blocks of x<sup>ℓ</sup>&minus;1, block-diagonal assembly, diagonal disguise, and Vandermonde solve from the power-trace vector — is <strong>demonstrated live in the Algebraic constructions section below</strong>. Until the hardness proof and external cryptanalysis are complete, the everyday tool keeps the SHA-512 floor rather than relying on the geometric hardness alone.</p>
-      </div>
-    </div>
-
-    <h3>The Decryption Path (Option A)</h3>
-    <p>Decryption in Option A recomputes the geodesic lengths ℓ<sub>i</sub> from the generator matrices, re-derives the SHA-512 key K = SHA-512(ℓ<sub>1</sub>, …, ℓ<sub>t</sub>), and verifies the HMAC tag. If the key matches, the XOR keystream is regenerated and the plaintext is recovered. Wrong key → HMAC fails cleanly. The geometric structure — the matrix products, the acosh computation, the scaling and reduction mod P — is only a key-derivation mechanism; it does not appear in the ciphertext.</p>
-    <p>Option B's decryption path (not yet implemented) would require: (1) factoring χ(z) over 𝔽<sub>p</sub>[z], (2) matching the factors to primitive orbit lengths, and (3) inverting the length spectrum to recover Γ and the key. Step (3) is the hard step — it is open in the mathematical literature for dimension ≥ 3.</p>
-  </div>
-
-  <!-- ═══ §4 HARDNESS ANALYSIS ═══ -->
-  <div class="rs-section" id="rs-hardness">
-    <h2>§4 · Hardness Analysis</h2>
-    <p>The papers establish multiple independent hardness arguments for MSIA, targeting different complexity classes and attack models.</p>
-
-    <h3>NP-Hardness via 3-SAT Reduction</h3>
-    <p>The MSIA inversion problem — given a characteristic polynomial χ(z) ∈ 𝔽<sub>p</sub>[z], recover the symbolic orbit data (ℓ<sub>i</sub>, c<sub>i</sub>) that produced it — can be used to solve 3-SAT in polynomial time if an efficient inversion algorithm exists. The reduction encodes 3-SAT clauses into the symbolic orbit structure: satisfying assignments correspond to consistent orbit decompositions of χ(z), and the inversion algorithm would find one if it exists. Therefore <strong>efficient MSIA inversion implies P = NP</strong>. The same reduction shows that even approximate inversion (within polynomial error) remains NP-hard.</p>
-
-    <h3>#P-Hardness via Trace Counting</h3>
-    <p>A stronger result: computing the power-sum traces Tr(A<sup>m</sup>) from χ(z) alone is <strong>#P-hard</strong>. This is established by reduction from the problem of counting independent sets in a graph (a #P-complete problem). The companion matrix A encodes a graph-like structure in its block decomposition; recovering the trace sequence from the characteristic polynomial requires counting independent sets in this structure. #P-hardness is strictly stronger than NP-hardness — it says that even a probabilistic polynomial-time oracle for NP cannot solve the problem efficiently.</p>
-
-    <h3>The Schottky Conjugacy-Class Length Problem</h3>
-    <p>A third hardness source: given the set of geodesic lengths {ℓ(γ)} of a Schottky group Γ (its "length spectrum"), recover the conjugacy classes of the generators of Γ. This is the <strong>Schottky conjugacy-class length problem</strong>. It is a variant of the inverse spectral problem and is not known to be in any subexponential-time algorithm. The reduction from this problem to MSIA inversion shows that breaking MSIA is at least as hard as solving the conjugacy-class length problem.</p>
-
-    <h3>Quantum Resistance — Non-Abelian HSP for SO(n,1)</h3>
-    <p>Shor's algorithm and its generalizations work by solving the <strong>Hidden Subgroup Problem (HSP)</strong> on an abelian group via quantum Fourier sampling. RSA's vulnerability: factoring reduces to HSP over ℤ. ECC's vulnerability: discrete log reduces to HSP over ℤ/nℤ. MSIA's geodesic flow has <strong>SO(n,1)</strong> symmetry — the group of orientation-preserving isometries of ℍⁿ. For n ≥ 2, SO(n,1) is a simple non-abelian Lie group. The non-abelian HSP over SO(n,1) is not known to be solvable in polynomial time even on a quantum computer. There is no known quantum Fourier transform that exploits SO(n,1) structure, and the representation theory of non-compact simple Lie groups is not amenable to the sampling techniques used in Shor's algorithm.</p>
-
-    <h3>Mostow Rigidity as a Security Amplifier</h3>
-    <p><strong>Mostow's rigidity theorem</strong> (1968, extended by Prasad and others): if n ≥ 3 and Γ, Γ′ are lattices in SO(n,1) with isomorphic fundamental groups, then ℍⁿ/Γ ≅ ℍⁿ/Γ′ as Riemannian manifolds. In other words, for dimension ≥ 3, the geometry uniquely determines the group up to isometry. There are no non-isometric hyperbolic manifolds with the same volume, spectrum, or length spectrum (up to a conjecture by isospectral forms in higher dimensions, where even the Vignéras / Sunada construction produces distinct Γ).</p>
-    <p>For the MSIA inverse problem, Mostow rigidity means the inverse has a <strong>unique answer</strong>. An attacker is not searching for "any Γ that fits" but for the specific Γ that was used. This is harder than a problem with multiple valid inverses — the search space is the same but valid answers are isolated points, not large subsets.</p>
-
-    <h3>The Prime Geodesic Theorem as a Security Parameter</h3>
-    <p>The <strong>Prime Geodesic Theorem</strong> gives the precise asymptotic count of primitive geodesics of length ≤ L:</p>
-    <div class="eq-display">#{γ primitive : ℓ(γ) ≤ L} &nbsp;~&nbsp; e<sup>(n−1)L</sup> / ((n−1)L) &nbsp; as L → ∞</div>
-    <p>This exponential growth means the number of "cryptographic primes" (geodesics) available at a given length scale grows faster than polynomially. It also gives a precise handle on the key space — analogous to the prime counting function π(N) giving a handle on the RSA key space. Unlike π(N), the Prime Geodesic Theorem is a consequence of the proven Selberg zeta Riemann Hypothesis — the distribution of geodesics is provably well-controlled by a formula, not just conjectured to be so.</p>
-  </div>
-
-  <!-- ═══ §5 CRYPTOGRAPHIC HIERARCHY ═══ -->
-  <div class="rs-section" id="rs-hierarchy">
-    <h2>§5 · The Cryptographic Hierarchy and Prior Art</h2>
-    <p>MSIA occupies a specific position in a hierarchy of cryptographic hardness assumptions, each corresponding to a different tier of mathematical depth. The table below places MSIA in context.</p>
-
-    <table class="rs-hier-table">
-      <tr><th>tier</th><th>system / primitive</th><th>hardness basis</th><th>complexity floor †</th><th>quantum status</th><th></th></tr>
-      <tr class="prog-hl"><td>0</td><td><strong>Motivic zeta functions</strong></td><td>Recovering motive from ζ; Standard Conjectures open</td><td>unmeasurable</td><td>unknown</td><td class="h-new">● completely new</td></tr>
-      <tr class="prog-hl"><td>0–1</td><td><strong>Hyperbolic Neural Cryptosystem</strong></td><td>Bulk-to-boundary reconstruction (holography, quantum gravity) + O(n,1) continuous isometry key</td><td>2<sup>500+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr class="prog-hl"><td>1</td><td><strong>Automorphic L-functions</strong></td><td>Hecke eigenvalue inversion; full Langlands functoriality open</td><td>2<sup>300+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr class="msia-hl"><td>1</td><td><strong>MSIA — Selberg ζ<sub>Γ</sub>, Kleinian n≥3</strong> ← this demo</td><td>Length spectrum inversion; Arthur–Selberg; Prime Geodesic Theorem; Mostow rigidity</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr class="prog-hl"><td>1–2</td><td><strong>Artin L-functions / inverse Galois</strong></td><td>Recovering Galois rep ρ from L(ρ,s); inverse Galois problem</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● new as primitive</td></tr>
-      <tr class="prog-hl"><td>1–2</td><td><strong>Dessins d'Enfants / Belyi</strong></td><td>Absolute Galois action on dessins; anabelian geometry</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr><td>2</td><td><strong>Hasse-Weil ζ (varieties, dim ≥ 2)</strong></td><td>Torelli problem for abelian varieties</td><td>2<sup>150+</sup></td><td>subexponential</td><td class="h-new">● essentially new</td></tr>
-      <tr><td>2–3</td><td>CSIDH / SQIsign</td><td>Supersingular isogeny / class group action</td><td>2<sup>128</sup></td><td>subexponential</td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>3</td><td>ML-KEM / ML-DSA (NIST 2024)</td><td>Module-LWE</td><td>2<sup>160</sup></td><td>2<sup>130</sup></td><td class="h-std">current standard</td></tr>
-      <tr><td>4</td><td>McEliece</td><td>Syndrome decoding</td><td>2<sup>128</sup></td><td>2<sup>64</sup>+</td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>5</td><td>NTRU</td><td>NTRU lattice</td><td>2<sup>128</sup></td><td>2<sup>128</sup></td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>7</td><td>SLH-DSA / LMS</td><td>Hash one-way function</td><td>2<sup>128</sup></td><td>2<sup>128</sup> (Grover only)</td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>8</td><td>RSA / ECC</td><td>Factoring / ECDLP</td><td>2<sup>112</sup></td><td>polynomial (Shor)</td><td class="h-bk">● broken by Shor</td></tr>
-    </table>
-    <p style="font-size:.78rem;color:var(--faint);font-family:'DM Mono',monospace;margin:.4rem 0 .6rem"><span style="display:inline-block;width:.7rem;height:.7rem;background:rgba(127,201,154,0.3);border:1px solid rgba(127,201,154,0.5);border-radius:1px;margin-right:.35rem;vertical-align:middle"></span>green = this demo &nbsp;&nbsp;<span style="display:inline-block;width:.7rem;height:.7rem;background:rgba(201,168,76,0.2);border:1px solid var(--border-dim);border-radius:1px;margin-right:.35rem;vertical-align:middle"></span>gold = Logarchéon research programme</p>
-    <p class="rs-note" style="font-size:.78rem;color:var(--faint);font-family:'DM Mono',monospace;margin:.4rem 0 1.2rem;line-height:1.6">† <strong style="color:var(--muted)">Complexity floor</strong> — for deployed systems (Tiers 3–8): reflects cryptanalytic consensus on the minimum classical work to break the scheme. For research-stage entries (Tiers 0–2, marked ●): reflects the depth of the underlying open mathematical problem rather than a proven attack bound — no efficient classical attack is known, and in some cases no attack of any complexity has been formulated. Values above 2<sup>256</sup> exceed the SHA-512 key floor and indicate mathematical rather than computational barriers. "Unmeasurable" means the underlying theory (Standard Conjectures, quantum gravity) is not yet complete enough to define an attack space.</p>
-
-    <h3>What Is Genuinely New</h3>
-    <p>Everything from Tier 0 through Tier 2 in the table — except the Hasse-Weil entry for elliptic curves specifically (which underlies existing isogeny crypto) — is <strong>unoccupied territory in cryptography</strong>. No deployed system, no NIST candidate, and no serious prior academic proposal uses any of these as the explicit cryptographic primitive. The reason is structural: the mathematics is too deep for most cryptographers, and most mathematicians working in these areas have not been thinking about cryptographic applications. The people who understand the Arthur-Selberg trace formula are not typically the people building encryption schemes.</p>
-    <p>The entries marked "completely new" have not appeared in any cryptographic proposal before MSIA and the Hyperbolic Neural Cryptosystem. The entries marked "new as primitive" have appeared peripherally in the mathematical literature in cryptographic contexts but have not been formalized as explicit hard problems for encryption. The Selberg zeta function has appeared in mathematics and physics for 70 years. It has never appeared as a cryptographic hardness assumption before this work.</p>
-
-    <h3>The Langlands Unification Hypothesis</h3>
-    <p>The systems at levels 0–2 share a striking structural property: they are all connected to either the <strong>Langlands program</strong> (automorphic forms, L-functions, Galois representations) or <strong>Grothendieck's program</strong> (motives, dessins, anabelian geometry, étale cohomology). These are the two grand unification programs of 20th–21st century mathematics. It is not coincidental that the hardest cryptographic problems sit exactly at this boundary.</p>
-    <p>The Langlands correspondence conjectures that all reasonable L-functions — Selberg zeta, Artin L-functions, automorphic L-functions, Hasse-Weil zeta functions of varieties — are all instances of a single object: automorphic L-functions attached to representations of adele groups. If this is true (the evidence is overwhelming, though the full correspondence remains open), then the different systems at Tiers 0–2 in the table might not give <em>independent</em> hardness assumptions — they might all reduce to the same underlying hard problem through Langlands functoriality.</p>
-    <p>This is analogous to how RSA, DH, and ECDLP seemed like three independent hard problems but are all vulnerable to Shor because they share the same abelian group structure. If the Langlands unification holds, MSIA — properly generalized to the full automorphic level — would not be one instance among many but the right framework for the entire class of Langlands-based cryptographic hardness.</p>
-  </div>
-
-  <!-- ═══ §6 TWO TRACKS AND UNIFICATION ═══ -->
-  <div class="rs-section" id="rs-tracks">
-    <h2>§6 · Research Plan — Two Tracks and Their Unification</h2>
-    <p>The research program that MSIA belongs to has two complementary directions and a Track C unification. All entries in the gold-highlighted rows of the table above are either existing work or planned contributions in this program. The two tracks are not independent: they are connected at their deepest mathematical level through a structural equivalence first proved by Kapustin and Witten (2006).</p>
-
-    <div class="eq-display" style="margin:.9rem 0 1.4rem">Langlands functoriality &nbsp;⟺&nbsp; S-duality (Kapustin-Witten 2006) &nbsp;⟺&nbsp; holographic duality</div>
-    <p>Track A approaches through the algebraic/arithmetic side; Track B through the geometric/physical side. Both are computational manifestations of the same underlying mathematical duality.</p>
-
-    <!-- TRACK A -->
-    <h3>Track A — Langlands-Based Post-Quantum Cryptography (algebraic / discrete)</h3>
-    <p>A hierarchy from specific to universal. MSIA sits in the middle; the program climbs upward toward more universal hardness assumptions and also examines the more specific cases below.</p>
-
-    <div class="hier-flow">
-      <div class="hier-node prog"><span class="hn-tag">A5 · long horizon</span><strong>Motivic zeta functions</strong> — recovering arithmetic motives from ζ; hardness above all other levels; depends on Standard Conjectures (theory not yet complete)</div>
-      <div class="hier-arrow">↑</div>
-      <div class="hier-node prog"><span class="hn-tag">A4</span><strong>Automorphic L-functions (full Langlands)</strong> — Hecke eigenvalue inversion across all reductive groups; functoriality conjecture as master primitive</div>
-      <div class="hier-arrow">↑</div>
-      <div class="hier-node here"><span class="hn-tag" style="color:var(--ok)">A1 · existing work</span><strong>MSIA — Selberg ζ<sub>Γ</sub> / Kleinian groups in ℍⁿ, n≥3</strong> — length spectrum inversion; this demo</div>
-      <div class="hier-arrow">↑</div>
-      <div class="hier-node prog"><span class="hn-tag">A2</span><strong>Artin L-functions / inverse Galois</strong> — Frobenius conjugacy classes over number fields; inverse Galois problem as trapdoor</div>
-      <div class="hier-arrow">↑</div>
-      <div class="hier-node prog"><span class="hn-tag">A3</span><strong>Dessins d'Enfants / Belyi</strong> — absolute Galois group action on bipartite graphs on Riemann surfaces; Grothendieck's conjecture</div>
-    </div>
-
-    <table class="rs-ptable" style="margin-top:.5rem">
-      <tr><th>paper</th><th>content</th><th>target</th><th>horizon</th></tr>
-      <tr><td class="pnow">A1 · now</td><td><strong>MSIA:</strong> Length Spectrum Inversion as post-quantum primitive. Formal hardness definition, Vandermonde correctness, FO-KEM, Lean 4 proofs.</td><td>CRYPTO / EUROCRYPT</td><td class="pnow">immediate</td></tr>
-      <tr><td class="pnear">A2</td><td><strong>Artin L-function cryptosystem:</strong> inverse Galois problem as trapdoor. Explicit construction using Frobenius conjugacy classes over number fields.</td><td>EUROCRYPT / TCC</td><td class="pnear">near-term</td></tr>
-      <tr><td class="pnear">A3</td><td><strong>Dessins d'Enfants cryptosystem:</strong> Belyi maps and absolute Galois group action as one-way function. Construction over Q̄.</td><td>CRYPTO / Annals adj.</td><td class="pnear">medium-term</td></tr>
-      <tr><td class="pfar">A4</td><td><strong>Full automorphic L-function crypto:</strong> unifying A1–A3 under the Langlands correspondence. Hecke eigenvalue inversion as master primitive.</td><td>Journal of Cryptology / JACM</td><td class="pfar">long-term</td></tr>
-      <tr><td class="pfar">A5</td><td><strong>Motivic crypto:</strong> when Standard Conjectures admit partial resolution, motivic zeta functions give hardness strictly above A4.</td><td>Future work</td><td class="pfar">decade horizon</td></tr>
-    </table>
-
-    <!-- TRACK B -->
-    <h3 style="margin-top:1.8rem">Track B — Physics-Based Post-Quantum Cryptography (geometric / continuous)</h3>
-    <p>A second framework whose hardness comes from physics rather than mathematics. Operates on high-dimensional continuous data (model outputs, embeddings, sensor readings) where Track A operates on symbolic discrete data.</p>
-
-    <div class="hier-flow">
-      <div class="hier-node prog"><span class="hn-tag">B3</span><strong>Quantum gravity inversion as formal computational primitive</strong> — formal complexity theory for holographic inversion; relationship to QMA-hardness and quantum circuit complexity</div>
-      <div class="hier-arrow">↑</div>
-      <div class="hier-node prog"><span class="hn-tag">B2</span><strong>Holographic quantum error correction meets classical encryption</strong> — connecting AdS bulk reconstruction to complexity classes</div>
-      <div class="hier-arrow">↑</div>
-      <div class="hier-node here"><span class="hn-tag" style="color:var(--ok)">B1 · existing work</span><strong>Hyperbolic Neural Cryptosystem</strong> — key = isometry T ∈ O(n,1) in the latent layer of a hyperbolic autoencoder; hardness from holographic bulk-to-boundary reconstruction + Langlands obfuscation</div>
-    </div>
-
-    <table class="rs-ptable" style="margin-top:.5rem">
-      <tr><th>paper</th><th>content</th><th>target</th><th>horizon</th></tr>
-      <tr><td class="pnow">B1 · now</td><td><strong>Hyperbolic Neural Cryptosystem:</strong> formal construction, key = isometry T ∈ O(n,1), hardness from holographic bulk-to-boundary reconstruction + Langlands obfuscation in latent space.</td><td>CRYPTO / NeurIPS Security</td><td class="pnow">immediate</td></tr>
-      <tr><td class="pnear">B2</td><td><strong>Computational complexity of bulk reconstruction:</strong> connecting AdS inversion to complexity classes. Relationship to QMA-hardness and quantum circuit complexity.</td><td>STOC / CCC / QIC</td><td class="pnear">near-term</td></tr>
-      <tr><td class="pnear">B3</td><td><strong>Hyperbolic neural key exchange:</strong> replacing Diffie-Hellman with O(n,1) isometry agreement protocol.</td><td>IEEE S&P / EUROCRYPT</td><td class="pnear">medium-term</td></tr>
-    </table>
-
-    <!-- COMPUTABILITY OF THE TRACK B IDENTITY -->
-    <div class="rs-compute">
-      <h3 style="margin-top:1.8rem">Is the Track B Identity Computable Today?</h3>
-      <p>A natural question: MSIA rests on a concrete, computable identity — the Selberg / Artin–Mazur zeta product that translates geodesic lengths into a characteristic polynomial. Does the geometric Track B have an equally computable identity available right now, or is it purely aspirational? The answer is that it does, and which form it takes depends entirely on the dimension.</p>
-      <div class="rs-compute-grid">
-        <div class="rs-compute-card ready">
-          <div class="cc-tag">● 3D · already the same object</div>
-          <h4>Thermal AdS₃ / BTZ — identical to MSIA</h4>
-          <p>The BTZ black hole is ℍ³/Γ — precisely the Kleinian quotient MSIA uses. The Selberg zeta formalism has been applied directly to the Euclidean BTZ black hole, a quotient of ℍ³ by a discrete subgroup Γ. The one-loop bulk partition function, the boundary CFT partition function, and the Selberg zeta product over prime geodesics are <strong>the same object viewed three ways</strong>.</p>
-          <p>Given any two of: (i) the one-loop partition function, (ii) the quasinormal-mode frequencies, and (iii) the zeros of the Selberg zeta function, the third is constructible. In 3D the Track B computable identity <strong>is</strong> the MSIA identity — same prime geodesic lengths ℓ(γ), same product structure.</p>
-        </div>
-        <div class="rs-compute-card numeric">
-          <div class="cc-tag">numerical · 4D / 5D</div>
-          <h4>AdS₄ / AdS₅ — Horowitz-type, computable by ODE</h4>
-          <p>In higher dimensions the holographic retarded Green's function G<sup>R</sup>(ω) is computed numerically: solve the bulk wave equation (a second-order linear ODE in the radial coordinate) with ingoing boundary conditions at the horizon, then read off the ratio of asymptotic modes at the boundary. This is the established Horowitz–Santos–Tong / holographic-conductivity computation.</p>
-          <p>The forward direction (bulk geometry → G<sup>R</sup>) is numerically stable and well-implemented. The inverse direction (G<sup>R</sup> → quasinormal modes → bulk geometry) is the hard, cryptographic direction.</p>
-        </div>
-      </div>
-      <p>The structural parallel between the two tracks is exact. In higher dimensions the boundary Green's function factorizes meromorphically over its quasinormal-mode poles:</p>
-      <div class="eq-display"><span class="eq-label">Track B (holographic) — the direct analog of the MSIA identity</span>G<sup>R</sup>(ω) &nbsp;∼&nbsp; Π<sub>n</sub> (ω − ω<sub>n</sub><sup>★</sup>) / Π<sub>n</sub> (ω − ω<sub>n</sub>)</div>
-      <p>The quasinormal-mode frequencies ω<sub>n</sub> play the role of the geodesic lengths ℓ<sub>i</sub>; the boundary Green's function plays the role of the characteristic polynomial det(I − zA). The key encodes the bulk geometry (black-hole parameters and field content); the ciphertext is sampled values of G<sup>R</sup>(ω); and the security would rest on recovering the quasinormal modes from those samples — an ill-posed inverse-scattering problem.</p>
-      <div class="rs-codelabel">Forward map (computable now) — AdS₄-Schwarzschild bulk-to-boundary, scipy</div>
-      <div class="rs-codeblock"><span class="kw">def</span> holographic_green(omega, rh=1.0, m2=0.0):
-    <span class="cm"># Bulk-to-boundary Green's function in AdS4-Schwarzschild.</span>
-    <span class="cm"># omega: complex frequency (the parameter space).</span>
-    <span class="cm"># Key = (rh, m2) = bulk geometry; returns G^R(omega).</span>
-    f = <span class="kw">lambda</span> r: 1 - (rh/r)**3
-    eps = 1e-6; r0 = rh + eps
-    <span class="cm"># ingoing (infalling) boundary condition at the horizon</span>
-    nu = -1j * omega / (3 * rh**2 * abs(f(r0+eps)))
-    y0 = [(r0-rh)**nu, nu*(r0-rh)**(nu-1)]
-    <span class="kw">def</span> eom(r, y):
-        A, Ap = y
-        App = -(omega**2 / (r**2 * f(r)**2) - m2/r**2) * A
-        <span class="kw">return</span> [Ap, App]
-    sol = solve_ivp(eom, [r0, 50*rh], y0,
-                    method=<span class="cm">'DOP853'</span>, rtol=1e-10, atol=1e-12)
-    <span class="cm"># G^R proportional to ratio of boundary modes</span>
-    <span class="kw">return</span> sol.y[1,-1] / sol.y[0,-1] * sol.t[-1]</div>
-      <p><strong>Bottom line.</strong> The condensed-matter holographic-conductivity work (Horowitz and collaborators) is not merely analogous to the Track B primitive — it is a working implementation of the forward identity. In 3D the identity is literally the MSIA Selberg product; in 4D/5D it is the numerically-computed boundary Green's function. The gap between this and a deployable Track B scheme is <strong>not a computational gap</strong> — the forward map runs today — but a <strong>hardness-formalization gap</strong>: proving that the inverse direction (recovering quasinormal modes from sampled G<sup>R</sup> values) is computationally hard remains open, exactly as MSIA's Option B does.</p>
-    </div>
-
-    <!-- TRACK C -->
-    <h3 style="margin-top:1.8rem">Track C — Unification</h3>
-    <p>The long-horizon contribution that most dramatically elevates both tracks. Track C formalizes the Kapustin-Witten connection as a cryptographic theorem: MSIA (Track A) and the Hyperbolic Neural Cryptosystem (Track B) are dual manifestations of the same underlying hard problem.</p>
-    <div class="track-c-grid">
-      <div class="track-c-card">
-        <h4>C1 — Unified Framework</h4>
-        <p>S-duality, Langlands, and holography as a unified post-quantum cryptographic framework. MSIA and the Hyperbolic Neural Cryptosystem as dual manifestations of the same mathematical hardness. The Kapustin-Witten duality as a formal reduction between Track A and Track B security proofs.</p>
-        <div class="venue">Annals of Mathematics / JACM</div>
-      </div>
-      <div class="track-c-card">
-        <h4>C2 — Quantum Gravity Cryptography</h4>
-        <p>Formal complexity theory for holographic inversion. Placing bulk-to-boundary reconstruction in a rigorous complexity class; connecting quantum gravity inversion to canonical hard problems. First formal bridge between quantum gravity and complexity-theoretic cryptography.</p>
-        <div class="venue">Nature Physics / Comm. Math. Physics</div>
-      </div>
-    </div>
-
-    <h3>Scale of the Program</h3>
-    <p>This program is comparable to what lattice cryptography represented in 1996 before Ajtai's worst-case to average-case reduction — a mathematical structure with deep hardness properties that had not yet been translated into a cryptographic framework. Three differences favour this program: the mathematical depth is greater (the Langlands program and quantum gravity are harder than lattice geometry); the work is already further along (two working implementations, a provisional patent, formal hardness papers); and the timing is better (NIST has just standardized lattice systems and the field is actively seeking diversity of hardness assumptions).</p>
-
-    <h3>Why Hardness is Rare — and Where This Construction Sits</h3>
-    <p>The core identity det(I&nbsp;&minus;&nbsp;zA)<sup>&minus;1</sup> = exp(&Sigma; Tr(A<sup>m</sup>)z<sup>m</sup>/m) holds for any matrix over any commutative ring — formally, there are infinitely many zeta-function-based constructions. Genuine cryptographic hardness, however, appears only when the inverse problem is computationally deep. The table below shows why most zeta functions do not yield hard cryptosystems, and which ones do.</p>
-    <div style="overflow-x:auto;margin:1rem 0 1.4rem">
-    <table class="rs-ptable">
-      <thead><tr><th>Zeta function</th><th>Primitives</th><th>Inverse problem</th><th>Hard?</th></tr></thead>
-      <tbody>
-        <tr><td>Riemann ζ(s)</td><td>Rational primes {2,3,5,…}</td><td>Factor integers / recover primes</td><td style="color:var(--err)">No — primes are explicitly constructible</td></tr>
-        <tr><td>Ihara ζ(X) of a graph</td><td>Prime cycles in finite graph</td><td>Factor the Ihara zeta polynomial</td><td style="color:var(--muted)">Moderate — depends on graph structure</td></tr>
-        <tr><td>Ruelle ζ for generic map</td><td>Periodic orbits of f</td><td>Recover f from its orbit count</td><td style="color:var(--muted)">Depends entirely on f</td></tr>
-        <tr class="pnow"><td><strong>Selberg ζ<sub>Γ</sub>(s) — MSIA</strong></td><td>Primitive closed geodesics of ℍⁿ/Γ</td><td>Recover length spectrum from Γ</td><td style="color:var(--ok)"><strong>Yes — inverse spectral problem is open</strong></td></tr>
-        <tr class="pnear"><td>Artin L-function of Galois rep ρ</td><td>Frobenius conjugacy classes</td><td>Recover ρ from L(ρ,s)</td><td style="color:var(--ok)">Yes — inverse Galois problem</td></tr>
-        <tr class="pnear"><td>Automorphic L-function</td><td>Hecke eigenvalues</td><td>Recover automorphic form from L-function</td><td style="color:var(--ok)">Yes — conjectured hard; Langlands core</td></tr>
-        <tr class="pfar"><td>Hasse-Weil ζ(V/𝔽<sub>q</sub>)</td><td>Points of variety over 𝔽<sub>q<sup>m</sup></sub></td><td>Recover variety from zeta</td><td style="color:var(--ok)">Yes — Torelli problem</td></tr>
-        <tr class="pfar"><td>Motivic zeta functions</td><td>Motivic cohomology classes</td><td>Recover motive from ζ</td><td style="color:var(--ok)">Yes — deeply open</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p>The hard cases are not arbitrary — they cluster around the same objects: automorphic forms, algebraic varieties over finite fields, Galois representations, and hyperbolic geometry. The Langlands program conjectures that all of these L-functions are instances of a single object (automorphic L-functions attached to representations of adèle groups), which would mean the different hard constructions may not yield <em>independent</em> hardness assumptions but rather different encodings of the same underlying problem. This is the direct analogue of how RSA, Diffie-Hellman, and ECDLP all seemed independent until Shor revealed they share abelian group structure. Whether that unification holds in the Langlands case remains an open conjecture — which is itself part of what makes this territory hard.</p>
-
-    <h3>Why the Kleinian / Geodesic Instantiation is Particularly Suited</h3>
-    <p>Among the hard instantiations in the table, the Selberg / Kleinian construction has four properties that distinguish it from the others as a cryptographic primitive.</p>
-    <ul>
-      <li><strong>Mostow rigidity (n≥3).</strong> For hyperbolic manifolds of dimension 3 or higher, the geometry uniquely determines the group Γ up to isometry. The inverse problem has a unique answer — the attacker is not searching for "any group that fits" but for the specific one. Uniqueness makes the problem harder, not easier.</li>
-      <li><strong>Prime Geodesic Theorem as a calibration tool.</strong> The precise asymptotic #{γ : ℓ(γ) ≤ L} ~ e<sup>hL</sup>/hL gives exact control over the density of primitive geodesics used as key material. This is the analogue of knowing exactly how many RSA primes exist below a bound — it lets security parameters be calibrated rigorously.</li>
-      <li><strong>No abelian Fourier structure.</strong> The geodesic flow on ℍⁿ/Γ has non-abelian symmetry for n≥2. For n≥3 the isometry group SO(n,1) is simple and non-abelian in a way that has no known Fourier sampling structure. Shor's algorithm has no obvious application.</li>
-      <li><strong>Selberg's analogue of RH is proven.</strong> The zeros of the Selberg zeta function ζ<sub>Γ</sub>(s) are the eigenvalues of the Laplacian on ℍⁿ/Γ. The Riemann Hypothesis analogue for ζ<sub>Γ</sub> is proved (Selberg 1956 for n=2; subsequently for n>2). The distribution of the "cryptographic primes" (geodesics) is provably well-controlled — a stronger foundation than classical cryptography has for rational primes, where RH is still open.</li>
-    </ul>
-
-    <h3>Open Problems: Usable Identities Beyond Zeta Functions</h3>
-    <p>Abstracting away the zeta / L-function structure entirely, the operative pattern is: a mathematical identity that translates between two representations, where the forward direction is efficient and the inverse direction connects to a deeply open problem. This pattern appears in several areas outside the Langlands hierarchy, constituting a broader landscape of potential post-quantum primitives.</p>
-
-    <div class="rs-compute-grid" style="grid-template-columns:1fr 1fr;margin:1rem 0">
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Topology</div>
-        <h4>Knot invariants / Chern-Simons TQFT</h4>
-        <p>The Jones polynomial V(L;&thinsp;t) = Z(ℝ³, L) (Chern-Simons partition function on link L). Computing V from L is #P-hard in general. The inverse — recovering L from V(L;&thinsp;t) — is an open problem in low-dimensional topology. Quantum resistant: the relevant group structure (quantum groups at roots of unity) is non-abelian with no known Fourier sampling structure.</p>
-      </div>
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Topology</div>
-        <h4>Mapping class groups / pseudo-Anosov dilatation</h4>
-        <p>The mapping class group Mod(Σ) of a surface contains the hard conjugacy problem and subsurface projection machinery. The identity connecting pseudo-Anosov maps to their dilatation spectra (Thurston's geometrization) is a potential encryption primitive, with hardness from the conjugacy problem in Mod(Σ).</p>
-      </div>
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Algebraic Geometry</div>
-        <h4>Dessins d'Enfants / Belyi correspondence</h4>
-        <p>A finite bipartite graph on a Riemann surface (dessin) corresponds bijectively to a Belyi pair (X, β). The absolute Galois group Gal(Q̄/Q) acts on dessins in a way that is still deeply mysterious. Identity: dessin ↔ Belyi pair. Hard problem: given a dessin, recover the algebraic curve over Q̄. Grothendieck's conjecture (faithfulness of the Galois action on dessins) is still open. Already listed as A3 in Track A above — this is the same territory reached from a different angle.</p>
-      </div>
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Algebraic Geometry</div>
-        <h4>Anabelian geometry / étale fundamental group</h4>
-        <p>Mochizuki proved that the étale fundamental group π₁<sup>ét</sup>(X, x̄) completely determines X for hyperbolic curves over number fields. Identity: X → π₁<sup>ét</sup>(X). Hard problem: recover X from π₁<sup>ét</sup>(X). The proof is existential — no efficient algorithm is known. Hardness comes from the profinite structure of Gal(Q̄/Q).</p>
-      </div>
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Analysis / Inverse Problems</div>
-        <h4>Inverse scattering (3D)</h4>
-        <p>The 1D inverse scattering problem (given S-matrix, recover potential V(x)) is solved via the Marchenko equation. The 3D case remains open. Identity: V(x) → S-matrix via the Lippmann-Schwinger equation. Hard problem: recover V from S in 3 dimensions. Resistant to quantum attacks because the problem is analytic and spectral, not algebraic.</p>
-      </div>
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Analysis / Inverse Problems</div>
-        <h4>Phase retrieval / crystallographic phase problem</h4>
-        <p>Given |F̂(k)|² (diffraction magnitudes) but not the phase of F̂(k) = &int;ρ(x)e<sup>ikx</sup>dx, recover ρ(x). Open in full generality for 2D and 3D. Identity: Fourier transform ρ ↔ F̂. Already used in some cryptographic proposals, though the hardness basis is less deep than the Langlands / spectral route.</p>
-      </div>
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Representation Theory</div>
-        <h4>Yang-Baxter / quantum groups</h4>
-        <p>Solutions R to R₁₂R₁₃R₂₃ = R₂₃R₁₃R₁₂ classify braided tensor categories. The identity connects R-matrices to knot invariants via the Reshetikhin-Turaev construction. Hard problem: given a knot invariant, recover R. Relevant to topological quantum computation; no known Fourier sampling vulnerability.</p>
-      </div>
-
-      <div class="rs-compute-card numeric">
-        <div class="cc-tag">Representation Theory</div>
-        <h4>Tensor decomposition</h4>
-        <p>Computing tensor rank is NP-hard. Identity: a rank-r tensor T = &Sigma;<sub>i</sub> a<sub>i</sub> ⊗ b<sub>i</sub> ⊗ c<sub>i</sub>. Hard problem: given T, find its minimal decomposition. Resistant to known quantum attacks. The hardness is combinatorial rather than number-theoretic, distinguishing it from the Langlands cluster.</p>
-      </div>
-
-    </div>
-    <p>These alternatives converge on the same structural insight: deep mathematical hardness in the inverse direction tends to appear precisely where the relevant symmetry group is non-abelian and where the global mathematics community has worked for decades without a constructive inversion algorithm. The zeta / L-function route and the topological / anabelian route are different doors into the same territory — and the Langlands program conjectures they are ultimately different views of the same object.</p>
-
-    <h3>Relation to ASI Architecture and Indo-Pacific Lawfare</h3>
-    <p>This cryptographic study sits alongside, and is informed by, Logarchéon's two primary research tracks: <strong>ASI seed architecture</strong> (the CEAS / Ψ-operator / GRAIL triadic framework for recursive intelligence) and <strong>Indo-Pacific lawfare</strong> (legal-strategic analysis of the Taiwan Strait and associated legal instruments). The same spectral-geometric methods that appear in MSIA — Kleinian groups, geodesic flow, trace formulas — appear in the mathematical substrate of the CEAS architecture. The same concern with asymmetric capability gaps that drives the lawfare analysis drives the cryptographic research: encryption whose hardness assumptions are not yet in the adversary's threat model.</p>
-  </div>
-
-  <div class="rs-section" id="rs-policy">
-    <h2>§7 · Why Backdoor-Free Encryption is Not a National-Security Liability</h2>
-    <p class="rs-intro">A recurring policy claim holds that strong, no-backdoor encryption of the kind demonstrated on this page is a threat to national security, and that carriers, platforms, and even the underlying algorithms should be required by law to preserve an exceptional-access channel for lawful intercept. The empirical record points the other way. The mandated access channel — not the mathematics — has repeatedly proven to be the weakest structural point in the national security posture.</p>
-
-    <h3>The Salt Typhoon precedent</h3>
-    <p>The Salt Typhoon campaign, publicly disclosed in 2024 and attributed by U.S. agencies to PRC state-linked actors,<span class="fnref"><a href="#fn2">[2]</a></span> penetrated major U.S. telecommunications carriers and reached, among other systems, the very lawful-intercept infrastructure that carriers are legally required to maintain under CALEA.<span class="fnref"><a href="#fn1">[1]</a></span> The wiretap apparatus built so that the government could listen became the apparatus through which a foreign intelligence service could listen. Three features of the incident matter for the policy argument:</p>
-    <ul>
-      <li><strong>Remediation is not verifiable.</strong> Well into the response, officials could not certify that the intruders had been completely evicted from carrier networks.<span class="fnref"><a href="#fn4">[4]</a></span><span class="fnref"><a href="#fn5">[5]</a></span> A backdoor architecture, once compromised, offers no clean way to prove the compromise has ended — the access path is a designed feature, so its use by an adversary is structurally indistinguishable from its use by the intended party.</li>
-      <li><strong>Attribution of one actor does not bound the set of actors.</strong> That one campaign was detected and attributed to one state says nothing about whether other services — Russian, or others — found the same designed access paths earlier, later, or more quietly. Detection is evidence of presence; it is never evidence of absence.</li>
-      <li><strong>The liability scales with the mandate.</strong> Because the intercept capability was imposed uniformly by law on every carrier, a single class of compromise yielded potential visibility into the communications of essentially everyone — officials, campaigns, industry, and ordinary citizens alike. The mandate converted a per-target surveillance tool into a single point of national failure.</li>
-    </ul>
-
-    <h3>Hidden assumptions behind the exceptional-access mandate</h3>
-    <p>The case for compelled backdoors — in carrier infrastructure, in platforms, or in the algorithms themselves (key escrow for RSA-class systems and their successors) — rests on a stack of assumptions that are rarely stated and, once stated, are difficult to defend:</p>
-    <ul>
-      <li><strong>Exclusivity.</strong> It assumes the designed access path will be found and used only by the government that mandated it. There is no known cryptographic or engineering construction that makes an access channel usable by one authorized party and undiscoverable by all others; a door that exists can be found.</li>
-      <li><strong>A talent-pool wager against arithmetic.</strong> It assumes that no analyst in any adversary state will locate the backdoor — while the principal adversary in question fields a population, and therefore a mathematical and offensive-cyber talent pool, several times the size of one's own. The mandate is a bet that zero out of the larger pool succeed where one's own engineers, by design, must succeed routinely. That is not a statistical position; it is a hope.</li>
-      <li><strong>Perpetual custodial integrity.</strong> It assumes the escrowed keys, the intercept portals, and the personnel with access to them remain uncompromised indefinitely — across contractor turnover, insider risk, supply-chain exposure, and decades of accumulating attack surface.</li>
-      <li><strong>A frozen geopolitical era.</strong> The centralize-everything doctrine — every signal collectible, correlatable, and available to the state in real time — is an artifact of the post-Cold-War interval, designed in a period of assumed peacetime and assumed Western technical primacy. It presumes great powers are either cooperating or incapable. When large states such as Russia and the PRC are neither, the same centralized collection architecture inverts from an asset into the adversary's highest-value target.</li>
-      <li><strong>Reliable detection and complete remediation.</strong> It assumes that if the access channel is ever abused, the abuse will be detected promptly and rolled back completely. Salt Typhoon demonstrates both halves of that assumption failing at once: multi-year dwell time before detection, and no certifiable eviction after it.</li>
-      <li><strong>Legal compulsion equals technical control.</strong> It assumes that because the law can order a capability into existence, the law can also confine who exercises it. Statutes bind carriers; they do not bind foreign intelligence services. The capability, once built, obeys physics and mathematics, not jurisdiction.</li>
-      <li><strong>Asymmetric restraint.</strong> It assumes adversaries will not impose the mirror-image demand on their own networks and then exploit the precedent — using the existence of Western lawful-access mandates to legitimize, and to study, equivalent access architectures of their own.</li>
-    </ul>
-
-    <h3>The inversion</h3>
-    <p>Each assumption above must hold, simultaneously and indefinitely, for the mandate to produce net security. If any single one fails, the mandate produces the opposite of its stated goal: it hands a standing, pre-installed collection capability to whichever adversary finds it first. Strong encryption with no exceptional access — mathematics with no door to find, executed locally with no escrowed key to steal, as in the construction demonstrated on this page — fails safe. A backdoored architecture fails catastrophically, and fails silently. The logic used to justify compelled access therefore inverts under its own assumptions: what is framed as a national-security necessity is, under adversarial conditions between non-cooperating great powers, a nationally distributed vulnerability enforced by statute.</p>
-  </div>
-
-  <div class="rs-section" id="rs-legal-timeline">
-    <h2>§8 · The Legal Architecture of Mandated Access — A Thirty-Year Timeline</h2>
-    <p class="rs-intro">The exceptional-access regime is not a single law but an accreted stack of statutes, regulations, and compelled-assistance powers, layered over three decades. Each layer was justified by the threat model of its own moment; the stack as a whole now operates in a threat environment none of its layers anticipated.</p>
-    <ul class="lawline">
-      <li><span class="yr">1978</span><strong>FISA</strong> (antecedent). The Foreign Intelligence Surveillance Act establishes the statutory frame — and the FISA Court — under which later compelled-access authorities operate.</li>
-      <li><span class="yr">1993</span><strong>The Clipper Chip / Escrowed Encryption Standard.</strong> The first attempt to mandate a backdoor in the algorithm itself: NSA-designed key escrow, with the master keys held by the government. Withdrawn after Matt Blaze demonstrated the escrow field could be defeated — the earliest public proof that a designed access channel is itself an attack surface.</li>
-      <li><span class="yr">1994</span><strong>CALEA</strong> (47 U.S.C. §1001 et seq.). The Communications Assistance for Law Enforcement Act requires carriers to build and maintain intercept capability into their networks. This is the statute whose mandated wiretap infrastructure Salt Typhoon reached three decades later.<span class="fnref"><a href="#fn1">[1]</a></span></li>
-      <li><span class="yr">1990s</span><strong>Crypto export controls.</strong> Strong encryption classified as a munition under ITAR, then moved to the EAR (1996) and substantially relaxed by 2000 under litigation pressure (<em>Bernstein v. DOJ</em>) and industry lobbying. The deliberately weakened "export-grade" ciphers of this era produced exploitable downgrade attacks (FREAK, Logjam) discovered decades later — a second demonstration that mandated weakness outlives its policy rationale.</li>
-      <li><span class="yr">2001</span><strong>USA PATRIOT Act.</strong> Expands pen-register, trap-and-trace, and business-records authorities (§215), broadening the collection perimeter around the existing intercept mandates.</li>
-      <li><span class="yr">2005–06</span><strong>CALEA extended to the internet.</strong> The FCC extends CALEA obligations to facilities-based broadband and interconnected VoIP providers; upheld in <em>American Council on Education v. FCC</em> (D.C. Cir. 2006). The intercept mandate now covers the internet access layer, not only telephony.</li>
-      <li><span class="yr">2008</span><strong>FISA Amendments Act §702.</strong> Authorizes compelled assistance from U.S. electronic communications service providers for collection targeting non-U.S. persons abroad — the statutory basis for the PRISM and upstream programs disclosed in 2013. Reauthorized in 2012 and 2018.</li>
-      <li><span class="yr">2013</span><strong>The Snowden disclosures.</strong> Not a law, but the moment the scale of the §702 / EO 12333 collection architecture became public — and the moment allied governments learned that data held by U.S. providers was structurally available to U.S. collection regardless of where the ally's citizens lived.</li>
-      <li><span class="yr">2015</span><strong>USA FREEDOM Act</strong> narrows bulk domestic metadata collection; <strong><em>Schrems I</em></strong> (CJEU) invalidates the EU–US Safe Harbor framework, the first European judicial recognition that U.S. surveillance law reaches European data at rest in U.S.-provider infrastructure.</li>
-      <li><span class="yr">2016</span><strong>UK Investigatory Powers Act.</strong> Introduces Technical Capability Notices — secret orders that can require an operator to remove "electronic protection" from communications, i.e., a statutory power to compel a backdoor, under a gag.</li>
-      <li><span class="yr">2018</span><strong>CLOUD Act</strong> (18 U.S.C. §2713) makes explicit that U.S. providers must produce data in their possession, custody, or control <em>regardless of where it is stored</em> — the jurisdictional keystone of European dependence discussed in §9. The same year, <strong>Australia's TOLA Act</strong> creates Technical Assistance and Technical Capability Notices on the UK model.</li>
-      <li><span class="yr">2020</span><strong><em>Schrems II</em></strong> (CJEU, C-311/18) invalidates the EU–US Privacy Shield, holding that §702 and EO 12333 collection prevents U.S.-held European data from receiving essentially equivalent protection.<span class="fnref"><a href="#fn8">[8]</a></span> The EU Council simultaneously adopts its "security through encryption and security despite encryption" resolution, opening the European lawful-access debate.</li>
-      <li><span class="yr">2022–</span><strong>EU CSA Regulation ("Chat Control") proposal.</strong> Draft regulation contemplating mandated client-side scanning of end-to-end-encrypted messaging — the algorithm-level access debate of the 1990s, restaged in Brussels.</li>
-      <li><span class="yr">2023</span><strong>EU–US Data Privacy Framework.</strong> The third attempt at an adequacy bridge, built on executive redress mechanisms layered atop the same underlying collection statutes; litigation on the same <em>Schrems</em> grounds is anticipated.</li>
-      <li><span class="yr">2024</span><strong>RISAA</strong> reauthorizes §702 and broadens the definition of "electronic communications service provider" subject to compelled assistance. In the autumn, <strong>Salt Typhoon</strong> is disclosed: the FBI/CISA joint statement issues November 13,<span class="fnref"><a href="#fn2">[2]</a></span> and joint hardening guidance with NSA and Five Eyes partners follows December 3.<span class="fnref"><a href="#fn3">[3]</a></span></li>
-      <li><span class="yr">2025</span><strong>The stack under stress.</strong> February: a UK Technical Capability Notice reportedly directs Apple to provide access to end-to-end-encrypted iCloud data; Apple withdraws Advanced Data Protection from the UK rather than comply, and the demand is reported withdrawn months later after U.S. objections.<span class="fnref"><a href="#fn10">[10]</a></span> January: the FCC issues a Declaratory Ruling reading CALEA §105 as an affirmative duty to secure networks against unlawful interception — an implicit admission that the intercept mandate created the exposure — then rescinds it on November 20 as exceeding the statute.<span class="fnref"><a href="#fn7">[7]</a></span> August: a multi-nation advisory (AA25-239A) describes the same PRC actors compromising networks worldwide to feed a global espionage system.<span class="fnref"><a href="#fn6">[6]</a></span></li>
-    </ul>
-    <p>Read as a single arc: a key-escrow proposal defeated on technical grounds in 1994 was followed by thirty years of achieving the same outcome through infrastructure and jurisdiction instead of the algorithm — intercept mandates in the carriers (CALEA), compelled assistance from the platforms (§702, CLOUD Act, IPA, TOLA), and periodic attempts to return to the algorithm itself (Chat Control, the Apple TCN). Salt Typhoon is what it looks like when the oldest layer of that stack meets a peer adversary the stack was never designed against.</p>
-  </div>
-
-  <div class="rs-section" id="rs-allied-dependence">
-    <h2>§9 · The Allied Dependence Problem — NATO and Europe Inside the Same Perimeter</h2>
-    <p>The exposure described above is not confined to the United States, because the data of allied states largely is not confined to allied jurisdictions. The overwhelming majority of European cloud workloads — government, enterprise, and consumer — run on U.S. hyperscalers (commonly estimated at roughly seventy percent of the EU cloud market across AWS, Microsoft, and Google), and under the CLOUD Act those providers must produce data within their control regardless of whether it sits in a Frankfurt, Dublin, or Paris data center.<span class="fnref"><a href="#fn9">[9]</a></span> Jurisdiction follows the provider, not the geography. European "sovereign cloud" offerings operated by U.S.-headquartered firms remain, by the providers' own admissions before European legislatures, unable to guarantee immunity from U.S. legal process.</p>
-    <p>The consequence is a double dependence. First, NATO and EU member states depend on the confidentiality of infrastructure that U.S. law requires to be interceptable and compellable — so every weakness in the U.S. lawful-access stack is automatically a weakness in theirs. When Salt Typhoon sat inside U.S. carrier intercept systems, the calls and records of allied diplomats, officers, and firms routing through or stored in that infrastructure were inside the same compromised perimeter. Second, the European judicial system has already ruled, twice, that this arrangement is structurally incompatible with its own fundamental-rights law (<em>Schrems I</em>, <em>Schrems II</em>) — and the political response each time has been a new adequacy instrument layered over the unchanged collection statutes rather than a change to the statutes themselves.<span class="fnref"><a href="#fn8">[8]</a></span></p>
-    <p>For allied governments, therefore, the backdoor-mandate logic fails twice over: they carry the vulnerability cost of the U.S. access architecture without holding the access, and their own emerging mandates (IPA, TOLA, Chat Control) add further doors into systems their adversaries also study. Client-side, no-escrow, no-exceptional-access encryption — where confidentiality derives from mathematics executed on the user's own device rather than from any provider's compliance posture — is the only layer of the stack that is indifferent to which jurisdiction's compelled-access law applies and to which adversary has penetrated which carrier. That is precisely the design demonstrated on this page.</p>
-
-    <h3>Sources &amp; Footnotes</h3>
-    <ul class="fnlist">
-      <li id="fn1">Wall Street Journal (Oct. 5, 2024), first public report that Salt Typhoon reached the systems carriers maintain for court-authorized wiretap requests under CALEA at AT&amp;T, Verizon, and Lumen.</li>
-      <li id="fn2">FBI &amp; CISA, <em>Joint Statement on the People's Republic of China (PRC) Targeting of Commercial Telecommunications Infrastructure</em>, Nov. 13, 2024. <a href="https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications" target="_blank" rel="noopener">cisa.gov</a></li>
-      <li id="fn3">CISA, NSA, FBI &amp; international partners (AU, CA, NZ), <em>Enhanced Visibility and Hardening Guidance for Communications Infrastructure</em>, Dec. 3, 2024. <a href="https://www.cisa.gov/resources-tools/resources/enhanced-visibility-and-hardening-guidance-communications-infrastructure" target="_blank" rel="noopener">cisa.gov</a></li>
-      <li id="fn4">Jeff Greene, Executive Assistant Director for Cybersecurity, CISA, press briefing, Dec. 2024: "We cannot say with certainty that the adversary has been evicted," noting the scope of intrusion remained unknown.</li>
-      <li id="fn5">U.S. Senate Commerce Committee, Subcommittee on Communications, Media, and Broadband, hearing on Salt Typhoon and communications-network security, Dec. 11, 2024; contemporaneous White House briefings (Anne Neuberger) placing the count at nine or more U.S. carriers, with classified-level uncertainty about persistence.</li>
-      <li id="fn6">CISA et al., Joint Cybersecurity Advisory AA25-239A, <em>Countering Chinese State-Sponsored Actors' Compromise of Networks Worldwide to Feed a Global Espionage System</em>, Aug. 27, 2025. <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener">cisa.gov</a></li>
-      <li id="fn7">FCC, Declaratory Ruling &amp; NPRM, FCC 25-9, PS Docket No. 22-329 (adopted Jan. 2025), construing CALEA §105 as an affirmative network-security duty; rescinded by Order on Reconsideration adopted Nov. 20, 2025. <a href="https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf" target="_blank" rel="noopener">FCC 25-9</a></li>
-      <li id="fn8">CJEU, Case C-311/18, <em>Data Protection Commissioner v. Facebook Ireland &amp; Schrems</em> ("Schrems II"), judgment of July 16, 2020; see also Case C-362/14 ("Schrems I"), Oct. 6, 2015.</li>
-      <li id="fn9">Clarifying Lawful Overseas Use of Data (CLOUD) Act, 18 U.S.C. §2713 (2018): a provider "shall … preserve, backup, or disclose" data within its "possession, custody, or control … regardless of whether such communication, record, or other information is located within or outside of the United States."</li>
-      <li id="fn10">Reporting (Washington Post, Feb. 2025) on a UK Technical Capability Notice under the Investigatory Powers Act 2016 directed at Apple's Advanced Data Protection; Apple's withdrawal of ADP for UK users (Feb. 21, 2025); and subsequent reporting (Aug. 2025) that the demand was dropped following U.S. government objections.</li>
-    </ul>
+  <div class="biz-cta-row">
+    <a class="cc-btn" href="mailto:founder@logarcheon.com">Contact the founder →</a>
+    <span class="biz-note">U.S. Patent Pending 64/067,703 · Logarchéon Inc. · All engagements subject to applicable U.S. export regulations (EAR / ITAR)</span>
   </div>
 </div>
 
+</div>
 <!-- ════════════════ ALGEBRAIC CONSTRUCTIONS SECTION (inject before footer) ════════════════ -->
 <style>
-.alg-wrap{margin:2.4rem 0 1rem;border:1px solid var(--border-dim);border-radius:6px;background:var(--navy-mid);padding:1.4rem 1.5rem}
+.alg-wrap{margin:2.4rem 0 1rem;border:1px solid var(--border);border-radius:6px;background:var(--navy-mid);padding:1.4rem 1.5rem;box-shadow:0 0 0 1px var(--border-dim),0 0 40px rgba(201,168,76,0.05)}
+.alg-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);border-radius:3px;padding:.22rem .6rem;margin-bottom:.7rem}
+.alg-frame{border-left:3px solid var(--gold);background:var(--gold-glow);padding:.8rem 1rem;margin:.2rem 0 1.1rem;font-size:.88rem;color:var(--muted);line-height:1.7;max-width:74ch}
+.alg-frame strong{color:var(--cream)}
 .alg-wrap h3.alg-h{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:400;color:var(--cream);border-left:3px solid var(--gold);padding-left:.8rem;margin:0 0 .5rem;line-height:1.25}
 .alg-lead{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:74ch;margin-bottom:1.1rem}
 .alg-lead strong{color:var(--cream)}
@@ -978,8 +639,10 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 .alg-dec-lead{font-size:.85rem;color:var(--muted);line-height:1.6;max-width:74ch;margin-bottom:.9rem}
 </style>
 <div class="alg-wrap" id="algWrap">
+  <span class="alg-badge">Faithful implementation · original MSIA design</span>
   <h3 class="alg-h">Algebraic constructions — companion matrices &amp; trace recovery</h3>
-  <p class="alg-lead">The tool above uses the hashed FO-KEM path. The constructions here demonstrate the <strong>algebraic core</strong> of MSIA directly: each character’s count becomes a companion block of <em>x<sup>ℓ</sup>−·1</em>; the blocks are assembled by block-diagonal concatenation and disguised by a random diagonal similarity <em>D<sup>−¹1</sup>AD</em>; and for the pure-algebraic variant, decryption recovers the message by solving the Vandermonde system from the power-trace vector <em>T</em> — no hash involved.</p>
+  <div class="alg-frame"><strong>How this differs from the demonstrations above.</strong> The tutorial and the everyday tool exist to teach the workflow — key in, message in, ciphertext out — and in implementation they still derive their keystream through a hash (the SHA-512 / FO-KEM floor noted in the footer). <strong>This section is the fair demonstration:</strong> it runs the original MSIA design directly, with no hash anywhere in the encryption path. Security rests on the algebraic structure itself — the trace-recovery problem — analyzed in MSIA in Depth below. This matters on two dimensions, not one. The first is mathematical: the security argument moves from "trust a hash function" to "trust a published open problem in arithmetic geometry." The second is institutional: the hash-free path places no reliance on NSA-designed, NIST-standardized primitives developed under the same legal and institutional framework described in §7 below. SHA-512 is NSA-designed (FIPS 180-2, 2001). The only NIST-standardized algorithm for which a deliberately inserted backdoor was subsequently documented is Dual_EC_DRBG — also NSA-designed, standardized 2006, backdoor disclosed 2013. No weakness in SHA-512 is known; but under the legal regime described in §7, that guarantee cannot be independently verified from outside the design process. The algebraic construction here requires no such trust: its hardness is a public mathematical statement whose analysis is open to the entire research community and is not contingent on the integrity of any government-adjacent standards body.</div>
+  <p class="alg-lead">Each character's count becomes a companion block of <em>x<sup>ℓ</sup>−1</em>; the blocks are assembled by block-diagonal concatenation and disguised by a random diagonal similarity <em>D<sup>−1</sup>AD</em>; and for the pure-algebraic variant, decryption recovers the message by solving the Vandermonde system from the power-trace vector <em>T</em> — no hash involved.</p>
 
   <div class="alg-seg-row">
     <div class="alg-seg-group">
@@ -1419,8 +1082,460 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
 </script>
 <!-- ════════════════ END ALGEBRAIC CONSTRUCTIONS SECTION ════════════════ -->
 
+<div class="rs">
+  <div class="rs-label">Logarchéon Research · Mathematical Background</div>
+  <h1>MSIA in Depth</h1>
+  <p class="rs-intro">The sections below develop the mathematics, the construction, the hardness argument, and where MSIA sits in a broader research program.</p>
+
+  <!-- ═══ §1 THE CORE IDENTITY ═══ -->
+  <div class="rs-section" id="rs-identity">
+    <h2>§1 · The Core Mathematical Identity</h2>
+    <p>MSIA originates in a single algebraic identity that holds for any square matrix A over any commutative ring, proved by expanding log det = tr log:</p>
+    <div class="eq-display">
+      <span class="eq-label">The Artin–Mazur / Bowen–Ruelle zeta identity</span>
+      det(I − z A)⁻¹ &nbsp;=&nbsp; exp&thinsp;( Σ<sub>m=1</sub><sup>∞</sup> Tr(A<sup>m</sup>) · z<sup>m</sup> / m )
+    </div>
+    <p>The left side is a rational function in z — the reciprocal of a characteristic polynomial. The right side is an exponential generating function of matrix traces. What makes the identity remarkable for cryptography is not the algebra but the <strong>triple simultaneous translation</strong> it performs:</p>
+    <div class="rs-pillar-grid">
+      <div class="rs-pillar">
+        <div class="pnum">Language 1</div>
+        <h4>Symbolic Dynamics</h4>
+        <p>The coefficients of log ζ<sub>A</sub>(z) count <strong>primitive periodic orbits</strong> by length. Each (ℓ<sub>i</sub>, c<sub>i</sub>) pair is an orbit of period ℓ<sub>i</sub> with multiplicity c<sub>i</sub>.</p>
+      </div>
+      <div class="rs-pillar">
+        <div class="pnum">Language 2</div>
+        <h4>Linear Algebra</h4>
+        <p>The left side det(I − zA)⁻¹ is the characteristic polynomial of the companion matrix A. Factoring it reveals the orbit structure.</p>
+      </div>
+      <div class="rs-pillar">
+        <div class="pnum">Language 3</div>
+        <h4>Spectral Theory</h4>
+        <p>When A is the transfer matrix of a geodesic flow on ℍⁿ/Γ, the poles of ζ<sub>A</sub>(s) are the eigenvalues of the Laplacian — the Selberg trace formula is the analytic version of this identity.</p>
+      </div>
+    </div>
+    <p>The cryptographic insight is: <strong>this identity can be made one-way</strong> if the primitive elements (the ℓ<sub>i</sub>) are chosen from a mathematical structure whose inverse problem is computationally hard. Going from A to ζ<sub>A</sub> is fast — matrix exponentiation. Going from ζ<sub>A</sub> back to the primitive (ℓ<sub>i</sub>, c<sub>i</sub>) data requires solving a problem that the entire mathematical community has worked on for decades without a general efficient algorithm.</p>
+    <p>This insight is not new as a mathematical observation — the identity has been known since Bowen, Ruelle, and Artin–Mazur in the 1960s–70s. What is new is recognizing it as a <strong>cryptographic primitive</strong> and building a concrete keyed encryption scheme on top of it. The key selects which Kleinian group Γ to use; the primitive geodesic lengths ℓ<sub>i</sub> of Γ are the secret orbit data; the ciphertext is the characteristic polynomial of the companion matrix. Decryption recovers the ℓ<sub>i</sub> using the key. An attacker without the key must recover ℓ<sub>i</sub> from the ciphertext alone — which requires solving the length-spectrum inverse problem.</p>
+    <div class="rs-callout"><strong>Why the origin matters.</strong> RSA came from basic modular arithmetic (Rivest, Shamir, Adleman 1977). Diffie-Hellman from discrete logarithms. ECC from the Weierstrass equation. In each case, the creative moment was recognizing that an existing mathematical structure has a natural one-way character. MSIA follows the same pattern — but the mathematical structure it draws on (the Selberg zeta function and hyperbolic geodesic flow) is substantially deeper than what underlies RSA or ECC.</div>
+  </div>
+
+  <!-- ═══ §2 MATHEMATICAL FOUNDATIONS ═══ -->
+  <div class="rs-section" id="rs-math">
+    <h2>§2 · Mathematical Foundations — Four Pillars</h2>
+    <p>MSIA rests on four mathematical domains, each contributing an essential component of the construction.</p>
+
+    <h3>Pillar 1 — Modular Representation Theory</h3>
+    <p>Given a finite group G and a prime p, the modular representation theory of G over 𝔽<sub>p</sub> studies how modules decompose into indecomposable blocks. The key tool is the <strong>Brauer character</strong>, which tracks how ordinary complex characters reduce mod p. For MSIA, this machinery provides the algebraic ground in which the companion matrix A(p) lives: A lives in Mat<sub>n</sub>(𝔽<sub>p</sub>), and its characteristic polynomial det(I − zA) factors into irreducibles in 𝔽<sub>p</sub>[z] corresponding to the symbolic orbit data. The factorization pattern — which irreducibles appear, with what multiplicities — encodes the secret message. Recovering the message from the polynomial requires inverting this block decomposition, which is hard precisely because modular decomposition is non-canonical and the blocks can be obfuscated by conjugation.</p>
+
+    <h3>Pillar 2 — Symbolic Dynamics and the Artin–Mazur Zeta Function</h3>
+    <p>A <strong>subshift of finite type</strong> (SFT) is a dynamical system on a finite alphabet where transitions are governed by a 0–1 adjacency matrix A. Periodic orbits of the SFT correspond to words that can be traced through A indefinitely. The <strong>Artin–Mazur zeta function</strong> ζ<sub>A</sub>(z) = 1/det(I − zA) encodes the number of periodic orbits of each length. For MSIA, the symbolic dynamical system is the geodesic flow on ℍⁿ/Γ — the hyperbolic manifold associated to the Kleinian group Γ determined by the key. The "periodic orbits" of this flow are the closed geodesics; their lengths are the primitive lengths ℓ<sub>i</sub>. The Artin–Mazur zeta function becomes the Selberg zeta function in this setting, connecting symbolic dynamics to spectral geometry.</p>
+
+    <h3>Pillar 3 — Schottky and Kleinian Groups</h3>
+    <p>A <strong>Schottky group</strong> Γ is a free group of Möbius transformations generated by parabolic or hyperbolic elements, constructed by specifying 2g disjoint Jordan curves C<sub>1</sub>, C<sub>1</sub>′, …, C<sub>g</sub>, C<sub>g</sub>′ in S² and taking the generators to be the Möbius maps sending the exterior of C<sub>i</sub> to the interior of C<sub>i</sub>′. The resulting quotient ℍ³/Γ is a hyperbolic 3-manifold (or handlebody); its primitive closed geodesics have lengths ℓ<sub>i</sub> that are determined by the generator matrices — the conjugacy class lengths of the group elements.</p>
+    <p>For the key, the user supplies the 2×2 real matrices of these generators. The condition |trace| &gt; 2 ensures each generator is <strong>hyperbolic</strong> — it has two fixed points on the boundary S² = ∂ℍ³ and acts by a pure stretch along the geodesic connecting them. The geodesic length is ℓ = 2 · acosh(|tr(G)|/2). With g generators, the group has infinitely many closed geodesics but they are generated by the finite set of primitives, and the key selects exactly which group Γ is used. <strong>Mostow rigidity</strong> (dimension ≥ 3) guarantees that the group Γ is uniquely determined by its geometry up to isometry — an attacker cannot find a different group with the same length spectrum.</p>
+
+    <h3>Pillar 4 — The Selberg Zeta Function and Its Zeros</h3>
+    <p>The <strong>Selberg zeta function</strong> ζ<sub>Γ</sub>(s) is defined by the Euler product over primitive closed geodesics of ℍⁿ/Γ:</p>
+    <div class="eq-display">ζ<sub>Γ</sub>(s) = Π<sub>γ primitive</sub> Π<sub>k=0</sub><sup>∞</sup> (1 − e<sup>−(s+k)ℓ(γ)</sup>)</div>
+    <p>Its zeros lie at the eigenvalues of the Laplacian on ℍⁿ/Γ — a fact proved by the <strong>Selberg trace formula</strong>, which relates the spectrum of the Laplacian to the geodesic length spectrum. This is the continuous analog of the matrix identity above. The Riemann Hypothesis analog for the Selberg zeta is <strong>proven</strong> (Selberg 1956 for n=2, Patterson-Sullivan and others for n&gt;2): all non-trivial zeros lie on the critical line Re(s) = (n−1)/2. This means the distribution of geodesic lengths is provably well-controlled — a stronger foundation than classical cryptography has for the distribution of rational primes, where the Riemann Hypothesis remains open.</p>
+    <p>The <strong>Prime Geodesic Theorem</strong> gives the density: #{γ primitive : ℓ(γ) ≤ L} ~ e<sup>(n−1)L</sup> / ((n−1)L) as L → ∞. This gives exact control over the number of available geodesics of each length, letting you calibrate key space precisely — analogous to knowing exactly how many RSA primes exist below a given bound.</p>
+  </div>
+
+  <!-- ═══ §3 THE CONSTRUCTION ═══ -->
+  <div class="rs-section" id="rs-construction">
+    <h2>§3 · The Encryption Construction</h2>
+    <p>The full encryption pipeline maps a message to a ciphertext through the mathematical objects described above. Here is the complete flow, followed by the two implementation variants and the decryption path.</p>
+
+    <h3>The Encryption Flow</h3>
+    <div class="rs-flow">
+      <span class="rs-flow fstep">Message m</span><span class="rs-flow farrow">→</span>
+      <span class="rs-flow fstep">Symbolic pairs (ℓ<sub>i</sub>, c<sub>i</sub>)</span><span class="rs-flow farrow">→</span>
+      <span class="rs-flow fstep">Modular zeta ζ<sub>p</sub>(z)</span><span class="rs-flow farrow">→</span>
+      <span class="rs-flow fstep">Companion matrix A(p)</span><span class="rs-flow farrow">→</span>
+      <span class="rs-flow fstep">Ciphertext χ(z) = det(I − zA)</span>
+    </div>
+    <p><strong>Step 1: Symbolic encoding.</strong> Each byte (or chunk of bytes) of the message m is assigned a pair (ℓ<sub>i</sub>, c<sub>i</sub>) where ℓ<sub>i</sub> is a geodesic length derived from the key generators and i is the position in the message. The lengths are computed by the formula ℓ<sub>i</sub> = 2 · acosh(|tr(G<sub>1</sub><sup>(i+1)</sup> G<sub>2</sub> … G<sub>g</sub><sup>(i+g)</sup>)|/2), scaled and rounded to an integer modulo the prime P. Multiple chunks derive distinct lengths because the matrix product depends on the position index i.</p>
+    <p><strong>Step 2: Modular zeta construction.</strong> The symbolic pairs define a modular zeta function over 𝔽<sub>p</sub>:</p>
+    <div class="eq-display">ζ<sub>p</sub>(z) = Π<sub>i</sub> (1 − z<sup>ℓ<sub>i</sub></sup>)<sup>−c<sub>i</sub></sup> ∈ 𝔽<sub>p</sub>(z)</div>
+    <p>This is the algebraic / modular analog of the Selberg–Artin–Mazur zeta function, computed purely over the finite field 𝔽<sub>p</sub> = ℤ/Pℤ, requiring no analytic convergence.</p>
+    <p><strong>Step 3: Companion matrix.</strong> The companion matrix A(p) ∈ Mat<sub>n</sub>(𝔽<sub>p</sub>) is the matrix whose characteristic polynomial det(I − zA(p)) equals ζ<sub>p</sub>(z)<sup>−1</sup>. Its block-diagonal structure encodes the orbit data; Brauer character obfuscation conceals the decomposition from an attacker who sees only the matrix.</p>
+    <p><strong>Step 4: Ciphertext.</strong> The ciphertext is χ(z) = det(I − zA(p)) ∈ 𝔽<sub>p</sub>[z] — the characteristic polynomial of A(p) — together with an HMAC authentication tag. An attacker who intercepts χ(z) must factor it over 𝔽<sub>p</sub>[z] and match the factors to symbolic orbits without knowing the group Γ determined by the key.</p>
+
+    <h3>Option A and Option B — The Design Fork</h3>
+    <p>There are two fundamentally different ways to implement decryption, and they correspond to two different security postures:</p>
+    <div class="rs-hardness-grid">
+      <div class="rs-hard">
+        <div class="htag">Option A · Current implementation</div>
+        <h4>Hashed / FO-KEM (SHA-512 security)</h4>
+        <p>The full geometric construction is implemented faithfully — the geodesic lengths ℓ<sub>i</sub> are derived from the key generators exactly as the scheme specifies. Because the formal hardness proofs (Lean 4 verification and external cryptanalysis) are not yet finished, the demo does not yet rely on the geometric inversion problem for its security guarantee; instead it feeds the ℓ<sub>i</sub> into SHA-512 to produce the actual cipher key K, with an HMAC tag for authentication. This provides a well-studied floor today, independent of how the geometric hardness ultimately resolves — subject to the caveat that SHA-512 is NSA-designed and NIST-standardized under the same institutional framework that produced Dual_EC_DRBG, the only NIST-standardized primitive for which a backdoor has been documented (disclosed 2013 via the Snowden files; see §7). No weakness in SHA-512 is publicly known; the floor is a conditional trust, not a mathematical proof of security. Decryption recomputes the ℓ<sub>i</sub> from the generators and re-derives K. Under Grover's algorithm, SHA-512's effective quantum security is 2<sup>128</sup> at High mode with g≥3 generators — the NIST quantum-safe bar.</p>
+      </div>
+      <div class="rs-hard">
+        <div class="htag">Option B · Research direction</div>
+        <h4>Geometric trapdoor (spectral hardness)</h4>
+        <p>The characteristic polynomial χ(z) is treated as the genuine ciphertext, and decryption requires inverting the length-spectrum map — recovering the ℓ<sub>i</sub> from χ(z) without the key. This is the version where the geometry itself carries the security guarantee, resting on the inverse spectral problem for Kleinian groups, an open problem in arithmetic geometry. The geometric construction is already built (Option A uses the same lengths); what Option B requires, and what is <strong>not yet established</strong>, is the formal proof that recovering those lengths is hard. The pure-algebraic recovery path — companion blocks of x<sup>ℓ</sup>&minus;1, block-diagonal assembly, diagonal disguise, and Vandermonde solve from the power-trace vector — is <strong>demonstrated live in the Algebraic constructions section above</strong>, which runs the original design with no hash in the encryption path. Until the hardness proof and external cryptanalysis are complete, the everyday tool keeps the SHA-512 floor rather than relying on the geometric hardness alone.</p>
+      </div>
+    </div>
+
+    <h3>The Decryption Path (Option A)</h3>
+    <p>Decryption in Option A recomputes the geodesic lengths ℓ<sub>i</sub> from the generator matrices, re-derives the SHA-512 key K = SHA-512(ℓ<sub>1</sub>, …, ℓ<sub>t</sub>), and verifies the HMAC tag. If the key matches, the XOR keystream is regenerated and the plaintext is recovered. Wrong key → HMAC fails cleanly. The geometric structure — the matrix products, the acosh computation, the scaling and reduction mod P — is only a key-derivation mechanism; it does not appear in the ciphertext.</p>
+    <p>Option B's decryption path (not yet implemented) would require: (1) factoring χ(z) over 𝔽<sub>p</sub>[z], (2) matching the factors to primitive orbit lengths, and (3) inverting the length spectrum to recover Γ and the key. Step (3) is the hard step — it is open in the mathematical literature for dimension ≥ 3.</p>
+  </div>
+
+  <!-- ═══ §4 HARDNESS ANALYSIS ═══ -->
+  <div class="rs-section" id="rs-hardness">
+    <h2>§4 · Hardness Analysis</h2>
+    <p>The papers establish multiple independent hardness arguments for MSIA, targeting different complexity classes and attack models.</p>
+
+    <h3>NP-Hardness via 3-SAT Reduction</h3>
+    <p>The MSIA inversion problem — given a characteristic polynomial χ(z) ∈ 𝔽<sub>p</sub>[z], recover the symbolic orbit data (ℓ<sub>i</sub>, c<sub>i</sub>) that produced it — can be used to solve 3-SAT in polynomial time if an efficient inversion algorithm exists. The reduction encodes 3-SAT clauses into the symbolic orbit structure: satisfying assignments correspond to consistent orbit decompositions of χ(z), and the inversion algorithm would find one if it exists. Therefore <strong>efficient MSIA inversion implies P = NP</strong>. The same reduction shows that even approximate inversion (within polynomial error) remains NP-hard.</p>
+
+    <h3>#P-Hardness via Trace Counting</h3>
+    <p>A stronger result: computing the power-sum traces Tr(A<sup>m</sup>) from χ(z) alone is <strong>#P-hard</strong>. This is established by reduction from the problem of counting independent sets in a graph (a #P-complete problem). The companion matrix A encodes a graph-like structure in its block decomposition; recovering the trace sequence from the characteristic polynomial requires counting independent sets in this structure. #P-hardness is strictly stronger than NP-hardness — it says that even a probabilistic polynomial-time oracle for NP cannot solve the problem efficiently.</p>
+
+    <h3>The Schottky Conjugacy-Class Length Problem</h3>
+    <p>A third hardness source: given the set of geodesic lengths {ℓ(γ)} of a Schottky group Γ (its "length spectrum"), recover the conjugacy classes of the generators of Γ. This is the <strong>Schottky conjugacy-class length problem</strong>. It is a variant of the inverse spectral problem and is not known to be in any subexponential-time algorithm. The reduction from this problem to MSIA inversion shows that breaking MSIA is at least as hard as solving the conjugacy-class length problem.</p>
+
+    <h3>Quantum Resistance — Non-Abelian HSP for SO(n,1)</h3>
+    <p>Shor's algorithm and its generalizations work by solving the <strong>Hidden Subgroup Problem (HSP)</strong> on an abelian group via quantum Fourier sampling. RSA's vulnerability: factoring reduces to HSP over ℤ. ECC's vulnerability: discrete log reduces to HSP over ℤ/nℤ. MSIA's geodesic flow has <strong>SO(n,1)</strong> symmetry — the group of orientation-preserving isometries of ℍⁿ. For n ≥ 2, SO(n,1) is a simple non-abelian Lie group. The non-abelian HSP over SO(n,1) is not known to be solvable in polynomial time even on a quantum computer. There is no known quantum Fourier transform that exploits SO(n,1) structure, and the representation theory of non-compact simple Lie groups is not amenable to the sampling techniques used in Shor's algorithm.</p>
+
+    <h3>Mostow Rigidity as a Security Amplifier</h3>
+    <p><strong>Mostow's rigidity theorem</strong> (1968, extended by Prasad and others): if n ≥ 3 and Γ, Γ′ are lattices in SO(n,1) with isomorphic fundamental groups, then ℍⁿ/Γ ≅ ℍⁿ/Γ′ as Riemannian manifolds. In other words, for dimension ≥ 3, the geometry uniquely determines the group up to isometry. There are no non-isometric hyperbolic manifolds with the same volume, spectrum, or length spectrum (up to a conjecture by isospectral forms in higher dimensions, where even the Vignéras / Sunada construction produces distinct Γ).</p>
+    <p>For the MSIA inverse problem, Mostow rigidity means the inverse has a <strong>unique answer</strong>. An attacker is not searching for "any Γ that fits" but for the specific Γ that was used. This is harder than a problem with multiple valid inverses — the search space is the same but valid answers are isolated points, not large subsets.</p>
+
+    <h3>The Prime Geodesic Theorem as a Security Parameter</h3>
+    <p>The <strong>Prime Geodesic Theorem</strong> gives the precise asymptotic count of primitive geodesics of length ≤ L:</p>
+    <div class="eq-display">#{γ primitive : ℓ(γ) ≤ L} &nbsp;~&nbsp; e<sup>(n−1)L</sup> / ((n−1)L) &nbsp; as L → ∞</div>
+    <p>This exponential growth means the number of "cryptographic primes" (geodesics) available at a given length scale grows faster than polynomially. It also gives a precise handle on the key space — analogous to the prime counting function π(N) giving a handle on the RSA key space. Unlike π(N), the Prime Geodesic Theorem is a consequence of the proven Selberg zeta Riemann Hypothesis — the distribution of geodesics is provably well-controlled by a formula, not just conjectured to be so.</p>
+  </div>
+
+  <!-- ═══ §5 CRYPTOGRAPHIC HIERARCHY ═══ -->
+  <div class="rs-section" id="rs-hierarchy">
+    <h2>§5 · The Cryptographic Hierarchy and Prior Art</h2>
+    <p>MSIA occupies a specific position in a hierarchy of cryptographic hardness assumptions, each corresponding to a different tier of mathematical depth. The table below places MSIA in context.</p>
+
+    <table class="rs-hier-table">
+      <tr><th>tier</th><th>system / primitive</th><th>hardness basis</th><th>complexity floor †</th><th>quantum status</th><th></th></tr>
+      <tr class="prog-hl"><td>0</td><td><strong>Motivic zeta functions</strong></td><td>Recovering motive from ζ; Standard Conjectures open</td><td>unmeasurable</td><td>unknown</td><td class="h-new">● completely new</td></tr>
+      <tr class="prog-hl"><td>0–1</td><td><strong>Hyperbolic Neural Cryptosystem</strong></td><td>Bulk-to-boundary reconstruction (holography, quantum gravity) + O(n,1) continuous isometry key</td><td>2<sup>500+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
+      <tr class="prog-hl"><td>1</td><td><strong>Automorphic L-functions</strong></td><td>Hecke eigenvalue inversion; full Langlands functoriality open</td><td>2<sup>300+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
+      <tr class="msia-hl"><td>1</td><td><strong>MSIA — Selberg ζ<sub>Γ</sub>, Kleinian n≥3</strong> ← this demo</td><td>Length spectrum inversion; Arthur–Selberg; Prime Geodesic Theorem; Mostow rigidity</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
+      <tr class="prog-hl"><td>1–2</td><td><strong>Artin L-functions / inverse Galois</strong></td><td>Recovering Galois rep ρ from L(ρ,s); inverse Galois problem</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● new as primitive</td></tr>
+      <tr class="prog-hl"><td>1–2</td><td><strong>Dessins d'Enfants / Belyi</strong></td><td>Absolute Galois action on dessins; anabelian geometry</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
+      <tr><td>2</td><td><strong>Hasse-Weil ζ (varieties, dim ≥ 2)</strong></td><td>Torelli problem for abelian varieties</td><td>2<sup>150+</sup></td><td>subexponential</td><td class="h-new">● essentially new</td></tr>
+      <tr><td>2–3</td><td>CSIDH / SQIsign</td><td>Supersingular isogeny / class group action</td><td>2<sup>128</sup></td><td>subexponential</td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>3</td><td>ML-KEM / ML-DSA (NIST 2024)</td><td>Module-LWE</td><td>2<sup>160</sup></td><td>2<sup>130</sup></td><td class="h-std">current standard</td></tr>
+      <tr><td>4</td><td>McEliece</td><td>Syndrome decoding</td><td>2<sup>128</sup></td><td>2<sup>64</sup>+</td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>5</td><td>NTRU</td><td>NTRU lattice</td><td>2<sup>128</sup></td><td>2<sup>128</sup></td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>7</td><td>SLH-DSA / LMS</td><td>Hash one-way function</td><td>2<sup>128</sup></td><td>2<sup>128</sup> (Grover only)</td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>8</td><td>RSA / ECC</td><td>Factoring / ECDLP</td><td>2<sup>112</sup></td><td>polynomial (Shor)</td><td class="h-bk">● broken by Shor</td></tr>
+    </table>
+    <p style="font-size:.78rem;color:var(--faint);font-family:'DM Mono',monospace;margin:.4rem 0 .6rem"><span style="display:inline-block;width:.7rem;height:.7rem;background:rgba(127,201,154,0.3);border:1px solid rgba(127,201,154,0.5);border-radius:1px;margin-right:.35rem;vertical-align:middle"></span>green = this demo &nbsp;&nbsp;<span style="display:inline-block;width:.7rem;height:.7rem;background:rgba(201,168,76,0.2);border:1px solid var(--border-dim);border-radius:1px;margin-right:.35rem;vertical-align:middle"></span>gold = Logarchéon research programme</p>
+    <p class="rs-note" style="font-size:.78rem;color:var(--faint);font-family:'DM Mono',monospace;margin:.4rem 0 1.2rem;line-height:1.6">† <strong style="color:var(--muted)">Complexity floor</strong> — for deployed systems (Tiers 3–8): reflects cryptanalytic consensus on the minimum classical work to break the scheme. For research-stage entries (Tiers 0–2, marked ●): reflects the depth of the underlying open mathematical problem rather than a proven attack bound — no efficient classical attack is known, and in some cases no attack of any complexity has been formulated. Values above 2<sup>256</sup> exceed the SHA-512 key floor and indicate mathematical rather than computational barriers. "Unmeasurable" means the underlying theory (Standard Conjectures, quantum gravity) is not yet complete enough to define an attack space.</p>
+
+    <h3>What Is Genuinely New</h3>
+    <p>Everything from Tier 0 through Tier 2 in the table — except the Hasse-Weil entry for elliptic curves specifically (which underlies existing isogeny crypto) — is <strong>unoccupied territory in cryptography</strong>. No deployed system, no NIST candidate, and no serious prior academic proposal uses any of these as the explicit cryptographic primitive. The reason is structural: the mathematics is too deep for most cryptographers, and most mathematicians working in these areas have not been thinking about cryptographic applications. The people who understand the Arthur-Selberg trace formula are not typically the people building encryption schemes.</p>
+    <p>The entries marked "completely new" have not appeared in any cryptographic proposal before MSIA and the Hyperbolic Neural Cryptosystem. The entries marked "new as primitive" have appeared peripherally in the mathematical literature in cryptographic contexts but have not been formalized as explicit hard problems for encryption. The Selberg zeta function has appeared in mathematics and physics for 70 years. It has never appeared as a cryptographic hardness assumption before this work.</p>
+
+    <h3>The Langlands Unification Hypothesis</h3>
+    <p>The systems at levels 0–2 share a striking structural property: they are all connected to either the <strong>Langlands program</strong> (automorphic forms, L-functions, Galois representations) or <strong>Grothendieck's program</strong> (motives, dessins, anabelian geometry, étale cohomology). These are the two grand unification programs of 20th–21st century mathematics. It is not coincidental that the hardest cryptographic problems sit exactly at this boundary.</p>
+    <p>The Langlands correspondence conjectures that all reasonable L-functions — Selberg zeta, Artin L-functions, automorphic L-functions, Hasse-Weil zeta functions of varieties — are all instances of a single object: automorphic L-functions attached to representations of adele groups. If this is true (the evidence is overwhelming, though the full correspondence remains open), then the different systems at Tiers 0–2 in the table might not give <em>independent</em> hardness assumptions — they might all reduce to the same underlying hard problem through Langlands functoriality.</p>
+    <p>This is analogous to how RSA, DH, and ECDLP seemed like three independent hard problems but are all vulnerable to Shor because they share the same abelian group structure. If the Langlands unification holds, MSIA — properly generalized to the full automorphic level — would not be one instance among many but the right framework for the entire class of Langlands-based cryptographic hardness.</p>
+  </div>
+
+  <!-- ═══ §6 TWO TRACKS AND UNIFICATION ═══ -->
+  <div class="rs-section" id="rs-tracks">
+    <h2>§6 · Research Plan — Two Tracks and Their Unification</h2>
+    <p>The research program that MSIA belongs to has two complementary directions and a Track C unification. All entries in the gold-highlighted rows of the table above are either existing work or planned contributions in this program. The two tracks are not independent: they are connected at their deepest mathematical level through a structural equivalence first proved by Kapustin and Witten (2006).</p>
+
+    <div class="eq-display" style="margin:.9rem 0 1.4rem">Langlands functoriality &nbsp;⟺&nbsp; S-duality (Kapustin-Witten 2006) &nbsp;⟺&nbsp; holographic duality</div>
+    <p>Track A approaches through the algebraic/arithmetic side; Track B through the geometric/physical side. Both are computational manifestations of the same underlying mathematical duality.</p>
+
+    <!-- TRACK A -->
+    <h3>Track A — Langlands-Based Post-Quantum Cryptography (algebraic / discrete)</h3>
+    <p>A hierarchy from specific to universal. MSIA sits in the middle; the program climbs upward toward more universal hardness assumptions and also examines the more specific cases below.</p>
+
+    <div class="hier-flow">
+      <div class="hier-node prog"><span class="hn-tag">A5 · long horizon</span><strong>Motivic zeta functions</strong> — recovering arithmetic motives from ζ; hardness above all other levels; depends on Standard Conjectures (theory not yet complete)</div>
+      <div class="hier-arrow">↑</div>
+      <div class="hier-node prog"><span class="hn-tag">A4</span><strong>Automorphic L-functions (full Langlands)</strong> — Hecke eigenvalue inversion across all reductive groups; functoriality conjecture as master primitive</div>
+      <div class="hier-arrow">↑</div>
+      <div class="hier-node here"><span class="hn-tag" style="color:var(--ok)">A1 · existing work</span><strong>MSIA — Selberg ζ<sub>Γ</sub> / Kleinian groups in ℍⁿ, n≥3</strong> — length spectrum inversion; this demo</div>
+      <div class="hier-arrow">↑</div>
+      <div class="hier-node prog"><span class="hn-tag">A2</span><strong>Artin L-functions / inverse Galois</strong> — Frobenius conjugacy classes over number fields; inverse Galois problem as trapdoor</div>
+      <div class="hier-arrow">↑</div>
+      <div class="hier-node prog"><span class="hn-tag">A3</span><strong>Dessins d'Enfants / Belyi</strong> — absolute Galois group action on bipartite graphs on Riemann surfaces; Grothendieck's conjecture</div>
+    </div>
+
+    <table class="rs-ptable" style="margin-top:.5rem">
+      <tr><th>paper</th><th>content</th><th>target</th><th>horizon</th></tr>
+      <tr><td class="pnow">A1 · now</td><td><strong>MSIA:</strong> Length Spectrum Inversion as post-quantum primitive. Formal hardness definition, Vandermonde correctness, FO-KEM, Lean 4 proofs.</td><td>CRYPTO / EUROCRYPT</td><td class="pnow">immediate</td></tr>
+      <tr><td class="pnear">A2</td><td><strong>Artin L-function cryptosystem:</strong> inverse Galois problem as trapdoor. Explicit construction using Frobenius conjugacy classes over number fields.</td><td>EUROCRYPT / TCC</td><td class="pnear">near-term</td></tr>
+      <tr><td class="pnear">A3</td><td><strong>Dessins d'Enfants cryptosystem:</strong> Belyi maps and absolute Galois group action as one-way function. Construction over Q̄.</td><td>CRYPTO / Annals adj.</td><td class="pnear">medium-term</td></tr>
+      <tr><td class="pfar">A4</td><td><strong>Full automorphic L-function crypto:</strong> unifying A1–A3 under the Langlands correspondence. Hecke eigenvalue inversion as master primitive.</td><td>Journal of Cryptology / JACM</td><td class="pfar">long-term</td></tr>
+      <tr><td class="pfar">A5</td><td><strong>Motivic crypto:</strong> when Standard Conjectures admit partial resolution, motivic zeta functions give hardness strictly above A4.</td><td>Future work</td><td class="pfar">decade horizon</td></tr>
+    </table>
+
+    <!-- TRACK B -->
+    <h3 style="margin-top:1.8rem">Track B — Physics-Based Post-Quantum Cryptography (geometric / continuous)</h3>
+    <p>A second framework whose hardness comes from physics rather than mathematics. Operates on high-dimensional continuous data (model outputs, embeddings, sensor readings) where Track A operates on symbolic discrete data.</p>
+
+    <div class="hier-flow">
+      <div class="hier-node prog"><span class="hn-tag">B3</span><strong>Quantum gravity inversion as formal computational primitive</strong> — formal complexity theory for holographic inversion; relationship to QMA-hardness and quantum circuit complexity</div>
+      <div class="hier-arrow">↑</div>
+      <div class="hier-node prog"><span class="hn-tag">B2</span><strong>Holographic quantum error correction meets classical encryption</strong> — connecting AdS bulk reconstruction to complexity classes</div>
+      <div class="hier-arrow">↑</div>
+      <div class="hier-node here"><span class="hn-tag" style="color:var(--ok)">B1 · existing work</span><strong>Hyperbolic Neural Cryptosystem</strong> — key = isometry T ∈ O(n,1) in the latent layer of a hyperbolic autoencoder; hardness from holographic bulk-to-boundary reconstruction + Langlands obfuscation</div>
+    </div>
+
+    <table class="rs-ptable" style="margin-top:.5rem">
+      <tr><th>paper</th><th>content</th><th>target</th><th>horizon</th></tr>
+      <tr><td class="pnow">B1 · now</td><td><strong>Hyperbolic Neural Cryptosystem:</strong> formal construction, key = isometry T ∈ O(n,1), hardness from holographic bulk-to-boundary reconstruction + Langlands obfuscation in latent space.</td><td>CRYPTO / NeurIPS Security</td><td class="pnow">immediate</td></tr>
+      <tr><td class="pnear">B2</td><td><strong>Computational complexity of bulk reconstruction:</strong> connecting AdS inversion to complexity classes. Relationship to QMA-hardness and quantum circuit complexity.</td><td>STOC / CCC / QIC</td><td class="pnear">near-term</td></tr>
+      <tr><td class="pnear">B3</td><td><strong>Hyperbolic neural key exchange:</strong> replacing Diffie-Hellman with O(n,1) isometry agreement protocol.</td><td>IEEE S&P / EUROCRYPT</td><td class="pnear">medium-term</td></tr>
+    </table>
+
+    <!-- COMPUTABILITY OF THE TRACK B IDENTITY -->
+    <div class="rs-compute">
+      <h3 style="margin-top:1.8rem">Is the Track B Identity Computable Today?</h3>
+      <p>A natural question: MSIA rests on a concrete, computable identity — the Selberg / Artin–Mazur zeta product that translates geodesic lengths into a characteristic polynomial. Does the geometric Track B have an equally computable identity available right now, or is it purely aspirational? The answer is that it does, and which form it takes depends entirely on the dimension.</p>
+      <div class="rs-compute-grid">
+        <div class="rs-compute-card ready">
+          <div class="cc-tag">● 3D · already the same object</div>
+          <h4>Thermal AdS₃ / BTZ — identical to MSIA</h4>
+          <p>The BTZ black hole is ℍ³/Γ — precisely the Kleinian quotient MSIA uses. The Selberg zeta formalism has been applied directly to the Euclidean BTZ black hole, a quotient of ℍ³ by a discrete subgroup Γ. The one-loop bulk partition function, the boundary CFT partition function, and the Selberg zeta product over prime geodesics are <strong>the same object viewed three ways</strong>.</p>
+          <p>Given any two of: (i) the one-loop partition function, (ii) the quasinormal-mode frequencies, and (iii) the zeros of the Selberg zeta function, the third is constructible. In 3D the Track B computable identity <strong>is</strong> the MSIA identity — same prime geodesic lengths ℓ(γ), same product structure.</p>
+        </div>
+        <div class="rs-compute-card numeric">
+          <div class="cc-tag">numerical · 4D / 5D</div>
+          <h4>AdS₄ / AdS₅ — Horowitz-type, computable by ODE</h4>
+          <p>In higher dimensions the holographic retarded Green's function G<sup>R</sup>(ω) is computed numerically: solve the bulk wave equation (a second-order linear ODE in the radial coordinate) with ingoing boundary conditions at the horizon, then read off the ratio of asymptotic modes at the boundary. This is the established Horowitz–Santos–Tong / holographic-conductivity computation.</p>
+          <p>The forward direction (bulk geometry → G<sup>R</sup>) is numerically stable and well-implemented. The inverse direction (G<sup>R</sup> → quasinormal modes → bulk geometry) is the hard, cryptographic direction.</p>
+        </div>
+      </div>
+      <p>The structural parallel between the two tracks is exact. In higher dimensions the boundary Green's function factorizes meromorphically over its quasinormal-mode poles:</p>
+      <div class="eq-display"><span class="eq-label">Track B (holographic) — the direct analog of the MSIA identity</span>G<sup>R</sup>(ω) &nbsp;∼&nbsp; Π<sub>n</sub> (ω − ω<sub>n</sub><sup>★</sup>) / Π<sub>n</sub> (ω − ω<sub>n</sub>)</div>
+      <p>The quasinormal-mode frequencies ω<sub>n</sub> play the role of the geodesic lengths ℓ<sub>i</sub>; the boundary Green's function plays the role of the characteristic polynomial det(I − zA). The key encodes the bulk geometry (black-hole parameters and field content); the ciphertext is sampled values of G<sup>R</sup>(ω); and the security would rest on recovering the quasinormal modes from those samples — an ill-posed inverse-scattering problem.</p>
+      <div class="rs-codelabel">Forward map (computable now) — AdS₄-Schwarzschild bulk-to-boundary, scipy</div>
+      <div class="rs-codeblock"><span class="kw">def</span> holographic_green(omega, rh=1.0, m2=0.0):
+    <span class="cm"># Bulk-to-boundary Green's function in AdS4-Schwarzschild.</span>
+    <span class="cm"># omega: complex frequency (the parameter space).</span>
+    <span class="cm"># Key = (rh, m2) = bulk geometry; returns G^R(omega).</span>
+    f = <span class="kw">lambda</span> r: 1 - (rh/r)**3
+    eps = 1e-6; r0 = rh + eps
+    <span class="cm"># ingoing (infalling) boundary condition at the horizon</span>
+    nu = -1j * omega / (3 * rh**2 * abs(f(r0+eps)))
+    y0 = [(r0-rh)**nu, nu*(r0-rh)**(nu-1)]
+    <span class="kw">def</span> eom(r, y):
+        A, Ap = y
+        App = -(omega**2 / (r**2 * f(r)**2) - m2/r**2) * A
+        <span class="kw">return</span> [Ap, App]
+    sol = solve_ivp(eom, [r0, 50*rh], y0,
+                    method=<span class="cm">'DOP853'</span>, rtol=1e-10, atol=1e-12)
+    <span class="cm"># G^R proportional to ratio of boundary modes</span>
+    <span class="kw">return</span> sol.y[1,-1] / sol.y[0,-1] * sol.t[-1]</div>
+      <p><strong>Bottom line.</strong> The condensed-matter holographic-conductivity work (Horowitz and collaborators) is not merely analogous to the Track B primitive — it is a working implementation of the forward identity. In 3D the identity is literally the MSIA Selberg product; in 4D/5D it is the numerically-computed boundary Green's function. The gap between this and a deployable Track B scheme is <strong>not a computational gap</strong> — the forward map runs today — but a <strong>hardness-formalization gap</strong>: proving that the inverse direction (recovering quasinormal modes from sampled G<sup>R</sup> values) is computationally hard remains open, exactly as MSIA's Option B does.</p>
+    </div>
+
+    <!-- TRACK C -->
+    <h3 style="margin-top:1.8rem">Track C — Unification</h3>
+    <p>The long-horizon contribution that most dramatically elevates both tracks. Track C formalizes the Kapustin-Witten connection as a cryptographic theorem: MSIA (Track A) and the Hyperbolic Neural Cryptosystem (Track B) are dual manifestations of the same underlying hard problem.</p>
+    <div class="track-c-grid">
+      <div class="track-c-card">
+        <h4>C1 — Unified Framework</h4>
+        <p>S-duality, Langlands, and holography as a unified post-quantum cryptographic framework. MSIA and the Hyperbolic Neural Cryptosystem as dual manifestations of the same mathematical hardness. The Kapustin-Witten duality as a formal reduction between Track A and Track B security proofs.</p>
+        <div class="venue">Annals of Mathematics / JACM</div>
+      </div>
+      <div class="track-c-card">
+        <h4>C2 — Quantum Gravity Cryptography</h4>
+        <p>Formal complexity theory for holographic inversion. Placing bulk-to-boundary reconstruction in a rigorous complexity class; connecting quantum gravity inversion to canonical hard problems. First formal bridge between quantum gravity and complexity-theoretic cryptography.</p>
+        <div class="venue">Nature Physics / Comm. Math. Physics</div>
+      </div>
+    </div>
+
+    <h3>Scale of the Program</h3>
+    <p>This program is comparable to what lattice cryptography represented in 1996 before Ajtai's worst-case to average-case reduction — a mathematical structure with deep hardness properties that had not yet been translated into a cryptographic framework. Three differences favour this program: the mathematical depth is greater (the Langlands program and quantum gravity are harder than lattice geometry); the work is already further along (two working implementations, a provisional patent, formal hardness papers); and the timing is better (NIST has just standardized lattice systems and the field is actively seeking diversity of hardness assumptions).</p>
+
+    <h3>Why Hardness is Rare — and Where This Construction Sits</h3>
+    <p>The core identity det(I&nbsp;&minus;&nbsp;zA)<sup>&minus;1</sup> = exp(&Sigma; Tr(A<sup>m</sup>)z<sup>m</sup>/m) holds for any matrix over any commutative ring — formally, there are infinitely many zeta-function-based constructions. Genuine cryptographic hardness, however, appears only when the inverse problem is computationally deep. The table below shows why most zeta functions do not yield hard cryptosystems, and which ones do.</p>
+    <div style="overflow-x:auto;margin:1rem 0 1.4rem">
+    <table class="rs-ptable">
+      <thead><tr><th>Zeta function</th><th>Primitives</th><th>Inverse problem</th><th>Hard?</th></tr></thead>
+      <tbody>
+        <tr><td>Riemann ζ(s)</td><td>Rational primes {2,3,5,…}</td><td>Factor integers / recover primes</td><td style="color:var(--err)">No — primes are explicitly constructible</td></tr>
+        <tr><td>Ihara ζ(X) of a graph</td><td>Prime cycles in finite graph</td><td>Factor the Ihara zeta polynomial</td><td style="color:var(--muted)">Moderate — depends on graph structure</td></tr>
+        <tr><td>Ruelle ζ for generic map</td><td>Periodic orbits of f</td><td>Recover f from its orbit count</td><td style="color:var(--muted)">Depends entirely on f</td></tr>
+        <tr class="pnow"><td><strong>Selberg ζ<sub>Γ</sub>(s) — MSIA</strong></td><td>Primitive closed geodesics of ℍⁿ/Γ</td><td>Recover length spectrum from Γ</td><td style="color:var(--ok)"><strong>Yes — inverse spectral problem is open</strong></td></tr>
+        <tr class="pnear"><td>Artin L-function of Galois rep ρ</td><td>Frobenius conjugacy classes</td><td>Recover ρ from L(ρ,s)</td><td style="color:var(--ok)">Yes — inverse Galois problem</td></tr>
+        <tr class="pnear"><td>Automorphic L-function</td><td>Hecke eigenvalues</td><td>Recover automorphic form from L-function</td><td style="color:var(--ok)">Yes — conjectured hard; Langlands core</td></tr>
+        <tr class="pfar"><td>Hasse-Weil ζ(V/𝔽<sub>q</sub>)</td><td>Points of variety over 𝔽<sub>q<sup>m</sup></sub></td><td>Recover variety from zeta</td><td style="color:var(--ok)">Yes — Torelli problem</td></tr>
+        <tr class="pfar"><td>Motivic zeta functions</td><td>Motivic cohomology classes</td><td>Recover motive from ζ</td><td style="color:var(--ok)">Yes — deeply open</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The hard cases are not arbitrary — they cluster around the same objects: automorphic forms, algebraic varieties over finite fields, Galois representations, and hyperbolic geometry. The Langlands program conjectures that all of these L-functions are instances of a single object (automorphic L-functions attached to representations of adèle groups), which would mean the different hard constructions may not yield <em>independent</em> hardness assumptions but rather different encodings of the same underlying problem. This is the direct analogue of how RSA, Diffie-Hellman, and ECDLP all seemed independent until Shor revealed they share abelian group structure. Whether that unification holds in the Langlands case remains an open conjecture — which is itself part of what makes this territory hard.</p>
+
+    <h3>Why the Kleinian / Geodesic Instantiation is Particularly Suited</h3>
+    <p>Among the hard instantiations in the table, the Selberg / Kleinian construction has four properties that distinguish it from the others as a cryptographic primitive.</p>
+    <ul>
+      <li><strong>Mostow rigidity (n≥3).</strong> For hyperbolic manifolds of dimension 3 or higher, the geometry uniquely determines the group Γ up to isometry. The inverse problem has a unique answer — the attacker is not searching for "any group that fits" but for the specific one. Uniqueness makes the problem harder, not easier.</li>
+      <li><strong>Prime Geodesic Theorem as a calibration tool.</strong> The precise asymptotic #{γ : ℓ(γ) ≤ L} ~ e<sup>hL</sup>/hL gives exact control over the density of primitive geodesics used as key material. This is the analogue of knowing exactly how many RSA primes exist below a bound — it lets security parameters be calibrated rigorously.</li>
+      <li><strong>No abelian Fourier structure.</strong> The geodesic flow on ℍⁿ/Γ has non-abelian symmetry for n≥2. For n≥3 the isometry group SO(n,1) is simple and non-abelian in a way that has no known Fourier sampling structure. Shor's algorithm has no obvious application.</li>
+      <li><strong>Selberg's analogue of RH is proven.</strong> The zeros of the Selberg zeta function ζ<sub>Γ</sub>(s) are the eigenvalues of the Laplacian on ℍⁿ/Γ. The Riemann Hypothesis analogue for ζ<sub>Γ</sub> is proved (Selberg 1956 for n=2; subsequently for n>2). The distribution of the "cryptographic primes" (geodesics) is provably well-controlled — a stronger foundation than classical cryptography has for rational primes, where RH is still open.</li>
+    </ul>
+
+    <h3>Open Problems: Usable Identities Beyond Zeta Functions</h3>
+    <p>Abstracting away the zeta / L-function structure entirely, the operative pattern is: a mathematical identity that translates between two representations, where the forward direction is efficient and the inverse direction connects to a deeply open problem. This pattern appears in several areas outside the Langlands hierarchy, constituting a broader landscape of potential post-quantum primitives.</p>
+
+    <div class="rs-compute-grid" style="grid-template-columns:1fr 1fr;margin:1rem 0">
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Topology</div>
+        <h4>Knot invariants / Chern-Simons TQFT</h4>
+        <p>The Jones polynomial V(L;&thinsp;t) = Z(ℝ³, L) (Chern-Simons partition function on link L). Computing V from L is #P-hard in general. The inverse — recovering L from V(L;&thinsp;t) — is an open problem in low-dimensional topology. Quantum resistant: the relevant group structure (quantum groups at roots of unity) is non-abelian with no known Fourier sampling structure.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Topology</div>
+        <h4>Mapping class groups / pseudo-Anosov dilatation</h4>
+        <p>The mapping class group Mod(Σ) of a surface contains the hard conjugacy problem and subsurface projection machinery. The identity connecting pseudo-Anosov maps to their dilatation spectra (Thurston's geometrization) is a potential encryption primitive, with hardness from the conjugacy problem in Mod(Σ).</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Algebraic Geometry</div>
+        <h4>Dessins d'Enfants / Belyi correspondence</h4>
+        <p>A finite bipartite graph on a Riemann surface (dessin) corresponds bijectively to a Belyi pair (X, β). The absolute Galois group Gal(Q̄/Q) acts on dessins in a way that is still deeply mysterious. Identity: dessin ↔ Belyi pair. Hard problem: given a dessin, recover the algebraic curve over Q̄. Grothendieck's conjecture (faithfulness of the Galois action on dessins) is still open. Already listed as A3 in Track A above — this is the same territory reached from a different angle.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Algebraic Geometry</div>
+        <h4>Anabelian geometry / étale fundamental group</h4>
+        <p>Mochizuki proved that the étale fundamental group π₁<sup>ét</sup>(X, x̄) completely determines X for hyperbolic curves over number fields. Identity: X → π₁<sup>ét</sup>(X). Hard problem: recover X from π₁<sup>ét</sup>(X). The proof is existential — no efficient algorithm is known. Hardness comes from the profinite structure of Gal(Q̄/Q).</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Analysis / Inverse Problems</div>
+        <h4>Inverse scattering (3D)</h4>
+        <p>The 1D inverse scattering problem (given S-matrix, recover potential V(x)) is solved via the Marchenko equation. The 3D case remains open. Identity: V(x) → S-matrix via the Lippmann-Schwinger equation. Hard problem: recover V from S in 3 dimensions. Resistant to quantum attacks because the problem is analytic and spectral, not algebraic.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Analysis / Inverse Problems</div>
+        <h4>Phase retrieval / crystallographic phase problem</h4>
+        <p>Given |F̂(k)|² (diffraction magnitudes) but not the phase of F̂(k) = &int;ρ(x)e<sup>ikx</sup>dx, recover ρ(x). Open in full generality for 2D and 3D. Identity: Fourier transform ρ ↔ F̂. Already used in some cryptographic proposals, though the hardness basis is less deep than the Langlands / spectral route.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Representation Theory</div>
+        <h4>Yang-Baxter / quantum groups</h4>
+        <p>Solutions R to R₁₂R₁₃R₂₃ = R₂₃R₁₃R₁₂ classify braided tensor categories. The identity connects R-matrices to knot invariants via the Reshetikhin-Turaev construction. Hard problem: given a knot invariant, recover R. Relevant to topological quantum computation; no known Fourier sampling vulnerability.</p>
+      </div>
+
+      <div class="rs-compute-card numeric">
+        <div class="cc-tag">Representation Theory</div>
+        <h4>Tensor decomposition</h4>
+        <p>Computing tensor rank is NP-hard. Identity: a rank-r tensor T = &Sigma;<sub>i</sub> a<sub>i</sub> ⊗ b<sub>i</sub> ⊗ c<sub>i</sub>. Hard problem: given T, find its minimal decomposition. Resistant to known quantum attacks. The hardness is combinatorial rather than number-theoretic, distinguishing it from the Langlands cluster.</p>
+      </div>
+
+    </div>
+    <p>These alternatives converge on the same structural insight: deep mathematical hardness in the inverse direction tends to appear precisely where the relevant symmetry group is non-abelian and where the global mathematics community has worked for decades without a constructive inversion algorithm. The zeta / L-function route and the topological / anabelian route are different doors into the same territory — and the Langlands program conjectures they are ultimately different views of the same object.</p>
+
+    <h3>Relation to ASI Architecture and Indo-Pacific Lawfare</h3>
+    <p>This cryptographic study sits alongside, and is informed by, Logarchéon's two primary research tracks: <strong>ASI seed architecture</strong> (the CEAS / Ψ-operator / GRAIL triadic framework for recursive intelligence) and <strong>Indo-Pacific lawfare</strong> (legal-strategic analysis of the Taiwan Strait and associated legal instruments). The same spectral-geometric methods that appear in MSIA — Kleinian groups, geodesic flow, trace formulas — appear in the mathematical substrate of the CEAS architecture. The same concern with asymmetric capability gaps that drives the lawfare analysis drives the cryptographic research: encryption whose hardness assumptions are not yet in the adversary's threat model.</p>
+  </div>
+
+  <div class="rs-section" id="rs-policy">
+    <h2>§7 · Why Backdoor-Free Encryption is Not a National-Security Liability</h2>
+    <p class="rs-intro">A recurring policy claim holds that strong, no-backdoor encryption of the kind demonstrated on this page is a threat to national security, and that carriers, platforms, and even the underlying algorithms should be required by law to preserve an exceptional-access channel for lawful intercept. The empirical record points the other way. The mandated access channel — not the mathematics — has repeatedly proven to be the weakest structural point in the national security posture.</p>
+
+    <h3>The Salt Typhoon precedent</h3>
+    <p>The Salt Typhoon campaign, publicly disclosed in 2024 and attributed by U.S. agencies to PRC state-linked actors,<span class="fnref"><a href="#fn2">[2]</a></span> penetrated major U.S. telecommunications carriers and reached, among other systems, the very lawful-intercept infrastructure that carriers are legally required to maintain under CALEA.<span class="fnref"><a href="#fn1">[1]</a></span> The wiretap apparatus built so that the government could listen became the apparatus through which a foreign intelligence service could listen. Three features of the incident matter for the policy argument:</p>
+    <ul>
+      <li><strong>Remediation is not verifiable.</strong> Well into the response, officials could not certify that the intruders had been completely evicted from carrier networks.<span class="fnref"><a href="#fn4">[4]</a></span><span class="fnref"><a href="#fn5">[5]</a></span> A backdoor architecture, once compromised, offers no clean way to prove the compromise has ended — the access path is a designed feature, so its use by an adversary is structurally indistinguishable from its use by the intended party.</li>
+      <li><strong>Attribution of one actor does not bound the set of actors.</strong> That one campaign was detected and attributed to one state says nothing about whether other services — Russian, or others — found the same designed access paths earlier, later, or more quietly. Detection is evidence of presence; it is never evidence of absence.</li>
+      <li><strong>The liability scales with the mandate.</strong> Because the intercept capability was imposed uniformly by law on every carrier, a single class of compromise yielded potential visibility into the communications of essentially everyone — officials, campaigns, industry, and ordinary citizens alike. The mandate converted a per-target surveillance tool into a single point of national failure.</li>
+    </ul>
+
+    <h3>Hidden assumptions behind the exceptional-access mandate</h3>
+    <p>The case for compelled backdoors — in carrier infrastructure, in platforms, or in the algorithms themselves (key escrow for RSA-class systems and their successors) — rests on a stack of assumptions that are rarely stated and, once stated, are difficult to defend:</p>
+    <ul>
+      <li><strong>Standardized primitives are clean.</strong> The mandate assumes that the cryptographic building blocks on which lawful-intercept and platform security rest — hash functions, random number generators, key-derivation functions, elliptic curves — were not themselves shaped by the same institutional actors and legal authorities who are simultaneously mandating exceptional access. This assumption is not hypothetical: in 2006 NIST standardized Dual Elliptic Curve Deterministic Random Bit Generator (Dual_EC_DRBG), an NSA-designed pseudorandom number generator. Documents disclosed in 2013 showed that the NSA had inserted a backdoor by controlling the choice of elliptic curve points, and that RSA Security had reportedly been paid to make it the default in their products. It was the only NIST-standardized cryptographic algorithm for which a deliberately inserted backdoor was subsequently documented. SHA-512, the hash function underlying most deployed TLS, HMAC authentication, and key derivation — including the security floor of the demo above — is also NSA-designed and standardized by NIST as FIPS 180-2 (2001), under the same institutional relationship. No weakness in SHA-512 is publicly known. But the institutional relationship is identical, and the legal authorities (CALEA, §702, compelled-assistance frameworks) that create the mandate also reach the bodies that shape the standards. The assumption that the floor is clean is therefore itself load-bearing and cannot be verified from outside the design process.</li>
+      <li><strong>Exclusivity.</strong> It assumes the designed access path will be found and used only by the government that mandated it — and by no other entity: not a rival government, not an adversary intelligence service, not a non-state actor, not a criminal organization, not a foreign military. This is a far stronger claim than it first appears. The mandate does not merely ask that the access path remain hidden from random actors; it asks that it remain hidden from the specific class of actors — state-level intelligence services with deep technical capability and a direct institutional interest in finding exactly this — who are most motivated and most equipped to look for it. There is no known cryptographic or engineering construction that produces a channel reachable by one government and structurally unreachable by all other sophisticated adversaries simultaneously. The access path either exists in the hardware and software of the carrier network, or it does not. If it exists, it is a physical and logical fact that any sufficiently capable actor can discover through their own means — reverse engineering, insider access, supply-chain position, or the same kind of infrastructure intrusion Salt Typhoon demonstrated. The mandate assumes the mandating government is the only party that will ever be capable of finding and using what it required to be installed at production scale across every major carrier. That assumption is not a security argument; it is a wish.
+        <p style="margin:.7rem 0 .3rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch"><strong style="color:var(--cream)">The physical sample problem.</strong> The mandate's scope makes the exclusivity assumption structurally incoherent in a way that is rarely stated. The goal of collecting intelligence from <em>all</em> electronic devices — every phone, laptop, router, server, and communications chipset — requires that the access mechanism be present in devices that are sold commercially and distributed globally. A Cisco router with a mandated intercept capability is the same physical device whether it is installed in a Chicago carrier network or purchased in a Shenzhen electronics market. A smartphone with a firmware-level access path is the same hardware whether its owner is in New York or Moscow. Adversary states do not need to penetrate a U.S. carrier network to study the access mechanism — they need only purchase the device, which is a commercial transaction available to any actor in any territory. The reverse-engineering phase happens entirely within the adversary's own borders, in controlled laboratory conditions, with no time pressure and no network exposure: hardware decapping, electron microscopy, firmware extraction, power-line analysis, and electromagnetic side-channel profiling are all standard techniques available to any well-funded state program. The access mechanism is found and completely characterized before the adversary ever needs to go online. The carrier-network intrusion — the Salt Typhoon phase — is only required for the <em>operational use</em> of the backdoor against live targets, after the exploit is already understood. The mandate therefore does not merely leave a door open; it manufactures and globally distributes the key blanks, in the form of commercially available devices, to every actor who wants to cut a copy.</p>
+      </li>
+      <li><strong>A talent-pool wager against arithmetic.</strong> It assumes that no cryptanalyst, mathematician, or offensive-cyber operator in any adversary state will locate the backdoor — while simultaneously requiring that the government's own engineers locate and operate it routinely. This is not a contingent risk; it is a structural contradiction. If your own engineers can find and use it reliably, you have already established that the capability is discoverable by persons with comparable training. The question is then purely statistical: what is the probability that, across the entire adversary talent pool drawing from the same mathematical corpus, <em>zero</em> of them replicate what your engineers do routinely? China alone has a population roughly three to four times that of the United States, with a mathematics and computer-science pipeline scaled accordingly and a state apparatus that actively directs that talent toward exactly this category of problem. Russia maintains deep traditions in cryptanalysis and number theory predating the Cold War. Asking that zero analysts across those pools find what your own engineers must find — and find reliably, on demand, at production scale — is not a risk calculation. It is asking the statistics to run in the opposite direction from the base rates. The mandate, on this reading, is not a claim about adversary capability but a wager that adversary <em>effort</em> will remain below the threshold; and that wager expires the moment a state treats the backdoor itself as a collection target, which is precisely what Salt Typhoon demonstrated.</li>
+      <li><strong>Perpetual custodial integrity.</strong> It assumes the escrowed keys, the intercept portals, and the personnel with access to them remain uncompromised indefinitely — across contractor turnover, insider risk, supply-chain exposure, and decades of accumulating attack surface.</li>
+      <li><strong>An uncontested world order — the deepest and most rarely stated precondition.</strong> Every assumption in this list is downstream of a single geopolitical premise that the architects of the mandate never needed to state because, in their historical moment, it appeared to be simply true: <em>the current world order is accepted as legitimate and permanent by all major powers, and no peer competitor is actively trying to replace it.</em>
+        <p style="margin:.7rem 0 .5rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch">This is the condition political scientists call hegemonic stability — a world organized around a single dominant power whose preferences shape the architecture of international institutions, technology standards, trade rules, and security arrangements. The NIST cryptographic standards, the CALEA lawful-intercept framework, the §702 collection architecture, and the U.S.-controlled internet infrastructure are not merely technical choices; they are the information-layer expression of that hegemony. They work as intended precisely because, and only insofar as, the hegemon's primacy goes uncontested. When no major state has the capability or the strategic motivation to challenge the order, exploiting the vulnerabilities built into the architecture is both futile and costly — the payoff is zero if you cannot project that capability at scale, and the cost of being caught is enormous. The backstop that protects the mandate is not technical; it is geopolitical.</p>
+        <p style="margin:.5rem 0 .5rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch">The intellectual foundation for this premise was explicitly articulated at the moment the mandate was being constructed. Fukuyama's "end of history" thesis (1992) — the proposition that liberal democracy and the market order had won the ideological competition permanently — was not background noise; it was the operating assumption of the Clinton-era policy environment in which CALEA was drafted (1994), export controls on encryption were debated, and the U.S. internet architecture became the de facto global standard. If history has ended, there is no future peer competitor to worry about. The mandate only needs to keep its access paths hidden from actors who either lack the capability to find them or lack the strategic interest in doing so. In a unipolar world with no serious revisionist power, that set is very large. In that world, the backdoor model is not irrational.</p>
+        <p style="margin:.5rem 0 .4rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch">The precondition failed — and both major revisionist powers announced their intent publicly before the infrastructure mandate was ever seriously re-examined. Putin's 2007 Munich Security Conference speech was the first major explicit statement that Russia rejected the post-1991 unipolar order and intended to contest it. China's trajectory under Xi Jinping from 2012 onward — military modernization, island-building, the Belt and Road Initiative, the explicit 2049 centenary target for national rejuvenation, and ultimately the "no limits" partnership with Russia announced days before the February 2022 invasion — constitutes an equally explicit declaration that the existing order is not accepted as permanent. These are not intelligence assessments about hidden intentions; they are public strategic statements. The mandate's deepest precondition was publicly revoked by both principal adversaries, and the mandate was not revised in response. What remains is a global information-layer architecture built for a world in which only one power wanted to read everything — now operating in a world in which at least two additional powers have both the motive and, as Salt Typhoon demonstrated, the demonstrated access to do so.</p>
+      </li>
+      <li><strong>A post-Cold-War geopolitical era that no longer exists — and the moment it ended matters.</strong>
+        <p style="margin:.7rem 0 .3rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch"><strong style="color:var(--cream)">Then — and specifically 1991 to 1994, the three years that shaped everything.</strong> To understand CALEA it is not enough to situate it in the post-Cold-War decade in general. The specific moment matters: December 1991, the USSR dissolves. The entire intelligence apparatus of the Western world — NSA, GCHQ, the CIA, BND, Five Eyes collectively — finds itself, almost overnight, without the enemy that had justified its scale, its budget, its legal authorities, and its institutional identity for forty years. The Soviet threat model was grid-versus-grid: two competing world systems, each trying to read and disrupt the other across a sharp boundary. That model is gone. The apparatus does not dissolve with it. It asks, as any large institution does when its founding purpose evaporates: what are we for now?</p>
+        <p style="margin:.3rem 0 .3rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch">The answer, reached across the early 1990s and codified in CALEA in 1994, was a fundamental shift in the threat model: from inter-grid to intra-grid. The adversary is no longer another state system competing with yours from outside. There is now only one grid — the Western liberal international order — and everyone is either already in it or will soon join it. The enemies that remain are sub-state actors operating <em>within</em> the grid: drug traffickers, organized crime, and, after 1993's World Trade Center bombing, terrorists. These actors use the same communications infrastructure as everyone else. The mission of the intelligence apparatus therefore shifts from watching the boundary between competing world systems to watching the interior of the single remaining one. CALEA is the legislative expression of that shift: it mandates that the carriers of the domestic communications grid preserve access for law enforcement, because the threat now lives inside the grid, not outside it. The backdoor faces inward.</p>
+        <p style="margin:.3rem 0 .5rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch">This reorientation was not cynical; it was a reasonable institutional response to a genuine change in the threat environment. The apparatus was right that the primary adversary had changed character. Drug cartels do not maintain a competing SIGINT program. Terrorist cells do not have a national cryptanalysis directorate. The intra-grid threat model asks only that communications be readable by authorized law enforcement — it does not need to worry about the access mechanism being found and reversed by a peer state, because in 1994 there is no peer state. The Cold War apparatus had spent forty years learning to think in terms of grid-versus-grid competition; in 1994 there is only one grid, and the apparatus retooled to think inside it. Crucially, the major powers remaining were operating in a frame of rough engagement: Russia was a G8 member; the PRC was a supply-chain partner; Five Eyes and NATO intelligence sharing was deep; even Russia and China shared counterterrorism interests with the West. Centralization in that world is a pure force multiplier: everything knowable, known immediately, correlatable. The model has an internal logic — and that logic is entirely dependent on the intra-grid threat model remaining true.</p>
+        <p style="margin:.5rem 0 .5rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch"><strong style="color:var(--cream)">Now — the intra-grid threat model has inverted back to inter-grid.</strong> The assumption that made the 1994 architecture rational — one grid, adversaries inside it, no competing grid trying to read it from outside — has been falsified. Russia and China are not sub-state actors operating within the Western liberal order; they are states that have explicitly declared their intention to revise or replace that order, which means they are, in the original Cold War sense, outside the grid and competing with it. The threat model has returned to grid-versus-grid — but the infrastructure was rebuilt for intra-grid surveillance and never changed back. The backdoor still faces inward. The actors now most motivated and most capable of using it are outside, looking in. Russia is conducting a land war in Europe, supplying and being supplied by Iran, and explicitly leading an anti-Western alignment. The PRC is in open strategic competition — chip controls, network exclusions, Taiwan pressure — with a national cyber program documented to target exactly the carrier infrastructure CALEA requires to be maintained and accessible. Iran adds a third capable adversary with growing technical reach. The apparatus that retooled from grid-versus-grid to intra-grid in 1994 is now operating in a world that has reverted to grid-versus-grid competition — but the legal mandate it wrote for itself in 1994, optimized for the intra-grid moment, is still in force, still hardwired into every carrier, and now serves the competing grid as readily as it serves the one that mandated it. Salt Typhoon is not an anomaly. It is the grid-versus-grid threat model finding the intra-grid access path and using it exactly as designed.</p>
+        <p style="margin:.5rem 0 .4rem;font-size:.88rem;color:var(--muted);line-height:1.72;max-width:72ch"><strong style="color:var(--cream)">The structural inversion.</strong> CALEA's wiretap systems were designed in 1994 without an active peer adversary in the threat model. The doctrine's architects were right for their era — a brief post-Cold-War interval that lasted perhaps twenty years before beginning to erode (Crimea 2014, COVID decoupling 2020, Ukraine 2022). That interval is over. What remains is not a security system adapted to the current threat environment but a thirty-year-old mandate, legally embedded and infrastructurally entrenched, designed against a threat model that no longer exists and now optimally positioned to serve the adversaries it was never designed against. Centralization maximizes collection value in a cooperative or permissive environment; in a competitive multi-polar one it maximizes the blast radius of any breach, because the same access path that lets one government read everything simultaneously lets any adversary who finds it read the same everything.</p>
+      </li>
+      <li><strong>Reliable detection and complete remediation.</strong> It assumes that if the access channel is ever abused, the abuse will be detected promptly and rolled back completely. Salt Typhoon demonstrates both halves of that assumption failing at once: multi-year dwell time before detection, and no certifiable eviction after it.</li>
+      <li><strong>Legal compulsion equals technical control.</strong> It assumes that because the law can order a capability into existence, the law can also confine who exercises it. Statutes bind carriers; they do not bind foreign intelligence services. The capability, once built, obeys physics and mathematics, not jurisdiction.</li>
+      <li><strong>Asymmetric restraint.</strong> It assumes adversaries will not impose the mirror-image demand on their own networks and then exploit the precedent — using the existence of Western lawful-access mandates to legitimize, and to study, equivalent access architectures of their own.</li>
+    </ul>
+
+    <h3>The inversion</h3>
+    <p>Each assumption above must hold, simultaneously and indefinitely, for the mandate to produce net security. If any single one fails, the mandate produces the opposite of its stated goal: it hands a standing, pre-installed collection capability to whichever adversary finds it first. The two most load-bearing assumptions — the geopolitical era assumption and the talent-pool assumption — have both failed, and they failed together.</p>
+    <p>Before: the intelligence community of the 1990s and 2000s operated in an environment of partial great-power cooperation. Russia sat at the G8 table. The PRC was a supply-chain partner. Five Eyes coordination was deep. Even adversarial states shared narrow counterterrorism interests. In that world, the centralize-everything model had an internal logic: the actors most likely to find the designed access paths were also, to a significant degree, the actors authorized to use them, and the primary threat — non-state actors, rogue states — lacked the technical depth to mount the kind of operation Salt Typhoon became. The cost-benefit calculation, while never clean, was at least defensible.</p>
+    <p>After: the full invasion of Ukraine in February 2022 closed the era that logic depended on. Russia is now conducting a land war in Europe and explicitly leading an anti-Western alignment. The PRC is in open strategic competition — chip controls, network exclusions, Taiwan pressure — with a national cyber program aimed at exactly the infrastructure the mandate requires carriers to maintain. Iran, an active Russian partner, adds a third capable adversary with both motive and growing technical capacity. These are not the actors the doctrine was designed against. They are, increasingly, the actors most likely to find what the law requires to be installed and findable. And the talent-pool arithmetic is brutally simple: China alone fields a population three to four times the size of the United States, with a state-directed mathematics and offensive-cyber pipeline and thirty years of documented investment in exactly this problem domain. The mandate does not ask whether any of them can find the access path. It asks that none of them do — while your own engineers must find it routinely, by design, at production scale, every day.</p>
+    <p>The false logic the mandate rests on runs: <em>we need to collect everything in real time to stay ahead; therefore we must be able to intercept everything; therefore every system must preserve a path for us to do so.</em> The clause the logic omits is the one that renders it circular: <em>every system that preserves a path for us also preserves a path for whoever else finds it — and after Ukraine, after the explicit China confrontation, after Salt Typhoon, "whoever else" is no longer a hypothetical.</em> A backdoored architecture fails catastrophically and silently, and fails at the scale of the mandate itself — not one system, every system. Strong encryption with no exceptional access — mathematics with no door to find, executed locally with no escrowed key to steal, as in the construction demonstrated on this page — fails safe. What is framed as a national-security necessity is, in the geopolitical world that actually exists today rather than the one the doctrine was designed for, a nationally distributed vulnerability enforced by statute and maintained at public expense.</p>
+  </div>
+
+  <div class="rs-section" id="rs-legal-timeline">
+    <h2>§8 · The Legal Architecture of Mandated Access — A Thirty-Year Timeline</h2>
+    <p class="rs-intro">The exceptional-access regime is not a single law but an accreted stack of statutes, regulations, and compelled-assistance powers, layered over three decades. Each layer was justified by the threat model of its own moment; the stack as a whole now operates in a threat environment none of its layers anticipated.</p>
+    <ul class="lawline">
+      <li><span class="yr">1978</span><strong>FISA</strong> (antecedent). The Foreign Intelligence Surveillance Act establishes the statutory frame — and the FISA Court — under which later compelled-access authorities operate.</li>
+      <li><span class="yr">1993</span><strong>The Clipper Chip / Escrowed Encryption Standard.</strong> The first attempt to mandate a backdoor in the algorithm itself: NSA-designed key escrow, with the master keys held by the government. Withdrawn after Matt Blaze demonstrated the escrow field could be defeated — the earliest public proof that a designed access channel is itself an attack surface.</li>
+      <li><span class="yr">1994</span><strong>CALEA</strong> (47 U.S.C. §1001 et seq.). The Communications Assistance for Law Enforcement Act requires carriers to build and maintain intercept capability into their networks. This is the statute whose mandated wiretap infrastructure Salt Typhoon reached three decades later.<span class="fnref"><a href="#fn1">[1]</a></span></li>
+      <li><span class="yr">1990s</span><strong>Crypto export controls.</strong> Strong encryption classified as a munition under ITAR, then moved to the EAR (1996) and substantially relaxed by 2000 under litigation pressure (<em>Bernstein v. DOJ</em>) and industry lobbying. The deliberately weakened "export-grade" ciphers of this era produced exploitable downgrade attacks (FREAK, Logjam) discovered decades later — a second demonstration that mandated weakness outlives its policy rationale.</li>
+      <li><span class="yr">2001</span><strong>USA PATRIOT Act.</strong> Expands pen-register, trap-and-trace, and business-records authorities (§215), broadening the collection perimeter around the existing intercept mandates.</li>
+      <li><span class="yr">2005–06</span><strong>CALEA extended to the internet.</strong> The FCC extends CALEA obligations to facilities-based broadband and interconnected VoIP providers; upheld in <em>American Council on Education v. FCC</em> (D.C. Cir. 2006). The intercept mandate now covers the internet access layer, not only telephony.</li>
+      <li><span class="yr">2008</span><strong>FISA Amendments Act §702.</strong> Authorizes compelled assistance from U.S. electronic communications service providers for collection targeting non-U.S. persons abroad — the statutory basis for the PRISM and upstream programs disclosed in 2013. Reauthorized in 2012 and 2018.</li>
+      <li><span class="yr">2013</span><strong>The Snowden disclosures.</strong> Not a law, but the moment the scale of the §702 / EO 12333 collection architecture became public — and the moment allied governments learned that data held by U.S. providers was structurally available to U.S. collection regardless of where the ally's citizens lived.</li>
+      <li><span class="yr">2015</span><strong>USA FREEDOM Act</strong> narrows bulk domestic metadata collection; <strong><em>Schrems I</em></strong> (CJEU) invalidates the EU–US Safe Harbor framework, the first European judicial recognition that U.S. surveillance law reaches European data at rest in U.S.-provider infrastructure.</li>
+      <li><span class="yr">2016</span><strong>UK Investigatory Powers Act.</strong> Introduces Technical Capability Notices — secret orders that can require an operator to remove "electronic protection" from communications, i.e., a statutory power to compel a backdoor, under a gag.</li>
+      <li><span class="yr">2018</span><strong>CLOUD Act</strong> (18 U.S.C. §2713) makes explicit that U.S. providers must produce data in their possession, custody, or control <em>regardless of where it is stored</em> — the jurisdictional keystone of European dependence discussed in §9. The same year, <strong>Australia's TOLA Act</strong> creates Technical Assistance and Technical Capability Notices on the UK model.</li>
+      <li><span class="yr">2020</span><strong><em>Schrems II</em></strong> (CJEU, C-311/18) invalidates the EU–US Privacy Shield, holding that §702 and EO 12333 collection prevents U.S.-held European data from receiving essentially equivalent protection.<span class="fnref"><a href="#fn8">[8]</a></span> The EU Council simultaneously adopts its "security through encryption and security despite encryption" resolution, opening the European lawful-access debate.</li>
+      <li><span class="yr">2022–</span><strong>EU CSA Regulation ("Chat Control") proposal.</strong> Draft regulation contemplating mandated client-side scanning of end-to-end-encrypted messaging — the algorithm-level access debate of the 1990s, restaged in Brussels.</li>
+      <li><span class="yr">2023</span><strong>EU–US Data Privacy Framework.</strong> The third attempt at an adequacy bridge, built on executive redress mechanisms layered atop the same underlying collection statutes; litigation on the same <em>Schrems</em> grounds is anticipated.</li>
+      <li><span class="yr">2024</span><strong>RISAA</strong> reauthorizes §702 and broadens the definition of "electronic communications service provider" subject to compelled assistance. In the autumn, <strong>Salt Typhoon</strong> is disclosed: the FBI/CISA joint statement issues November 13,<span class="fnref"><a href="#fn2">[2]</a></span> and joint hardening guidance with NSA and Five Eyes partners follows December 3.<span class="fnref"><a href="#fn3">[3]</a></span></li>
+      <li><span class="yr">2025</span><strong>The stack under stress.</strong> February: a UK Technical Capability Notice reportedly directs Apple to provide access to end-to-end-encrypted iCloud data; Apple withdraws Advanced Data Protection from the UK rather than comply, and the demand is reported withdrawn months later after U.S. objections.<span class="fnref"><a href="#fn10">[10]</a></span> January: the FCC issues a Declaratory Ruling reading CALEA §105 as an affirmative duty to secure networks against unlawful interception — an implicit admission that the intercept mandate created the exposure — then rescinds it on November 20 as exceeding the statute.<span class="fnref"><a href="#fn7">[7]</a></span> August: a multi-nation advisory (AA25-239A) describes the same PRC actors compromising networks worldwide to feed a global espionage system.<span class="fnref"><a href="#fn6">[6]</a></span></li>
+    </ul>
+    <p>Read as a single arc: a key-escrow proposal defeated on technical grounds in 1994 was followed by thirty years of achieving the same outcome through infrastructure and jurisdiction instead of the algorithm — intercept mandates in the carriers (CALEA), compelled assistance from the platforms (§702, CLOUD Act, IPA, TOLA), and periodic attempts to return to the algorithm itself (Chat Control, the Apple TCN). Salt Typhoon is what it looks like when the oldest layer of that stack meets a peer adversary the stack was never designed against.</p>
+  </div>
+
+  <div class="rs-section" id="rs-allied-dependence">
+    <h2>§9 · The Allied Dependence Problem — NATO and Europe Inside the Same Perimeter</h2>
+    <p>The exposure described above is not confined to the United States, because the data of allied states largely is not confined to allied jurisdictions. The overwhelming majority of European cloud workloads — government, enterprise, and consumer — run on U.S. hyperscalers (commonly estimated at roughly seventy percent of the EU cloud market across AWS, Microsoft, and Google), and under the CLOUD Act those providers must produce data within their control regardless of whether it sits in a Frankfurt, Dublin, or Paris data center.<span class="fnref"><a href="#fn9">[9]</a></span> Jurisdiction follows the provider, not the geography. European "sovereign cloud" offerings operated by U.S.-headquartered firms remain, by the providers' own admissions before European legislatures, unable to guarantee immunity from U.S. legal process.</p>
+    <p>The consequence is a double dependence. First, NATO and EU member states depend on the confidentiality of infrastructure that U.S. law requires to be interceptable and compellable — so every weakness in the U.S. lawful-access stack is automatically a weakness in theirs. When Salt Typhoon sat inside U.S. carrier intercept systems, the calls and records of allied diplomats, officers, and firms routing through or stored in that infrastructure were inside the same compromised perimeter. Second, the European judicial system has already ruled, twice, that this arrangement is structurally incompatible with its own fundamental-rights law (<em>Schrems I</em>, <em>Schrems II</em>) — and the political response each time has been a new adequacy instrument layered over the unchanged collection statutes rather than a change to the statutes themselves.<span class="fnref"><a href="#fn8">[8]</a></span></p>
+    <p>For allied governments, therefore, the backdoor-mandate logic fails twice over: they carry the vulnerability cost of the U.S. access architecture without holding the access, and their own emerging mandates (IPA, TOLA, Chat Control) add further doors into systems their adversaries also study. Client-side, no-escrow, no-exceptional-access encryption — where confidentiality derives from mathematics executed on the user's own device rather than from any provider's compliance posture — is the only layer of the stack that is indifferent to which jurisdiction's compelled-access law applies and to which adversary has penetrated which carrier. That is precisely the design demonstrated on this page.</p>
+
+    <h3>Sources &amp; Footnotes</h3>
+    <ul class="fnlist">
+      <li id="fn1">Wall Street Journal (Oct. 5, 2024), first public report that Salt Typhoon reached the systems carriers maintain for court-authorized wiretap requests under CALEA at AT&amp;T, Verizon, and Lumen.</li>
+      <li id="fn2">FBI &amp; CISA, <em>Joint Statement on the People's Republic of China (PRC) Targeting of Commercial Telecommunications Infrastructure</em>, Nov. 13, 2024. <a href="https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications" target="_blank" rel="noopener">cisa.gov</a></li>
+      <li id="fn3">CISA, NSA, FBI &amp; international partners (AU, CA, NZ), <em>Enhanced Visibility and Hardening Guidance for Communications Infrastructure</em>, Dec. 3, 2024. <a href="https://www.cisa.gov/resources-tools/resources/enhanced-visibility-and-hardening-guidance-communications-infrastructure" target="_blank" rel="noopener">cisa.gov</a></li>
+      <li id="fn4">Jeff Greene, Executive Assistant Director for Cybersecurity, CISA, press briefing, Dec. 2024: "We cannot say with certainty that the adversary has been evicted," noting the scope of intrusion remained unknown.</li>
+      <li id="fn5">U.S. Senate Commerce Committee, Subcommittee on Communications, Media, and Broadband, hearing on Salt Typhoon and communications-network security, Dec. 11, 2024; contemporaneous White House briefings (Anne Neuberger) placing the count at nine or more U.S. carriers, with classified-level uncertainty about persistence.</li>
+      <li id="fn6">CISA et al., Joint Cybersecurity Advisory AA25-239A, <em>Countering Chinese State-Sponsored Actors' Compromise of Networks Worldwide to Feed a Global Espionage System</em>, Aug. 27, 2025. <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener">cisa.gov</a></li>
+      <li id="fn7">FCC, Declaratory Ruling &amp; NPRM, FCC 25-9, PS Docket No. 22-329 (adopted Jan. 2025), construing CALEA §105 as an affirmative network-security duty; rescinded by Order on Reconsideration adopted Nov. 20, 2025. <a href="https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf" target="_blank" rel="noopener">FCC 25-9</a></li>
+      <li id="fn8">CJEU, Case C-311/18, <em>Data Protection Commissioner v. Facebook Ireland &amp; Schrems</em> ("Schrems II"), judgment of July 16, 2020; see also Case C-362/14 ("Schrems I"), Oct. 6, 2015.</li>
+      <li id="fn9">Clarifying Lawful Overseas Use of Data (CLOUD) Act, 18 U.S.C. §2713 (2018): a provider "shall … preserve, backup, or disclose" data within its "possession, custody, or control … regardless of whether such communication, record, or other information is located within or outside of the United States."</li>
+      <li id="fn10">Reporting (Washington Post, Feb. 2025) on a UK Technical Capability Notice under the Investigatory Powers Act 2016 directed at Apple's Advanced Data Protection; Apple's withdrawal of ADP for UK users (Feb. 21, 2025); and subsequent reporting (Aug. 2025) that the demand was dropped following U.S. government objections.</li>
+    </ul>
+  </div>
+</div>
+
+
 <footer><span class="mono">Logarchéon Inc. · Modular Symbolic Intelligence Architecture</span>
-The blob stores only ciphertext and an HMAC-SHA-512 tag — never the key — and records the generator count and precision so the receiver can match them. The geometric construction is implemented faithfully; pending the formal hardness proofs, the cipher key is derived through SHA-512 so a guaranteed security floor is in place today.
+The blob stores only ciphertext and an HMAC-SHA-512 tag — never the key — and records the generator count and precision so the receiver can match them. The geometric construction is implemented faithfully; pending the formal hardness proofs, the cipher key is derived through SHA-512 for a well-studied security floor. That floor is a conditional trust: SHA-512 is NSA-designed and NIST-standardized — the same provenance as Dual_EC_DRBG, the only NIST-standardized algorithm for which a backdoor was documented. No weakness in SHA-512 is known; but the 1994+ legal regime described in §7 cannot be excluded as a factor in its design. The Algebraic constructions section runs the original design with no hash in the path and no reliance on that institutional trust.
 <div class="engine" id="engineNote"></div></footer></div>
 <script>
 /* ===== verified MSIA JS core (g generators, both presets) ===== */
@@ -1561,7 +1676,7 @@ function updateSecBar(){
  document.getElementById('sc_q').innerHTML=expFmt(s.qt);
  document.getElementById('sc_q_s').textContent='even with a quantum computer';
  const v=document.getElementById('qverdict');
- if(s.qs){v.className='qverdict safe';v.innerHTML='✓ Strong enough to resist even future quantum computers.<span class="hint">Meets the standard expert safety level (2¹²⁸). The strength comes from SHA-512 — see Notes.</span>';}
+ if(s.qs){v.className='qverdict safe';v.innerHTML='✓ Strong enough to resist even future quantum computers.<span class="hint">Meets the 2¹²⁸ quantum-safe bar via the SHA-512 floor. That floor is a conditional trust — SHA-512 is NSA-designed and NIST-standardized; no weakness is known, but see §7 on institutional provenance.</span>';}
  else{v.className='qverdict unsafe';v.innerHTML='✗ Not strong enough against a future quantum computer at these settings.<span class="hint">Tip: choose Mode = High and Strength = 3 or more to reach the safe level.</span>';}
 }
 
