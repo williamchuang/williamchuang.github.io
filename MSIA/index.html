@@ -252,6 +252,17 @@ footer{margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--border-di
 .track-c-card h4{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:#d4b96a;margin-bottom:.5rem}
 .track-c-card p{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.4rem}
 .track-c-card .venue{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--faint)}
+/* footnotes & legal timeline */
+.fnref{font-family:'DM Mono',monospace;font-size:.62rem;vertical-align:super;line-height:0}
+.fnref a{color:var(--gold);text-decoration:none;border-bottom:none}
+.fnlist{list-style:none;margin:.6rem 0 0;counter-reset:fn;display:flex;flex-direction:column;gap:.55rem}
+.fnlist li{counter-increment:fn;font-size:.78rem;color:var(--faint);line-height:1.6;padding-left:1.8rem;position:relative}
+.fnlist li::before{content:'['counter(fn)']';position:absolute;left:0;color:var(--gold-dim);font-family:'DM Mono',monospace;font-size:.68rem}
+.fnlist li a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--border-dim);word-break:break-all}
+.lawline{list-style:none;margin:.8rem 0 1rem;display:flex;flex-direction:column;gap:.7rem}
+.lawline li{position:relative;padding-left:5.2rem;font-size:.88rem;color:var(--muted);line-height:1.6}
+.lawline li .yr{position:absolute;left:0;top:.1em;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;color:var(--gold)}
+.lawline li strong{color:var(--cream)}
 /* computability subsection */
 .rs-compute{margin:1.4rem 0}
 .rs-compute-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
@@ -833,6 +844,79 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
     <h3>Relation to ASI Architecture and Indo-Pacific Lawfare</h3>
     <p>This cryptographic study sits alongside, and is informed by, Logarchéon's two primary research tracks: <strong>ASI seed architecture</strong> (the CEAS / Ψ-operator / GRAIL triadic framework for recursive intelligence) and <strong>Indo-Pacific lawfare</strong> (legal-strategic analysis of the Taiwan Strait and associated legal instruments). The same spectral-geometric methods that appear in MSIA — Kleinian groups, geodesic flow, trace formulas — appear in the mathematical substrate of the CEAS architecture. The same concern with asymmetric capability gaps that drives the lawfare analysis drives the cryptographic research: encryption whose hardness assumptions are not yet in the adversary's threat model.</p>
   </div>
+
+  <div class="rs-section" id="rs-policy">
+    <h2>§7 · Why Backdoor-Free Encryption is Not a National-Security Liability</h2>
+    <p class="rs-intro">A recurring policy claim holds that strong, no-backdoor encryption of the kind demonstrated on this page is a threat to national security, and that carriers, platforms, and even the underlying algorithms should be required by law to preserve an exceptional-access channel for lawful intercept. The empirical record points the other way. The mandated access channel — not the mathematics — has repeatedly proven to be the weakest structural point in the national security posture.</p>
+
+    <h3>The Salt Typhoon precedent</h3>
+    <p>The Salt Typhoon campaign, publicly disclosed in 2024 and attributed by U.S. agencies to PRC state-linked actors,<span class="fnref"><a href="#fn2">[2]</a></span> penetrated major U.S. telecommunications carriers and reached, among other systems, the very lawful-intercept infrastructure that carriers are legally required to maintain under CALEA.<span class="fnref"><a href="#fn1">[1]</a></span> The wiretap apparatus built so that the government could listen became the apparatus through which a foreign intelligence service could listen. Three features of the incident matter for the policy argument:</p>
+    <ul>
+      <li><strong>Remediation is not verifiable.</strong> Well into the response, officials could not certify that the intruders had been completely evicted from carrier networks.<span class="fnref"><a href="#fn4">[4]</a></span><span class="fnref"><a href="#fn5">[5]</a></span> A backdoor architecture, once compromised, offers no clean way to prove the compromise has ended — the access path is a designed feature, so its use by an adversary is structurally indistinguishable from its use by the intended party.</li>
+      <li><strong>Attribution of one actor does not bound the set of actors.</strong> That one campaign was detected and attributed to one state says nothing about whether other services — Russian, or others — found the same designed access paths earlier, later, or more quietly. Detection is evidence of presence; it is never evidence of absence.</li>
+      <li><strong>The liability scales with the mandate.</strong> Because the intercept capability was imposed uniformly by law on every carrier, a single class of compromise yielded potential visibility into the communications of essentially everyone — officials, campaigns, industry, and ordinary citizens alike. The mandate converted a per-target surveillance tool into a single point of national failure.</li>
+    </ul>
+
+    <h3>Hidden assumptions behind the exceptional-access mandate</h3>
+    <p>The case for compelled backdoors — in carrier infrastructure, in platforms, or in the algorithms themselves (key escrow for RSA-class systems and their successors) — rests on a stack of assumptions that are rarely stated and, once stated, are difficult to defend:</p>
+    <ul>
+      <li><strong>Exclusivity.</strong> It assumes the designed access path will be found and used only by the government that mandated it. There is no known cryptographic or engineering construction that makes an access channel usable by one authorized party and undiscoverable by all others; a door that exists can be found.</li>
+      <li><strong>A talent-pool wager against arithmetic.</strong> It assumes that no analyst in any adversary state will locate the backdoor — while the principal adversary in question fields a population, and therefore a mathematical and offensive-cyber talent pool, several times the size of one's own. The mandate is a bet that zero out of the larger pool succeed where one's own engineers, by design, must succeed routinely. That is not a statistical position; it is a hope.</li>
+      <li><strong>Perpetual custodial integrity.</strong> It assumes the escrowed keys, the intercept portals, and the personnel with access to them remain uncompromised indefinitely — across contractor turnover, insider risk, supply-chain exposure, and decades of accumulating attack surface.</li>
+      <li><strong>A frozen geopolitical era.</strong> The centralize-everything doctrine — every signal collectible, correlatable, and available to the state in real time — is an artifact of the post-Cold-War interval, designed in a period of assumed peacetime and assumed Western technical primacy. It presumes great powers are either cooperating or incapable. When large states such as Russia and the PRC are neither, the same centralized collection architecture inverts from an asset into the adversary's highest-value target.</li>
+      <li><strong>Reliable detection and complete remediation.</strong> It assumes that if the access channel is ever abused, the abuse will be detected promptly and rolled back completely. Salt Typhoon demonstrates both halves of that assumption failing at once: multi-year dwell time before detection, and no certifiable eviction after it.</li>
+      <li><strong>Legal compulsion equals technical control.</strong> It assumes that because the law can order a capability into existence, the law can also confine who exercises it. Statutes bind carriers; they do not bind foreign intelligence services. The capability, once built, obeys physics and mathematics, not jurisdiction.</li>
+      <li><strong>Asymmetric restraint.</strong> It assumes adversaries will not impose the mirror-image demand on their own networks and then exploit the precedent — using the existence of Western lawful-access mandates to legitimize, and to study, equivalent access architectures of their own.</li>
+    </ul>
+
+    <h3>The inversion</h3>
+    <p>Each assumption above must hold, simultaneously and indefinitely, for the mandate to produce net security. If any single one fails, the mandate produces the opposite of its stated goal: it hands a standing, pre-installed collection capability to whichever adversary finds it first. Strong encryption with no exceptional access — mathematics with no door to find, executed locally with no escrowed key to steal, as in the construction demonstrated on this page — fails safe. A backdoored architecture fails catastrophically, and fails silently. The logic used to justify compelled access therefore inverts under its own assumptions: what is framed as a national-security necessity is, under adversarial conditions between non-cooperating great powers, a nationally distributed vulnerability enforced by statute.</p>
+  </div>
+
+  <div class="rs-section" id="rs-legal-timeline">
+    <h2>§8 · The Legal Architecture of Mandated Access — A Thirty-Year Timeline</h2>
+    <p class="rs-intro">The exceptional-access regime is not a single law but an accreted stack of statutes, regulations, and compelled-assistance powers, layered over three decades. Each layer was justified by the threat model of its own moment; the stack as a whole now operates in a threat environment none of its layers anticipated.</p>
+    <ul class="lawline">
+      <li><span class="yr">1978</span><strong>FISA</strong> (antecedent). The Foreign Intelligence Surveillance Act establishes the statutory frame — and the FISA Court — under which later compelled-access authorities operate.</li>
+      <li><span class="yr">1993</span><strong>The Clipper Chip / Escrowed Encryption Standard.</strong> The first attempt to mandate a backdoor in the algorithm itself: NSA-designed key escrow, with the master keys held by the government. Withdrawn after Matt Blaze demonstrated the escrow field could be defeated — the earliest public proof that a designed access channel is itself an attack surface.</li>
+      <li><span class="yr">1994</span><strong>CALEA</strong> (47 U.S.C. §1001 et seq.). The Communications Assistance for Law Enforcement Act requires carriers to build and maintain intercept capability into their networks. This is the statute whose mandated wiretap infrastructure Salt Typhoon reached three decades later.<span class="fnref"><a href="#fn1">[1]</a></span></li>
+      <li><span class="yr">1990s</span><strong>Crypto export controls.</strong> Strong encryption classified as a munition under ITAR, then moved to the EAR (1996) and substantially relaxed by 2000 under litigation pressure (<em>Bernstein v. DOJ</em>) and industry lobbying. The deliberately weakened "export-grade" ciphers of this era produced exploitable downgrade attacks (FREAK, Logjam) discovered decades later — a second demonstration that mandated weakness outlives its policy rationale.</li>
+      <li><span class="yr">2001</span><strong>USA PATRIOT Act.</strong> Expands pen-register, trap-and-trace, and business-records authorities (§215), broadening the collection perimeter around the existing intercept mandates.</li>
+      <li><span class="yr">2005–06</span><strong>CALEA extended to the internet.</strong> The FCC extends CALEA obligations to facilities-based broadband and interconnected VoIP providers; upheld in <em>American Council on Education v. FCC</em> (D.C. Cir. 2006). The intercept mandate now covers the internet access layer, not only telephony.</li>
+      <li><span class="yr">2008</span><strong>FISA Amendments Act §702.</strong> Authorizes compelled assistance from U.S. electronic communications service providers for collection targeting non-U.S. persons abroad — the statutory basis for the PRISM and upstream programs disclosed in 2013. Reauthorized in 2012 and 2018.</li>
+      <li><span class="yr">2013</span><strong>The Snowden disclosures.</strong> Not a law, but the moment the scale of the §702 / EO 12333 collection architecture became public — and the moment allied governments learned that data held by U.S. providers was structurally available to U.S. collection regardless of where the ally's citizens lived.</li>
+      <li><span class="yr">2015</span><strong>USA FREEDOM Act</strong> narrows bulk domestic metadata collection; <strong><em>Schrems I</em></strong> (CJEU) invalidates the EU–US Safe Harbor framework, the first European judicial recognition that U.S. surveillance law reaches European data at rest in U.S.-provider infrastructure.</li>
+      <li><span class="yr">2016</span><strong>UK Investigatory Powers Act.</strong> Introduces Technical Capability Notices — secret orders that can require an operator to remove "electronic protection" from communications, i.e., a statutory power to compel a backdoor, under a gag.</li>
+      <li><span class="yr">2018</span><strong>CLOUD Act</strong> (18 U.S.C. §2713) makes explicit that U.S. providers must produce data in their possession, custody, or control <em>regardless of where it is stored</em> — the jurisdictional keystone of European dependence discussed in §9. The same year, <strong>Australia's TOLA Act</strong> creates Technical Assistance and Technical Capability Notices on the UK model.</li>
+      <li><span class="yr">2020</span><strong><em>Schrems II</em></strong> (CJEU, C-311/18) invalidates the EU–US Privacy Shield, holding that §702 and EO 12333 collection prevents U.S.-held European data from receiving essentially equivalent protection.<span class="fnref"><a href="#fn8">[8]</a></span> The EU Council simultaneously adopts its "security through encryption and security despite encryption" resolution, opening the European lawful-access debate.</li>
+      <li><span class="yr">2022–</span><strong>EU CSA Regulation ("Chat Control") proposal.</strong> Draft regulation contemplating mandated client-side scanning of end-to-end-encrypted messaging — the algorithm-level access debate of the 1990s, restaged in Brussels.</li>
+      <li><span class="yr">2023</span><strong>EU–US Data Privacy Framework.</strong> The third attempt at an adequacy bridge, built on executive redress mechanisms layered atop the same underlying collection statutes; litigation on the same <em>Schrems</em> grounds is anticipated.</li>
+      <li><span class="yr">2024</span><strong>RISAA</strong> reauthorizes §702 and broadens the definition of "electronic communications service provider" subject to compelled assistance. In the autumn, <strong>Salt Typhoon</strong> is disclosed: the FBI/CISA joint statement issues November 13,<span class="fnref"><a href="#fn2">[2]</a></span> and joint hardening guidance with NSA and Five Eyes partners follows December 3.<span class="fnref"><a href="#fn3">[3]</a></span></li>
+      <li><span class="yr">2025</span><strong>The stack under stress.</strong> February: a UK Technical Capability Notice reportedly directs Apple to provide access to end-to-end-encrypted iCloud data; Apple withdraws Advanced Data Protection from the UK rather than comply, and the demand is reported withdrawn months later after U.S. objections.<span class="fnref"><a href="#fn10">[10]</a></span> January: the FCC issues a Declaratory Ruling reading CALEA §105 as an affirmative duty to secure networks against unlawful interception — an implicit admission that the intercept mandate created the exposure — then rescinds it on November 20 as exceeding the statute.<span class="fnref"><a href="#fn7">[7]</a></span> August: a multi-nation advisory (AA25-239A) describes the same PRC actors compromising networks worldwide to feed a global espionage system.<span class="fnref"><a href="#fn6">[6]</a></span></li>
+    </ul>
+    <p>Read as a single arc: a key-escrow proposal defeated on technical grounds in 1994 was followed by thirty years of achieving the same outcome through infrastructure and jurisdiction instead of the algorithm — intercept mandates in the carriers (CALEA), compelled assistance from the platforms (§702, CLOUD Act, IPA, TOLA), and periodic attempts to return to the algorithm itself (Chat Control, the Apple TCN). Salt Typhoon is what it looks like when the oldest layer of that stack meets a peer adversary the stack was never designed against.</p>
+  </div>
+
+  <div class="rs-section" id="rs-allied-dependence">
+    <h2>§9 · The Allied Dependence Problem — NATO and Europe Inside the Same Perimeter</h2>
+    <p>The exposure described above is not confined to the United States, because the data of allied states largely is not confined to allied jurisdictions. The overwhelming majority of European cloud workloads — government, enterprise, and consumer — run on U.S. hyperscalers (commonly estimated at roughly seventy percent of the EU cloud market across AWS, Microsoft, and Google), and under the CLOUD Act those providers must produce data within their control regardless of whether it sits in a Frankfurt, Dublin, or Paris data center.<span class="fnref"><a href="#fn9">[9]</a></span> Jurisdiction follows the provider, not the geography. European "sovereign cloud" offerings operated by U.S.-headquartered firms remain, by the providers' own admissions before European legislatures, unable to guarantee immunity from U.S. legal process.</p>
+    <p>The consequence is a double dependence. First, NATO and EU member states depend on the confidentiality of infrastructure that U.S. law requires to be interceptable and compellable — so every weakness in the U.S. lawful-access stack is automatically a weakness in theirs. When Salt Typhoon sat inside U.S. carrier intercept systems, the calls and records of allied diplomats, officers, and firms routing through or stored in that infrastructure were inside the same compromised perimeter. Second, the European judicial system has already ruled, twice, that this arrangement is structurally incompatible with its own fundamental-rights law (<em>Schrems I</em>, <em>Schrems II</em>) — and the political response each time has been a new adequacy instrument layered over the unchanged collection statutes rather than a change to the statutes themselves.<span class="fnref"><a href="#fn8">[8]</a></span></p>
+    <p>For allied governments, therefore, the backdoor-mandate logic fails twice over: they carry the vulnerability cost of the U.S. access architecture without holding the access, and their own emerging mandates (IPA, TOLA, Chat Control) add further doors into systems their adversaries also study. Client-side, no-escrow, no-exceptional-access encryption — where confidentiality derives from mathematics executed on the user's own device rather than from any provider's compliance posture — is the only layer of the stack that is indifferent to which jurisdiction's compelled-access law applies and to which adversary has penetrated which carrier. That is precisely the design demonstrated on this page.</p>
+
+    <h3>Sources &amp; Footnotes</h3>
+    <ul class="fnlist">
+      <li id="fn1">Wall Street Journal (Oct. 5, 2024), first public report that Salt Typhoon reached the systems carriers maintain for court-authorized wiretap requests under CALEA at AT&amp;T, Verizon, and Lumen.</li>
+      <li id="fn2">FBI &amp; CISA, <em>Joint Statement on the People's Republic of China (PRC) Targeting of Commercial Telecommunications Infrastructure</em>, Nov. 13, 2024. <a href="https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications" target="_blank" rel="noopener">cisa.gov</a></li>
+      <li id="fn3">CISA, NSA, FBI &amp; international partners (AU, CA, NZ), <em>Enhanced Visibility and Hardening Guidance for Communications Infrastructure</em>, Dec. 3, 2024. <a href="https://www.cisa.gov/resources-tools/resources/enhanced-visibility-and-hardening-guidance-communications-infrastructure" target="_blank" rel="noopener">cisa.gov</a></li>
+      <li id="fn4">Jeff Greene, Executive Assistant Director for Cybersecurity, CISA, press briefing, Dec. 2024: "We cannot say with certainty that the adversary has been evicted," noting the scope of intrusion remained unknown.</li>
+      <li id="fn5">U.S. Senate Commerce Committee, Subcommittee on Communications, Media, and Broadband, hearing on Salt Typhoon and communications-network security, Dec. 11, 2024; contemporaneous White House briefings (Anne Neuberger) placing the count at nine or more U.S. carriers, with classified-level uncertainty about persistence.</li>
+      <li id="fn6">CISA et al., Joint Cybersecurity Advisory AA25-239A, <em>Countering Chinese State-Sponsored Actors' Compromise of Networks Worldwide to Feed a Global Espionage System</em>, Aug. 27, 2025. <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener">cisa.gov</a></li>
+      <li id="fn7">FCC, Declaratory Ruling &amp; NPRM, FCC 25-9, PS Docket No. 22-329 (adopted Jan. 2025), construing CALEA §105 as an affirmative network-security duty; rescinded by Order on Reconsideration adopted Nov. 20, 2025. <a href="https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf" target="_blank" rel="noopener">FCC 25-9</a></li>
+      <li id="fn8">CJEU, Case C-311/18, <em>Data Protection Commissioner v. Facebook Ireland &amp; Schrems</em> ("Schrems II"), judgment of July 16, 2020; see also Case C-362/14 ("Schrems I"), Oct. 6, 2015.</li>
+      <li id="fn9">Clarifying Lawful Overseas Use of Data (CLOUD) Act, 18 U.S.C. §2713 (2018): a provider "shall … preserve, backup, or disclose" data within its "possession, custody, or control … regardless of whether such communication, record, or other information is located within or outside of the United States."</li>
+      <li id="fn10">Reporting (Washington Post, Feb. 2025) on a UK Technical Capability Notice under the Investigatory Powers Act 2016 directed at Apple's Advanced Data Protection; Apple's withdrawal of ADP for UK users (Feb. 21, 2025); and subsequent reporting (Aug. 2025) that the demand was dropped following U.S. government objections.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- ════════════════ ALGEBRAIC CONSTRUCTIONS SECTION (inject before footer) ════════════════ -->
@@ -1223,7 +1307,8 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
  async function ensureCPython(stEl){ // explicit opt-in path
   if(algEngine==='pyodide')return true;
   setStatus(stEl,'Loading CPython engine (Pyodide) \u2014 this downloads ~10MB and may take a minute on first use\u2026','run');
-  try{ if(window.pyodide && window.loadPyodide){ algPy=window.pyodide; } else { await loadPyodideForAlg(); algPy=await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.3/full/'}); }
+  try{ if(typeof pyodideSupported==='function' && !pyodideSupported()){ throw new Error('env'); }
+   if(window.pyodide && window.loadPyodide){ algPy=window.pyodide; } else { await loadPyodideForAlg(); algPy=await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.3/full/'}); }
    await algPy.runPythonAsync(ALG_PY); algEngine='pyodide'; return true;
   }catch(e){ setStatus(stEl,'Could not load CPython ('+e.message+'). Staying on the JavaScript engine.','warn'); return false; } }
  function ensureJS(){ if(!algEngine)algEngine='js'; }
@@ -1562,11 +1647,22 @@ function updateDecBtn(){document.getElementById('decBtn').disabled=!(validGensOf
 function setEngineNote(){document.getElementById('engineNote').textContent=engine==='pyodide'?'Engine: Pyodide (CPython via WebAssembly).':'Engine: pure JavaScript (Web Crypto).';}
 async function boot(){
  const status=document.getElementById('status');
- if(location.protocol==='file:'){engine='js';setEngineNote();status.innerHTML='Pure-JavaScript engine (works from disk). For Pyodide serve over <code>http(s)://</code>.';status.className='ok';enableUI();return;}
+ if(!pyodideSupported()){engine='js';setEngineNote();status.innerHTML='Pure-JavaScript engine active (Pyodide skipped: this environment blocks WebAssembly workers — e.g. <code>file://</code> or a sandboxed preview frame). Serve over <code>http(s)://</code> with a real origin for the CPython engine.';status.className='ok';enableUI();return;}
  status.textContent='Loading Pyodide…';
  try{pyodide=await loadPyodideSafe();await pyodide.loadPackage([]);await pyodide.runPythonAsync(PY_CODE);engine='pyodide';setEngineNote();status.textContent='Ready — Pyodide engine loaded.';status.className='ok';}
  catch(e){engine='js';setEngineNote();status.textContent='Pyodide unavailable — using the fast JavaScript engine.';status.className='ok';}
  enableUI();
+}
+function pyodideSupported(){
+ try{
+  if(location.protocol==='file:')return false;                       // no fetch of .wasm from disk
+  if(typeof WebAssembly==='undefined'||!WebAssembly.instantiate)return false;
+  if(window.origin==='null'||location.origin==='null')return false;  // sandboxed iframe: Pyodide's internal postMessage of a URL object throws DataCloneError here
+  if(window!==window.top){                                           // cross-origin parent frame: same failure mode
+   try{ void window.top.location.href; }catch(_){ return false; }
+  }
+  return true;
+ }catch(_){ return false; }
 }
 function loadPyodideSafe(){return new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/pyodide/v0.27.3/full/pyodide.js';s.onload=()=>loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.3/full/'}).then(res,rej);s.onerror=()=>rej(new Error('loader'));document.head.appendChild(s);setTimeout(()=>rej(new Error('timeout')),25000);});}
 function enableUI(){['ptext','btext'].forEach(id=>document.getElementById(id).disabled=false);onKeyEdit('e');onKeyEdit('d');
