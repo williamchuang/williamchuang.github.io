@@ -141,6 +141,26 @@ h1,h2,h3,h4 {
   padding:100px 0 80px;
   border-bottom:1px solid var(--border-dim);
 }
+.hero-grid {
+  display:grid;
+  grid-template-columns:1fr 220px;
+  gap:48px;
+  align-items:center;
+}
+.hero-mark {
+  justify-self:end;
+}
+.hero-mark img {
+  width:180px;
+  height:180px;
+  opacity:0.92;
+  animation:fadeUp .7s .15s ease both;
+}
+@media(max-width:860px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-mark{ justify-self:center; order:-1; }
+  .hero-mark img{ width:120px;height:120px; }
+}
 .hero-eyebrow {
   display:flex;align-items:center;gap:14px;
   margin-bottom:28px;
@@ -540,20 +560,27 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-eyebrow">
-      <div class="line"></div>
-      <span class="patent-badge">U.S. Patent Pending 64/067,703 · 9+ Applications Filed 2025</span>
-    </div>
-    <h1>We proved what <em>Artificial Superintelligence</em> requires.<br>We build the architecture.</h1>
-    <p class="hero-sub">
-      Three components are mathematically necessary for any scalable Artificial Superintelligence
-      operating in the real world. Logarchéon proves this — and provides the first seed architecture
-      satisfying all three necessary conditions, grounded in geometry, causal reasoning, and invariant computation.
-      The necessity theorems are proved. Broad capability claims require evaluation described in the technical brief.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Request a technical brief</a>
-      <a href="#proof" class="btn-secondary">Read the proofs</a>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <div class="line"></div>
+          <span class="patent-badge">U.S. Patent Pending 64/067,703 · 9+ Applications Filed 2025</span>
+        </div>
+        <h1>We proved what <em>Artificial Superintelligence</em> requires.<br>We build the architecture.</h1>
+        <p class="hero-sub">
+          Three components are mathematically necessary for any scalable Artificial Superintelligence
+          operating in the real world. Logarchéon proves this — and provides the first seed architecture
+          satisfying all three necessary conditions, grounded in geometry, causal reasoning, and invariant computation.
+          The necessity theorems are proved. Broad capability claims require evaluation described in the technical brief.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Request a technical brief</a>
+          <a href="#proof" class="btn-secondary">Read the proofs</a>
+        </div>
+      </div>
+      <div class="hero-mark">
+        <img src="assets/logo-mark.png" alt="Logarchéon eight-pointed star mark" width="180" height="180"/>
+      </div>
     </div>
   </div>
 </section>
