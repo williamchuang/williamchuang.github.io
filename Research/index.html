@@ -182,10 +182,26 @@ nav.site-nav {
 /* ── Footer ── */
 footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--faint); text-align:center; }
 
+/* ── Featured research-journal card ── */
+.featured-journal-card { overflow-wrap:anywhere; word-break:normal; }
+.featured-journal-card h3 { padding-right:9.5rem; }
+.featured-journal-badge {
+  position:absolute; top:0; right:0;
+  font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--gold-light);
+  background:rgba(14,31,58,0.96); padding:0.25rem 0.65rem;
+  border-bottom-left-radius:4px;
+}
+
 /* ── Responsive ── */
 @media(max-width:860px) {
   .page-layout { grid-template-columns:1fr; gap:2rem; padding:2rem 20px 4rem; }
   .toc-sidebar { display:none; }
+  .featured-journal-badge {
+    position:static; display:inline-block; margin-bottom:0.75rem;
+    border-radius:3px;
+  }
+  .featured-journal-card h3 { padding-right:0; }
 }
 </style>
 </head>
@@ -241,6 +257,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <ul class="toc-list">
       <li><a href="#current-writing" class="toc-link toc-section">Current Writing</a></li>
       <li><a href="#policy" class="toc-link toc-section">Policy &amp; Applied Research</a></li>
+      <li><a href="#tracing-alleged-speech" class="toc-link toc-sub">Alleged Chi Speech OSINT</a></li>
       <li><a href="#lifu-sud" class="toc-link toc-sub">Focused Ultrasound / SUD</a></li>
       <li><a href="#fus-checker" class="toc-link toc-sub">LIFU Safety Explorer</a></li>
       <li><a href="#taiwan-holy-see-policy" class="toc-link toc-sub">Taiwan–Holy See Strategy</a></li>
@@ -361,6 +378,69 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   <div class="section-header">
     <span class="section-num">01</span>
     <h2 class="section-title">Policy &amp; Applied Research</h2>
+  </div>
+
+  <!-- Alleged Chi Haotian speech provenance research journal -->
+  <div id="tracing-alleged-speech" class="paper-card featured-journal-card" style="border-left:3px solid var(--gold);position:relative;overflow:hidden;background:rgba(14,31,58,0.58);">
+    <div class="featured-journal-badge">Research Journal &middot; 2026</div>
+    <h3>
+      <a href="/tracingthealleged/">Tracing the Alleged &ldquo;Chi Haotian Speech&rdquo;</a>
+    </h3>
+    <div class="paper-meta">
+      <span>Open-Source Investigation</span>
+      <span>William Chuang</span>
+      <span>OSINT &middot; Provenance &middot; Authorship Analysis &middot; Strategic Narrative Transmission</span>
+    </div>
+    <div class="paper-abstract">
+      <p>
+        A research journal investigating the anonymous text
+        <em>《战争离我们不远，它是中华世纪的产婆》</em>, later attributed to former
+        PRC defense minister Chi Haotian. The inquiry begins with a narrow source question:
+        where did the proposition
+        <strong>“如果生物武器偷袭成功，中国人民将在对美斗争中付出最小牺牲代价”</strong>
+        first appear online, and which earlier writers or discourse communities supplied
+        its conceptual architecture?
+      </p>
+      <p>
+        The study reconstructs the recoverable 2005 Boxun publication chain; examines the
+        text&rsquo;s repeated reliance on He Xin; maps the pre-2005 Chinese biowarfare and
+        asymmetric-war timeline; and evaluates the later Freemasonry &ldquo;expos&eacute;&rdquo;
+        publishing associated with He Xin and Zhang Yuan, while treating the books&rsquo;
+        substantive claims and the authors&rsquo; incentives as questions requiring separate
+        validation. It then follows the document through J. R. Nyquist, Brian T. Kennedy,
+        Hillsdale College, Gordon G. Chang, and the May 2019 &ldquo;people&rsquo;s war&rdquo;
+        interpretation.
+      </p>
+      <p>
+        The journal separates source authenticity from quotation accuracy, intellectual
+        genealogy from personal authorship, stylistic similarity from attribution, and
+        repeated policy circulation from independent corroboration. Its appendices preserve
+        the Kennedy transcript and source-scope audit, the provenance URLs, and a bilingual
+        presentation of the anonymous Chinese text.
+      </p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0.55rem;margin:0.9rem 0 0.8rem;">
+      <div style="background:rgba(8,18,38,0.52);border:1px solid var(--border-dim);border-top:2px solid var(--gold);border-radius:3px;padding:0.7rem 0.75rem;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Core question</div>
+        <div style="font-size:0.78rem;color:var(--body);line-height:1.55;">Who first composed, supplied, and transmitted the anonymous document?</div>
+      </div>
+      <div style="background:rgba(8,18,38,0.52);border:1px solid var(--border-dim);border-top:2px solid var(--gold-light);border-radius:3px;padding:0.7rem 0.75rem;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.35rem;">Current provenance</div>
+        <div style="font-size:0.78rem;color:var(--body);line-height:1.55;">Earliest recoverable complete publication: Boxun, 23 April 2005; ultimate authorship remains open.</div>
+      </div>
+      <div style="background:rgba(8,18,38,0.52);border:1px solid var(--border-dim);border-top:2px solid var(--muted);border-radius:3px;padding:0.7rem 0.75rem;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:0.35rem;">Method</div>
+        <div style="font-size:0.78rem;color:var(--body);line-height:1.55;">Chronology, source validation, textual genealogy, stylometry, actor incentives, and transmission analysis.</div>
+      </div>
+    </div>
+    <div class="paper-links">
+      <a href="/tracingthealleged/" class="link-btn" style="background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-light);" target="_self">
+        <span class="lbl">&#8599;</span>Open the Research Journal
+      </a>
+    </div>
+    <p style="font-size:0.76rem;color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.04em;margin-top:0.85rem;line-height:1.65;">
+      GitHub Pages route: <code>/tracingthealleged/</code> resolves to <code>tracingthealleged/index.html</code>.
+    </p>
   </div>
 
   <div id="lifu-sud" class="paper-card">
