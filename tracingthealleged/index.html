@@ -326,6 +326,27 @@ details.translation-record[open] summary::after { content:"−"; }
 }
 .research-note p { color:var(--body); font-size:0.91rem; line-height:1.8; margin-bottom:0.7rem; }
 .research-note p:last-child { margin-bottom:0; }
+.contradiction-card {
+  max-width:82ch; margin:1.05rem 0 0; padding:1.15rem 1.25rem;
+  background:linear-gradient(145deg,rgba(92,31,31,0.42),rgba(14,31,58,0.76));
+  border:1px solid rgba(224,112,112,0.48); border-left:4px solid #e07070; border-radius:5px;
+  box-shadow:0 0 0 1px rgba(224,112,112,0.05) inset;
+}
+.contradiction-card .contradiction-label {
+  display:block; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.11em;
+  text-transform:uppercase; color:#efaaaa; margin-bottom:0.5rem;
+}
+.contradiction-card h3 { color:var(--cream); font-size:1.08rem; margin:0 0 0.55rem; }
+.contradiction-card p { color:var(--body); font-size:0.88rem; line-height:1.78; margin:0 0 0.65rem; }
+.contradiction-card p:last-child { margin-bottom:0; }
+.contradiction-card strong { color:#f0c3c3; }
+.actor-card dl > .contradiction-row {
+  padding:0.75rem 0.8rem; border:1px solid rgba(224,112,112,0.38);
+  border-left:3px solid #e07070; border-radius:4px;
+  background:rgba(92,31,31,0.24);
+}
+.actor-card dl > .contradiction-row dt { color:#efaaaa; }
+.actor-card dl > .contradiction-row dd { color:var(--body); }
 .epistemic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.85rem; margin:1.35rem 0; }
 .epistemic-card {
   padding:1rem 1.05rem; background:rgba(14,31,58,0.5); border:1px solid var(--border-dim);
@@ -844,6 +865,14 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
       viral attack and strategic Chinese study. Those findings make him an upstream
       <em>origin-of-information subject</em>; authorship remains a separate provenance question.
     </p>
+<div class="contradiction-card" id="he-xin-contradiction-origin">
+<span class="contradiction-label">High-priority internal-consistency test</span>
+<h3>Can the sincere-warning model survive He Xin’s own advocacy and an apparent own-side exception?</h3>
+<p>The recovered 2003 essay describes alleged <strong>Xiongnu</strong> disease warfare against <strong>Han</strong> forces; it does not identify Han forces as the historical initiator. The relevant modern move is He Xin’s extrapolation from that contested historical account: he presents biochemical warfare as an important form of asymmetric warfare and urges the Chinese state to elevate it for strategic attention and study.</p>
+<p><strong>Conditional proof by contrapositive:</strong> take the strongest sincerity claim to mean: <em>if an author genuinely and consistently opposes population-targeted biological warfare as such, he would not normalize, strategically commend, or urge state study of analogous methods for his own side.</em> Its contrapositive is: <em>if he does normalize, strategically commend, or urge such study, that strongest claim of genuine and consistent opposition cannot stand unchanged.</em> The logical force is conditional on accepting the first premise; it tests internal consistency rather than independently proving deception.</p>
+<p>The resulting <strong>own-side exception question</strong> is central: is the operative principle that population-targeted biological warfare is intrinsically unacceptable, or that alleged Freemasons and foreign adversaries must not possess or use it while China may study, prepare, deter, retaliate, or develop comparable capability? If the latter, the position reflects selective strategic permission rather than a universal humanitarian objection. Defensive-preparation and deterrence explanations remain available, but they must explain the asymmetry.</p>
+<p>The choice of a Xiongnu-versus-Han narrative also warrants a separate <strong>Han-centric or racialized-hierarchy test</strong>. Because the Han are presented as the threatened side, case selection alone does not establish racism or Han superiority. A stronger finding would require repeated explicit superiority language, differential moral valuation of Han and non-Han lives, or a broader pattern across He Xin’s corpus.</p>
+</div>
 </div>
 <div class="hero-meta-grid">
 <div class="hero-meta"><span>Research object</span><strong>Anonymous Chinese text attributed to Chi Haotian</strong></div>
@@ -899,9 +928,16 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="research-note" id="why-this-study">
 <span class="note-label">Unanswered justification questions at the beginning of the inquiry</span>
 <div class="justification-intro">
-<p>The study did not begin by assuming that repetition proved either authenticity or coordination. It began by asking whether four distinct propositions could justify the research. A question is <strong>sufficient</strong> when an affirmative answer alone warrants a disciplined inquiry; it is <strong>necessary</strong> when the larger evidentiary or policy judgment cannot responsibly be made without answering it; and it is <strong>both</strong> when it independently justifies the study and must also be resolved before the recurring narrative can carry its claimed weight.</p>
+<p>The study did not begin by assuming that repetition proved either authenticity or coordination. It began by asking whether five distinct propositions could justify the research. A question is <strong>sufficient</strong> when an affirmative answer alone warrants a disciplined inquiry; it is <strong>necessary</strong> when the larger evidentiary or policy judgment cannot responsibly be made without answering it; and it is <strong>both</strong> when it independently justifies the study and must also be resolved before the recurring narrative can carry its claimed weight.</p>
 </div>
 <div class="justification-grid">
+<article class="justification-card">
+<span class="jq-id">JQ-0 · Pre-2005 PRC/PLA baseline</span>
+<span class="logic-badge">Necessary and potentially sufficient</span>
+<h3>Which biological, genetic, and cross-domain warfare concepts were already public in PLA-linked or PRC sources before April 2005, and which elements first appear together in the anonymous alleged speech?</h3>
+<p>This distinction is necessary for intellectual genealogy and attribution: widely available generic concepts have limited value as authorship fingerprints. It is potentially sufficient to justify the study because a document that recombines public military discourse into a self-incriminating secret speech presents an important authorship and influence problem even before authenticity is resolved.</p>
+<a class="answer-link" href="#answer-jq0">Answer in Section 07 →</a>
+</article>
 <article class="justification-card">
 <span class="jq-id">JQ-1 · Circulation</span>
 <span class="logic-badge">Potentially sufficient</span>
@@ -1095,8 +1131,26 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-row">
 <div class="timeline-date">February 1999</div>
 <div class="timeline-node">乔良、王湘穗, <em>Unrestricted Warfare</em></div>
-<div class="timeline-contribution">Expands conflict beyond conventional battlefields to combinations of military and nonmilitary means, including financial, cyber, media, legal, and other forms of pressure. Kennedy uses it as a bridge from broad conflict to the alleged speech.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified PLA-officer publication and important intellectual context. Its formal status as CCP or PLA master guidance, and any connection to a biological first-strike policy, require internal adoption directives, doctrine references, training records, or operational evidence. The U.S. Air Force CASI provides one external interpretation.</div>
+<div class="timeline-contribution">Expands conflict beyond conventional battlefields to combinations of military and nonmilitary means. The text expressly imagines “information-guided bio-weapons,” identifies new biological and chemical weapons as “new-concept weapons,” lists “biochemical warfare” among military methods, and permits combinations across military, trans-military, and nonmilitary categories. Kennedy uses it as a bridge from broad conflict to the alleged speech.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified PLA-officer publication and direct biological-warfare conceptual precursor. It establishes public military vocabulary and a combination architecture; its formal doctrinal or operational status, and any link to the anonymous U.S. first-strike doctrine, require adoption directives, doctrine references, training records, planning documents, or operational evidence. <a href="https://www.dodccrp.org/files/Unrestricted_Warfare.pdf" rel="noopener" target="_blank">English text</a>.</div>
+</div>
+<div class="timeline-row">
+<div class="timeline-date">2000</div>
+<div class="timeline-node">PRC defense white paper</div>
+<div class="timeline-contribution">Records China’s public position of biological-weapons non-possession, treaty compliance, and support for comprehensive prohibition and destruction.</div>
+<div class="timeline-status"><span class="status-pill counter">Countervailing official record</span><br/>This is the contemporaneous declared diplomatic baseline. Assessing any compartmented activity or contrary internal policy requires separate insider and operational records. <a href="https://www.mfa.gov.cn/ziliao_674904/zt_674979/ywzt_675099/wzzt_675579/2296_675789/200207/t20020705_9288314.shtml" rel="noopener" target="_blank">2000 white paper</a>.</div>
+</div>
+<div class="timeline-row">
+<div class="timeline-date">January-April 2001</div>
+<div class="timeline-node"><em>PLA Daily</em>-linked military-technology articles</div>
+<div class="timeline-contribution"><em>A Grand Outlook for National Defense Science and Technology in the Twenty-First Century (Part III)</em> classifies gene weapons as new-concept biochemical weapons and says they could eliminate a race or specified population. <em>New Military-Technological Developments at the Turn of the Century</em>, attributed to China Defense Science and Technology Information Center authors, describes possible strategic gene weapons targeting a specific genetic population, with concealment, low cost, and severe destructive effects. <em>Ten Superweapons of the Twenty-First Century</em> describes introducing a virus into an enemy country as a simple method of attack.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified archived reproductions</span><br/>These sources establish that gene-weapon, ethnic-selectivity, covert-delivery, and strategic-effect concepts were publicly circulating in a PLA-linked publication environment before He Xin’s 2002-2003 texts. Their demonstrated evidentiary role is military forecasting and public discourse; a specific adopted plan requires adoption, planning, or operational records. <a href="https://mil.news.sina.com.cn/2001-01-06/10929.html" rel="noopener" target="_blank">Part III</a>; <a href="https://mil.news.sina.com.cn/2001-01-10/11163.html" rel="noopener" target="_blank">turn-of-century article</a>; <a href="https://www.chinanews.com/2001-04-02/26/82699.html" rel="noopener" target="_blank">ten superweapons</a>.</div>
+</div>
+<div class="timeline-row">
+<div class="timeline-date">December 2001</div>
+<div class="timeline-node">PRC Criminal Law Amendment III</div>
+<div class="timeline-contribution">Criminalizes specified manufacture, trade, transport, storage, release, theft, seizure, and robbery involving infectious-disease pathogens and related threats to public safety.</div>
+<div class="timeline-status"><span class="status-pill counter">Official legal record</span><br/>The amendment adds a domestic legal-control layer to the public prohibition position. Its enforcement and relationship to compartmented military activity require separate records.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">March 12, 2002</div>
@@ -1115,6 +1169,12 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-node"><em>China, the Only Major Power Living in a Cold Peace</em></div>
 <div class="timeline-contribution">References the already-existing “Modernization Under the Saber” essay family and argues that peace-and-development assumptions are ending.</div>
 <div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified surviving trace; helps date the strategic essay milieu before the anonymous speech.</div>
+</div>
+<div class="timeline-row">
+<div class="timeline-date">October-December 2002</div>
+<div class="timeline-node">PRC biological dual-use export-control regulation</div>
+<div class="timeline-contribution">Establishes licensing and control rules for listed biological dual-use materials, equipment, and technologies and states the purpose of preventing their use for biological-weapons ends.</div>
+<div class="timeline-status"><span class="status-pill counter">Official regulatory record</span><br/>The regulation provides a contemporaneous public control framework. Evaluating implementation, evasion, or compartmented exceptions requires enforcement and insider records. <a href="https://dcj.mofcom.gov.cn/article/bi/200301/20030100064367.shtml" rel="noopener" target="_blank">Regulation</a>.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">2002–2003</div>
@@ -1307,11 +1367,13 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <h3>Content genealogy</h3>
 <div class="flow-node"><strong>Wang Lixiong, 1991</strong><span>Demographic, ecological, and political collapse; mass death and outward catastrophe.</span></div>
 <div class="flow-arrow">↓</div>
-<div class="flow-node"><strong>Qiao Liang &amp; Wang Xiangsui, 1999</strong><span>Conflict extended beyond conventional battlefields through combined military and nonmilitary means. An official biological-war plan would require adoption or operational records.</span></div>
+<div class="flow-node"><strong>Qiao Liang &amp; Wang Xiangsui, 1999</strong><span>Conflict extended beyond conventional battlefields through combined military and nonmilitary means; the book expressly includes information-guided bio-weapons, biological and chemical “new-concept weapons,” and biochemical warfare among combinable methods. Formal adoption and operational use require additional records.</span></div>
+<div class="flow-arrow">↓</div>
+<div class="flow-node"><strong><em>PLA Daily</em>-linked military science, 2001-2004</strong><span>Gene weapons, selective genetic targeting, covert delivery, low cost, strategic effects, and technical limitations entered a public military-publication vocabulary before the anonymous text.</span></div>
 <div class="flow-arrow">↓</div>
 <div class="flow-node"><strong>He Xin, 2002</strong><span>Western depopulation conspiracy using war, plague, biological weapons, and genetic technology; the West is aggressor and China a threatened population.</span></div>
 <div class="flow-arrow">↓</div>
-<div class="flow-node"><strong>2002–2004 strategic and gene-weapon milieu</strong><span>“Modernization under the saber,” living-space nationalism, SARS victimization, covert-virus warfare, selective targeting, sparing friendly forces, and asymmetric advantage.</span></div>
+<div class="flow-node"><strong>2001–2004 strategic and gene-weapon milieu</strong><span>“Modernization under the saber,” living-space nationalism, SARS victimization, covert-virus warfare, selective targeting, sparing friendly forces, and asymmetric advantage.</span></div>
 <div class="flow-arrow">↓</div>
 <div class="flow-node"><strong>Anonymous compiler, April 2005</strong><span>Reverses the victim narrative: China should strike America first, depopulate it with biological weapons, preserve its territory, and colonize it.</span></div>
 <div class="flow-arrow">↓</div>
@@ -1329,7 +1391,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 </div>
 <div class="research-note">
 <span class="note-label">Unrestricted Warfare: bounded use</span>
-<p><em>Unrestricted Warfare</em> belongs in the chronology because Kennedy uses it to establish a broad frame in which conflict can occur through economic, informational, technological, and other nontraditional means. The book establishes an important PLA-authored strategic discourse node. Its formal status inside PRC doctrine, planning, and implementation remains an insider-record question requiring adoption directives, doctrinal citations, training records, or operational evidence. The U.S. Air Force China Aerospace Studies Institute offers one external interpretation of that status.</p>
+<p><em>Unrestricted Warfare</em> belongs in the chronology for two reasons. Kennedy uses it to establish a broad frame in which conflict can occur through economic, informational, technological, and other nontraditional means; and the book itself expressly includes information-guided bio-weapons, new biological and chemical weapons, and biochemical warfare inside its conceptual universe. It therefore precedes the anonymous text as a PLA-authored biological and cross-domain warfare node. Its formal status inside PRC doctrine, planning, and implementation remains an insider-record question requiring adoption directives, doctrinal citations, training records, or operational evidence. Its text also stops short of the anonymous speech’s complete compound proposition concerning a Chinese first strike, minimized Chinese sacrifice, preserved U.S. territory, and occupation.</p>
 <p><a href="https://archive.org/details/unrestricted-warfare-by-qiao-liang-and-wang-xiangsui" rel="noopener" target="_blank">1999 translation and publication record</a> · <a href="https://www.airuniversity.af.edu/CASI/Display/Article/3004313/unrestricted-warfare-is-not-chinas-master-plan/" rel="noopener" target="_blank">Air University / CASI caution</a></p>
 </div>
 </section>
@@ -1819,7 +1881,11 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <div class="interest-principle"><span>Type II</span><h3>Interest alignment</h3><p>Actors may independently benefit from the same interpretation—for example, a Chinese threat narrative, an anti-Masonic thesis, or institutional relevance. Coordination requires communications, joint planning, funding links, or comparable records.</p></div>
 <div class="interest-principle"><span>Type III</span><h3>Epistemic dependence</h3><p>Later actors rely on an earlier source while presenting surrounding events as confirmation. This is the strongest demonstrated risk in the present chain.</p></div>
 </div>
-<div class="actor-phase"><span>Group A</span><strong>Origin, attribution, and first publication</strong></div>
+<div class="actor-phase"><span>Group A</span><strong>Origin, attribution, first publication, and pre-2005 PRC/PLA context</strong></div>
+<div class="research-note">
+<span class="note-label">Three evidentiary layers inside Group A</span>
+<p>This group now separates <strong>provenance actors</strong> who could identify the document’s origin, <strong>upstream public military discourse</strong> from which a compiler could draw concepts, and the <strong>official PRC arms-control record</strong> against which any claim of state policy must be tested. Conceptual precedence identifies available vocabulary and architecture; authorship, adoption, and implementation require separate evidence.</p>
+</div>
 <div class="actor-grid">
 <article class="actor-card high-priority">
 <header><div><h3>Anonymous 2005 compiler or supplier</h3><span class="actor-role">Unknown originator</span></div><span class="status-pill pending">Unidentified</span></header>
@@ -1855,6 +1921,33 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <div><dt>Plausible interests</dt><dd>Exposing or criticizing CCP strategy, serving an overseas dissident readership, and publishing politically consequential material unavailable in PRC media.</dd></div>
 <div><dt>Bias or conflict risk</dt><dd>A hostile-source or advocacy orientation can encourage publication of an incriminating document before provenance is secured. Missing submission records prevent audit of editorial knowledge and incentives.</dd></div>
 <div><dt>Assessment</dt><dd class="assessment">Critical chain-of-custody witnesses. Their political orientation increases the importance of recovering the original file, correspondence, and editorial records.</dd></div>
+</dl>
+</article>
+<article class="actor-card high-priority">
+<header><div><h3>Qiao Liang, Wang Xiangsui, and the PLA Literature and Arts Publishing House</h3><span class="actor-role">1999 upstream military-theory node</span></div><span class="status-pill verified">Conceptual precursor verified</span></header>
+<dl>
+<div><dt>Documented position</dt><dd><a href="https://www.dodccrp.org/files/Unrestricted_Warfare.pdf" rel="noopener" target="_blank"><em>Unrestricted Warfare</em></a>, written by two PLA Air Force senior colonels and published in 1999 by the PLA Literature and Arts Publishing House, expressly imagines “information-guided bio-weapons” (PDF p. 30), treats new biological and chemical weapons as “new-concept weapons” (PDF p. 37), lists “biochemical warfare” among military methods (PDF p. 156), and states that listed military, trans-military, and nonmilitary methods can be combined.</dd></div>
+<div><dt>Plausible interests</dt><dd>To influence debate over how a militarily weaker state could exploit technological integration, asymmetric methods, and cross-domain combinations against a stronger opponent.</dd></div>
+<div><dt>Bias or conflict risk</dt><dd>Downstream interpreters may convert a published work of military theory into proof of formal adoption, or may use its broad “combination” architecture to make later events appear preplanned. The publication venue and authors’ positions establish a PLA-linked discourse node; formal doctrinal, planning, and operational status require additional internal records.</dd></div>
+<div><dt>Assessment</dt><dd class="assessment">Its Group A role is a pre-2005 conceptual precursor. It supplies a cross-domain architecture that can include biochemical warfare. The complete compound proposition—a Chinese biological first strike on the United States, minimization of Chinese sacrifice, preservation of U.S. territory, and subsequent occupation—first becomes recoverable in the anonymous 2005 attachment.</dd></div>
+</dl>
+</article>
+<article class="actor-card high-priority">
+<header><div><h3><em>PLA Daily</em> and the China Defense Science and Technology Information Center</h3><span class="actor-role">2001-2004 public gene-weapons discourse</span></div><span class="status-pill verified">Earlier military-publication vocabulary</span></header>
+<dl>
+<div><dt>Documented position</dt><dd>Archived reproductions identifying <em>PLA Daily</em> as the source show that, by January 2001, <a href="https://mil.news.sina.com.cn/2001-01-06/10929.html" rel="noopener" target="_blank">military-technology commentary</a> classified gene weapons as “new-concept biochemical weapons,” while a <a href="https://mil.news.sina.com.cn/2001-01-10/11163.html" rel="noopener" target="_blank">China Defense Science and Technology Information Center article</a> discussed selective attacks on a particular genetic population and described concealment, low cost, and strategic deterrent effects. A <a href="https://mil.news.sina.com.cn/2004-02-10/0902181327.html" rel="noopener" target="_blank">February 2004 <em>PLA Daily</em> article</a> again discussed selective genetic weapons while also emphasizing uncertainty, genetic overlap, technical limits, and risks to humanity.</dd></div>
+<div><dt>Plausible interests</dt><dd>Military-science forecasting, public awareness of emerging technology, institutional relevance, and defensive preparation against technologies attributed to foreign powers.</dd></div>
+<div><dt>Bias or conflict risk</dt><dd>Forecasting articles can repeat speculative foreign reporting, compress technical uncertainty, and normalize hypothetical capabilities as future-war vocabulary. A later compiler could borrow this language without possessing classified access or representing official operational policy.</dd></div>
+<div><dt>Assessment</dt><dd class="assessment">This discourse predates He Xin’s 2002-2003 texts and confirms that biological, genetic, ethnic-selectivity, concealment, and asymmetric-effect concepts were already publicly available in a PLA-linked media environment. Identifying the anonymous supplier and establishing the complete U.S.-first-strike and territorial-occupation doctrine require the separate provenance chain.</dd></div>
+</dl>
+</article>
+<article class="actor-card counterparty">
+<header><div><h3>PRC arms-control, criminal-law, and dual-use export-control institutions</h3><span class="actor-role">Contemporaneous official public-policy record</span></div><span class="status-pill counter">Countervailing institutional baseline</span></header>
+<dl>
+<div><dt>Documented position</dt><dd>The <a href="https://www.mfa.gov.cn/ziliao_674904/zt_674979/ywzt_675099/wzzt_675579/2296_675789/200207/t20020705_9288314.shtml" rel="noopener" target="_blank">2000 defense white paper</a> recorded China’s public position of biological-weapons non-possession and support for comprehensive prohibition and destruction. The 2001 criminal-law amendment penalized specified pathogen-related acts, and the <a href="https://dcj.mofcom.gov.cn/article/bi/200301/20030100064367.shtml" rel="noopener" target="_blank">2002 biological dual-use export-control regulation</a> sought to prevent listed materials, equipment, and technologies from being used for biological-weapons purposes.</dd></div>
+<div><dt>Plausible interests</dt><dd>Treaty compliance, nonproliferation, international legitimacy, control of sensitive technology, and protection against biological threats.</dd></div>
+<div><dt>Bias or conflict risk</dt><dd>An official public position records the state’s declared policy and legal architecture. Assessing compartmented activity, internal debate, or violation requires separate insider and operational records. Assigning the anonymous hostile-source text greater evidentiary weight than the official record likewise requires stronger provenance and operational evidence.</dd></div>
+<div><dt>Assessment</dt><dd class="assessment">Any claim that the anonymous speech represented authoritative PRC policy must reconcile the alleged internal doctrine with this contemporaneous public legal and diplomatic record. The contradiction is an evidentiary problem to investigate; both source environments require source-specific testing.</dd></div>
 </dl>
 </article>
 </div>
@@ -1924,7 +2017,10 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <div><dt>Documented position</dt><dd>He Xin’s later series alleges that Freemasonry coordinated population control through war, vaccines, artificial viruses, genetic technologies, and a “new world order.” These are He Xin’s claims. Major Masonic bodies publicly describe themselves as territorially organized social and charitable institutions. A unified biological-population-control command hypothesis requires primary records of authority, policy, funding, and coordinated implementation.</dd></div>
 <div><dt>Plausible interests</dt><dd>A unitary “Freemason interest” remains a hypothesis. Testing it would require evidence of centralized authority, shared policy, coordinated action, and a primary record for the alleged plan.</dd></div>
 <div><dt>Bias or conflict risk</dt><dd>Treating the alleged adversary as already proved converts He Xin’s conclusion into a premise and makes every critic of Freemasonry appear aligned against an actual coordinated enemy.</dd></div>
-<div><dt>Assessment</dt><dd class="assessment">Freemasonry is an allegation target in this source chain. Establishing it as an operational counterparty requires evidence of centralized authority, policy, and coordinated action. The <a href="https://www.ugle.org.uk/about-us/about-ugle" rel="noopener" target="_blank">United Grand Lodge of England’s organizational self-description</a> is included as one interested-source account for comparison.</dd></div>
+<div><dt>Alternative incentive hypothesis</dt><dd>The public chronology places He Xin’s population-elimination and biological-warfare framing in 2002–2003, followed by his systematic Freemasonry “exposé” series from 2010 onward. That sequence permits a camouflage, adversary-construction, and <strong>rhetorical-shield hypothesis</strong>: after developing or adopting biological-warfare concepts, an author could attribute comparable intentions to an already available conspiracy target. The alleged adversary could then serve as a shield for the author or aligned interests by redirecting suspicion outward, recoding an offensive concept as a defensive warning, supplying a ready-made source of blame, and making later strategic claims appear reactive rather than originating with the speaker. The same mechanism could also protect political or reputational interests, enlarge an audience, and create plausible deniability if similar concepts later drew scrutiny. The present chronology does not establish that this was He Xin’s purpose, and the documented interval is several years rather than an immediate transition. Testing deliberate disguise or shield construction would require drafts, correspondence, publication planning, audience strategy, financial or political incentives, and evidence showing a divergence between private purpose and public claims.</dd></div>
+<div><dt>Shield mechanism to test</dt><dd>Under this hypothesis, “Freemasonry” functions less as a demonstrated operational actor than as an attributional buffer: the most controversial intentions are placed in the mouth of an external hidden enemy, while the author occupies the position of exposer, defender, or reluctant responder. This could create moral cover, political cover, evidentiary distance, and a preassembled explanation for later biological-security advocacy. It remains one competing explanation alongside sincere belief, commercial sensationalism, ideological anti-globalism, and mixed motives.</dd></div>
+<div class="contradiction-row"><dt>Internal contradiction, own-side exception, and conditional contrapositive</dt><dd>The strongest sincere-warning model becomes internally unstable. He Xin publicly alleged that an external network intended to use biological and genetic technologies for population control, while his 2003 essay treated biochemical warfare as an important form of contemporary asymmetric warfare and recommended that the Chinese state elevate it for strategic attention and study. Under the stated premise that genuine and consistent opposition to population-targeted biological warfare entails refraining from normalizing or advocating analogous capability for one’s own side, his advocacy satisfies the contrapositive condition against that strongest sincerity claim. This is a conditional consistency test, not independent proof of concealment. It nevertheless creates an <strong>own-side exception problem</strong>: why is the method treated as an intolerable depopulation project when assigned to Freemasonry, but as a strategically important field when assigned to China? Possible answers include defensive study, deterrence, retaliation, selective moral permission, or a rule effectively meaning “China may prepare; the external adversary may not.” Each explanation changes the claimed incentive structure and must be tested against drafts, correspondence, and the wider corpus. The historical example concerns alleged Xiongnu action against Han forces, not Han initiation; its Han-centered selection therefore opens, but does not decide, a separate inquiry into ethnic hierarchy, superiority language, and the valuation of non-Han peoples.</dd></div>
+<div><dt>Assessment</dt><dd class="assessment">Freemasonry is an allegation target in this source chain. The documented sequence supports testing at least three explanations: a sincere-warning model; a commercial or ideological amplification model; and a strategic-camouflage or shield model that leverages an existing conspiracy tradition for authorial, political, reputational, or operational protection. Establishing Freemasonry as an operational counterparty, or establishing He Xin’s allegations as deliberate disguise or shield construction, requires primary evidence of authority, policy, coordination, private intent, and publication strategy. The <a href="https://www.ugle.org.uk/about-us/about-ugle" rel="noopener" target="_blank">United Grand Lodge of England’s organizational self-description</a> is included as one interested-source account for comparison.</dd></div>
 </dl>
 </article>
 <article class="actor-card unresolved">
@@ -2095,18 +2191,24 @@ print(ranking.to_string())</code></pre>
 </div>
 <div class="finding-grid">
 <div class="finding-card"><span class="finding-status">Provenance</span><h3>Earliest exact source</h3><p>The complete biological-first-strike doctrine is first traceable to the anonymous attachment published with Li Dahua’s Boxun article on April 23, 2005.</p></div>
-<div class="finding-card"><span class="finding-status">Intellectual origin</span><h3>Earlier components and the search for a complete precursor</h3><p>Wang Lixiong, He Xin, Wang Xiaodong-type living-space arguments, gene-weapon reporting, and post-SARS discourse supplied separable modules before 2005.</p></div>
+<div class="finding-card"><span class="finding-status">Intellectual origin</span><h3>Earlier components and the search for a complete precursor</h3><p>Wang Lixiong, <em>Unrestricted Warfare</em>, 2001-2004 PLA-linked gene-weapons forecasting, He Xin, Wang Xiaodong-type living-space arguments, and post-SARS discourse supplied separable modules before 2005.</p></div>
 <div class="finding-card"><span class="finding-status">Authorship</span><h3>He Xin circle elevated; authorship remains open</h3><p>He Xin is the closest tested overall register and a major upstream source. His 2003 essay independently joins ancient disease-as-weapon analysis, asymmetric warfare, and state-level strategic study, which elevates He Xin and his students, assistants, editors, or followers as priority attribution subjects. Personal authorship remains a provenance question.</p></div>
 <div class="finding-card"><span class="finding-status">Transmission</span><h3>Kennedy adds influence; authentication follows the inherited source chain</h3><p>Nyquist and Kennedy show how the document entered modern U.S. threat discourse. Their repetition extends the same evidentiary chain rather than creating a separate origin stream.</p></div>
 </div>
 <div class="answer-box">
 <span class="answer-label">Present answer to the originating question</span>
 <p>
-      The recovered record currently places the first complete version of the proposition on April 23, 2005: China strikes first with biological weapons, minimizes Chinese losses, anticipates U.S. nuclear retaliation, preserves American territory, and occupies it afterward. The complete version is anonymous. He Xin entered the investigation because his 2002 and 2003 writings are the earliest identified sources for several of its most distinctive premises: population elimination through biological or genetic technology, disease used deliberately in warfare, biochemical warfare as an asymmetric strategic problem, and the proposition that the Chinese state should study it at the strategic level. These facts make He Xin and his intellectual or editorial circle priority attribution subjects, while final authorship remains dependent on provenance.
+      The recovered record currently places the first complete version of the proposition on April 23, 2005: China strikes first with biological weapons, minimizes Chinese losses, anticipates U.S. nuclear retaliation, preserves American territory, and occupies it afterward. The complete version is anonymous. Before that date, <em>Unrestricted Warfare</em> had already placed bio-weapons and biochemical warfare inside a cross-domain combination framework, and PLA-linked military-technology articles had already discussed gene weapons, selective genetic targeting, covert delivery, and strategic effects. He Xin’s 2002 and 2003 writings then supplied several more distinctive premises: population elimination through biological or genetic technology, disease used deliberately in warfare, biochemical warfare as an asymmetric strategic problem, and the proposition that the Chinese state should study it at the strategic level. The official PRC record simultaneously stated biological-weapons prohibition and established criminal-law and dual-use export controls. This layered record makes the anonymous text’s specific recombination the principal provenance and authorship problem, while general biological-war vocabulary has lower discriminating value.
     </p>
 </div>
 <h3 class="audit-heading" data-section="JQ">Resolution of the opening justification questions</h3>
 <div class="resolution-grid">
+<article class="resolution-card" id="answer-jq0">
+<span class="resolution-status">JQ-0 · Answered within the public record · necessary distinction established</span>
+<h3>Pre-2005 PLA-linked discourse supplied major components, while the anonymous text first joins them into the complete alleged doctrine</h3>
+<p><em>Unrestricted Warfare</em> publicly supplied a cross-domain combination architecture that expressly included bio-weapons, biological and chemical “new-concept weapons,” and biochemical warfare. PLA-linked military-technology articles in 2001 and 2004 discussed gene weapons, selective genetic targeting, covert delivery, low cost, strategic effects, and technical limitations. The contemporaneous official PRC record stated biological-weapons prohibition and established criminal-law and export-control measures. The first recoverable source in this study that joins a Chinese first strike on the United States, minimized Chinese sacrifice, anticipated retaliation, preserved American territory, and later occupation is still the anonymous April 23, 2005 Boxun attachment.</p>
+<p class="logic-result"><strong>Why it matters:</strong> widely available biological, genetic, and asymmetric concepts carry limited specificity as authorship fingerprints. The distinctive object requiring provenance analysis is their specific recombination into the alleged Chi speech.</p>
+</article>
 <article class="resolution-card" id="answer-jq1">
 <span class="resolution-status">JQ-1 · Answered · sufficient threshold met</span>
 <h3>Circulation is documented across policy-facing settings</h3>
@@ -2160,14 +2262,22 @@ print(ranking.to_string())</code></pre>
 <div class="final-justification-conclusion" id="justification-conclusion">
 <span class="conclusion-kicker">Conclusion · sufficiency and necessity</span>
 <h3>Why this study is both sufficiently and necessarily justified</h3>
-<p>The four opening questions now yield a differentiated conclusion:</p>
+<p>The opening questions now yield a differentiated conclusion:</p>
 <ol>
+<li><strong>Pre-2005 PRC/PLA baseline:</strong> the necessary distinction is established. Public PLA-linked discourse already contained cross-domain, biological, genetic, selective-targeting, and covert-delivery concepts, while the complete U.S. first-strike and occupation proposition remains first recoverable in the anonymous 2005 attachment.</li>
 <li><strong>Circulation:</strong> the threshold of sufficiency is met because the May 2019 interpretation and the alleged Chi speech have entered influential, policy-facing and educational settings.</li>
 <li><strong>Strategic function:</strong> the threshold is both sufficient and necessary because the date is used as the opening premise of a broader conflict narrative, and that use must be mapped to understand the narrative’s policy implications.</li>
 <li><strong>Primary-source scope:</strong> the question is necessary and has been answered to the limit of the public record: the recoverable text establishes trade-war mobilization language, while the broader operational reading remains a hypothesis requiring additional records.</li>
 <li><strong>Independence and briefing:</strong> the question is necessary and remains open in a precise form. Public materials establish common language and network proximity; they do not disclose the full degree of independent derivation, shared public sourcing, or common nonpublic briefing.</li>
 </ol>
-<p>Accordingly, the study is <strong>sufficiently justified</strong> by the documented circulation and policy use of the narrative, and <strong>methodologically necessary</strong> because provenance, source scope, and evidentiary independence must be resolved before repetition can be treated as corroboration. The unresolved fourth question is therefore not a failure of the study; it is one of its principal findings and defines the next evidentiary task.</p>
+<div class="contradiction-card" id="he-xin-contradiction-conclusion">
+<span class="contradiction-label">Conclusion on the sincere-warning model</span>
+<h3>The provenance search exposes an unresolved contradiction and an own-side exception</h3>
+<p>The originating OSINT question brought He Xin into the case because his 2002 depopulation allegation and 2003 biological-warfare essay precede and materially overlap the anonymous text. That same record challenges the strongest sincere-warning interpretation: he portrays an alleged external biological-population-control program as a grave threat while also presenting biochemical warfare as strategically important and urging Chinese state attention and study.</p>
+<p>Under the study’s <strong>conditional proof by contrapositive</strong>, genuinely consistent opposition to population-targeted biological warfare would predict that the author would not normalize or advocate analogous capability for his own side. The public advocacy therefore weighs against that strongest formulation, provided the premise is accepted. It does not independently prove deliberate disguise, because defensive preparedness, deterrence, retaliation, selective moral permission, commercial amplification, and mixed motives remain possible.</p>
+<p>The contradiction sharpens the <strong>Freemasonry-as-shield hypothesis</strong> and the related own-side exception: whether an external conspiracy narrative displaced blame, converted a strategically valued method into a defensive posture, or supplied moral and evidentiary cover for a position effectively meaning that China may study or prepare while the alleged adversary may not. The historical essay describes alleged Xiongnu action against Han forces; it therefore cannot by itself prove Han biological aggression or racism. A Han-centric or racialized-hierarchy finding requires broader evidence of explicit superiority claims and differential valuation of non-Han peoples.</p>
+</div>
+<p>Accordingly, the study is <strong>sufficiently justified</strong> by the document’s recombination of pre-existing military discourse and by the documented circulation and policy use of the resulting narrative. It is <strong>methodologically necessary</strong> because conceptual precedence, provenance, source scope, and evidentiary independence must be resolved before thematic overlap or repetition can be treated as authorship evidence or corroboration. The fifth question remains a principal open finding and defines the next evidentiary task: recover communications, briefing papers, source notes, draft remarks, or testimony capable of distinguishing independent derivation, shared public sourcing, and common nonpublic briefing.</p>
 </div>
 <div class="journal-status">
 <span>Research status</span>
@@ -2208,8 +2318,8 @@ print(ranking.to_string())</code></pre>
 <tr>
 <td><em>Unrestricted Warfare</em> (1999)</td>
 <td><span class="verdict partial">Document verified; formal doctrinal status open</span></td>
-<td>The book is a verified PLA-officer publication discussing combinations of military and nonmilitary means against a stronger adversary. Kennedy treats it as evidence that war with the United States is inevitable and as authoritative PRC master guidance. Evaluating that status requires Chinese adoption directives, doctrinal citations, professional military education records, planning documents, or operational implementation. The U.S. Air Force China Aerospace Studies Institute supplies one external interpretation and documents that the subtitle “China’s Master Plan to Destroy America” was added by Western publishers.</td>
-<td><a href="https://www.airuniversity.af.edu/CASI/Display/Article/3004313/unrestricted-warfare-is-not-chinas-master-plan/" rel="noopener" target="_blank">USAF CASI analysis</a></td>
+<td>The book is a verified PLA-officer publication discussing combinations of military and nonmilitary means against a stronger adversary. Its text expressly imagines “information-guided bio-weapons,” identifies new biological and chemical weapons as “new-concept weapons,” lists “biochemical warfare” among military methods, and allows listed methods to be combined across domains. Kennedy uses it as evidence that war with the United States is inevitable and as authoritative PRC master guidance. Evaluating that formal status requires Chinese adoption directives, doctrinal citations, professional military education records, planning documents, or operational implementation. The U.S. Air Force China Aerospace Studies Institute supplies one external interpretation and documents that the subtitle “China’s Master Plan to Destroy America” was added by Western publishers.</td>
+<td><a href="https://www.dodccrp.org/files/Unrestricted_Warfare.pdf" rel="noopener" target="_blank">English text</a>; <a href="https://www.airuniversity.af.edu/CASI/Display/Article/3004313/unrestricted-warfare-is-not-chinas-master-plan/" rel="noopener" target="_blank">USAF CASI analysis</a></td>
 </tr>
 <tr>
 <td>May 2019 “people’s war”</td>
