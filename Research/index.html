@@ -111,6 +111,17 @@ nav.site-nav {
 .hero-desc { color:var(--body); font-size:1.05rem; max-width:62ch; line-height:1.75; margin-bottom:1.5rem; }
 .hero-badges { display:flex; gap:0.7rem; flex-wrap:wrap; margin-bottom:0.5rem; }
 .hero-badge { font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border); padding:0.28rem 0.7rem; border-radius:2px; background:var(--gold-pale); }
+.hero-methods {
+  max-width:72ch; margin:1.15rem 0 1.35rem; padding:1rem 1.1rem;
+  background:rgba(14,31,58,0.48); border:1px solid var(--border-dim);
+  border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0;
+}
+.hero-methods .method-label {
+  display:block; margin-bottom:0.45rem; font-family:"DM Mono",monospace;
+  font-size:0.62rem; letter-spacing:0.11em; text-transform:uppercase;
+  color:var(--gold-dim);
+}
+.hero-methods p { color:var(--muted); font-size:0.86rem; line-height:1.75; margin:0; }
 
 /* ── Sections ── */
 .page-section { margin-bottom:var(--section-gap); }
@@ -232,19 +243,36 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <h1>William Chuang &mdash;<br><em>Research Portfolio</em></h1>
     <p class="hero-desc">
-      Independent researcher working at the intersection of AI architecture, policy,
-      and the mathematical foundations of intelligence. Primary interests: AI-assisted
-      public health and national security. This site uses LLM (large language model) to refer to systems like GPT&#8209;4/5, Claude, and Gemini throughout, Taiwan&ndash;Holy See&ndash;PRC diplomacy,
-      operator-theoretic methods in finance and learning, and post-quantum cryptography.
-      Founder, Logarch&eacute;on Inc.
+      William Chuang is an independent researcher and the founder of Logarch&eacute;on Inc.
+      His work spans artificial-intelligence architecture, the mathematical foundations of
+      intelligence, public-health and national-security policy, diplomatic strategy,
+      mathematical physics, quantitative finance, and post-quantum cryptography. The portfolio
+      emphasizes problems that require formal theory, source-grounded investigation, and
+      decision-relevant quantitative analysis.
     </p>
+    <div class="hero-methods" aria-label="Research methodology">
+      <span class="method-label">Research methodology</span>
+      <p>
+        Research is conducted through recursive AI-agent workflows for open-source intelligence
+        collection, source-chain reconstruction, adversarial review, and iterative hypothesis
+        testing. The methodological core combines the <strong>Euclidean method</strong>&mdash;modeled
+        on the architecture of Euclid&rsquo;s <em>Elements</em> through definitions, postulates,
+        propositions, and demonstrations&mdash;with the scientific method: falsifiable hypotheses,
+        mathematical statistics, quantitative analysis, reproducible code-based simulation, and
+        first-principles physical reasoning through induction, deduction, and inference. For
+        intelligence and policy questions, the workflow also employs source criticism, provenance
+        analysis, chronology, sensitivity testing, and the <strong>Analysis of Competing Hypotheses
+        (ACH)</strong>, while distinguishing established facts, assumptions, inferences, and
+        unresolved questions.
+      </p>
+    </div>
     <p class="hero-desc" style="font-size:0.85rem;color:var(--faint);margin-top:0.6rem;">
       Read also: <a href="/About" style="color:var(--gold);">About</a> (biography &amp; vocation)
       &middot; <a href="/" style="color:var(--gold);">Logarch&eacute;on</a> (architecture overview)
     </p>
     <div class="hero-badges">
-      <span class="hero-badge">4th Degree K of C &middot; Fr. McGivney Assembly</span>
-      <span class="hero-badge"></span>
+      <span class="hero-badge">Recursive AI-Agent OSINT</span>
+      <span class="hero-badge">Euclidean &amp; Scientific Method</span>
       <span class="hero-badge">Logarch&eacute;on Inc. &middot; Founded 2024</span>
       <span class="hero-badge">9+ Patent Applications &middot; 2025</span>
     </div>
