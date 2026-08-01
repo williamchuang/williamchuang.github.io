@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Tracing the Alleged Chi Haotian Speech — Provenance, Authorship, and Policy Transmission · Logarchéon</title>
+<title>Tracing the Alleged Chi Haotian Speech — Biological-Weapons Narratives in the “China Threat” Discourse · Logarchéon</title>
 <link href="https://logarcheon.com/Research/" rel="canonical"/>
-<meta content="An OSINT research journal reconstructing the provenance, intellectual genealogy, authorship problem, and policy transmission of the anonymous text attributed to Chi Haotian." name="description"/>
+<meta content="An OSINT research journal tracing the anonymous text attributed to Chi Haotian and the biological-weapons branch of the so-called China threat discourse (中國威脅論): provenance, authorship, intellectual genealogy, source independence, and policy transmission." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=DM+Mono:wght@300;400;500&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
@@ -927,6 +927,59 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 .suspect-card.combined { border-top-color:var(--gold); background:rgba(201,168,76,0.065); }
 @media(max-width:900px){ .suspect-framework { grid-template-columns:1fr; } }
 
+
+/* Expanded author and source-chain registers */
+.scope-register-wrap {
+  max-width:82ch; margin:1rem 0 0.35rem; overflow-x:auto;
+  border:1px solid var(--border-dim); border-radius:4px;
+}
+.scope-register {
+  width:100%; min-width:760px; border-collapse:collapse;
+  background:rgba(8,24,52,0.45);
+}
+.scope-register th {
+  text-align:left; padding:0.72rem 0.78rem;
+  background:rgba(201,168,76,0.08); color:var(--gold-light);
+  font-family:"DM Mono",monospace; font-size:0.6rem;
+  letter-spacing:0.07em; text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+}
+.scope-register td {
+  padding:0.78rem; vertical-align:top; color:var(--body);
+  font-size:0.8rem; line-height:1.65;
+  border-bottom:1px solid var(--border-dim);
+}
+.scope-register tr:last-child td { border-bottom:none; }
+.scope-register td:first-child { width:27%; color:var(--cream); font-weight:700; }
+.scope-register td:nth-child(2) { width:38%; }
+.scope-register td:nth-child(3) { width:35%; color:var(--muted); }
+@media(max-width:680px) {
+  .scope-register-wrap { overflow:visible; border:none; }
+  .scope-register { display:block; min-width:0; background:transparent; }
+  .scope-register thead {
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+  .scope-register tbody,.scope-register tr,.scope-register td {
+    display:block; width:100% !important;
+  }
+  .scope-register tr {
+    margin:0 0 0.85rem; border:1px solid var(--border-dim);
+    border-left:3px solid var(--gold-dim); border-radius:4px;
+    background:rgba(8,24,52,0.52); overflow:hidden;
+  }
+  .scope-register td {
+    padding:0.65rem 0.75rem; border-bottom:1px solid var(--border-dim);
+  }
+  .scope-register td:last-child { border-bottom:none; }
+  .scope-register td::before {
+    content:attr(data-label); display:block; margin-bottom:0.22rem;
+    font-family:"DM Mono",monospace; font-size:0.54rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:400;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -948,9 +1001,9 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="breadcrumb">
 <a href="/">Logarchéon</a><span>/</span><a href="/Research/">Research</a><span>/</span><span>Chi Haotian Case Journal</span>
 </div>
-<div class="journal-kicker">OSINT research journal  ·  source criticism  ·  strategic narratives</div>
+<div class="journal-kicker">OSINT research journal  ·  China-threat discourse  ·  biological-weapons narratives</div>
 <h1>Tracing the Alleged <em>Chi Haotian Speech</em></h1>
-<p class="hero-deck">From Hillsdale to Boxun: provenance, authorship, intellectual genealogy, and policy transmission</p>
+<p class="hero-deck">Tracing the biological-weapons branch of the “China threat” discourse: provenance, authorship, intellectual genealogy, and policy transmission</p>
 <p class="title-line">Working research record  ·  July 31, 2026  ·  Logarchéon</p>
 <div class="abstract-block">
 <span class="abstract-label">Research trigger and problem</span>
@@ -962,6 +1015,10 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
       Chinese defense minister Chi Haotian as a central source for a claimed Chinese biological-war
       strategy against the United States.
     </p>
+<p><strong>Broader research frame:</strong> this is also a bounded genealogy of what is often called the “China threat theory” or “China threat discourse” (<span lang="zh-Hant">中國威脅論</span>). It does not attempt to reconstruct every military, economic, technological, political, or ideological branch of that discourse. It isolates one subset: the proposition that the PRC or PLA poses a covert biological-weapons threat, together with the documents, translations, commentators, institutions, and retrospective events through which that proposition acquired authority and policy salience. The source chain also contains accusations directed at Western actors and combined-actor models; those are examined where they illuminate borrowing, reversal, amplification, and ultimate source independence.</p>
+<p><strong>Scope of the author inventory:</strong> the names presently examined are not a complete census of everyone who has written about a Chinese biological-weapons threat. The project is being expanded into separate author, analyst, document-transmission, and institutional-amplification registers so that concept origin, publication, later interpretation, and policy circulation are not collapsed into a single list. A person may occupy more than one register at different stages. Bill Gertz of Victory Over Communism (VOC), for example, belongs in the broader China-threat-author register and, where his later work applies the theory to COVID-19, in the COVID-era amplification register; Dany Shoham belongs in the pre-COVID Western biological-warfare-analysis register. Placement in a register identifies a source-chain role for investigation and does not validate the underlying allegation.</p>
+<p><strong>The recurring Israeli node:</strong> Dany Shoham’s role adds a cross-chain question because Israel is already present in the earlier corpus. The anonymous 2005 text portrays Israel as a leading center of genetic-weapons research and alleges Chinese access to Israeli technology, while He Xin’s broader writings also place Israeli or Jewish actors and Western financial networks within his explanatory framework. Shoham’s later position as an Israeli biological-warfare analyst cited in the Gertz stream therefore creates a recurring Israeli node across Chinese precursor narratives and later Western analysis. This recurrence does not establish that Shoham relied on either text, that the sources coordinated, or that any allegation is true. It identifies a concrete source-independence test: whether the Shoham–Gertz stream arose from genuinely distinct access or ultimately intersects with the same earlier narrative, institutional, translated-source, or briefing environment.</p>
+<p>The object of study is therefore the <strong>genealogy and evidentiary structure of a threat claim</strong>, not a presumption that the claim is true or false. The alleged Chi text is treated as a high-impact transmission node linking earlier Chinese-language materials, later American threat interpretation, COVID-era retrospective confirmation, and policy-facing advocacy.</p>
 <p><strong>Methodological boundary:</strong> neither the recurrence of an allegation nor the convergence of interests, targets, or narratives establishes that the allegation is true. This project does not begin by selecting the West, the CCP/PLA, or a combined-actor theory as the correct explanation. It reconstructs the chain of information or alleged intelligence backward: who accused whom, where each proposition first appeared in the recoverable record, how it was reformulated or amplified, and how close the surviving sources can be traced toward their documentary root. A central purpose is to test <strong>ultimate source independence</strong>: three or more speakers may appear independent because they publish through different institutions while still deriving their claims from one higher-level source, briefing, intermediary, or earlier text. Such repetition remains one source stream. By contrast, genuinely independent accounts arising through distinct access paths may possess greater evidentiary or intelligence value, although independence alone does not establish accuracy. The earliest recoverable source may itself remain downstream from an older, unrecovered origin.</p>
 <p>That connection creates a plausible policy-transmission route whose official use requires internal briefing or decision records.</p>
 <p>
@@ -985,8 +1042,8 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
     </p>
 </div>
 <div class="hero-meta-grid">
-<div class="hero-meta"><span>Research object</span><strong>Anonymous Chinese text attributed to Chi Haotian</strong></div>
-<div class="hero-meta"><span>Primary task</span><strong>Recover provenance and test authorship claims</strong></div>
+<div class="hero-meta"><span>Research object</span><strong>The alleged Chi text and the biological-weapons branch of the “China threat” discourse</strong></div>
+<div class="hero-meta"><span>Primary task</span><strong>Recover provenance, test source independence, and reconstruct threat-claim transmission</strong></div>
 <div class="hero-meta"><span>Method</span><strong>OSINT, source criticism, chronology, and stylometry</strong></div>
 <div class="hero-meta"><span>Current status</span><strong>Attribution pending; earliest full trace located in 2005</strong></div>
 </div>
@@ -1000,7 +1057,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <a href="#research-design"><span>01</span><strong>Research problem</strong><small>Question, scope, and evidentiary rules</small></a>
 <a href="#provenance-baseline"><span>02</span><strong>Provenance baseline</strong><small>What is established before interpretation</small></a>
 <a href="#master-timeline"><span>03</span><strong>Consolidated chronology</strong><small>Precursors, publication, and amplification</small></a>
-<a href="#source-validation"><span>04</span><strong>Source validation</strong><small>He Xin, Nyquist, and Kennedy</small></a>
+<a href="#source-validation"><span>04</span><strong>Source validation</strong><small>Current audits and expanded source registers</small></a>
 <a href="#interests-conflicts"><span>05</span><strong>Interests and conflicts</strong><small>Actors, incentives, alignments, and bias risks</small></a>
 <a href="#exploratory-stylometry"><span>06</span><strong>Exploratory stylometry</strong><small>Supplied six-feature matrix and validity limits</small></a>
 <a href="#findings-agenda"><span>07</span><strong>Findings and agenda</strong><small>Current answer, limits, and next steps</small></a>
@@ -1025,12 +1082,32 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
       authority to shape threat perception and potentially enter policy discourse?
     </p>
 <p>
-      The research objective is narrower than proving or disproving every claim about China. It is to identify
-      the document’s earliest recoverable form, distinguish authorship from transmission, reconstruct its
-      intellectual inputs, test the Chi Haotian attribution, and identify how later interpreters converted
-      repetition into the appearance of corroboration.
+      The research objective is narrower than proving or disproving every claim about China, and narrower than writing a complete history of <span lang="zh-Hant">中國威脅論</span>. It is to reconstruct the biological-weapons branch of that discourse around a specific documentary node: identify the alleged speech’s earliest recoverable form, distinguish authorship from transmission, reconstruct its intellectual inputs, test the Chi Haotian attribution, determine whether later voices are genuinely independent, and identify how repetition was converted into the appearance of corroboration.
     </p>
-</div><div class="research-note" id="analytic-symmetry">
+</div><div class="research-note" id="china-threat-bioweapon-scope">
+<span class="note-label">Broader frame · the biological-weapons branch of 中國威脅論</span>
+<p>“China threat theory” is used here as the name of a contested discourse family, not as a single coherent doctrine and not as a conclusion endorsed by this journal. The present case study asks how one biological-threat proposition was assembled and transmitted: that Chinese state or military actors possessed, intended, or implemented a covert biological-weapons strategy against the United States or other populations. It traces the proposition backward through quotation, paraphrase, translation, ideological reversal, retrospective interpretation, and institutional amplification.</p>
+<p>The page therefore contributes to the history of China-threat construction at a deliberately limited scale. It does not claim to locate the origin of every China-threat argument. It seeks the earliest recoverable roots of this particular biological-weapons branch and tests whether its apparently multiple supporting voices derive from independent access paths or from a smaller number of common upstream sources.</p>
+</div>
+<div class="research-note" id="expanded-author-source-registers">
+<span class="note-label">Expanded project · author, analyst, and transmission registers</span>
+<p>The project does not treat every person or institution that repeats a biological-threat claim as the same kind of source. It separates conceptual authorship, document production, analysis, republication, and amplification. This prevents a later commentator from being mistaken for an originator and prevents several downstream outlets relying on one upstream assessment from being counted as independent corroboration. The register is intentionally open-ended and will expand as additional source paths are recovered.</p>
+<div class="scope-register-wrap">
+<table class="scope-register" aria-label="Expanded author and source-chain research registers">
+<thead><tr><th>Register</th><th>Examples</th><th>Research purpose</th></tr></thead>
+<tbody>
+<tr><td data-label="Register">Chinese conceptual precursors</td><td data-label="Examples">He Xin; Qiao Liang; Wang Xiangsui; PLA-linked military writers</td><td data-label="Research purpose">Identify the concepts, vocabulary, and strategic propositions publicly available before the anonymous 2005 document.</td></tr>
+<tr><td data-label="Register">Alleged-document origin and transmission</td><td data-label="Examples">The anonymous compiler; Li Dahua; Boxun editors; translators and early republishers</td><td data-label="Research purpose">Recover the actual 2005 production, submission, editorial, translation, and republication chain.</td></tr>
+<tr><td data-label="Register">Pre-COVID Western biological-warfare analysts</td><td data-label="Examples">Dany Shoham; the Israeli analytical node; and the official, military, or intelligence assessments cited within that stream</td><td data-label="Research purpose">Determine whether Western biological-threat claims arose through genuinely independent source access or through a smaller set of shared upstream assessments, and test whether the later Shoham–Gertz stream is independent of the earlier references to Israel in the alleged Chi text and He Xin’s corpus.</td></tr>
+<tr><td data-label="Register">General China-threat authors</td><td data-label="Examples">Bill Gertz of Victory Over Communism (VOC) and comparable pre-2005 writers</td><td data-label="Research purpose">Reconstruct the broader <span lang="zh-Hant">中國威脅論</span> environment in which the biological-weapons branch was later interpreted and amplified.</td></tr>
+<tr><td data-label="Register">COVID-era amplifiers</td><td data-label="Examples">Bill Gertz; Yan Li-Meng; Francis Boyle; and later media, advocacy, and political figures</td><td data-label="Research purpose">Map the retrospective application of earlier China-biological-threat claims to COVID-19 and test the source independence of the resulting accounts.</td></tr>
+<tr><td data-label="Register">Alleged-Chi amplifiers</td><td data-label="Examples">J. R. Nyquist; Brian T. Kennedy; Hillsdale College; and the Committee on the Present Danger: China</td><td data-label="Research purpose">Trace the alleged document’s modern authentication claims, republication, institutional validation, and policy-facing transmission.</td></tr>
+</tbody>
+</table>
+</div>
+<p class="source-note"><strong>Classification rule.</strong> Inclusion records relevance to the genealogy or transmission of the theory; it does not imply agreement with the source, proof of the allegation, or independent intelligence value. Independence must be tested at the level of ultimate sourcing, not merely by counting names, publications, or institutions.</p>
+</div>
+<div class="research-note" id="analytic-symmetry">
 <span class="note-label">Analytic symmetry and anti-capture rule</span>
 <p>This journal treats PRC united-front and official narratives, exile-media narratives, policy advocacy, anti-Masonic claims, and institutional self-descriptions as interested source environments rather than default frames. A source may accurately preserve a document while still selecting, amplifying, or interpreting it in ways that serve institutional interests. The analysis therefore states what each public record affirmatively establishes, identifies the additional insider or archival evidence needed for stronger conclusions, and keeps capability, intent, authorship, coordination, and implementation as separate questions.</p>
 </div>
@@ -1089,7 +1166,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="question-number">RQ</div>
 <div>
 <span class="question-label">Primary research question</span>
-<p>Who first formulated, supplied, or published the proposition that a Chinese biological attack could minimize Chinese sacrifice in a struggle against the United States, and what evidence links that proposition to the anonymous text later attributed to Chi Haotian?</p>
+<p>Who first formulated, supplied, or published the proposition that a Chinese biological attack could minimize Chinese sacrifice in a struggle against the United States, what evidence links that proposition to the anonymous text later attributed to Chi Haotian, and through which source chain did it become a policy-facing biological-weapons branch of the “China threat” discourse?</p>
 </div>
 </div>
 <div class="section-map research-methods">
@@ -1526,7 +1603,22 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <section class="section" id="source-validation">
 <div class="section-header">
 <span class="section-num">04</span>
-<div><h2 class="section-title">Source Validation: Upstream Influence and Downstream Amplification</h2><p class="section-deck">He Xin, J. R. Nyquist, and Brian T. Kennedy occupy different positions in one derivative information chain; none independently authenticates the alleged speech.</p></div>
+<div><h2 class="section-title">Source Validation: Upstream Influence and Downstream Amplification</h2><p class="section-deck">The current audit follows the He Xin–anonymous text–Nyquist–Kennedy chain while the expanded project separates additional Western analytical and COVID-era source paths for independent examination.</p></div>
+</div>
+<div class="research-note" id="source-validation-expansion">
+<span class="note-label">Expansion rule · separate dossiers before comparison</span>
+<p>The completed analysis in this section remains centered on He Xin, J. R. Nyquist, and Brian T. Kennedy. The expanded project will add separate source-path dossiers for Dany Shoham, Bill Gertz of Victory Over Communism (VOC), Yan Li-Meng, Francis Boyle, and other pre-COVID or COVID-era authors and amplifiers. They will not be treated as a single corroborating bloc. Each dossier must identify the earliest recoverable formulation, cited or unnamed sources, institutional intermediaries, later reuse, and whether its information ultimately descends from a genuinely distinct access path or from a shared higher-level source.</p>
+</div>
+<div class="research-note" id="israeli-node-independence-test">
+<span class="note-label">Cross-chain independence test · the recurring Israeli node</span>
+<p>The immediate later transmission path can be represented provisionally as <strong>Dany Shoham’s earlier China-biological-warfare analysis → Bill Gertz’s January 2020 reporting → wider U.S. media and political circulation</strong>. That path must also be compared with the earlier Chinese-language corpus, because Israel appears inside both the anonymous alleged Chi text and He Xin’s broader explanatory framework. The alleged speech assigns Israel a leading role in genetic-weapons research and alleges technical cooperation with China; He Xin’s later writings connect Israeli or Jewish actors, Freemasonry, and Western finance within a wider theory of transnational power.</p>
+<p>The resulting question is not whether an Israeli analyst confirms those earlier narratives. It is whether the Shoham–Gertz path constitutes a genuinely independent information stream, derives from official or intelligence reporting unavailable to the earlier writers, or converges at a higher level with the same translated publications, institutional assessments, intermediaries, or narrative environment. Nationality, thematic recurrence, and compatible accusations are leads for provenance analysis; none is proof of sourcing, coordination, or truth.</p>
+<pre><code class="language-text">Earlier Chinese-language references to the Israeli node
+He Xin corpus + anonymous alleged Chi text
+                    ?
+     independent access, shared sources, or later convergence
+                    ?
+Dany Shoham analysis → Bill Gertz reporting → wider circulation</code></pre>
 </div>
 <div class="research-note">
 <span class="note-label">Scope</span>
@@ -2517,6 +2609,8 @@ print(ranking.to_string())</code></pre>
 <li>Search pre-April 2005 forums, mail archives, and cached quotations.</li>
 <li>Obtain the alleged translator, comparison corpus, and authentication report cited by Nyquist.</li>
 <li>Build a same-genre corpus of authenticated Chi and senior-PLA closed-door speeches to test audience fit, sentence length, explanatory burden, and possible editorial contamination.</li>
+<li>Build separate source-path dossiers for Dany Shoham, Bill Gertz of Victory Over Communism (VOC), Yan Li-Meng, Francis Boyle, and other pre-COVID or COVID-era amplifiers, then test whether their claims arise from distinct access paths or from common upstream assessments, intermediaries, or briefing networks.</li>
+<li>Treat the recurring Israeli node as a dedicated independence test: compare the alleged Chi text’s claims about Israeli genetic-weapons expertise and cooperation, He Xin’s references to Israeli or Jewish actors and Western finance, and the later Shoham–Gertz analytical stream without assuming that thematic recurrence proves common sourcing.</li>
 </ol>
 </div>
 </div>
