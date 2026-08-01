@@ -314,6 +314,87 @@ details.translation-record[open] summary::after { content:"−"; }
 }
 
 
+
+/* BEGIN LI-DAHUA OPENING-READING EMPHASIS */
+.editorial-reading {
+  max-width:82ch; margin:1.45rem 0 1.8rem; padding:1.25rem 1.35rem;
+  background:linear-gradient(145deg,rgba(104,48,22,0.30),rgba(14,31,58,0.78));
+  border:1px solid rgba(226,168,92,0.38); border-left:4px solid #d49b56; border-radius:5px;
+}
+.editorial-reading .reading-label {
+  display:block; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.11em;
+  text-transform:uppercase; color:#e5b979; margin-bottom:0.45rem;
+}
+.editorial-reading h3 { color:var(--cream); font-size:1.16rem; margin:0 0 0.55rem; }
+.editorial-reading > p { color:var(--body); font-size:0.9rem; line-height:1.8; margin:0 0 0.8rem; }
+.editorial-reading-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:0.85rem; }
+.editorial-point {
+  min-width:0; padding:0.9rem 0.95rem; background:rgba(8,18,38,0.50);
+  border:1px solid rgba(226,168,92,0.23); border-radius:4px;
+}
+.editorial-point h4 { color:#f0d0a2; font-size:1rem; margin:0 0 0.42rem; }
+.editorial-point p { color:var(--body); font-size:0.84rem; line-height:1.75; margin:0 0 0.55rem; }
+.editorial-point p:last-child { margin-bottom:0; }
+.editorial-caution { color:var(--muted)!important; font-style:italic; }
+.translation-analysis-note {
+  margin-top:0.72rem; padding:0.78rem 0.9rem; background:rgba(104,48,22,0.22);
+  border:1px solid rgba(226,168,92,0.25); border-left:3px solid #d49b56; border-radius:4px;
+}
+.translation-analysis-note .analysis-label {
+  display:block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.09em;
+  text-transform:uppercase; color:#e5b979; margin-bottom:0.32rem;
+}
+.translation-analysis-note p { color:var(--body); font-size:0.82rem; line-height:1.72; margin:0 0 0.45rem; }
+.translation-analysis-note p:last-child { margin-bottom:0; }
+
+/* BEGIN DIRECT-QUOTE EMPHASIS */
+.direct-quote-dossier {
+  max-width:82ch; margin:1.5rem 0 2rem; padding:1.3rem 1.4rem;
+  background:linear-gradient(145deg,rgba(92,21,24,0.32),rgba(14,31,58,0.86));
+  border:1px solid rgba(226,128,117,0.42); border-left:4px solid #d26f64; border-radius:5px;
+}
+.direct-quote-dossier .quote-dossier-label {
+  display:block; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.11em;
+  text-transform:uppercase; color:#f0a49b; margin-bottom:0.45rem;
+}
+.direct-quote-dossier > h3 { color:var(--cream); font-size:1.22rem; margin:0 0 0.55rem; }
+.direct-quote-dossier > p { color:var(--body); font-size:0.9rem; line-height:1.8; margin:0 0 0.9rem; }
+.direct-quote-grid { display:grid; grid-template-columns:1fr; gap:1rem; }
+.direct-quote-card {
+  min-width:0; padding:1rem 1.05rem; background:rgba(7,17,35,0.64);
+  border:1px solid rgba(226,128,117,0.30); border-radius:4px;
+}
+.direct-quote-card .quote-ref {
+  display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.09em;
+  text-transform:uppercase; color:#f0a49b; margin-bottom:0.35rem;
+}
+.direct-quote-card h4 { color:#f4d0cb; font-size:1.02rem; margin:0 0 0.5rem; }
+.direct-quote-card blockquote {
+  margin:0; padding:0.85rem 0.95rem; background:rgba(78,20,26,0.20);
+  border-left:3px solid #d26f64; color:var(--cream);
+}
+.direct-quote-card blockquote p { color:var(--cream); font-size:0.9rem; line-height:1.82; margin:0; }
+.direct-quote-card blockquote strong { color:#ffd7d1; }
+.complete-script-note {
+  margin:0.72rem 0 0!important; padding:0.65rem 0.75rem; color:var(--muted)!important;
+  background:rgba(201,168,76,0.08); border:1px solid var(--border-dim); border-radius:3px;
+  font-size:0.78rem!important; line-height:1.65!important;
+}
+.complete-script-note strong { color:var(--gold-light); }
+.complete-script-note a { font-weight:700; text-decoration:underline; }
+.translation-open-instruction {
+  margin:1rem 0 0.8rem; padding:0.9rem 1rem; background:rgba(201,168,76,0.12);
+  border:1px solid var(--border); border-left:4px solid var(--gold); border-radius:4px;
+  color:var(--body); font-size:0.88rem; line-height:1.75;
+}
+.translation-open-instruction strong { color:var(--gold-light); }
+.translation-record summary .summary-help {
+  display:block; margin-top:0.3rem; color:var(--muted); font-size:0.72rem;
+  letter-spacing:0; text-transform:none; line-height:1.5;
+}
+/* END DIRECT-QUOTE EMPHASIS */
+/* END LI-DAHUA OPENING-READING EMPHASIS */
+
 /* BEGIN MAIN-SECTIONS CSS */
 .research-note {
   max-width:82ch; margin:1.35rem 0; padding:1.15rem 1.25rem;
@@ -326,6 +407,50 @@ details.translation-record[open] summary::after { content:"−"; }
 }
 .research-note p { color:var(--body); font-size:0.91rem; line-height:1.8; margin-bottom:0.7rem; }
 .research-note p:last-child { margin-bottom:0; }
+.contradiction-card {
+  max-width:82ch; margin:1.05rem 0 0; padding:1.15rem 1.25rem;
+  background:linear-gradient(145deg,rgba(92,31,31,0.42),rgba(14,31,58,0.76));
+  border:1px solid rgba(224,112,112,0.48); border-left:4px solid #e07070; border-radius:5px;
+  box-shadow:0 0 0 1px rgba(224,112,112,0.05) inset;
+}
+.contradiction-card .contradiction-label {
+  display:block; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.11em;
+  text-transform:uppercase; color:#efaaaa; margin-bottom:0.5rem;
+}
+.contradiction-card h3 { color:var(--cream); font-size:1.08rem; margin:0 0 0.55rem; }
+.contradiction-card p { color:var(--body); font-size:0.88rem; line-height:1.78; margin:0 0 0.65rem; }
+.contradiction-card p:last-child { margin-bottom:0; }
+.contradiction-card strong { color:#f0c3c3; }
+.contradiction-sources {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:0.7rem;
+  margin:0.85rem 0 0.95rem;
+}
+.contradiction-source {
+  padding:0.78rem 0.85rem; background:rgba(8,18,38,0.48);
+  border:1px solid rgba(224,112,112,0.26); border-radius:4px; min-width:0;
+}
+.contradiction-source .source-year {
+  display:block; font-family:"DM Mono",monospace; font-size:0.57rem;
+  letter-spacing:0.09em; text-transform:uppercase; color:#efaaaa; margin-bottom:0.38rem;
+}
+.contradiction-source .source-title-cn {
+  display:block; color:var(--cream); font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1rem; line-height:1.45; margin-bottom:0.25rem;
+}
+.contradiction-source .source-title-en {
+  display:block; color:var(--gold-light); font-size:0.78rem; line-height:1.55;
+  font-style:italic; margin-bottom:0.42rem;
+}
+.contradiction-source p { font-size:0.78rem; line-height:1.65; margin:0 0 0.38rem; }
+.contradiction-source p:last-child { margin-bottom:0; }
+.contradiction-source a { color:var(--gold-light); }
+.actor-card dl > .contradiction-row {
+  padding:0.75rem 0.8rem; border:1px solid rgba(224,112,112,0.38);
+  border-left:3px solid #e07070; border-radius:4px;
+  background:rgba(92,31,31,0.24);
+}
+.actor-card dl > .contradiction-row dt { color:#efaaaa; }
+.actor-card dl > .contradiction-row dd { color:var(--body); }
 .epistemic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.85rem; margin:1.35rem 0; }
 .epistemic-card {
   padding:1rem 1.05rem; background:rgba(14,31,58,0.5); border:1px solid var(--border-dim);
@@ -844,6 +969,31 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
       viral attack and strategic Chinese study. Those findings make him an upstream
       <em>origin-of-information subject</em>; authorship remains a separate provenance question.
     </p>
+<div class="contradiction-card" id="he-xin-contradiction-origin">
+<span class="contradiction-label">High-priority internal-consistency test</span>
+<h3>Can the sincere-warning model survive He Xin’s own advocacy and an apparent own-side exception?</h3>
+<p>The recovered 2003 essay describes alleged <strong>Xiongnu</strong> disease warfare against <strong>Han</strong> forces; it does not identify Han forces as the historical initiator. The relevant modern move is He Xin’s extrapolation from that contested historical account: he presents biochemical warfare as an important form of asymmetric warfare and urges the Chinese state to elevate it for strategic attention and study.</p>
+<div class="contradiction-sources" aria-label="He Xin source articles supporting the internal-consistency test">
+  <div class="contradiction-source">
+    <span class="source-year">March 2002 · interview/article</span>
+    <strong class="source-title-cn" lang="zh-Hans">《美国解决世界问题的时间表——再答香港商报》</strong>
+    <em class="source-title-en">A Timetable for the United States to Solve the World’s Problems—A Further Reply to the Hong Kong Commercial Daily</em>
+    <p><strong>What it establishes:</strong> He Xin publicly advanced the claim that foreign elites contemplated eliminating allegedly “surplus” populations through war, epidemics, biological weapons, and genetic weapons.</p>
+    <p><a href="https://bbs.comefromchina.com/threads/9767/" rel="noopener" target="_blank">March 20, 2002 Internet mirror</a> · <a href="https://www.wyzxwk.com/Article/guoji/2011/05/222997.html" rel="noopener" target="_blank">later republication identifying the Hong Kong Commercial Daily interview</a></p>
+  </div>
+  <div class="contradiction-source">
+    <span class="source-year">2003 · historical-strategic essay</span>
+    <strong class="source-title-cn" lang="zh-Hans">《中国古代生物战争的起源及社会与文化后果》</strong>
+    <em class="source-title-en">The Origins of Biological Warfare in Ancient China and Its Social and Cultural Consequences</em>
+    <p><strong>What it establishes:</strong> He Xin framed biochemical warfare as an important component of contemporary asymmetric warfare and urged the Chinese state to elevate it to the strategic level for attention and study.</p>
+    <p><a href="https://www.szhgh.com/Article/opinion/xuezhe/2021-09-20/279801.html" rel="noopener" target="_blank">2021 republication identifying the text as first published in 2003</a></p>
+  </div>
+</div>
+<p>Taken together, these writings create the internal-consistency issue tested here: the 2002 article attributes population-targeted biological and genetic warfare to an external adversary, while the 2003 essay treats biochemical warfare as a field deserving Chinese state-level strategic study.</p>
+<p><strong>Conditional proof by contrapositive:</strong> take the strongest sincerity claim to mean: <em>if an author genuinely and consistently opposes population-targeted biological warfare as such, he would not normalize, strategically commend, or urge state study of analogous methods for his own side.</em> Its contrapositive is: <em>if he does normalize, strategically commend, or urge such study, that strongest claim of genuine and consistent opposition cannot stand unchanged.</em> The logical force is conditional on accepting the first premise; it tests internal consistency rather than independently proving deception.</p>
+<p>The resulting <strong>own-side exception question</strong> is central: is the operative principle that population-targeted biological warfare is intrinsically unacceptable, or that alleged Freemasons and foreign adversaries must not possess or use it while China may study, prepare, deter, retaliate, or develop comparable capability? If the latter, the position reflects selective strategic permission rather than a universal humanitarian objection. Defensive-preparation and deterrence explanations remain available, but they must explain the asymmetry.</p>
+<p>The choice of a Xiongnu-versus-Han narrative also warrants a separate <strong>Han-centric or racialized-hierarchy test</strong>. Because the Han are presented as the threatened side, case selection alone does not establish racism or Han superiority. A stronger finding would require repeated explicit superiority language, differential moral valuation of Han and non-Han lives, or a broader pattern across He Xin’s corpus.</p>
+</div>
 </div>
 <div class="hero-meta-grid">
 <div class="hero-meta"><span>Research object</span><strong>Anonymous Chinese text attributed to Chi Haotian</strong></div>
@@ -1219,6 +1369,12 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-contribution">Earliest public trace presently verified of the complete alleged speech. It quotes and paraphrases He Xin’s 2002 Hong Kong Commercial Daily interview while merging demographic catastrophe, living-space nationalism, Western depopulation allegations, race-specific weapons, and asymmetric strategy into an explicit Chinese biological first-strike doctrine against America.</div>
 <div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Earliest traceable complete doctrine. Original Boxun identifier: 200504230107.shtml. Li Dahua is the first named transmitter/editor; authorship remains a separate provenance question.</div>
 </div>
+<div class="timeline-row" id="li-dahua-timeline-reading">
+<div class="timeline-date">April 23, 2005 · editorial framing</div>
+<div class="timeline-node">Li Dahua’s paragraph-by-paragraph denunciation of the anonymous attachment</div>
+<div class="timeline-contribution">The first named transmitter did not present the attachment neutrally. His commentary foregrounded six propositions: “promise” was defined by willingness to shoot women, children, and prisoners of war; “peace and development” was declared finished and mocked as pastoral; “modernization under the saber” was read as military guardianship and domestic coercion; the Sina survey was interpreted as ideological screening for acceptance of atrocities; global development was linked to the mass death of populations designated hostile; and “development is the hard truth” was recast as expansion beyond China’s existing territory.</div>
+<div class="timeline-status"><span class="status-pill verified">Contemporaneous editorial layer</span><br/>This is evidence of how Li Dahua framed and condemned the transmitted text. His stylistic attribution to Chi, political allegations about Jiang Zemin’s system, historical analogies, and claims about domestic repression remain commentary rather than independent authentication of the speech.</div>
+</div>
 <div class="timeline-row">
 <div class="timeline-date">May 7, 2005</div>
 <div class="timeline-node">Full mirror of the April 23 Boxun publication</div>
@@ -1400,12 +1556,89 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 <p>Public mirrors identify <strong>張原 / 张原 (Zhang Yuan)</strong> as the author of the serialized <em>A Complete Record of America’s Decline / Freemasonry Files</em> stream. This makes Zhang Yuan relevant to the <em>later reception and continuation</em> of the He Xin-style anti-Freemasonry narrative.</p>
 <p>The distinction between intellectual succession and authorship is decisive. The recovered corpus is post-2020, fifteen years after the anonymous text appeared. Comparison can test register, rhetoric, and narrative inheritance. A 2005 authorship hypothesis additionally requires verified identity, age, pre-2005 activity, and an earlier corpus. A current public profile styling itself “retired at age twenty-nine,” if literal, would weigh against temporal eligibility; the age label remains a platform self-description awaiting secondary source review.</p>
 </div>
+
+<div class="editorial-reading" id="li-dahua-opening-reading">
+<span class="reading-label">Contemporaneous editorial layer · Li Dahua’s reading of the opening paragraphs</span>
+<h3>The first named transmitter treated the opening as an ideological program, not merely violent rhetoric</h3>
+<p>The following English rendering preserves the argument of the supplied Chinese commentary. It belongs to the earliest editorial framing of the anonymous attachment and is therefore important evidence about reception, selection, and presentation. It does <strong>not</strong> independently prove that Chi Haotian delivered the speech, that the voice identification is correct, or that each political and historical allegation in the commentary is true.</p>
+<div class="editorial-reading-grid">
+<div class="editorial-point">
+<h4>1. “The next generation holds great promise” means willingness to kill protected persons</h4>
+<p>Li reads the old “second-line” military leader’s excitement as resting on one result: more than 80 percent supposedly answered that they would fire on women, children, and prisoners of war. To listeners familiar with senior PRC military rhetoric, Li says, the voice sounds like Chi Haotian. He identifies this inversion—treating readiness to kill noncombatants and captives as evidence of political promise—as the keynote of the entire text.</p>
+<p>In Li’s deliberately polemical language, the ideological remolding associated with Jiang Zemin had reached the point at which “bestiality replaced humanity.” The evidentiary value of this statement is its identification of the document’s moral logic; the stylistic attribution and the claim about Jiang’s political project require separate proof.</p>
+</div>
+<div class="editorial-point">
+<h4>2. “Peace and development” is not modified but expressly displaced</h4>
+<p>The second substantive paragraph says that twenty years of “pastoral peace and development” had reached its finale. Li reads the adjective “pastoral” as derisive and the “finale” as an explicit rejection of Deng Xiaoping’s proposition that peace and development were the principal themes of the contemporary world.</p>
+<p>The opening therefore does more than predict war. It treats the peace-and-development framework as naïve, exhausted, and unworthy of continued strategic allegiance.</p>
+</div>
+<div class="editorial-point">
+<h4>3. “Modernization under the saber” is read as military guardianship and domestic coercion</h4>
+<p>Li identifies “modernization under the saber” as a slogan associated with hawkish military discourse and as reassurance offered by Jiang Zemin to the armed forces. In his reading, modernization is to proceed under military supervision. Jiang’s allies may have imagined the saber as a means of supervising Hu Jintao and Wen Jiabao and protecting Jiang’s continuing position, yet no uniformed officer was admitted to the Politburo Standing Committee. Li therefore argues that the officers were not autonomous guardians of modernization but tightly controlled instruments, and that the saber’s practical target was ultimately the domestic population.</p>
+<p>Li cites the 2004 worker demonstrations in Liaoyang and Daqing and alleges that regular military forces stood behind the armed police. His conclusion is stark: modernization may be sacrificed, but the saber is to remain permanently suspended over the people. These repression claims are part of Li’s commentary and require independent historical verification.</p>
+</div>
+<div class="editorial-point">
+<h4>4. The Sina survey is an ideological screening device for atrocity acceptance</h4>
+<p>The third paragraph states that readiness to kill women, children, and prisoners of war was used as a proxy for general willingness to wage war: anyone prepared to massacre noncombatants would supposedly kill combatants “a hundredfold.” Li interprets this as an attempt to cultivate successors to the forces that killed students and residents on June 4, 1989.</p>
+<p>He frames the moral divide as one between human beings and beasts, and the legal-strategic divide as one between regular warfare and <em>Unrestricted Warfare</em>. In his Korean War example, he says U.S. forces refrained from treating civilian homes as ordinary military targets while CCP logistics units concealed themselves in those homes; had United Nations forces adopted the very standard praised by the anonymous text—firing indiscriminately on women and children—the concealed forces would have had nowhere to hide. In his Iraq analogy, he says Saddam Hussein’s forces similarly exploited U.S. humanitarian restraint by placing Sunni fighters and weapons in residential districts, from which killings and bombings continued. Li uses these comparisons to accuse CCP propaganda about U.S. prisoner abuse of hypocrisy. These historical claims and analogies are part of his polemic, not independent proof of the speech’s provenance.</p>
+</div>
+<div class="editorial-point">
+<h4>5. Global “development” is tested against public acceptance of foreign mass death</h4>
+<p>The fourth paragraph supplies the background for the “ideological sounding”: whether the population would accept China’s global development if it necessarily entailed the large-scale death of people in countries designated hostile. Li emphasizes the circularity of that category: the state being attacked becomes “hostile” because the aggressor has chosen to attack it, just as China, Poland, and France became enemies of expansionist powers that selected them as targets.</p>
+<p>Li further attacks the phrase “enormous overseas interests” as a nationalist cover for state assets allegedly hollowed out and transferred abroad through private holdings and money-laundering investments by ruling elites. He contrasts repeated anti-foreign mobilization with elite families whose descendants had even changed nationality and become Americans, arguing that nationalism was being used to redirect popular anger away from the Party. On his reading, the implied target is the United States, whose population is to be made morally killable despite having no quarrel with the Chinese public. The survey’s purpose is therefore not only to identify a brutal minority but to remold the wider population into accepting the killing of innocents.</p>
+</div>
+<div class="editorial-point">
+<h4>6. “Development is the hard truth” is transformed into a doctrine of world expansion</h4>
+<p>Li argues that the fifth paragraph avoids naming the “Jiang core” and instead attributes the conceptual origin to Deng Xiaoping, whom death had made unable to answer the reinterpretation. The anonymous text says that comrades have understood “development is the hard truth” too narrowly if they confine it to China’s present territory, and it joins Hu Jintao’s “development is the first priority” to the same enlarged meaning. Li further says that Hu accepted the strategic fait accompli created under Jiang and personally inquired into the military’s development of defense science and technology.</p>
+<p>The decisive sentence is: <strong>“This rejuvenation, of course, will not be limited to the territory we now possess; of course it must expand to the whole world.”</strong> Li reads this as the anonymous author’s claim that the third and fourth generations of CCP leadership had reached a common position in which “development” no longer meant peaceful domestic modernization but outward geopolitical expansion—a retrospective conversion of “development is the hard truth” into “aggression is justified.”</p>
+</div>
+</div>
+<p class="editorial-caution"><strong>Analytical use:</strong> even if the attribution to Chi remains unproven, the first five substantive paragraphs form a coherent internal sequence: moral desensitization → rejection of peace-and-development doctrine → saber-supervised modernization → ideological screening → acceptance of hostile-population death → global expansion. That sequence is an intrinsic feature of the transmitted document and should be analyzed separately from the authorship question.</p>
+</div>
+
+<div class="direct-quote-dossier" id="direct-quotations-attributed-to-chi">
+<span class="quote-dossier-label">Direct textual evidence · anonymous speech attributed to Chi Haotian</span>
+<h3>The document states its hierarchy of lives, its treatment of overseas Chinese, and its intended method in its own words</h3>
+<p>These passages are reproduced prominently because summaries can obscure the document’s explicit logic. They are quotations from the anonymous text attributed to Chi Haotian, not independently authenticated statements by Chi. The complete seventy-five-paragraph English translation remains preserved in Appendix B.</p>
+<div class="direct-quote-grid">
+
+<div class="direct-quote-card" id="main-quote-b59">
+<span class="quote-ref">Appendix B · paragraph B.59</span>
+<h4>Overseas Chinese are described as a burden requiring later political campaigns and remolding</h4>
+<blockquote><p>“These comrades are very pedantic and much too impractical. If we had insisted that Chinese people must not kill Chinese people, could we have liberated China? As for the several million ethnic Chinese in the United States, this is of course a major problem. Therefore, in recent years we have also been researching genetic weapons—biological weapons that do not kill the yellow race. But this research is extremely difficult. Israel is at the forefront of genetic-weapons research worldwide. Its genetic weapons are intended to deal with Arabs while protecting Israelis. But even Israel has not reached a practical stage. We have research cooperation with Israel and can bring over some of its technology, modifying the technology it uses to protect Israelis so that it protects the yellow race. But its technology has not passed the threshold, and it will be difficult for us to surpass it within a few years. If a breakthrough in genetic weapons will come only five to ten years from now, we cannot wait that long. The limited lives of us old comrades cannot wait that long. Although an old soldier such as I might still wait another five or ten years, the old comrades of the “Three-Eight” generation and the few remaining old Red Army veterans cannot wait. Therefore, we have no choice but to give up our expectation of genetic weapons. Of course, viewed from another side, <strong>most ethnic Chinese in the United States are a burden to us. They have long been steeped in bourgeois-liberal ideas and will not easily accept our Party’s leadership. If they survive, we will later have to launch campaigns to deal with and remold them.</strong> We must not forget that when we defeated the Nationalists and liberated the Chinese mainland, so many members of the bourgeoisie and intellectuals raised both hands in support of us. But afterward, did we not still have to carry out the Campaign to Suppress Counterrevolutionaries and the Anti-Rightist Campaign to clean them out and remold them again? Some people hid very deeply and were not dug out until the Cultural Revolution.”</p></blockquote>
+<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
+</div>
+
+<div class="direct-quote-card" id="main-quote-b60">
+<span class="quote-ref">Appendix B · paragraph B.60</span>
+<h4>Mass death is presented as a possible motive force of history and the price of a CCP-led century</h4>
+<blockquote><p>“History proves that when any great social upheaval is poorly handled, large numbers of people die. Can it be said that dead people are the motive force pushing history forward? How many people died in the struggle among the Three Kingdoms? How many died when Genghis Khan conquered Eurasia? How many died when the Manchus entered the pass? The 1911 Revolution did not kill very many people, but in overthrowing the Three Great Mountains, together with the Campaign to Suppress Counterrevolutionaries, the Three-Anti Campaign, and the Five-Anti Campaign, at least twenty million people died. … We originally worried that some young people would become frightened as soon as they heard that people die in war. During our wartime years, we saw too many dead people—flesh and blood flying, brains smeared on the ground, corpses covering the fields, rivers of blood. We saw too much of it. Once on the battlefield, everyone killed until their eyes turned red, because it was a matter of you dying or me dying, and the brave one wins. <strong>It is indeed cruel for one or two hundred million Americans to die, but only this road can obtain the Chinese people’s century, the century in which the Chinese Communist Party leads the world.</strong> We do not hope that people die; we are revolutionary humanitarians. But if history insists that we choose—Chinese people die or Americans die; preserving the lives of several hundred million Chinese people or preserving the life of our Party—which is more important? We can only choose the latter. Who made us Chinese? Who made us Communist Party members? From the first day we joined the Party, the life of the Party has stood above everything! History will prove that our choice was correct.”</p></blockquote>
+<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
+</div>
+
+<div class="direct-quote-card" id="main-quote-b56">
+<span class="quote-ref">Appendix B · paragraph B.56</span>
+<h4>The text explicitly weighs a biological first strike against the loss of more than half of China’s population</h4>
+<blockquote><p>“We must prepare both ways. If a biological-weapons surprise attack succeeds, the Chinese people will pay the smallest possible price in sacrifice in the struggle against America. But if it does not succeed, or if it triggers American nuclear retaliation, China may suffer the catastrophe of losing more than half its population. Therefore, we must make preparations for the air defense of large and medium-sized cities. But no matter what happens, for the future of the Party, the state, and the nation, we can only advance boldly! No matter how many hardships and dangers there are, and no matter how great a sacrifice must be made! <strong>Even if more than half the population dies, it can be born again; but once the Communist Party collapses, everything is finished! Finished forever!</strong>”</p></blockquote>
+<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
+</div>
+
+<div class="direct-quote-card" id="main-quote-b54">
+<span class="quote-ref">Appendix B · paragraph B.54</span>
+<h4>The intended end state is to empty American land and impose a fait accompli</h4>
+<blockquote><p>“From humanitarian considerations, we should first issue a warning to the American people, advise them to leave the Americas and hand the land on which they now live to the Chinese people, or at least surrender half of the United States for Chinese colonization, because the Americas were first discovered by Chinese people. But would that work? If it would not, then there is only one road: <strong>use decisive means to “clear the field” in America and, with the speed of a thunderclap that leaves no time to cover one’s ears, empty out this land of America!</strong> Our historical experience proves that once we create a fait accompli, no one in the world can do anything to us. Once America, the leading enemy, has been eliminated, the other enemies will have no choice but to bow their heads to us.”</p></blockquote>
+<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
+</div>
+
+</div>
+</div>
+
 <h3 class="audit-heading" data-section="01">1. He Xin as an origin-of-information subject</h3>
 <h4>Identity and original publication: relatively clear</h4>
-<p>He Xin’s relevant interview is identifiable and reportedly first appeared in the <em>Hong Kong Commercial Daily</em> on March 20, 2002. It already alleged that Western elites regarded 80% of humanity as expendable and might use war, epidemics, biological weapons, genetic weapons and other “high-technology” methods to eliminate allegedly inferior populations. (<a href="https://www.wyzxwk.com/Article/guoji/2011/05/222997.html" rel="noopener" target="_blank" title="He Xin: A Timetable for the United States to Solve the World’s Problems (published in 2002) — Wuyouzhixiang">Wyzxwk</a>)</p>
+<p>He Xin’s interview/article <a href="https://www.wyzxwk.com/Article/guoji/2011/05/222997.html" rel="noopener" target="_blank"><span lang="zh-Hans">《美国解决世界问题的时间表——再答香港商报》</span> (<em>A Timetable for the United States to Solve the World’s Problems—A Further Reply to the Hong Kong Commercial Daily</em>)</a> reportedly first appeared in the <em>Hong Kong Commercial Daily</em> on March 20, 2002. It alleged that Western elites regarded 80% of humanity as expendable and might use war, epidemics, biological weapons, genetic weapons and other “high-technology” methods to eliminate allegedly inferior populations. An Internet mirror bearing the same title is dated March 20, 2002. (<a href="https://bbs.comefromchina.com/threads/9767/" rel="noopener" target="_blank">early mirror</a>)</p>
 <p>That establishes He Xin as an <strong>upstream intellectual source</strong>.</p>
 <h4>The 2003 biological-warfare essay: a stronger conceptual and institutional bridge</h4>
-<p>He Xin’s 2003 essay is especially important because it extends beyond the 2002 depopulation allegation. In a 2021 republication credited to He Xin and identifying the text as first published in 2003, he reconstructs an ancient military episode in which the Xiongnu allegedly used infected horses, contaminated cattle and sheep, and animal remains placed along routes or near water sources to spread disease among Han forces. He calls these alleged practices an early generation of “biochemical weapons”. (<a href="https://www.szhgh.com/Article/opinion/xuezhe/2021-09-20/279801.html" rel="noopener" target="_blank">He Xin, 2003/2021 republication</a>)</p>
+<p>He Xin’s essay <a href="https://www.szhgh.com/Article/opinion/xuezhe/2021-09-20/279801.html" rel="noopener" target="_blank"><span lang="zh-Hans">《中国古代生物战争的起源及社会与文化后果》</span> (<em>The Origins of Biological Warfare in Ancient China and Its Social and Cultural Consequences</em>)</a> is especially important because it extends beyond the 2002 depopulation allegation. The 2021 republication credits He Xin and identifies the text as first published in 2003. It reconstructs an ancient military episode in which the Xiongnu allegedly used infected horses, contaminated cattle and sheep, and animal remains placed along routes or near water sources to spread disease among Han forces, describing these alleged practices as an early generation of “biochemical weapons.”</p>
 <div class="archive-callout">
 <span class="ac-label">He Xin’s modern strategic conclusion</span>
 <p lang="zh-Hans" style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--cream);">“The state should elevate biochemical warfare—an important component of contemporary asymmetric warfare—to the strategic level for attention and study.”</p>
@@ -1990,6 +2223,7 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <div><dt>Bias or conflict risk</dt><dd>Treating the alleged adversary as already proved converts He Xin’s conclusion into a premise and makes every critic of Freemasonry appear aligned against an actual coordinated enemy.</dd></div>
 <div><dt>Alternative incentive hypothesis</dt><dd>The public chronology places He Xin’s population-elimination and biological-warfare framing in 2002–2003, followed by his systematic Freemasonry “exposé” series from 2010 onward. That sequence permits a camouflage, adversary-construction, and <strong>rhetorical-shield hypothesis</strong>: after developing or adopting biological-warfare concepts, an author could attribute comparable intentions to an already available conspiracy target. The alleged adversary could then serve as a shield for the author or aligned interests by redirecting suspicion outward, recoding an offensive concept as a defensive warning, supplying a ready-made source of blame, and making later strategic claims appear reactive rather than originating with the speaker. The same mechanism could also protect political or reputational interests, enlarge an audience, and create plausible deniability if similar concepts later drew scrutiny. The present chronology does not establish that this was He Xin’s purpose, and the documented interval is several years rather than an immediate transition. Testing deliberate disguise or shield construction would require drafts, correspondence, publication planning, audience strategy, financial or political incentives, and evidence showing a divergence between private purpose and public claims.</dd></div>
 <div><dt>Shield mechanism to test</dt><dd>Under this hypothesis, “Freemasonry” functions less as a demonstrated operational actor than as an attributional buffer: the most controversial intentions are placed in the mouth of an external hidden enemy, while the author occupies the position of exposer, defender, or reluctant responder. This could create moral cover, political cover, evidentiary distance, and a preassembled explanation for later biological-security advocacy. It remains one competing explanation alongside sincere belief, commercial sensationalism, ideological anti-globalism, and mixed motives.</dd></div>
+<div class="contradiction-row"><dt>Internal contradiction, own-side exception, and conditional contrapositive</dt><dd>The strongest sincere-warning model becomes internally unstable. In <a href="https://www.wyzxwk.com/Article/guoji/2011/05/222997.html" rel="noopener" target="_blank"><span lang="zh-Hans">《美国解决世界问题的时间表——再答香港商报》</span> (<em>A Timetable for the United States to Solve the World’s Problems—A Further Reply to the Hong Kong Commercial Daily</em>)</a>, He Xin alleged that an external network intended to use biological and genetic technologies for population control; in <a href="https://www.szhgh.com/Article/opinion/xuezhe/2021-09-20/279801.html" rel="noopener" target="_blank"><span lang="zh-Hans">《中国古代生物战争的起源及社会与文化后果》</span> (<em>The Origins of Biological Warfare in Ancient China and Its Social and Cultural Consequences</em>)</a>, he treated biochemical warfare as an important form of contemporary asymmetric warfare and recommended that the Chinese state elevate it for strategic attention and study. Under the stated premise that genuine and consistent opposition to population-targeted biological warfare entails refraining from normalizing or advocating analogous capability for one’s own side, his advocacy satisfies the contrapositive condition against that strongest sincerity claim. This is a conditional consistency test, not independent proof of concealment. It nevertheless creates an <strong>own-side exception problem</strong>: why is the method treated as an intolerable depopulation project when assigned to Freemasonry, but as a strategically important field when assigned to China? Possible answers include defensive study, deterrence, retaliation, selective moral permission, or a rule effectively meaning “China may prepare; the external adversary may not.” Each explanation changes the claimed incentive structure and must be tested against drafts, correspondence, and the wider corpus. The historical example concerns alleged Xiongnu action against Han forces, not Han initiation; its Han-centered selection therefore opens, but does not decide, a separate inquiry into ethnic hierarchy, superiority language, and the valuation of non-Han peoples.</dd></div>
 <div><dt>Assessment</dt><dd class="assessment">Freemasonry is an allegation target in this source chain. The documented sequence supports testing at least three explanations: a sincere-warning model; a commercial or ideological amplification model; and a strategic-camouflage or shield model that leverages an existing conspiracy tradition for authorial, political, reputational, or operational protection. Establishing Freemasonry as an operational counterparty, or establishing He Xin’s allegations as deliberate disguise or shield construction, requires primary evidence of authority, policy, coordination, private intent, and publication strategy. The <a href="https://www.ugle.org.uk/about-us/about-ugle" rel="noopener" target="_blank">United Grand Lodge of England’s organizational self-description</a> is included as one interested-source account for comparison.</dd></div>
 </dl>
 </article>
@@ -2160,6 +2394,7 @@ print(ranking.to_string())</code></pre>
 </div>
 </div>
 <div class="finding-grid">
+<div class="finding-card" id="opening-logic-finding"><span class="finding-status">Internal logic</span><h3>The opening paragraphs form a sequential ideological program</h3><p>As transmitted, the text defines political “promise” by willingness to shoot protected persons, declares “peace and development” finished, places modernization under the saber, uses a public survey as ideological screening, tests acceptance of mass death abroad, and redefines national rejuvenation as expansion beyond China’s existing territory. Li Dahua’s contemporaneous commentary recognized and denounced this sequence. The sequence is intrinsic to the document even while speaker attribution remains unresolved.</p></div>
 <div class="finding-card"><span class="finding-status">Provenance</span><h3>Earliest exact source</h3><p>The complete biological-first-strike doctrine is first traceable to the anonymous attachment published with Li Dahua’s Boxun article on April 23, 2005.</p></div>
 <div class="finding-card"><span class="finding-status">Intellectual origin</span><h3>Earlier components and the search for a complete precursor</h3><p>Wang Lixiong, <em>Unrestricted Warfare</em>, 2001-2004 PLA-linked gene-weapons forecasting, He Xin, Wang Xiaodong-type living-space arguments, and post-SARS discourse supplied separable modules before 2005.</p></div>
 <div class="finding-card"><span class="finding-status">Authorship</span><h3>He Xin circle elevated; authorship remains open</h3><p>He Xin is the closest tested overall register and a major upstream source. His 2003 essay independently joins ancient disease-as-weapon analysis, asymmetric warfare, and state-level strategic study, which elevates He Xin and his students, assistants, editors, or followers as priority attribution subjects. Personal authorship remains a provenance question.</p></div>
@@ -2232,7 +2467,7 @@ print(ranking.to_string())</code></pre>
 <div class="final-justification-conclusion" id="justification-conclusion">
 <span class="conclusion-kicker">Conclusion · sufficiency and necessity</span>
 <h3>Why this study is both sufficiently and necessarily justified</h3>
-<p>The five opening questions now yield a differentiated conclusion:</p>
+<p>The opening questions now yield a differentiated conclusion:</p>
 <ol>
 <li><strong>Pre-2005 PRC/PLA baseline:</strong> the necessary distinction is established. Public PLA-linked discourse already contained cross-domain, biological, genetic, selective-targeting, and covert-delivery concepts, while the complete U.S. first-strike and occupation proposition remains first recoverable in the anonymous 2005 attachment.</li>
 <li><strong>Circulation:</strong> the threshold of sufficiency is met because the May 2019 interpretation and the alleged Chi speech have entered influential, policy-facing and educational settings.</li>
@@ -2240,6 +2475,13 @@ print(ranking.to_string())</code></pre>
 <li><strong>Primary-source scope:</strong> the question is necessary and has been answered to the limit of the public record: the recoverable text establishes trade-war mobilization language, while the broader operational reading remains a hypothesis requiring additional records.</li>
 <li><strong>Independence and briefing:</strong> the question is necessary and remains open in a precise form. Public materials establish common language and network proximity; they do not disclose the full degree of independent derivation, shared public sourcing, or common nonpublic briefing.</li>
 </ol>
+<div class="contradiction-card" id="he-xin-contradiction-conclusion">
+<span class="contradiction-label">Conclusion on the sincere-warning model</span>
+<h3>The provenance search exposes an unresolved contradiction and an own-side exception</h3>
+<p>The originating OSINT question brought He Xin into the case because his 2002 depopulation allegation and 2003 biological-warfare essay precede and materially overlap the anonymous text. That same record challenges the strongest sincere-warning interpretation: he portrays an alleged external biological-population-control program as a grave threat while also presenting biochemical warfare as strategically important and urging Chinese state attention and study.</p>
+<p>Under the study’s <strong>conditional proof by contrapositive</strong>, genuinely consistent opposition to population-targeted biological warfare would predict that the author would not normalize or advocate analogous capability for his own side. The public advocacy therefore weighs against that strongest formulation, provided the premise is accepted. It does not independently prove deliberate disguise, because defensive preparedness, deterrence, retaliation, selective moral permission, commercial amplification, and mixed motives remain possible.</p>
+<p>The contradiction is grounded in the juxtaposition between <a href="https://www.wyzxwk.com/Article/guoji/2011/05/222997.html" rel="noopener" target="_blank"><span lang="zh-Hans">《美国解决世界问题的时间表——再答香港商报》</span> (<em>A Timetable for the United States to Solve the World’s Problems—A Further Reply to the Hong Kong Commercial Daily</em>)</a> and <a href="https://www.szhgh.com/Article/opinion/xuezhe/2021-09-20/279801.html" rel="noopener" target="_blank"><span lang="zh-Hans">《中国古代生物战争的起源及社会与文化后果》</span> (<em>The Origins of Biological Warfare in Ancient China and Its Social and Cultural Consequences</em>)</a>. It sharpens the <strong>Freemasonry-as-shield hypothesis</strong> and the related own-side exception: whether an external conspiracy narrative displaced blame, converted a strategically valued method into a defensive posture, or supplied moral and evidentiary cover for a position effectively meaning that China may study or prepare while the alleged adversary may not. The historical essay describes alleged Xiongnu action against Han forces; it therefore cannot by itself prove Han biological aggression or racism. A Han-centric or racialized-hierarchy finding requires broader evidence of explicit superiority claims and differential valuation of non-Han peoples.</p>
+</div>
 <p>Accordingly, the study is <strong>sufficiently justified</strong> by the document’s recombination of pre-existing military discourse and by the documented circulation and policy use of the resulting narrative. It is <strong>methodologically necessary</strong> because conceptual precedence, provenance, source scope, and evidentiary independence must be resolved before thematic overlap or repetition can be treated as authorship evidence or corroboration. The fifth question remains a principal open finding and defines the next evidentiary task: recover communications, briefing papers, source notes, draft remarks, or testimony capable of distinguishing independent derivation, shared public sourcing, and common nonpublic briefing.</p>
 </div>
 <div class="journal-status">
@@ -3474,8 +3716,9 @@ print(ranking.to_string())</code></pre>
 <div class="translation-warning">
 <strong>Translation rule.</strong> The English text below is deliberately literal rather than stylistically polished. It preserves the anonymous source’s inflammatory language, racial terminology, euphemisms, internal contradictions, apparent factual errors, censorship placeholders, and claims of mass killing. Reproduction and translation serve documentary comparison; authentication, endorsement, and attribution remain separate questions. Minimal explanatory wording is used only where a direct English rendering would otherwise be unintelligible.
     </div>
-<details class="translation-record">
-<summary>Open complete English translation · 75 source paragraphs</summary>
+<div class="translation-open-instruction" id="appendix-b-reader-instruction"><strong>Reader instruction:</strong> the complete translated script is collapsed by default. <strong>Click the bar immediately below</strong>—labeled “Click to open complete English translation · 75 source paragraphs”—to reveal all seventy-five translated paragraphs. The plus sign changes to a minus sign when the script is open.</div>
+<details class="translation-record" id="appendix-b-complete-translation" aria-describedby="appendix-b-reader-instruction">
+<summary id="appendix-b-translation-toggle">Click to open complete English translation · 75 source paragraphs<span class="summary-help">The complete script is hidden while this section is collapsed. Click anywhere on this bar to reveal it.</span></summary>
 <div class="translation-body">
 <article class="translation-entry" data-paragraph="1">
 <div class="translation-panel source-en" lang="en">
@@ -3500,30 +3743,35 @@ print(ranking.to_string())</code></pre>
 <span class="translation-label">English translation · B.04</span>
 <p>I am very excited today, because the large-scale online questionnaire survey that we commissioned Sina.com to conduct shows that our next generation holds great promise and that there will be successors to our Party’s cause. When answering the question, “Would you fire on women and children and prisoners of war?” more than 80 percent gave an affirmative answer, far exceeding our expectations.</p>
 </div>
+<div class="translation-analysis-note"><span class="analysis-label">Editorial emphasis · Li Dahua</span><p>Li treats “holds great promise” as a moral inversion: the supposed promise consists specifically in willingness to shoot women, children, and prisoners of war. He identifies this anti-humanitarian enthusiasm as the keynote of the document and says the voice sounded recognizably like Chi Haotian to readers familiar with senior military rhetoric. That voice judgment is editorial evidence, not authentication.</p></div>
 </article>
 <article class="translation-entry" data-paragraph="5">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.05</span>
 <p>Today I want to focus on why we commissioned Sina.com to conduct this questionnaire survey of our people. Today’s talk is a continuation of my previous speech. In that speech I began with the question of the three islands and said that twenty years of pastoral “peace and development” had reached its finale, that modernization under the saber was China’s only next choice, and that we also had enormous overseas interests. Today I will give some specific explanations of these two points.</p>
 </div>
+<div class="translation-analysis-note"><span class="analysis-label">Editorial emphasis · rejection of peace and development</span><p>Li reads “pastoral” as mockery and “reached its finale” as an express displacement of Deng Xiaoping’s peace-and-development thesis. He further interprets “modernization under the saber” as modernization under military guardianship, with the saber ultimately directed inward at the population. His allegations concerning Jiang Zemin’s management of the military and the 2004 Liaoyang and Daqing protests remain claims requiring separate verification.</p></div>
 </article>
 <article class="translation-entry" data-paragraph="6">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.06</span>
 <p>Although the surface core question in this survey was whether to fire on women and children and prisoners of war, the significance it revealed was not limited to that. At first glance, our main intention was to feel out the Chinese people’s attitude toward war: if these future soldiers would dare to carry out mass killing even against noncombatants, they would naturally slaughter combatants a hundredfold; therefore, the answers to the questionnaire could reflect the people’s overall attitude toward war.</p>
 </div>
+<div class="translation-analysis-note"><span class="analysis-label">Editorial emphasis · ideological conditioning</span><p>The paragraph itself makes willingness to kill protected noncombatants a proxy for greater willingness to kill combatants. Li therefore reads the survey not as opinion research but as moral conditioning and succession planning for personnel willing to commit atrocities. His comparison with June 4, the Korean War, Iraq, and <em>Unrestricted Warfare</em> is a contemporaneous polemical interpretation rather than provenance evidence.</p></div>
 </article>
 <article class="translation-entry" data-paragraph="7">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.07</span>
 <p>But in fact, our true intention did not end there. The Central Committee’s purpose in deciding to conduct this survey was to take an ideological sounding. We wanted to understand whether, if China’s development toward the whole globe necessarily had to be accompanied by the mass death of the populations of hostile countries, our people could accept it—whether our people would support it or oppose it.</p>
 </div>
+<div class="translation-analysis-note"><span class="analysis-label">Editorial emphasis · the concealed policy question</span><p>This is the opening’s clearest statement of purpose: to determine whether the public would accept large-scale foreign population death as the price of China’s global development. Li emphasizes that “hostile country” is an elastic designation that an aggressor can create by selecting a target, and he reads the United States as the implied object of the test.</p></div>
 </article>
 <article class="translation-entry" data-paragraph="8">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.08</span>
 <p>Everyone knows that Comrade Xiaoping’s core idea was “development is the hard truth.” Comrade Jintao also always stresses that “development is the first priority” and that we must hold tightly to it and not let go. But comrades often understand this one-sidedly, thinking it is limited only to development within our own country. In fact, our “development” means the great rejuvenation of the Chinese nation. This rejuvenation, of course, will not be limited to the territory we now possess; of course it must expand to the whole world.</p>
 </div>
+<div class="translation-analysis-note"><span class="analysis-label">Editorial emphasis · development redefined as expansion</span><p>Li reads this paragraph as converting “development is the hard truth” and “development is the first priority” from domestic-modernization slogans into an outward-expansion doctrine. The operative sentence is the claim that rejuvenation “will not be limited to the territory we now possess” and “must expand to the whole world.”</p></div>
 </article>
 <article class="translation-entry" data-paragraph="9">
 <div class="translation-panel source-en" lang="en">
@@ -3795,7 +4043,7 @@ print(ranking.to_string())</code></pre>
 <p>Only by using extraordinary means to “clear the field” in America can we lead the Chinese people there. This is the only road; it is not a question of whether we are willing to do it. What extraordinary means are available to us for “clearing the field” in America? Conventional weapons such as aircraft, cannon, missiles, and warships will not work. Highly destructive weapons such as nuclear weapons will not work either. We are not so foolish as truly to use nuclear weapons and perish together with America, although we loudly proclaim that we will pay any price over the Taiwan issue. Only non-destructive weapons of mass killing can preserve America intact for us. Modern biotechnology has developed by leaps and bounds, and new biological weapons have appeared one after another. Of course, we have not remained idle either. In recent years we have raced against time to master this type of “assassin’s-mace” weapon, and we already possess the ability to achieve the objective of suddenly “clearing the field” in America. While Comrade Xiaoping was still alive, the Central Committee, with great foresight, made the correct decision not to develop aircraft-carrier battle groups, but instead to concentrate strength on developing “assassin’s-mace” weapons capable of exterminating the population of an enemy country.</p>
 </div>
 </article>
-<article class="translation-entry" data-paragraph="54">
+<article class="translation-entry" data-paragraph="54" id="appendix-b54">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.54</span>
 <p>From humanitarian considerations, we should first issue a warning to the American people, advise them to leave the Americas and hand the land on which they now live to the Chinese people, or at least surrender half of the United States for Chinese colonization, because the Americas were first discovered by Chinese people. But would that work? If it would not, then there is only one road: use decisive means to “clear the field” in America and, with the speed of a thunderclap that leaves no time to cover one’s ears, empty out this land of America! Our historical experience proves that once we create a fait accompli, no one in the world can do anything to us. Once America, the leading enemy, has been eliminated, the other enemies will have no choice but to bow their heads to us.</p>
@@ -3807,7 +4055,7 @@ print(ranking.to_string())</code></pre>
 <p>Biological weapons are incomparably cruel. But either Americans die or Chinese people die. If the Chinese people are trapped to death on our present territory and a great social collapse occurs, then according to the calculation of the author of Yellow Peril, more than half the Chinese people—more than 800 million—will die! This yellow land carried nearly 500 million people at the beginning of Liberation. The officially published population now exceeds 1.3 billion. The carrying capacity of this yellow land has already reached its limit. Perhaps one day it will suddenly collapse, and more than half the population will die.</p>
 </div>
 </article>
-<article class="translation-entry" data-paragraph="56">
+<article class="translation-entry" data-paragraph="56" id="appendix-b56">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.56</span>
 <p>We must prepare both ways. If a biological-weapons surprise attack succeeds, the Chinese people will pay the smallest possible price in sacrifice in the struggle against America. But if it does not succeed, or if it triggers American nuclear retaliation, China may suffer the catastrophe of losing more than half its population. Therefore, we must make preparations for the air defense of large and medium-sized cities. But no matter what happens, for the future of the Party, the state, and the nation, we can only advance boldly! No matter how many hardships and dangers there are, and no matter how great a sacrifice must be made! Even if more than half the population dies, it can be born again; but once the Communist Party collapses, everything is finished! Finished forever!</p>
@@ -3825,13 +4073,13 @@ print(ranking.to_string())</code></pre>
 <p>Having spoken to this point, someone will inevitably ask: then what are we to do about the several million compatriots in the United States? They will say, do we not oppose Chinese people killing Chinese people?</p>
 </div>
 </article>
-<article class="translation-entry" data-paragraph="59">
+<article class="translation-entry" data-paragraph="59" id="appendix-b59">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.59</span>
 <p>These comrades are very pedantic and much too impractical. If we had insisted that Chinese people must not kill Chinese people, could we have liberated China? As for the several million ethnic Chinese in the United States, this is of course a major problem. Therefore, in recent years we have also been researching genetic weapons—biological weapons that do not kill the yellow race. But this research is extremely difficult. Israel is at the forefront of genetic-weapons research worldwide. Its genetic weapons are intended to deal with Arabs while protecting Israelis. But even Israel has not reached a practical stage. We have research cooperation with Israel and can bring over some of its technology, modifying the technology it uses to protect Israelis so that it protects the yellow race. But its technology has not passed the threshold, and it will be difficult for us to surpass it within a few years. If a breakthrough in genetic weapons will come only five to ten years from now, we cannot wait that long. The limited lives of us old comrades cannot wait that long. Although an old soldier such as I might still wait another five or ten years, the old comrades of the “Three-Eight” generation and the few remaining old Red Army veterans cannot wait. Therefore, we have no choice but to give up our expectation of genetic weapons. Of course, viewed from another side, most ethnic Chinese in the United States are a burden to us. They have long been steeped in bourgeois-liberal ideas and will not easily accept our Party’s leadership. If they survive, we will later have to launch campaigns to deal with and remold them. We must not forget that when we defeated the Nationalists and liberated the Chinese mainland, so many members of the bourgeoisie and intellectuals raised both hands in support of us. But afterward, did we not still have to carry out the Campaign to Suppress Counterrevolutionaries and the Anti-Rightist Campaign to clean them out and remold them again? Some people hid very deeply and were not dug out until the Cultural Revolution.</p>
 </div>
 </article>
-<article class="translation-entry" data-paragraph="60">
+<article class="translation-entry" data-paragraph="60" id="appendix-b60">
 <div class="translation-panel source-en" lang="en">
 <span class="translation-label">English translation · B.60</span>
 <p>History proves that when any great social upheaval is poorly handled, large numbers of people die. Can it be said that dead people are the motive force pushing history forward? How many people died in the struggle among the Three Kingdoms? How many died when Genghis Khan conquered Eurasia? How many died when the Manchus entered the pass? The 1911 Revolution did not kill very many people, but in overthrowing the Three Great Mountains, together with the Campaign to Suppress Counterrevolutionaries, the Three-Anti Campaign, and the Five-Anti Campaign, at least twenty million people died. … We originally worried that some young people would become frightened as soon as they heard that people die in war. During our wartime years, we saw too many dead people—flesh and blood flying, brains smeared on the ground, corpses covering the fields, rivers of blood. We saw too much of it. Once on the battlefield, everyone killed until their eyes turned red, because it was a matter of you dying or me dying, and the brave one wins. It is indeed cruel for one or two hundred million Americans to die, but only this road can obtain the Chinese people’s century, the century in which the Chinese Communist Party leads the world. We do not hope that people die; we are revolutionary humanitarians. But if history insists that we choose—Chinese people die or Americans die; preserving the lives of several hundred million Chinese people or preserving the life of our Party—which is more important? We can only choose the latter. Who made us Chinese? Who made us Communist Party members? From the first day we joined the Party, the life of the Party has stood above everything! History will prove that our choice was correct.</p>
