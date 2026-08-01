@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Tracing the Alleged Chi Haotian Speech — Provenance, Authorship, and Policy Transmission · Logarchéon</title>
+<link href="https://logarcheon.com/Research/" rel="canonical"/>
 <meta content="An OSINT research journal reconstructing the provenance, intellectual genealogy, authorship problem, and policy transmission of the anonymous text attributed to Chi Haotian." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -236,7 +237,7 @@ footer { text-align:center; padding:2rem 1rem; font-family:"DM Mono",monospace; 
   body::before,body::after { display:none; }
 }
 
-/* Appendix B: source register and bilingual literal translation */
+/* Appendix B: source register and literal English translation */
 .source-register {
   display:grid; gap:1rem; margin:1.2rem 0 1.5rem;
 }
@@ -407,50 +408,6 @@ details.translation-record[open] summary::after { content:"−"; }
 }
 .research-note p { color:var(--body); font-size:0.91rem; line-height:1.8; margin-bottom:0.7rem; }
 .research-note p:last-child { margin-bottom:0; }
-.contradiction-card {
-  max-width:82ch; margin:1.05rem 0 0; padding:1.15rem 1.25rem;
-  background:linear-gradient(145deg,rgba(92,31,31,0.42),rgba(14,31,58,0.76));
-  border:1px solid rgba(224,112,112,0.48); border-left:4px solid #e07070; border-radius:5px;
-  box-shadow:0 0 0 1px rgba(224,112,112,0.05) inset;
-}
-.contradiction-card .contradiction-label {
-  display:block; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.11em;
-  text-transform:uppercase; color:#efaaaa; margin-bottom:0.5rem;
-}
-.contradiction-card h3 { color:var(--cream); font-size:1.08rem; margin:0 0 0.55rem; }
-.contradiction-card p { color:var(--body); font-size:0.88rem; line-height:1.78; margin:0 0 0.65rem; }
-.contradiction-card p:last-child { margin-bottom:0; }
-.contradiction-card strong { color:#f0c3c3; }
-.contradiction-sources {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:0.7rem;
-  margin:0.85rem 0 0.95rem;
-}
-.contradiction-source {
-  padding:0.78rem 0.85rem; background:rgba(8,18,38,0.48);
-  border:1px solid rgba(224,112,112,0.26); border-radius:4px; min-width:0;
-}
-.contradiction-source .source-year {
-  display:block; font-family:"DM Mono",monospace; font-size:0.57rem;
-  letter-spacing:0.09em; text-transform:uppercase; color:#efaaaa; margin-bottom:0.38rem;
-}
-.contradiction-source .source-title-cn {
-  display:block; color:var(--cream); font-family:"Cormorant Garamond",Georgia,serif;
-  font-size:1rem; line-height:1.45; margin-bottom:0.25rem;
-}
-.contradiction-source .source-title-en {
-  display:block; color:var(--gold-light); font-size:0.78rem; line-height:1.55;
-  font-style:italic; margin-bottom:0.42rem;
-}
-.contradiction-source p { font-size:0.78rem; line-height:1.65; margin:0 0 0.38rem; }
-.contradiction-source p:last-child { margin-bottom:0; }
-.contradiction-source a { color:var(--gold-light); }
-.actor-card dl > .contradiction-row {
-  padding:0.75rem 0.8rem; border:1px solid rgba(224,112,112,0.38);
-  border-left:3px solid #e07070; border-radius:4px;
-  background:rgba(92,31,31,0.24);
-}
-.actor-card dl > .contradiction-row dt { color:#efaaaa; }
-.actor-card dl > .contradiction-row dd { color:var(--body); }
 .epistemic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.85rem; margin:1.35rem 0; }
 .epistemic-card {
   padding:1rem 1.05rem; background:rgba(14,31,58,0.5); border:1px solid var(--border-dim);
@@ -565,6 +522,13 @@ details.translation-record[open] summary::after { content:"−"; }
   .article-body tr { border-bottom:1px solid var(--border); padding:0.55rem; }
   .article-body tr:last-child { border-bottom:none; }
   .article-body td { border:none; padding:0.38rem 0.45rem; }
+
+  .article-body td::before {
+    content:attr(data-label); display:block; margin-bottom:0.24rem;
+    font-family:"DM Mono",monospace; font-size:0.54rem; letter-spacing:0.07em;
+    text-transform:uppercase; color:var(--gold-dim); font-weight:400;
+  }
+  .article-body td[data-label=""]::before { display:none; }
   .article-body td:first-child { color:var(--gold-light); font-weight:700; }
 }
 
@@ -599,6 +563,31 @@ details.code-record summary::-webkit-details-marker { display:none; }
 details.code-record pre { margin:0; border:none; border-top:1px solid var(--border-dim); border-left:none; border-radius:0; }
 @media(max-width:680px) {
   .rank-grid,.method-grid { grid-template-columns:1fr; }
+}
+
+
+/* Supporting source and archival callouts */
+.source-note {
+  max-width:82ch; margin:0.85rem 0 1rem; padding-top:0.75rem;
+  border-top:1px solid var(--border-dim); color:var(--faint);
+  font-size:0.75rem; line-height:1.72;
+}
+.source-note strong { color:var(--muted); }
+.archive-callout {
+  max-width:82ch; margin:1rem 0 1.2rem; padding:1rem 1.1rem;
+  background:rgba(14,31,58,0.52); border:1px solid var(--border-dim);
+  border-left:3px solid var(--gold); border-radius:4px;
+}
+.archive-callout .ac-label {
+  display:block; margin-bottom:0.42rem; font-family:"DM Mono",monospace;
+  font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--gold-dim);
+}
+.archive-callout p { margin:0; line-height:1.75; }
+.conclusion-heading {
+  color:var(--gold-light); font-size:1.15rem; font-weight:500;
+  margin:1.35rem 0 0.55rem; padding-top:0.8rem;
+  border-top:1px solid var(--border-dim);
 }
 
 /* END MAIN-SECTIONS CSS */
@@ -914,6 +903,30 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 .final-justification-conclusion li { margin-bottom:0.55rem; padding-left:0.25rem; line-height:1.65; font-size:0.86rem; }
 @media(max-width:760px){ .justification-grid,.resolution-grid { grid-template-columns:1fr; } }
 
+
+
+/* Three competing accused-actor configurations */
+.suspect-framework {
+  max-width:82ch; display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0.85rem; margin:1.1rem 0 1.35rem;
+}
+.suspect-card {
+  min-width:0; padding:1rem 1.05rem; border:1px solid var(--border-dim);
+  border-top:3px solid var(--gold-dim); border-radius:4px;
+  background:rgba(14,31,58,0.44);
+}
+.suspect-card .suspect-id {
+  display:block; font-family:"DM Mono",monospace; font-size:0.55rem;
+  letter-spacing:0.09em; text-transform:uppercase; color:var(--gold-dim);
+  margin-bottom:0.4rem;
+}
+.suspect-card h3 { color:var(--cream); font-size:1.06rem; margin:0 0 0.45rem; }
+.suspect-card p { color:var(--muted); font-size:0.78rem; line-height:1.68; margin:0 0 0.55rem; }
+.suspect-card p:last-child { margin-bottom:0; }
+.suspect-card strong { color:var(--body); }
+.suspect-card.combined { border-top-color:var(--gold); background:rgba(201,168,76,0.065); }
+@media(max-width:900px){ .suspect-framework { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -924,7 +937,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <ul class="nav-links">
 <li><a href="/CEAS">CEAS</a></li>
 <li><a href="/GRAIL">GRAIL</a></li>
-<li><a class="active" href="/Research">Research</a></li>
+<li><a class="active" href="/Research/">Research</a></li>
 <li><a href="/About">About</a></li>
 <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
 </ul>
@@ -933,7 +946,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <main class="page-wrap">
 <header class="hero">
 <div class="breadcrumb">
-<a href="/">Logarchéon</a><span>/</span><a href="/Research">Research</a><span>/</span><span>Chi Haotian Case Journal</span>
+<a href="/">Logarchéon</a><span>/</span><a href="/Research/">Research</a><span>/</span><span>Chi Haotian Case Journal</span>
 </div>
 <div class="journal-kicker">OSINT research journal  ·  source criticism  ·  strategic narratives</div>
 <h1>Tracing the Alleged <em>Chi Haotian Speech</em></h1>
@@ -960,7 +973,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
       “I want to find the true author and original source of this article:
       <a href="https://blog.creaders.net/u/460/202002/366547.html" rel="noopener" target="_blank">blog.creaders.net/u/460/202002/366547.html</a>.
       Who was the first person on the Internet to express the idea—even if the wording differs—
-      ‘If a surprise biological-weapons attack succeeds, the Chinese people will pay the smallest possible price in the struggle against the United States.’?”
+      ‘If a biological-weapons attack succeeds, the Chinese people will pay the smallest possible price in the struggle against the United States.’?”
     </blockquote>
 <p>
       This backward search, rather than any prior decision to investigate He Xin, brought
@@ -993,7 +1006,6 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <a href="#appendix-a"><span>A–B</span><strong>Documentary record</strong><small>Transcript, URLs, and English translation</small></a>
 </div>
 </nav>
- BEGIN GENERATED MAIN SECTIONS 
 <section class="section" id="research-design">
 <div class="section-header">
 <span class="section-num">01</span>
@@ -1019,7 +1031,13 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
     </p>
 </div><div class="research-note" id="analytic-symmetry">
 <span class="note-label">Analytic symmetry and anti-capture rule</span>
-<p>This journal treats PRC united-front narratives, exile-media narratives, Trump-aligned policy advocacy, anti-Masonic claims, public-health institutional accounts, and official denials as interested source environments rather than default frames. A source may accurately preserve a document while still selecting, amplifying, or interpreting it in ways that serve institutional interests. The analysis therefore states what each public record affirmatively establishes, identifies the additional insider or archival evidence needed for stronger conclusions, and keeps capability, intent, authorship, coordination, and implementation as separate questions.</p>
+<p>This journal treats PRC united-front and official narratives, exile-media narratives, policy advocacy, anti-Masonic claims, and institutional self-descriptions as interested source environments rather than default frames. A source may accurately preserve a document while still selecting, amplifying, or interpreting it in ways that serve institutional interests. The analysis therefore states what each public record affirmatively establishes, identifies the additional insider or archival evidence needed for stronger conclusions, and keeps capability, intent, authorship, coordination, and implementation as separate questions.</p>
+</div>
+
+<div class="research-note" id="three-suspect-overview">
+<span class="note-label">Three competing suspect configurations in the source chain</span>
+<p>The materials do not allocate responsibility to one stable actor. They produce three rival—and in Kennedy’s lecture partly overlapping—accusatory models: <strong>the West (in He Xin’s account, especially Freemasonry and Western financial elites; in Kennedy’s account, especially Big Pharma, the “Big Three” asset managers, and associated global-policy networks)</strong>; <strong>the CCP/PLA</strong>; and <strong>a combined model in which CCP/PLA actors co-opt, collaborate with, or exploit Western pharmaceutical, financial, governmental, or global-policy institutions</strong>. “Suspect” here means an actor accused within the source chain, not an actor proved responsible.</p>
+<p>He Xin chiefly allocates agency to Western actors—especially Freemasonry, Rockefeller-associated interests, and the Western financial industry. Western commentators chiefly allocate agency to the CCP/PLA. Kennedy does both: he relies on the alleged Chi speech to accuse the CCP/PLA while also directing suspicion toward Big Pharma, the Big Three, Event 201, WEF/globalist actors, and Western institutional capture, and he explicitly raises the possibility that China would seek to co-opt Big Pharma. The overlap between He Xin’s and Kennedy’s focus on hidden transnational networks and Western financial power is notable, but similarity of accusation does not by itself establish common sourcing, coordination, or truth.</p>
 </div>
 <div class="research-note" id="why-this-study">
 <span class="note-label">Unanswered justification questions at the beginning of the inquiry</span>
@@ -1087,7 +1105,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
       animal remains, roads, and water sources against Han forces, calls the episode an early form of
       “biochemical weapons”, and expressly argues that the Chinese state should elevate biochemical
       warfare, as a form of contemporary asymmetric warfare, to strategic study. The anonymous 2005 text then cites
-      He Xin directly and reverses his public victim-threat narrative into an offensive Chinese first-strike proposition.
+      He Xin directly and reverses his public external-enemy narrative into an offensive Chinese first-strike proposition.
     </p>
 <p class="source-note"><strong>Attribution consequence.</strong> This discovery places He Xin's corpus beyond the role of a general thematic background source. It makes direct borrowing, follower or assistant adaptation, and possible authorial participation more serious hypotheses. The anonymous-compiler hypothesis, an associated-writer hypothesis, and direct participation by He Xin all remain live pending provenance evidence.</p>
 </div>
@@ -1198,7 +1216,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 </div>
 <div class="research-note">
 <span class="note-label">Working provenance conclusion</span>
-<p>The document should presently be described as an <strong>anonymous political compilation or simulated internal speech attributed to Chi Haotian</strong>, with authentication dependent on provenance. Appendix B preserves the relevant URLs and the complete bilingual text.</p>
+<p>The document should presently be described as an <strong>anonymous political compilation or simulated internal speech attributed to Chi Haotian</strong>, with authentication dependent on provenance. Appendix B preserves the relevant URLs and the complete English translation.</p>
 </div>
 </section>
 <section class="section" id="master-timeline">
@@ -1231,22 +1249,10 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified PLA-officer publication and direct biological-warfare conceptual precursor. It establishes public military vocabulary and a combination architecture; its formal doctrinal or operational status, and any link to the anonymous U.S. first-strike doctrine, require adoption directives, doctrine references, training records, planning documents, or operational evidence. <a href="https://www.dodccrp.org/files/Unrestricted_Warfare.pdf" rel="noopener" target="_blank">English text</a>.</div>
 </div>
 <div class="timeline-row">
-<div class="timeline-date">2000</div>
-<div class="timeline-node">PRC defense white paper</div>
-<div class="timeline-contribution">Records China’s public position of biological-weapons non-possession, treaty compliance, and support for comprehensive prohibition and destruction.</div>
-<div class="timeline-status"><span class="status-pill counter">Countervailing official record</span><br/>This is the contemporaneous declared diplomatic baseline. Assessing any compartmented activity or contrary internal policy requires separate insider and operational records. <a href="https://www.mfa.gov.cn/ziliao_674904/zt_674979/ywzt_675099/wzzt_675579/2296_675789/200207/t20020705_9288314.shtml" rel="noopener" target="_blank">2000 white paper</a>.</div>
-</div>
-<div class="timeline-row">
 <div class="timeline-date">January-April 2001</div>
 <div class="timeline-node"><em>PLA Daily</em>-linked military-technology articles</div>
 <div class="timeline-contribution"><em>A Grand Outlook for National Defense Science and Technology in the Twenty-First Century (Part III)</em> classifies gene weapons as new-concept biochemical weapons and says they could eliminate a race or specified population. <em>New Military-Technological Developments at the Turn of the Century</em>, attributed to China Defense Science and Technology Information Center authors, describes possible strategic gene weapons targeting a specific genetic population, with concealment, low cost, and severe destructive effects. <em>Ten Superweapons of the Twenty-First Century</em> describes introducing a virus into an enemy country as a simple method of attack.</div>
 <div class="timeline-status"><span class="status-pill verified">Verified archived reproductions</span><br/>These sources establish that gene-weapon, ethnic-selectivity, covert-delivery, and strategic-effect concepts were publicly circulating in a PLA-linked publication environment before He Xin’s 2002-2003 texts. Their demonstrated evidentiary role is military forecasting and public discourse; a specific adopted plan requires adoption, planning, or operational records. <a href="https://mil.news.sina.com.cn/2001-01-06/10929.html" rel="noopener" target="_blank">Part III</a>; <a href="https://mil.news.sina.com.cn/2001-01-10/11163.html" rel="noopener" target="_blank">turn-of-century article</a>; <a href="https://www.chinanews.com/2001-04-02/26/82699.html" rel="noopener" target="_blank">ten superweapons</a>.</div>
-</div>
-<div class="timeline-row">
-<div class="timeline-date">December 2001</div>
-<div class="timeline-node">PRC Criminal Law Amendment III</div>
-<div class="timeline-contribution">Criminalizes specified manufacture, trade, transport, storage, release, theft, seizure, and robbery involving infectious-disease pathogens and related threats to public safety.</div>
-<div class="timeline-status"><span class="status-pill counter">Official legal record</span><br/>The amendment adds a domestic legal-control layer to the public prohibition position. Its enforcement and relationship to compartmented military activity require separate records.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">March 12, 2002</div>
@@ -1267,12 +1273,6 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified surviving trace; helps date the strategic essay milieu before the anonymous speech.</div>
 </div>
 <div class="timeline-row">
-<div class="timeline-date">October-December 2002</div>
-<div class="timeline-node">PRC biological dual-use export-control regulation</div>
-<div class="timeline-contribution">Establishes licensing and control rules for listed biological dual-use materials, equipment, and technologies and states the purpose of preventing their use for biological-weapons ends.</div>
-<div class="timeline-status"><span class="status-pill counter">Official regulatory record</span><br/>The regulation provides a contemporaneous public control framework. Evaluating implementation, evasion, or compartmented exceptions requires enforcement and insider records. <a href="https://dcj.mofcom.gov.cn/article/bi/200301/20030100064367.shtml" rel="noopener" target="_blank">Regulation</a>.</div>
-</div>
-<div class="timeline-row">
 <div class="timeline-date">2002–2003</div>
 <div class="timeline-node">“Modernization Under the Saber” essay family</div>
 <div class="timeline-contribution">War capacity as a condition of modernization; Taiwan, Japan, and the United States framed as strategic-conflict problems; China’s overseas interests emphasized.</div>
@@ -1287,14 +1287,14 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-row">
 <div class="timeline-date">April–October 2003</div>
 <div class="timeline-node">Chinese-language SARS forum discourse</div>
-<div class="timeline-contribution">Circulates claims that SARS was an American–Taiwanese biological attack, invokes unrestricted warfare / asymmetric warfare, anticipates retaliation, and frames China as victim of covert biological warfare.</div>
+<div class="timeline-contribution">Circulates claims that SARS was an American–Taiwanese biological attack, invokes unrestricted warfare / asymmetric warfare, anticipates retaliation, and assigns responsibility to external enemies while presenting China as a passive target.</div>
 <div class="timeline-status"><span class="status-pill inference">Supported milieu</span><br/>Verified in surviving forums across more than Tiexue. Recovery of an explicit Chinese first-strike doctrine before April 2005 remains a priority search task.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">October 2003</div>
 <div class="timeline-node">童增, <em>The Last Line of Defense</em> and interviews</div>
 <div class="timeline-contribution">Presents SARS and foreign access to Chinese genetic data as possible race-specific biological attack against Chinese people.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified victimization narrative. The recovered text presents China as a target and focuses on vigilance; a Chinese attack recommendation would require a separate source.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified external-enemy narrative. The recovered text alleges foreign attack rather than openly recommending Chinese first use; the offensive proposition appears in a separate source chain.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">December 8–9, 2003</div>
@@ -1303,21 +1303,15 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Strongest technical bridge outside He Xin. It documents capability discourse; an explicit recommendation that China attack the United States would require additional text.</div>
 </div>
 <div class="timeline-row">
-<div class="timeline-date">August 18, 2003 / December 7, 2004</div>
-<div class="timeline-node">Chinese BWC statements</div>
-<div class="timeline-contribution">China publicly supports comprehensive prohibition and destruction of biological weapons, nonproliferation, biosecurity, and peaceful use of pathogens.</div>
-<div class="timeline-status"><span class="status-pill counter">Competing evidence</span><br/>Contemporaneous public-policy competing public record. Its relationship to any compartmented practice remains open, and it must be weighed against claims that the anonymous text represented declared state policy.</div>
-</div>
-<div class="timeline-row">
 <div class="timeline-date">February 10, 2004</div>
 <div class="timeline-node">乐军怀, PLA Daily, <em>Although Not Yet Seen on the Battlefield, Genetic Weapons Draw Extensive Attention and Questions</em></div>
-<div class="timeline-contribution">Repeats possible selective attacks, prewar or peacetime deployment, and asymmetric effects, while emphasizing uncertainty, genetic overlap, technical limits, and danger to humanity.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified military-publication precursor and cautionary analysis.</div>
+<div class="timeline-contribution">Repeats possible selective attacks, prewar or peacetime deployment, and asymmetric effects.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified military-publication precursor.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">2003–2004</div>
 <div class="timeline-node">Nationalist military and forum milieu</div>
-<div class="timeline-contribution">Combines SARS victimization theories, conventional inferiority, ‘assassin’s-mace’ or decisive-trump-card rhetoric, gene-weapon speculation, and asymmetric-war concepts.</div>
+<div class="timeline-contribution">Combines SARS external-enemy theories, conventional inferiority, ‘assassin’s-mace’ or decisive-trump-card rhetoric, gene-weapon speculation, and asymmetric-war concepts.</div>
 <div class="timeline-status"><span class="status-pill inference">Supported milieu</span><br/>Broad milieu supported; recovery of an explicit pre-April-2005 call for a Chinese biological killer’s-mace strike on America remains a priority research task.</div>
 </div>
 <div class="timeline-row">
@@ -1384,7 +1378,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-date">September–November 2010</div>
 <div class="timeline-node">何新’s systematic anti-Freemasonry essays and first Hong Kong book</div>
 <div class="timeline-contribution">Explicitly identifies Freemasonry as the organization allegedly behind depopulation and “new world order” planning, extending the 2002 Western-elite theory into a named institutional conspiracy.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified public expansion of He Xin’s framework. The direction remains Western or Freemasonic actors as aggressors and China as target.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Verified public expansion of He Xin’s framework. It assigns aggression to Western or Freemasonic actors and places China in the target role.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">2010</div>
@@ -1408,13 +1402,13 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-date">2013</div>
 <div class="timeline-node">何新, <em>Ruling the World 2: The All-Pervasive Freemasons</em></div>
 <div class="timeline-contribution">Further develops allegations involving vaccines, genetically modified products, artificial viruses, biological weapons, and Freemasonic population-reduction planning.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Defensive-threat structure: the public text casts China as obstacle or target. Any concealed aggressor role remains an insider-record question.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>External-enemy structure: the public text casts China as an obstacle or target while assigning agency elsewhere. Any concealed operational role remains a separate provenance question.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">2018</div>
 <div class="timeline-node">何新, <em>Ruling the World 3: The Mysterious Freemasons in World History</em></div>
 <div class="timeline-contribution">Expands the Freemasonry thesis historically, embedding the population-control narrative in a wider account of world history and transnational power.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Historical expansion of the same framework. Its relationship to 2005 authorship and to He Xin’s public aggressor–victim direction remains open.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>Historical expansion of the same framework. Its relationship to 2005 authorship and to He Xin’s public allocation of agency remains open.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">June 2020–present<br/><span style="color:var(--faint);">later successor corpus</span></div>
@@ -1448,9 +1442,9 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 </div>
 <div class="timeline-row">
 <div class="timeline-date">February 10, 2020</div>
-<div class="timeline-node">Xi Jinping calls epidemic control a “people’s war”</div>
-<div class="timeline-contribution">The same mobilizational formula is applied to nationwide epidemic control, demonstrating that “people’s war” was a reusable political-mobilization expression rather than a term confined to trade or conventional combat.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified official usage</span><br/><a href="https://english.www.gov.cn/news/topnews/202002/10/content_WS5e414765c6d04ea953b7b87b.html" rel="noopener" target="_blank">Xinhua / State Council report</a>.</div>
+<div class="timeline-node">PRC propaganda repurposes “people’s war” during COVID-19</div>
+<div class="timeline-contribution">PRC propaganda applied the same formula to nationwide pandemic mobilization, showing that “people’s war” was a reusable slogan rather than a term confined to trade or conventional combat.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified propaganda usage</span><br/><a href="https://english.www.gov.cn/news/topnews/202002/10/content_WS5e414765c6d04ea953b7b87b.html" rel="noopener" target="_blank">PRC state-media report</a>.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">February 19, 2020</div>
@@ -1468,7 +1462,7 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="timeline-date">2021</div>
 <div class="timeline-node">何新 COVID-origin essays</div>
 <div class="timeline-contribution">Interprets Event 201, U.S. institutions, Chinese experts, and media through a foreign-origin or foreign-manipulation theory.</div>
-<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>The United States remains alleged aggressor; China remains alleged victim.</div>
+<div class="timeline-status"><span class="status-pill verified">Verified</span><br/>He Xin continues to assign responsibility to the United States and to place China in the target role.</div>
 </div>
 <div class="timeline-row">
 <div class="timeline-date">2022</div>
@@ -1503,17 +1497,17 @@ details.code-record pre { margin:0; border:none; border-top:1px solid var(--bord
 <div class="flow-arrow">↓</div>
 <div class="flow-node"><strong><em>PLA Daily</em>-linked military science, 2001-2004</strong><span>Gene weapons, selective genetic targeting, covert delivery, low cost, strategic effects, and technical limitations entered a public military-publication vocabulary before the anonymous text.</span></div>
 <div class="flow-arrow">↓</div>
-<div class="flow-node"><strong>He Xin, 2002</strong><span>Western depopulation conspiracy using war, plague, biological weapons, and genetic technology; the West is aggressor and China a threatened population.</span></div>
+<div class="flow-node"><strong>He Xin, 2002</strong><span>A Western-depopulation conspiracy using war, plague, biological weapons, and genetic technology; agency is assigned to the West and denied to China.</span></div>
 <div class="flow-arrow">↓</div>
-<div class="flow-node"><strong>2001–2004 strategic and gene-weapon milieu</strong><span>“Modernization under the saber,” living-space nationalism, SARS victimization, covert-virus warfare, selective targeting, sparing friendly forces, and asymmetric advantage.</span></div>
+<div class="flow-node"><strong>2001–2004 strategic and gene-weapon milieu</strong><span>“Modernization under the saber,” living-space nationalism, SARS external-enemy theories, covert-virus warfare, selective targeting, sparing friendly forces, and asymmetric advantage.</span></div>
 <div class="flow-arrow">↓</div>
-<div class="flow-node"><strong>Anonymous compiler, April 2005</strong><span>Reverses the victim narrative: China should strike America first, depopulate it with biological weapons, preserve its territory, and colonize it.</span></div>
+<div class="flow-node"><strong>Anonymous compiler, April 2005</strong><span>Reverses the allocation of agency: China should strike America first, depopulate it with biological weapons, preserve its territory, and colonize it.</span></div>
 <div class="flow-arrow">↓</div>
 <div class="flow-node"><strong>Nyquist → Kennedy → Hillsdale republication</strong><span>The anonymous text becomes a modern American threat document, then is fused with COVID, Event 201, Big Pharma, WEF, and current policy debate.</span></div>
 </div>
 <div class="parallel-rails">
 <div class="rail"><h4>Transmission infrastructure</h4><p>DynaWeb, Freegate, UltraSurf, email, and blocked overseas sites made cross-border circulation technically possible. Identifying which route carried the first file requires recovered metadata, headers, or platform logs.</p></div>
-<div class="rail"><h4>Directionality test</h4><p>He Xin’s public corpus repeatedly casts the West, United States, CIA, Freemasonry, or foreign-linked institutions as aggressor and China as victim. The anonymous 2005 text reverses that direction into a Chinese offensive extermination plan.</p></div>
+<div class="rail"><h4>Directionality test</h4><p>He Xin’s public corpus repeatedly assigns agency to the West, United States, CIA, Freemasonry, or foreign-linked institutions while denying Chinese agency. The anonymous 2005 text reverses that direction into a Chinese offensive extermination plan.</p></div>
 </div>
 <div class="research-note">
 <span class="note-label">A named successor corpus after He Xin’s book series: 張原 / 张原</span>
@@ -1605,34 +1599,31 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 <span class="quote-dossier-label">Direct textual evidence · anonymous speech attributed to Chi Haotian</span>
 <h3>The document states its hierarchy of lives, its treatment of overseas Chinese, and its intended method in its own words</h3>
 <p>These passages are reproduced prominently because summaries can obscure the document’s explicit logic. They are quotations from the anonymous text attributed to Chi Haotian, not independently authenticated statements by Chi. The complete seventy-five-paragraph English translation remains preserved in Appendix B.</p>
+<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then open the bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em></p>
 <div class="direct-quote-grid">
 
 <div class="direct-quote-card" id="main-quote-b59">
 <span class="quote-ref">Appendix B · paragraph B.59</span>
 <h4>Overseas Chinese are described as a burden requiring later political campaigns and remolding</h4>
 <blockquote><p>“These comrades are very pedantic and much too impractical. If we had insisted that Chinese people must not kill Chinese people, could we have liberated China? As for the several million ethnic Chinese in the United States, this is of course a major problem. Therefore, in recent years we have also been researching genetic weapons—biological weapons that do not kill the yellow race. But this research is extremely difficult. Israel is at the forefront of genetic-weapons research worldwide. Its genetic weapons are intended to deal with Arabs while protecting Israelis. But even Israel has not reached a practical stage. We have research cooperation with Israel and can bring over some of its technology, modifying the technology it uses to protect Israelis so that it protects the yellow race. But its technology has not passed the threshold, and it will be difficult for us to surpass it within a few years. If a breakthrough in genetic weapons will come only five to ten years from now, we cannot wait that long. The limited lives of us old comrades cannot wait that long. Although an old soldier such as I might still wait another five or ten years, the old comrades of the “Three-Eight” generation and the few remaining old Red Army veterans cannot wait. Therefore, we have no choice but to give up our expectation of genetic weapons. Of course, viewed from another side, <strong>most ethnic Chinese in the United States are a burden to us. They have long been steeped in bourgeois-liberal ideas and will not easily accept our Party’s leadership. If they survive, we will later have to launch campaigns to deal with and remold them.</strong> We must not forget that when we defeated the Nationalists and liberated the Chinese mainland, so many members of the bourgeoisie and intellectuals raised both hands in support of us. But afterward, did we not still have to carry out the Campaign to Suppress Counterrevolutionaries and the Anti-Rightist Campaign to clean them out and remold them again? Some people hid very deeply and were not dug out until the Cultural Revolution.”</p></blockquote>
-<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
 </div>
 
 <div class="direct-quote-card" id="main-quote-b60">
 <span class="quote-ref">Appendix B · paragraph B.60</span>
 <h4>Mass death is presented as a possible motive force of history and the price of a CCP-led century</h4>
 <blockquote><p>“History proves that when any great social upheaval is poorly handled, large numbers of people die. Can it be said that dead people are the motive force pushing history forward? How many people died in the struggle among the Three Kingdoms? How many died when Genghis Khan conquered Eurasia? How many died when the Manchus entered the pass? The 1911 Revolution did not kill very many people, but in overthrowing the Three Great Mountains, together with the Campaign to Suppress Counterrevolutionaries, the Three-Anti Campaign, and the Five-Anti Campaign, at least twenty million people died. … We originally worried that some young people would become frightened as soon as they heard that people die in war. During our wartime years, we saw too many dead people—flesh and blood flying, brains smeared on the ground, corpses covering the fields, rivers of blood. We saw too much of it. Once on the battlefield, everyone killed until their eyes turned red, because it was a matter of you dying or me dying, and the brave one wins. <strong>It is indeed cruel for one or two hundred million Americans to die, but only this road can obtain the Chinese people’s century, the century in which the Chinese Communist Party leads the world.</strong> We do not hope that people die; we are revolutionary humanitarians. But if history insists that we choose—Chinese people die or Americans die; preserving the lives of several hundred million Chinese people or preserving the life of our Party—which is more important? We can only choose the latter. Who made us Chinese? Who made us Communist Party members? From the first day we joined the Party, the life of the Party has stood above everything! History will prove that our choice was correct.”</p></blockquote>
-<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
 </div>
 
 <div class="direct-quote-card" id="main-quote-b56">
 <span class="quote-ref">Appendix B · paragraph B.56</span>
 <h4>The text explicitly weighs a biological first strike against the loss of more than half of China’s population</h4>
-<blockquote><p>“We must prepare both ways. If a biological-weapons surprise attack succeeds, the Chinese people will pay the smallest possible price in sacrifice in the struggle against America. But if it does not succeed, or if it triggers American nuclear retaliation, China may suffer the catastrophe of losing more than half its population. Therefore, we must make preparations for the air defense of large and medium-sized cities. But no matter what happens, for the future of the Party, the state, and the nation, we can only advance boldly! No matter how many hardships and dangers there are, and no matter how great a sacrifice must be made! <strong>Even if more than half the population dies, it can be born again; but once the Communist Party collapses, everything is finished! Finished forever!</strong>”</p></blockquote>
-<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
+<blockquote><p>“We must prepare both ways. If a biological-weapons attack succeeds, the Chinese people will pay the smallest possible price in sacrifice in the struggle against America. But if it does not succeed, or if it triggers American nuclear retaliation, China may suffer the catastrophe of losing more than half its population. Therefore, we must make preparations for the air defense of large and medium-sized cities. But no matter what happens, for the future of the Party, the state, and the nation, we can only advance boldly! No matter how many hardships and dangers there are, and no matter how great a sacrifice must be made! <strong>Even if more than half the population dies, it can be born again; but once the Communist Party collapses, everything is finished! Finished forever!</strong>”</p></blockquote>
 </div>
 
 <div class="direct-quote-card" id="main-quote-b54">
 <span class="quote-ref">Appendix B · paragraph B.54</span>
 <h4>The intended end state is to empty American land and impose a fait accompli</h4>
 <blockquote><p>“From humanitarian considerations, we should first issue a warning to the American people, advise them to leave the Americas and hand the land on which they now live to the Chinese people, or at least surrender half of the United States for Chinese colonization, because the Americas were first discovered by Chinese people. But would that work? If it would not, then there is only one road: <strong>use decisive means to “clear the field” in America and, with the speed of a thunderclap that leaves no time to cover one’s ears, empty out this land of America!</strong> Our historical experience proves that once we create a fait accompli, no one in the world can do anything to us. Once America, the leading enemy, has been eliminated, the other enemies will have no choice but to bow their heads to us.”</p></blockquote>
-<p class="complete-script-note"><strong>Complete script:</strong> <a href="#appendix-b-translation-toggle">go to Appendix B</a>, then click the collapsed bar labeled <em>“Click to open complete English translation · 75 source paragraphs.”</em> The full transcript is hidden until that bar is clicked.</p>
 </div>
 
 </div>
@@ -1646,8 +1637,7 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 <p>He Xin’s essay <a href="https://www.szhgh.com/Article/opinion/xuezhe/2021-09-20/279801.html" rel="noopener" target="_blank"><span lang="zh-Hans">《中国古代生物战争的起源及社会与文化后果》</span> (<em>The Origins of Biological Warfare in Ancient China and Its Social and Cultural Consequences</em>)</a> is especially important because it extends beyond the 2002 depopulation allegation. The 2021 republication credits He Xin and identifies the text as first published in 2003. It reconstructs an ancient military episode in which the Xiongnu allegedly used infected horses, contaminated cattle and sheep, and animal remains placed along routes or near water sources to spread disease among Han forces, describing these alleged practices as an early generation of “biochemical weapons.”</p>
 <div class="archive-callout">
 <span class="ac-label">He Xin’s modern strategic conclusion</span>
-<p lang="zh-Hans" style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--cream);">“The state should elevate biochemical warfare—an important component of contemporary asymmetric warfare—to the strategic level for attention and study.”</p>
-<p style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);">“As for biochemical warfare, an important component of contemporary asymmetric warfare, the state should elevate it to the strategic level and give it attention and study.”</p>
+<p lang="en" style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--cream);">“The state should elevate biochemical warfare—an important component of contemporary asymmetric warfare—to the strategic level for attention and study.”</p>
 </div>
 <p>The article therefore establishes that He Xin himself publicly joined three elements before the anonymous 2005 document appeared: a historical model of disease used deliberately in war; a contemporary asymmetric-warfare frame; and a recommendation for state-level strategic study. This substantially narrows the gap between his 2002 population-elimination narrative and the anonymous document’s biological-war doctrine.</p>
 <p>Two distinctions remain essential. First, the historical attacker in He Xin’s reconstruction is the <strong>Xiongnu against Han forces</strong>; the article’s historical object is the Xiongnu campaign against Han forces, while engineered-pathogen programs belong to a different evidentiary category. Second, “study at the strategic level” and “launch a biological first strike against America” are distinct propositions. The evidence therefore raises the plausibility of direct borrowing, an associated writer, or editorial participation, while the drafter’s identity remains open.</p>
@@ -1702,36 +1692,36 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 </thead>
 <tbody>
 <tr>
-<td>Identity known</td>
-<td>Pass</td>
+<td data-label="Test">Identity known</td>
+<td data-label="Result">Pass</td>
 </tr>
 <tr>
-<td>Relevant statements predate 2005</td>
-<td>Pass</td>
+<td data-label="Test">Relevant statements predate 2005</td>
+<td data-label="Result">Pass</td>
 </tr>
 <tr>
-<td>Firsthand knowledge of 1995 meeting</td>
-<td>Open; primary evidence required</td>
+<td data-label="Test">Firsthand knowledge of 1995 meeting</td>
+<td data-label="Result">Open; primary evidence required</td>
 </tr>
 <tr>
-<td>Independent evidence for extermination claim</td>
-<td>Open; primary evidence required</td>
+<td data-label="Test">Independent evidence for extermination claim</td>
+<td data-label="Result">Open; primary evidence required</td>
 </tr>
 <tr>
-<td>Direct conceptual relationship to 2005 text</td>
-<td>Strong</td>
+<td data-label="Test">Direct conceptual relationship to 2005 text</td>
+<td data-label="Result">Strong</td>
 </tr>
 <tr>
-<td>Link to first uploader or original file</td>
-<td>Record gap</td>
+<td data-label="Test">Link to first uploader or original file</td>
+<td data-label="Result">Record gap</td>
 </tr>
 <tr>
-<td>Evidence he personally drafted it</td>
-<td>Inconclusive</td>
+<td data-label="Test">Evidence he personally drafted it</td>
+<td data-label="Result">Inconclusive</td>
 </tr>
 <tr>
-<td>Evidence of actual operational planning</td>
-<td>Record gap</td>
+<td data-label="Test">Evidence of actual operational planning</td>
+<td data-label="Result">Record gap</td>
 </tr>
 </tbody>
 </table>
@@ -1807,46 +1797,46 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 </thead>
 <tbody>
 <tr>
-<td>1995 Gorbachev Foundation meeting in San Francisco; Fairmont Hotel identification</td>
-<td>He Xin’s March 2002 interview makes the meeting at San Francisco’s Fairmont Hotel the factual platform for his depopulation theory; later essays and books repeatedly return to it, including a dedicated 2012 volume.</td>
-<td>The text expressly directs listeners to He Xin’s interview and reproduces the dates, Fairmont Hotel location, prominent attendees, and alleged conclusion.</td>
-<td>At about 27:00, Kennedy repeats the Gorbachev Foundation, San Francisco setting, dates, prominent attendees, and says he investigated the meeting. The supplied transcript leaves the Fairmont Hotel unnamed.</td>
-<td class="direct-chain">Directly traceable transmission within one source lineage.</td>
+<td data-label="Recurring element">1995 Gorbachev Foundation meeting in San Francisco; Fairmont Hotel identification</td>
+<td data-label="He Xin corpus">He Xin’s March 2002 interview makes the meeting at San Francisco’s Fairmont Hotel the factual platform for his depopulation theory; later essays and books repeatedly return to it, including a dedicated 2012 volume.</td>
+<td data-label="Anonymous 2005 text attributed to Chi">The text expressly directs listeners to He Xin’s interview and reproduces the dates, Fairmont Hotel location, prominent attendees, and alleged conclusion.</td>
+<td data-label="Kennedy lecture">At about 27:00, Kennedy repeats the Gorbachev Foundation, San Francisco setting, dates, prominent attendees, and says he investigated the meeting. The supplied transcript leaves the Fairmont Hotel unnamed.</td>
+<td class="direct-chain" data-label="Analytic meaning">Directly traceable transmission within one source lineage.</td>
 </tr>
 <tr>
-<td>Productive 20% versus superfluous 80%</td>
-<td>He Xin alleges that global elites classified 20% as sufficient for economic production and the remaining 80% as surplus.</td>
-<td>The text repeats the 20/80 division and calls the remainder a non-productive or “garbage” population.</td>
-<td>At about 28:04–28:37, Kennedy repeats the 20%/80% split, “trash population,” and gradual elimination claim.</td>
-<td class="direct-chain">Near-verbatim doctrinal continuity through the source chain.</td>
+<td data-label="Recurring element">Productive 20% versus superfluous 80%</td>
+<td data-label="He Xin corpus">He Xin alleges that global elites classified 20% as sufficient for economic production and the remaining 80% as surplus.</td>
+<td data-label="Anonymous 2005 text attributed to Chi">The text repeats the 20/80 division and calls the remainder a non-productive or “garbage” population.</td>
+<td data-label="Kennedy lecture">At about 28:04–28:37, Kennedy repeats the 20%/80% split, “trash population,” and gradual elimination claim.</td>
+<td class="direct-chain" data-label="Analytic meaning">Near-verbatim doctrinal continuity through the source chain.</td>
 </tr>
 <tr>
-<td>“High-technology” population elimination</td>
-<td>He Xin’s 2002 account links depopulation to war, epidemics, biological weapons, and genetic technologies.</td>
-<td>The text cites this allegation as justification for a reciprocal Chinese first-strike logic.</td>
-<td>Kennedy accepts the alleged meeting as evidence of elite depopulation thinking and later links it to COVID, Event 201, Big Pharma, and WEF/globalism.</td>
-<td>He Xin supplies the premise; the anonymous text reverses it; Kennedy retrofits it to post-2020 events.</td>
+<td data-label="Recurring element">“High-technology” population elimination</td>
+<td data-label="He Xin corpus">He Xin’s 2002 account links depopulation to war, epidemics, biological weapons, and genetic technologies.</td>
+<td data-label="Anonymous 2005 text attributed to Chi">The text cites this allegation as justification for a reciprocal Chinese first-strike logic.</td>
+<td data-label="Kennedy lecture">Kennedy accepts the alleged meeting as evidence of elite depopulation thinking and later links it to COVID, Event 201, Big Pharma, and WEF/globalism.</td>
+<td data-label="Analytic meaning">He Xin supplies the premise; the anonymous text reverses it; Kennedy retrofits it to post-2020 events.</td>
 </tr>
 <tr>
-<td>Biochemical warfare as strategic or asymmetric warfare</td>
-<td>In 2003 He Xin urges the state to elevate biochemical warfare to strategic study and warns that covert viruses could inflict economic, political, and human damage.</td>
-<td>The text converts strategic study and threat awareness into an explicit offensive biological first strike against America.</td>
-<td>Kennedy treats the text as evidence of enduring Chinese strategic intent and as a framework for interpreting COVID.</td>
-<td>Conceptual bridge followed by a decisive victim-to-aggressor reversal.</td>
+<td data-label="Recurring element">Biochemical warfare as strategic or asymmetric warfare</td>
+<td data-label="He Xin corpus">In 2003 He Xin urges the state to elevate biochemical warfare to strategic study and warns that covert viruses could inflict economic, political, and human damage.</td>
+<td data-label="Anonymous 2005 text attributed to Chi">The text converts strategic study and threat awareness into an explicit offensive biological first strike against America.</td>
+<td data-label="Kennedy lecture">Kennedy treats the text as evidence of enduring Chinese strategic intent and as a framework for interpreting COVID.</td>
+<td data-label="Analytic meaning">Conceptual bridge followed by a decisive reversal in the allocation of agency.</td>
 </tr>
 <tr>
-<td>Secret-elite control and population-management frame</td>
-<td>From 2010 onward, He Xin’s Freemasonry volumes explicitly attribute virus, vaccine, artificial-pathogen, and population-control planning to Masonic or Anglo-American networks.</td>
-<td>The 2005 text relies on the same 1995 elite-meeting and population-elimination premise; He Xin’s later writings explicitly attach that premise to Freemasonry.</td>
-<td>Kennedy substitutes a contemporary “globalist,” WEF, Event 201, and Big Pharma frame for the later Masonic formulation.</td>
-<td>Related later overlays; similarity of frame identifies continuity while provenance remains the authentication test.</td>
+<td data-label="Recurring element">Secret-elite control and population-management frame</td>
+<td data-label="He Xin corpus">From 2010 onward, He Xin’s Freemasonry volumes explicitly attribute virus, vaccine, artificial-pathogen, and population-control planning to Masonic or Anglo-American networks.</td>
+<td data-label="Anonymous 2005 text attributed to Chi">The 2005 text relies on the same 1995 elite-meeting and population-elimination premise; He Xin’s later writings explicitly attach that premise to Freemasonry.</td>
+<td data-label="Kennedy lecture">Kennedy substitutes a contemporary “globalist,” WEF, Event 201, and Big Pharma frame for the later Masonic formulation.</td>
+<td data-label="Analytic meaning">Related later overlays; similarity of frame identifies continuity while provenance remains the authentication test.</td>
 </tr>
 <tr>
-<td>Position in the information chain</td>
-<td>Upstream conceptual source whose writings predate the anonymous document.</td>
-<td>Intermediate compilation that cites He Xin and combines his claims with living-space, gene-weapon, and nationalist materials.</td>
-<td>Downstream amplifier relying on Nyquist and the circulated text.</td>
-<td class="direct-chain">He Xin → anonymous text → Nyquist → Kennedy.</td>
+<td data-label="Recurring element">Position in the information chain</td>
+<td data-label="He Xin corpus">Upstream conceptual source whose writings predate the anonymous document.</td>
+<td data-label="Anonymous 2005 text attributed to Chi">Intermediate compilation that cites He Xin and combines his claims with living-space, gene-weapon, and nationalist materials.</td>
+<td data-label="Kennedy lecture">Downstream amplifier relying on Nyquist and the circulated text.</td>
+<td class="direct-chain" data-label="Analytic meaning">He Xin → anonymous text → Nyquist → Kennedy.</td>
 </tr>
 </tbody>
 </table>
@@ -1887,10 +1877,6 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 <h4>“Eighty percent of APIs are made in China”</h4>
 <p>Kennedy says 80% of active pharmaceutical ingredients were made in China. FDA’s 2019 testimony said that 13% of API manufacturing facilities supplying the U.S. market were in China, while stating that exact production volumes remained unavailable from facility counts. (<a href="https://www.fda.gov/news-events/congressional-testimony/safeguarding-pharmaceutical-supply-chains-global-economy-10302019" rel="noopener" target="_blank" title="Safeguarding Pharmaceutical Supply Chains in a Global Economy - 10/30/2019 | FDA">U.S. Food and Drug Administration</a>)</p>
 <p>The underlying supply-chain vulnerability is documented. Kennedy’s specific statistic requires a production-volume dataset rather than facility-location figures.</p>
-<h4>Xi’s “demon” statement</h4>
-<p>Kennedy quotes Xi’s demon metaphor and the injunction that the demon be exposed, then concludes that Xi wanted the virus spread throughout the world. The official record frames the statement around identifying, containing, and combating the epidemic in cooperation with the WHO. A global-spread intent inference requires additional evidence. (<a href="https://english.www.gov.cn/news/topnews/202001/28/content_WS5e303fe1c6d019625c604202.html" rel="noopener" target="_blank" title="Xi voices full confidence in winning battle against novel coronavirus">State Council of China</a>)</p>
-<h4>Intentional biological attack</h4>
-<p>Kennedy states categorically that the CCP carried out a biological attack. Even the current 2026 ODNI position—much more accusatory concerning U.S.-funded Wuhan research—characterizes the pandemic as resulting from an <strong>unintentional laboratory leak</strong>, while a deliberate-strike conclusion would require additional evidence of intent and authorization. (<a href="https://www.dni.gov/index.php/newsroom/press-releases/press-releases-2026/4166-pr-11-26" rel="noopener" target="_blank" title="Fauci Funded Wuhan Lab Research That Sparked COVID | Office of the Director of National Intelligence">ODNI</a>)</p>
 <h4>Kennedy source verdict</h4>
 <table>
 <thead>
@@ -1901,48 +1887,48 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 </thead>
 <tbody>
 <tr>
-<td>Identity known</td>
-<td>Pass</td>
+<td data-label="Test">Identity known</td>
+<td data-label="Result">Pass</td>
 </tr>
 <tr>
-<td>Ideological position disclosed</td>
-<td>Pass</td>
+<td data-label="Test">Ideological position disclosed</td>
+<td data-label="Result">Pass</td>
 </tr>
 <tr>
-<td>Firsthand access to alleged speech</td>
-<td>Unspecified</td>
+<td data-label="Test">Firsthand access to alleged speech</td>
+<td data-label="Result">Unspecified</td>
 </tr>
 <tr>
-<td>Original document examined</td>
-<td>Open; primary evidence required</td>
+<td data-label="Test">Original document examined</td>
+<td data-label="Result">Open; primary evidence required</td>
 </tr>
 <tr>
-<td>Named witnesses</td>
-<td>Source details pending</td>
+<td data-label="Test">Named witnesses</td>
+<td data-label="Result">Source details pending</td>
 </tr>
 <tr>
-<td>Reproducible authentication</td>
-<td>Unspecified</td>
+<td data-label="Test">Reproducible authentication</td>
+<td data-label="Result">Unspecified</td>
 </tr>
 <tr>
-<td>Independent corroboration</td>
-<td>Unspecified</td>
+<td data-label="Test">Independent corroboration</td>
+<td data-label="Result">Unspecified</td>
 </tr>
 <tr>
-<td>Multiple factual attribution errors</td>
-<td>Yes</td>
+<td data-label="Test">Multiple factual attribution errors</td>
+<td data-label="Result">Yes</td>
 </tr>
 <tr>
-<td>Reliance on a downstream intermediary</td>
-<td>Explicit</td>
+<td data-label="Test">Reliance on a downstream intermediary</td>
+<td data-label="Result">Explicit</td>
 </tr>
 <tr>
-<td>Suitable as proof of the speech</td>
-<td>Unspecified</td>
+<td data-label="Test">Suitable as proof of the speech</td>
+<td data-label="Result">Unspecified</td>
 </tr>
 <tr>
-<td>Suitable as evidence of how the narrative spread</td>
-<td>Yes</td>
+<td data-label="Test">Suitable as evidence of how the narrative spread</td>
+<td data-label="Result">Yes</td>
 </tr>
 </tbody>
 </table>
@@ -1960,54 +1946,54 @@ COVID, Event 201, Big Pharma and WEF added as retrospective confirmation
 </thead>
 <tbody>
 <tr>
-<td>Position in information chain</td>
-<td>Upstream conceptual source</td>
-<td>Downstream amplifier</td>
+<td data-label="Question">Position in information chain</td>
+<td data-label="He Xin">Upstream conceptual source</td>
+<td data-label="Brian Kennedy">Downstream amplifier</td>
 </tr>
 <tr>
-<td>Relevant date</td>
-<td>Public argument by 2002</td>
-<td>Major presentation in 2023</td>
+<td data-label="Question">Relevant date</td>
+<td data-label="He Xin">Public argument by 2002</td>
+<td data-label="Brian Kennedy">Major presentation in 2023</td>
 </tr>
 <tr>
-<td>Firsthand witness to alleged Chi speech</td>
-<td>Record gap</td>
-<td>Unspecified</td>
+<td data-label="Question">Firsthand witness to alleged Chi speech</td>
+<td data-label="He Xin">Record gap</td>
+<td data-label="Brian Kennedy">Unspecified</td>
 </tr>
 <tr>
-<td>Directly cited by disputed article</td>
-<td>Yes</td>
-<td>Unspecified</td>
+<td data-label="Question">Directly cited by disputed article</td>
+<td data-label="He Xin">Yes</td>
+<td data-label="Brian Kennedy">Unspecified</td>
 </tr>
 <tr>
-<td>Explicit dependence on intermediary</td>
-<td>Public secondary claims</td>
-<td>J. R. Nyquist</td>
+<td data-label="Question">Explicit dependence on intermediary</td>
+<td data-label="He Xin">Public secondary claims</td>
+<td data-label="Brian Kennedy">J. R. Nyquist</td>
 </tr>
 <tr>
-<td>Adds original material</td>
-<td>20/80, biological/population-control narrative</td>
-<td>COVID, Big Pharma, Event 201, WEF synthesis</td>
+<td data-label="Question">Adds original material</td>
+<td data-label="He Xin">20/80, biological/population-control narrative</td>
+<td data-label="Brian Kennedy">COVID, Big Pharma, Event 201, WEF synthesis</td>
 </tr>
 <tr>
-<td>Independent corroborator</td>
-<td>Unspecified</td>
-<td>Unspecified</td>
+<td data-label="Question">Independent corroborator</td>
+<td data-label="He Xin">Unspecified</td>
+<td data-label="Brian Kennedy">Unspecified</td>
 </tr>
 <tr>
-<td>Potential authorship relevance</td>
-<td>Material and open</td>
-<td>Very low</td>
+<td data-label="Question">Potential authorship relevance</td>
+<td data-label="He Xin">Material and open</td>
+<td data-label="Brian Kennedy">Very low</td>
 </tr>
 <tr>
-<td>Provenance relevance</td>
-<td>High</td>
-<td>High as transmission history</td>
+<td data-label="Question">Provenance relevance</td>
+<td data-label="He Xin">High</td>
+<td data-label="Brian Kennedy">High as transmission history</td>
 </tr>
 <tr>
-<td>Evidentiary reliability for underlying plot</td>
-<td>Authentication pending</td>
-<td>Weak</td>
+<td data-label="Question">Evidentiary reliability for underlying plot</td>
+<td data-label="He Xin">Authentication pending</td>
+<td data-label="Brian Kennedy">Weak</td>
 </tr>
 </tbody>
 </table>
@@ -2071,7 +2057,6 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <p>This source structure leaves fabrication, good-faith belief, editorial reuse, and operational knowledge as separate hypotheses. Both figures should therefore be treated as <strong>subjects of source validation</strong>; repetition carries the evidentiary weight of the inherited source chain.</p>
 </div>
 </section>
- END GENERATED MAIN SECTIONS 
 <section class="section" id="interests-conflicts">
 <div class="section-header">
 <span class="section-num">05</span>
@@ -2090,10 +2075,35 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <div class="interest-principle"><span>Type II</span><h3>Interest alignment</h3><p>Actors may independently benefit from the same interpretation—for example, a Chinese threat narrative, an anti-Masonic thesis, or institutional relevance. Coordination requires communications, joint planning, funding links, or comparable records.</p></div>
 <div class="interest-principle"><span>Type III</span><h3>Epistemic dependence</h3><p>Later actors rely on an earlier source while presenting surrounding events as confirmation. This is the strongest demonstrated risk in the present chain.</p></div>
 </div>
+<div class="research-note" id="three-accused-actor-models">
+<span class="note-label">Accusatory map: three suspects, three evidentiary models</span>
+<p>The same narrative family can be read through three different suspect structures. They should not be collapsed, because each assigns agency differently and requires a different evidentiary test.</p>
+<div class="suspect-framework">
+<article class="suspect-card">
+<span class="suspect-id">Model W · West (Freemasonry and Western finance)</span>
+<h3>Western corporate-financial and ideological actors</h3>
+<p><strong>Accused by He Xin and Kennedy through partly overlapping vocabularies.</strong> He Xin’s public corpus points especially to <strong>Freemasonry and Western financial elites</strong>, including Rockefeller- and CIA-associated interests, together with vaccines, artificial viruses, and the alleged <strong>1995 San Francisco conference</strong> as parts of a depopulation structure. Kennedy’s Hillsdale presentation directs suspicion toward <strong>Big Pharma</strong>, Event 201, WEF/globalist networks, and the pharmaceutical ownership and influence environment associated with the “Big Three” asset managers—BlackRock, Vanguard, and State Street. Their common focus on Western financial concentration and concealed transnational influence is a substantive narrative overlap; it remains an overlap in allegations rather than proof of a shared source, coordinated front, or underlying conspiracy.</p>
+<p><strong>SF notation:</strong> “SF” is ordinary shorthand for San Francisco and can also mean “Special Forces” in military usage. That overlap may be recorded as a mnemonic or coding hypothesis, but it is not evidence that the alleged conference was a special-forces meeting.</p>
+</article>
+<article class="suspect-card">
+<span class="suspect-id">Model C · CCP/PLA</span>
+<h3>Chinese Communist Party and People’s Liberation Army actors</h3>
+<p><strong>Accused by Western commentators, including Kennedy.</strong> In this model, the alleged Chi speech, <em>Unrestricted Warfare</em>, PLA-linked biological and genetic-warfare discussions, COVID-era events, and supply-chain dependence are assembled as evidence of CCP/PLA intent, preparation, or execution.</p>
+<p>The model’s decisive tests are provenance for the alleged speech and independent command, laboratory, intelligence, procurement, communications, and operational records.</p>
+</article>
+<article class="suspect-card combined">
+<span class="suspect-id">Model W+C · Both</span>
+<h3>Combined, co-opted, or mutually enabling actors</h3>
+<p><strong>Accused most clearly within Kennedy’s synthesis.</strong> Kennedy does not confine responsibility to one side. He asks whether China, if preparing for biological warfare, would seek to <strong>co-opt Big Pharma</strong>, while also describing Western government agencies, pharmaceutical firms, media influence, Event 201, and globalist institutions as compromised or enabling environments.</p>
+<p>This creates several distinct combined hypotheses—intentional collaboration, Chinese co-option of Western institutions, Western capture of government, parallel profit and strategic incentives, or mutual exploitation. The lecture does not by itself distinguish among them.</p>
+</article>
+</div>
+<p class="source-note"><strong>Analytic rule:</strong> evidence supporting one model does not automatically prove either of the others. A shared vocabulary, common adversary, or overlapping institutional interest can establish alignment or transmission without establishing a joint command structure.</p>
+</div>
 <div class="actor-phase"><span>Group A</span><strong>Origin, attribution, first publication, and pre-2005 PRC/PLA context</strong></div>
 <div class="research-note">
 <span class="note-label">Three evidentiary layers inside Group A</span>
-<p>This group now separates <strong>provenance actors</strong> who could identify the document’s origin, <strong>upstream public military discourse</strong> from which a compiler could draw concepts, and the <strong>official PRC arms-control record</strong> against which any claim of state policy must be tested. Conceptual precedence identifies available vocabulary and architecture; authorship, adoption, and implementation require separate evidence.</p>
+<p>This group separates <strong>provenance actors</strong> who could identify the document’s origin from <strong>upstream public military discourse</strong> from which a compiler could draw concepts. Conceptual precedence identifies available vocabulary and architecture; authorship, adoption, and implementation require separate evidence.</p>
 </div>
 <div class="actor-grid">
 <article class="actor-card high-priority">
@@ -2144,19 +2154,10 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <article class="actor-card high-priority">
 <header><div><h3><em>PLA Daily</em> and the China Defense Science and Technology Information Center</h3><span class="actor-role">2001-2004 public gene-weapons discourse</span></div><span class="status-pill verified">Earlier military-publication vocabulary</span></header>
 <dl>
-<div><dt>Documented position</dt><dd>Archived reproductions identifying <em>PLA Daily</em> as the source show that, by January 2001, <a href="https://mil.news.sina.com.cn/2001-01-06/10929.html" rel="noopener" target="_blank">military-technology commentary</a> classified gene weapons as “new-concept biochemical weapons,” while a <a href="https://mil.news.sina.com.cn/2001-01-10/11163.html" rel="noopener" target="_blank">China Defense Science and Technology Information Center article</a> discussed selective attacks on a particular genetic population and described concealment, low cost, and strategic deterrent effects. A <a href="https://mil.news.sina.com.cn/2004-02-10/0902181327.html" rel="noopener" target="_blank">February 2004 <em>PLA Daily</em> article</a> again discussed selective genetic weapons while also emphasizing uncertainty, genetic overlap, technical limits, and risks to humanity.</dd></div>
-<div><dt>Plausible interests</dt><dd>Military-science forecasting, public awareness of emerging technology, institutional relevance, and defensive preparation against technologies attributed to foreign powers.</dd></div>
+<div><dt>Documented position</dt><dd>Archived reproductions identifying <em>PLA Daily</em> as the source show that, by January 2001, <a href="https://mil.news.sina.com.cn/2001-01-06/10929.html" rel="noopener" target="_blank">military-technology commentary</a> classified gene weapons as “new-concept biochemical weapons,” while a <a href="https://mil.news.sina.com.cn/2001-01-10/11163.html" rel="noopener" target="_blank">China Defense Science and Technology Information Center article</a> discussed selective attacks on a particular genetic population and described concealment, low cost, and strategic deterrent effects. A <a href="https://mil.news.sina.com.cn/2004-02-10/0902181327.html" rel="noopener" target="_blank">February 2004 <em>PLA Daily</em> article</a> again discussed selective genetic weapons, prewar or peacetime use, and asymmetric effects.</dd></div>
+<div><dt>Plausible interests</dt><dd>Military-science agenda setting, institutional relevance, normalization of emerging weapon concepts, and influence over future-war vocabulary.</dd></div>
 <div><dt>Bias or conflict risk</dt><dd>Forecasting articles can repeat speculative foreign reporting, compress technical uncertainty, and normalize hypothetical capabilities as future-war vocabulary. A later compiler could borrow this language without possessing classified access or representing official operational policy.</dd></div>
 <div><dt>Assessment</dt><dd class="assessment">This discourse predates He Xin’s 2002-2003 texts and confirms that biological, genetic, ethnic-selectivity, concealment, and asymmetric-effect concepts were already publicly available in a PLA-linked media environment. Identifying the anonymous supplier and establishing the complete U.S.-first-strike and territorial-occupation doctrine require the separate provenance chain.</dd></div>
-</dl>
-</article>
-<article class="actor-card counterparty">
-<header><div><h3>PRC arms-control, criminal-law, and dual-use export-control institutions</h3><span class="actor-role">Contemporaneous official public-policy record</span></div><span class="status-pill counter">Countervailing institutional baseline</span></header>
-<dl>
-<div><dt>Documented position</dt><dd>The <a href="https://www.mfa.gov.cn/ziliao_674904/zt_674979/ywzt_675099/wzzt_675579/2296_675789/200207/t20020705_9288314.shtml" rel="noopener" target="_blank">2000 defense white paper</a> recorded China’s public position of biological-weapons non-possession and support for comprehensive prohibition and destruction. The 2001 criminal-law amendment penalized specified pathogen-related acts, and the <a href="https://dcj.mofcom.gov.cn/article/bi/200301/20030100064367.shtml" rel="noopener" target="_blank">2002 biological dual-use export-control regulation</a> sought to prevent listed materials, equipment, and technologies from being used for biological-weapons purposes.</dd></div>
-<div><dt>Plausible interests</dt><dd>Treaty compliance, nonproliferation, international legitimacy, control of sensitive technology, and protection against biological threats.</dd></div>
-<div><dt>Bias or conflict risk</dt><dd>An official public position records the state’s declared policy and legal architecture. Assessing compartmented activity, internal debate, or violation requires separate insider and operational records. Assigning the anonymous hostile-source text greater evidentiary weight than the official record likewise requires stronger provenance and operational evidence.</dd></div>
-<div><dt>Assessment</dt><dd class="assessment">Any claim that the anonymous speech represented authoritative PRC policy must reconcile the alleged internal doctrine with this contemporaneous public legal and diplomatic record. The contradiction is an evidentiary problem to investigate; both source environments require source-specific testing.</dd></div>
 </dl>
 </article>
 </div>
@@ -2166,10 +2167,10 @@ the resulting interpretation is used to prove both He Xin and the document corre
 <header><div><h3>張原 / 张原 (Zhang Yuan)</h3><span class="actor-role">Named post-2020 successor writer</span></div><span class="status-pill inference">Identity linked; biography partly verified</span></header>
 <dl>
 <div><dt>Documented position</dt><dd>Indexed Zhihu and Sina mirrors attribute the serialized <em>A Complete Record of America’s Decline / Freemasonry Files</em> corpus to Zhang Yuan. A Sina mirror describes him as a macro-development strategy adviser to the Embassy of the Central African Republic in China, a committee expert, and a publishing editor. Claims of service as an officer of several PRC embassies require personnel records or corroborating institutional biographies.</dd></div>
-<div><dt>Profile-level claims</dt><dd>A researcher-supplied Baidu profile states that from June 2020 he identified his faith as Mormon / within the Latter-day Saint movement, and reportedly describes him as a guest professor associated with the Peking University Boya Yuanpei think-tank network. These claims await confirmation from primary institutional records.</dd></div>
+<div><dt>Profile-level claims</dt><dd>A researcher-supplied Baidu profile states that from June 2020 he identified his faith as Mormon / within the Latter-day Saint movement, and reportedly describes him as a guest professor associated with the Peking University Boya Yuanpei think-tank network. A further researcher-supplied age claim places him under forty in 2026, although a primary birth record has not yet been recovered. If that age claim is accurate, he would have been no older than about eighteen when the anonymous text was published on April 23, 2005—and younger if the estimate is lower. These profile claims await confirmation from primary records.</dd></div>
 <div><dt>Plausible interests</dt><dd>Continuation of an anti-Freemasonry and anti-globalist publishing market; intellectual authority through a serialized explanatory system; and audience formation around long-form geopolitical commentary. A claimed affinity with Trump should be demonstrated from Zhang Yuan’s own signed text. Reciprocal Trump-administration alignment requires a separate record of contact, adoption, or coordination.</dd></div>
-<div><dt>Bias or conflict risk</dt><dd>Later ideological continuity can be mistaken for common authorship. Profile claims, advisory titles, religious identity, and rhetorical sympathy carry a different evidentiary function from chain of custody. A post-2020 corpus also creates a severe temporal-eligibility problem for a 2005 authorship theory.</dd></div>
-<div><dt>Assessment</dt><dd class="assessment">Relevant as a later successor and reception node, and suitable for comparative stylometry if the corpus is preserved. A viable 2005 authorship hypothesis requires verified age, pre-2005 writing, and provenance evidence.</dd></div>
+<div><dt>Bias or conflict risk</dt><dd>Later ideological continuity can be mistaken for common authorship. Profile claims, advisory titles, religious identity, rhetorical sympathy, and generational resemblance carry a different evidentiary function from chain of custody. The text was already public by April 23, 2005 and may have been drafted earlier. If the supplied under-forty age claim is accurate, Zhang Yuan's direct authorship is chronologically unlikely.</dd></div>
+<div><dt>Assessment</dt><dd class="assessment">Relevant as a later successor, reception node, and possible comparator for a younger digital-era Chinese prose register. He should not presently be ranked as a likely 2005 author. His corpus can instead help test whether the anonymous text resembles a younger early-web cohort; direct authorship would require the age claim to be corrected or disproved, together with authenticated pre-2005 writing and provenance evidence.</dd></div>
 </dl>
 </article>
 <article class="actor-card">
@@ -2263,18 +2264,25 @@ Zhang Yuan’s post-2020 serialized corpus
         ↓ ?
 Trump administration or official policy use</pre></div>
 </div>
+<div class="research-note" id="anti-masonic-common-front-hypothesis">
+<span class="note-label">Additional hypothesis: cross-ideological anti-Masonic alignment</span>
+<p>Kennedy may function not only as a downstream amplifier of the alleged Chi text but also, whether intentionally or through selective source adoption, as an amplifier of a broader adversary framework that He Xin later developed explicitly. Because He Xin’s later corpus identifies Freemasonry and associated “globalist” networks as hidden organizers of depopulation, biological manipulation, and a “new world order,” Kennedy, CPDC-aligned supporters, parts of the Trump-supporting audience, and later writers such as Zhang Yuan could converge on a common anti-Freemasonry or anti-globalist front even without direct coordination.</p>
+<p>Under this hypothesis, He Xin supplies part of the upstream conceptual vocabulary; Kennedy converts related claims into a policy-facing American threat narrative; and CPDC, Hillsdale, and sympathetic audiences provide channels of validation, support, and circulation. Zhang Yuan’s reported Latter-day Saint identification is relevant only if his own writings connect that identity to anti-Masonic claims. Latter-day Saint affiliation, CPDC support, or Trump support does not by itself establish anti-Freemasonry, and the size of any overlapping constituency remains unmeasured. The hypothesis therefore concerns possible ideological alignment and reciprocal amplification, not a demonstrated organization, shared command, or coordinated briefing network.</p>
+</div>
 <h3 class="audit-heading" data-section="COI">Principal conflict-of-interest findings</h3>
 <div class="interest-findings">
 <div class="interest-finding"><strong>1. The strongest demonstrated conflict is epistemic.</strong><p>Downstream actors have reputational and institutional reasons to accept the document because it validates a pre-existing threat framework. Their repetition increases authority without increasing source independence.</p></div>
 <div class="interest-finding"><strong>2. Citation establishes dependence; coordination requires a separate record.</strong><p>The anonymous article’s repeated praise of He Xin demonstrates that its compiler wanted the audience to accept He Xin as an authority. A claim that Chi personally shared those interests depends on authenticating Chi’s authorship first.</p></div>
 <div class="interest-finding"><strong>3. Party identity and elite-state access require separate coding.</strong><p>Chi’s CCP membership is documented. He Xin’s long CPPCC service and elite access are documented. His CCP membership status remains a personnel-record question requiring an authoritative party biography, membership record, or direct confirmation; the current analysis therefore treats party membership and elite-state access as separate variables.</p></div>
 <div class="interest-finding"><strong>4. Later books demonstrate development within the same narrative lineage.</strong><p>He Xin’s 2010–2018 anti-Masonic volumes deepen the same narrative family. They may show continued conviction or commercial and intellectual investment. Their relationship to the 2005 text remains genealogical unless a separate provenance link emerges.</p></div>
-<div class="interest-finding"><strong>5. Zhang Yuan is a documented later successor; a 2005 authorship claim requires temporal and provenance evidence.</strong><p>Public mirrors establish a named post-2020 corpus in the same broad anti-Freemasonry genre. A signed book or authenticated photograph could support personal contact with He Xin. Mentorship, coauthorship, a 2005 role, or an institutional bridge to Trump each require additional records.</p></div>
+<div class="interest-finding"><strong>5. Zhang Yuan is better treated as a later generational comparator than as the 2005 author.</strong><p>Public mirrors establish a named post-2020 corpus in the same broad anti-Freemasonry genre. The anonymous text was published by April 23, 2005 and may have been written earlier. If the researcher-supplied claim that Zhang Yuan is under forty in 2026 is accurate, he was no older than about eighteen at publication, making direct authorship unlikely. His later prose remains useful for testing whether the target reflects a younger digital-era register. A signed book or authenticated photograph could support personal contact with He Xin, but mentorship, coauthorship, transmission, or an institutional bridge each require separate records.</p></div>
 <div class="interest-finding"><strong>6. The alleged Freemason opposition remains a testable hypothesis.</strong><p>He Xin and the anonymous text position themselves against an alleged depopulation conspiracy. Mapping a real two-sided conflict requires primary evidence of a unified plan, identifiable decision-makers, and coordinated implementation.</p></div>
+<div class="interest-finding"><strong>7. A common anti-Masonic front could arise through alignment rather than command.</strong><p>He Xin as an upstream source, Kennedy as an American amplifier, CPDC-linked supporters, parts of the Trump-supporting audience, Zhang Yuan, and some religiously anti-Masonic constituencies could reinforce the same adversary narrative without belonging to one organization. Direct writings and audience or organizational evidence are needed to establish who actually shares that position and at what scale.</p></div>
+<div class="interest-finding"><strong>8. The source chain contains three accused-actor models.</strong><p>He Xin principally accuses the West—especially Freemasonry and Western financial elites—while Western commentators principally accuse the CCP/PLA. Kennedy’s synthesis accuses the CCP/PLA while also implicating Big Pharma, the Big Three, and Western institutional networks, thereby creating a third combined or co-option model. The financial-industry and hidden-network overlap between He Xin and Kennedy is analytically notable but remains a similarity of allegation, not proof of common sourcing or responsibility.</p></div>
 </div>
 <div class="answer-box">
 <span class="answer-label">Evidence required to upgrade the analysis</span>
-<p>Preserve the full Zhang Yuan WeChat album and its metadata; enumerate all mirrored articles and dates; recover any signed He Xin volume or photograph with provenance; verify the LDS statement and Boya Yuanpei title against primary institutional records; establish Zhang Yuan’s age and pre-2005 publication history; and distinguish his own prose from editors, reposts, and transcripts. Separately seek correspondence, contracts, editorial instructions, financial ties, meeting records, or policy memoranda connecting He Xin, the first uploader, Zhang Yuan, Nyquist, Kennedy, CPDC, or government officials. The current record supports a chain of aligned narratives and incentives; a coordinated conflict-of-interest network requires the additional relational evidence listed above.</p>
+<p>Preserve the full Zhang Yuan WeChat album and its metadata; enumerate all mirrored articles and dates; recover any signed He Xin volume or photograph with provenance; verify the LDS statement, Boya Yuanpei title, and supplied under-forty age claim against primary records; and distinguish his own prose from editors, reposts, and transcripts. Unless the age claim is disproved or corrected, use Zhang Yuan principally as a later generational and reception-history comparator rather than as a viable 2005 author. Separately seek correspondence, contracts, editorial instructions, financial ties, meeting records, or policy memoranda connecting He Xin, the first uploader, Zhang Yuan, Nyquist, Kennedy, CPDC, or government officials. The current record supports a chain of aligned narratives and incentives; a coordinated conflict-of-interest network requires the additional relational evidence listed above.</p>
 </div>
 </section>
 <section class="section" id="exploratory-stylometry">
@@ -2282,14 +2290,14 @@ Trump administration or official policy use</pre></div>
 <span class="section-num">06</span>
 <div>
 <h2 class="section-title">Exploratory Stylometry: Zhang Yuan’s WeChat-Album Vector</h2>
-<p class="section-deck">A supplied six-feature profile places Zhang Yuan between early web-blogger prose and formal strategic writing. The exercise is useful for hypothesis generation; the source corpus, extraction records, and temporal eligibility remain open validation tasks.</p>
+<p class="section-deck">A supplied six-feature profile places Zhang Yuan between early web-blogger prose and formal strategic writing. Because the target was public by April 23, 2005, Zhang Yuan is treated primarily as a later generational comparator; the source corpus, extraction records, age claim, and language-background hypotheses remain open validation tasks.</p>
 </div>
 </div>
 <div class="article-body">
 <p>This section evaluates <strong>張原 / 张原 (Zhang Yuan)</strong>, the writer publicly associated with the serialized <em>A Complete Record of America’s Decline / Freemasonry Files</em> stream. Indexed mirrors confirm the author–series association. The cited WeChat page carries album ID <code>2097766933285617665</code>, but direct WeChat retrieval is restricted by platform authentication.</p>
 <div class="method-alert">
 <span>Epistemic status — provisional / reproduction pending</span>
-<p>The numerical values below were supplied for inclusion. A frozen document list, raw texts, tokenizer, extraction output, date controls, and validation report remain to be supplied. The values therefore describe a proposed vector. A 2005 authorship hypothesis for the post-2020 Zhang Yuan corpus additionally requires evidence that the same person was temporally eligible and writing in the relevant period.</p>
+<p>The numerical values below were supplied for inclusion. A frozen document list, raw texts, tokenizer, extraction output, date controls, and validation report remain to be supplied. The values therefore describe a proposed vector. The anonymous text was public by April 23, 2005 and may have been drafted earlier. If the researcher-supplied claim that Zhang Yuan is under forty in 2026 is accurate, he would have been no older than about eighteen at publication; that chronology strongly disfavors direct authorship and makes his corpus more useful as a younger-register comparison point.</p>
 </div>
 <h3 class="audit-heading" data-section="Audience">Audience-fit and speech-register anomalies</h3>
 <div class="method-alert" id="audience-fit-anomaly">
@@ -2303,8 +2311,12 @@ Trump administration or official policy use</pre></div>
 </div>
 <div class="method-card">
 <h3>Sentence length and register do not resemble the authenticated Chi / PLA baseline</h3>
-<p>On the present provisional six-feature screen, the anonymous text averages 14.8 words per sentence, compared with 32.4 for the authenticated Chi / PLA corpus. It also shows far more first-person narration, casual particles, and rhetorical punctuation, and far less official state phrasing. These are not minor stylistic differences: they place the text closer to fast, theatrical early-web commentary than to the tested formal-speech baseline.</p>
+<p>On the present provisional six-feature screen, the anonymous text averages 14.8 segmented words per sentence, compared with 32.4 for the authenticated Chi / PLA corpus and 38.5 for the tested He Xin macro-strategy corpus. The target is therefore roughly 46 percent and 38 percent as long as those two formal native-speaker baselines. It also shows far more first-person narration, casual particles, and rhetorical punctuation, and far less official state phrasing. This comparison concerns the tested corpora; it does not establish a population-wide norm for Chinese native speakers.</p>
 </div>
+</div>
+<div class="method-alert" id="generational-language-background-hypothesis">
+<span>Alternative authorship hypothesis — younger digital writer or Western-dominant Chinese writer</span>
+<p>The compressed cadence, short clause chains, casual particles, rhetorical punctuation, and repeated explanation of matters that an elite insider audience would already know support testing a younger, public-facing early-web writer rather than a senior official. They also justify testing whether the drafter was Chinese or of Chinese heritage but born or raised mainly in the West, with Chinese functioning as a less dominant written language. A writer working in a less dominant language may rely on shorter, lower-risk sentence structures; however, the same surface pattern can result from BBS conventions, translation, editorial compression, oral transcription, or deliberate theatrical pacing. Sentence length alone cannot identify age, birthplace, or language dominance. The hypothesis should be tested through function words, aspect markers, classifiers, collocations, idiom selection, English-influenced calques and word order, punctuation, syntactic depth, and comparison with age- and genre-matched native and heritage corpora.</p>
 </div>
 <div class="answer-box">
 <span class="answer-label">What the anomaly proves—and what it does not</span>
@@ -2323,12 +2335,12 @@ Trump administration or official policy use</pre></div>
 <th>Authenticated Chi /<br/>PLA speeches</th>
 </tr></thead>
 <tbody>
-<tr><td>Mean sentence length</td><td class="target-col">14.8</td><td>16.2</td><td>23.2</td><td>38.5</td><td>32.4</td></tr>
-<tr><td>Type-token ratio</td><td class="target-col">0.48</td><td>0.51</td><td>0.56</td><td>0.68</td><td>0.62</td></tr>
-<tr><td>First-person singular and plural pronouns</td><td class="target-col">4.10</td><td>3.40</td><td>3.50</td><td>0.40</td><td>0.80</td></tr>
-<tr><td>Casual modal particles</td><td class="target-col">2.30</td><td>1.80</td><td>1.30</td><td>0.10</td><td>0.00</td></tr>
-<tr><td>Official state phrasing (e.g., ‘implement and carry out’)</td><td class="target-col">0.40</td><td>1.10</td><td>1.70</td><td>8.20</td><td>12.40</td></tr>
-<tr><td>Exclamation / rhetorical marks</td><td class="target-col">5.20</td><td>4.10</td><td>4.20</td><td>0.50</td><td>0.20</td></tr>
+<tr><td data-label="Stylometric metric">Mean sentence length</td><td class="target-col" data-label="Anonymous 2005 text (target)">14.8</td><td data-label="Cao An Ju Shi / web-blogger corpus">16.2</td><td data-label="Zhang Yuan (WeChat album series)">23.2</td><td data-label="He Xin corpus (macro-strategy)">38.5</td><td data-label="Authenticated Chi / PLA speeches">32.4</td></tr>
+<tr><td data-label="Stylometric metric">Type-token ratio</td><td class="target-col" data-label="Anonymous 2005 text (target)">0.48</td><td data-label="Cao An Ju Shi / web-blogger corpus">0.51</td><td data-label="Zhang Yuan (WeChat album series)">0.56</td><td data-label="He Xin corpus (macro-strategy)">0.68</td><td data-label="Authenticated Chi / PLA speeches">0.62</td></tr>
+<tr><td data-label="Stylometric metric">First-person singular and plural pronouns</td><td class="target-col" data-label="Anonymous 2005 text (target)">4.10</td><td data-label="Cao An Ju Shi / web-blogger corpus">3.40</td><td data-label="Zhang Yuan (WeChat album series)">3.50</td><td data-label="He Xin corpus (macro-strategy)">0.40</td><td data-label="Authenticated Chi / PLA speeches">0.80</td></tr>
+<tr><td data-label="Stylometric metric">Casual modal particles</td><td class="target-col" data-label="Anonymous 2005 text (target)">2.30</td><td data-label="Cao An Ju Shi / web-blogger corpus">1.80</td><td data-label="Zhang Yuan (WeChat album series)">1.30</td><td data-label="He Xin corpus (macro-strategy)">0.10</td><td data-label="Authenticated Chi / PLA speeches">0.00</td></tr>
+<tr><td data-label="Stylometric metric">Official state phrasing (e.g., ‘implement and carry out’)</td><td class="target-col" data-label="Anonymous 2005 text (target)">0.40</td><td data-label="Cao An Ju Shi / web-blogger corpus">1.10</td><td data-label="Zhang Yuan (WeChat album series)">1.70</td><td data-label="He Xin corpus (macro-strategy)">8.20</td><td data-label="Authenticated Chi / PLA speeches">12.40</td></tr>
+<tr><td data-label="Stylometric metric">Exclamation / rhetorical marks</td><td class="target-col" data-label="Anonymous 2005 text (target)">5.20</td><td data-label="Cao An Ju Shi / web-blogger corpus">4.10</td><td data-label="Zhang Yuan (WeChat album series)">4.20</td><td data-label="He Xin corpus (macro-strategy)">0.50</td><td data-label="Authenticated Chi / PLA speeches">0.20</td></tr>
 </tbody>
 </table>
 </div>
@@ -2346,7 +2358,7 @@ Trump administration or official policy use</pre></div>
 <p>Recalculation from the displayed vectors yields values different from the initially supplied ranking. Using the displayed matrix—including type-token ratios of 0.48, 0.51, 0.56, 0.68, and 0.62—the raw Euclidean calculation yields:</p>
 <div class="rank-grid">
 <div class="rank-card"><span class="rank-number">Rank 1</span><h3>Cao An Ju Shi / web-blogger corpus</h3><div class="distance">Raw distance: 2.10</div><p>Closest on this narrow screen: short cadence, frequent first-person framing, informal particles, and rhetorical punctuation approach the target.</p></div>
-<div class="rank-card"><span class="rank-number">Rank 2</span><h3>Zhang Yuan / WeChat album series</h3><div class="distance">Raw distance: 8.64</div><p>Intermediate register: high rhetorical and first-person intensity, but longer and more organized sentences than the 2005 target.</p></div>
+<div class="rank-card"><span class="rank-number">Rank 2</span><h3>Zhang Yuan / WeChat album series</h3><div class="distance">Raw distance: 8.64</div><p>Intermediate register: high rhetorical and first-person intensity, but longer and more organized sentences than the 2005 target. If the supplied under-forty age claim is accurate, this similarity is more useful as a younger-cohort comparison than as evidence of direct authorship.</p></div>
 <div class="rank-card"><span class="rank-number">Rank 3</span><h3>Authenticated Chi / PLA speeches</h3><div class="distance">Raw distance: 22.25</div><p>Distant from the target. Its placement above He Xin reflects this feature selection and raw scale and should be treated as a scale artifact rather than positive authorship evidence for Chi.</p></div>
 <div class="rank-card"><span class="rank-number">Rank 4</span><h3>He Xin corpus</h3><div class="distance">Raw distance: 25.75</div><p>Distant on this six-feature screen despite major thematic overlap. The broader character-level analyses in the case file instead place the He Xin group centroid closest overall among the tested candidate corpora.</p></div>
 </div>
@@ -2368,7 +2380,8 @@ Trump administration or official policy use</pre></div>
 <li>Disclose the tokenizer and extraction code and reproduce every score.</li>
 <li>Standardize features using training-corpus statistics only.</li>
 <li>Use length-matched windows, topic masking, holdout validation, and open-set rejection.</li>
-<li>Verify identity, age, and pre-2005 activity before treating Zhang Yuan as an authorship candidate.</li>
+<li>Verify identity and age; unless the under-forty claim is disproved or corrected, treat Zhang Yuan as a generational comparator rather than a 2005 authorship candidate.</li>
+<li>Add age- and genre-matched native-Chinese, heritage-Chinese, and Western-educated Chinese corpora to test the language-background hypothesis.</li>
 </ul>
 </div>
 </div>
@@ -2403,9 +2416,9 @@ print(ranking.to_string())</code></pre>
 <h3 class="audit-heading" data-section="D">Forensic interpretation</h3>
 <div class="answer-box">
 <span class="answer-label">Bounded takeaway</span>
-<p>Zhang Yuan’s supplied profile occupies a plausible middle register between early BBS polemic and formal strategic prose. That supports a reception-history hypothesis: later Chinese anti-Freemasonry commentary may preserve and modernize the theatrical, personalized style of the broader narrative ecosystem. A claim that Zhang Yuan wrote, edited, transmitted, or influenced the anonymous 2005 text requires temporal and provenance evidence.</p>
+<p>Zhang Yuan’s supplied profile occupies a plausible middle register between early BBS polemic and formal strategic prose. That supports a reception-history and generational-comparator hypothesis: later Chinese anti-Freemasonry commentary may preserve and modernize the theatrical, personalized style of the broader narrative ecosystem. Because the target was public by April 23, 2005, the supplied under-forty age claim—if accurate—makes Zhang Yuan's direct authorship unlikely. The target’s unusually compressed cadence also warrants testing a younger early-web writer or a Chinese or heritage-Chinese writer born or raised mainly in the West, but it does not establish either profile without broader linguistic evidence.</p>
 </div>
-<p><strong>Required next step:</strong> preserve the actual Zhang Yuan corpus and rerun the established full-length, character-level, contamination-controlled workflow. Before any authorship ranking, establish temporal eligibility through verified age, identity, and pre-April-2005 publications. At the present evidentiary stage, Zhang Yuan is classified as a documented later successor node; ranking him as a 2005 author awaits that temporal evidence.</p>
+<p><strong>Required next step:</strong> preserve the actual Zhang Yuan corpus and rerun the established full-length, character-level, contamination-controlled workflow. Verify his identity and age first. Unless the supplied under-forty claim is disproved or corrected, classify him as a documented later successor and younger-register comparator rather than a probable 2005 author. In parallel, build matched native-Chinese, heritage-Chinese, and Western-educated Chinese comparison corpora to determine whether the short cadence reflects age, digital genre, translation, editorial compression, or language dominance.</p>
 </div>
 </section>
 <section class="section" id="findings-agenda">
@@ -2418,8 +2431,10 @@ print(ranking.to_string())</code></pre>
 </div>
 <div class="finding-grid">
 <div class="finding-card" id="opening-logic-finding"><span class="finding-status">Internal logic</span><h3>The opening paragraphs form a sequential ideological program</h3><p>As transmitted, the text defines political “promise” by willingness to shoot protected persons, declares “peace and development” finished, places modernization under the saber, uses a public survey as ideological screening, tests acceptance of mass death abroad, and redefines national rejuvenation as expansion beyond China’s existing territory. Li Dahua’s contemporaneous commentary recognized and denounced this sequence. The sequence is intrinsic to the document even while speaker attribution remains unresolved.</p></div>
-<div class="finding-card" id="audience-register-finding"><span class="finding-status">Authentication anomaly</span><h3>The alleged insider audience and the text’s explanatory style are in tension</h3><p>A top-level insider briefing would normally presume shared knowledge. This text instead defines political identity, rehearses Party history, explains population and expansion premises, and repeatedly directs the audience’s moral interpretation. Combined with its short, theatrical cadence and weak match to the authenticated Chi / PLA register, that pattern supports testing public-facing fabrication, editorial compilation, or deliberate leak-oriented composition.</p></div>
+<div class="finding-card" id="audience-register-finding"><span class="finding-status">Authentication anomaly</span><h3>The alleged insider audience and the text’s explanatory style are in tension</h3><p>A top-level insider briefing would normally presume shared knowledge. This text instead defines political identity, rehearses Party history, explains population and expansion premises, and repeatedly directs the audience’s moral interpretation. Combined with its short, theatrical cadence and weak match to the authenticated Chi / PLA register, that pattern supports testing public-facing fabrication, editorial compilation, deliberate leak-oriented composition, a younger early-web writer, or a Chinese writer whose dominant education and written-language environment were Western.</p></div>
+<div class="finding-card" id="zhang-age-language-finding"><span class="finding-status">Temporal and linguistic inference</span><h3>Zhang Yuan is more useful as a generational reference point than as the 2005 author</h3><p>The anonymous text was published by April 23, 2005 and may have been written earlier. If the supplied claim that Zhang Yuan is under forty in 2026 is accurate, he was no older than about eighteen at publication, making direct authorship unlikely. His later corpus can nevertheless help represent a younger digital-era register. The target’s 14.8-word mean is less than half the length of the tested Chi / PLA and He Xin formal baselines, which supports testing youth, early-web genre, or Western-dominant Chinese writing; it does not by itself establish the author's age, birthplace, or language background.</p></div>
 <div class="finding-card" id="covid-bridge-finding"><span class="finding-status">Reception history</span><h3>COVID later made the May 2019 anchor appear broader than trade</h3><p>The May 2019 source concerned trade conflict. COVID-19 later supplied a non-trade event that Chang, Kennedy, and aligned commentators could treat as retrospective confirmation of multidomain conflict. This explains the citation pattern without turning the later pandemic into proof of the editorial’s original meaning or of the anonymous speech’s authenticity.</p></div>
+<div class="finding-card" id="three-suspect-finding"><span class="finding-status">Attribution architecture</span><h3>The source chain identifies three suspects rather than one</h3><p>The Western-actor model—<strong>the West, with Freemasonry and Western financial elites especially prominent in He Xin’s accusations</strong>—also appears in Kennedy’s focus on Big Pharma, the Big Three, Event 201, WEF/globalist networks, and institutional capture. The CCP/PLA model is advanced by Western critics and Kennedy through the alleged Chi speech and related PLA materials. Kennedy additionally joins the two by raising a co-option or combined-actor model in which Chinese strategy and Western pharmaceutical, financial, governmental, or global-policy institutions interact. The overlap between He Xin’s and Kennedy’s Western financial and hidden-network targets is important to the transmission analysis, but the three models require separate evidence and must not be treated as mutually corroborating merely because they appear in the same narrative.</p></div>
 <div class="finding-card"><span class="finding-status">Provenance</span><h3>Earliest exact source</h3><p>The complete biological-first-strike doctrine is first traceable to the anonymous attachment published with Li Dahua’s Boxun article on April 23, 2005.</p></div>
 <div class="finding-card"><span class="finding-status">Intellectual origin</span><h3>Earlier components and the search for a complete precursor</h3><p>Wang Lixiong, <em>Unrestricted Warfare</em>, 2001-2004 PLA-linked gene-weapons forecasting, He Xin, Wang Xiaodong-type living-space arguments, and post-SARS discourse supplied separable modules before 2005.</p></div>
 <div class="finding-card"><span class="finding-status">Authorship</span><h3>He Xin circle elevated; authorship remains open</h3><p>He Xin is the closest tested overall register and a major upstream source. His 2003 essay independently joins ancient disease-as-weapon analysis, asymmetric warfare, and state-level strategic study, which elevates He Xin and his students, assistants, editors, or followers as priority attribution subjects. Personal authorship remains a provenance question.</p></div>
@@ -2428,16 +2443,16 @@ print(ranking.to_string())</code></pre>
 <div class="answer-box">
 <span class="answer-label">Present answer to the originating question</span>
 <p>
-      The recovered record currently places the first complete version of the proposition on April 23, 2005: China strikes first with biological weapons, minimizes Chinese losses, anticipates U.S. nuclear retaliation, preserves American territory, and occupies it afterward. The complete version is anonymous. Before that date, <em>Unrestricted Warfare</em> had already placed bio-weapons and biochemical warfare inside a cross-domain combination framework, and PLA-linked military-technology articles had already discussed gene weapons, selective genetic targeting, covert delivery, and strategic effects. He Xin’s 2002 and 2003 writings then supplied several more distinctive premises: population elimination through biological or genetic technology, disease used deliberately in warfare, biochemical warfare as an asymmetric strategic problem, and the proposition that the Chinese state should study it at the strategic level. The official PRC record simultaneously stated biological-weapons prohibition and established criminal-law and dual-use export controls. This layered record makes the anonymous text’s specific recombination the principal provenance and authorship problem, while general biological-war vocabulary has lower discriminating value.
+      The recovered record currently places the first complete version of the proposition on April 23, 2005: China strikes first with biological weapons, minimizes Chinese losses, anticipates U.S. nuclear retaliation, preserves American territory, and occupies it afterward. The complete version is anonymous. Before that date, <em>Unrestricted Warfare</em> had already placed bio-weapons and biochemical warfare inside a cross-domain combination framework, and PLA-linked military-technology articles had already discussed gene weapons, selective genetic targeting, covert delivery, and strategic effects. He Xin’s 2002 and 2003 writings then supplied several more distinctive premises: population elimination through biological or genetic technology, disease used deliberately in warfare, biochemical warfare as an asymmetric strategic problem, and the proposition that the Chinese state should study it at the strategic level. This layered record makes the anonymous text’s specific recombination the principal provenance and authorship problem, while general biological-war vocabulary has lower discriminating value.
     </p>
 </div>
 <div class="answer-box" id="covid-retrospective-confirmation-bridge">
 <span class="answer-label">Reception-history finding</span>
 <h3>COVID-19 as the Retrospective Confirmation Bridge</h3>
 <p>The repeated citation of May 2019 becomes intelligible only when the pre-COVID and post-COVID arguments are separated. The May 13, 2019 “people’s war” language arose within an escalating tariff and trade dispute. Gordon G. Chang nevertheless interpreted it almost immediately as rhetoric that converted the United States from a negotiating opponent into an enemy of the Chinese people as a whole. COVID-19 then supplied a later, non-trade event through which that interpretation could be expanded retrospectively.</p>
-<p>After the Wuhan outbreak entered the international public record on December 31, 2019, Xi Jinping employed the same “people’s war” formula for nationwide epidemic control in February 2020. Chang and aligned commentators subsequently placed China’s handling and international spread of COVID-19 alongside the May 2019 slogan, treating the pandemic as confirmation that the confrontation was not confined to tariffs. In later commentary, the May declaration was fused with the concepts of unrestricted warfare and total war, encompassing economic, technological, informational, narcotics, biological, diplomatic, and military domains.</p>
+<p>After the Wuhan outbreak entered the international public record on December 31, 2019, PRC propaganda repurposed the same “people’s war” formula for nationwide domestic mobilization in February 2020. Chang and aligned commentators subsequently placed China’s handling and international spread of COVID-19 alongside the May 2019 slogan, treating the pandemic as confirmation that the confrontation was not confined to tariffs. In later commentary, the May declaration was fused with the concepts of unrestricted warfare and total war, encompassing economic, technological, informational, narcotics, biological, diplomatic, and military domains.</p>
 <p>The evidentiary sequence must therefore remain explicit. COVID-19 did not reveal the original meaning of the May 2019 editorial; it changed how that editorial was subsequently read. The original publication concerned the trade war. The all-domain interpretation was a later retrospective construction in which COVID-19 operated as a confirmation bridge. That construction explains why Chang and other commentators repeatedly return to May 2019, but it does not independently prove that the May editorial announced biological warfare or that the pandemic formed part of a pre-existing operational plan.</p>
-<p class="source-note"><strong>Sources:</strong> <a href="https://opinion.people.com.cn/n1/2019/0513/c1003-31082607.html" rel="noopener" target="_blank">May 13, 2019 trade-war editorial</a> · <a href="https://www.realclearworld.com/articles/2019/05/17/no_longer_a_trade_tiff_china_screams_peoples_war_113023.html" rel="noopener" target="_blank">Chang, May 17, 2019</a> · <a href="https://www.who.int/news/item/29-06-2020-covidtimeline" rel="noopener" target="_blank">WHO chronology</a> · <a href="https://english.www.gov.cn/news/topnews/202002/10/content_WS5e414765c6d04ea953b7b87b.html" rel="noopener" target="_blank">Xi’s February 2020 epidemic usage</a>.</p>
+<p class="source-note"><strong>Sources:</strong> <a href="https://opinion.people.com.cn/n1/2019/0513/c1003-31082607.html" rel="noopener" target="_blank">May 13, 2019 trade-war editorial</a> · <a href="https://www.realclearworld.com/articles/2019/05/17/no_longer_a_trade_tiff_china_screams_peoples_war_113023.html" rel="noopener" target="_blank">Chang, May 17, 2019</a> · <a href="https://www.who.int/news/item/29-06-2020-covidtimeline" rel="noopener" target="_blank">WHO chronology</a>.</p>
 </div>
 <div class="method-alert" id="covid-covert-action-timing-hypothesis">
 <span>Unresolved covert-action and strategic-timing hypothesis — room for inquiry, not a present finding</span>
@@ -2449,7 +2464,7 @@ print(ranking.to_string())</code></pre>
 <article class="resolution-card" id="answer-jq0">
 <span class="resolution-status">JQ-0 · Answered within the public record · necessary distinction established</span>
 <h3>Pre-2005 PLA-linked discourse supplied major components, while the anonymous text first joins them into the complete alleged doctrine</h3>
-<p><em>Unrestricted Warfare</em> publicly supplied a cross-domain combination architecture that expressly included bio-weapons, biological and chemical “new-concept weapons,” and biochemical warfare. PLA-linked military-technology articles in 2001 and 2004 discussed gene weapons, selective genetic targeting, covert delivery, low cost, strategic effects, and technical limitations. The contemporaneous official PRC record stated biological-weapons prohibition and established criminal-law and export-control measures. The first recoverable source in this study that joins a Chinese first strike on the United States, minimized Chinese sacrifice, anticipated retaliation, preserved American territory, and later occupation is still the anonymous April 23, 2005 Boxun attachment.</p>
+<p><em>Unrestricted Warfare</em> publicly supplied a cross-domain combination architecture that expressly included bio-weapons, biological and chemical “new-concept weapons,” and biochemical warfare. PLA-linked military-technology articles in 2001 and 2004 discussed gene weapons, selective genetic targeting, covert delivery, low cost, strategic effects, and technical limitations. The first recoverable source in this study that joins a Chinese first strike on the United States, minimized Chinese sacrifice, anticipated retaliation, preserved American territory, and later occupation is still the anonymous April 23, 2005 Boxun attachment.</p>
 <p class="logic-result"><strong>Why it matters:</strong> widely available biological, genetic, and asymmetric concepts carry limited specificity as authorship fingerprints. The distinctive object requiring provenance analysis is their specific recombination into the alleged Chi speech.</p>
 </article>
 <article class="resolution-card" id="answer-jq1">
@@ -2532,14 +2547,14 @@ print(ranking.to_string())</code></pre>
 <div class="factcheck-kicker">Source-scope audit · reviewed 31 July 2026</div>
 <h3>Fact-check summary placed before the transcript</h3>
 <p>
-    For balance, this appendix first summarizes a researcher-supplied Claude AI fact-check and a second source review against primary, official, or institutional records. The AI review functions as a lead set rather than a source. Each material assertion was separated into four questions: whether the cited object exists, whether Kennedy quoted it accurately, whether the attribution is correct, and what additional evidence the interpretation requires.
+    This appendix first summarizes a researcher-supplied Claude AI fact-check and a second source review against retrievable primary and institutional records. The AI review functions as a lead set rather than a source. Each material assertion was separated into four questions: whether the cited object exists, whether Kennedy quoted it accurately, whether the attribution is correct, and what additional evidence the interpretation requires.
   </p>
 <div aria-label="Fact-check method" class="factcheck-method">
 <div><strong>Existence</strong><span>Does the document, event, statement, or statistic exist?</span></div>
 <div><strong>Quote fidelity</strong><span>Does Kennedy reproduce the underlying wording fairly?</span></div>
 <div><strong>Attribution</strong><span>Is the statement assigned to the correct person or institution?</span></div>
 <div><strong>Inference</strong><span>What additional evidence does the conclusion require?</span></div>
-</div><div class="source-environment-rule"><strong>Source-environment rule</strong><span>Official records establish public positions; advocacy records establish what advocates circulated; institutional self-descriptions establish claimed structure. Hidden intent, coordination, and implementation require insider, archival, financial, or operational evidence.</span></div>
+</div><div class="source-environment-rule"><strong>Source-environment rule</strong><span>Official records establish what an institution publicly claimed, not whether the claim was true; advocacy records establish what advocates circulated; institutional self-descriptions establish claimed structure. Hidden intent, coordination, and implementation require insider, archival, financial, or operational evidence.</span></div>
 <div aria-label="Kennedy lecture fact-check table" class="factcheck-table-wrap" role="region" tabindex="0">
 <table class="factcheck-table">
 <thead>
@@ -2554,9 +2569,9 @@ print(ranking.to_string())</code></pre>
 </tr>
 <tr>
 <td><em>Unrestricted Warfare</em> (1999)</td>
-<td><span class="verdict partial">Document verified; formal doctrinal status open</span></td>
-<td>The book is a verified PLA-officer publication discussing combinations of military and nonmilitary means against a stronger adversary. Its text expressly imagines “information-guided bio-weapons,” identifies new biological and chemical weapons as “new-concept weapons,” lists “biochemical warfare” among military methods, and allows listed methods to be combined across domains. Kennedy uses it as evidence that war with the United States is inevitable and as authoritative PRC master guidance. Evaluating that formal status requires Chinese adoption directives, doctrinal citations, professional military education records, planning documents, or operational implementation. The U.S. Air Force China Aerospace Studies Institute supplies one external interpretation and documents that the subtitle “China’s Master Plan to Destroy America” was added by Western publishers.</td>
-<td><a href="https://www.dodccrp.org/files/Unrestricted_Warfare.pdf" rel="noopener" target="_blank">English text</a>; <a href="https://www.airuniversity.af.edu/CASI/Display/Article/3004313/unrestricted-warfare-is-not-chinas-master-plan/" rel="noopener" target="_blank">USAF CASI analysis</a></td>
+<td><span class="verdict confirmed">Document and biological-war concepts verified</span></td>
+<td>The book is a verified PLA-officer publication discussing combinations of military and nonmilitary means against a stronger adversary. Its text expressly imagines “information-guided bio-weapons,” identifies new biological and chemical weapons as “new-concept weapons,” lists “biochemical warfare” among military methods, and allows listed methods to be combined across domains. It therefore establishes a PLA-authored public conceptual framework in which biological warfare could be integrated with other military and nonmilitary methods. The precise relationship between that publication and later operational planning remains a separate documentary question.</td>
+<td><a href="https://www.dodccrp.org/files/Unrestricted_Warfare.pdf" rel="noopener" target="_blank">English text</a></td>
 </tr>
 <tr>
 <td>May 2019 “people’s war”</td>
@@ -2595,12 +2610,6 @@ print(ranking.to_string())</code></pre>
 <td><a href="https://www.hudson.org/supply-chains/america-too-dependent-drugs-china-worst-case-scenario-could-be-disastrous-rebeccah-heinrichs-michael-sobolik" rel="noopener" target="_blank">Later policy-source attribution to Xinhua</a></td>
 </tr>
 <tr>
-<td>Xi Jinping’s “demon” statement</td>
-<td><span class="verdict scope">Words verified; intent inference requires additional evidence</span></td>
-<td>Xi used the demon metaphor while describing epidemic control and the need to identify, contain, and disclose the outbreak. Kennedy interprets the language as evidence of a desire for worldwide spread. Testing that interpretation requires additional evidence of concealed intent, internal instructions, or conduct linked to that intent beyond the public meeting record.</td>
-<td><a href="https://www.gov.cn/xinwen/2020-01/28/content_5472769.htm" rel="noopener" target="_blank">Chinese government meeting record</a></td>
-</tr>
-<tr>
 <td>CPDC and Albert Bourla</td>
 <td><span class="verdict confirmed">Biographical claims confirmed; causal link requires evidence</span></td>
 <td>Kennedy is publicly identified as CPDC chairman, and the committee dates its activity from March 2019. Pfizer’s biography confirms that Albert Bourla is a Doctor of Veterinary Medicine with a doctorate in reproductive biotechnology. Connecting these biographical facts to Kennedy’s broader biological-attack thesis requires an additional causal and documentary chain.</td>
@@ -2617,7 +2626,7 @@ print(ranking.to_string())</code></pre>
 </div>
 <div class="factcheck-synthesis">
 <strong>Source-scope synthesis</strong>
-<p>The supplied fact-check identifies a recurring source-scope pattern. Kennedy frequently begins with a real object—a PLA-authored book, a trade-war editorial, a pandemic exercise, a genuine forum, a supply-chain vulnerability, or an official quotation—and advances a broader interpretation. The audit neither adopts nor dismisses that broader interpretation. Instead, it specifies the additional evidence each inference would require. The load-bearing alleged Chi speech receives substantial quotation fidelity, while authorship and chain of custody remain pending. The wider concerns about PRC strategy, intellectual-property theft, pharmaceutical dependence, covert influence, and biological capability stand on their own records. The categorical claim of a disclosed and implemented plan to depopulate and occupy the United States depends heavily on authenticating the anonymous document and locating operational corroboration. Official PRC explanations, exile-media interpretations, U.S. policy advocacy, and institutional self-descriptions are all treated as interested source environments subject to the same scrutiny.</p>
+<p>The supplied fact-check identifies a recurring source-scope pattern. Kennedy frequently begins with a real object—a PLA-authored book, a trade-war editorial, a pandemic exercise, a genuine forum, a supply-chain vulnerability, or an official quotation—and advances a broader interpretation. The audit neither adopts nor dismisses that broader interpretation. Instead, it specifies the additional evidence each inference would require. The load-bearing alleged Chi speech receives substantial quotation fidelity, while authorship and chain of custody remain pending. The wider concerns about PRC strategy, intellectual-property theft, pharmaceutical dependence, covert influence, and biological capability stand on their own records. The categorical claim of a disclosed and implemented plan to depopulate and occupy the United States depends heavily on authenticating the anonymous document and locating operational corroboration. PRC propaganda and official narratives, exile-media interpretations, U.S. policy advocacy, and institutional self-descriptions are treated as interested source environments subject to scrutiny.</p>
 </div>
 <p class="factcheck-sources"><strong>Review provenance.</strong> Initial audit: researcher-supplied Claude AI output. Secondary source review conducted for this journal on July 31, 2026. “Confirmed” applies only to the narrow biographical or documentary proposition; the lecture’s larger causal theory requires its own evidentiary chain.</p>
 </div>
@@ -3720,7 +3729,7 @@ print(ranking.to_string())</code></pre>
 <div class="source-group">
 <h3>Source that reports the two dates</h3>
 <ul class="url-list">
-<li><span class="url-label">Indian Defence Review</span><a href="http://www.indiandefencereview.com/spotlights/is-nazi-china-emerging/0/" rel="noopener" target="_blank">http://www.indiandefencereview.com/spotlights/is-nazi-china-emerging/0/</a><br/>This page is cited for the Peacehall and Boxun dates, the two source titles, and the observation that the background of the alleged speeches remained a mystery.</li>
+<li><span class="url-label">Indian Defence Review</span><a href="https://www.indiandefencereview.com/spotlights/is-nazi-china-emerging/0/" rel="noopener" target="_blank">https://www.indiandefencereview.com/spotlights/is-nazi-china-emerging/0/</a><br/>This page is cited for the Peacehall and Boxun dates, the two source titles, and the observation that the background of the alleged speeches remained a mystery.</li>
 </ul>
 </div>
 <div class="source-group">
