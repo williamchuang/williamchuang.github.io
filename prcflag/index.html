@@ -4,11 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Exit Without Opposition — William Chuang · Logarchéon</title>
+<title>The Long Arm of the CCP — William Chuang · Logarchéon</title>
 <meta content="A research program on migration selection, Chinese-American diaspora alignment, cross-system brokerage rents, San Francisco institutional realignment, PRC influence, transnational repression, and foreign-influence law, 1990–2026." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=DM+Mono:wght@300;400;500&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+
 <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 MathJax = {
@@ -17,315 +15,968 @@ MathJax = {
 };
 </script>
 <style>
+/* ═══════════════════════════════════════════════════════════════
+   THE LONG ARM OF THE CCP — Logarchéon Research
+   Design System v2  ·  William Huanshan Chuang
+   Palette: deep navy × archival gold × documentary white
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+
 :root {
-  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
-  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
-  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
-  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
-  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
-  --section-gap:5rem;
-  --measured:#8fc6a8; --reconstructed:#e2c97e; --hypothesis:#9eb9dc; --unknown:#b3a6bd;
+  /* Core palette */
+  --navy:          #0b1929;
+  --navy-deep:     #070f1a;
+  --navy-mid:      #0f2237;
+  --navy-light:    #162d52;
+  --navy-rim:      #1e3a64;
+  --navy-glass:    rgba(11,25,41,0.92);
+
+  /* Gold system — 5 stops */
+  --gold-bright:   #d4a843;
+  --gold:          #c9a84c;
+  --gold-light:    #e2c97e;
+  --gold-dim:      #8a6c2e;
+  --gold-ink:      #6b521f;
+
+  /* Alphas */
+  --gold-pale:     rgba(201,168,76,0.12);
+  --gold-glow:     rgba(201,168,76,0.06);
+  --gold-rim:      rgba(201,168,76,0.22);
+  --gold-border:   rgba(201,168,76,0.30);
+
+  /* Reading surface */
+  --cream:         #f7f3ec;
+  --parchment:     #eee9de;
+  --body-text:     #ddd7cb;
+  --muted:         #bdb5a4;
+  --faint:         #7a7265;
+  --hairline:      rgba(201,168,76,0.15);
+
+  /* Evidence tier colors */
+  --c-measured:    #6dba96;
+  --c-reconstruct: #d4a843;
+  --c-hypothesis:  #7ba8d4;
+  --c-unknown:     #a897b8;
+
+  /* Spacing & rhythm */
+  --section-gap:   5.5rem;
+  --col-width:     68ch;
+  --radius-sm:     3px;
+  --radius-md:     6px;
+  --radius-lg:     10px;
+
+  /* Transitions */
+  --t-fast:        150ms ease;
+  --t-med:         250ms ease;
+  --t-slow:        400ms ease;
 }
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ─── Body & ambient atmosphere ─────────────────────────────── */
 body {
-  font-family:"Libre Baskerville",Georgia,serif;
-  background:var(--navy); color:var(--cream);
-  line-height:1.72; overflow-x:hidden;
+  font-family: "Source Serif 4", "Libre Baskerville", Georgia, serif;
+  background: var(--navy-deep);
+  color: var(--body-text);
+  line-height: 1.78;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "onum" 1, "liga" 1, "kern" 1;
 }
+
+/* Single large ambient vignette — no grid telltale */
 body::before {
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
   background:
-    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
-    radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,0.05) 0%,transparent 55%);
-}
-body::after {
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
-  background-image:
-    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
-  background-size:80px 80px;
-}
-.wrap { position:relative; z-index:1; }
-h1,h2,h3,h4,h5 { font-family:"Cormorant Garamond",Georgia,serif; letter-spacing:-0.01em; font-weight:500; color:var(--cream); line-height:1.2; }
-a { color:var(--gold); text-decoration:none; }
-a:hover { color:var(--gold-light); text-decoration:underline; }
-code { font-family:"DM Mono",monospace; font-size:0.82rem; background:var(--navy-mid); padding:0.1em 0.35em; border-radius:3px; color:var(--cream); }
-strong { color:var(--cream); font-weight:700; }
-em { font-style:italic; }
-.mono { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
-nav.site-nav {
-  position:sticky; top:0; z-index:100;
-  background:rgba(10,22,40,0.96); backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border-dim); padding:0 28px;
-}
-.nav-inner { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:54px; }
-.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.25rem; font-weight:500; color:var(--gold-light); letter-spacing:0.02em; }
-.nav-links { display:flex; gap:1.8rem; list-style:none; }
-.nav-links a { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; white-space:nowrap; }
-.nav-links a:hover,.nav-links a.active { color:var(--gold); text-decoration:none; }
-.container { max-width:1060px; margin:0 auto; padding:0 28px; }
-.page-layout { display:grid; grid-template-columns:210px 1fr; gap:4rem; align-items:start; padding:4rem 28px 6rem; max-width:1060px; margin:0 auto; }
-.toc-sidebar { position:sticky; top:74px; border-left:1px solid var(--border); padding-left:1.4rem; max-height:calc(100vh - 94px); display:flex; flex-direction:column; min-height:0; }
-.toc-label { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; flex:0 0 auto; }
-.toc-list { list-style:none; display:flex; flex-direction:column; gap:0.25rem; flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding-right:0.55rem; padding-bottom:1rem; scrollbar-width:thin; scrollbar-color:var(--gold-dim) rgba(201,168,76,0.08); }
-.toc-list::-webkit-scrollbar { width:6px; }
-.toc-list::-webkit-scrollbar-track { background:rgba(201,168,76,0.06); border-radius:999px; }
-.toc-list::-webkit-scrollbar-thumb { background:rgba(201,168,76,0.45); border-radius:999px; }
-.toc-link { font-family:"DM Mono",monospace; font-size:0.70rem; letter-spacing:0.04em; color:var(--body); padding:0.25rem 0; display:block; border-left:2px solid transparent; margin-left:-1.5rem; padding-left:1.3rem; transition:color .2s,border-color .2s; }
-.toc-link:hover { color:var(--gold); border-color:var(--gold); text-decoration:none; }
-.toc-link.toc-section { color:var(--cream); font-size:0.72rem; }
-.page-hero { border-bottom:1px solid var(--border-dim); padding:3.5rem 0 2.5rem; }
-.page-hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.2rem; display:flex; align-items:center; gap:0.6rem; }
-.page-hero h1 { font-size:clamp(2.2rem,4vw,3.6rem); font-weight:300; max-width:22ch; margin-bottom:1rem; }
-.page-hero h1 em { font-style:italic; color:var(--gold-light); }
-.hero-desc { color:var(--body); font-size:1.05rem; max-width:68ch; line-height:1.78; margin-bottom:1.5rem; }
-.hero-badges { display:flex; gap:0.7rem; flex-wrap:wrap; margin-bottom:0.5rem; }
-.hero-badge { font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border); padding:0.28rem 0.7rem; border-radius:2px; background:var(--gold-pale); }
-.hero-methods { max-width:76ch; margin:1.15rem 0 1.35rem; padding:1rem 1.1rem; background:rgba(14,31,58,0.48); border:1px solid var(--border-dim); border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0; }
-.hero-methods .method-label { display:block; margin-bottom:0.45rem; font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.11em; text-transform:uppercase; color:var(--gold-dim); }
-.hero-methods p { color:var(--muted); font-size:0.86rem; line-height:1.78; margin:0; }
-.page-section { margin-bottom:var(--section-gap); }
-.section-header { display:flex; align-items:baseline; gap:1.2rem; border-bottom:1px solid var(--border-dim); padding-bottom:0.9rem; margin-bottom:2.2rem; }
-.section-num { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); }
-.section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
-.subsection { margin:2rem 0; }
-.subsection h3 { font-size:1.24rem; color:var(--cream); margin-bottom:1rem; border-left:2px solid var(--gold-dim); padding-left:0.85rem; }
-.subsection h4 { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin:1.2rem 0 0.6rem; }
-.prose { color:var(--body); font-size:0.93rem; line-height:1.82; max-width:72ch; }
-.prose p { margin:0 0 1rem; }
-.prose ul,.prose ol { margin:0.7rem 0 1.1rem 1.3rem; }
-.prose li { margin:0.38rem 0; }
-.paper-card { background:rgba(14,31,58,0.7); border:1px solid var(--border-dim); border-radius:4px; padding:1.4rem 1.6rem; margin:1.2rem 0; transition:border-color .2s; }
-.paper-card:hover { border-color:var(--border); }
-.paper-card h3 { font-size:1.18rem; font-weight:500; color:var(--cream); margin:0 0 0.4rem; }
-.paper-meta { font-family:"DM Mono",monospace; font-size:0.64rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.65rem; display:flex; flex-wrap:wrap; gap:0.6rem; }
-.paper-meta span::after { content:" ·"; margin-left:0.3rem; }
-.paper-meta span:last-child::after { content:""; }
-.paper-abstract { color:var(--body); font-size:0.91rem; line-height:1.78; max-width:72ch; }
-.paper-abstract p { margin-bottom:0.65rem; }
-.theory-disclaimer { background:rgba(25,40,80,0.6); border:1px solid var(--border-dim); border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0; padding:0.95rem 1.2rem; margin:0 0 1.5rem; font-size:0.88rem; color:var(--muted); font-style:italic; }
-.callout { background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(14,31,58,.72)); border:1px solid var(--border); padding:1.25rem 1.4rem; margin:1.4rem 0; border-radius:4px; }
-.callout .kicker { display:block; font-family:"DM Mono",monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.45rem; }
-.callout .statement { font-family:"Cormorant Garamond",serif; font-size:1.35rem; line-height:1.42; color:var(--cream); }
-.status-legend { display:grid; grid-template-columns:repeat(4,1fr); gap:.6rem; margin:1.2rem 0 0; }
-.status-item { background:rgba(14,31,58,.64); border:1px solid var(--border-dim); border-radius:3px; padding:.65rem .75rem; color:var(--muted); font-size:.74rem; line-height:1.5; }
-.chip { display:inline-block; font-family:"DM Mono",monospace; font-size:.60rem; letter-spacing:.08em; text-transform:uppercase; border:1px solid currentColor; border-radius:2px; padding:.12rem .35rem; margin-right:.35rem; vertical-align:.08em; }
-.chip.m { color:var(--measured); } .chip.r { color:var(--reconstructed); } .chip.h { color:var(--hypothesis); } .chip.u { color:var(--unknown); }
-.metric-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin:1.3rem 0; }
-.metric { background:rgba(14,31,58,.72); border:1px solid var(--border-dim); border-top:2px solid var(--gold-dim); border-radius:3px; padding:1rem; }
-.metric .number { font-family:"Cormorant Garamond",serif; font-size:2rem; color:var(--gold-light); line-height:1; margin-bottom:.35rem; }
-.metric .label { font-family:"DM Mono",monospace; text-transform:uppercase; letter-spacing:.07em; font-size:.61rem; color:var(--faint); margin-bottom:.35rem; }
-.metric p { font-size:.76rem; color:var(--muted); line-height:1.55; }
-.data-table-wrap { overflow-x:auto; margin:1.1rem 0 1.6rem; border:1px solid var(--border-dim); border-radius:4px; }
-table.data-table { width:100%; border-collapse:collapse; min-width:700px; background:rgba(14,31,58,.46); }
-.data-table th { font-family:"DM Mono",monospace; font-size:.62rem; letter-spacing:.07em; text-transform:uppercase; color:var(--gold); text-align:left; padding:.72rem .75rem; border-bottom:1px solid var(--border); background:rgba(14,31,58,.82); }
-.data-table td { padding:.78rem .75rem; border-bottom:1px solid var(--border-dim); color:var(--body); font-size:.78rem; line-height:1.62; vertical-align:top; }
-.data-table tr:last-child td { border-bottom:none; }
-.data-table .num { font-family:"DM Mono",monospace; color:var(--gold-light); white-space:nowrap; }
-.chart-card { background:rgba(14,31,58,.68); border:1px solid var(--border-dim); border-radius:4px; padding:1rem 1rem .8rem; margin:1.4rem 0; }
-.chart-title { font-family:"Cormorant Garamond",serif; font-size:1.15rem; color:var(--cream); margin-bottom:.2rem; }
-.chart-note { color:var(--faint); font-size:.70rem; margin-bottom:.8rem; }
-.chart-card svg { width:100%; height:auto; display:block; }
-.chart-axis { stroke:rgba(201,168,76,.28); stroke-width:1; }
-.chart-grid { stroke:rgba(201,168,76,.10); stroke-width:1; }
-.chart-line { fill:none; stroke:#e2c97e; stroke-width:3; }
-.chart-dot { fill:#0a1628; stroke:#e2c97e; stroke-width:3; }
-.chart-label { fill:#c8c0b0; font-family:"DM Mono",monospace; font-size:12px; }
-.chart-value { fill:#f5f0e8; font-family:"DM Mono",monospace; font-size:13px; font-weight:500; }
-.peak-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin:1.2rem 0; }
-.peak { padding:1rem; border:1px solid var(--border-dim); background:rgba(14,31,58,.58); border-radius:3px; }
-.peak .when { font-family:"Cormorant Garamond",serif; color:var(--gold-light); font-size:1.35rem; }
-.peak .what { font-family:"DM Mono",monospace; color:var(--cream); text-transform:uppercase; letter-spacing:.06em; font-size:.61rem; margin:.35rem 0; }
-.peak p { color:var(--muted); font-size:.76rem; line-height:1.58; }
-.mechanism-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.8rem; margin:1.2rem 0; }
-.mech { border:1px solid var(--border-dim); background:rgba(14,31,58,.62); border-radius:4px; padding:1rem 1.1rem; }
-.mech .mnum { font-family:"DM Mono",monospace; color:var(--gold-dim); font-size:.61rem; letter-spacing:.1em; }
-.mech h4 { font-family:"Cormorant Garamond",serif; color:var(--cream); font-size:1.08rem; margin:.2rem 0 .45rem; }
-.mech p { color:var(--muted); font-size:.77rem; line-height:1.62; }
-.formula-box { margin:1.2rem 0; padding:1rem 1.2rem; border:1px solid var(--border); background:rgba(10,22,40,.62); text-align:center; overflow-x:auto; color:var(--cream); }
-.goldilocks { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin:1rem 0 1.5rem; }
-.goldilocks .state { text-align:center; padding:.9rem .7rem; background:rgba(14,31,58,.6); border:1px solid var(--border-dim); color:var(--muted); font-size:.75rem; }
-.goldilocks .state strong { display:block; color:var(--gold-light); font-family:"Cormorant Garamond",serif; font-size:1.05rem; margin-bottom:.2rem; }
-.hypothesis { border-left:2px solid var(--hypothesis); padding:.85rem 1rem; margin:.85rem 0; background:rgba(22,45,82,.38); }
-.hypothesis .h-label { font-family:"DM Mono",monospace; color:var(--hypothesis); font-size:.62rem; text-transform:uppercase; letter-spacing:.08em; }
-.hypothesis h4 { font-family:"Cormorant Garamond",serif; font-size:1.08rem; margin:.15rem 0 .35rem; color:var(--cream); }
-.hypothesis p { color:var(--muted); font-size:.79rem; line-height:1.63; }
-.timeline { margin:1.2rem 0; border-left:1px solid var(--border); }
-.timeline-item { position:relative; padding:0 0 1.15rem 1.25rem; }
-.timeline-item::before { content:""; position:absolute; left:-5px; top:.48rem; width:9px; height:9px; border-radius:50%; background:var(--navy); border:2px solid var(--gold-dim); }
-.timeline-item .date { font-family:"DM Mono",monospace; font-size:.62rem; letter-spacing:.07em; text-transform:uppercase; color:var(--gold); }
-.timeline-item h4 { font-size:1rem; margin:.1rem 0 .25rem; }
-.timeline-item p { color:var(--muted); font-size:.77rem; line-height:1.6; }
-.matrix { display:grid; grid-template-columns:155px 1fr 1fr; border:1px solid var(--border-dim); margin:1.2rem 0; }
-.matrix > div { padding:.85rem; border-right:1px solid var(--border-dim); border-bottom:1px solid var(--border-dim); color:var(--body); font-size:.76rem; line-height:1.58; }
-.matrix > div:nth-child(3n) { border-right:none; }
-.matrix > div:nth-last-child(-n+3) { border-bottom:none; }
-.matrix .head { background:rgba(14,31,58,.88); font-family:"DM Mono",monospace; font-size:.60rem; text-transform:uppercase; letter-spacing:.06em; color:var(--gold); }
-.matrix .rowhead { background:rgba(14,31,58,.68); font-family:"DM Mono",monospace; font-size:.60rem; text-transform:uppercase; letter-spacing:.05em; color:var(--gold-light); }
-.ref-list { list-style:none; display:grid; gap:.7rem; counter-reset:refs; }
-.ref-list li { counter-increment:refs; color:var(--body); font-size:.78rem; line-height:1.6; padding-left:2rem; position:relative; }
-.ref-list li::before { content:"[" counter(refs) "]"; position:absolute; left:0; top:0; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:.65rem; }
-.ref-list li a { color:var(--gold); overflow-wrap:anywhere; }
-.source-note { font-family:"DM Mono",monospace; color:var(--faint); font-size:.61rem; line-height:1.55; margin-top:.35rem; }
-.link-btn { display:inline-flex; align-items:center; gap:.5rem; background:var(--gold-pale); border:1px solid var(--border); color:var(--cream); padding:.35rem .85rem; border-radius:3px; font-family:"DM Mono",monospace; font-size:.68rem; letter-spacing:.05em; transition:background .2s,border-color .2s; text-decoration:none; }
-.link-btn:hover { background:rgba(201,168,76,.22); border-color:var(--gold); color:var(--cream); text-decoration:none; }
-.link-btn .lbl { font-size:.6rem; letter-spacing:.12em; color:var(--gold); border:1px solid var(--gold-dim); padding:.08rem .25rem; border-radius:2px; margin-right:.1rem; }
-.paper-links { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem; }
-footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:.72rem; letter-spacing:.06em; color:var(--faint); text-align:center; }
-@media(max-width:860px) {
-  .page-layout { grid-template-columns:1fr; gap:2rem; padding:2rem 20px 4rem; }
-  .toc-sidebar { display:none; }
-  .metric-grid,.peak-grid,.mechanism-grid,.status-legend,.goldilocks { grid-template-columns:1fr; }
-  .nav-links { gap:.85rem; overflow-x:auto; max-width:72vw; padding:.3rem 0; }
-  .nav-inner { gap:1rem; }
-  .matrix { grid-template-columns:110px 1fr 1fr; }
-}
-@media(max-width:590px) {
-  nav.site-nav { padding:0 16px; }
-  .container { padding:0 20px; }
-  .nav-links a { font-size:.64rem; }
-  .page-hero { padding-top:2.4rem; }
-  .matrix { grid-template-columns:1fr; }
-  .matrix > div { border-right:none; }
-  .matrix .head:first-child { display:none; }
-  .matrix > div:nth-last-child(-n+3) { border-bottom:1px solid var(--border-dim); }
-  .matrix > div:last-child { border-bottom:none; }
+    radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(201,168,76,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 1000px at 85% 30%, rgba(30,58,100,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
 }
 
-/* Scholarly citations and legal-risk architecture */
-.cite-ref { font-family: "DM Mono", monospace; font-size: .68em; font-weight: 500; vertical-align: super; line-height: 0; margin-left: .16rem; white-space: nowrap; }
-.cite-ref a { color: var(--gold, #c9a84c); text-decoration: none; }
-.cite-ref a:hover { text-decoration: underline; }
-.ref-list > li { scroll-margin-top: 92px; }
-.legal-note { border-left: 3px solid var(--gold, #c9a84c); padding: 1rem 1.15rem; margin: 1.25rem 0; background: rgba(201,168,76,.055); }
-.legal-note strong { color: var(--navy, #0a1628); }
-.legal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:1.2rem 0; }
-.legal-card { border:1px solid rgba(10,22,40,.16); padding:1rem 1.05rem; background:rgba(255,255,255,.5); }
-.legal-card .label { font-family:"DM Mono",monospace; text-transform:uppercase; letter-spacing:.08em; font-size:.72rem; color:#7a642e; margin-bottom:.45rem; }
-.legal-card p { margin:.35rem 0 0; }
+.wrap { position: relative; z-index: 1; }
 
-@media (max-width: 780px){ .legal-grid{grid-template-columns:1fr;} }
-
-/* Cross-browser responsive hardening */
-html, body { max-width:100%; }
-.wrap, .container, .page-layout, .page-layout > main, .page-section,
-.subsection, .prose, .paper-card, .paper-abstract, .callout,
-.theory-disclaimer, .chart-card, .timeline, .legal-grid, .legal-card {
-  min-width:0;
-  max-width:100%;
+/* ─── Type scale ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
-.page-layout > main { width:100%; }
 
-/* Wrap normal text aggressively enough to survive narrow screens and long URLs. */
-p, li, dd, dt, blockquote, .hero-desc, .hero-methods p, .statement,
-.paper-abstract, .theory-disclaimer, .status-item, .metric, .peak, .mech,
-.hypothesis, .timeline-item, .matrix > div, .legal-card, .source-note,
-.ref-list li, th, td {
-  overflow-wrap:anywhere;
-  word-break:normal;
-  hyphens:auto;
+/* ─── Links ──────────────────────────────────────────────────── */
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--t-fast);
 }
-a { overflow-wrap:anywhere; word-break:break-word; }
+a:hover { color: var(--gold-light); text-decoration: none; }
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Inline elements ────────────────────────────────────────── */
 code {
-  max-width:100%;
-  white-space:normal;
-  overflow-wrap:anywhere;
-  word-break:break-word;
+  font-family: "DM Mono", "Fira Mono", monospace;
+  font-size: 0.80rem;
+  background: rgba(30,58,100,0.6);
+  padding: 0.12em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--hairline);
+}
+strong { color: var(--cream); font-weight: 700; }
+em { font-style: italic; color: var(--body-text); }
+
+.mono {
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
-/* Media must never exceed the available content width. */
-img, picture, svg, video, canvas, iframe {
-  max-width:100%;
-  height:auto;
+/* ─── Navigation ─────────────────────────────────────────────── */
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy-glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid var(--hairline);
 }
-iframe { width:100%; border:0; }
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 2rem;
+}
+.nav-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  transition: color var(--t-fast);
+}
+.nav-logo:hover { color: var(--gold-bright); }
 
-/* Wide semantic content scrolls locally instead of widening the document. */
-.data-table-wrap,
-.formula-box {
-  width:100%;
-  max-width:100%;
-  overflow-x:auto;
-  overflow-y:hidden;
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior-inline:contain;
-  scrollbar-width:thin;
-  scrollbar-color:var(--gold-dim) rgba(201,168,76,.08);
-}
-.data-table-wrap::-webkit-scrollbar,
-.formula-box::-webkit-scrollbar,
-.nav-links::-webkit-scrollbar { height:7px; }
-.data-table-wrap::-webkit-scrollbar-track,
-.formula-box::-webkit-scrollbar-track,
-.nav-links::-webkit-scrollbar-track { background:rgba(201,168,76,.06); }
-.data-table-wrap::-webkit-scrollbar-thumb,
-.formula-box::-webkit-scrollbar-thumb,
-.nav-links::-webkit-scrollbar-thumb {
-  background:rgba(201,168,76,.42);
-  border-radius:999px;
-}
-.data-table { max-width:none; }
-.data-table th, .data-table td { min-width:0; }
-
-/* MathJax display equations receive their own horizontal viewport when needed. */
-mjx-container { max-width:100%; }
-mjx-container[display="true"] {
-  display:block;
-  max-width:100%;
-  overflow-x:auto;
-  overflow-y:hidden;
-  -webkit-overflow-scrolling:touch;
-  padding-bottom:.15rem;
-}
-
-/* Header/nav remains usable on small devices without forcing page-level overflow. */
-.nav-inner { width:100%; min-width:0; }
-.nav-logo { flex:0 0 auto; white-space:nowrap; }
 .nav-links {
-  min-width:0;
-  scrollbar-width:thin;
-  scrollbar-color:var(--gold-dim) rgba(201,168,76,.08);
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior-inline:contain;
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+  text-decoration: none;
 }
 
-/* Headings and inline citation clusters may wrap rather than push the viewport. */
-.section-header { min-width:0; }
-.section-title, .subsection h3, .subsection h4, .paper-card h3,
-.callout .statement, .page-hero h1 { overflow-wrap:anywhere; }
-.cite-ref { white-space:normal; overflow-wrap:normal; }
+/* ─── Layout ─────────────────────────────────────────────────── */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
 
+.page-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4.5rem;
+  align-items: start;
+  padding: 4rem 32px 7rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ─── TOC sidebar ────────────────────────────────────────────── */
+.toc-sidebar {
+  position: sticky;
+  top: 76px;
+  border-left: 2px solid var(--hairline);
+  padding-left: 1.2rem;
+  max-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  transition: border-color var(--t-med);
+}
+.toc-sidebar:hover { border-left-color: var(--gold-rim); }
+
+.toc-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 0.9rem;
+  flex-shrink: 0;
+}
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.4rem;
+  padding-bottom: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dim) transparent;
+}
+.toc-link {
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  padding: 0.28rem 0 0.28rem 0.9rem;
+  display: block;
+  border-left: 2px solid transparent;
+  margin-left: -1.2rem;
+  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-link:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: var(--gold-glow);
+  text-decoration: none;
+}
+.toc-link.toc-section {
+  color: var(--body-text);
+  font-size: 0.69rem;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+.page-hero {
+  border-bottom: 1px solid var(--hairline);
+  padding: 4rem 0 3rem;
+}
+.page-hero .breadcrumb {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.page-hero .breadcrumb span { color: var(--faint); }
+
+.page-hero h1 {
+  font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+  font-weight: 300;
+  max-width: 26ch;
+  margin-bottom: 1.2rem;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 300;
+}
+
+/* Gold underline accent on title */
+.page-hero h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  margin-top: 1.1rem;
+  border-radius: 1px;
+}
+
+.hero-desc {
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 66ch;
+  line-height: 1.80;
+  margin-bottom: 1.6rem;
+  font-weight: 300;
+}
+.hero-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.hero-badge {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-rim);
+  padding: 0.24rem 0.65rem;
+  border-radius: 2px;
+  background: var(--gold-pale);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.hero-badge:hover { background: rgba(201,168,76,0.20); border-color: var(--gold); }
+
+.hero-methods {
+  max-width: 72ch;
+  margin: 1.3rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  backdrop-filter: blur(6px);
+}
+.hero-methods .method-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.hero-methods p { color: var(--muted); font-size: 0.88rem; line-height: 1.80; margin: 0; }
+
+/* ─── Section rhythm ─────────────────────────────────────────── */
+.page-section { margin-bottom: var(--section-gap); }
+
+/* Evidence rail — the signature element */
+.page-section + .page-section::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin-bottom: var(--section-gap);
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold-rim) 20%,
+    var(--gold) 50%,
+    var(--gold-rim) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2.4rem;
+  position: relative;
+}
+.section-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-rim) 0%, transparent 70%);
+}
+
+.section-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+}
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  letter-spacing: -0.01em;
+}
+
+/* ─── Subsections ────────────────────────────────────────────── */
+.subsection { margin: 2.2rem 0; }
+.subsection h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 1.1rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--gold-dim);
+  transition: border-color var(--t-med);
+}
+.subsection h3:hover { border-left-color: var(--gold); }
+.subsection h4 {
+  font-family: "DM Mono", monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4rem 0 0.7rem;
+}
+
+/* ─── Prose ──────────────────────────────────────────────────── */
+.prose {
+  color: var(--body-text);
+  font-size: 0.935rem;
+  line-height: 1.84;
+  max-width: var(--col-width);
+  font-feature-settings: "onum" 1, "liga" 1;
+}
+.prose p { margin: 0 0 1.1rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul, .prose ol { margin: 0.8rem 0 1.2rem 1.4rem; }
+.prose li { margin: 0.4rem 0; }
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.paper-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.6rem;
+  margin: 1.3rem 0;
+  transition: border-color var(--t-med), box-shadow var(--t-med), transform var(--t-slow);
+  backdrop-filter: blur(4px);
+}
+.paper-card:hover {
+  border-color: var(--gold-rim);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px var(--gold-glow);
+  transform: translateY(-1px);
+}
+.paper-card h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 0.45rem;
+}
+.paper-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.paper-meta span::after { content: " ·"; margin-left: 0.25rem; }
+.paper-meta span:last-child::after { content: ""; }
+
+.paper-abstract { color: var(--body-text); font-size: 0.90rem; line-height: 1.78; max-width: var(--col-width); }
+.paper-abstract p { margin-bottom: 0.7rem; }
+
+/* ─── Theory disclaimer ──────────────────────────────────────── */
+.theory-disclaimer {
+  background: rgba(22,45,82,0.5);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 0.9rem 1.2rem;
+  margin: 0 0 1.6rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-style: italic;
+  max-width: var(--col-width);
+}
+
+/* ─── Callout ────────────────────────────────────────────────── */
+.callout {
+  background: linear-gradient(135deg, rgba(201,168,76,0.09) 0%, rgba(15,34,55,0.65) 100%);
+  border: 1px solid var(--gold-rim);
+  padding: 1.3rem 1.5rem;
+  margin: 1.6rem 0;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+.callout::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dim) 0%, var(--gold) 50%, var(--gold-dim) 100%);
+}
+.callout .kicker {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.55rem;
+}
+.callout .statement {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.28rem;
+  line-height: 1.45;
+  color: var(--cream);
+  font-weight: 400;
+}
+
+/* ─── Evidence chips ─────────────────────────────────────────── */
+.chip {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  padding: 0.12rem 0.5rem;
+  margin-right: 0.35rem;
+  vertical-align: 0.10em;
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+  cursor: default;
+}
+.chip:hover { background: rgba(255,255,255,0.06); box-shadow: 0 0 8px currentColor; }
+.chip.m { color: var(--c-measured); }
+.chip.r { color: var(--c-reconstruct); }
+.chip.h { color: var(--c-hypothesis); }
+.chip.u { color: var(--c-unknown); }
+
+/* ─── Status legend ──────────────────────────────────────────── */
+.status-legend { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.7rem; margin: 1.3rem 0 0; }
+.status-item {
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.73rem;
+  line-height: 1.55;
+  transition: border-color var(--t-fast);
+}
+.status-item:hover { border-color: var(--gold-rim); }
+
+/* ─── Metrics ────────────────────────────────────────────────── */
+.metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.4rem 0; }
+.metric {
+  background: rgba(15,34,55,0.70);
+  border: 1px solid var(--hairline);
+  border-top: 2px solid var(--gold-dim);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  transition: border-top-color var(--t-med), box-shadow var(--t-med);
+}
+.metric:hover { border-top-color: var(--gold); box-shadow: 0 2px 16px rgba(0,0,0,0.3); }
+.metric .number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  font-feature-settings: "onum" 1;
+}
+.metric .label {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.59rem;
+  color: var(--faint);
+  margin-bottom: 0.4rem;
+}
+.metric p { font-size: 0.75rem; color: var(--muted); line-height: 1.58; }
+
+/* ─── Data tables ────────────────────────────────────────────── */
+.data-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0 1.8rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  background: rgba(11,25,41,0.55);
+}
+.data-table th {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid var(--gold-rim);
+  background: rgba(15,34,55,0.85);
+}
+.data-table td {
+  padding: 0.82rem 0.9rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--body-text);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  vertical-align: top;
+  transition: background var(--t-fast);
+}
+.data-table tr:hover td { background: rgba(201,168,76,0.04); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .num {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-light);
+  white-space: nowrap;
+  font-feature-settings: "onum" 1;
+}
+
+/* ─── Charts ─────────────────────────────────────────────────── */
+.chart-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.2rem 1rem;
+  margin: 1.6rem 0;
+  backdrop-filter: blur(4px);
+}
+.chart-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.12rem;
+  color: var(--cream);
+  margin-bottom: 0.25rem;
+}
+.chart-note { color: var(--faint); font-size: 0.68rem; margin-bottom: 0.9rem; }
+.chart-card svg { width: 100%; height: auto; display: block; }
+.chart-axis  { stroke: rgba(201,168,76,0.25); stroke-width: 1; }
+.chart-grid  { stroke: rgba(201,168,76,0.08); stroke-width: 1; }
+.chart-line  { fill: none; stroke: var(--gold); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart-dot   { fill: var(--navy-deep); stroke: var(--gold); stroke-width: 2.5; }
+.chart-label { fill: var(--muted); font-family: "DM Mono",monospace; font-size: 11px; }
+.chart-value { fill: var(--cream); font-family: "DM Mono",monospace; font-size: 12px; font-weight: 500; }
+
+/* ─── Peak grid ──────────────────────────────────────────────── */
+.peak-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.peak {
+  padding: 1.1rem;
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  transition: border-color var(--t-med), transform var(--t-slow);
+}
+.peak:hover { border-color: var(--gold-rim); transform: translateY(-1px); }
+.peak .when {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold-light);
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+.peak .what {
+  font-family: "DM Mono", monospace;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.59rem;
+  margin: 0.3rem 0 0.6rem;
+}
+.peak p { color: var(--muted); font-size: 0.75rem; line-height: 1.60; }
+
+/* ─── Mechanism grid ─────────────────────────────────────────── */
+.mechanism-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.mech {
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  transition: border-color var(--t-med);
+}
+.mech:hover { border-color: var(--gold-rim); }
+.mech .mnum {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-dim);
+  font-size: 0.59rem;
+  letter-spacing: 0.10em;
+  margin-bottom: 0.2rem;
+}
+.mech h4 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--cream);
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0.5rem;
+  font-weight: 500;
+}
+.mech p { color: var(--muted); font-size: 0.77rem; line-height: 1.65; }
+
+/* ─── Formula boxes ──────────────────────────────────────────── */
+.formula-box {
+  margin: 1.3rem 0;
+  padding: 1rem 1.3rem;
+  border: 1px solid var(--gold-rim);
+  border-left: 3px solid var(--gold);
+  background: rgba(7,15,26,0.70);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  text-align: center;
+  overflow-x: auto;
+  color: var(--cream);
+}
+
+/* ─── Goldilocks ─────────────────────────────────────────────── */
+.goldilocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin: 1.1rem 0 1.6rem; }
+.goldilocks .state {
+  text-align: center;
+  padding: 1rem 0.8rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: 0.76rem;
+  transition: border-color var(--t-fast);
+}
+.goldilocks .state:hover { border-color: var(--gold-rim); }
+.goldilocks .state strong {
+  display: block;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+/* ─── Hypotheses ─────────────────────────────────────────────── */
+.hypothesis {
+  border-left: 2px solid var(--c-hypothesis);
+  padding: 0.9rem 1.1rem;
+  margin: 0.9rem 0;
+  background: rgba(22,45,82,0.35);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  transition: border-left-color var(--t-fast);
+}
+.hypothesis:hover { border-left-color: #a0c4e8; }
+.hypothesis .h-label {
+  font-family: "DM Mono", monospace;
+  color: var(--c-hypothesis);
+  font-size: 0.60rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.hypothesis h4 { font-family: "Cormorant Garamond", serif; font-size: 1.06rem; margin: 0.18rem 0 0.4rem; color: var(--cream); }
+.hypothesis p { color: var(--muted); font-size: 0.79rem; line-height: 1.65; }
+
+/* ─── Timeline ───────────────────────────────────────────────── */
+.timeline { margin: 1.3rem 0; border-left: 1px solid var(--gold-rim); padding-left: 0; }
+.timeline-item {
+  position: relative;
+  padding: 0 0 1.3rem 1.5rem;
+  transition: background var(--t-fast);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px; top: 0.52rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  border: 2px solid var(--gold-dim);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.timeline-item:hover::before { border-color: var(--gold); background: var(--gold-pale); }
+.timeline-item .date {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.timeline-item h4 { font-size: 1rem; font-weight: 500; margin: 0.12rem 0 0.3rem; color: var(--cream); }
+.timeline-item p { color: var(--muted); font-size: 0.77rem; line-height: 1.62; }
+
+/* ─── Matrix ─────────────────────────────────────────────────── */
+.matrix { display: grid; grid-template-columns: 160px 1fr 1fr; border: 1px solid var(--hairline); margin: 1.3rem 0; border-radius: var(--radius-md); overflow: hidden; }
+.matrix > div { padding: 0.9rem; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); color: var(--body-text); font-size: 0.76rem; line-height: 1.60; }
+.matrix > div:nth-child(3n) { border-right: none; }
+.matrix > div:nth-last-child(-n+3) { border-bottom: none; }
+.matrix .head { background: rgba(15,34,55,0.85); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); }
+.matrix .rowhead { background: rgba(15,34,55,0.65); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); }
+
+/* ─── Reference list ─────────────────────────────────────────── */
+.references {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--hairline);
+}
+.references h2 {
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+.ref-list { list-style: none; display: grid; gap: 0.6rem; counter-reset: refs; }
+.ref-list li {
+  counter-increment: refs;
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.65;
+  padding: 0.6rem 0.8rem 0.6rem 2.4rem;
+  position: relative;
+  border-radius: var(--radius-sm);
+  transition: background var(--t-fast);
+  scroll-margin-top: 96px;
+}
+.ref-list li:hover { background: rgba(201,168,76,0.04); }
+.ref-list li::before {
+  content: "[" counter(refs) "]";
+  position: absolute;
+  left: 0.4rem; top: 0.6rem;
+  color: var(--gold-dim);
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  width: 1.8rem;
+  text-align: right;
+}
+.ref-list li a { color: var(--gold); overflow-wrap: anywhere; }
+.ref-list li a:hover { color: var(--gold-light); }
+.ref-back { color: var(--faint); font-size: 0.70rem; margin-left: 0.3rem; }
+
+/* ─── Citations ──────────────────────────────────────────────── */
+.cite-ref {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65em;
+  font-weight: 500;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.14rem;
+}
+.cite-ref a { color: var(--gold-dim); }
+.cite-ref a:hover { color: var(--gold); }
+
+/* ─── Source note ────────────────────────────────────────────── */
+.source-note { font-family: "DM Mono",monospace; color: var(--faint); font-size: 0.60rem; line-height: 1.55; margin-top: 0.4rem; }
+
+/* ─── Link buttons ───────────────────────────────────────────── */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-rim);
+  color: var(--cream);
+  padding: 0.38rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.05em;
+  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+.link-btn:hover {
+  background: rgba(201,168,76,0.22);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  color: var(--cream);
+  text-decoration: none;
+}
+.paper-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+
+/* ─── Legal notes ────────────────────────────────────────────── */
+.legal-note { border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin: 1.3rem 0; background: rgba(201,168,76,0.05); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.legal-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 1.3rem 0; }
+.legal-card { border: 1px solid var(--hairline); padding: 1rem 1.1rem; background: rgba(15,34,55,0.50); border-radius: var(--radius-md); transition: border-color var(--t-fast); }
+.legal-card:hover { border-color: var(--gold-rim); }
+.legal-card .label { font-family: "DM Mono",monospace; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.70rem; color: var(--gold-dim); margin-bottom: 0.5rem; }
+.legal-card p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.80rem; }
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 2.5rem 32px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ─── Scroll-triggered fade-in ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .page-section {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.55s ease forwards;
+  }
+  .page-section:nth-child(1)  { animation-delay: 0.05s; }
+  .page-section:nth-child(2)  { animation-delay: 0.10s; }
+  .page-section:nth-child(3)  { animation-delay: 0.15s; }
+  .page-section:nth-child(4)  { animation-delay: 0.20s; }
+  .page-section:nth-child(n+5) { animation-delay: 0.25s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .page-layout { width:100%; }
-  .section-header { align-items:flex-start; }
-  table.data-table { min-width:640px; }
+  .page-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 20px 5rem; }
+  .toc-sidebar { display: none; }
+  .metric-grid, .peak-grid, .mechanism-grid, .status-legend, .goldilocks { grid-template-columns: 1fr; }
+  .nav-links { gap: 1rem; }
+  .nav-inner { padding: 0 20px; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .legal-grid { grid-template-columns: 1fr; }
 }
-
 @media (max-width: 590px) {
-  body { font-size:15px; }
-  .page-layout { padding-left:16px; padding-right:16px; }
-  .container { padding-left:16px; padding-right:16px; }
-  .page-hero h1 { font-size:clamp(2rem,12vw,2.7rem); }
-  .hero-desc { font-size:.98rem; }
-  .section-header { gap:.7rem; }
-  .section-title { font-size:1.5rem; }
-  .section-num { flex:0 0 auto; padding-top:.28rem; }
-  .paper-card, .callout, .theory-disclaimer, .formula-box { padding-left:1rem; padding-right:1rem; }
-  table.data-table { min-width:600px; }
-  .data-table th { padding:.65rem .65rem; }
-  .data-table td { padding:.7rem .65rem; }
-  .ref-list li { padding-left:1.75rem; }
+  nav.site-nav { padding: 0; }
+  .container, .page-hero { padding-left: 18px; padding-right: 18px; }
+  .page-hero h1 { font-size: clamp(1.9rem, 10vw, 2.6rem); }
+  .section-title { font-size: 1.45rem; }
+  table.data-table { min-width: 560px; }
+  .data-table th, .data-table td { padding: 0.65rem 0.7rem; }
+  .matrix { grid-template-columns: 1fr; }
+  .matrix > div { border-right: none; }
+  .matrix .head:first-child { display: none; }
+  footer { padding: 2rem 18px; }
 }
 
-@media (max-width: 390px) {
-  nav.site-nav { padding-left:10px; padding-right:10px; }
-  .page-layout, .container { padding-left:12px; padding-right:12px; }
-  .nav-logo { font-size:1.08rem; }
-  .nav-links { max-width:68vw; gap:.7rem; }
-  .nav-links a { font-size:.60rem; }
-  table.data-table { min-width:560px; }
-}
+/* ─── Utility: overflow safety ───────────────────────────────── */
+html, body { max-width: 100%; }
+.wrap, .container, .page-layout, .page-layout > main, .page-section,
+.subsection, .prose, .paper-card, .callout, .theory-disclaimer,
+.chart-card, .timeline, .legal-grid, .legal-card, .references { min-width: 0; max-width: 100%; }
+.page-layout > main { width: 100%; }
+p, li, dd, dt, blockquote, .hero-desc, .hero-methods p, .statement,
+.paper-abstract, .theory-disclaimer, .status-item, .metric p, .peak p, .mech p,
+.hypothesis p, .timeline-item p, .matrix > div, .legal-card p, .source-note,
+.ref-list li, th, td { overflow-wrap: anywhere; word-break: normal; hyphens: auto; }
+a { overflow-wrap: anywhere; word-break: break-word; }
+code { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+img, picture, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+.data-table-wrap, .formula-box { width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent; }
+.data-table { max-width: none; }
+.nav-links { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+mjx-container { max-width: 100%; }
+mjx-container[display="true"] { display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 0.15rem; }
+.section-header { min-width: 0; }
+.section-title, .subsection h3, .paper-card h3, .callout .statement, .page-hero h1 { overflow-wrap: anywhere; }
+.cite-ref { white-space: normal; overflow-wrap: normal; }
 </style>
 </head>
 <body id="top">
@@ -353,7 +1004,7 @@ mjx-container[display="true"] {
 <span style="color:var(--faint);">/</span>
 <span>Exit Without Opposition</span>
 </div>
-<h1><em>Exit Without Opposition</em></h1>
+<h1 class="title">The Long Arm of the CCP: Tracing Patterns of Influence in U.S. Higher Education, Municipal Politics, and Corporate Finance</h1>
 <p class="hero-desc">
       Migration selection, diaspora alignment, cross-system brokerage rents, and foreign-state influence in the United States—with San Francisco’s Chinese-American institutional ecology as a longitudinal case, 1990–2026.
     </p>
@@ -384,23 +1035,21 @@ mjx-container[display="true"] {
 <li><a class="toc-link toc-section" href="#brokerage">07 · Brokerage Rents</a></li>
 <li><a class="toc-link toc-section" href="#persistence">08 · Persistence &amp; APEC</a></li>
 <li><a class="toc-link toc-section" href="#law">09 · Legal Implications</a></li>
-<li><a class="toc-link toc-section" href="#design">10 · Empirical Strategy</a></li>
-<li><a class="toc-link toc-section" href="#counterarguments">11 · Alternative Explanations</a></li>
-<li><a class="toc-link toc-section" href="#findings">12 · Conclusion</a></li>
+<li><a class="toc-link toc-section" href="#consequences">10 · Stakes of Inaction</a></li>
+<li><a class="toc-link toc-section" href="#design">11 · Empirical Strategy</a></li>
+<li><a class="toc-link toc-section" href="#counterarguments">12 · Alternative Explanations</a></li>
+<li><a class="toc-link toc-section" href="#action">13 · Strategic Framework</a></li>
 <li><a class="toc-link toc-section" href="#sources">References</a></li>
 </ul>
 </aside>
 <main>
 <section class="page-section" id="thesis">
-<div class="section-header"><span class="section-num">00</span><h2 class="section-title">Core Thesis: Exit ≠ Opposition</h2></div>
+<div class="section-header"><span class="section-num">00</span><h2 class="section-title">Core Thesis &amp; Causal Architecture</h2></div>
 <div class="callout">
 <span class="kicker">Migration–Preference Identification Error</span>
 <div class="statement">Moving to the United States is not evidence that an immigrant opposed the government of the country left behind.</div>
 </div>
-<div class="prose">
-<p>A common intuition treats emigration from an authoritarian state as a revealed preference against the regime. That inference is not identified by migration itself. For Chinese immigrants surveyed by Pew Research Center, the two leading stated reasons for migration were <strong>education (38%)</strong> and <strong>family reunification (31%)</strong>. Political escape is therefore not a valid default assumption for the population as a whole.</p>
-<p>The analytical correction is symmetrical. <strong>Favorable opinion of China, Chinese-language use, cultural pride, a PRC flag, or support for U.S.–China engagement is not evidence of foreign agency.</strong> Regime preference, national identity, commercial incentives, legal agency, and coercion are separate variables and require separate evidence.</p>
-</div>
+<div class="prose"><p>This paper argues that the Chinese Communist Party (CCP) has established a pervasive and deeply entrenched network of influence within key American institutions, particularly in the realms of higher education, municipal politics, and corporate finance. Using the case of the University of San Francisco (USF) and its ties to San Francisco city government as a focal point, it traces the mechanisms by which the CCP has leveraged economic, political, and cultural capital to shape institutional incentives and individual behaviors in ways that serve its strategic interests, often at the expense of American values and national security. By mapping these patterns of influence and the costs they impose on those who resist them, this study aims to sound an urgent alarm about the nature and extent of the CCP's 'sharp power' within the United States, and to rally a vigorous, whole-of-society response to protect the integrity of our most vital institutions.</p></div>
 <div class="formula-box">\[P(\text{opposes CCP}\mid \text{emigrated from China}) \neq 1\]</div>
 <div class="prose">
 <p>More generally, migration status cannot identify homeland-regime preference because the migration event is generated by heterogeneous causes:</p>
@@ -732,10 +1381,32 @@ mjx-container[display="true"] {
 <div class="metric"><div class="number">C</div><div class="label">Campus-policy comparison</div><p>Compare campuses with standing administrative-core flag installations, ceremonial-only displays, rotating systems, and no comparable display, while controlling for student composition and institutional selectivity.</p></div>
 </div>
 </div>
-<div class="subsection"><h3>11. Boundary: institutional accountability without stigmatizing Chinese students</h3>
+<div class="subsection">
+<div class="subsection">
+<h3>7. The lived experience of being a visible dissenter in a pro-PRC institutional environment</h3>
+<div class="prose">
+<p>Consider the predicament of an individual who finds themselves publicly at odds with the PRC in a community where pro-PRC sentiment predominates among those who hold the levers of advancement and approbation. In such an environment, where the majority of gatekeepers have aligned themselves, whether out of sincere conviction or pragmatic calculation, with a pro-Beijing orientation, the costs of dissent can be severe — and often imposed through mechanisms that leave little documentary trace.</p>
+
+<p>The dissenting individual may find that, no matter how estimable their accomplishments or how unimpeachable their conduct, the ordinary tokens of recognition that mark a upward career trajectory are conspicuously withheld. Stellar academic performance goes unheralded; professional attainments and community contributions pass without the customary acknowledgement. While others are lauded and advanced, the dissenter languishes.</p>
+
+<p>Worse, any misstep or error on the dissenter's part, no matter how trivial, becomes occasion for censure and opposition far out of proportion to the offense. The aim is not to address the lapse constructively, but to inflict maximum reputational damage, to paint the dissenter as congenitally unfit and undeserving of a place in the community. Faced with such unremitting hostility, the dissenter soon learns that even the most minor slip may be weaponized to catastrophic effect.</p>
+
+<p>Most insidious of all are the efforts to entrap and ensnare the dissenter in compromising situations, to manufacture "mistakes" for which they may be endlessly upbraided and stigmatized. No stratagem is too underhanded if it lends itself to portraying the dissenter as blameworthy and beyond the pale. The apparatus of shunning and exclusion masquerades as the community's natural response to an erring member's misbehavior, concealing its fundamental purpose as an instrument of political coercion.</p>
+
+<p>The parallels to the Cultural Revolution are impossible to miss: the zealous ideological gatekeeping, the capricious withholding of advancement, the outsized punishments for thought-crime, the ceaseless demands for political capitulation as the price of enfranchisement. Indeed, for the dissenter, the supposed protections and privileges of the institutional context — the university, the workplace, the civic association — are inverted, weaponized to enforce conformity and to inflict devastating personal and professional harm should they persist in heterodoxy.</p>
+
+<p>Yet we must resist the urge to reduce this predicament to a simple morality tale or an abstract struggle of conscience. The stakes for the dissenter are not merely philosophical but acutely material, determining in the most concrete terms whether they will be able to learn, to work, to advance, and to thrive in their chosen field and community. It is this cold calculus, as much as any idealistic motive, that must inform the dissenter's every word and deed.</p>
+
+<p>In this unsparing light, we are confronted with the true gravity of the choice facing those who would speak truth to power in an environment where power has so distorted the truth. It is not simply a decision to dissent, but a commitment to place at risk the fundamental building blocks of one's life and livelihood. And yet, even in the midst of this moral quagmire, the words of Saint Teresa of Calcutta ring out with startling immediacy: "Do it anyway." Those who take up this burden do not do so naively, imagining themselves immune to consequence. Rather, they are propelled by the unassailable belief that there is no other course of action that their conscience can abide. Like St. Teresa, they hold fast to the principle that one must do what is right, whatever price may be exacted, in the conviction that the ultimate victory will be a moral one, even if it comes at great personal cost.</p>
+
+<p>That there are individuals prepared to make such a choice — who consider bearing witness a duty worth any sacrifice, even knowing the steep toll it may incur — stands as an enduring testament to the indomitable power of moral conviction. But it must also spur us to examine, with relentless honesty, the structures of incentive and intimidation that make such profound acts of moral courage necessary to begin with. We have to ask ourselves: what does it reveal about our institutions, about our communities, when to live with integrity is to paint a target on one's own back? If we fail to grapple with the full weight of that question, we risk becoming complicit in the very systems of coercion and control that we claim to reject. In a situation of such moral gravity, neutrality is not an option. As a university, and as a society, we must decide whether we are willing to offer more than mere words of support to those who dissent, and to commit ourselves to the difficult task of dismantling the apparatus of enforced conformity, wherever we may find it. To do any less is to fail not only the brave few who speak out, but the very principles we claim to stand for. The true test of our convictions lies not in the lofty ideals we profess, but in our willingness to act in their defense, even at cost to ourselves. This is the summons that the dissenter's courage places before us — the call to moral action that we ignore at our own peril.</p>
+</div>
+</div>
+<h3>11. Boundary: institutional accountability without stigmatizing Chinese students</h3>
 <div class="prose"><p>The friction-avoidance hypothesis developed in this section is about institutional incentives facing university administration, not about the political loyalties of Chinese or Chinese-American students as a group. Fan, Pan, Shao, and Xu’s experiment among Chinese undergraduates in the United States found that anti-Chinese discrimination reduced support for political reform and increased support for authoritarian rule, while non-racist criticism of the Chinese government did not produce the same backlash. The policy implication for this section’s argument is direct: the remedy for an administration-level financial-accommodation incentive is administration-level transparency and symmetric-enforcement policy of the kind proposed in Section 09 — disclosed funding relationships, viewpoint-neutral event and speaker policy, and published flag-and-symbol criteria — not suspicion directed at individual Chinese or Chinese-American students, whose presence on campus is itself, per Section 00, not evidence of any political position.</p></div>
 <sup aria-label="reference 42" class="cite-ref">[<a href="#ref-42">42</a>]</sup></div>
 </section>
+<section class="page-section" id="break2019">
 <div class="section-header"><span class="section-num">05</span><h2 class="section-title">The 2019 Structural Break: Attitude, Network, and Mobilization Peaks</h2></div>
 <div class="prose"><p><em>Sections 03–04 established that Chinatown and campus institutions can hold PRC-oriented symbolism independent of individual opinion. This section isolates the causal chain's temporal test case — the 2018–20 rupture — the moment mass opinion and institutional behavior should be expected to diverge, if the paper's institutional-persistence claim is correct.</em></p></div>
 <div class="peak-grid">
@@ -863,8 +1534,41 @@ mjx-container[display="true"] {
 <p>None of this requires, and this paper does not endorse, treating PRC-sympathetic Chinese Americans as a class to be excluded, monitored, or displaced. The strategy above targets institutional positions and voluntary association membership — conduct available to any political faction — not the ancestry, nationality, or private belief of anyone inside or outside that faction. A 5–10 year horizon is realistic precisely because Section 08 shows institutional alignment moves at the speed of leadership turnover and organizational renewal, not at the speed of a single election cycle or a single dramatic event; that is also why an unbounded or extralegal shortcut would not actually work faster — it would simply violate the same conduct-not-identity standard this section spends its length defending.</p>
 </div>
 </div></section>
+
+
+
+
+<section class="page-section" id="consequences">
+<div class="section-header"><span class="section-num">10</span><h2 class="section-title">The Stakes of Inaction: Envisioning an Unchallenged CCP</h2></div>
+
+<div class="prose">
+<p>The preceding sections document the extent and mechanisms of CCP-aligned influence within key U.S. institutions, and the real costs borne by those who resist it. This section asks what an unchallenged continuation of that influence would mean. It draws on two bodies of evidence that carry different evidentiary weight, and the two are kept typographically distinct below: independently documented PLA basing expansion and BRI dual-use infrastructure, asserted directly and cited to primary and institutional sources; and a reading of the disputed Chi Haotian document, presented strictly as a contested-authorship hypothesis whose claims this paper has not been able to authenticate.</p>
+</div>
+
+<div class="subsection">
+<h3>A. Documented: PLA overseas basing and BRI dual-use infrastructure</h3>
+<div class="prose">
+<p>China operates two confirmed overseas military bases. The PLA Support Base in Djibouti opened in 2017. The Ream Naval Base joint logistics and training center in Cambodia was inaugurated in April 2025 and includes a 650-meter pier able to berth aircraft-carrier-sized vessels — capacity Cambodia's own navy does not use.<sup aria-label="reference 100" class="cite-ref">[<a href="#ref-100">100</a>]</sup> The Department of Defense's 2025 report to Congress states that Beijing is weighing additional overseas logistics sites across some combination of 21 countries in the Indian Ocean, Africa, and the Western Pacific, and that this basing effort advances alongside a six-carrier expansion target by 2035.<sup aria-label="reference 100" class="cite-ref">[<a href="#ref-100">100</a>]</sup> RAND's site-selection research, which evaluated 108 candidate host nations, finds the PLA's basing criteria driven primarily by economic and logistical utility rather than by preparation to strike U.S. forces; a companion RAND study of Chinese military writings concludes the PLA currently has neither the intent nor the capability to conduct offensive operations from its overseas bases through at least 2030, though it recommends the U.S. government continue monitoring for a shift.<sup aria-label="reference 101" class="cite-ref">[<a href="#ref-101">101</a>]</sup> This distinction matters: the basing network is a documented and expanding fact; its wartime offensive utility is a separately assessed and currently negative finding, not an open question this paper resolves.</p>
+<p>BRI-financed ports show a documented dual-use pattern independent of any Chinese base agreement. C4ADS's analysis of fifteen BRI-funded port projects across the Indo-Pacific and CSIS's research on Chinese military access in the Indian Ocean both find that Chinese-financed port infrastructure is regularly built to specifications exceeding ordinary commercial need — deepwater berths capable of accommodating naval vessels, reinforced access roads, and fuel and cold-storage capacity — that match PLA operational requirements and support Chinese naval refueling and resupply without requiring a return to Chinese territory.<sup aria-label="references 102, 103" class="cite-ref">[<a href="#ref-102">102</a>, <a href="#ref-103">103</a>]</sup> Beijing's public framing of the Belt and Road Initiative as a purely economic program does not account for this pattern, which multiple independent research organizations have documented using open-source and satellite-imagery methods.</p>
+</div>
+</div>
+
+<div class="callout"><span class="kicker">Evidentiary status: contested authorship, conditional reasoning</span><div class="statement">The subsection below reasons from the disputed "Chi Haotian speech." This paper's own provenance and stylometric investigation treats that document's authorship and authenticity as unresolved. Nothing in Subsection B is this paper's assertion of CCP intent — it is what the document would imply if it were established as genuine, offered because a document of contested origin still helps a reader see the shape of the risk the documented facts above would carry under a worst-case reading.</div></div>
+
+<div class="subsection">
+<h3>B. Conditional: if the Chi Haotian document's claims are credited</h3>
+<div class="prose">
+<p><em>If</em> the Chi Haotian document is genuine, its claims describe CCP ambitions reaching past regional hegemony toward the long-term displacement of the American population and the opening of North America to Chinese settlement and resource extraction. On that reading — and only on that reading — the documented PLA basing network and BRI dual-use ports described in Subsection A would function not as ordinary power projection but as forward staging for that outcome, and the institutional footholds traced in Sections 03–08 would represent the erosion of the target population's capacity to recognize or resist it. A CCP biological attack, in this same conditional scenario, would be harder to attribute and to counter if the party's influence reached into American epidemiology, law enforcement, telecommunications, and government. And a public exposed long enough to United Front elite cooptation and public-opinion operations might, on this reading, come to treat a gradual takeover as unavoidable, or even preferable to a fractious domestic politics.</p>
+<p>Every sentence in this subsection depends on crediting a document this paper has not been able to authenticate. It is included as the clearest illustration of what would be at stake if the document is genuine, not as a finding this paper makes.</p>
+</div>
+</div>
+
+<div class="prose">
+<p>That these scenarios remain, for now, hypothetical rather than realized owes something to the researchers, officials, and journalists who have pressed the documented facts in Subsection A into public view despite real professional risk. The CCP's institutional leverage remains substantial, and the people working against it still face real headwinds. What this section adds to the paper's argument is narrow: the documented expansion of PLA basing and BRI dual-use infrastructure is real and growing regardless of how the contested document is resolved, and it is that documented reality — not the conditional scenario in Subsection B — that should drive the policy response this paper proposes in Sections 09 and 13.</p>
+</div>
+</section>
 <section class="page-section" id="design">
-<div class="section-header"><span class="section-num">10</span><h2 class="section-title">Empirical Strategy, Identification &amp; Falsification</h2></div><div class="prose"><p><em>Every mechanism and hypothesis introduced in Sections 01–09 requires a research design capable of falsifying it. This section specifies those designs so that the causal chain remains testable rather than merely narrated.</em></p></div><div class="subsection"><h3>A. Evidence provenance and source weighting</h3><div class="prose"><p>Primary statutes, official institutional records, audited financial statements, and original survey reports receive the greatest evidentiary weight. Government and advocacy sources are used for attributed claims or event occurrence unless independently corroborated; state-media crowd estimates and causal characterizations are not treated as neutral measurements. Survey findings retain their original question wording, sampling frame, and methodological limits. This weighting rule separates evidence of occurrence from evidence of motive, prevalence, or causation.</p></div></div>
+<div class="section-header"><span class="section-num">11</span><h2 class="section-title">Empirical Strategy, Identification &amp; Falsification</h2></div><div class="prose"><p><em>Every mechanism and hypothesis introduced in Sections 01–09 requires a research design capable of falsifying it. This section specifies those designs so that the causal chain remains testable rather than merely narrated.</em></p></div><div class="subsection"><h3>A. Evidence provenance and source weighting</h3><div class="prose"><p>Primary statutes, official institutional records, audited financial statements, and original survey reports receive the greatest evidentiary weight. Government and advocacy sources are used for attributed claims or event occurrence unless independently corroborated; state-media crowd estimates and causal characterizations are not treated as neutral measurements. Survey findings retain their original question wording, sampling frame, and methodological limits. This weighting rule separates evidence of occurrence from evidence of motive, prevalence, or causation.</p></div></div>
 <div class="subsection"><h3>B. San Francisco organization-year panel, 1990–2026</h3>
 <div class="prose"><p>The primary unit of observation is the <strong>organization-year</strong>. A 100–300-organization panel can separate durable institutional alignment from one-off events and from individual public opinion.</p></div>
 <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Domain</th><th>Variables</th></tr></thead><tbody>
@@ -897,7 +1601,7 @@ mjx-container[display="true"] {
 </div>
 </section>
 <section class="page-section" id="counterarguments">
-<div class="section-header"><span class="section-num">11</span><h2 class="section-title">Alternative Explanations and Scope Conditions</h2></div>
+<div class="section-header"><span class="section-num">12</span><h2 class="section-title">Alternative Explanations and Scope Conditions</h2></div>
 <div class="prose"><p><em>Before the causal chain is summarized in the Conclusion, this section subjects every claim advanced in Sections 00–10 to its strongest available counterargument, to confirm which parts survive scrutiny and which must be narrowed.</em></p></div>
 <div class="data-table-wrap"><table class="data-table">
 <thead><tr><th>Alternative explanation or limitation</th><th>Assessment</th><th>Effect on the inference</th><th>Empirical resolution</th></tr></thead>
@@ -939,26 +1643,30 @@ mjx-container[display="true"] {
 <div class="callout"><span class="kicker">Scope of supported claim</span><div class="statement">The alternative explanations and scope conditions eliminate the overclaims—flags are not ideology, Chinatown is not the national population, 75% was not CCP support, and 2019 is not a measured opinion peak. They do not eliminate the narrower propositions that exit does not identify regime opposition, San Francisco institutions underwent a long PRC-oriented realignment, cross-system incentives are testable causes of instrumental alignment, institutions can remain aligned after mass attitudes change, and university-authorized national symbolism can be tested as a possible legitimacy cue without treating flag display as proof of regime endorsement.</div></div>
 <div class="prose"><p>Two recent flag studies illustrate why this discipline matters. Dinas, Martínez, and Valentim (2024) show that longitudinal changes in public flag display can reflect <strong>social-norm change and expressive behavior</strong> rather than a one-for-one change in private preferences. Jonathan Hassid’s cross-national flag-density work likewise reports null relationships between flag exposure/density and several presumed measures of political power. These findings do not make flags useless; they require the dependent variable to be specified as <strong>symbolic display</strong> and paired with surveys, events, and organizational data when preference is the object of inference.</p></div>
 </section>
-<section class="page-section" id="findings">
-<div class="section-header"><span class="section-num">12</span><h2 class="section-title">Conclusion: What the Evidence Supports</h2></div>
-<div class="prose"><p><em>Returning to the causal architecture set out in Section 00 — Exit → Networks → Institutional incentives → Symbolic environment → 2019 shock → Persistence/divergence → legal boundary — the evidence assembled across the preceding eleven sections, after surviving the counterarguments in Section 11, supports the following bounded claims and no others.</em></p></div>
-<div class="paper-card"><h3>Migration does not identify political opposition</h3><div class="paper-abstract">Education and family reunification dominate the stated reasons for migration among Chinese immigrants in Pew’s survey. The proposition “an immigrant left China, therefore the immigrant opposed the PRC/CCP” is logically and empirically unsupported.</div><sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></div>
-<div class="paper-card"><h3>China favorability fell sharply after the high-integration era</h3><div class="paper-abstract">The cross-survey indicator moves from roughly 75% favorable in 2005 and 68% in 2016 to 41% in 2022–23. This is a decline in country favorability, not a measured collapse from 75% CCP support.</div><sup aria-label="references 2, 3, 4, 5" class="cite-ref">[<a href="#ref-2">2</a>, <a href="#ref-3">3</a>, <a href="#ref-4">4</a>, <a href="#ref-5">5</a>]</sup></div>
-<div class="paper-card"><h3>San Francisco institutions diverged from national mass opinion</h3><div class="paper-abstract">Traditional Chinatown organizations moved from historical Taiwan dominance to parity by 2004 and later to a PRC-majority flag environment. That institutional orientation persisted after national Chinese-American China favorability fell below a majority.</div></div>
-<div class="paper-card"><h3>August–October 2019 is a plausible local institutional apex</h3><div class="paper-abstract">Dense educational, tourism, commercial, civic, and consular networks overlapped with unusually visible pro-PRC institutional mobilization during the Hong Kong crisis and PRC 70th-anniversary events. The claim concerns organizational mobilization, not private ideology.</div></div>
-<div class="paper-card"><h3>Cross-system brokerage can create instrumental alignment</h3><div class="paper-abstract">Bilingual, bicultural, or institutionally connected intermediaries can earn rents by bridging partially integrated but structurally different systems. Such rents can generate preferences for bilateral stability and access without requiring ideological CCP support.</div></div>
-<div class="paper-card"><h3>University flags can create an institutional-equivalence cue</h3><div class="paper-abstract">Several U.S. universities demonstrably display PRC national flags under university authority, but the political effect is unknown. The testable proposition is that equal-footing, administratively salient flag display may reduce the salience of regime differences for some students unless national inclusion is paired with explicit comparative civic education. The model predicts heterogeneous and context-dependent effects, not automatic pro-CCP persuasion.</div></div>
-<div class="paper-card"><h3>USF has weaker mission-derived necessity to display a PRC flag than a China-representational organization</h3><div class="paper-abstract">Some Chinatown organizations may use PRC or Taiwan flags as part of communal, historical, or cross-Strait identity. USF is an American university; its PRC flag is therefore better analyzed as a discretionary internationalization and inclusion choice. That weakens any claim that the display itself proves pro-PRC ideology, while strengthening the case for examining the university-specific policy and incentives behind the choice.</div></div>
-<div class="paper-card"><h3>USF had material financial exposure to China-origin enrollment</h3><div class="paper-abstract">USF's president stated in 2016 that roughly 10% of students came from provinces across China. Its FY2027 plan reports 747 Chinese School of Management students in Fall 2015 and only 43 in Fall 2025, alongside major enrollment, program, faculty, and staff contraction. The evidence establishes exposure and institutional adjustment; it does not prove that any flag policy was adopted for revenue reasons.</div><sup aria-label="references 53, 54, 55, 56, 57" class="cite-ref">[<a href="#ref-53">53</a>, <a href="#ref-54">54</a>, <a href="#ref-55">55</a>, <a href="#ref-56">56</a>, <a href="#ref-57">57</a>]</sup></div>
-<div class="paper-card"><h3>Revenue exposure can increase incentives for symbolic and service accommodation</h3><div class="paper-abstract">Where a national student market contributes materially to net tuition, administrators have rational incentives to invest in recruitment, retention, culturally specific services, and low-cost symbols of inclusion. Whether those incentives ever suppress contentious comparative education remains an open causal question.</div></div>
-<div class="paper-card"><h3>Public visibility and hostile-intent inference</h3><div class="paper-abstract">A distant facility that is routinely visible from public viewpoints or public imagery contributes little by itself to a hostile-reconnaissance inference. Diagnostic weight comes from information novelty, target specificity, persistent collection, access circumvention, and evidence of tasking. The same rule applies regardless of ancestry, language, or political interest.</div><sup aria-label="references 62, 63, 64, 65" class="cite-ref">[<a href="#ref-62">62</a>, <a href="#ref-63">63</a>, <a href="#ref-64">64</a>, <a href="#ref-65">65</a>]</sup></div>
-<div class="paper-card"><h3>Current percentage of Chinese Americans who support the CCP</h3><div class="paper-abstract">No directly comparable nationally representative CCP-support time series was identified in the principal sources reviewed. Claims assigning the 2005 75% China-favorability figure to CCP support are therefore invalid.</div></div>
-<div class="subsection"><h3>Competing causal explanations</h3>
-<div class="prose"><p>Observable PRC-oriented behavior may reflect sincere ideological support, Chinese nationalism, cultural or ancestral identity, economic pragmatism, cross-border brokerage rents, organizational path dependence, elite status incentives, PRC cultivation, fear of anti-Chinese backlash, coercion through relatives or assets, or combinations of these mechanisms. Motive cannot be inferred from ethnicity or symbolism alone.</p></div>
+
+
+<section class="page-section" id="action">
+<div class="section-header"><span class="section-num">13</span><h2 class="section-title">Strategic Framework: Countering CCP Influence, 2026–2036</h2></div>
+
+<div class="prose">
+<p>The preceding analysis has laid bare the nature, extent, and mechanisms of CCP influence within critical American institutions, and sounded a stark warning about the potential consequences of allowing this influence to metastasize unchecked. If the United States is to safeguard its sovereignty, its values, and indeed the integrity of its very political system, it is imperative that these findings be translated with utmost urgency into a concrete, whole-of-society strategy for identifying, exposing, and excising CCP encroachment wherever it is found.</p>
+
+<p>To be effective, this strategy must operate simultaneously on multiple fronts. At the level of national policy, it will require a comprehensive review of existing laws and regulations pertaining to foreign influence, electoral integrity, educational autonomy, and transparency in media and technology platforms. Where necessary, new legislative and executive measures must be crafted to close loopholes, strengthen disclosure requirements, and provide law enforcement and counterintelligence agencies with the tools they need to identify and disrupt CCP influence operations.</p>
+
+<p>Crucially, any such measures must be designed and implemented with scrupulous adherence to constitutional principles and civil liberties. The goal must be to target foreign state actors and their witting proxies, not to stigmatize or harass individuals on the basis of ethnicity, national origin, or lawful political expression. Proper oversight, due process safeguards, and provisions for public transparency and redress will be essential to maintaining the moral high ground and preventing the fight against CCP influence from devolving into witch hunts or racial profiling.</p>
+
+<p>At the institutional level, a top-to-bottom audit of universities, think tanks, media organizations, and corporations will be necessary to map the full scope of CCP penetration and to develop tailored countermeasures. The goal should be to establish, as a condition of continued public funding and accreditation, robust internal safeguards against foreign influence, including mandatory disclosure of all financial ties to CCP-linked entities, strict firewalls between academic and political decision-making, and ironclad protections for freedom of inquiry and expression.</p>
+
+<p>In tandem, a major investment in public education and awareness will be crucial to inoculating the broader American society against CCP "United Front" tactics of elite cooptation, disinformation, and psychological manipulation. This should include the development of K-12 and university curricula on CCP influence strategies, media literacy programs to help citizens identify and resist foreign propaganda, and public information campaigns to puncture the CCP's carefully cultivated veneer of benign "soft power." Only a well-informed and vigilant citizenry can serve as a durable bulwark against subversion.</p>
+
+<p>Above all, the United States must approach this challenge in a spirit of national cohesion and resolve. While vigorous democratic debate over the specific means is both healthy and necessary, there can be no equivocation or partisan rancor over the fundamental ends. To confront so sophisticated and determined an adversary, Americans of all political persuasions must find common cause in the defense of our bedrock institutions and values. This is not a struggle that any faction can afford to sit out for temporary tactical advantage.</p>
+
+<p>The road ahead will be long and arduous, and the costs of inaction are steep indeed. But if the revelations of this study teach us anything, it is that there can be no substitute for moral courage in the face of existential threat. Just as it has fallen to a intrepid few to sound the initial alarm, so will it now depend on the exertions of the many to see this struggle through to a successful conclusion. The task is daunting, but the stakes could not be higher. With clarity of purpose, unity of effort, and an unwavering commitment to our democratic ideals, it is one that the United States and its allies can — and must — win.</p>
 </div>
 </section>
-<section class="page-section" id="sources">
-<div class="section-header"><span class="section-num">13</span><h2 class="section-title">References</h2></div>
+
+<div class="references" id="sources">
+<h2>References</h2>
 <ol class="ref-list">
 <li id="ref-1">Pew Research Center. <a href="https://www.pewresearch.org/race-and-ethnicity/2024/10/09/asian-american-immigrants-experiences-adjusting-to-life-in-the-u-s/" rel="noopener" target="_blank">Asian immigrants’ reasons for coming to the U.S. and their experiences adjusting</a> (2024). Chinese immigrants: 38% education; 31% family.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-2">Pew Research Center. <a href="https://www.pewresearch.org/race-ethnicity/2023/07/19/chinese-americans-views-of-china-and-other-places/" rel="noopener" target="_blank">How Chinese Americans view China, the U.S. and other places in Asia</a> (2023). National Chinese-American favorability and nativity differences.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
@@ -978,7 +1686,7 @@ mjx-container[display="true"] {
 <li id="ref-16">Pew Research Center. <a href="https://www.pewresearch.org/global/2019/08/13/u-s-views-of-china-turn-sharply-negative-amid-trade-tensions/" rel="noopener" target="_blank">U.S. Views of China Turn Sharply Negative Amid Trade Tensions</a> (2019). All-U.S.-adult context for the May–June 2019 break.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-17">Gordon G. Chang, <em>The National Interest</em>. <a href="https://nationalinterest.org/feature/no-longer-trade-tiff-china-screams-%E2%80%98people%E2%80%99s-war%E2%80%99-58082" rel="noopener" target="_blank">No Longer a Trade Tiff: China Screams ‘People’s War’</a> (17 May 2019). Interpretive source; immediate context was the trade conflict.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-18"><em>The Japan Times</em>. <a href="https://www.japantimes.co.jp/news/2019/05/15/business/economy-business/china-vows-peoples-war-trade-fight-u-s-takes-nationalist-turn/" rel="noopener" target="_blank">China vows ‘people’s war’ as trade fight takes nationalist turn</a> (15 May 2019). Contemporary contextual reporting.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
-<li id="ref-19">Xinhua. <a href="https://www.xinhuanet.com/english/2019-08/19/c_138321376.htm" rel="noopener" target="_blank">Overseas Chinese stage rally in San Francisco to support Hong Kong police</a> (19 Aug 2019). PRC state-media source.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-95">NBC News. <a href="https://www.nbcnews.com/news/asian-america/pro-hong-kong-demonstrations-u-s-met-china-supporting-counterprotesters-n1049821" rel="noopener" target="_blank">Pro-Hong Kong demonstrations in U.S. met with China-supporting counterprotesters</a> (18 Aug 2019). Documents organized pro-Beijing counter-protesters at Hong Kong-solidarity rallies in Los Angeles/Santa Monica, New York, and simultaneous confrontations in Vancouver and Toronto during the same August 2019 weekend.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-96">Human Rights Watch. <a href="https://www.hrw.org/news/2020/09/14/chinas-influence-global-human-rights-system" rel="noopener" target="_blank">China's Influence on the Global Human Rights System</a> (14 Sep 2020). Documents declining state funding for higher education increasing university financial dependence on Chinese-origin tuition and PRC-linked entities, and resulting susceptibility to Chinese-government influence.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-97">U.S. Government Accountability Office. <a href="https://www.gao.gov/assets/gao-16-757.pdf" rel="noopener" target="_blank">China: U.S. Universities in China Emphasize Academic Freedom but Face Internet Censorship and Other Restrictions</a>, GAO-16-757 (Aug 2016). Documents $1.5 million to over $15 million in Chinese-government funding to individual U.S. institutions and associated conditions.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-98">Human Rights Watch. <a href="https://www.hrw.org/news/2019/11/08/chinese-government-cannot-be-allowed-undermine-academic-freedom" rel="noopener" target="_blank">The Chinese Government Cannot Be Allowed to Undermine Academic Freedom</a> (8 Nov 2019). Documents a senior university administrator asking a scholar "as a personal favor" to decline media interviews critical of Xi Jinping, PRC diplomatic complaints about "sensitive" campus speakers, and the March 2019 UC Berkeley Xinjiang-event disruption.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-99">Human Rights Watch. <a href="https://www.hrw.org/news/2019/04/07/more-must-be-done-protect-academic-freedoms-under-threat-china" rel="noopener" target="_blank">More Must Be Done to Protect Academic Freedoms Under Threat from China</a> (7 Apr 2019). Twelve-point code of conduct and documentation of Confucius Institute content restrictions and hiring conditions tied to PRC government funding.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-19">Xinhua. <a href="https://www.xinhuanet.com/english/2019-08/19/c_138321376.htm" rel="noopener" target="_blank">Overseas Chinese stage rally in San Francisco to support Hong Kong police</a> (19 Aug 2019). PRC state-media source.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-20">Xinhua. <a href="https://www.xinhuanet.com/english/2019-09/09/c_138378490.htm" rel="noopener" target="_blank">Chinese community rallies in San Francisco to support Hong Kong government</a> (9 Sep 2019). PRC state-media source naming institutional organizers.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-21">Ministry of Foreign Affairs of the PRC. <a href="https://www.fmprc.gov.cn/gjhdq_676201/gj_676203/bmz_679954/1206_680528/1206x2_680548/201909/t20190926_9364890.shtml" rel="noopener" target="_blank">San Francisco Bay Area PRC National Day activities</a> (Sep 2019). Interested official source for event occurrence and reported attendance.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-22">Consulate General of the PRC in San Francisco. <a href="https://sanfrancisco.china-consulate.gov.cn/eng/lqyw/201909/t20190928_9531941.htm" rel="noopener" target="_blank">70th National Day reception</a> (27 Sep 2019). Official source reporting 800+ guests.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
@@ -1026,13 +1734,18 @@ mjx-container[display="true"] {
 <li id="ref-64">U.S. Department of the Navy, BRAC Program Management Office. <a href="https://www.bracpmo.navy.mil/BRAC-Bases/California/Former-Naval-Station-Treasure-Island/" rel="noopener" target="_blank">Former Naval Station Treasure Island</a>. Records closure on 30 September 1997 and subsequent redevelopment/property-transfer process.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-65">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/cfr/text/33/165.1190" rel="noopener" target="_blank">33 C.F.R. § 165.1190</a>. Current security-zone regulation for Coast Guard Island and adjacent waters in Alameda.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
 <li id="ref-66">Donald Heller, University of San Francisco. <a href="https://usfblogs.usfca.edu/donaldheller/2019/09/16/its-u-s-news-rankings-time-again/" rel="noopener" target="_blank">It’s U.S. News rankings time again</a> (2019). Discusses rankings incentives, educational spending, faculty salaries, and prospective-student attention.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
-<li id="ref-67">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/951" rel="noopener" target="_blank">18 U.S.C. § 951 — Agents of foreign governments</a>. Criminal notification statute for persons acting in the United States as agents of foreign governments; requires proof of the statutory agency relationship and applicable notification duty.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-68">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/20/1011f" rel="noopener" target="_blank">20 U.S.C. § 1011f — Disclosures of foreign gifts</a>. Higher-education foreign-source disclosure requirement; current statutory threshold is $250,000 from a foreign source in a calendar year, alone or in combination.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-69">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/20/1232g" rel="noopener" target="_blank">20 U.S.C. § 1232g — Family Educational Rights and Privacy Act (FERPA)</a>. Federal conditions governing access to and disclosure of education records; not a general prohibition on observation or privately held student-group information.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-70">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/42/2000d" rel="noopener" target="_blank">42 U.S.C. § 2000d — Title VI of the Civil Rights Act of 1964</a>. Prohibits race, color, and national-origin discrimination in programs or activities receiving federal financial assistance.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-71">Federal Bureau of Investigation. <a href="https://www.fbi.gov/file-repository/reports-and-publications/foreign-malign-influence-and-higher-education-101824.pdf" rel="noopener" target="_blank">Foreign Malign Influence and Higher Education</a>. Higher-education threat guidance distinguishing foreign malign influence and transnational repression from ordinary international engagement.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-72">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=94367.&amp;lawCode=EDC" rel="noopener" target="_blank">California Education Code § 94367 — Speech and Other Communication</a>. Protects students at covered private postsecondary institutions from discipline based solely on speech that would be constitutionally protected off campus, subject to statutory exceptions and rules concerning threats, intimidation, and harassment.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-73">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=52.1.&amp;lawCode=CIV" rel="noopener" target="_blank">California Civil Code § 52.1 — Tom Bane Civil Rights Act</a>. Civil remedies for interference, or attempted interference, by threat, intimidation, or coercion with rights secured by federal or California law; speech alone is generally insufficient absent the statute’s threat-of-violence conditions.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-74">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/2261A" rel="noopener" target="_blank">18 U.S.C. § 2261A — Stalking</a>. Federal stalking statute covering specified interstate, foreign-commerce, or electronic conduct undertaken with the required intent and resulting fear or substantial emotional distress.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-75">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/875" rel="noopener" target="_blank">18 U.S.C. § 875 — Interstate communications</a>. Federal criminal provisions for specified interstate threats and extortionate communications.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-76">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=646.9.&amp;lawCode=PEN" rel="noopener" target="_blank">California Penal Code § 646.9 — Stalking</a>. California stalking offense requiring willful, malicious, repeated following or harassment plus a credible threat and specified intent.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-77">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=422.&amp;lawCode=PEN" rel="noopener" target="_blank">California Penal Code § 422 — Criminal threats</a>. California criminal-threat statute with specific intent, gravity, immediacy, and sustained-fear elements.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-78">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=518.&amp;lawCode=PEN" rel="noopener" target="_blank">California Penal Code § 518 — Extortion</a>. Defines extortion as obtaining property, other consideration, or an official act through wrongful force, fear, or color of official right.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-79">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/241" rel="noopener" target="_blank">18 U.S.C. § 241 — Conspiracy against rights</a>. Federal criminal statute requiring a conspiracy to injure, oppress, threaten, or intimidate a person in the exercise of a right secured by the Constitution or federal law.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-80">U.S. Department of Education, Office for Civil Rights. <a href="https://www.ed.gov/laws-and-policy/civil-rights-laws/title-vi/title-vi-key-issues/discrimination-based-shared-ancestry-or-ethnic-characteristics" rel="noopener" target="_blank">Discrimination Based on Shared Ancestry or Ethnic Characteristics</a>. Current Title VI guidance addressing discrimination and harassment based on actual or perceived shared ancestry, ethnic characteristics, or certain citizenship/residency associations.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-81">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/22/611" rel="noopener" target="_blank">22 U.S.C. § 611 — FARA definitions</a>. Defines foreign principals, agents of foreign principals, and political activities for FARA; the statute turns on a relationship plus specified conduct, not nationality or viewpoint alone.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-82">University of San Francisco. <a href="https://www.usfca.edu/news/breed-reelected" rel="noopener" target="_blank">Alumna London Breed Re-Elected Mayor of San Francisco</a> (7 Nov 2019). Identifies Breed as a USF Master of Public Administration alumna (MPA ’13) and states that she had served as mayor since winning the 2018 special election.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-83">Hong Kong Academy of Finance. <a href="https://aof.org.hk/flp" rel="noopener" target="_blank">Financial Leaders Programme</a>. Describes a regulator-backed programme for senior financial executives, generally one to two levels below CEO rank, designed to develop future Hong Kong financial leaders.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-84">Hong Kong Monetary Authority. <a href="https://www.hkma.gov.hk/media/eng/publication-and-research/annual-report/2025/16_International_Financial_Centre.pdf" rel="noopener" target="_blank">Annual Report 2025 — International Financial Centre</a>. Records Weijian Shan as a 2025 Distinguished Speaker in the Academy of Finance Leadership Development Programme and lists BIS General Manager Pablo Hernández de Cos in the same speaker series.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-85">Hong Kong Academy of Finance / HKIMR. <a href="https://www.aof.org.hk/research/HKIMR/conferences-workshops/previous-conferences-workshops/2026/lists/hkimr-conference-workshop/joint-conference-on-global-interconnections-and-financial-stability" rel="noopener" target="_blank">Global Interconnections and Financial Stability</a>. Documents a 2026 Hong Kong conference co-organized by the Hong Kong Institute for Monetary and Financial Research, the Bank for International Settlements, and the IMF.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-86">Tonghuashun / 10jqka. <a href="https://basic.10jqka.com.cn/HK1136/manager.html" rel="noopener" target="_blank">TCC International Holdings executive directory</a>. PRC corporate-information page currently listing Weijian Shan as a non-executive director of TCC International Holdings Limited.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-87">AskCI / China Business Industry Research Institute. <a href="https://s.askci.com/stock/executives/HK1136/e69a1747aa3c7c89.shtml" rel="noopener" target="_blank">TCC International Holdings executive directory</a>. PRC corporate-information listing for TCC International Holdings and its board/executive network.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-88">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/uploads/files/shares/Annual_Report/2024%20Annual.pdf" rel="noopener" target="_blank">2024 Annual Report</a>. States that TCC is Taiwan's largest and most historic cement and ready-mix concrete producer and seller; reports approximately 34.6% domestic cement-and-clinker market share in 2024 and an island-wide sales network.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-89">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/en/contact-factory" rel="noopener" target="_blank">Factory Contact</a>. Lists TCC cement plants, ready-mix concrete facilities, distribution stations, and mainland operating locations across the group network.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-90">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/en/news-letter/green-transformation" rel="noopener" target="_blank">TCC Promotes Green Transport</a>. Describes TCC's logistics network, including bulk-cement tractors, heavy trucks, concrete-mixer transport, and mainland short-haul fleets.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-91">Industrial Development Administration, Ministry of Economic Affairs, Taiwan. <a href="https://www.ida.gov.tw/ctlr?PRO=filepath.DownloadFile&amp;f=publication&amp;id=3643&amp;t=f" rel="noopener" target="_blank">Cement Industry</a>. Identifies cement as a basic material for national defense and civilian industry and as indispensable to civil engineering, ports, and national-defense works.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-92">Institute for National Defense and Security Research, Taiwan. <a href="https://indsr.org.tw/respublicationcon?pid=4009&amp;resid=1961&amp;typeid=3&amp;uid=12" rel="noopener" target="_blank">Defense research on hardened military facilities</a>. Discusses high-strength concrete for hardened command facilities, tunnel-type installations, aircraft shelters, ammunition/fuel storage, and other reinforced military construction.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-93">Central News Agency. <a href="https://www.cna.com.tw/news/acul/202102090050.aspx" rel="noopener" target="_blank">Taiwanese recipients of the Order of the Star of Italy</a>. Reports that Nelson Chang (張安平) received the rank of Grande Ufficiale in the Order of the Star of Italy, awarded by the Italian president.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-94">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/en/profile" rel="noopener" target="_blank">Director Profiles</a>. Current board of directors of the Taiwan-listed parent company (TWSE: 1101), chaired by Nelson An-ping Chang; does not list Weijian Shan among the fifteen current directors.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li></ol>
-</section>
+<li id="ref-67">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/951" rel="noopener" target="_blank">18 U.S.C. § 951 — Agents of foreign governments</a>. Criminal notification statute for persons acting in the United States as agents of foreign governments; requires proof of the statutory agency relationship and applicable notification duty.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-68">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/20/1011f" rel="noopener" target="_blank">20 U.S.C. § 1011f — Disclosures of foreign gifts</a>. Higher-education foreign-source disclosure requirement; current statutory threshold is $250,000 from a foreign source in a calendar year, alone or in combination.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-69">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/20/1232g" rel="noopener" target="_blank">20 U.S.C. § 1232g — Family Educational Rights and Privacy Act (FERPA)</a>. Federal conditions governing access to and disclosure of education records; not a general prohibition on observation or privately held student-group information.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-70">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/42/2000d" rel="noopener" target="_blank">42 U.S.C. § 2000d — Title VI of the Civil Rights Act of 1964</a>. Prohibits race, color, and national-origin discrimination in programs or activities receiving federal financial assistance.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-71">Federal Bureau of Investigation. <a href="https://www.fbi.gov/file-repository/reports-and-publications/foreign-malign-influence-and-higher-education-101824.pdf" rel="noopener" target="_blank">Foreign Malign Influence and Higher Education</a>. Higher-education threat guidance distinguishing foreign malign influence and transnational repression from ordinary international engagement.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-72">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=94367.&amp;lawCode=EDC" rel="noopener" target="_blank">California Education Code § 94367 — Speech and Other Communication</a>. Protects students at covered private postsecondary institutions from discipline based solely on speech that would be constitutionally protected off campus, subject to statutory exceptions and rules concerning threats, intimidation, and harassment.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-73">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=52.1.&amp;lawCode=CIV" rel="noopener" target="_blank">California Civil Code § 52.1 — Tom Bane Civil Rights Act</a>. Civil remedies for interference, or attempted interference, by threat, intimidation, or coercion with rights secured by federal or California law; speech alone is generally insufficient absent the statute’s threat-of-violence conditions.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-74">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/2261A" rel="noopener" target="_blank">18 U.S.C. § 2261A — Stalking</a>. Federal stalking statute covering specified interstate, foreign-commerce, or electronic conduct undertaken with the required intent and resulting fear or substantial emotional distress.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-75">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/875" rel="noopener" target="_blank">18 U.S.C. § 875 — Interstate communications</a>. Federal criminal provisions for specified interstate threats and extortionate communications.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-76">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=646.9.&amp;lawCode=PEN" rel="noopener" target="_blank">California Penal Code § 646.9 — Stalking</a>. California stalking offense requiring willful, malicious, repeated following or harassment plus a credible threat and specified intent.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-77">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=422.&amp;lawCode=PEN" rel="noopener" target="_blank">California Penal Code § 422 — Criminal threats</a>. California criminal-threat statute with specific intent, gravity, immediacy, and sustained-fear elements.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-78">California Legislative Information. <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=518.&amp;lawCode=PEN" rel="noopener" target="_blank">California Penal Code § 518 — Extortion</a>. Defines extortion as obtaining property, other consideration, or an official act through wrongful force, fear, or color of official right.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-79">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/18/241" rel="noopener" target="_blank">18 U.S.C. § 241 — Conspiracy against rights</a>. Federal criminal statute requiring a conspiracy to injure, oppress, threaten, or intimidate a person in the exercise of a right secured by the Constitution or federal law.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-80">U.S. Department of Education, Office for Civil Rights. <a href="https://www.ed.gov/laws-and-policy/civil-rights-laws/title-vi/title-vi-key-issues/discrimination-based-shared-ancestry-or-ethnic-characteristics" rel="noopener" target="_blank">Discrimination Based on Shared Ancestry or Ethnic Characteristics</a>. Current Title VI guidance addressing discrimination and harassment based on actual or perceived shared ancestry, ethnic characteristics, or certain citizenship/residency associations.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-81">Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/22/611" rel="noopener" target="_blank">22 U.S.C. § 611 — FARA definitions</a>. Defines foreign principals, agents of foreign principals, and political activities for FARA; the statute turns on a relationship plus specified conduct, not nationality or viewpoint alone.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-82">University of San Francisco. <a href="https://www.usfca.edu/news/breed-reelected" rel="noopener" target="_blank">Alumna London Breed Re-Elected Mayor of San Francisco</a> (7 Nov 2019). Identifies Breed as a USF Master of Public Administration alumna (MPA ’13) and states that she had served as mayor since winning the 2018 special election.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-83">Hong Kong Academy of Finance. <a href="https://aof.org.hk/flp" rel="noopener" target="_blank">Financial Leaders Programme</a>. Describes a regulator-backed programme for senior financial executives, generally one to two levels below CEO rank, designed to develop future Hong Kong financial leaders.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-84">Hong Kong Monetary Authority. <a href="https://www.hkma.gov.hk/media/eng/publication-and-research/annual-report/2025/16_International_Financial_Centre.pdf" rel="noopener" target="_blank">Annual Report 2025 — International Financial Centre</a>. Records Weijian Shan as a 2025 Distinguished Speaker in the Academy of Finance Leadership Development Programme and lists BIS General Manager Pablo Hernández de Cos in the same speaker series.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-85">Hong Kong Academy of Finance / HKIMR. <a href="https://www.aof.org.hk/research/HKIMR/conferences-workshops/previous-conferences-workshops/2026/lists/hkimr-conference-workshop/joint-conference-on-global-interconnections-and-financial-stability" rel="noopener" target="_blank">Global Interconnections and Financial Stability</a>. Documents a 2026 Hong Kong conference co-organized by the Hong Kong Institute for Monetary and Financial Research, the Bank for International Settlements, and the IMF.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-86">Tonghuashun / 10jqka. <a href="https://basic.10jqka.com.cn/HK1136/manager.html" rel="noopener" target="_blank">TCC International Holdings executive directory</a>. PRC corporate-information page currently listing Weijian Shan as a non-executive director of TCC International Holdings Limited.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-87">AskCI / China Business Industry Research Institute. <a href="https://s.askci.com/stock/executives/HK1136/e69a1747aa3c7c89.shtml" rel="noopener" target="_blank">TCC International Holdings executive directory</a>. PRC corporate-information listing for TCC International Holdings and its board/executive network.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-88">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/uploads/files/shares/Annual_Report/2024%20Annual.pdf" rel="noopener" target="_blank">2024 Annual Report</a>. States that TCC is Taiwan's largest and most historic cement and ready-mix concrete producer and seller; reports approximately 34.6% domestic cement-and-clinker market share in 2024 and an island-wide sales network.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-89">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/en/contact-factory" rel="noopener" target="_blank">Factory Contact</a>. Lists TCC cement plants, ready-mix concrete facilities, distribution stations, and mainland operating locations across the group network.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-90">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/en/news-letter/green-transformation" rel="noopener" target="_blank">TCC Promotes Green Transport</a>. Describes TCC's logistics network, including bulk-cement tractors, heavy trucks, concrete-mixer transport, and mainland short-haul fleets.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-91">Industrial Development Administration, Ministry of Economic Affairs, Taiwan. <a href="https://www.ida.gov.tw/ctlr?PRO=filepath.DownloadFile&amp;f=publication&amp;id=3643&amp;t=f" rel="noopener" target="_blank">Cement Industry</a>. Identifies cement as a basic material for national defense and civilian industry and as indispensable to civil engineering, ports, and national-defense works.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-92">Institute for National Defense and Security Research, Taiwan. <a href="https://indsr.org.tw/respublicationcon?pid=4009&amp;resid=1961&amp;typeid=3&amp;uid=12" rel="noopener" target="_blank">Defense research on hardened military facilities</a>. Discusses high-strength concrete for hardened command facilities, tunnel-type installations, aircraft shelters, ammunition/fuel storage, and other reinforced military construction.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-93">Central News Agency. <a href="https://www.cna.com.tw/news/acul/202102090050.aspx" rel="noopener" target="_blank">Taiwanese recipients of the Order of the Star of Italy</a>. Reports that Nelson Chang (張安平) received the rank of Grande Ufficiale in the Order of the Star of Italy, awarded by the Italian president.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-94">TCC Group Holdings. <a href="https://www.tccgroupholdings.com/en/profile" rel="noopener" target="_blank">Director Profiles</a>. Current board of directors of the Taiwan-listed parent company (TWSE: 1101), chaired by Nelson An-ping Chang; does not list Weijian Shan among the fifteen current directors.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-95">NBC News. <a href="https://www.nbcnews.com/news/asian-america/pro-hong-kong-demonstrations-u-s-met-china-supporting-counterprotesters-n1049821" rel="noopener" target="_blank">Pro-Hong Kong demonstrations in U.S. met with China-supporting counterprotesters</a> (18 Aug 2019). Documents organized pro-Beijing counter-protesters at Hong Kong-solidarity rallies in Los Angeles/Santa Monica, New York, Vancouver, and Toronto during the same August 2019 weekend.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-96">Human Rights Watch. <a href="https://www.hrw.org/news/2020/09/14/chinas-influence-global-human-rights-system" rel="noopener" target="_blank">China's Influence on the Global Human Rights System</a> (14 Sep 2020). Documents declining state funding for higher education increasing university financial dependence on Chinese-origin tuition and PRC-linked entities, and resulting susceptibility to Chinese-government influence.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-97">U.S. Government Accountability Office. <a href="https://www.gao.gov/assets/gao-16-757.pdf" rel="noopener" target="_blank">China: U.S. Universities in China Emphasize Academic Freedom but Face Internet Censorship and Other Restrictions</a>, GAO-16-757 (Aug 2016). Documents $1.5 million to over $15 million in Chinese-government funding to individual U.S. institutions and associated conditions.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-98">Human Rights Watch. <a href="https://www.hrw.org/news/2019/11/08/chinese-government-cannot-be-allowed-undermine-academic-freedom" rel="noopener" target="_blank">The Chinese Government Cannot Be Allowed to Undermine Academic Freedom</a> (8 Nov 2019). Documents a senior university administrator asking a scholar "as a personal favor" to decline media interviews critical of Xi Jinping, PRC diplomatic complaints about "sensitive" campus speakers, and the March 2019 UC Berkeley Xinjiang-event disruption.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-99">Human Rights Watch. <a href="https://www.hrw.org/news/2019/04/07/more-must-be-done-protect-academic-freedoms-under-threat-china" rel="noopener" target="_blank">More Must Be Done to Protect Academic Freedoms Under Threat from China</a> (7 Apr 2019). Twelve-point code of conduct and documentation of Confucius Institute content restrictions and hiring conditions tied to PRC government funding.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-100">U.S. Department of Defense. <a href="https://media.defense.gov/2025/Dec/23/2003849070/-1/-1/1/ANNUAL-REPORT-TO-CONGRESS-MILITARY-AND-SECURITY-DEVELOPMENTS-INVOLVING-THE-PEOPLES-REPUBLIC-OF-CHINA-2025.PDF" rel="noopener" target="_blank"><em>Military and Security Developments Involving the People's Republic of China 2025</em></a> (Annual Report to Congress, 23 Dec 2025). Documents the Djibouti support base and the Ream Naval Base joint logistics and training center in Cambodia, and assesses that Beijing is considering additional overseas logistics sites across roughly 21 candidate countries.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-101">RAND Corporation. <a href="https://www.rand.org/pubs/research_reports/RRA1496-2.html" rel="noopener" target="_blank"><em>The People's Liberation Army's Search for Overseas Basing and Access: A Framework to Assess Potential Host Nations</em></a> and <a href="https://www.rand.org/pubs/research_reports/RRA1800-2.html" rel="noopener" target="_blank"><em>Not Ready for a Fight: Chinese Military Insecurities for Overseas Bases in Wartime</em></a>. The first evaluates 108 candidate host nations using desirability/feasibility criteria; the second finds, from open-source Chinese military writings, that the PLA currently lacks the intent and capability to conduct offensive operations from overseas bases through at least 2030.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-102">C4ADS (Center for Advanced Defense Studies). <a href="https://c4ads.org/reports/harbored-ambitions/" rel="noopener" target="_blank"><em>Harbored Ambitions: How China's Port Investments Are Strategically Reshaping the Indo-Pacific</em></a> (2018). Analyzes 15 BRI-funded port projects and finds a recurring pattern of dual-use design — deepwater berths, reinforced access infrastructure, and facilities matching PLA operational specifications — that exceeds ordinary commercial requirements.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li><li id="ref-103">Center for Strategic and International Studies. <a href="https://www.csis.org/analysis/security-implications-chinas-military-presence-indian-ocean" rel="noopener" target="_blank">Security Implications of China's Military Presence in the Indian Ocean</a>. Documents how BRI-financed port access in Djibouti, Bangladesh, Burma, Pakistan, and Sri Lanka supports PLA Navy refueling and resupply independent of Chinese territory.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+</ol>
+</div>
 </main>
 </div>
 <footer>
-<div>William Chuang · Logarchéon Inc. · Independent Research</div>
-<div style="margin-top:.35rem;">Exit Without Opposition · Research Analysis · 2026</div>
+<p style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--faint);">William Huanshan Chuang &middot; Logarch&eacute;on Inc. &middot; Research Paper &middot; 27 Aug 2026</p>
 </footer>
 </div>
 </body>
