@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Faith Before the Fork: Buber, Tillich, and Catholic Theology — William Chuang · Logarchéon</title>
+<meta content="A research page comparing Catholic theology with Martin Buber's I and Thou and Paul Tillich's Dynamics of Faith on the definition of faith, mediation, revelation, doubt, symbol, and the Incarnation, with a case study on how these texts were framed as common Protestant–Catholic ground in a University of San Francisco course." name="description"/>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   FAITH BEFORE THE FORK — Logarchéon Research
+   Design System v2  ·  William Huanshan Chuang
+   Palette: deep navy × archival gold × documentary white
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+
+:root {
+  /* Core palette */
+  --navy:          #0b1929;
+  --navy-deep:     #070f1a;
+  --navy-mid:      #0f2237;
+  --navy-light:    #162d52;
+  --navy-rim:      #1e3a64;
+  --navy-glass:    rgba(11,25,41,0.92);
+
+  /* Gold system — 5 stops */
+  --gold-bright:   #d4a843;
+  --gold:          #c9a84c;
+  --gold-light:    #e2c97e;
+  --gold-dim:      #8a6c2e;
+  --gold-ink:      #6b521f;
+
+  /* Alphas */
+  --gold-pale:     rgba(201,168,76,0.12);
+  --gold-glow:     rgba(201,168,76,0.06);
+  --gold-rim:      rgba(201,168,76,0.22);
+  --gold-border:   rgba(201,168,76,0.30);
+
+  /* Reading surface */
+  --cream:         #f7f3ec;
+  --parchment:     #eee9de;
+  --body-text:     #ddd7cb;
+  --muted:         #bdb5a4;
+  --faint:         #7a7265;
+  --hairline:      rgba(201,168,76,0.15);
+
+  /* Evidence tier colors */
+  --c-measured:    #6dba96;
+  --c-reconstruct: #d4a843;
+  --c-hypothesis:  #7ba8d4;
+  --c-unknown:     #a897b8;
+
+  /* Spacing & rhythm */
+  --section-gap:   5.5rem;
+  --col-width:     68ch;
+  --radius-sm:     3px;
+  --radius-md:     6px;
+  --radius-lg:     10px;
+
+  /* Transitions */
+  --t-fast:        150ms ease;
+  --t-med:         250ms ease;
+  --t-slow:        400ms ease;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ─── Body & ambient atmosphere ─────────────────────────────── */
+body {
+  font-family: "Source Serif 4", "Libre Baskerville", Georgia, serif;
+  background: var(--navy-deep);
+  color: var(--body-text);
+  line-height: 1.78;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "onum" 1, "liga" 1, "kern" 1;
+}
+
+/* Single large ambient vignette — no grid telltale */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(201,168,76,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 1000px at 85% 30%, rgba(30,58,100,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+
+.wrap { position: relative; z-index: 1; }
+
+/* ─── Type scale ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+/* ─── Links ──────────────────────────────────────────────────── */
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+a:hover { color: var(--gold-light); text-decoration: none; }
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Inline elements ────────────────────────────────────────── */
+code {
+  font-family: "DM Mono", "Fira Mono", monospace;
+  font-size: 0.80rem;
+  background: rgba(30,58,100,0.6);
+  padding: 0.12em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--hairline);
+}
+strong { color: var(--cream); font-weight: 700; }
+em { font-style: italic; color: var(--body-text); }
+
+.mono {
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── Navigation ─────────────────────────────────────────────── */
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy-glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid var(--hairline);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 2rem;
+}
+.nav-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  transition: color var(--t-fast);
+}
+.nav-logo:hover { color: var(--gold-bright); }
+
+.nav-links {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+  text-decoration: none;
+}
+
+/* ─── Layout ─────────────────────────────────────────────────── */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+.page-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4.5rem;
+  align-items: start;
+  padding: 4rem 32px 7rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ─── TOC sidebar ────────────────────────────────────────────── */
+.toc-sidebar {
+  position: sticky;
+  top: 76px;
+  border-left: 2px solid var(--hairline);
+  padding-left: 1.2rem;
+  max-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  transition: border-color var(--t-med);
+}
+.toc-sidebar:hover { border-left-color: var(--gold-rim); }
+
+.toc-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 0.9rem;
+  flex-shrink: 0;
+}
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.4rem;
+  padding-bottom: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dim) transparent;
+}
+.toc-link {
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  padding: 0.28rem 0 0.28rem 0.9rem;
+  display: block;
+  border-left: 2px solid transparent;
+  margin-left: -1.2rem;
+  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-link:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: var(--gold-glow);
+  text-decoration: none;
+}
+.toc-link.toc-section {
+  color: var(--body-text);
+  font-size: 0.69rem;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+.page-hero {
+  border-bottom: 1px solid var(--hairline);
+  padding: 4rem 0 3rem;
+}
+.page-hero .breadcrumb {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.page-hero .breadcrumb span { color: var(--faint); }
+
+.page-hero h1 {
+  font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+  font-weight: 300;
+  max-width: 26ch;
+  margin-bottom: 1.2rem;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 300;
+}
+
+/* Gold underline accent on title */
+.page-hero h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  margin-top: 1.1rem;
+  border-radius: 1px;
+}
+
+.hero-desc {
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 66ch;
+  line-height: 1.80;
+  margin-bottom: 1.6rem;
+  font-weight: 300;
+}
+.hero-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.hero-badge {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-rim);
+  padding: 0.24rem 0.65rem;
+  border-radius: 2px;
+  background: var(--gold-pale);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.hero-badge:hover { background: rgba(201,168,76,0.20); border-color: var(--gold); }
+
+.hero-methods {
+  max-width: 72ch;
+  margin: 1.3rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  backdrop-filter: blur(6px);
+}
+.hero-methods .method-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.hero-methods p { color: var(--muted); font-size: 0.88rem; line-height: 1.80; margin: 0; }
+
+/* ─── Section rhythm ─────────────────────────────────────────── */
+.page-section { margin-bottom: var(--section-gap); }
+
+/* Evidence rail — the signature element */
+.page-section + .page-section::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin-bottom: var(--section-gap);
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold-rim) 20%,
+    var(--gold) 50%,
+    var(--gold-rim) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2.4rem;
+  position: relative;
+}
+.section-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-rim) 0%, transparent 70%);
+}
+
+.section-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+}
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  letter-spacing: -0.01em;
+}
+
+/* ─── Subsections ────────────────────────────────────────────── */
+.subsection { margin: 2.2rem 0; }
+.subsection h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 1.1rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--gold-dim);
+  transition: border-color var(--t-med);
+}
+.subsection h3:hover { border-left-color: var(--gold); }
+.subsection h4 {
+  font-family: "DM Mono", monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4rem 0 0.7rem;
+}
+
+/* ─── Prose ──────────────────────────────────────────────────── */
+.prose {
+  color: var(--body-text);
+  font-size: 0.935rem;
+  line-height: 1.84;
+  max-width: var(--col-width);
+  font-feature-settings: "onum" 1, "liga" 1;
+}
+.prose p { margin: 0 0 1.1rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul, .prose ol { margin: 0.8rem 0 1.2rem 1.4rem; }
+.prose li { margin: 0.4rem 0; }
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.paper-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.6rem;
+  margin: 1.3rem 0;
+  transition: border-color var(--t-med), box-shadow var(--t-med), transform var(--t-slow);
+  backdrop-filter: blur(4px);
+}
+.paper-card:hover {
+  border-color: var(--gold-rim);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px var(--gold-glow);
+  transform: translateY(-1px);
+}
+.paper-card h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 0.45rem;
+}
+.paper-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.paper-meta span::after { content: " ·"; margin-left: 0.25rem; }
+.paper-meta span:last-child::after { content: ""; }
+
+.paper-abstract { color: var(--body-text); font-size: 0.90rem; line-height: 1.78; max-width: var(--col-width); }
+.paper-abstract p { margin-bottom: 0.7rem; }
+
+/* ─── Theory disclaimer ──────────────────────────────────────── */
+.theory-disclaimer {
+  background: rgba(22,45,82,0.5);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 0.9rem 1.2rem;
+  margin: 0 0 1.6rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-style: italic;
+  max-width: var(--col-width);
+}
+
+/* ─── Callout ────────────────────────────────────────────────── */
+.callout {
+  background: linear-gradient(135deg, rgba(201,168,76,0.09) 0%, rgba(15,34,55,0.65) 100%);
+  border: 1px solid var(--gold-rim);
+  padding: 1.3rem 1.5rem;
+  margin: 1.6rem 0;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+.callout::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dim) 0%, var(--gold) 50%, var(--gold-dim) 100%);
+}
+.callout .kicker {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.55rem;
+}
+.callout .statement {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.28rem;
+  line-height: 1.45;
+  color: var(--cream);
+  font-weight: 400;
+}
+
+/* ─── Evidence chips ─────────────────────────────────────────── */
+.chip {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  padding: 0.12rem 0.5rem;
+  margin-right: 0.35rem;
+  vertical-align: 0.10em;
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+  cursor: default;
+}
+.chip:hover { background: rgba(255,255,255,0.06); box-shadow: 0 0 8px currentColor; }
+.chip.m { color: var(--c-measured); }
+.chip.r { color: var(--c-reconstruct); }
+.chip.h { color: var(--c-hypothesis); }
+.chip.u { color: var(--c-unknown); }
+
+/* ─── Status legend ──────────────────────────────────────────── */
+.status-legend { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.7rem; margin: 1.3rem 0 0; }
+.status-item {
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.73rem;
+  line-height: 1.55;
+  transition: border-color var(--t-fast);
+}
+.status-item:hover { border-color: var(--gold-rim); }
+
+/* ─── Metrics ────────────────────────────────────────────────── */
+.metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.4rem 0; }
+.metric {
+  background: rgba(15,34,55,0.70);
+  border: 1px solid var(--hairline);
+  border-top: 2px solid var(--gold-dim);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  transition: border-top-color var(--t-med), box-shadow var(--t-med);
+}
+.metric:hover { border-top-color: var(--gold); box-shadow: 0 2px 16px rgba(0,0,0,0.3); }
+.metric .number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  font-feature-settings: "onum" 1;
+}
+.metric .label {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.59rem;
+  color: var(--faint);
+  margin-bottom: 0.4rem;
+}
+.metric p { font-size: 0.75rem; color: var(--muted); line-height: 1.58; }
+
+/* ─── Data tables ────────────────────────────────────────────── */
+.data-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0 1.8rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  background: rgba(11,25,41,0.55);
+}
+.data-table th {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid var(--gold-rim);
+  background: rgba(15,34,55,0.85);
+}
+.data-table td {
+  padding: 0.82rem 0.9rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--body-text);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  vertical-align: top;
+  transition: background var(--t-fast);
+}
+.data-table tr:hover td { background: rgba(201,168,76,0.04); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .num {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-light);
+  white-space: nowrap;
+  font-feature-settings: "onum" 1;
+}
+
+/* ─── Charts ─────────────────────────────────────────────────── */
+.chart-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.2rem 1rem;
+  margin: 1.6rem 0;
+  backdrop-filter: blur(4px);
+}
+.chart-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.12rem;
+  color: var(--cream);
+  margin-bottom: 0.25rem;
+}
+.chart-note { color: var(--faint); font-size: 0.68rem; margin-bottom: 0.9rem; }
+.chart-card svg { width: 100%; height: auto; display: block; }
+.chart-axis  { stroke: rgba(201,168,76,0.25); stroke-width: 1; }
+.chart-grid  { stroke: rgba(201,168,76,0.08); stroke-width: 1; }
+.chart-line  { fill: none; stroke: var(--gold); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart-dot   { fill: var(--navy-deep); stroke: var(--gold); stroke-width: 2.5; }
+.chart-label { fill: var(--muted); font-family: "DM Mono",monospace; font-size: 11px; }
+.chart-value { fill: var(--cream); font-family: "DM Mono",monospace; font-size: 12px; font-weight: 500; }
+
+/* ─── Peak grid ──────────────────────────────────────────────── */
+.peak-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.peak {
+  padding: 1.1rem;
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  transition: border-color var(--t-med), transform var(--t-slow);
+}
+.peak:hover { border-color: var(--gold-rim); transform: translateY(-1px); }
+.peak .when {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold-light);
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+.peak .what {
+  font-family: "DM Mono", monospace;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.59rem;
+  margin: 0.3rem 0 0.6rem;
+}
+.peak p { color: var(--muted); font-size: 0.75rem; line-height: 1.60; }
+
+/* ─── Mechanism grid ─────────────────────────────────────────── */
+.mechanism-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.mech {
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  transition: border-color var(--t-med);
+}
+.mech:hover { border-color: var(--gold-rim); }
+.mech .mnum {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-dim);
+  font-size: 0.59rem;
+  letter-spacing: 0.10em;
+  margin-bottom: 0.2rem;
+}
+.mech h4 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--cream);
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0.5rem;
+  font-weight: 500;
+}
+.mech p { color: var(--muted); font-size: 0.77rem; line-height: 1.65; }
+
+/* ─── Formula boxes ──────────────────────────────────────────── */
+.formula-box {
+  margin: 1.3rem 0;
+  padding: 1rem 1.3rem;
+  border: 1px solid var(--gold-rim);
+  border-left: 3px solid var(--gold);
+  background: rgba(7,15,26,0.70);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  text-align: center;
+  overflow-x: auto;
+  color: var(--cream);
+}
+
+/* ─── Goldilocks ─────────────────────────────────────────────── */
+.goldilocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin: 1.1rem 0 1.6rem; }
+.goldilocks .state {
+  text-align: center;
+  padding: 1rem 0.8rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: 0.76rem;
+  transition: border-color var(--t-fast);
+}
+.goldilocks .state:hover { border-color: var(--gold-rim); }
+.goldilocks .state strong {
+  display: block;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+/* ─── Hypotheses ─────────────────────────────────────────────── */
+.hypothesis {
+  border-left: 2px solid var(--c-hypothesis);
+  padding: 0.9rem 1.1rem;
+  margin: 0.9rem 0;
+  background: rgba(22,45,82,0.35);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  transition: border-left-color var(--t-fast);
+}
+.hypothesis:hover { border-left-color: #a0c4e8; }
+.hypothesis .h-label {
+  font-family: "DM Mono", monospace;
+  color: var(--c-hypothesis);
+  font-size: 0.60rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.hypothesis h4 { font-family: "Cormorant Garamond", serif; font-size: 1.06rem; margin: 0.18rem 0 0.4rem; color: var(--cream); }
+.hypothesis p { color: var(--muted); font-size: 0.79rem; line-height: 1.65; }
+
+/* ─── Timeline ───────────────────────────────────────────────── */
+.timeline { margin: 1.3rem 0; border-left: 1px solid var(--gold-rim); padding-left: 0; }
+.timeline-item {
+  position: relative;
+  padding: 0 0 1.3rem 1.5rem;
+  transition: background var(--t-fast);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px; top: 0.52rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  border: 2px solid var(--gold-dim);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.timeline-item:hover::before { border-color: var(--gold); background: var(--gold-pale); }
+.timeline-item .date {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.timeline-item h4 { font-size: 1rem; font-weight: 500; margin: 0.12rem 0 0.3rem; color: var(--cream); }
+.timeline-item p { color: var(--muted); font-size: 0.77rem; line-height: 1.62; }
+
+/* ─── Matrix ─────────────────────────────────────────────────── */
+.matrix { display: grid; grid-template-columns: 160px 1fr 1fr; border: 1px solid var(--hairline); margin: 1.3rem 0; border-radius: var(--radius-md); overflow: hidden; }
+.matrix > div { padding: 0.9rem; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); color: var(--body-text); font-size: 0.76rem; line-height: 1.60; }
+.matrix > div:nth-child(3n) { border-right: none; }
+.matrix > div:nth-last-child(-n+3) { border-bottom: none; }
+.matrix .head { background: rgba(15,34,55,0.85); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); }
+.matrix .rowhead { background: rgba(15,34,55,0.65); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); }
+
+/* ─── Reference list ─────────────────────────────────────────── */
+.references {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--hairline);
+}
+.references h2 {
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+.ref-list { list-style: none; display: grid; gap: 0.6rem; counter-reset: refs; }
+.ref-list li {
+  counter-increment: refs;
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.65;
+  padding: 0.6rem 0.8rem 0.6rem 2.4rem;
+  position: relative;
+  border-radius: var(--radius-sm);
+  transition: background var(--t-fast);
+  scroll-margin-top: 96px;
+}
+.ref-list li:hover { background: rgba(201,168,76,0.04); }
+.ref-list li::before {
+  content: "[" counter(refs) "]";
+  position: absolute;
+  left: 0.4rem; top: 0.6rem;
+  color: var(--gold-dim);
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  width: 1.8rem;
+  text-align: right;
+}
+.ref-list li a { color: var(--gold); overflow-wrap: anywhere; }
+.ref-list li a:hover { color: var(--gold-light); }
+.ref-back { color: var(--faint); font-size: 0.70rem; margin-left: 0.3rem; }
+
+/* ─── Citations ──────────────────────────────────────────────── */
+.cite-ref {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65em;
+  font-weight: 500;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.14rem;
+}
+.cite-ref a { color: var(--gold-dim); }
+.cite-ref a:hover { color: var(--gold); }
+
+/* ─── Source note ────────────────────────────────────────────── */
+.source-note { font-family: "DM Mono",monospace; color: var(--faint); font-size: 0.60rem; line-height: 1.55; margin-top: 0.4rem; }
+
+/* ─── Link buttons ───────────────────────────────────────────── */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-rim);
+  color: var(--cream);
+  padding: 0.38rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.05em;
+  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+.link-btn:hover {
+  background: rgba(201,168,76,0.22);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  color: var(--cream);
+  text-decoration: none;
+}
+.paper-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+
+/* ─── Legal notes ────────────────────────────────────────────── */
+.legal-note { border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin: 1.3rem 0; background: rgba(201,168,76,0.05); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.legal-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 1.3rem 0; }
+.legal-card { border: 1px solid var(--hairline); padding: 1rem 1.1rem; background: rgba(15,34,55,0.50); border-radius: var(--radius-md); transition: border-color var(--t-fast); }
+.legal-card:hover { border-color: var(--gold-rim); }
+.legal-card .label { font-family: "DM Mono",monospace; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.70rem; color: var(--gold-dim); margin-bottom: 0.5rem; }
+.legal-card p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.80rem; }
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 2.5rem 32px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ─── Scroll-triggered fade-in ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .page-section {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.55s ease forwards;
+  }
+  .page-section:nth-child(1)  { animation-delay: 0.05s; }
+  .page-section:nth-child(2)  { animation-delay: 0.10s; }
+  .page-section:nth-child(3)  { animation-delay: 0.15s; }
+  .page-section:nth-child(4)  { animation-delay: 0.20s; }
+  .page-section:nth-child(n+5) { animation-delay: 0.25s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .page-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 20px 5rem; }
+  .toc-sidebar { display: none; }
+  .metric-grid, .peak-grid, .mechanism-grid, .status-legend, .goldilocks { grid-template-columns: 1fr; }
+  .nav-links { gap: 1rem; }
+  .nav-inner { padding: 0 20px; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .legal-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 590px) {
+  nav.site-nav { padding: 0; }
+  .container, .page-hero { padding-left: 18px; padding-right: 18px; }
+  .page-hero h1 { font-size: clamp(1.9rem, 10vw, 2.6rem); }
+  .section-title { font-size: 1.45rem; }
+  table.data-table { min-width: 560px; }
+  .data-table th, .data-table td { padding: 0.65rem 0.7rem; }
+  .matrix { grid-template-columns: 1fr; }
+  .matrix > div { border-right: none; }
+  .matrix .head:first-child { display: none; }
+  footer { padding: 2rem 18px; }
+}
+
+/* ─── Utility: overflow safety ───────────────────────────────── */
+html, body { max-width: 100%; }
+.wrap, .container, .page-layout, .page-layout > main, .page-section,
+.subsection, .prose, .paper-card, .callout, .theory-disclaimer,
+.chart-card, .timeline, .legal-grid, .legal-card, .references { min-width: 0; max-width: 100%; }
+.page-layout > main { width: 100%; }
+p, li, dd, dt, blockquote, .hero-desc, .hero-methods p, .statement,
+.paper-abstract, .theory-disclaimer, .status-item, .metric p, .peak p, .mech p,
+.hypothesis p, .timeline-item p, .matrix > div, .legal-card p, .source-note,
+.ref-list li, th, td { overflow-wrap: anywhere; word-break: normal; hyphens: auto; }
+a { overflow-wrap: anywhere; word-break: break-word; }
+code { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+img, picture, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+.data-table-wrap, .formula-box { width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent; }
+.data-table { max-width: none; }
+.nav-links { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+mjx-container { max-width: 100%; }
+mjx-container[display="true"] { display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 0.15rem; }
+.section-header { min-width: 0; }
+.section-title, .subsection h3, .paper-card h3, .callout .statement, .page-hero h1 { overflow-wrap: anywhere; }
+.cite-ref { white-space: normal; overflow-wrap: normal; }
+
+/* ─── Page-specific additions ────────────────────────────────── */
+.callout.emphasis {
+  border: 1px solid var(--gold);
+  border-left: 5px solid var(--gold-bright);
+  background: linear-gradient(135deg, rgba(201,168,76,0.16) 0%, rgba(15,34,55,0.75) 60%);
+  box-shadow: 0 0 0 1px rgba(201,168,76,0.18), 0 6px 28px rgba(0,0,0,0.35);
+}
+.callout.emphasis .kicker { color: var(--gold-bright); }
+.callout.emphasis .statement { color: var(--cream); font-size: 1.05rem; }
+.callout.emphasis .statement p { margin-bottom: 0.9rem; }
+.callout.emphasis .statement p:last-child { margin-bottom: 0; }
+mark {
+  background: rgba(212,168,67,0.22);
+  color: var(--cream);
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  box-shadow: inset 0 -2px 0 var(--gold);
+}
+.compare-table td:first-child { color: var(--cream); font-weight: 500; white-space: nowrap; }
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/CEAS">CEAS</a></li>
+<li><a href="/GRAIL">GRAIL</a></li>
+<li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+<li><a href="/MIA">MIA</a></li>
+<li><a class="active" href="/Research/">Research</a></li>
+<li><a href="/About">About</a></li>
+<li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="page-hero">
+<div class="breadcrumb">
+<a href="/" style="color:var(--faint);">Logarchéon</a>
+<span style="color:var(--faint);">/</span>
+<a href="/Research/" style="color:var(--faint);">Research</a>
+<span style="color:var(--faint);">/</span>
+<span>Faith Before the Fork</span>
+</div>
+<h1 class="title">Faith Before the Fork: Buber, Tillich, and Catholic Theology on the Definition of Faith</h1>
+<p class="hero-desc">
+      A comparative study of Martin Buber's <em>I and Thou</em> and Paul Tillich's <em>Dynamics of Faith</em> against Catholic theology on faith, revelation, mediation, symbol, doubt, and the Incarnation — with a case study on the claim, made in a university classroom, that these two texts state a faith "shared by Protestants and Catholics."
+    </p>
+<div aria-label="Core proposition" class="hero-methods">
+<span class="method-label">Core proposition</span>
+<p><strong>The differences between Catholic theology and the theologies of Buber and Tillich do not begin after the definition of faith; they begin in it.</strong> Both authors were read widely by Catholics and can be studied by Catholics without any injury to faith, but neither states a common Protestant–Catholic ground. Buber's refusal of every mediator and Tillich's redefinition of faith as ultimate concern were each written to displace the Catholic account of faith, mediation, and revelation, not to precede it.</p>
+</div>
+<div class="hero-badges">
+<span class="hero-badge">Catholic Theology</span>
+<span class="hero-badge">Philosophy of Religion</span>
+<span class="hero-badge">Jewish–Christian &amp; Protestant–Catholic Dialogue</span>
+<span class="hero-badge">Pedagogy &amp; Institutional Framing</span>
+<span class="hero-badge">Research Analysis · 11 Sep 2026</span>
+</div>
+</div>
+</div>
+<div class="page-layout">
+<aside class="toc-sidebar">
+<div class="toc-label">Sections</div>
+<ul class="toc-list">
+<li><a class="toc-link toc-section" href="#thesis">00 · Core Thesis</a></li>
+<li><a class="toc-link toc-section" href="#buber-text">01 · Buber: The Text</a></li>
+<li><a class="toc-link toc-section" href="#buber-compare">02 · Buber vs. Catholic Theology</a></li>
+<li><a class="toc-link toc-section" href="#buber-converge">03 · Convergence: Personalism</a></li>
+<li><a class="toc-link toc-section" href="#buber-fault">04 · Fault Line: Mediation</a></li>
+<li><a class="toc-link toc-section" href="#tillich-text">05 · Tillich: The Text</a></li>
+<li><a class="toc-link toc-section" href="#tillich-compare">06 · Tillich vs. Catholic Theology</a></li>
+<li><a class="toc-link toc-section" href="#tillich-converge">07 · Convergence: Rahner, O'Meara, Tracy</a></li>
+<li><a class="toc-link toc-section" href="#tillich-fault">08 · Fault Lines: Analogy &amp; Doubt</a></li>
+<li><a class="toc-link toc-section" href="#case">09 · The Classroom Claim</a></li>
+<li><a class="toc-link toc-section" href="#norms">09a · Norm Inventory</a></li>
+<li><a class="toc-link toc-section" href="#gap">09b · Enforcement-Gap Map</a></li>
+<li><a class="toc-link toc-section" href="#manipulation">10 · Where It Becomes Manipulation</a></li>
+<li><a class="toc-link toc-section" href="#diagnosis">10a · Claim-Diagnosis Matrix</a></li>
+<li><a class="toc-link toc-section" href="#method">11 · The Method &amp; Its Name</a></li>
+<li><a class="toc-link toc-section" href="#engagement">12 · Engagement Is Not Endorsement</a></li>
+<li><a class="toc-link toc-section" href="#test">13 · A Practical Test</a></li>
+<li><a class="toc-link toc-section" href="#triangulation">14 · Triangulation</a></li>
+<li><a class="toc-link toc-section" href="#sources">References</a></li>
+</ul>
+</aside>
+<main>
+
+<div class="callout" id="motivation">
+<span class="kicker">Motivation</span>
+<div class="statement" style="font-size:0.98rem;font-weight:400;line-height:1.75;">
+<p style="margin-bottom:0.9rem;">This page grew out of THRS 104, <em>Mystery of God/Human Person</em>, the core theology requirement at the University of San Francisco, which I took in a summer section in 2016 — the only one offered when I needed the credit early — and which turned out to be Protestant theology.<sup aria-label="reference 58" class="cite-ref">[<a href="#ref-58">58</a>]</sup> The two textbooks were Buber's <em>I and Thou</em> and Tillich's <em>Dynamics of Faith</em>: two works written to replace the Catholic account of faith and mediation, which the lecturer presented as the common ground Protestants and Catholics share. A Catholic at a Jesuit university, graded on Protestant theology: I have decided the B+ was the correct grade, and possibly a compliment. The rest I call miracles, and I do not use the word loosely.</p>
+<p>What follows is the comparison I would have wanted on the first day.</p>
+</div>
+</div>
+
+<!-- ═══════════════ 00 ═══════════════ -->
+<section class="page-section" id="thesis">
+<div class="section-header"><span class="section-num">00</span><h2 class="section-title">Core Thesis</h2></div>
+<div class="callout">
+<span class="kicker">The order of differences</span>
+<div class="statement">Presenting Buber and Tillich as "just the faith level, before we get to differences" reverses the actual order: the differences begin in the definition of faith itself.</div>
+</div>
+<div class="subsection">
+<h3>Thesis question</h3>
+<div class="callout">
+<span class="kicker">Diagnostic question</span>
+<div class="statement"><em>Why can a core theology requirement at a Catholic university be satisfied by a course whose two textbooks reject the Catholic definition of faith, without any governing instrument being breached — and what does that gap do to the students routed through it?</em></div>
+</div>
+<div class="prose">
+<p><strong>Cue.</strong> Treat the "shared belief" claim not as a classroom aside but as a legitimacy narrative aimed at a specific audience, and test it against the instruments that actually govern the arena.</p>
+<p><strong>Why-questions.</strong> Which instruments define what a Catholic university owes its students in theology? Which of them reach a non-Catholic instructor? Where does the norm stop and the enforcement stop? Who benefits from the ambiguity? Is the claim sincere, legitimating, or delegitimating — and toward whom?</p>
+<p><strong>Work move.</strong> Inventory the norms; separate validity from enforcement; classify the narrative by audience and effect; convert the finding into a usable test.</p>
+<p><strong>Artifact produced.</strong> A norm–enforcement gap chart (Section 09b), a claim-diagnosis matrix (Section 10a), and the two-question shared-ground test (Section 13).</p>
+<p><strong>Failure mode.</strong> Calling every ecumenical framing "manipulation" and losing precision — the diagnosis has to survive the case where the instructor was sincere.</p>
+</div>
+</div>
+<div class="subsection">
+<h3>Question ladder</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Step</th><th>Content</th></tr></thead>
+<tbody>
+<tr><td>Start</td><td>A Catholic student needs the core theology credit early; the only summer section is THRS 104, taught from Buber and Tillich, introduced as common Protestant–Catholic ground.<sup aria-label="reference 58" class="cite-ref">[<a href="#ref-58">58</a>]</sup></td></tr>
+<tr><td>Why</td><td>If the claim is true, the student loses nothing; if false, the student is graded on a definition of faith that contradicts his own while being told it is his own.</td></tr>
+<tr><td>Move</td><td>Compare the two texts to the magisterial definition line by line (Sections 02, 06, 14); then inventory the institutional norms and map where enforcement lapses (Sections 09a–09b).</td></tr>
+<tr><td>Output</td><td>The claim fails at the first level (the definition of faith), and the institutional gap that allowed it is structural, not a rule violation — which is the more serious finding.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="prose">
+<p>This page examines two books that are frequently assigned as an introduction to "faith" in a nondenominational register: Martin Buber's <em>Ich und Du</em> (1923), known in English as <em>I and Thou</em>,<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> and Paul Tillich's <em>Dynamics of Faith</em> (1957).<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup> Each is set against Catholic theology as stated in Aquinas, the councils of Trent, Vatican I, and Vatican II, and the <em>Catechism of the Catholic Church</em>. The comparison is organized around the questions on which the three positions can be placed side by side: what God is, what faith is, whether revelation has content, whether anything mediates between God and the person, what a sacrament is, who Christ is, and what to make of doubt, law, and institution.</p>
+<p>The occasion for the study is a pedagogical claim examined in Sections 09–11: that these two books state what Protestants and Catholics hold in common about faith, so that Catholic students could take a course built on them "without any problems." The analysis concludes that the claim was defensible only at the thinnest possible level and misleading at every level below it. Buber and Tillich are worth reading, and Catholic theology has engaged both with seriousness. But the shared ground the claim asserts does not exist: on the definition of faith, on mediation, and on the content of revelation, both authors take the position that Catholic theology was formulated to deny.</p>
+</div>
+<div class="theory-disclaimer">Scope note. Buber was a Jewish philosopher of religion and Tillich a Lutheran theologian; neither is treated here as representative of Judaism or of Protestantism as a whole. The comparison is between two named texts and the Catholic magisterial and Thomist tradition, not between confessions. Where a Catholic position is stated, it is cited to a magisterial or classical source rather than to a school opinion.</div>
+</section>
+
+<!-- ═══════════════ 01 ═══════════════ -->
+<section class="page-section" id="buber-text">
+<div class="section-header"><span class="section-num">01</span><h2 class="section-title">Buber: The Text and the Word "Thou"</h2></div>
+<div class="prose">
+<p>The book in question is Martin Buber's <em>I and Thou</em> (<em>Ich und Du</em>, 1923).<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> Buber was a Jewish philosopher of religion, not a Christian theologian, and the "Thou" is the translator's rendering of the German intimate <em>Du</em>. Ronald Gregor Smith's 1937 translation chose the archaic English second-person singular to preserve the intimacy of <em>Du</em> as against <em>Sie</em>;<sup aria-label="reference 2" class="cite-ref">[<a href="#ref-2">2</a>]</sup> Walter Kaufmann's 1970 translation rejected "Thou" as pious and archaic and rendered the title <em>I and You</em>, explaining in his prologue that "Thou" had come to suggest exactly the distance Buber meant to abolish.<sup aria-label="reference 3" class="cite-ref">[<a href="#ref-3">3</a>]</sup> The point is the mode of address, not archaic pronouns.</p>
+<p>His thesis: there are two primary word-pairs, I–It (the world as object, used and known) and I–Thou (the world as presence, met), and God is the Eternal Thou who can only be addressed, never possessed.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> The primary words are not two vocabularies but two modes of the whole person's existence; the I of I–It and the I of I–Thou are not the same I.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> The Eternal Thou is the one Thou that by its nature cannot become an It; every particular Thou is addressed through it, and it is addressed through every particular Thou.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> Buber's account is shaped by his Hasidic sources<sup aria-label="reference 5" class="cite-ref">[<a href="#ref-5">5</a>]</sup> and is, at the same time, critical of any mysticism that dissolves the self into the divine, since dissolution abolishes the two terms that dialogue requires.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 02 ═══════════════ -->
+<section class="page-section" id="buber-compare">
+<div class="section-header"><span class="section-num">02</span><h2 class="section-title">Buber Against Catholic Theology</h2></div>
+<div class="prose"><p>The comparison below runs along the lines that matter most. Each Catholic position is cited to a magisterial or classical source; each Buber position to his own text.</p></div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Question</th><th>Buber</th><th>Catholic theology</th></tr></thead>
+<tbody>
+<tr><td>What is God?</td>
+<td>The Eternal Thou; never an object of thought, only a partner in encounter.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td><em>Ipsum esse subsistens</em> (Aquinas), known analogically;<sup aria-label="references 12, 13" class="cite-ref">[<a href="#ref-12">12</a>, <a href="#ref-13">13</a>]</sup> also personal and addressable<sup aria-label="reference 21" class="cite-ref">[<a href="#ref-21">21</a>]</sup> — both affirmed.</td></tr>
+<tr><td>Revelation</td>
+<td>Pure presence; no content, no doctrine; "one receives not a content but a Presence."<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td><em>Dei Verbum</em>: God reveals himself in deeds and words; personal self-gift that also has propositional content.<sup aria-label="reference 18" class="cite-ref">[<a href="#ref-18">18</a>]</sup></td></tr>
+<tr><td>Mediation</td>
+<td>Rejected; every mediator becomes an It between I and Thou.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td>Central: Christ as the one mediator,<sup aria-label="references 28, 27" class="cite-ref">[<a href="#ref-28">28</a>, <a href="#ref-27">27</a>]</sup> Church, sacraments;<sup aria-label="reference 22" class="cite-ref">[<a href="#ref-22">22</a>]</sup> creatures can carry grace.<sup aria-label="reference 26" class="cite-ref">[<a href="#ref-26">26</a>]</sup></td></tr>
+<tr><td>Christ</td>
+<td>A great Jewish brother; faith in him (<em>pistis</em>) is a Greek turn away from Hebrew trust (<em>emunah</em>) — <em>Two Types of Faith</em> (1950).<sup aria-label="reference 4" class="cite-ref">[<a href="#ref-4">4</a>]</sup></td>
+<td>The Incarnation is the Eternal Thou made flesh;<sup aria-label="reference 24" class="cite-ref">[<a href="#ref-24">24</a>]</sup> faith is trust and assent together.<sup aria-label="references 18, 21" class="cite-ref">[<a href="#ref-18">18</a>, <a href="#ref-21">21</a>]</sup></td></tr>
+<tr><td>The I–It world</td>
+<td>Necessary but fallen-adjacent; cannot become sacred as It.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td>Sacramental realism: bread, water, oil, bodies are vehicles of the holy.<sup aria-label="references 22, 26" class="cite-ref">[<a href="#ref-22">22</a>, <a href="#ref-26">26</a>]</sup></td></tr>
+<tr><td>Relation inside God</td>
+<td>None; God is one Thou facing man.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td>Trinity: I–Thou–We is internal to God before creation; relation is an ontological category (Ratzinger, <em>Introduction to Christianity</em>).<sup aria-label="reference 40" class="cite-ref">[<a href="#ref-40">40</a>]</sup></td></tr>
+<tr><td>Law and institution</td>
+<td>Deeply ambivalent; Hasidic warmth over halakhic form.<sup aria-label="references 5, 6" class="cite-ref">[<a href="#ref-5">5</a>, <a href="#ref-6">6</a>]</sup></td>
+<td>Institution and charism held together.<sup aria-label="references 19, 25" class="cite-ref">[<a href="#ref-19">19</a>, <a href="#ref-25">25</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+<div class="prose">
+<p>Two rows deserve comment. On the nature of God, the Catholic tradition does not choose between the ontological and the personal. Aquinas argues that in God essence and existence are identical, so that God is subsistent being itself,<sup aria-label="reference 12" class="cite-ref">[<a href="#ref-12">12</a>]</sup> and that our names for God are neither univocal nor equivocal but analogical;<sup aria-label="reference 13" class="cite-ref">[<a href="#ref-13">13</a>]</sup> the same tradition confesses God as the one who speaks, hears, and is addressed in prayer.<sup aria-label="reference 21" class="cite-ref">[<a href="#ref-21">21</a>]</sup> Buber's Eternal Thou excludes the first half of this pairing on principle.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></p>
+<p>On Christ, Buber's <em>Two Types of Faith</em> distinguishes the Hebrew <em>emunah</em>, trust in a person whom one already stands in relation with, from the Greek <em>pistis</em>, acknowledgment that something is true; he locates Jesus within the first and Paul and the Church within the second.<sup aria-label="reference 4" class="cite-ref">[<a href="#ref-4">4</a>]</sup> Catholic theology refuses the disjunction: <em>Dei Verbum</em> describes the obedience of faith as the free commitment of the whole self to God <em>and</em> the willing assent to the revelation he gives,<sup aria-label="reference 18" class="cite-ref">[<a href="#ref-18">18</a>]</sup> and the <em>Catechism</em> treats personal adherence and free assent to revealed truth as inseparable.<sup aria-label="reference 21" class="cite-ref">[<a href="#ref-21">21</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 03 ═══════════════ -->
+<section class="page-section" id="buber-converge">
+<div class="section-header"><span class="section-num">03</span><h2 class="section-title">Convergence: Catholic Personalism</h2></div>
+<div class="prose">
+<p>Where the two converge is Catholic personalism, which was partly developed alongside or in response to Buber. Ferdinand Ebner, a Catholic, published <em>Das Wort und die geistigen Realitäten</em> in 1921, slightly before Buber, arguing that the human spirit is constituted in the I–Thou relation established by the word.<sup aria-label="reference 35" class="cite-ref">[<a href="#ref-35">35</a>]</sup> Romano Guardini's <em>Welt und Person</em> (1939) developed a Catholic account of the person as constituted by being addressed by God.<sup aria-label="reference 36" class="cite-ref">[<a href="#ref-36">36</a>]</sup> Gabriel Marcel's distinction between problem and mystery, and between having and being, runs parallel to Buber's I–It and I–Thou.<sup aria-label="reference 37" class="cite-ref">[<a href="#ref-37">37</a>]</sup> Above all, Karol Wojtyła's <em>Love and Responsibility</em> (1960) and, as John Paul II, his catecheses on the theology of the body ground sexual ethics in the personalistic norm that a person may never be treated as a mere object of use<sup aria-label="references 38, 39" class="cite-ref">[<a href="#ref-38">38</a>, <a href="#ref-39">39</a>]</sup> — a norm structurally identical to Buber's prohibition on reducing a Thou to an It.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></p>
+<p><em>Gaudium et Spes</em> 24, which teaches that man cannot find himself except through a sincere gift of himself, is the closest conciliar statement to Buber's dialogical anthropology.<sup aria-label="reference 20" class="cite-ref">[<a href="#ref-20">20</a>]</sup> Balthasar wrote the most direct Catholic engagement, <em>Einsame Zwiesprache: Martin Buber und das Christentum</em> (1958), which treats Buber as a serious interlocutor while arguing that the Incarnation and Trinity complete rather than contradict the dialogical principle.<sup aria-label="reference 41" class="cite-ref">[<a href="#ref-41">41</a>]</sup> Ratzinger's <em>Introduction to Christianity</em> (1968) makes the same move at the level of doctrine: the Trinitarian confession establishes relation as a basic category of being, so that the dialogical structure Buber finds between God and man already exists within God.<sup aria-label="reference 40" class="cite-ref">[<a href="#ref-40">40</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 04 ═══════════════ -->
+<section class="page-section" id="buber-fault">
+<div class="section-header"><span class="section-num">04</span><h2 class="section-title">The Fault Line: Mediation</h2></div>
+<div class="callout">
+<span class="kicker">The point to build any comparison around</span>
+<div class="statement">For Buber, anything standing between I and Thou degrades the meeting; for Catholic theology, the mediator — Christ, the sacrament, the neighbor — is precisely where the meeting happens.</div>
+</div>
+<div class="prose">
+<p>The sharpest fault line is mediation. Buber holds that whatever is interposed between the I and the Thou, whether image, concept, institution, or intermediary, converts the relation into an I–It relation with the intermediary.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> Catholic theology holds the opposite as a matter of confession: there is one mediator between God and men, the man Christ Jesus,<sup aria-label="reference 28" class="cite-ref">[<a href="#ref-28">28</a>]</sup> whose mediation the Council of Trent places at the center of justification;<sup aria-label="reference 27" class="cite-ref">[<a href="#ref-27">27</a>]</sup> the sacraments confer the grace they signify by the power of Christ acting in them;<sup aria-label="references 22, 26" class="cite-ref">[<a href="#ref-22">22</a>, <a href="#ref-26">26</a>]</sup> and the neighbor is the place where Christ is encountered, so that the meeting with the person is not a detour from the meeting with God but its ordinary form.<sup aria-label="reference 20" class="cite-ref">[<a href="#ref-20">20</a>]</sup> That is the point any comparison should be built around.</p>
+</div>
+</section>
+
+<!-- ═══════════════ 05 ═══════════════ -->
+<section class="page-section" id="tillich-text">
+<div class="section-header"><span class="section-num">05</span><h2 class="section-title">Tillich: The Text</h2></div>
+<div class="prose">
+<p>The second book is Paul Tillich's <em>Dynamics of Faith</em> (1957).<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup> Tillich was a German-American Lutheran theologian and philosopher, and this is his most accessible statement of what faith is. His thesis: faith is "the state of being ultimately concerned" — not belief in propositions with insufficient evidence, but the centered act of the whole person gripped by what concerns it unconditionally.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup> Everything else follows from that redefinition: the analysis of idolatry as misplaced ultimacy, the claim that faith speaks only in symbols, the insistence that doubt is internal to faith, and the treatment of the historical Jesus.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup> The book is a popular condensation of positions worked out systematically in the first two volumes of the <em>Systematic Theology</em>.<sup aria-label="references 8, 9" class="cite-ref">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 06 ═══════════════ -->
+<section class="page-section" id="tillich-compare">
+<div class="section-header"><span class="section-num">06</span><h2 class="section-title">Tillich Against Catholic Theology</h2></div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Question</th><th>Tillich, <em>Dynamics of Faith</em></th><th>Catholic theology</th></tr></thead>
+<tbody>
+<tr><td>What is faith?</td>
+<td>Ultimate concern; a total act of the personality, prior to and deeper than belief.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup></td>
+<td>A theological virtue: intellect's assent to revealed truth, moved by will under grace (Aquinas);<sup aria-label="references 14, 15" class="cite-ref">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>]</sup> also personal trust and self-surrender (<em>Dei Verbum</em> 5)<sup aria-label="reference 18" class="cite-ref">[<a href="#ref-18">18</a>]</sup> — both content and act.<sup aria-label="reference 21" class="cite-ref">[<a href="#ref-21">21</a>]</sup></td></tr>
+<tr><td>Object of faith</td>
+<td>Not a being but "the ground of being" / "being-itself"; any finite object raised to ultimacy is idolatry.<sup aria-label="references 7, 8" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-8">8</a>]</sup></td>
+<td>God as personal, Triune, and also <em>ipsum esse</em>;<sup aria-label="references 12, 21" class="cite-ref">[<a href="#ref-12">12</a>, <a href="#ref-21">21</a>]</sup> the personal and the ontological are not opposed.</td></tr>
+<tr><td>Doubt</td>
+<td>Intrinsic to faith; "existential doubt" is the courage to accept the risk in every act of faith.<sup aria-label="references 7, 11" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-11">11</a>]</sup></td>
+<td>Doubt is a temptation against faith, not a component of it;<sup aria-label="reference 21" class="cite-ref">[<a href="#ref-21">21</a>]</sup> faith is certain by reason of its object even when subjectively obscure (Aquinas; Newman, <em>Grammar of Assent</em>).<sup aria-label="references 16, 32" class="cite-ref">[<a href="#ref-16">16</a>, <a href="#ref-32">32</a>]</sup></td></tr>
+<tr><td>Symbols</td>
+<td>Faith speaks only in symbols; symbols "point beyond themselves" but participate in what they point to; even "God" is a symbol.<sup aria-label="references 7, 52" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-52">52</a>]</sup></td>
+<td>Analogy of being: language about God is analogical, not merely symbolic;<sup aria-label="references 13, 44" class="cite-ref">[<a href="#ref-13">13</a>, <a href="#ref-44">44</a>]</sup> dogma states truth, not only orientation.<sup aria-label="references 17, 25" class="cite-ref">[<a href="#ref-17">17</a>, <a href="#ref-25">25</a>]</sup></td></tr>
+<tr><td>Sacraments</td>
+<td>Symbols that can die when they lose their power; no <em>ex opere operato</em>.<sup aria-label="references 7, 10" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-10">10</a>]</sup></td>
+<td>Efficacious signs that confer what they signify, by Christ's action.<sup aria-label="references 22, 26" class="cite-ref">[<a href="#ref-22">22</a>, <a href="#ref-26">26</a>]</sup></td></tr>
+<tr><td>Christ</td>
+<td>"Jesus as the Christ" — the New Being; the cross is the symbol that negates its own finitude; the historical Jesus is theologically dispensable.<sup aria-label="references 7, 9" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-9">9</a>]</sup></td>
+<td>The historical Incarnation is constitutive, not illustrative;<sup aria-label="reference 24" class="cite-ref">[<a href="#ref-24">24</a>]</sup> if Christ is not risen, faith is vain.<sup aria-label="reference 29" class="cite-ref">[<a href="#ref-29">29</a>]</sup></td></tr>
+<tr><td>Revelation</td>
+<td>Ecstatic reception of the ground of being; no propositional content.<sup aria-label="reference 8" class="cite-ref">[<a href="#ref-8">8</a>]</sup></td>
+<td>Deeds and words; the deposit of faith has content that can be defined.<sup aria-label="references 18, 17" class="cite-ref">[<a href="#ref-18">18</a>, <a href="#ref-17">17</a>]</sup></td></tr>
+<tr><td>Church and authority</td>
+<td>The "Protestant principle": every institution stands under judgment; no infallible teaching.<sup aria-label="reference 10" class="cite-ref">[<a href="#ref-10">10</a>]</sup></td>
+<td>Magisterium as authentic interpreter; infallibility guards the content of faith.<sup aria-label="references 18, 25" class="cite-ref">[<a href="#ref-18">18</a>, <a href="#ref-25">25</a>]</sup></td></tr>
+<tr><td>Idolatry</td>
+<td>The central danger: elevating a finite concern (nation, success, even a church or a creed) to ultimacy.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup></td>
+<td>Same concern, but expressed as the first commandment;<sup aria-label="reference 23" class="cite-ref">[<a href="#ref-23">23</a>]</sup> the Church itself is not a finite idol because Christ founded it.<sup aria-label="reference 19" class="cite-ref">[<a href="#ref-19">19</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+<div class="prose">
+<p>The first row governs the rest. For Aquinas the act of faith is "to think with assent": the intellect adheres to what God has revealed, moved to do so by the will under grace, and this assent is distinguished from opinion, which assents with fear of the opposite, and from doubt, which does not assent at all.<sup aria-label="reference 15" class="cite-ref">[<a href="#ref-15">15</a>]</sup> Vatican I defined faith as a supernatural virtue by which, with the help of grace, we believe that what God has revealed is true, not because its intrinsic truth is seen by natural reason but on the authority of God who reveals.<sup aria-label="reference 17" class="cite-ref">[<a href="#ref-17">17</a>]</sup> Vatican II added, without retracting this, that the obedience of faith is the free commitment of the whole self to God.<sup aria-label="reference 18" class="cite-ref">[<a href="#ref-18">18</a>]</sup> Tillich's "ultimate concern" is designed to retain the second element and discard the first.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 07 ═══════════════ -->
+<section class="page-section" id="tillich-converge">
+<div class="section-header"><span class="section-num">07</span><h2 class="section-title">Convergence: Where Catholic Theology Can Meet Tillich</h2></div>
+<div class="prose">
+<p>Where Catholic theology can meet Tillich: his critique of faith as "belief with weak evidence" is close to Aquinas's rejection of faith as mere opinion,<sup aria-label="references 7, 15" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-15">15</a>]</sup> and his account of idolatry as misplaced ultimate concern is nearly a commentary on Augustine's <em>ordo amoris</em>, the rightly ordered love that gives to each thing the measure of love its place in the order of being deserves and no more.<sup aria-label="references 7, 33, 34" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-33">33</a>, <a href="#ref-34">34</a>]</sup> Rahner's "supernatural existential" — the thesis that every human being is already ordered by grace toward God as the horizon of all knowing and willing<sup aria-label="references 46, 47" class="cite-ref">[<a href="#ref-46">46</a>, <a href="#ref-47">47</a>]</sup> — and the Council's teaching on implicit faith among the unbaptized in <em>Lumen Gentium</em> 16<sup aria-label="reference 19" class="cite-ref">[<a href="#ref-19">19</a>]</sup> overlap with Tillich's claim that everyone has an ultimate concern.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup></p>
+<p>Catholic readers who engaged him seriously include Thomas O'Meara, Gustave Weigel, and later David Tracy.<sup aria-label="references 48, 49, 50, 51" class="cite-ref">[<a href="#ref-48">48</a>, <a href="#ref-49">49</a>, <a href="#ref-50">50</a>, <a href="#ref-51">51</a>]</sup> O'Meara and Weisser's <em>Paul Tillich in Catholic Thought</em> (1964) collected the Catholic responses of the period and included Tillich's own reply;<sup aria-label="reference 48" class="cite-ref">[<a href="#ref-48">48</a>]</sup> Weigel's 1950 essay in <em>Theological Studies</em> was among the first sustained Catholic readings;<sup aria-label="reference 49" class="cite-ref">[<a href="#ref-49">49</a>]</sup> Tracy adopted and revised the method of correlation in <em>Blessed Rage for Order</em> and <em>The Analogical Imagination</em>.<sup aria-label="references 50, 51" class="cite-ref">[<a href="#ref-50">50</a>, <a href="#ref-51">51</a>]</sup> Balthasar was sharply critical.<sup aria-label="reference 42" class="cite-ref">[<a href="#ref-42">42</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 08 ═══════════════ -->
+<section class="page-section" id="tillich-fault">
+<div class="section-header"><span class="section-num">08</span><h2 class="section-title">The Fault Lines: Analogy of Being, and Doubt</h2></div>
+<div class="callout">
+<span class="kicker">The same fault line, running the other way</span>
+<div class="statement">Buber refused mediation because it would objectify the Thou; Tillich dissolves mediation because every finite carrier of the ultimate is only a symbol. Catholic theology insists that finite things — a human nature, bread, water, a sentence in a creed — can really carry the infinite without being reduced to symbols or raised to idols.</div>
+</div>
+<div class="prose">
+<p>The decisive divergence is the same one as with Buber but running the opposite direction.<sup aria-label="references 1, 7" class="cite-ref">[<a href="#ref-1">1</a>, <a href="#ref-7">7</a>]</sup> That insistence — that the finite can carry the infinite — is the analogy of being,<sup aria-label="references 13, 44" class="cite-ref">[<a href="#ref-13">13</a>, <a href="#ref-44">44</a>]</sup> and it is what Tillich, following Barth's suspicion of it, could not accept. Barth's preface to the first volume of the <em>Church Dogmatics</em> called the <em>analogia entis</em> the invention of Antichrist and the decisive reason not to become Catholic;<sup aria-label="reference 45" class="cite-ref">[<a href="#ref-45">45</a>]</sup> Balthasar's study of Barth is the classic Catholic reply.<sup aria-label="reference 43" class="cite-ref">[<a href="#ref-43">43</a>]</sup> Tillich's own ontology allows finite realities to "participate" in being-itself only symbolically, never to convey it efficaciously.<sup aria-label="references 7, 8, 52" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-8">8</a>, <a href="#ref-52">52</a>]</sup></p>
+<p>The other point worth pressing is doubt. Tillich's most attractive claim for modern readers is that doubt belongs inside faith: because faith concerns the ultimate and the believer is finite, every act of faith carries a risk, and the acceptance of that risk is the courage of faith.<sup aria-label="references 7, 11" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-11">11</a>]</sup> The Catholic reply is not that believers never doubt but that doubt is the shadow of the act, not its structure: certainty rests on God who reveals, not on the believer's psychological state.<sup aria-label="references 16, 17, 21" class="cite-ref">[<a href="#ref-16">16</a>, <a href="#ref-17">17</a>, <a href="#ref-21">21</a>]</sup> Aquinas holds that faith is more certain than science with respect to its cause, though less certain with respect to the subject's grasp;<sup aria-label="reference 16" class="cite-ref">[<a href="#ref-16">16</a>]</sup> Newman's <em>Grammar of Assent</em> argues that real assent can be unconditional even where the grounds cannot be exhaustively demonstrated;<sup aria-label="reference 32" class="cite-ref">[<a href="#ref-32">32</a>]</sup> and the <em>Catechism</em> treats voluntary doubt as a sin against faith and involuntary doubt as a difficulty to be overcome, not as faith's inner form.<sup aria-label="reference 21" class="cite-ref">[<a href="#ref-21">21</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 09 ═══════════════ -->
+<section class="page-section" id="case">
+<div class="section-header"><span class="section-num">09</span><h2 class="section-title">The Classroom Claim: A Case in Institutional Framing</h2></div>
+<div class="theory-disclaimer"><span class="chip m">measured</span> course record (degree evaluation: THRS 104, Summer 2016, B+, 4 credits)<sup aria-label="reference 58" class="cite-ref">[<a href="#ref-58">58</a>]</sup> and the two primary texts &nbsp;·&nbsp; <span class="chip r">reconstructed</span> the assigned-text list and the opening "shared belief" claim (author's testimony) &nbsp;·&nbsp; <span class="chip h">hypothesis</span> any statement about the instructor's motive, kept out of the findings. The following account is the author's own recollection of a course taken at the University of San Francisco, a Jesuit Catholic university. It is a personal testimony, not a documentary record; the instructor is not named, and no claim is made about his motives beyond what the structure of the claim itself supports.</div>
+<div class="prose">
+<p>These two texts were assigned at the University of San Francisco by a Protestant instructor who claimed, at the beginning of the course, that they state the same thing as Catholic theology — that they express the common belief shared by Protestants and Catholics — so that Catholics could also take the course and should do so without any problems. The claim turned out to be a manipulation. The instructor's defense, when the point was pressed, was that the claim concerned only the level of faith and not yet "the next step." But even at this step the two theologies are already very different, as the tables in Sections 02 and 06 record line by line.</p>
+<p>The claim was defensible only at the thinnest possible level and misleading at every level below it. Here is how the levels sort.</p>
+</div>
+<div class="subsection">
+<h3>What the instructor could truthfully have said</h3>
+<div class="prose">
+<p>Buber and Tillich are widely read by Catholics, cited in Catholic seminaries, and neither requires a denominational commitment to study.<sup aria-label="references 41, 48" class="cite-ref">[<a href="#ref-41">41</a>, <a href="#ref-48">48</a>]</sup> A Catholic can take the course without sinning against faith. That much is true and is probably what he told himself he meant.</p>
+</div>
+</div>
+</section>
+
+<!-- ═══════════════ 09a ═══════════════ -->
+<section class="page-section" id="norms">
+<div class="section-header"><span class="section-num">09a</span><h2 class="section-title">Norm Inventory: Which Instruments Actually Govern</h2></div>
+<div class="prose"><p>Before asking why the claim could be made, the instruments that govern the arena have to be listed, in two tiers. The doctrinal tier fixes what "Catholic theology" means for the comparison in Sections 02–08; the institutional tier fixes what a Catholic university owes its students in a core theology course. Each row records the instrument, its source and year, what it requires, and whom it reaches. <span class="chip m">measured</span> public record throughout.</p></div>
+<div class="subsection">
+<h3>Doctrinal tier — rule hierarchy for the comparison</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Instrument</th><th>Source · year</th><th>What it fixes</th><th>Reach</th></tr></thead>
+<tbody>
+<tr><td>Scripture</td><td>1 Tim 2:5; 1 Cor 15:14–17<sup aria-label="references 28, 29" class="cite-ref">[<a href="#ref-28">28</a>, <a href="#ref-29">29</a>]</sup></td><td>One mediator; faith empty without the Resurrection</td><td>All the faithful</td></tr>
+<tr><td>Council of Trent</td><td>Sess. VI–VII · 1547<sup aria-label="references 26, 27" class="cite-ref">[<a href="#ref-26">26</a>, <a href="#ref-27">27</a>]</sup></td><td>Christ's mediation in justification; sacraments confer grace <em>ex opere operato</em></td><td>Dogmatic; under anathema</td></tr>
+<tr><td>Vatican I, <em>Dei Filius</em></td><td>1870<sup aria-label="reference 17" class="cite-ref">[<a href="#ref-17">17</a>]</sup></td><td>Faith as assent on the authority of God who reveals; deposit of faith has content</td><td>Dogmatic</td></tr>
+<tr><td>Vatican II</td><td><em>Dei Verbum</em>, <em>Lumen Gentium</em>, <em>Gaudium et Spes</em> · 1964–65<sup aria-label="references 18, 19, 20" class="cite-ref">[<a href="#ref-18">18</a>, <a href="#ref-19">19</a>, <a href="#ref-20">20</a>]</sup></td><td>Revelation by deeds and words; obedience of faith as self-commitment <em>and</em> assent; Magisterium as interpreter</td><td>Conciliar</td></tr>
+<tr><td><em>Catechism of the Catholic Church</em></td><td>1992/1997<sup aria-label="references 21, 22, 23, 24, 25" class="cite-ref">[<a href="#ref-21">21</a>–<a href="#ref-25">25</a>]</sup></td><td>Synthesis: faith, doubt, sacraments, idolatry, Incarnation, Magisterium</td><td>Universal reference text</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="subsection">
+<h3>Institutional tier — what a Catholic university owes in core theology</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Instrument</th><th>Source · year</th><th>What it requires</th><th>Whom it reaches</th></tr></thead>
+<tbody>
+<tr><td><em>Ex corde Ecclesiae</em>, General Norms art. 4 §3</td><td>John Paul II · 1990<sup aria-label="reference 53" class="cite-ref">[<a href="#ref-53">53</a>]</sup></td><td>All Catholic teachers faithful to, and all other teachers respectful of, Catholic doctrine; Catholic theologians, fulfilling a mandate from the Church, faithful to the Magisterium</td><td>Catholic teachers (fidelity); non-Catholic teachers (respect only)</td></tr>
+<tr><td><em>Ex corde Ecclesiae</em>, General Norms art. 4 §4</td><td>John Paul II · 1990<sup aria-label="reference 53" class="cite-ref">[<a href="#ref-53">53</a>]</sup></td><td>Teachers, administrators, and students of other confessions or none are to recognize and respect the distinctive Catholic identity; non-Catholic teachers should not become a majority</td><td>Non-Catholic faculty; institution as a whole</td></tr>
+<tr><td>Code of Canon Law, c. 812</td><td>1983<sup aria-label="reference 54" class="cite-ref">[<a href="#ref-54">54</a>]</sup></td><td>Those who teach theological disciplines in any institute of higher studies must have a mandate from the competent ecclesiastical authority</td><td>Read, in the U.S. Application, as Catholic teachers of theology</td></tr>
+<tr><td>USCCB, <em>Application of Ex corde Ecclesiae for the United States</em>, Part Two, art. 4 §4</td><td>Approved 1999 · in force 2001<sup aria-label="reference 55" class="cite-ref">[<a href="#ref-55">55</a>]</sup></td><td>Catholics who teach theological disciplines in a Catholic university are required to have a mandatum; Catholic professors have a duty to present authentic Catholic teaching</td><td>Catholic theology faculty only</td></tr>
+<tr><td>USCCB, <em>Guidelines Concerning the Academic Mandatum</em></td><td>2001<sup aria-label="reference 56" class="cite-ref">[<a href="#ref-56">56</a>]</sup></td><td>Procedure for requesting, granting, and withdrawing the mandatum</td><td>Catholic theology faculty only</td></tr>
+<tr><td>Land O'Lakes Statement</td><td>North American Catholic university presidents · 1967<sup aria-label="reference 57" class="cite-ref">[<a href="#ref-57">57</a>]</sup></td><td>Asserts institutional autonomy and academic freedom "in the face of authority of whatever kind, lay or clerical, external to the academic community itself"</td><td>The counter-current in practice; not a norm but a declared posture that shaped subsequent implementation</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- ═══════════════ 09b ═══════════════ -->
+<section class="page-section" id="gap">
+<div class="section-header"><span class="section-num">09b</span><h2 class="section-title">Enforcement-Gap Mapping</h2></div>
+<div class="formula-box">norm − enforcement = vulnerability</div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Layer</th><th>Content</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Norm</td><td>A Catholic university's core theology should transmit Catholic theology in fidelity to the Magisterium (<em>Ex corde Ecclesiae</em>, art. 4 §3).<sup aria-label="reference 53" class="cite-ref">[<a href="#ref-53">53</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Enforcement</td><td>The mandatum in c. 812, as applied in the United States, attaches to <em>Catholic</em> teachers of theology; a non-Catholic instructor falls outside it, and art. 4 §4 asks of him only that he respect the university's Catholic identity.<sup aria-label="references 53, 54, 55" class="cite-ref">[<a href="#ref-53">53</a>, <a href="#ref-54">54</a>, <a href="#ref-55">55</a>]</sup> No instrument governs which texts a non-Catholic instructor assigns in a core theology section, or how he frames them.</td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Vulnerability</td><td>A core requirement can be satisfied by a section whose assigned texts deny the Catholic definition of faith, with no instrument breached and no one accountable.</td><td><span class="chip r">reconstructed</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout">
+<span class="kicker">Finding</span>
+<div class="statement">This is not a compliance failure but a design gap, and design gaps recur. The course, its texts, and its framing broke no rule; that is the finding, and it is more serious than a violation would have been, because a violation can be corrected by enforcement and a gap cannot.</div>
+</div>
+<div class="prose"><p>Status of the evidence: the course record is documentary (degree evaluation: THRS 104, Summer 2016, B+, 4 credits);<sup aria-label="reference 58" class="cite-ref">[<a href="#ref-58">58</a>]</sup> the assigned texts and the opening claim are the author's testimony; the reading of the instruments is public record.<sup aria-label="references 53, 54, 55, 56" class="cite-ref">[<a href="#ref-53">53</a>–<a href="#ref-56">56</a>]</sup> Nothing in this section depends on the instructor's motive, which is not in evidence and is not asserted.</p></div>
+</section>
+
+<!-- ═══════════════ 10 ═══════════════ -->
+<section class="page-section" id="manipulation">
+<div class="section-header"><span class="section-num">10</span><h2 class="section-title">Where It Becomes Manipulation</h2></div>
+<div class="callout emphasis">
+<span class="kicker">Where it becomes manipulation</span>
+<div class="statement">
+<p><mark>"These are the same as Catholic theology" and "this is the shared belief of Protestants and Catholics" are false statements, not overstatements.</mark></p>
+<p><mark>Tillich's definition of faith was written precisely to replace the Catholic one.</mark><sup aria-label="references 7, 15, 17" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup> <mark>His "Protestant principle" is defined against Catholic sacramental and magisterial claims by name.</mark><sup aria-label="reference 10" class="cite-ref">[<a href="#ref-10">10</a>]</sup> <mark>His treatment of the historical Jesus as theologically dispensable is not a neutral preliminary that Catholics happen to also hold — it is the thing the Catholic doctrine of the Incarnation exists to deny.</mark><sup aria-label="references 9, 24, 29" class="cite-ref">[<a href="#ref-9">9</a>, <a href="#ref-24">24</a>, <a href="#ref-29">29</a>]</sup></p>
+<p><mark>Buber's rejection of any mediator between the I and the Eternal Thou is not a shared starting point either; it is the Jewish-philosophical form of exactly the objection Catholics have answered since the Council of Trent.</mark><sup aria-label="references 1, 26, 27" class="cite-ref">[<a href="#ref-1">1</a>, <a href="#ref-26">26</a>, <a href="#ref-27">27</a>]</sup></p>
+<p><mark>Presenting these as "just the faith level, before we get to differences" reverses the actual order: the differences begin in the definition of faith itself.</mark><sup aria-label="references 7, 14, 21" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-14">14</a>, <a href="#ref-21">21</a>]</sup></p>
+</div>
+</div>
+<div class="prose">
+<p>Each clause of that statement rests on a documented position. Tillich opens <em>Dynamics of Faith</em> by declaring that faith as "belief in something with a low degree of evidence" is a distortion to be removed, and he proposes ultimate concern as the replacement;<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup> the definition he removes is, in substance, the definition Aquinas and Vatican I give.<sup aria-label="references 15, 17" class="cite-ref">[<a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup> The essays collected in <em>The Protestant Era</em> define the Protestant principle as the prophetic protest against any absolute claim made for a relative reality, and name the Roman Catholic sacramental system and hierarchy as the paradigm case of such a claim.<sup aria-label="reference 10" class="cite-ref">[<a href="#ref-10">10</a>]</sup> The second volume of the <em>Systematic Theology</em> argues that faith cannot guarantee the historical existence or the name of the man Jesus, and that the certainty of faith attaches to the New Being manifest in the biblical picture rather than to the historical person;<sup aria-label="reference 9" class="cite-ref">[<a href="#ref-9">9</a>]</sup> the <em>Catechism</em> confesses that the Word became flesh in a particular man at a particular time,<sup aria-label="reference 24" class="cite-ref">[<a href="#ref-24">24</a>]</sup> and Paul holds that if Christ has not been raised, faith is empty.<sup aria-label="reference 29" class="cite-ref">[<a href="#ref-29">29</a>]</sup> Buber's refusal of mediation is stated in <em>I and Thou</em> itself;<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> the Council of Trent's canons on the sacraments and its decree on justification answer, under anathema, the claim that no created instrument conveys grace and that Christ's mediation is dispensable.<sup aria-label="references 26, 27" class="cite-ref">[<a href="#ref-26">26</a>, <a href="#ref-27">27</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 10a ═══════════════ -->
+<section class="page-section" id="diagnosis">
+<div class="section-header"><span class="section-num">10a</span><h2 class="section-title">Claim-Diagnosis Matrix</h2></div>
+<div class="formula-box">claim + audience + effect ⇒ legitimacy narrative</div>
+<div class="prose"><p>The claim under diagnosis is: "these are the shared belief of Protestants and Catholics." A legitimacy narrative is tested by the audience it is aimed at and the effect it produces, not by the speaker's state of mind. Three readings are placed side by side so that the conclusion of Section 10 can be checked against each.</p></div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Reading</th><th>Audience</th><th>Intended effect</th><th>Actual effect</th><th>Evidence available</th></tr></thead>
+<tbody>
+<tr><td>Sincere</td><td>The class as a whole</td><td>Reassure; frame the texts as neutral</td><td>The reassurance is false: both texts deny the Catholic definition of faith on the first page.<sup aria-label="references 1, 7" class="cite-ref">[<a href="#ref-1">1</a>, <a href="#ref-7">7</a>]</sup></td><td><span class="chip h">hypothesis</span> motive not in evidence</td></tr>
+<tr><td>Legitimating</td><td>Catholic students who need the credit</td><td>Lower resistance to enrolling in and accepting the course</td><td>Catholic students are graded on a definition of faith that contradicts their own while being told it is their own.</td><td><span class="chip r">reconstructed</span> the claim and its placement at the start of the course (author's testimony)</td></tr>
+<tr><td>Delegitimating</td><td>The Catholic account of faith itself</td><td>Relabel the Catholic distinctives — mediation, content, Incarnation — as optional add-ons beyond the "faith level"</td><td>The lowest-common-denominator method of Section 11: what is stripped out is treated as sectarian.</td><td><span class="chip m">measured</span> the texts' stated positions<sup aria-label="references 1, 4, 7, 9, 10" class="cite-ref">[<a href="#ref-1">1</a>, <a href="#ref-4">4</a>, <a href="#ref-7">7</a>, <a href="#ref-9">9</a>, <a href="#ref-10">10</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+<div class="prose"><p>The conclusion of Section 10 — that the two statements are false statements, not overstatements — holds under all three readings. That is what makes it robust rather than accusatory: it does not need the instructor to have intended anything, and it survives the case in which he was sincere.</p></div>
+</section>
+
+<!-- ═══════════════ 11 ═══════════════ -->
+<section class="page-section" id="method">
+<div class="section-header"><span class="section-num">11</span><h2 class="section-title">The Method and Its Name</h2></div>
+<div class="prose">
+<p>The move described in Section 10 has a name. It is the lowest-common-denominator method: take a rich tradition, strip out what is distinctive, present the residue as "what everyone believes," and treat the stripped parts as optional add-ons. Anyone who protests looks sectarian.</p>
+<p>The Catholic tradition has a specific word for treating the content of faith as secondary to the experience of faith. It was condemned as modernism in Pius X's encyclical <em>Pascendi Dominici Gregis</em> (1907), which describes the modernist account of faith as a religious sense arising from the subconscious and treats dogma as a secondary symbolic expression of that sense,<sup aria-label="reference 30" class="cite-ref">[<a href="#ref-30">30</a>]</sup> and in the Holy Office decree <em>Lamentabili Sane</em> of the same year, which condemns the propositions that dogmas are only interpretations of religious experience and that revelation is nothing but the consciousness acquired by man of his relation to God.<sup aria-label="reference 31" class="cite-ref">[<a href="#ref-31">31</a>]</sup> Tillich's account of faith, in which ultimate concern is primary and creed and sacrament are symbols that live and die with the concern they express, is close to a textbook instance of the position those documents describe.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup> The instructor may have been sincere, but the structure of the pitch is the same whether or not he knew it.</p>
+</div>
+</section>
+
+<!-- ═══════════════ 12 ═══════════════ -->
+<section class="page-section" id="engagement">
+<div class="section-header"><span class="section-num">12</span><h2 class="section-title">Engagement Is Not Endorsement</h2></div>
+<div class="prose">
+<p>The sentence "Catholic readers who engaged him seriously include Thomas O'Meara, Gustave Weigel, and later David Tracy; Balthasar was sharply critical" was cited in the exchange that prompted this page as if it were evidence that Catholic theology and Tillich's already agree at the level of faith. It is not. O'Meara, Weigel, and Tracy engaged Tillich as an interlocutor, which is what serious Catholic theologians do with serious non-Catholic ones.<sup aria-label="references 48, 49, 50" class="cite-ref">[<a href="#ref-48">48</a>, <a href="#ref-49">49</a>, <a href="#ref-50">50</a>]</sup> Engagement is not endorsement. The 1964 volume that O'Meara edited was organized precisely to register where Catholic thought could and could not follow Tillich, and Tillich's own afterword acknowledged the distance.<sup aria-label="reference 48" class="cite-ref">[<a href="#ref-48">48</a>]</sup></p>
+<p>Balthasar's verdict, that Tillich's system dissolves the particularity of Christ into a general ontology, is the mainstream Catholic assessment.<sup aria-label="reference 42" class="cite-ref">[<a href="#ref-42">42</a>]</sup> His critique of the "anthropological reduction" in <em>Love Alone Is Credible</em> is aimed at every method that makes human self-understanding the measure of revelation, of which Tillich's method of correlation is the most systematic modern form.<sup aria-label="references 42, 8" class="cite-ref">[<a href="#ref-42">42</a>, <a href="#ref-8">8</a>]</sup> Even Tracy, the most sympathetic, treats Tillich as a method to be corrected rather than a theology to be adopted: <em>Blessed Rage for Order</em> revises the method of correlation into a mutually critical one,<sup aria-label="reference 50" class="cite-ref">[<a href="#ref-50">50</a>]</sup> and <em>The Analogical Imagination</em> reinstates analogy — the very category Tillich subordinated to symbol — as the governing form of Catholic theological language.<sup aria-label="reference 51" class="cite-ref">[<a href="#ref-51">51</a>]</sup></p>
+</div>
+</section>
+
+<!-- ═══════════════ 13 ═══════════════ -->
+<section class="page-section" id="test">
+<div class="section-header"><span class="section-num">13</span><h2 class="section-title">A Practical Test for "Shared Ground" Claims</h2></div>
+<div class="callout">
+<span class="kicker">Two questions</span>
+<div class="statement">Ask what the author says about mediation (Christ, Church, sacraments) and about whether faith has content. If the answer is "no mediation" or "no content," the shared ground is a slogan.</div>
+</div>
+<div class="prose">
+<p>This is the practical test for any future "shared ground" claim. Both criteria are drawn from the Catholic definition of faith rather than from any school within it: the one mediator is a scriptural and conciliar confession,<sup aria-label="references 28, 27, 22" class="cite-ref">[<a href="#ref-28">28</a>, <a href="#ref-27">27</a>, <a href="#ref-22">22</a>]</sup> and the content of faith is defined at Vatican I and reaffirmed at Vatican II.<sup aria-label="references 17, 18" class="cite-ref">[<a href="#ref-17">17</a>, <a href="#ref-18">18</a>]</sup> Both Buber and Tillich fail that test on page one: Buber's opening pages establish that the Thou is met only without intermediary,<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup> and Tillich's opening chapter establishes that faith is ultimate concern rather than assent to any content.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup></p>
+</div>
+<div class="subsection">
+<h3>Translate for action — syllabus-review checklist</h3>
+<div class="prose"><p>For a Catholic student choosing a core theology section, five questions to put to the syllabus before enrolling:</p>
+<ol style="padding-left:1.4rem;margin:0.6rem 0 1.2rem;">
+<li>Is the confessional standpoint of the instructor and of the assigned texts disclosed?</li>
+<li>What do the assigned texts say about mediation — Christ, Church, sacraments?</li>
+<li>What do they say about whether faith has content?</li>
+<li>Are Catholic sources — Trent, Vatican I, Vatican II, the <em>Catechism</em> — on the syllabus at all?</li>
+<li>Which definition of faith does the grading rubric assume?</li>
+</ol></div>
+</div>
+<div class="subsection">
+<h3>Translate for action — one institutional recommendation</h3>
+<div class="callout">
+<span class="kicker">Recommendation</span>
+<div class="statement">Disclose the confessional standpoint of each core-theology section in the catalog, so that the choice the author could not make is available to others. This asks nothing of academic freedom and nothing of any instructor's conscience; it asks only that the student be told, before enrolling, what the instruments in Section 09a do not currently require anyone to tell him.</div>
+</div>
+</div>
+</section>
+
+<!-- ═══════════════ 14 ═══════════════ -->
+<section class="page-section" id="triangulation">
+<div class="section-header"><span class="section-num">14</span><h2 class="section-title">Triangulation: Buber, Tillich, and Catholic Theology</h2></div>
+<div class="prose"><p>The two comparisons collapse into a single table on the three questions that decide whether shared ground exists: the definition of faith, mediation, and the status of the finite.</p></div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Question</th><th>Buber</th><th>Tillich</th><th>Catholic theology</th></tr></thead>
+<tbody>
+<tr><td>Faith</td>
+<td><em>Emunah</em>: trust in the Thou one already stands before; not assent to propositions.<sup aria-label="reference 4" class="cite-ref">[<a href="#ref-4">4</a>]</sup></td>
+<td>Ultimate concern: the centered act of being grasped by the unconditional; not belief.<sup aria-label="reference 7" class="cite-ref">[<a href="#ref-7">7</a>]</sup></td>
+<td>Trust <em>and</em> assent: commitment of the whole self to God who reveals, and adherence to what he reveals.<sup aria-label="references 15, 17, 18, 21" class="cite-ref">[<a href="#ref-15">15</a>, <a href="#ref-17">17</a>, <a href="#ref-18">18</a>, <a href="#ref-21">21</a>]</sup></td></tr>
+<tr><td>Mediation</td>
+<td>Refused: a mediator objectifies the Thou.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td>Dissolved: every finite carrier of the ultimate is only a symbol.<sup aria-label="references 7, 52" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-52">52</a>]</sup></td>
+<td>Constitutive: Christ the one mediator; sacraments and neighbor as the place of meeting.<sup aria-label="references 28, 22, 20" class="cite-ref">[<a href="#ref-28">28</a>, <a href="#ref-22">22</a>, <a href="#ref-20">20</a>]</sup></td></tr>
+<tr><td>The finite</td>
+<td>The It-world is necessary but cannot become sacred as It.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td>Participates in being-itself symbolically; raised to ultimacy it becomes idolatrous.<sup aria-label="references 7, 8" class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-8">8</a>]</sup></td>
+<td>Can really carry the infinite without becoming an idol: the analogy of being.<sup aria-label="references 13, 44, 26" class="cite-ref">[<a href="#ref-13">13</a>, <a href="#ref-44">44</a>, <a href="#ref-26">26</a>]</sup></td></tr>
+<tr><td>Content of revelation</td>
+<td>None: Presence, not content.<sup aria-label="reference 1" class="cite-ref">[<a href="#ref-1">1</a>]</sup></td>
+<td>None: ecstatic reception, expressed afterwards in symbols.<sup aria-label="reference 8" class="cite-ref">[<a href="#ref-8">8</a>]</sup></td>
+<td>Deeds and words; a deposit that can be defined and guarded.<sup aria-label="references 18, 17, 25" class="cite-ref">[<a href="#ref-18">18</a>, <a href="#ref-17">17</a>, <a href="#ref-25">25</a>]</sup></td></tr>
+<tr><td>Christ</td>
+<td>A great Jewish brother within <em>emunah</em>.<sup aria-label="reference 4" class="cite-ref">[<a href="#ref-4">4</a>]</sup></td>
+<td>The New Being under the symbol "Jesus as the Christ"; the historical man dispensable.<sup aria-label="reference 9" class="cite-ref">[<a href="#ref-9">9</a>]</sup></td>
+<td>The Word made flesh; the historical Incarnation and Resurrection constitutive.<sup aria-label="references 24, 29" class="cite-ref">[<a href="#ref-24">24</a>, <a href="#ref-29">29</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+<div class="prose">
+<p>Read across, the table shows why the classroom claim fails at the first level and not the second. On every row the Catholic column affirms a conjunction — trust and assent, presence and content, the finite carrying the infinite — where each of the other two columns affirms one conjunct and denies the other. A Catholic student can profitably read both books; a Catholic student told that both books state his own faith has been told something false about his own faith.</p>
+</div>
+</section>
+
+<!-- ═══════════════ REFERENCES ═══════════════ -->
+<div class="references" id="sources">
+<h2>References</h2>
+<ol class="ref-list">
+<li id="ref-1">Buber, Martin. <em>Ich und Du</em> (Leipzig: Insel, 1923); English: <em>I and Thou</em>, trans. Walter Kaufmann (New York: Scribner, 1970). Primary source for the I–It / I–Thou distinction, the Eternal Thou, the refusal of intermediaries, revelation as Presence without content, and the critique of self-dissolving mysticism (Part Three).<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-2">Buber, Martin. <em>I and Thou</em>, trans. Ronald Gregor Smith (Edinburgh: T. &amp; T. Clark, 1937; 2nd ed. 1958). The translation that introduced "Thou" for <em>Du</em>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-3">Kaufmann, Walter. "I and You: A Prologue," in Buber, <em>I and Thou</em> (Scribner, 1970), 9–48. On the choice of "You" over "Thou" and the intimacy of the German <em>Du</em>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-4">Buber, Martin. <em>Zwei Glaubensweisen</em> (Zürich: Manesse, 1950); English: <em>Two Types of Faith</em>, trans. Norman P. Goldhawk (London: Routledge &amp; Kegan Paul, 1951). The <em>emunah</em> / <em>pistis</em> distinction and the reading of Jesus as within Jewish trust and Paul as its Hellenized departure.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-5">Buber, Martin. <em>Tales of the Hasidim</em>, 2 vols., trans. Olga Marx (New York: Schocken, 1947–48). Buber's Hasidic sources.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-6">Buber, Martin. "The Builders" (1923) and the Buber–Rosenzweig exchange on revelation and law, in <em>On Jewish Learning</em>, ed. Nahum N. Glatzer (New York: Schocken, 1955). Buber's ambivalence toward halakhic form.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-7">Tillich, Paul. <em>Dynamics of Faith</em> (New York: Harper &amp; Brothers, 1957). Chapter 1 (faith as ultimate concern; removal of "belief with low evidence"); Chapter 2 (doubt within faith); Chapter 3 (symbols of faith); Chapter 5 (idolatrous faith).<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-8">Tillich, Paul. <em>Systematic Theology</em>, vol. 1 (Chicago: University of Chicago Press, 1951). Method of correlation; revelation as ecstatic reception; God as being-itself and the ground of being; symbolic character of all statements about God.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-9">Tillich, Paul. <em>Systematic Theology</em>, vol. 2 (Chicago: University of Chicago Press, 1957). Part III, "Existence and the Christ," on Jesus as the Christ, the New Being, the biblical picture, and the limits of historical research for faith.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-10">Tillich, Paul. <em>The Protestant Era</em>, trans. James Luther Adams (Chicago: University of Chicago Press, 1948). Defines the "Protestant principle" as the protest against any absolute claim for a relative reality, with the Roman Catholic sacramental and hierarchical system as its paradigm target.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-11">Tillich, Paul. <em>The Courage to Be</em> (New Haven: Yale University Press, 1952). Doubt, meaninglessness, and "absolute faith."<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-12">Aquinas, Thomas. <em>Summa Theologiae</em> I, q. 3, a. 4 — <a href="https://www.newadvent.org/summa/1003.htm" rel="noopener" target="_blank">Whether essence and existence are the same in God</a>. God as subsistent being itself (<em>ipsum esse subsistens</em>).<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-13">Aquinas, Thomas. <em>Summa Theologiae</em> I, q. 13, a. 5 — <a href="https://www.newadvent.org/summa/1013.htm" rel="noopener" target="_blank">Whether what is said of God and of creatures is univocally predicated</a>. Names of God are predicated analogically.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-14">Aquinas, Thomas. <em>Summa Theologiae</em> II-II, q. 1, aa. 1–2 — <a href="https://www.newadvent.org/summa/3001.htm" rel="noopener" target="_blank">The object of faith</a>. The object of faith is the First Truth, known through propositions (articles).<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-15">Aquinas, Thomas. <em>Summa Theologiae</em> II-II, q. 2, a. 1 — <a href="https://www.newadvent.org/summa/3002.htm" rel="noopener" target="_blank">Whether to believe is to think with assent</a>. Faith distinguished from opinion and from doubt; assent moved by the will.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-16">Aquinas, Thomas. <em>Summa Theologiae</em> II-II, q. 4, a. 8 — <a href="https://www.newadvent.org/summa/3004.htm" rel="noopener" target="_blank">Whether faith is more certain than science and the other intellectual virtues</a>. Certainty by reason of the cause (God's truth) versus by reason of the subject.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-17">First Vatican Council. <em>Dei Filius</em>, Dogmatic Constitution on the Catholic Faith (24 Apr 1870), ch. 3 "On Faith" and ch. 4 "On Faith and Reason" — <a href="https://www.papalencyclicals.net/councils/ecum20.htm" rel="noopener" target="_blank">text</a>. Faith as a supernatural virtue believing what God has revealed on the authority of God who reveals; the deposit of faith as content to be guarded.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-18">Second Vatican Council. <em>Dei Verbum</em>, Dogmatic Constitution on Divine Revelation (18 Nov 1965), nn. 2, 5, 10 — <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html" rel="noopener" target="_blank">text</a>. Revelation by deeds and words inwardly bound to one another; the obedience of faith as commitment of the whole self and assent to revelation; the Magisterium as authentic interpreter.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-19">Second Vatican Council. <em>Lumen Gentium</em>, Dogmatic Constitution on the Church (21 Nov 1964), nn. 8, 16 — <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html" rel="noopener" target="_blank">text</a>. The Church as founded by Christ, one complex reality of divine and human elements (n. 8); those who seek God with a sincere heart may attain salvation (n. 16).<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-20">Second Vatican Council. <em>Gaudium et Spes</em>, Pastoral Constitution on the Church in the Modern World (7 Dec 1965), n. 24 — <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html" rel="noopener" target="_blank">text</a>. Man cannot find himself except through a sincere gift of himself.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-21"><em>Catechism of the Catholic Church</em>, nn. 150–165 (faith as personal adherence and free assent), 2087–2089 (voluntary and involuntary doubt as against the first commandment) — <a href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" rel="noopener" target="_blank">text</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-22"><em>Catechism of the Catholic Church</em>, nn. 1127–1128, 1131 (sacraments as efficacious signs acting <em>ex opere operato</em> by the power of Christ) — <a href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" rel="noopener" target="_blank">text</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-23"><em>Catechism of the Catholic Church</em>, nn. 2112–2114 (idolatry as the divinizing of what is not God: power, pleasure, race, ancestors, the state, money) — <a href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" rel="noopener" target="_blank">text</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-24"><em>Catechism of the Catholic Church</em>, nn. 461–469, 638–647 (the Incarnation as the Word truly made flesh in history; the Resurrection as a real event with historically attested manifestations) — <a href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" rel="noopener" target="_blank">text</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-25"><em>Catechism of the Catholic Church</em>, nn. 85–90, 888–892 (the Magisterium as servant and authentic interpreter of the Word of God; infallibility in guarding the deposit of faith) — <a href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" rel="noopener" target="_blank">text</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-26">Council of Trent. Session VII (3 Mar 1547), <em>Canons on the Sacraments in General</em>, canons 5, 6, 8 — <a href="https://www.papalencyclicals.net/councils/trent/seventh-session.htm" rel="noopener" target="_blank">text</a>. Anathematizes the propositions that the sacraments are not necessary, that they do not contain the grace they signify, and that they do not confer grace <em>ex opere operato</em>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-27">Council of Trent. Session VI (13 Jan 1547), <em>Decree on Justification</em>, chs. 2–3, 7 — <a href="https://www.papalencyclicals.net/councils/trent/sixth-session.htm" rel="noopener" target="_blank">text</a>. Christ sent as propitiator and the one through whom justification is communicated; the sacrament of baptism as instrumental cause.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-28">1 Timothy 2:5 — "For there is one God, and one mediator between God and men, the man Christ Jesus." — <a href="https://www.vatican.va/archive/ENG0839/__PZP.HTM" rel="noopener" target="_blank">NAB text (Vatican archive)</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-29">1 Corinthians 15:14–17 — if Christ has not been raised, preaching and faith are empty. — <a href="https://www.vatican.va/archive/ENG0839/__PYY.HTM" rel="noopener" target="_blank">NAB text (Vatican archive)</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-30">Pius X. <em>Pascendi Dominici Gregis</em>, Encyclical on the Doctrines of the Modernists (8 Sep 1907), esp. nn. 7–13 (the religious sense as origin of faith; dogma as symbolic expression secondary to experience) — <a href="https://www.vatican.va/content/pius-x/en/encyclicals/documents/hf_p-x_enc_19070908_pascendi-dominici-gregis.html" rel="noopener" target="_blank">text</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-31">Holy Office. <em>Lamentabili Sane Exitu</em>, Syllabus Condemning the Errors of the Modernists (3 Jul 1907), propositions 20–26 — <a href="https://www.papalencyclicals.net/pius10/p10lamen.htm" rel="noopener" target="_blank">text</a>. Condemns: revelation as nothing but man's consciousness of his relation to God (20); dogmas as interpretations of religious phenomena (22); faith as a sense not dependent on the true content of revelation (25–26).<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-32">Newman, John Henry. <em>An Essay in Aid of a Grammar of Assent</em> (London: Burns, Oates, 1870), esp. ch. 4 (notional and real assent), ch. 6 (assent as unconditional), ch. 8 (the illative sense) — <a href="https://www.newmanreader.org/works/grammar/" rel="noopener" target="_blank">text</a>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-33">Augustine. <em>De doctrina christiana</em> I.27–28 — <a href="https://www.newadvent.org/fathers/12021.htm" rel="noopener" target="_blank">text</a>. The order of love: to love each thing in the measure due to it.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-34">Augustine. <em>De civitate Dei</em> XV.22 — <a href="https://www.newadvent.org/fathers/120115.htm" rel="noopener" target="_blank">text</a>. Virtue defined as the order of love (<em>ordo amoris</em>).<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-35">Ebner, Ferdinand. <em>Das Wort und die geistigen Realitäten: Pneumatologische Fragmente</em> (Innsbruck: Brenner-Verlag, 1921). Catholic dialogical philosophy of the I–Thou relation, published two years before <em>Ich und Du</em>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-36">Guardini, Romano. <em>Welt und Person: Versuche zur christlichen Lehre vom Menschen</em> (Würzburg: Werkbund, 1939). The person as constituted by being addressed by God.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-37">Marcel, Gabriel. <em>Être et avoir</em> (Paris: Aubier, 1935); <em>Le Mystère de l'être</em>, 2 vols. (Paris: Aubier, 1951). Problem and mystery; having and being; presence and availability.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-38">Wojtyła, Karol. <em>Miłość i odpowiedzialność</em> (Lublin: TN KUL, 1960); English: <em>Love and Responsibility</em>, trans. H. T. Willetts (New York: Farrar, Straus &amp; Giroux, 1981). The personalistic norm: a person is never to be used as a means.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-39">John Paul II. <em>Man and Woman He Created Them: A Theology of the Body</em>, trans. Michael Waldstein (Boston: Pauline, 2006). The Wednesday catecheses of 1979–84, built on the personalistic norm and on <em>Gaudium et Spes</em> 24.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-40">Ratzinger, Joseph. <em>Einführung in das Christentum</em> (Munich: Kösel, 1968); English: <em>Introduction to Christianity</em>, trans. J. R. Foster (San Francisco: Ignatius, 2004). Part One, ch. 5, "Belief in the Triune God": the Trinitarian confession makes relation a primordial category of being alongside substance.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-41">Balthasar, Hans Urs von. <em>Einsame Zwiesprache: Martin Buber und das Christentum</em> (Cologne: Hegner, 1958); English: <em>Martin Buber and Christianity: A Dialogue between Israel and the Church</em>, trans. Alexander Dru (London: Harvill, 1961). The most direct Catholic engagement with Buber.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-42">Balthasar, Hans Urs von. <em>Glaubhaft ist nur Liebe</em> (Einsiedeln: Johannes, 1963); English: <em>Love Alone Is Credible</em>, trans. D. C. Schindler (San Francisco: Ignatius, 2004), ch. 2, "The Anthropological Reduction." Balthasar's critique of methods that measure revelation by human self-understanding, the family to which Tillich's correlation belongs.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-43">Balthasar, Hans Urs von. <em>Karl Barth: Darstellung und Deutung seiner Theologie</em> (Cologne: Hegner, 1951); English: <em>The Theology of Karl Barth</em>, trans. Edward T. Oakes (San Francisco: Ignatius, 1992). The Catholic reply on the <em>analogia entis</em>.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-44">Przywara, Erich. <em>Analogia Entis: Metaphysik</em> (Munich: Kösel &amp; Pustet, 1932); English: <em>Analogia Entis: Metaphysics — Original Structure and Universal Rhythm</em>, trans. John R. Betz and David Bentley Hart (Grand Rapids: Eerdmans, 2014). The systematic Catholic statement of the analogy of being.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-45">Barth, Karl. <em>Die kirchliche Dogmatik</em> I/1 (Munich: Kaiser, 1932), Preface; English: <em>Church Dogmatics</em> I/1, trans. G. W. Bromiley (Edinburgh: T. &amp; T. Clark, 1975), xiii. The <em>analogia entis</em> as "the invention of Antichrist" and the reason one cannot become Catholic.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-46">Rahner, Karl. <em>Grundkurs des Glaubens</em> (Freiburg: Herder, 1976); English: <em>Foundations of Christian Faith</em>, trans. William V. Dych (New York: Seabury, 1978), ch. 4, "Man as the Event of God's Free and Forgiving Self-Communication." The supernatural existential.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-47">Rahner, Karl. <em>Hörer des Wortes</em> (Munich: Kösel-Pustet, 1941); English: <em>Hearer of the Word</em>, trans. Joseph Donceel (New York: Continuum, 1994). The human being as the one who listens for a possible revelation.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-48">O'Meara, Thomas A., and Celestin D. Weisser, eds. <em>Paul Tillich in Catholic Thought</em> (Dubuque: Priory Press, 1964). Collected Catholic responses to Tillich, with an afterword by Tillich.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-49">Weigel, Gustave, S.J. "Contemporaneous Protestantism and Paul Tillich." <em>Theological Studies</em> 11, no. 2 (1950): 177–202 — <a href="https://doi.org/10.1177/004056395001100201" rel="noopener" target="_blank">DOI</a>. An early sustained Catholic reading of Tillich.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-50">Tracy, David. <em>Blessed Rage for Order: The New Pluralism in Theology</em> (New York: Seabury, 1975). Revision of Tillich's method of correlation into a mutually critical correlation.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-51">Tracy, David. <em>The Analogical Imagination: Christian Theology and the Culture of Pluralism</em> (New York: Crossroad, 1981). Analogy as the governing form of Catholic theological language.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-52">Tillich, Paul. "The Nature of Religious Language," in <em>Theology of Culture</em>, ed. Robert C. Kimball (New York: Oxford University Press, 1959), 53–67. Symbols participate in what they point to; "God" as symbol.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-53">John Paul II. <em>Ex corde Ecclesiae</em>, Apostolic Constitution on Catholic Universities (15 Aug 1990), Part Two, General Norms, art. 4 §§3–4 — <a href="https://www.vatican.va/content/john-paul-ii/en/apost_constitutions/documents/hf_jp-ii_apc_15081990_ex-corde-ecclesiae.html" rel="noopener" target="_blank">text</a>. Catholic teachers faithful to, and other teachers respectful of, Catholic doctrine; Catholic theologians fulfil a mandate from the Church; non-Catholic teachers not to form a majority.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-54"><em>Code of Canon Law</em> (1983), c. 812. Those who teach theological disciplines in any institute of higher studies must have a mandate from the competent ecclesiastical authority; cited at <em>Ex corde Ecclesiae</em>, n. 50.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-55">United States Conference of Catholic Bishops. <em>The Application of Ex corde Ecclesiae for the United States</em> (approved Nov 1999; in force 3 May 2001), Part Two, art. 4 §4 — <a href="https://www.usccb.org/committees/catholic-education/application-ex-corde-ecclesiae-united-states" rel="noopener" target="_blank">text</a>. Catholics who teach the theological disciplines in a Catholic university are required to have a mandatum; the duty of fidelity to the Magisterium attaches to Catholic professors of theology.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-56">United States Conference of Catholic Bishops. <em>Guidelines Concerning the Academic Mandatum in Catholic Universities</em> (2001) — <a href="https://www.usccb.org/committees/catholic-education/guidelines-concerning-academic-mandatum" rel="noopener" target="_blank">text</a>. Procedure for requesting, granting, and withdrawing the mandatum.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-57">"Statement on the Nature of the Contemporary Catholic University" (Land O'Lakes Statement), International Federation of Catholic Universities, North American region (23 Jul 1967). Declares institutional autonomy and academic freedom in the face of authority external to the academic community.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-58">University of San Francisco, Office of the Registrar. Degree evaluation for the author, B.S. Mathematics (graduation check, Nov 2018; screenshots dated 14 Dec 2018): Core Area D, C-D2 Theology, THRS 104 <em>Mystery of God/Human Person</em>, B+, 4 credits, Summer 2016. Author's records; unpublished.<a aria-label="back to top" class="ref-back" href="#top"> ↑</a></li>
+</ol>
+</div>
+</main>
+</div>
+<footer>
+<p style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--faint);">William Huanshan Chuang &middot; Logarch&eacute;on Inc. &middot; Research Analysis &middot; 11 Sep 2026</p>
+</footer>
+</div>
+</body>
+</html>
