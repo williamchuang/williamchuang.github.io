@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Catholics Who Died or Are Held Under the CCP — Calendar and Roll of the Imprisoned — William Chuang · Logarchéon</title>
+<meta content="A calendar, January to December, of Catholic bishops, priests, religious, and laity who died at the hands of the Chinese Communist Party before and after 1949, and of those who refused to compromise and are held by it still; followed by a roll of every Catholic known to be in PRC or Hong Kong detention at the time of writing, with canonical status and evidence grade for each entry." name="description"/>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   CCP-ERA MARTYROLOGY AND ROLL OF THE IMPRISONED — Logarchéon Research
+   Design System v2  ·  William Huanshan Chuang
+   Palette: deep navy × archival gold × documentary white
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+
+:root {
+  /* Core palette */
+  --navy:          #0b1929;
+  --navy-deep:     #070f1a;
+  --navy-mid:      #0f2237;
+  --navy-light:    #162d52;
+  --navy-rim:      #1e3a64;
+  --navy-glass:    rgba(11,25,41,0.92);
+
+  /* Gold system — 5 stops */
+  --gold-bright:   #d4a843;
+  --gold:          #c9a84c;
+  --gold-light:    #e2c97e;
+  --gold-dim:      #8a6c2e;
+  --gold-ink:      #6b521f;
+
+  /* Alphas */
+  --gold-pale:     rgba(201,168,76,0.12);
+  --gold-glow:     rgba(201,168,76,0.06);
+  --gold-rim:      rgba(201,168,76,0.22);
+  --gold-border:   rgba(201,168,76,0.30);
+
+  /* Reading surface */
+  --cream:         #f7f3ec;
+  --parchment:     #eee9de;
+  --body-text:     #ddd7cb;
+  --muted:         #bdb5a4;
+  --faint:         #7a7265;
+  --hairline:      rgba(201,168,76,0.15);
+
+  /* Evidence tier colors */
+  --c-measured:    #6dba96;
+  --c-reconstruct: #d4a843;
+  --c-hypothesis:  #7ba8d4;
+  --c-unknown:     #a897b8;
+
+  /* Spacing & rhythm */
+  --section-gap:   5.5rem;
+  --col-width:     68ch;
+  --radius-sm:     3px;
+  --radius-md:     6px;
+  --radius-lg:     10px;
+
+  /* Transitions */
+  --t-fast:        150ms ease;
+  --t-med:         250ms ease;
+  --t-slow:        400ms ease;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ─── Body & ambient atmosphere ─────────────────────────────── */
+body {
+  font-family: "Source Serif 4", "Libre Baskerville", Georgia, serif;
+  background: var(--navy-deep);
+  color: var(--body-text);
+  line-height: 1.78;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "onum" 1, "liga" 1, "kern" 1;
+}
+
+/* Single large ambient vignette — no grid telltale */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(201,168,76,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 1000px at 85% 30%, rgba(30,58,100,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+
+.wrap { position: relative; z-index: 1; }
+
+/* ─── Type scale ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+/* ─── Links ──────────────────────────────────────────────────── */
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+a:hover { color: var(--gold-light); text-decoration: none; }
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Inline elements ────────────────────────────────────────── */
+code {
+  font-family: "DM Mono", "Fira Mono", monospace;
+  font-size: 0.80rem;
+  background: rgba(30,58,100,0.6);
+  padding: 0.12em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--hairline);
+}
+strong { color: var(--cream); font-weight: 700; }
+em { font-style: italic; color: var(--body-text); }
+
+.mono {
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── Navigation ─────────────────────────────────────────────── */
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy-glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid var(--hairline);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 2rem;
+}
+.nav-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  transition: color var(--t-fast);
+}
+.nav-logo:hover { color: var(--gold-bright); }
+
+.nav-links {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+  text-decoration: none;
+}
+
+/* ─── Layout ─────────────────────────────────────────────────── */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+.page-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4.5rem;
+  align-items: start;
+  padding: 4rem 32px 7rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ─── TOC sidebar ────────────────────────────────────────────── */
+.toc-sidebar {
+  position: sticky;
+  top: 76px;
+  border-left: 2px solid var(--hairline);
+  padding-left: 1.2rem;
+  max-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  transition: border-color var(--t-med);
+}
+.toc-sidebar:hover { border-left-color: var(--gold-rim); }
+
+.toc-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 0.9rem;
+  flex-shrink: 0;
+}
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.4rem;
+  padding-bottom: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dim) transparent;
+}
+.toc-link {
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  padding: 0.28rem 0 0.28rem 0.9rem;
+  display: block;
+  border-left: 2px solid transparent;
+  margin-left: -1.2rem;
+  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-link:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: var(--gold-glow);
+  text-decoration: none;
+}
+.toc-link.toc-section {
+  color: var(--body-text);
+  font-size: 0.69rem;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+.page-hero {
+  border-bottom: 1px solid var(--hairline);
+  padding: 4rem 0 3rem;
+}
+.page-hero .breadcrumb {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.page-hero .breadcrumb span { color: var(--faint); }
+
+.page-hero h1 {
+  font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+  font-weight: 300;
+  max-width: 26ch;
+  margin-bottom: 1.2rem;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 300;
+}
+
+/* Gold underline accent on title */
+.page-hero h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  margin-top: 1.1rem;
+  border-radius: 1px;
+}
+
+.hero-desc {
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 66ch;
+  line-height: 1.80;
+  margin-bottom: 1.6rem;
+  font-weight: 300;
+}
+.hero-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.hero-badge {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-rim);
+  padding: 0.24rem 0.65rem;
+  border-radius: 2px;
+  background: var(--gold-pale);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.hero-badge:hover { background: rgba(201,168,76,0.20); border-color: var(--gold); }
+
+.hero-methods {
+  max-width: 72ch;
+  margin: 1.3rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  backdrop-filter: blur(6px);
+}
+.hero-methods .method-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.hero-methods p { color: var(--muted); font-size: 0.88rem; line-height: 1.80; margin: 0; }
+
+/* ─── Section rhythm ─────────────────────────────────────────── */
+.page-section { margin-bottom: var(--section-gap); }
+
+/* Evidence rail — the signature element */
+.page-section + .page-section::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin-bottom: var(--section-gap);
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold-rim) 20%,
+    var(--gold) 50%,
+    var(--gold-rim) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2.4rem;
+  position: relative;
+}
+.section-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-rim) 0%, transparent 70%);
+}
+
+.section-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+}
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  letter-spacing: -0.01em;
+}
+
+/* ─── Subsections ────────────────────────────────────────────── */
+.subsection { margin: 2.2rem 0; }
+.subsection h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 1.1rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--gold-dim);
+  transition: border-color var(--t-med);
+}
+.subsection h3:hover { border-left-color: var(--gold); }
+.subsection h4 {
+  font-family: "DM Mono", monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4rem 0 0.7rem;
+}
+
+/* ─── Prose ──────────────────────────────────────────────────── */
+.prose {
+  color: var(--body-text);
+  font-size: 0.935rem;
+  line-height: 1.84;
+  max-width: var(--col-width);
+  font-feature-settings: "onum" 1, "liga" 1;
+}
+.prose p { margin: 0 0 1.1rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul, .prose ol { margin: 0.8rem 0 1.2rem 1.4rem; }
+.prose li { margin: 0.4rem 0; }
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.paper-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.6rem;
+  margin: 1.3rem 0;
+  transition: border-color var(--t-med), box-shadow var(--t-med), transform var(--t-slow);
+  backdrop-filter: blur(4px);
+}
+.paper-card:hover {
+  border-color: var(--gold-rim);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px var(--gold-glow);
+  transform: translateY(-1px);
+}
+.paper-card h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 0.45rem;
+}
+.paper-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.paper-meta span::after { content: " ·"; margin-left: 0.25rem; }
+.paper-meta span:last-child::after { content: ""; }
+
+.paper-abstract { color: var(--body-text); font-size: 0.90rem; line-height: 1.78; max-width: var(--col-width); }
+.paper-abstract p { margin-bottom: 0.7rem; }
+
+/* ─── Theory disclaimer ──────────────────────────────────────── */
+.theory-disclaimer {
+  background: rgba(22,45,82,0.5);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 0.9rem 1.2rem;
+  margin: 0 0 1.6rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-style: italic;
+  max-width: var(--col-width);
+}
+
+/* ─── Callout ────────────────────────────────────────────────── */
+.callout {
+  background: linear-gradient(135deg, rgba(201,168,76,0.09) 0%, rgba(15,34,55,0.65) 100%);
+  border: 1px solid var(--gold-rim);
+  padding: 1.3rem 1.5rem;
+  margin: 1.6rem 0;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+.callout::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dim) 0%, var(--gold) 50%, var(--gold-dim) 100%);
+}
+.callout .kicker {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.55rem;
+}
+.callout .statement {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.28rem;
+  line-height: 1.45;
+  color: var(--cream);
+  font-weight: 400;
+}
+
+/* ─── Evidence chips ─────────────────────────────────────────── */
+.chip {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  padding: 0.12rem 0.5rem;
+  margin-right: 0.35rem;
+  vertical-align: 0.10em;
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+  cursor: default;
+}
+.chip:hover { background: rgba(255,255,255,0.06); box-shadow: 0 0 8px currentColor; }
+.chip.m { color: var(--c-measured); }
+.chip.r { color: var(--c-reconstruct); }
+.chip.h { color: var(--c-hypothesis); }
+.chip.u { color: var(--c-unknown); }
+
+/* ─── Status legend ──────────────────────────────────────────── */
+.status-legend { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.7rem; margin: 1.3rem 0 0; }
+.status-item {
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.73rem;
+  line-height: 1.55;
+  transition: border-color var(--t-fast);
+}
+.status-item:hover { border-color: var(--gold-rim); }
+
+/* ─── Metrics ────────────────────────────────────────────────── */
+.metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.4rem 0; }
+.metric {
+  background: rgba(15,34,55,0.70);
+  border: 1px solid var(--hairline);
+  border-top: 2px solid var(--gold-dim);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  transition: border-top-color var(--t-med), box-shadow var(--t-med);
+}
+.metric:hover { border-top-color: var(--gold); box-shadow: 0 2px 16px rgba(0,0,0,0.3); }
+.metric .number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  font-feature-settings: "onum" 1;
+}
+.metric .label {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.59rem;
+  color: var(--faint);
+  margin-bottom: 0.4rem;
+}
+.metric p { font-size: 0.75rem; color: var(--muted); line-height: 1.58; }
+
+/* ─── Data tables ────────────────────────────────────────────── */
+.data-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0 1.8rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  background: rgba(11,25,41,0.55);
+}
+.data-table th {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid var(--gold-rim);
+  background: rgba(15,34,55,0.85);
+}
+.data-table td {
+  padding: 0.82rem 0.9rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--body-text);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  vertical-align: top;
+  transition: background var(--t-fast);
+}
+.data-table tr:hover td { background: rgba(201,168,76,0.04); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .num {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-light);
+  white-space: nowrap;
+  font-feature-settings: "onum" 1;
+}
+
+/* ─── Charts ─────────────────────────────────────────────────── */
+.chart-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.2rem 1rem;
+  margin: 1.6rem 0;
+  backdrop-filter: blur(4px);
+}
+.chart-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.12rem;
+  color: var(--cream);
+  margin-bottom: 0.25rem;
+}
+.chart-note { color: var(--faint); font-size: 0.68rem; margin-bottom: 0.9rem; }
+.chart-card svg { width: 100%; height: auto; display: block; }
+.chart-axis  { stroke: rgba(201,168,76,0.25); stroke-width: 1; }
+.chart-grid  { stroke: rgba(201,168,76,0.08); stroke-width: 1; }
+.chart-line  { fill: none; stroke: var(--gold); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart-dot   { fill: var(--navy-deep); stroke: var(--gold); stroke-width: 2.5; }
+.chart-label { fill: var(--muted); font-family: "DM Mono",monospace; font-size: 11px; }
+.chart-value { fill: var(--cream); font-family: "DM Mono",monospace; font-size: 12px; font-weight: 500; }
+
+/* ─── Peak grid ──────────────────────────────────────────────── */
+.peak-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.peak {
+  padding: 1.1rem;
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  transition: border-color var(--t-med), transform var(--t-slow);
+}
+.peak:hover { border-color: var(--gold-rim); transform: translateY(-1px); }
+.peak .when {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold-light);
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+.peak .what {
+  font-family: "DM Mono", monospace;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.59rem;
+  margin: 0.3rem 0 0.6rem;
+}
+.peak p { color: var(--muted); font-size: 0.75rem; line-height: 1.60; }
+
+/* ─── Mechanism grid ─────────────────────────────────────────── */
+.mechanism-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.mech {
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  transition: border-color var(--t-med);
+}
+.mech:hover { border-color: var(--gold-rim); }
+.mech .mnum {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-dim);
+  font-size: 0.59rem;
+  letter-spacing: 0.10em;
+  margin-bottom: 0.2rem;
+}
+.mech h4 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--cream);
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0.5rem;
+  font-weight: 500;
+}
+.mech p { color: var(--muted); font-size: 0.77rem; line-height: 1.65; }
+
+/* ─── Formula boxes ──────────────────────────────────────────── */
+.formula-box {
+  margin: 1.3rem 0;
+  padding: 1rem 1.3rem;
+  border: 1px solid var(--gold-rim);
+  border-left: 3px solid var(--gold);
+  background: rgba(7,15,26,0.70);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  text-align: center;
+  overflow-x: auto;
+  color: var(--cream);
+}
+
+/* ─── Goldilocks ─────────────────────────────────────────────── */
+.goldilocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin: 1.1rem 0 1.6rem; }
+.goldilocks .state {
+  text-align: center;
+  padding: 1rem 0.8rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: 0.76rem;
+  transition: border-color var(--t-fast);
+}
+.goldilocks .state:hover { border-color: var(--gold-rim); }
+.goldilocks .state strong {
+  display: block;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+/* ─── Hypotheses ─────────────────────────────────────────────── */
+.hypothesis {
+  border-left: 2px solid var(--c-hypothesis);
+  padding: 0.9rem 1.1rem;
+  margin: 0.9rem 0;
+  background: rgba(22,45,82,0.35);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  transition: border-left-color var(--t-fast);
+}
+.hypothesis:hover { border-left-color: #a0c4e8; }
+.hypothesis .h-label {
+  font-family: "DM Mono", monospace;
+  color: var(--c-hypothesis);
+  font-size: 0.60rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.hypothesis h4 { font-family: "Cormorant Garamond", serif; font-size: 1.06rem; margin: 0.18rem 0 0.4rem; color: var(--cream); }
+.hypothesis p { color: var(--muted); font-size: 0.79rem; line-height: 1.65; }
+
+/* ─── Timeline ───────────────────────────────────────────────── */
+.timeline { margin: 1.3rem 0; border-left: 1px solid var(--gold-rim); padding-left: 0; }
+.timeline-item {
+  position: relative;
+  padding: 0 0 1.3rem 1.5rem;
+  transition: background var(--t-fast);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px; top: 0.52rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  border: 2px solid var(--gold-dim);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.timeline-item:hover::before { border-color: var(--gold); background: var(--gold-pale); }
+.timeline-item .date {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.timeline-item h4 { font-size: 1rem; font-weight: 500; margin: 0.12rem 0 0.3rem; color: var(--cream); }
+.timeline-item p { color: var(--muted); font-size: 0.77rem; line-height: 1.62; }
+
+/* ─── Matrix ─────────────────────────────────────────────────── */
+.matrix { display: grid; grid-template-columns: 160px 1fr 1fr; border: 1px solid var(--hairline); margin: 1.3rem 0; border-radius: var(--radius-md); overflow: hidden; }
+.matrix > div { padding: 0.9rem; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); color: var(--body-text); font-size: 0.76rem; line-height: 1.60; }
+.matrix > div:nth-child(3n) { border-right: none; }
+.matrix > div:nth-last-child(-n+3) { border-bottom: none; }
+.matrix .head { background: rgba(15,34,55,0.85); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); }
+.matrix .rowhead { background: rgba(15,34,55,0.65); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); }
+
+/* ─── Reference list ─────────────────────────────────────────── */
+.references {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--hairline);
+}
+.references h2 {
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+.ref-list { list-style: none; display: grid; gap: 0.6rem; counter-reset: refs; }
+.ref-list li {
+  counter-increment: refs;
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.65;
+  padding: 0.6rem 0.8rem 0.6rem 2.4rem;
+  position: relative;
+  border-radius: var(--radius-sm);
+  transition: background var(--t-fast);
+  scroll-margin-top: 96px;
+}
+.ref-list li:hover { background: rgba(201,168,76,0.04); }
+.ref-list li::before {
+  content: "[" counter(refs) "]";
+  position: absolute;
+  left: 0.4rem; top: 0.6rem;
+  color: var(--gold-dim);
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  width: 1.8rem;
+  text-align: right;
+}
+.ref-list li a { color: var(--gold); overflow-wrap: anywhere; }
+.ref-list li a:hover { color: var(--gold-light); }
+.ref-back { color: var(--faint); font-size: 0.70rem; margin-left: 0.3rem; }
+
+/* ─── Citations ──────────────────────────────────────────────── */
+.cite-ref {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65em;
+  font-weight: 500;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.14rem;
+}
+.cite-ref a { color: var(--gold-dim); }
+.cite-ref a:hover { color: var(--gold); }
+
+/* ─── Source note ────────────────────────────────────────────── */
+.source-note { font-family: "DM Mono",monospace; color: var(--faint); font-size: 0.60rem; line-height: 1.55; margin-top: 0.4rem; }
+
+/* ─── Link buttons ───────────────────────────────────────────── */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-rim);
+  color: var(--cream);
+  padding: 0.38rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.05em;
+  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+.link-btn:hover {
+  background: rgba(201,168,76,0.22);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  color: var(--cream);
+  text-decoration: none;
+}
+.paper-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+
+/* ─── Legal notes ────────────────────────────────────────────── */
+.legal-note { border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin: 1.3rem 0; background: rgba(201,168,76,0.05); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.legal-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 1.3rem 0; }
+.legal-card { border: 1px solid var(--hairline); padding: 1rem 1.1rem; background: rgba(15,34,55,0.50); border-radius: var(--radius-md); transition: border-color var(--t-fast); }
+.legal-card:hover { border-color: var(--gold-rim); }
+.legal-card .label { font-family: "DM Mono",monospace; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.70rem; color: var(--gold-dim); margin-bottom: 0.5rem; }
+.legal-card p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.80rem; }
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 2.5rem 32px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ─── Scroll-triggered fade-in ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .page-section {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.55s ease forwards;
+  }
+  .page-section:nth-child(1)  { animation-delay: 0.05s; }
+  .page-section:nth-child(2)  { animation-delay: 0.10s; }
+  .page-section:nth-child(3)  { animation-delay: 0.15s; }
+  .page-section:nth-child(4)  { animation-delay: 0.20s; }
+  .page-section:nth-child(n+5) { animation-delay: 0.25s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .page-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 20px 5rem; }
+  .toc-sidebar { display: none; }
+  .metric-grid, .peak-grid, .mechanism-grid, .status-legend, .goldilocks { grid-template-columns: 1fr; }
+  .nav-links { gap: 1rem; }
+  .nav-inner { padding: 0 20px; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .legal-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 590px) {
+  nav.site-nav { padding: 0; }
+  .container, .page-hero { padding-left: 18px; padding-right: 18px; }
+  .page-hero h1 { font-size: clamp(1.9rem, 10vw, 2.6rem); }
+  .section-title { font-size: 1.45rem; }
+  table.data-table { min-width: 560px; }
+  .data-table th, .data-table td { padding: 0.65rem 0.7rem; }
+  .matrix { grid-template-columns: 1fr; }
+  .matrix > div { border-right: none; }
+  .matrix .head:first-child { display: none; }
+  footer { padding: 2rem 18px; }
+}
+
+/* ─── Utility: overflow safety ───────────────────────────────── */
+html, body { max-width: 100%; }
+.wrap, .container, .page-layout, .page-layout > main, .page-section,
+.subsection, .prose, .paper-card, .callout, .theory-disclaimer,
+.chart-card, .timeline, .legal-grid, .legal-card, .references { min-width: 0; max-width: 100%; }
+.page-layout > main { width: 100%; }
+p, li, dd, dt, blockquote, .hero-desc, .hero-methods p, .statement,
+.paper-abstract, .theory-disclaimer, .status-item, .metric p, .peak p, .mech p,
+.hypothesis p, .timeline-item p, .matrix > div, .legal-card p, .source-note,
+.ref-list li, th, td { overflow-wrap: anywhere; word-break: normal; hyphens: auto; }
+a { overflow-wrap: anywhere; word-break: break-word; }
+code { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+img, picture, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+.data-table-wrap, .formula-box { width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent; }
+.data-table { max-width: none; }
+.nav-links { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+mjx-container { max-width: 100%; }
+mjx-container[display="true"] { display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 0.15rem; }
+.section-header { min-width: 0; }
+.section-title, .subsection h3, .paper-card h3, .callout .statement, .page-hero h1 { overflow-wrap: anywhere; }
+.cite-ref { white-space: normal; overflow-wrap: normal; }
+
+/* ─── Page-specific additions ────────────────────────────────── */
+.callout.emphasis {
+  border: 1px solid var(--gold);
+  border-left: 5px solid var(--gold-bright);
+  background: linear-gradient(135deg, rgba(201,168,76,0.16) 0%, rgba(15,34,55,0.75) 60%);
+  box-shadow: 0 0 0 1px rgba(201,168,76,0.18), 0 6px 28px rgba(0,0,0,0.35);
+}
+.callout.emphasis .kicker { color: var(--gold-bright); }
+.callout.emphasis .statement { color: var(--cream); font-size: 1.05rem; }
+.callout.emphasis .statement p { margin-bottom: 0.9rem; }
+.callout.emphasis .statement p:last-child { margin-bottom: 0; }
+mark {
+  background: rgba(212,168,67,0.22);
+  color: var(--cream);
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  box-shadow: inset 0 -2px 0 var(--gold);
+}
+.compare-table td:first-child { color: var(--cream); font-weight: 500; white-space: nowrap; }
+
+.month { margin: 2.4rem 0 1rem; font-family: "DM Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-size: .78rem; border-bottom: 1px solid var(--hairline); padding-bottom: .4rem; }
+.entry { border-left: 3px solid var(--gold-rim); padding: .6rem 0 .6rem 1.1rem; margin: 1rem 0; }
+.entry .day { font-family: "DM Mono", monospace; font-size: .74rem; color: var(--faint); letter-spacing: .1em; }
+.entry .name { color: var(--cream); font-weight: 600; font-size: 1.02rem; margin: .15rem 0; }
+.entry .name .zh { font-weight: 400; color: var(--gold-bright); margin-left: .4rem; }
+.entry .meta { font-size: .8rem; color: var(--faint); margin-bottom: .35rem; }
+.entry .status { display:inline-block; font-family:"DM Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--gold-rim); border-radius: 999px; padding:.1rem .55rem; margin-right:.4rem; color: var(--gold-bright); }
+.entry .status.sog { border-color: var(--c-measured); color: var(--c-measured); }
+.entry .status.none { border-color: var(--faint); color: var(--faint); }
+.entry .status.det { border-color: var(--c-hypothesis); color: var(--c-hypothesis); }
+.entry .status.unk { border-color: var(--c-unknown); color: var(--c-unknown); }
+.empty-month { color: var(--faint); font-size: .85rem; font-style: italic; margin: .4rem 0 0 1.1rem; }
+</style></head>
+<body id="top">
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/CEAS">CEAS</a></li>
+<li><a href="/GRAIL">GRAIL</a></li>
+<li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+<li><a href="/MIA">MIA</a></li>
+<li><a class="active" href="/Research/">Research</a></li>
+<li><a href="/About">About</a></li>
+<li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="page-hero">
+<div class="breadcrumb">
+<a href="/" style="color:var(--faint);">Logarchéon</a>
+<span style="color:var(--faint);">/</span>
+<a href="/Research/" style="color:var(--faint);">Research</a>
+<span style="color:var(--faint);">/</span>
+<span>CCP-Era Martyrology &amp; Roll of the Imprisoned</span>
+</div>
+<h1 class="title">Catholics Who Died or Are Held Under the Chinese Communist Party: A Calendar, and a Roll of the Imprisoned</h1>
+<p class="hero-desc">
+      A martyrology in calendar order, January to December, of Catholic bishops, priests, religious, and laity who died at the hands of the Chinese Communist Party — before 1949 in areas it controlled, and after 1949 in the People's Republic — together with those who died in its custody or under its confinement, and those who, having refused to compromise, are held by it still. One calendar holds all of them: the dead on the day of death, the detained on the day the present detention began. After the calendar, a roll lists every Catholic known from the public record to be in detention, disappeared, or confined in the People's Republic or Hong Kong as of 12 September 2026, so that no one held is left off because the date of arrest was never disclosed. Each entry carries its canonical status and an evidence grade.
+    </p>
+<div aria-label="Reading note" class="hero-methods">
+<span class="method-label">Reading note</span>
+<p>The Church has recognized as martyrs none of the persons listed below except where a cause is expressly noted. "Martyr" here is the word the faithful who buried them used, and the page records it as their usage, not as a canonical finding. Every date is the <em>dies natalis</em>, the day of death, which is what a martyrology memorizes; where the state has never disclosed the date, the entry sits in the final section, "Date withheld or unknown," and the memorial is kept on the day the death was confirmed.</p>
+</div>
+<div class="hero-badges">
+<span class="hero-badge">Sino-Catholic History</span>
+<span class="hero-badge">Martyrology</span>
+<span class="hero-badge">PRC Religious Policy</span>
+<span class="hero-badge">12 September 2026</span>
+</div>
+</div>
+</div>
+<div class="page-layout">
+<aside class="toc-sidebar">
+<div class="toc-label">Sections</div>
+<ul class="toc-list">
+<li><a class="toc-link toc-section" href="#scope">00 · Scope &amp; Method</a></li>
+<li><a class="toc-link toc-section" href="#calendar">01 · Calendar</a></li>
+<li><a class="toc-link toc-sub" href="#m01">January</a></li>
+<li><a class="toc-link toc-sub" href="#m02">February</a></li>
+<li><a class="toc-link toc-sub" href="#m03">March</a></li>
+<li><a class="toc-link toc-sub" href="#m04">April</a></li>
+<li><a class="toc-link toc-sub" href="#m05">May</a></li>
+<li><a class="toc-link toc-sub" href="#m06">June</a></li>
+<li><a class="toc-link toc-sub" href="#m07">July</a></li>
+<li><a class="toc-link toc-sub" href="#m08">August</a></li>
+<li><a class="toc-link toc-sub" href="#m09">September</a></li>
+<li><a class="toc-link toc-sub" href="#m10">October</a></li>
+<li><a class="toc-link toc-sub" href="#m11">November</a></li>
+<li><a class="toc-link toc-sub" href="#m12">December</a></li>
+<li><a class="toc-link toc-section" href="#unknown">02 · Date Withheld or Unknown</a></li>
+<li><a class="toc-link toc-section" href="#held">03 · Roll of the Imprisoned</a></li>
+<li><a class="toc-link toc-section" href="#status">04 · Index by Status</a></li>
+<li><a class="toc-link toc-section" href="#undated">05 · Recorded Without a Day</a></li>
+<li><a class="toc-link toc-section" href="#sources">References</a></li>
+</ul>
+</aside>
+<main>
+
+<section class="page-section" id="scope">
+<div class="section-header"><span class="section-num">00</span><h2 class="section-title">Scope and Method</h2></div>
+<div class="prose">
+<p><strong>Who is included.</strong> Three groups, in one calendar. First, Catholics of any nationality who died in territory controlled by the Chinese Communist Party — from the Jiangxi and northern base areas of the 1930s and 1940s through the People's Republic to the present — where the death was caused by Party or state action: execution, death in prison or labor camp, death on a forced march, death under torture, or death in undisclosed custody. Second, those who died at home under house arrest or continuous surveillance after long imprisonment; their entries say so, since the distinction matters for any future cause. Third, the living: bishops and priests who refused to join the state-run Patriotic Association or otherwise to compromise, and who are held in secret detention, forcibly disappeared, or confined under house arrest as of 12 September 2026. The living are entered on the day their present detention or disappearance began, so that the calendar can be prayed as a whole; Section 03 repeats all of them in one roll, adding those for whom no arrest date is public. Hong Kong, Macau, and Taiwan are in scope; Hong Kong enters with the imprisonment of Jimmy Lai.</p>
+<p><strong>What each entry carries.</strong> Name in the Western and Chinese forms the person used; office and religious institute; date and place of death; the persecution context; the canonical status of the person's cause; the evidence grade; and sources. Three status labels are used: <span class="status sog" style="display:inline-block;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--c-measured);border-radius:999px;padding:.1rem .55rem;color:var(--c-measured);">Servant of God</span> where a cause has been opened; <span class="status none" style="display:inline-block;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--faint);border-radius:999px;padding:.1rem .55rem;color:var(--faint);">No cause on record</span> where none has been found; <span class="status unk" style="display:inline-block;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--c-unknown);border-radius:999px;padding:.1rem .55rem;color:var(--c-unknown);">Fate unconfirmed</span> for the disappeared; and <span class="status det" style="display:inline-block;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--c-hypothesis);border-radius:999px;padding:.1rem .55rem;color:var(--c-hypothesis);">Detained · refused compromise</span> for the living. Evidence chips follow the house convention: <span class="chip m">measured</span> date and place documented by more than one independent source; <span class="chip r">reconstructed</span> assembled from testimony or a single source; <span class="chip u">unknown</span> withheld by the state.</p>
+<p><strong>What the calendar can and cannot hold.</strong> Every entry in the calendar is verified against at least one primary or scholarly source. The number of Catholics who died under the Party runs to the thousands; most are known, if at all, only in diocesan memory and in three collections — Fazzini's <em>Red Book of Chinese Martyrs</em>, Moreau's <em>Blood of the Martyrs</em>, and Clark's <em>China's Modern Martyrs</em> series. Section 05 records, by persecution and diocese, the persons whose arrest or death is documented but whose day of death the sources do not give; they belong to the martyrology as much as those with dates, and are listed there so that the record of their names is not lost for want of a day.</p>
+</div>
+<div class="theory-disclaimer">No claim is made on this page that any person listed has been recognized by the Church as a martyr unless a cause is expressly cited. The word "martyr" in the names of collections, feasts, and popular usage is reported as such. Statements about the manner of death rest on the sources cited for each entry and are graded accordingly.</div>
+</section>
+
+<section class="page-section" id="calendar">
+<div class="section-header"><span class="section-num">01</span><h2 class="section-title">Calendar</h2></div>
+
+<div class="month" id="m01">January</div>
+<div class="entry">
+<div class="day">24 January 2005 — a hospital in Binzhou (Shandong), in police custody; cremated the next day under police guard</div>
+<div class="name">Bishop John Gao Kexian <span class="zh">高可賢</span></div>
+<div class="meta">Underground bishop of Yantai (Shandong), secretly consecrated 1992 — a fact the Holy See disclosed only after his death · b. 1923 · first arrested in the 1950s; years in a labor camp in Heilongjiang · lived on the run · arrested October 1999; after President Bush asked for his release in 2002 he was moved to a secret location as a "high-profile prisoner," no visitors · died at 81; no relative or faithful permitted at the cremation</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>His death was reported prematurely in September 2004, then confirmed in January 2005 — an instance of the withholding recorded in Section 02.<sup class="cite-ref">[<a href="#ref-20">20</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">2 January 2024 — Wenzhou (Zhejiang): taken into secret detention; taken again July 2026</div>
+<div class="name">Bishop Peter Shao Zhumin <span class="zh">邵祝敏</span></div>
+<div class="meta">Bishop of Wenzhou, recognized by Rome, not by the state · b. 1963 · has refused to join the Patriotic Association · detained without due process at least six times since the 2018 Sino-Vatican agreement · taken with his chancellor, Fr. Jiang Sunian, in July 2026 to prevent them attending a priest's funeral · under house arrest as of April 2026</div>
+<div><span class="status det">Detained · refused compromise</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Entered on the date of the 2024 detention, the longest recent one. The July 2026 removal is the most recent on record as of 12 September 2026.<sup class="cite-ref">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>, <a href="#ref-16">16</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">30 January 2015 — death confirmed to the family (date and place of death withheld)</div>
+<div class="name">Bishop Cosmas Shi Enxiang <span class="zh">師恩祥</span></div>
+<div class="meta">Underground bishop of Yixian (Hebei) · b. 1921 · arrested Good Friday, 13 April 2001, at his niece's home in Beijing; held without charge or trial in an undisclosed location for fourteen years · body never returned</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The family learned of his death on 30 January 2015 from a village official in Baoding; the authorities then retracted the acknowledgment and have never returned the body or ashes. Bishop Shi had spent roughly thirty years of his life in prison and labor camps before the final detention. Because the date of death is withheld, the memorial is kept on the day the death became known; the entry is repeated in Section 02.<sup class="cite-ref">[<a href="#ref-5">5</a>, <a href="#ref-6">6</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m02">February</div>
+<div class="entry">
+<div class="day">15 February 1970 — Taiyuan (Shanxi): taken from his cell and shot</div>
+<div class="name">Fr. Wang Shiwei <span class="zh">王世偉</span></div>
+<div class="meta">Priest of Taiyuan · imprisoned in the Cultural Revolution and chained so that he could not lie down · executed by shooting after the torture</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Recorded by Fr. Sergio Ticozzi, P.I.M.E., from Chinese Catholic testimony; the characters of the name are given as reported and not independently verified.<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">21 February 1952 — Guangzhou (Canton), prison</div>
+<div class="name">Bishop Francis Xavier Ford, M.M. <span class="zh">福爾德</span></div>
+<div class="meta">Maryknoll · Bishop of Kaying (Meixian, Guangdong) · b. Brooklyn, 11 January 1892 · arrested December 1950; paraded, beaten by organized mobs, and interrogated for over a year; died in prison at 60 · burial place unknown</div>
+<div><span class="status sog">Servant of God</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The first Catholic bishop to die in Communist custody after 1949. His companion Sr. Joan Marie Ryan, M.M., held in the same prison, was released in 1952 and carried the account out. The cause for his beatification has been opened by the Diocese of Brooklyn.<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup></p></div>
+</div>
+
+<div class="entry">
+<div class="day">9 February 2026 — Hong Kong, West Kowloon court: sentenced to twenty years; in custody since December 2020</div>
+<div class="name">Jimmy Lai Chee-ying <span class="zh">黎智英</span></div>
+<div class="meta">Layman · founder of <em>Apple Daily</em> · b. 1947 · baptized a Catholic in 1997 · first arrested August 2020 under the National Security Law; remanded without bail from December 2020 · convicted 15 December 2025 of conspiracy to collude with foreign forces and conspiracy to publish seditious material; pleaded not guilty · sentenced at 78 · denied regular access to the Eucharist; reads the Gospel each morning and draws the Crucifixion and the Blessed Mother in his cell</div>
+<div><span class="status det">Detained · refused compromise</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The one Hong Kong entry. Entered on the day of sentence because it is the day the term became fixed; the detention itself dates from December 2020. Cardinal Joseph Zen accompanied his wife from the court. He has said he wishes to be remembered as a faithful servant of Our Lord.<sup class="cite-ref">[<a href="#ref-25">25</a>, <a href="#ref-26">26</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m03">March</div>
+<div class="entry">
+<div class="day">16 March 2014 — Shanghai, at home under house arrest</div>
+<div class="name">Bishop Joseph Fan Zhongliang, S.J. <span class="zh">范忠良</span></div>
+<div class="meta">Underground bishop of Shanghai · b. 18 December 1918 · ordained 1951 by Bishop Ignatius Kung Pin-mei · arrested in the Shanghai round-up of 8 September 1955; about twenty years in labor camps in Qinghai · consecrated clandestinely 27 February 1985 · under house arrest from 2000 to his death at 95 · died under confinement, not in custody</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>His funeral was permitted only in a private apartment; the state refused the cathedral. His successor by Roman appointment, Bishop Thaddeus Ma Daqin, was himself under confinement at Sheshan from the day of his own ordination (see 7 July).<sup class="cite-ref">[<a href="#ref-13">13</a>, <a href="#ref-9">9</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m04">April</div>
+<div class="entry">
+<div class="day">13 April 1992 — Baoding (Hebei), in custody; body left at the family's door 16 April</div>
+<div class="name">Bishop Peter Joseph Fan Xueyan <span class="zh">范學淹</span></div>
+<div class="meta">Underground bishop of Baoding · b. 29 December 1907 · consecrated 24 June 1951 · imprisoned 1958–1979 and repeatedly thereafter · detained without warrant from late 1990 · died at 84</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Held at the former bishop's residence in Baoding without warrant or trial for about eighteen months; his body was returned to relatives wrapped in plastic, with marks around the neck and bruising to the chest, forehead, and legs. Bishop Fan was the principal architect of the underground hierarchy in Hebei, having consecrated bishops clandestinely with faculties from Rome. The Holy See was not notified of his death by the state; the family and the Associated Press reported it.<sup class="cite-ref">[<a href="#ref-2">2</a>, <a href="#ref-3">3</a>, <a href="#ref-5">5</a>]</sup></p></div>
+</div>
+
+<div class="entry">
+<div class="day">April 2021 (day not disclosed) — Xuanhua (Hebei): fourth secret detention since 2018</div>
+<div class="name">Bishop Augustine Cui Tai <span class="zh">崔泰</span></div>
+<div class="meta">Coadjutor bishop of Xuanhua, recognized by Rome, not by the state · b. 1950 · persecuted since 1993; most of the intervening years spent in detention or house arrest · has refused to join the Patriotic Association · held in secret, indefinite detention without charge; family visits intermittently allowed · under detention or house arrest as of April 2026</div>
+<div><span class="status det">Detained · refused compromise</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Entered in April because the 2021 detention is the one still running; the day was not disclosed. A member of his flock described him as "our bishop who has become a sacrificial lamb."<sup class="cite-ref">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m05">May</div>
+<div class="entry">
+<div class="day">May 2021 (day to be confirmed) — Xinxiang (Henan): arrested while convalescing from cancer surgery; seminary raided and closed</div>
+<div class="name">Bishop Joseph Zhang Weizhu <span class="zh">張維柱</span></div>
+<div class="meta">Bishop of Xinxiang, recognized by Rome · b. 1958 · long barred from his diocese · arrested May 2021 with priests and seminarians; held without trial, confirmed still detained March 2023 · by 2026 reported as recognized by the state, terms undisclosed</div>
+<div><span class="status det">Detained · refused compromise</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Kept in the calendar on the 2021 arrest. Human Rights Watch reported in April 2026 that he is now among the bishops Beijing recognizes; whether that recognition ended his detention, and on what terms, is not on the public record, so the status label stands until it is.<sup class="cite-ref">[<a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m06">June</div>
+<div class="entry">
+<div class="day">June 1966 (day not recorded) — died in prison of mistreatment</div>
+<div class="name">Bishop Xi Minyuan <span class="zh">奚敏元 (characters unverified)</span></div>
+<div class="meta">Bishop · arrested in June 1966, at the opening of the Cultural Revolution, on charges of counter-revolutionary activity and relations with foreigners · died in prison as a consequence of severe mistreatment</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Fr. Sergio Ticozzi's 2016 survey in <em>Tripod</em>, as summarized by <em>World Mission</em> and by Human Rights Without Frontiers, gives the month and the cause but not the diocese or the day. The same summer the Red Guards beat an elderly priest to death in the grounds of a north Beijing church and buried him where he fell (Section 02), and on 24 August attacked the seventy Chinese and seven foreign Franciscan Missionaries of Mary at the Sacred Heart school in Beijing; Sr. Molly O'Sullivan died the day after reaching Hong Kong.<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup></p>
+<p>Also in June, for the record of the calendar: on the night of 15 June 1953 Fr. Zhu Shude, S.J., was arrested in Shanghai — the beginning of the thirty years that ended on 28 December 1983 (see December).<sup class="cite-ref">[<a href="#ref-21">21</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m07">July</div>
+<div class="entry">
+<div class="day">7 July 2012 — Shanghai: confined at Sheshan seminary from the day of his episcopal ordination</div>
+<div class="name">Bishop Thaddeus Ma Daqin <span class="zh">馬達欽</span></div>
+<div class="meta">Auxiliary bishop of Shanghai, appointed by Rome · b. 1968 · at his ordination Mass in St. Ignatius Cathedral declined the hands of the state-backed bishop and announced publicly that he would no longer serve in the Patriotic Association · escorted away the same day; under house arrest, surveillance, and "study" at Sheshan for fourteen years · stripped by the state of the title of bishop</div>
+<div><span class="status det">Detained · refused compromise</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The cathedral applauded his announcement for a long minute. The 2018 agreement did not change his situation.<sup class="cite-ref">[<a href="#ref-9">9</a>, <a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">1, 10, and 23 July 1947 — Yangjiaping (Chahar, now Hebei): the three "People's Courts" of the Trappist community</div>
+<div class="name">The Trappists of Our Lady of Consolation, Yangjiaping — the trials <span class="zh">楊家坪聖母神慰院</span></div>
+<div class="meta">Cistercians of the Strict Observance (O.C.S.O.) · Chinese and French monks · abbey surrounded by Communist forces in 1939, pillaged spring 1947, tried before organized village assemblies on 1, 10, and 23 July 1947, community chained and imprisoned in its own refectory</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The trials are dated to the day in the account of Fr. Stanislaus Jen, O.C.S.O., a survivor, and in the report collected by Fr. Charles J. McCarthy, S.J., in Beijing in October 1947. The deaths that followed are entered under August, below, and in Section 02.<sup class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-8">8</a>, <a href="#ref-9">9</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m08">August</div>
+<div class="entry">
+<div class="day">26 August 1961 — Baihu labor farm (Lujiang, Anhui): starved to death on the boat carrying him to the farm hospital</div>
+<div class="name">Fr. Matthew Chen Zhemin <span class="zh">陳哲敏（陳文中）</span></div>
+<div class="meta">Diocesan priest, b. 1909, Quxian, Sichuan · doctorate in philosophy, Urbaniana, Rome, where he taught · Chinese secretary to the first internuncio, Archbishop Antonio Riberi, 1946 · co-founder of the Catholic Central Bureau, 1947 · professor of ethics and philosophy at Aurora College for Women, 1948, where he told the students that if you give up one step on a staircase you must climb two to regain it · one of the "four talents" of the Chinese Church of the 1950s (董世祉, 張伯達, 陳哲敏, 沈士賢) · arrested 6 September 1951 at the Central Bureau with Frs. Shen Shixian, Hou Zhizheng, Le Grand, and Prevost · sentenced 1960 to twenty years as one of three priests who "showed no repentance" · hard labor at Huangshan and the Digang quarry; transferred 16 August 1961 to the heavy-labor brigade at Baihu · died ten days later of starvation and overwork, anointed by Fr. Fu Hezhou · buried on Majiashan hill by the Baihu hospital</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The first of the Shanghai "four talents" to die in custody; Fr. Beda Chang (張伯達) had died in 1951 (see 11 November). When told the Legion of Mary was the cause of the trouble, he answered that without the Legion they would have found the Sodality, or the Eucharistic Crusade, or any other group — the target was the whole Church.<sup class="cite-ref">[<a href="#ref-28">28</a>, <a href="#ref-31">31</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">30 August 1947 — Yangjiaping: the abbey burned; the death march begins</div>
+<div class="name">The Trappists of Our Lady of Consolation, Yangjiaping — the thirty-three <span class="zh">楊家坪聖母神慰院殉道者</span></div>
+<div class="meta">O.C.S.O. · thirty-three monks and associated faithful died between the burning of the abbey on 30 August 1947 and 1948, on a forced march through the mountains and in Communist custody, among them Fr. Guillaume Cambourieu (1870–1947), Fr. Seraphin Shi (1909–1948), and Br. Alexis Liu (d. 1948) · the death toll rose from sixteen known in 1947 to thirty-three</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The largest single Catholic death event under the Party before 1949, and the one Chinese Catholics still speak of quietly. The abbey, founded in 1883, was the mother house of Our Lady of Joy (Liesse), later re-founded on Lantau Island, Hong Kong. Individual dates of death for the thirty-three are recorded in Jen and in Moreau; this entry keeps the memorial on the day the abbey fell.<sup class="cite-ref">[<a href="#ref-7">7</a>, <a href="#ref-8">8</a>, <a href="#ref-9">9</a>, <a href="#ref-10">10</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m09">September</div>
+<div class="entry">
+<div class="day">9 September 2007 — a hospital in Hebei, in police custody; cremated within hours</div>
+<div class="name">Bishop John Han Dingxiang <span class="zh">韓鼎祥</span></div>
+<div class="meta">Underground bishop of Yongnian (Hebei) · b. 17 May 1937 · nineteen years in labor camps from 1960 · detained eleven times as bishop · last arrested November 1999 while leading a retreat for religious sisters in Shijiazhuang · held without trial for eight years, latterly in a police housing compound · died at 70</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The family was summoned to the hospital hours before his death and told nothing of his illness; the body was cremated the same night without an autopsy and the ashes buried under police guard. His diocese is the one in which several of the Boxer-era saints of 1900 died.<sup class="cite-ref">[<a href="#ref-4">4</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m10">October</div>
+<div class="entry">
+<div class="day">8 October 1997 — Baoding (Hebei): disappeared into custody; fate unconfirmed</div>
+<div class="name">Bishop James Su Zhimin <span class="zh">蘇志民</span></div>
+<div class="meta">Underground bishop of Baoding, successor of Bishop Fan Xueyan · b. 1932 · about twenty-six years in prison and labor camps before 1997 · seen once, in a Baoding hospital under guard, in November 2003 · no acknowledgment of his detention, whereabouts, or death has ever been issued</div>
+<div><span class="status unk">Fate unconfirmed</span><span class="chip u">unknown</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Entered here on the date of his disappearance because no other date exists. If he is alive he would be in his nineties; if dead, the state has never said so. The entry is repeated in Section 02.<sup class="cite-ref">[<a href="#ref-6">6</a>]</sup></p></div>
+</div>
+
+<div class="entry">
+<div class="day">29 October 2025 — Zhengding (Hebei), under detention or house arrest that had run since 2020</div>
+<div class="name">Bishop Julius Jia Zhiguo <span class="zh">賈治國</span></div>
+<div class="meta">Underground bishop of Zhengding · b. 1 May 1935 · first imprisoned 1963 for refusing to renounce the Pope · ordained priest 7 June 1980 and bishop 19 December 1980 by Bishop Fan Xueyan · never joined the Patriotic Association · arrested more than a dozen times; under house arrest from 2018, moved by police to a hotel in 2020 · his orphanage for disabled children, run for thirty years with religious sisters, dismantled by police · the state acknowledged that his illness was largely a product of his detentions · died at 90</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The date of death is documented; whether he was formally in custody or under house arrest on that day is reconstructed from reporting through 2024 that he remained in police-controlled confinement. He is the most recent bishop to die under Party confinement as of 12 September 2026.<sup class="cite-ref">[<a href="#ref-18">18</a>, <a href="#ref-14">14</a>, <a href="#ref-17">17</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m11">November</div>
+<div class="entry">
+<div class="day">8 November 2015 — found dead in the shallows of the Fen River near Taiyuan (Shanxi)</div>
+<div class="name">Fr. Pedro Yu Heping <span class="zh">余和平</span></div>
+<div class="meta">Priest of the underground community, aged 41 · energetic and, by every account of those who knew him, never depressed · found dead after what ecclesial sources following the case describe as rough interrogation · police classified the death as suicide within days; no one in the Chinese Church who knew him accepts the verdict</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Entered on the day the body was found, since the day of death is not established. The manner of death is contested; the entry records the contest, not a finding.<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">11 November 1951 — Shanghai, Lokawei prison; body returned 12 November</div>
+<div class="name">Fr. Beda Chang, S.J. <span class="zh">張伯達</span></div>
+<div class="meta">Society of Jesus · b. c. 1905 as Zhang Zhengming · principal of St. Ignatius College and head of the Bureau of Chinese Studies, Zikawei · arrested 9 August 1951 for refusing to lead Shanghai's Catholics into the state-directed "reform" movement · died in custody at about 46</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Fr. Aedan McGrath, in the cell opposite, saw him fail over two months before he died on the morning of 11 November. Shanghai's Catholics turned out in such numbers for the requiem Masses that the government denounced the prayers as "a new type of bacteria warfare." He is the first priest to die in Communist custody after 1949 and remains the Shanghai Church's own protomartyr in popular memory.<sup class="cite-ref">[<a href="#ref-11">11</a>, <a href="#ref-12">12</a>]</sup></p></div>
+</div>
+
+<div class="month" id="m12">December</div>
+<div class="entry">
+<div class="day">22 December 1960, at midnight — Digang labor camp on the Yangtze (Anhui)</div>
+<div class="name">Fr. Wang Rensheng, S.J. <span class="zh">王仁生</span></div>
+<div class="meta">Society of Jesus, Shanghai · with Fr. Beda Chang one of the two Jesuits who openly defended the Church's hierarchy at the East China private-schools conference of 1951 · arrested the night of 7 July 1953 with Frs. Chen Tianxiang, Cai Shifang, and Fu Hezhou · sentenced at the public trial of 7 March 1960 in the "Kung Pin-mei counter-revolutionary clique" case · sent to Digang; legs swollen by November; anointed 20 December; died two days later</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>The day and month are given in the Shanghai record of the 九八教難; the year is read as 1960 from the sequence of the account (sentence in March, illness in November) and is marked reconstructed until a second source fixes it.<sup class="cite-ref">[<a href="#ref-29">29</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">28 December 1983 — Hefei (Anhui), municipal prison</div>
+<div class="name">Fr. Zhu Shude, S.J. <span class="zh">朱樹德</span></div>
+<div class="meta">Society of Jesus · b. 21 December 1913 · ordained 19 May 1945 · doctorate in geography, Paris, 1949 · returned from Hong Kong to Shanghai on 19 October 1949 by order of the Jesuit General, against every entreaty to stay — "in the eyes of the world I am indeed the biggest fool ever born" · chaplain to Aurora University Catholics, then pastor of Christ the King · arrested the night of 15 June 1953 · sentenced 17 March 1960 to twenty years; kept at Baihu farm, Anhui, after the term expired · rearrested November 1981 and sentenced to twelve more · died in prison at 70, one week after his birthday</div>
+<div><span class="status none">No cause on record</span><span class="chip m">measured</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Three of his brothers were priests. Fu Jen Catholic University in Taiwan named its law building 樹德樓 for him in 1999, and his tombstone stands in the Jesuit cemetery at Ching Shan, Changhua. "As long as there are Christians left in Shanghai, I must return there. Because I am a priest. Wherever I am, the Church is."<sup class="cite-ref">[<a href="#ref-21">21</a>, <a href="#ref-22">22</a>]</sup></p></div>
+</div>
+<div class="entry">
+<div class="day">30 December 2009 — Xiwanzi (Hebei); news of the death controlled by the authorities</div>
+<div class="name">Bishop Leo Yao Liang <span class="zh">姚良</span></div>
+<div class="meta">Underground auxiliary bishop of Xiwanzi · b. 1923, Gonghui village, Zhangbei · ordained 1946 · sent to labor camp 1956 and sentenced to life in 1958 for communion with the Pope; released 1984 after twenty-eight years · consecrated bishop 19 February 2002 · arrested again 31 March 2005 and 30 July 2006 and held at Zhangjiakou · died at 87</div>
+<div><span class="status none">No cause on record</span><span class="chip r">reconstructed</span></div>
+<div class="prose" style="margin-top:.5rem;"><p>Whether he was in detention or under house arrest on the day he died is not established from the sources available; the suppression of the news of his death is. Three priests of the neighboring diocese of Xuanhua — Frs. Zhang Cunhui, Zhang Zhanglin, and a Fr. Liu — had disappeared into custody the previous June.<sup class="cite-ref">[<a href="#ref-23">23</a>]</sup></p></div>
+</div>
+</section>
+
+<section class="page-section" id="unknown">
+<div class="section-header"><span class="section-num">02</span><h2 class="section-title">Date Withheld or Unknown</h2></div>
+<div class="prose"><p>Where the state has never disclosed the day of death, or the day a continuing detention began, the calendar above keeps the memorial on the day the fact became known. This section lists such persons together so that the withholding itself is on the record. Those with no usable date at all appear only here.</p></div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Name</th><th>See</th><th>Year</th><th>What is withheld</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Bishop Cosmas Shi Enxiang 師恩祥</td><td>Yixian</td><td>2001–2015</td><td>Date, place, cause of death; body or ashes<sup class="cite-ref">[<a href="#ref-5">5</a>, <a href="#ref-6">6</a>]</sup></td><td><span class="chip u">unknown</span></td></tr>
+<tr><td>Bishop James Su Zhimin 蘇志民</td><td>Baoding</td><td>1997–</td><td>Whether he is alive; if dead, everything<sup class="cite-ref">[<a href="#ref-6">6</a>]</sup></td><td><span class="chip u">unknown</span></td></tr>
+<tr><td>Bishop Joseph Xing Wenzhi 邢文之</td><td>Shanghai (auxiliary)</td><td>2011–</td><td>Whereabouts; forcibly disappeared after his removal in 2011; reported by Human Rights Watch in April 2026 as still disappeared, aged 63<sup class="cite-ref">[<a href="#ref-15">15</a>]</sup></td><td><span class="chip u">unknown</span></td></tr>
+<tr><td>Bishop Vincent Guo Xijin 郭希錦</td><td>Mindong (Fujian)</td><td>2020–</td><td>Date the present house arrest began; stepped aside as ordinary under the 2018 arrangement, then subjected to harassment, forced political sessions, and house arrest<sup class="cite-ref">[<a href="#ref-15">15</a>, <a href="#ref-16">16</a>]</sup></td><td><span class="chip r">reconstructed</span></td></tr>
+<tr><td>Fr. Dong Shizhi 董世祉</td><td>Nanjing / Chongqing</td><td>1951–</td><td>Everything after his arrest: Benedictine-trained, ordained in Switzerland, incardinated in Nanjing 1936; head of the Central Bureau's catechetical section; on 23 June 1951, the feast of the Sacred Heart, told a Chongqing assembly that he gave his whole soul to God and the Church and his body to the country; denounced as "Riberi's faithful running dog," arrested, and never heard of again<sup class="cite-ref">[<a href="#ref-30">30</a>]</sup></td><td><span class="chip u">unknown</span></td></tr>
+<tr><td>Bishop Francis Zhao Zhensheng, S.J. 趙振聲</td><td>Xianxian (Hebei)</td><td>1968</td><td>Day of death; b. 30 Nov 1894; beaten by Red Guards in 1967 and thrown from a balcony, then imprisoned and tortured; died in prison the following year<sup class="cite-ref">[<a href="#ref-24">24</a>]</sup></td><td><span class="chip r">reconstructed</span></td></tr>
+<tr><td>Sr. Zhang Ergu 張二姑 and an unnamed priest of north Beijing</td><td>Baoding; Beijing</td><td>1966</td><td>Days of death; the sister beaten to death with sticks for refusing to trample an image of Our Lady; the priest beaten to death by Red Guards and buried where he fell, a spot still tended by a parish gardener<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup></td><td><span class="chip r">reconstructed</span></td></tr>
+<tr><td>Bishop Liu Difen 劉迪芬</td><td>Anguo (Hebei)</td><td>1992</td><td>Day of death; died immediately after the family was summoned to a hospital following imprisonment; the body bore two puncture wounds in the back<sup class="cite-ref">[<a href="#ref-5">5</a>]</sup></td><td><span class="chip r">reconstructed</span></td></tr>
+<tr><td>The thirty-three of Yangjiaping (individually)</td><td>Chahar / Hebei</td><td>1947–48</td><td>Individual days for most of the thirty-three, recorded in Jen and Moreau<sup class="cite-ref">[<a href="#ref-8">8</a>, <a href="#ref-10">10</a>]</sup></td><td><span class="chip r">reconstructed</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="page-section" id="held">
+<div class="section-header"><span class="section-num">03</span><h2 class="section-title">Roll of the Imprisoned: Catholics Held at the Time of Writing</h2></div>
+<div class="theory-disclaimer"><span class="chip m">measured</span> status confirmed by at least one report dated 2026 &nbsp;·&nbsp; <span class="chip r">reconstructed</span> last confirmation 2023–2025, condition assumed unchanged &nbsp;·&nbsp; <span class="chip u">unknown</span> no confirmation since the date shown. "Complete" here means complete as to the public record in English, Chinese, and Italian sources available to the author on 12 September 2026; priests and laity held in secret are, by the nature of secret detention, undercounted.</div>
+<div class="subsection">
+<h3>Bishops</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Name</th><th>See</th><th>Condition</th><th>Held since</th><th>What is known</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>James Su Zhimin 蘇志民</td><td>Baoding (Hebei)</td><td>Forcibly disappeared</td><td>8 Oct 1997</td><td>Arrested while leading a procession to a Marian shrine; about 26 years in prison and camps before that; seen once, in a guarded hospital, November 2003; aged 94; the longest continuous secret detention of any bishop in the world<sup class="cite-ref">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Joseph Xing Wenzhi 邢文之</td><td>Shanghai (auxiliary)</td><td>Forcibly disappeared</td><td>2011</td><td>Removed from office and vanished; reported by Human Rights Watch in April 2026 as still disappeared, aged 63<sup class="cite-ref">[<a href="#ref-15">15</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Augustine Cui Tai 崔泰</td><td>Xuanhua (Hebei), coadjutor</td><td>Secret detention / house arrest</td><td>April 2021 (present spell)</td><td>Persecuted since 1993; detention, house arrest, and forced labor across 31 years; fourth secret detention since 2018; family visits intermittently permitted; aged 74–76<sup class="cite-ref">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Thaddeus Ma Daqin 馬達欽</td><td>Shanghai (auxiliary)</td><td>House arrest, surveillance, restricted ministry</td><td>7 Jul 2012</td><td>Confined at Sheshan from the day of his ordination for renouncing the Patriotic Association; title stripped by the state December 2012; restricted by a government-appointed bishop<sup class="cite-ref">[<a href="#ref-9">9</a>, <a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Peter Shao Zhumin 邵祝敏</td><td>Wenzhou (Zhejiang)</td><td>House arrest; taken again July 2026</td><td>2 Jan 2024 (present spell)</td><td>Six secret detentions since 2018 for refusing the Patriotic Association; removed with his chancellor in July 2026 to keep them from a priest's funeral<sup class="cite-ref">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>, <a href="#ref-16">16</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Vincent Guo Xijin 郭希錦</td><td>Mindong (Fujian), resigned</td><td>House arrest</td><td>2020</td><td>Stepped aside under the 2018 arrangement; utilities cut and evicted January 2020; resigned October 2020 at 62; harassed and forced to political sessions; under house arrest per HRW April 2026<sup class="cite-ref">[<a href="#ref-15">15</a>, <a href="#ref-16">16</a>, <a href="#ref-17">17</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Joseph Zhang Weizhu 張維柱</td><td>Xinxiang (Henan)</td><td>Detained without trial; state recognition reported 2026</td><td>May 2021</td><td>Arrested during cancer convalescence with priests and seminarians; seminary closed; confirmed detained March 2023; HRW reports him among bishops now recognized by Beijing — whether that ended the detention, and on what terms, is undisclosed<sup class="cite-ref">[<a href="#ref-15">15</a>, <a href="#ref-17">17</a>]</sup></td><td><span class="chip r">reconstructed</span></td></tr>
+<tr><td>Melchior Shi Hongzhen 石鴻禎</td><td>Tianjin</td><td>Confined to church compound</td><td>c. 2009</td><td>House arrest for over fifteen years; recognized by the state in 2024 at 95; occasionally let out for religious duties; listed because the confinement continues<sup class="cite-ref">[<a href="#ref-17">17</a>]</sup></td><td><span class="chip r">reconstructed</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="subsection">
+<h3>Priests</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Name</th><th>Diocese</th><th>Condition</th><th>Held since</th><th>What is known</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Fr. Jiang Sunian 蔣孫年</td><td>Wenzhou (chancellor)</td><td>Taken with Bishop Shao</td><td>July 2026</td><td>Removed with the bishop before Fr. Chen Nailiang's funeral; no release reported<sup class="cite-ref">[<a href="#ref-16">16</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+<tr><td>Fr. Lu Genjun 盧根軍</td><td>Baoding (vicar general)</td><td>Secret detention</td><td>2 Nov 2020</td><td>Repeatedly imprisoned, including 2006–2014; taken into secret custody November 2020; no release on the public record as of the last profile consulted (2023)<sup class="cite-ref">[<a href="#ref-27">27</a>]</sup></td><td><span class="chip u">unknown</span></td></tr>
+<tr><td>Frs. Zhang Cunhui, Zhang Zhanglin, and a Fr. Liu</td><td>Xuanhua</td><td>Disappeared into custody</td><td>June 2009</td><td>Believed by their community to have been taken by state agents; no subsequent public confirmation of release or death found<sup class="cite-ref">[<a href="#ref-23">23</a>]</sup></td><td><span class="chip u">unknown</span></td></tr>
+<tr><td>Priests and seminarians of Xinxiang</td><td>Xinxiang</td><td>Taken with Bishop Zhang</td><td>May 2021</td><td>Seven priests and a number of seminarians reported arrested with the bishop when the seminary was raided; individual names and current status not on the public record consulted<sup class="cite-ref">[<a href="#ref-17">17</a>]</sup></td><td><span class="chip u">unknown</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="subsection">
+<h3>Laity</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Name</th><th>Place</th><th>Condition</th><th>Held since</th><th>What is known</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Jimmy Lai Chee-ying 黎智英</td><td>Hong Kong</td><td>Serving a 20-year sentence</td><td>Dec 2020</td><td>Convicted 15 Dec 2025; sentenced 9 Feb 2026 at 78; denied regular access to the Eucharist; his daughter reports his body is breaking down<sup class="cite-ref">[<a href="#ref-25">25</a>, <a href="#ref-26">26</a>]</sup></td><td><span class="chip m">measured</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout">
+<span class="kicker">What the roll shows</span>
+<div class="statement">Eight bishops, at least six priests, and one layman are on the public record as held, disappeared, or confined as of 12 September 2026. Every bishop on the roll is one the Holy See recognizes; every one is held for the same reason, refusal of the Patriotic Association or of the state's control of the episcopate; and not one has been charged in open court except the layman in Hong Kong. The roll's shortness is a measure of secrecy, not of the persecution.</div>
+</div>
+</section>
+
+<section class="page-section" id="status">
+<div class="section-header"><span class="section-num">04</span><h2 class="section-title">Index by Status</h2></div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Status</th><th>Persons</th></tr></thead>
+<tbody>
+<tr><td>Servant of God (cause opened)</td><td>Bishop Francis Xavier Ford, M.M. (Diocese of Brooklyn)</td></tr>
+<tr><td>No cause on record</td><td>Fr. Beda Chang, S.J.; the Trappists of Yangjiaping; Bishop Fan Xueyan; Bishop Liu Difen; Bishop Han Dingxiang; Bishop Shi Enxiang; Bishop Fan Zhongliang, S.J.; Bishop Jia Zhiguo; Bishop Gao Kexian; Fr. Wang Shiwei; Bishop Xi Minyuan; Fr. Yu Heping; Fr. Zhu Shude, S.J.; Bishop Yao Liang; Bishop Zhao Zhensheng, S.J.; Sr. Zhang Ergu; Fr. Chen Zhemin; Fr. Wang Rensheng, S.J.</td></tr>
+<tr><td>Fate unconfirmed</td><td>Bishop James Su Zhimin; Bishop Joseph Xing Wenzhi; Fr. Dong Shizhi (since 1951)</td></tr>
+<tr><td>Detained · refused compromise (living)</td><td>See the roll in Section 03: Bishops Ma Daqin, Cui Tai, Zhang Weizhu, Shao Zhumin, Guo Xijin, Shi Hongzhen; Frs. Jiang Sunian, Lu Genjun, the three Xuanhua priests of 2009, the Xinxiang clergy of 2021; Jimmy Lai</td></tr>
+</tbody>
+</table>
+</div>
+<div class="prose"><p>The asymmetry is the finding. Of the persons the Chinese Church itself names first when it names its modern martyrs, only the one American bishop has a cause, and that cause was opened in the United States. No cause can be opened inside the People's Republic, and the diocesan phase of a cause requires the competent bishop, the documents, and the witnesses to be available to a tribunal. The withholding of bodies, dates, and records recorded in Section 02 is, among other things, the mechanism by which that door is kept shut.</p></div>
+</section>
+
+<section class="page-section" id="undated">
+<div class="section-header"><span class="section-num">05</span><h2 class="section-title">Recorded Without a Day: The Persecutions by Diocese</h2></div>
+<div class="prose"><p>The persons below are documented as arrested, imprisoned, or killed for the faith under the Party, but the sources cited do not give a day of death, or the person survived imprisonment and died later in freedom. They are set down by persecution and diocese so that the names stand with the calendar. Names already carrying a calendar entry are marked with the date; the rest carry what the record gives.</p></div>
+<div class="subsection">
+<h3>Shanghai, 1951–1960</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Arrest</th><th>Persons</th><th>What the record gives</th></tr></thead>
+<tbody>
+<tr><td>6 September 1951</td><td>Frs. 陳哲敏 Chen Zhemin, 沈士賢 Shen Shixian, 侯之正 Hou Zhizheng, Le Grand, Prevost (prefect of Lindong); Fr. 莫克勤 Mo Keqin the same day</td><td>Taken at the Catholic Central Bureau and at the Columban house. 陳哲敏 died 26 Aug 1961 (calendar). The others: 沈士賢 survived to release; 侯之正, Le Grand, Prevost, and 莫克勤 were expelled or imprisoned, fates not given in the sources cited.<sup class="cite-ref">[<a href="#ref-31">31</a>, <a href="#ref-28">28</a>]</sup></td></tr>
+<tr><td>15 June 1953</td><td>Fr. 朱樹德 Zhu Shude, S.J.</td><td>Died 28 Dec 1983, Hefei prison (calendar).<sup class="cite-ref">[<a href="#ref-21">21</a>]</sup></td></tr>
+<tr><td>7 July 1953</td><td>Frs. 王仁生 Wang Rensheng, S.J., 陳天祥 Chen Tianxiang, S.J., 蔡石方 Cai Shifang, 傅鶴洲 Fu Hezhou</td><td>王仁生 died 22 Dec 1960 at Digang (calendar). 傅鶴洲, the diocesan procurator, survived to anoint 陳哲敏 in 1961 and 王仁生 in 1960; 陳天祥 and 蔡石方 were sentenced in 1960; days of death not in the sources cited.<sup class="cite-ref">[<a href="#ref-29">29</a>]</sup></td></tr>
+<tr><td>Night of 8 September 1955 (九八教難)</td><td>Bishop 龔品梅 Ignatius Kung Pin-mei; Frs. 張希斌 Zhang Xibin, 金魯賢 Jin Luxian, S.J., 蔡方 Cai Fang, 朱洪聲 Zhu Hongsheng, S.J., 陳天祥, 王仁生, 陳雲棠 Chen Yuntang, 朱雪帆 Zhu Xuefan, 劉季澤 Liu Jize, 傅鶴洲, 李度 Li Du, 范忠良 Fan Zhongliang, S.J., and more than thirty priests in all; some 180 clergy, religious, and laity in the same case</td><td>Sentenced 17 Mar 1960. 龔品梅: life sentence, released 1985, house arrest, exiled 1988, cardinal <em>in pectore</em> 1979, died Stamford, Connecticut, 12 Mar 2000. 張希斌: twenty years as one of the three "unrepentant" priests; day of death not given. 金魯賢: released 1982, later state-recognized bishop of Shanghai, died 27 Apr 2013. 范忠良: died 16 Mar 2014 under house arrest (calendar). The remainder: days of death not in the sources cited.<sup class="cite-ref">[<a href="#ref-29">29</a>, <a href="#ref-31">31</a>, <a href="#ref-13">13</a>]</sup></td></tr>
+<tr><td>August 1966</td><td>The priests and sisters of Shanghai</td><td>Concentrated at 201 Caoxi North Road, churches closed, diocesan funds frozen, made to earn their keep by manual labor; individual deaths not given.<sup class="cite-ref">[<a href="#ref-31">31</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="subsection">
+<h3>Hebei</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Diocese</th><th>Persons</th><th>What the record gives</th></tr></thead>
+<tbody>
+<tr><td>Baoding 保定</td><td>Bishop 范學淹 Fan Xueyan; Fr. 霍炳章 Huo Bingzhang, vicar general; Bishop 蘇志民 Su Zhimin; Bishop 安樹新 An Shuxin, auxiliary; Fr. 盧根軍 Lu Genjun, vicar general; Fr. 李道寧 Li Daoning; the clergy and sisters of 1966</td><td>范學淹 died 13 Apr 1992 (calendar). 霍炳章 jailed 1982–88 with the bishop, died 19 Feb 1992 of cancer at 82, in freedom. 蘇志民 disappeared 8 Oct 1997 (calendar, roll). 安樹新 imprisoned more than ten years, released 24 Aug 2006. 盧根軍 imprisoned 2006–14, secret detention from 2 Nov 2020 (roll). 李道寧, beaten unconscious and thrown on the Red Guards' pyre of church goods in 1966, fate not given. Sr. 張二姑 Zhang Ergu beaten to death 1966 (Section 02).<sup class="cite-ref">[<a href="#ref-2">2</a>, <a href="#ref-19">19</a>, <a href="#ref-27">27</a>]</sup></td></tr>
+<tr><td>Xianxian 獻縣</td><td>Bishop 趙振聲 Francis Zhao Zhensheng, S.J.; the Jesuit clergy of 1966–68</td><td>趙振聲 thrown from a balcony 1967, died in prison 1968, day not given (Section 02); the cathedral and diocesan property destroyed; clergy, religious, and laity imprisoned or sent to camps.<sup class="cite-ref">[<a href="#ref-24">24</a>]</sup></td></tr>
+<tr><td>Xuanhua 宣化</td><td>Bishop 趙振東 Zhao Zhendong; Bishop 趙克勳 Zhao Kexun; Bishop 崔泰 Cui Tai; Frs. 張存會 Zhang Cunhui, 張章林 Zhang Zhanglin, 劉 Liu; Fr. 陳海龍 Chen Hailong</td><td>趙振東, 86, arrested December 2004, whereabouts unknown thereafter. 趙克勳 in hiding under warrant, 2009. 崔泰 detained since 2021 (roll). The three priests disappeared June 2009 (roll). 陳海龍 held two months in solitary in 2011 without food or sleep, released, never told where he had been. Prayer houses fitted with cameras to prevent prayer.<sup class="cite-ref">[<a href="#ref-23">23</a>, <a href="#ref-15">15</a>]</sup></td></tr>
+<tr><td>Yongnian 永年</td><td>Bishop 韓鼎祥 Han Dingxiang</td><td>Died 9 Sep 2007 in custody (calendar).<sup class="cite-ref">[<a href="#ref-4">4</a>]</sup></td></tr>
+<tr><td>Zhengding 正定</td><td>Bishop 賈治國 Jia Zhiguo; the sisters of his orphanage</td><td>賈治國 imprisoned first 1963, arrested more than a dozen times, died 29 Oct 2025 under confinement (calendar). The orphanage for disabled children dismantled by police; the sisters' fate not given.<sup class="cite-ref">[<a href="#ref-18">18</a>, <a href="#ref-14">14</a>]</sup></td></tr>
+<tr><td>Anguo 安國</td><td>Bishop 劉迪芬 Liu Difen</td><td>Died 1992 after imprisonment, body bearing two puncture wounds; day not given (Section 02).<sup class="cite-ref">[<a href="#ref-5">5</a>]</sup></td></tr>
+<tr><td>Yixian 易縣</td><td>Bishop 劉冠東 Liu Guandong; Bishop 師恩祥 Shi Enxiang</td><td>劉冠東, predecessor, imprisoned in the Mao years, retired 1995, day of death not given. 師恩祥 disappeared 13 Apr 2001, death acknowledged 30 Jan 2015 (calendar).<sup class="cite-ref">[<a href="#ref-5">5</a>]</sup></td></tr>
+<tr><td>Xiwanzi 西灣子</td><td>Bishop 姚良 Leo Yao Liang; Bishop 郝進禮 Hao Jinli</td><td>姚良 twenty-eight years in camps, died 30 Dec 2009 (calendar). 郝進禮, ordinary, imprisoned in the Mao years, died 2011 in freedom.<sup class="cite-ref">[<a href="#ref-23">23</a>]</sup></td></tr>
+<tr><td>Handan 邯鄲</td><td>Bishop 楊祥太 Stephen Yang Xiangtai; Bishop 孫繼根 Joseph Sun Jigen; two priests arrested June 2011</td><td>楊祥太 arrested 1954, rearrested 1966, fifteen years in camps at Quzhou, the Handan brick factory, and the Tangshan salt works, released 15 Mar 1980, died 13 Oct 2021 at 98 in freedom. 孫繼根 held three days after his secret ordination of 21 Jun 2011; the two priests arrested in retaliation, fate not given.<sup class="cite-ref">[<a href="#ref-32">32</a>]</sup></td></tr>
+<tr><td>Tianjin 天津</td><td>Bishop 石鴻禎 Melchior Shi Hongzhen; the Legion of Mary, 1951</td><td>石鴻禎 confined to his compound more than fifteen years (roll). The Legion of Mary was suppressed first in Tianjin in 1951 and its members made to register and renounce it; deaths not given.<sup class="cite-ref">[<a href="#ref-17">17</a>, <a href="#ref-29">29</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="subsection">
+<h3>Henan</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Diocese</th><th>Persons</th><th>What the record gives</th></tr></thead>
+<tbody>
+<tr><td>Kaifeng 開封</td><td>Bishop 梁希生 John Baptist Liang Xisheng; Bishop 高宏效 Joseph Gao Hongxiao, O.F.M.; Coadjutor 宗長風 Antonius Zong Changfeng</td><td>梁希生, hidden bishop, died 23 Sep 2007 at 84. 高宏效, Franciscan, kept hidden, succeeded 2007, died 19 Dec 2022 at 77 in Meixian, Shaanxi. 宗長風, ordained coadjutor 27 Oct 2000, barred by the state from ever taking up the see.<sup class="cite-ref">[<a href="#ref-33">33</a>]</sup></td></tr>
+<tr><td>Nanyang 南陽</td><td>Bishop 靳德辰 Joseph Jin Dechen</td><td>Ordained 1944; arrested 1958 and sentenced to life, released 1973; rearrested December 1981 and sentenced 27 Jul 1982 to fifteen years for resisting abortion and birth control; held at the Third Provincial Prison, Yuzhou; pardoned May 1992 and confined to his village; died 21 Nov 2002 at 83 in freedom.<sup class="cite-ref">[<a href="#ref-34">34</a>]</sup></td></tr>
+<tr><td>Xinxiang 新鄉</td><td>Bishop 張維柱 Joseph Zhang Weizhu; seven priests and the seminarians of May 2021</td><td>張維柱 arrested May 2021 (calendar, roll); the seminary closed; the priests and seminarians taken with him, names and fates not given.<sup class="cite-ref">[<a href="#ref-17">17</a>]</sup></td></tr>
+<tr><td>Northern Henan, 1966</td><td>An unnamed priest</td><td>Pushed so close to the Red Guards' fire that his feet burned; carried home, died two days later.<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="subsection">
+<h3>Elsewhere</h3>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Place</th><th>Persons</th><th>What the record gives</th></tr></thead>
+<tbody>
+<tr><td>Chongqing, 1951</td><td>Fr. 董世祉 Dong Shizhi</td><td>Arrested after 23 Jun 1951, never heard of again (Section 02).<sup class="cite-ref">[<a href="#ref-30">30</a>]</sup></td></tr>
+<tr><td>Yangjiaping, 1947–48</td><td>The thirty-three Trappists</td><td>Names and days in Jen (1978) and Moreau (2012); the group is entered on 30 Aug (calendar).<sup class="cite-ref">[<a href="#ref-8">8</a>, <a href="#ref-10">10</a>]</sup></td></tr>
+<tr><td>Beijing, 24 August 1966</td><td>About seventy Chinese and seven foreign Franciscan Missionaries of Mary of the Sacred Heart school; Sr. Molly O'Sullivan</td><td>Beaten by Red Guards, tried before a "people's court" the next day, the foreign sisters expelled; Sr. O'Sullivan died the day after reaching Hong Kong.<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup></td></tr>
+<tr><td>Fenyang, Shanxi, 1955</td><td>Bishop 雷震霞 Lei Zhenxia and priests</td><td>Arrested shortly after 27 Sep 1955; the state's own candidate installed 1958; fate of Bishop Lei not given.<sup class="cite-ref">[<a href="#ref-35">35</a>]</sup></td></tr>
+<tr><td>Yibin, Sichuan</td><td>Bishop 陳適中 John Chen Shizhong</td><td>Imprisoned in the 1950s and again in the Cultural Revolution; rehabilitated 1981; died 16 Dec 2012 at 94 in freedom.<sup class="cite-ref">[<a href="#ref-36">36</a>]</sup></td></tr>
+<tr><td>Hanzhong, Shaanxi</td><td>Bishop 余成信 Matthias Yu Chengxin; Bishop 余成悌 Bartholomew Yu Chengti</td><td>余成信 sent to a labor camp as a seminarian in the Cultural Revolution, ordained 1981, consecrated 12 Dec 1989 shortly after his brother 余成悌's arrest; died 7 Dec 2017 in freedom.<sup class="cite-ref">[<a href="#ref-37">37</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<div class="references" id="sources">
+<h2>References</h2>
+<ol class="ref-list">
+<li id="ref-1">"Francis Xavier Ford," Wikipedia, citing the Maryknoll archives and the Diocese of Brooklyn cause documentation — <a href="https://en.wikipedia.org/wiki/Francis_Xavier_Ford" rel="noopener" target="_blank">page</a>. Born 11 Jan 1892; died 21 Feb 1952 in a Guangzhou prison; Servant of God.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-2">"Peter Joseph Fan Xueyan," Wikipedia, citing the Associated Press obituary in <em>The New York Times</em>, 25 Apr 1992 — <a href="https://en.wikipedia.org/wiki/Peter_Joseph_Fan_Xueyan" rel="noopener" target="_blank">page</a>. Born 29 Dec 1907; died 13 Apr 1992.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-3">Laogai Research Foundation, "Fan Xueyan," prisoner profile — <a href="https://laogairesearch.org/prisoner_stories/fan-xueyan/" rel="noopener" target="_blank">page</a>. Detention at the Baoding bishop's residence without warrant or trial; corpse released April 1992.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-4">"Han Dingxiang," Wikipedia, citing Associated Press reporting of September 2007 — <a href="https://en.wikipedia.org/wiki/Han_Dingxiang" rel="noopener" target="_blank">page</a>. Born 17 May 1937; died 9 Sep 2007 in police custody; cremated the same night.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-5">Bernardo Cervellera, "Beijing hides the body of bishop Cosma Shi Enxiang: too 'dangerous'," <em>AsiaNews</em>, 2015 — <a href="https://www.asianews.it/news-en/Beijing-hides-the-body-of-bishop-Cosma-Shi-Enxiang:-too-dangerous-33415.html" rel="noopener" target="_blank">article</a>. Arrest 13 Apr 2001; death acknowledged 30 Jan 2015 then retracted; also the cases of Bishop Liu Difen (Anguo, 1992) and the condition of Bishop Fan Xueyan's body.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-6">"Chinese Bishop Shi Enxiang, 'underground' Church leader imprisoned since 2001, dead at 94," <em>Catholic Culture</em>, February 2015 — <a href="https://www.catholicculture.org/news/headlines/index.cfm?storyid=23918" rel="noopener" target="_blank">article</a>. Notes that his death left one underground bishop (Su Zhimin) still held at an undisclosed location.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-7">Charles J. McCarthy, S.J., "A Trappist Tragedy" (1947), in Paolino Quattrocchi, <em>Monaci nella Tormenta</em> (Abbaye de Cîteaux, 1991), 136. The first collected account, taken from survivors in Beijing, October 1947; sixteen dead known as of 12 September 2026.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-8">Stanislaus Jen (Ren Dayi) 任達義, O.C.S.O., <em>飲水思源：察哈爾懷來縣楊家坪聖母神慰院、聖母神樂院之母院</em> (Hong Kong, 1978). Survivor's account; source of the dates of the three trials (1, 10, 23 July 1947) and of the individual deaths.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-9">Anthony E. Clark, "China's Modern Martyrs: From Mao to Now," Part 1, <em>Catholic World Report</em> series, Whitworth University History Faculty Scholarship Paper 37 (2014) — <a href="https://digitalcommons.whitworth.edu/cgi/viewcontent.cgi?article=1033&amp;context=historyfaculty" rel="noopener" target="_blank">PDF</a>. Synthesis of McCarthy, Jen, Fazzini, Merton, and Moreau on Yangjiaping; the thirty-three; the case of Bishop Ma Daqin.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-10">Theresa Marie Moreau, <em>Blood of the Martyrs: Trappist Monks in Communist China</em> (Los Angeles: Veritas Est Libertas, 2012); and Gerolamo Fazzini, ed., <em>The Red Book of Chinese Martyrs: Testimonies and Autobiographical Accounts</em> (San Francisco: Ignatius Press, 2006), 285–310 on Yangjiaping. Also Thomas Merton, <em>The Waters of Siloe</em> (New York: Harcourt, Brace, 1949), 254–256.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-11">"Beda Chang," Wikipedia, citing the testimony of Fr. W. Aedan McGrath and Paul P. Mariani, <em>Church Militant: Bishop Kung and Catholic Resistance in Communist Shanghai</em> (Cambridge, MA: Harvard University Press, 2011) — <a href="https://en.wikipedia.org/wiki/Beda_Chang" rel="noopener" target="_blank">page</a>. Died the morning of 11 Nov 1951; body returned 12 Nov; the "bacteria warfare" statement.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-12">Jean-Paul Wiest and others, <em>The Chinese Catholic Church in Conflict: 1949–2001</em> (Universal Publishers), 68, on the arrest and death of Fr. Beda Chang.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-13">"Joseph Fan Zhongliang," Wikipedia — <a href="https://en.wikipedia.org/wiki/Joseph_Fan_Zhongliang" rel="noopener" target="_blank">page</a>. Born 18 Dec 1918; ordained 1951; consecrated clandestinely 27 Feb 1985; died 16 Mar 2014 under house arrest in Shanghai.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-14">Nina Shea, "Don't Forget the Catholic Bishops Persecuted by China," Hudson Institute, October 2024 — <a href="https://www.hudson.org/religious-freedom/dont-forget-catholic-bishops-persecuted-china-nina-shea" rel="noopener" target="_blank">article</a>. At least ten Vatican-approved bishops in indefinite detention, disappeared, forced out, or under investigation; Shao Zhumin, Cui Tai, Jia Zhiguo, Zhang Weizhu.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-15">Human Rights Watch, "China: Pressure on Catholics Escalates," 15 April 2026 — <a href="https://www.hrw.org/news/2026/04/15/china-pressure-on-catholics-escalates" rel="noopener" target="_blank">report</a>. Status as of April 2026: Su Zhimin (94) and Xing Wenzhi (63) forcibly disappeared; Cui Tai and Ma Daqin detained or under house arrest; Guo Xijin and Shao Zhumin under house arrest; Zhang Weizhu and Shi Hongzhen now recognized by Beijing.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-16">"Communist Party removes Bishop Shao Zhumin … again," <em>AsiaNews</em>, 8 July 2026 — <a href="https://www.asianews.it/en/east-asia/china/communist-party-removes-bishop-shao-zhumin-again" rel="noopener" target="_blank">article</a>. Bishop Shao and Fr. Jiang Sunian taken to prevent their attending the funeral of Fr. Chen Nailiang; Cui Tai under repeated house arrest; Guo Xijin and Zhang Weizhu forced to political sessions.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-17">Courtney Mares, "Persecution of 10 Catholic Bishops in China Intensified After Vatican-China Deal, Report Says," Catholic News Agency / <em>National Catholic Register</em>, 21 October 2024 — <a href="https://www.ncregister.com/cna/persecution-of-10-catholic-bishops-in-china-intensified-after-vatican-china-deal-report-says" rel="noopener" target="_blank">article</a>. Zhang Weizhu's May 2021 arrest during cancer convalescence; Jia Zhiguo's illness acknowledged by the state as a product of detention; Ma Daqin's confinement since 2012.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-18">"Julius Jia Zhiguo," Wikipedia, citing UCA News, 30 October 2025 — <a href="https://en.wikipedia.org/wiki/Julius_Jia_Zhiguo" rel="noopener" target="_blank">page</a>. Born 1 May 1935; first imprisoned 1963; ordained priest 7 Jun 1980 and bishop 19 Dec 1980 by Bishop Fan Xueyan; never joined the Patriotic Association; died 29 Oct 2025.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-19">"The Martyrdom of Catholics in China," <em>World Mission</em> magazine, 2024 — <a href="https://worldmissionmagazine.com/the-martyrdom-of-catholics-in-china/" rel="noopener" target="_blank">article</a>; drawing on Sergio Ticozzi, P.I.M.E., in <em>Tripod</em> no. 182 (2016). Bishop Xi Minyuan (June 1966); Fr. Wang Shiwei (15 Feb 1970); the 24 Aug 1966 attack on the Franciscan Missionaries of Mary in Beijing; Sr. Zhang Ergu; the north Beijing priest; Fr. Pedro Yu Heping (8 Nov 2015). The same Ticozzi material is summarized by Human Rights Without Frontiers, reproduced by David Alton, 24 Jul 2021.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-20">"2005 – John Gao Kexian," Asia Harvest, Shandong resources — <a href="https://www.asiaharvest.org/china-resources/shandong/2005-john-gao-kexian" rel="noopener" target="_blank">page</a>. Death 24 Jan 2005 in Binzhou hospital in custody; cremation the next day under police; the premature September 2004 report; the 1992 secret consecration disclosed after death.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-21">「朱樹德」, 維基百科 — <a href="https://zh.wikipedia.org/zh-hant/%E6%9C%B1%E6%A0%91%E5%BE%B7" rel="noopener" target="_blank">page</a>; and Cecilia Ao, 「朱樹德神父小記」, <em>號角報 O Clarim</em> (Macau), 18 Sep 2015 — <a href="https://www.oclarim.com.mo/zh/2015/09/18/%E6%9C%B1%E6%A8%B9%E5%BE%B7%E7%A5%9E%E7%88%B6%E5%B0%8F%E8%A8%98/" rel="noopener" target="_blank">article</a>. Born 21 Dec 1913; ordained 19 May 1945; returned to Shanghai 19 Oct 1949; arrested 15 Jun 1953; sentenced 17 Mar 1960; rearrested Nov 1981; died 28 Dec 1983 in Hefei prison; 樹德樓 at Fu Jen.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-22">Anthony E. Clark, "Chinese Catholics who changed China and the world," <em>Catholic World Report</em>, 16 Jan 2018 — <a href="https://www.catholicworldreport.com/2018/01/16/chinese-catholics-who-changed-china-and-the-world/" rel="noopener" target="_blank">article</a>. Fr. Zhu Shude's 1949 letter from Hong Kong, quoted from Chan and Hunter, <em>Prayers and Thoughts of Chinese Christians</em> (Boston: Cowley, 1991), 22–23.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-23">Timothy C. Morgan, "China's Underground Bishop Leon Yao Liang dies," <em>Christianity Today</em>, January 2010 — <a href="https://www.christianitytoday.com/2010/01/chinas-underground-bishop-leon-yao-liang-dies/" rel="noopener" target="_blank">article</a>; "Leon Yao Liang," Wikipedia — <a href="https://en.wikipedia.org/wiki/Leon_Yao_Liang" rel="noopener" target="_blank">page</a>. Died 30 Dec 2009 at 87; labor camp 1956, life sentence 1958, released 1984; consecrated 19 Feb 2002; the three Xuanhua priests who disappeared in June 2009.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-24">"Francis Zhao Zhensheng," Wikipedia — <a href="https://en.wikipedia.org/wiki/Francis_Zhao_Zhensheng" rel="noopener" target="_blank">page</a>. Jesuit bishop of Xianxian; beaten and thrown from a balcony 1967; died in prison 1968.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-25">"Catholic activist Jimmy Lai sentenced to 20 years in prison in Hong Kong national security trial," Catholic News Agency / <em>National Catholic Register</em>, 9 February 2026 — <a href="https://www.ncregister.com/cna/catholic-activist-jimmy-lai-sentenced-to-20-years-in-prison-in-hong-kong-national-security-trial" rel="noopener" target="_blank">article</a>. Baptized 1997; arrested 2020; sentenced 9 Feb 2026; Eucharist denied; his daughter's account of his prayer and drawing.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-26">"Pro-democracy activist Jimmy Lai sentenced to 20-year imprisonment," <em>National Catholic Reporter</em> (OSV News), 9 February 2026 — <a href="https://www.ncronline.org/news/pro-democracy-activist-jimmy-lai-sentenced-20-year-imprisonment" rel="noopener" target="_blank">article</a>. Conviction 15 Dec 2025 by three government-vetted judges; not-guilty plea; aged 78. Also CNN, 9 Feb 2026, on Cardinal Zen leaving the court with Teresa Lai.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-27">"Profiles of the Persecuted," Global Prayer for China — <a href="https://globalprayerforchina.org/profiles-of-persecuted-christians-in-china/" rel="noopener" target="_blank">page</a>. Fr. Lu Genjun, vicar general of Baoding, taken into secret detention 2 Nov 2020 after earlier imprisonment 2006–2014; Bishop Cui Tai's detention of 19 Jun 2020.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-28">「陳哲敏」, 維基百科 — <a href="https://zh.wikipedia.org/zh-hant/陈哲敏" rel="noopener" target="_blank">page</a>. Matthew Chen (1909 – 26 Aug 1961); Urbaniana doctorate; secretary to Riberi; Central Bureau; Aurora College for Women; arrest 6 Sep 1951; sentence 1960; Huangshan, Digang, Baihu; death on the boat to the farm hospital; burial at Majiashan.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-29">「九八敎難（龔品梅反革命集團案）」, 吳語維基百科 — <a href="https://wuu.wikipedia.org/wiki/%E4%B9%9D%E5%85%AB%E6%95%8E%E9%9B%A3" rel="noopener" target="_blank">page</a>. The case of Bishop Kung and some 180 clergy, religious, and laity; Fr. 張希斌; the three "unrepentant" priests sentenced to twenty years (張希斌, 陳哲敏, 朱樹德); Fr. 王仁生's arrest 7 Jul 1953, sentence 7 Mar 1960, illness and death at Digang, 20–22 December.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-30">「董世祉」, 維基百科 — <a href="https://zh.wikipedia.org/zh-hant/董世祉" rel="noopener" target="_blank">page</a>. One of the "four talents"; the Chongqing speech of 23 Jun 1951; denounced 1 Jul 1951; arrested and never heard of again.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-31">「天主教上海教區」, 維基百科 — <a href="https://zh.wikipedia.org/zh-tw/%E5%A4%A9%E4%B8%BB%E6%95%99%E4%B8%8A%E6%B5%B7%E6%95%99%E5%8C%BA" rel="noopener" target="_blank">page</a>. The arrests of 6 Sep 1951, 15 Jun 1953, and 8 Sep 1955 by name; the sentences of 17 Mar 1960; the 1966 concentration of the Shanghai clergy and sisters at 201 Caoxi North Road.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-32">"Retired Chinese bishop who spent years in labor camps dies at 98," <em>Catholic Standard</em> (UCA News), 19 Oct 2021 — <a href="https://www.cathstan.org/us-world/retired-chinese-bishop-who-spent-years-in-labor-camps-dies-at-98" rel="noopener" target="_blank">article</a>. Bishop Stephen Yang Xiangtai of Handan: arrests 1954 and 1966, fifteen-year sentence, camps, release 15 Mar 1980; the secret ordination of Bishop Sun Jigen, 21 Jun 2011, and the arrests that followed.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-33">"Joseph Gao Hongxiao," Wikipedia — <a href="https://en.wikipedia.org/wiki/Joseph_Gao_Hongxiao" rel="noopener" target="_blank">page</a>. The hidden bishops of Kaifeng; Bishop Liang Xisheng d. 23 Sep 2007; Coadjutor Zong Changfeng barred from the see; Bishop Gao d. 19 Dec 2022.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-34">"Joseph Jin Dechen," Wikipedia — <a href="https://en.wikipedia.org/wiki/Joseph_Jin_Dechen" rel="noopener" target="_blank">page</a>. Bishop of Nanyang: life sentence 1958, released 1973; fifteen years 1982 for resisting abortion and birth control; pardoned May 1992; died 21 Nov 2002.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-35">「高庸 (神父)」, 維基百科 — <a href="https://zh.wikipedia.org/zh-hans/%E9%AB%98%E5%BA%B8_(%E7%A5%9E%E7%88%B6)" rel="noopener" target="_blank">page</a>. The arrest of Bishop Lei Zhenxia of Fenyang and his priests after 27 Sep 1955 and the state's installation of a replacement.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-36">"John Chen Shi-zhong," Wikipedia — <a href="https://en.wikipedia.org/wiki/John_Chen_Shi-zhong" rel="noopener" target="_blank">page</a>. Bishop of Yibin: imprisoned in the 1950s and the Cultural Revolution; died 16 Dec 2012.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-37">"Matthias Yu Chengxin," Wikipedia — <a href="https://en.wikipedia.org/wiki/Matthias_Yu_Chengxin" rel="noopener" target="_blank">page</a>. Clandestine bishop of Hanzhong; labor camp in the Cultural Revolution; consecrated 12 Dec 1989 after his brother's arrest; died 7 Dec 2017.<a class="ref-back" href="#top"> ↑</a></li>
+</ol>
+</div>
+</main>
+</div>
+<footer>
+<p style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--faint);">William Huanshan Chuang &middot; Logarch&eacute;on Inc. &middot; 12 Sep 2026</p>
+</footer>
+</div>
+</body>
+</html>
