@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Justice Without Vengeance: The Militant Reading of Christian Courage Examined — William Chuang · Logarchéon</title>
+<meta content="A theological examination of the popular militant reading of Christian courage — that God does not love everyone, that some enemies may not be prayed for, that Matthew 10:34 and the cleansing of the Temple license private force, and that depravity proves possession — tested against Scripture, the Catechism, the Code of Canon Law, Aquinas, and the councils." name="description"/>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   JUSTICE WITHOUT VENGEANCE — Logarchéon Research
+   Design System v2  ·  William Huanshan Chuang
+   Palette: deep navy × archival gold × documentary white
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+
+:root {
+  /* Core palette */
+  --navy:          #0b1929;
+  --navy-deep:     #070f1a;
+  --navy-mid:      #0f2237;
+  --navy-light:    #162d52;
+  --navy-rim:      #1e3a64;
+  --navy-glass:    rgba(11,25,41,0.92);
+
+  /* Gold system — 5 stops */
+  --gold-bright:   #d4a843;
+  --gold:          #c9a84c;
+  --gold-light:    #e2c97e;
+  --gold-dim:      #8a6c2e;
+  --gold-ink:      #6b521f;
+
+  /* Alphas */
+  --gold-pale:     rgba(201,168,76,0.12);
+  --gold-glow:     rgba(201,168,76,0.06);
+  --gold-rim:      rgba(201,168,76,0.22);
+  --gold-border:   rgba(201,168,76,0.30);
+
+  /* Reading surface */
+  --cream:         #f7f3ec;
+  --parchment:     #eee9de;
+  --body-text:     #ddd7cb;
+  --muted:         #bdb5a4;
+  --faint:         #7a7265;
+  --hairline:      rgba(201,168,76,0.15);
+
+  /* Evidence tier colors */
+  --c-measured:    #6dba96;
+  --c-reconstruct: #d4a843;
+  --c-hypothesis:  #7ba8d4;
+  --c-unknown:     #a897b8;
+
+  /* Spacing & rhythm */
+  --section-gap:   5.5rem;
+  --col-width:     68ch;
+  --radius-sm:     3px;
+  --radius-md:     6px;
+  --radius-lg:     10px;
+
+  /* Transitions */
+  --t-fast:        150ms ease;
+  --t-med:         250ms ease;
+  --t-slow:        400ms ease;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ─── Body & ambient atmosphere ─────────────────────────────── */
+body {
+  font-family: "Source Serif 4", "Libre Baskerville", Georgia, serif;
+  background: var(--navy-deep);
+  color: var(--body-text);
+  line-height: 1.78;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "onum" 1, "liga" 1, "kern" 1;
+}
+
+/* Single large ambient vignette — no grid telltale */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(201,168,76,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 1000px at 85% 30%, rgba(30,58,100,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+
+.wrap { position: relative; z-index: 1; }
+
+/* ─── Type scale ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+/* ─── Links ──────────────────────────────────────────────────── */
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+a:hover { color: var(--gold-light); text-decoration: none; }
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Inline elements ────────────────────────────────────────── */
+code {
+  font-family: "DM Mono", "Fira Mono", monospace;
+  font-size: 0.80rem;
+  background: rgba(30,58,100,0.6);
+  padding: 0.12em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--hairline);
+}
+strong { color: var(--cream); font-weight: 700; }
+em { font-style: italic; color: var(--body-text); }
+
+.mono {
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── Navigation ─────────────────────────────────────────────── */
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy-glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid var(--hairline);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 2rem;
+}
+.nav-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  transition: color var(--t-fast);
+}
+.nav-logo:hover { color: var(--gold-bright); }
+
+.nav-links {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+  text-decoration: none;
+}
+
+/* ─── Layout ─────────────────────────────────────────────────── */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+.page-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4.5rem;
+  align-items: start;
+  padding: 4rem 32px 7rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ─── TOC sidebar ────────────────────────────────────────────── */
+.toc-sidebar {
+  position: sticky;
+  top: 76px;
+  border-left: 2px solid var(--hairline);
+  padding-left: 1.2rem;
+  max-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  transition: border-color var(--t-med);
+}
+.toc-sidebar:hover { border-left-color: var(--gold-rim); }
+
+.toc-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 0.9rem;
+  flex-shrink: 0;
+}
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.4rem;
+  padding-bottom: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dim) transparent;
+}
+.toc-link {
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  padding: 0.28rem 0 0.28rem 0.9rem;
+  display: block;
+  border-left: 2px solid transparent;
+  margin-left: -1.2rem;
+  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-link:hover {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: var(--gold-glow);
+  text-decoration: none;
+}
+.toc-link.toc-section {
+  color: var(--body-text);
+  font-size: 0.69rem;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+.page-hero {
+  border-bottom: 1px solid var(--hairline);
+  padding: 4rem 0 3rem;
+}
+.page-hero .breadcrumb {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.page-hero .breadcrumb span { color: var(--faint); }
+
+.page-hero h1 {
+  font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+  font-weight: 300;
+  max-width: 26ch;
+  margin-bottom: 1.2rem;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 300;
+}
+
+/* Gold underline accent on title */
+.page-hero h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  margin-top: 1.1rem;
+  border-radius: 1px;
+}
+
+.hero-desc {
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 66ch;
+  line-height: 1.80;
+  margin-bottom: 1.6rem;
+  font-weight: 300;
+}
+.hero-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.hero-badge {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-rim);
+  padding: 0.24rem 0.65rem;
+  border-radius: 2px;
+  background: var(--gold-pale);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.hero-badge:hover { background: rgba(201,168,76,0.20); border-color: var(--gold); }
+
+.hero-methods {
+  max-width: 72ch;
+  margin: 1.3rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  backdrop-filter: blur(6px);
+}
+.hero-methods .method-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.hero-methods p { color: var(--muted); font-size: 0.88rem; line-height: 1.80; margin: 0; }
+
+/* ─── Section rhythm ─────────────────────────────────────────── */
+.page-section { margin-bottom: var(--section-gap); }
+
+/* Evidence rail — the signature element */
+.page-section + .page-section::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin-bottom: var(--section-gap);
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold-rim) 20%,
+    var(--gold) 50%,
+    var(--gold-rim) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2.4rem;
+  position: relative;
+}
+.section-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-rim) 0%, transparent 70%);
+}
+
+.section-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+}
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  letter-spacing: -0.01em;
+}
+
+/* ─── Subsections ────────────────────────────────────────────── */
+.subsection { margin: 2.2rem 0; }
+.subsection h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 1.1rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--gold-dim);
+  transition: border-color var(--t-med);
+}
+.subsection h3:hover { border-left-color: var(--gold); }
+.subsection h4 {
+  font-family: "DM Mono", monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4rem 0 0.7rem;
+}
+
+/* ─── Prose ──────────────────────────────────────────────────── */
+.prose {
+  color: var(--body-text);
+  font-size: 0.935rem;
+  line-height: 1.84;
+  max-width: var(--col-width);
+  font-feature-settings: "onum" 1, "liga" 1;
+}
+.prose p { margin: 0 0 1.1rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul, .prose ol { margin: 0.8rem 0 1.2rem 1.4rem; }
+.prose li { margin: 0.4rem 0; }
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.paper-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.6rem;
+  margin: 1.3rem 0;
+  transition: border-color var(--t-med), box-shadow var(--t-med), transform var(--t-slow);
+  backdrop-filter: blur(4px);
+}
+.paper-card:hover {
+  border-color: var(--gold-rim);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px var(--gold-glow);
+  transform: translateY(-1px);
+}
+.paper-card h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 0.45rem;
+}
+.paper-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.paper-meta span::after { content: " ·"; margin-left: 0.25rem; }
+.paper-meta span:last-child::after { content: ""; }
+
+.paper-abstract { color: var(--body-text); font-size: 0.90rem; line-height: 1.78; max-width: var(--col-width); }
+.paper-abstract p { margin-bottom: 0.7rem; }
+
+/* ─── Theory disclaimer ──────────────────────────────────────── */
+.theory-disclaimer {
+  background: rgba(22,45,82,0.5);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 0.9rem 1.2rem;
+  margin: 0 0 1.6rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-style: italic;
+  max-width: var(--col-width);
+}
+
+/* ─── Callout ────────────────────────────────────────────────── */
+.callout {
+  background: linear-gradient(135deg, rgba(201,168,76,0.09) 0%, rgba(15,34,55,0.65) 100%);
+  border: 1px solid var(--gold-rim);
+  padding: 1.3rem 1.5rem;
+  margin: 1.6rem 0;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+.callout::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dim) 0%, var(--gold) 50%, var(--gold-dim) 100%);
+}
+.callout .kicker {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.55rem;
+}
+.callout .statement {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.28rem;
+  line-height: 1.45;
+  color: var(--cream);
+  font-weight: 400;
+}
+
+/* ─── Evidence chips ─────────────────────────────────────────── */
+.chip {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  padding: 0.12rem 0.5rem;
+  margin-right: 0.35rem;
+  vertical-align: 0.10em;
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+  cursor: default;
+}
+.chip:hover { background: rgba(255,255,255,0.06); box-shadow: 0 0 8px currentColor; }
+.chip.m { color: var(--c-measured); }
+.chip.r { color: var(--c-reconstruct); }
+.chip.h { color: var(--c-hypothesis); }
+.chip.u { color: var(--c-unknown); }
+
+/* ─── Status legend ──────────────────────────────────────────── */
+.status-legend { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.7rem; margin: 1.3rem 0 0; }
+.status-item {
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.73rem;
+  line-height: 1.55;
+  transition: border-color var(--t-fast);
+}
+.status-item:hover { border-color: var(--gold-rim); }
+
+/* ─── Metrics ────────────────────────────────────────────────── */
+.metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.4rem 0; }
+.metric {
+  background: rgba(15,34,55,0.70);
+  border: 1px solid var(--hairline);
+  border-top: 2px solid var(--gold-dim);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  transition: border-top-color var(--t-med), box-shadow var(--t-med);
+}
+.metric:hover { border-top-color: var(--gold); box-shadow: 0 2px 16px rgba(0,0,0,0.3); }
+.metric .number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  font-feature-settings: "onum" 1;
+}
+.metric .label {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.59rem;
+  color: var(--faint);
+  margin-bottom: 0.4rem;
+}
+.metric p { font-size: 0.75rem; color: var(--muted); line-height: 1.58; }
+
+/* ─── Data tables ────────────────────────────────────────────── */
+.data-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0 1.8rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  background: rgba(11,25,41,0.55);
+}
+.data-table th {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid var(--gold-rim);
+  background: rgba(15,34,55,0.85);
+}
+.data-table td {
+  padding: 0.82rem 0.9rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--body-text);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  vertical-align: top;
+  transition: background var(--t-fast);
+}
+.data-table tr:hover td { background: rgba(201,168,76,0.04); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .num {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-light);
+  white-space: nowrap;
+  font-feature-settings: "onum" 1;
+}
+
+/* ─── Charts ─────────────────────────────────────────────────── */
+.chart-card {
+  background: rgba(15,34,55,0.65);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.2rem 1rem;
+  margin: 1.6rem 0;
+  backdrop-filter: blur(4px);
+}
+.chart-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.12rem;
+  color: var(--cream);
+  margin-bottom: 0.25rem;
+}
+.chart-note { color: var(--faint); font-size: 0.68rem; margin-bottom: 0.9rem; }
+.chart-card svg { width: 100%; height: auto; display: block; }
+.chart-axis  { stroke: rgba(201,168,76,0.25); stroke-width: 1; }
+.chart-grid  { stroke: rgba(201,168,76,0.08); stroke-width: 1; }
+.chart-line  { fill: none; stroke: var(--gold); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart-dot   { fill: var(--navy-deep); stroke: var(--gold); stroke-width: 2.5; }
+.chart-label { fill: var(--muted); font-family: "DM Mono",monospace; font-size: 11px; }
+.chart-value { fill: var(--cream); font-family: "DM Mono",monospace; font-size: 12px; font-weight: 500; }
+
+/* ─── Peak grid ──────────────────────────────────────────────── */
+.peak-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.peak {
+  padding: 1.1rem;
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  transition: border-color var(--t-med), transform var(--t-slow);
+}
+.peak:hover { border-color: var(--gold-rim); transform: translateY(-1px); }
+.peak .when {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold-light);
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+.peak .what {
+  font-family: "DM Mono", monospace;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.59rem;
+  margin: 0.3rem 0 0.6rem;
+}
+.peak p { color: var(--muted); font-size: 0.75rem; line-height: 1.60; }
+
+/* ─── Mechanism grid ─────────────────────────────────────────── */
+.mechanism-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.9rem; margin: 1.3rem 0; }
+.mech {
+  border: 1px solid var(--hairline);
+  background: rgba(15,34,55,0.58);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  transition: border-color var(--t-med);
+}
+.mech:hover { border-color: var(--gold-rim); }
+.mech .mnum {
+  font-family: "DM Mono", monospace;
+  color: var(--gold-dim);
+  font-size: 0.59rem;
+  letter-spacing: 0.10em;
+  margin-bottom: 0.2rem;
+}
+.mech h4 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--cream);
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0.5rem;
+  font-weight: 500;
+}
+.mech p { color: var(--muted); font-size: 0.77rem; line-height: 1.65; }
+
+/* ─── Formula boxes ──────────────────────────────────────────── */
+.formula-box {
+  margin: 1.3rem 0;
+  padding: 1rem 1.3rem;
+  border: 1px solid var(--gold-rim);
+  border-left: 3px solid var(--gold);
+  background: rgba(7,15,26,0.70);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  text-align: center;
+  overflow-x: auto;
+  color: var(--cream);
+}
+
+/* ─── Goldilocks ─────────────────────────────────────────────── */
+.goldilocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin: 1.1rem 0 1.6rem; }
+.goldilocks .state {
+  text-align: center;
+  padding: 1rem 0.8rem;
+  background: rgba(15,34,55,0.55);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: 0.76rem;
+  transition: border-color var(--t-fast);
+}
+.goldilocks .state:hover { border-color: var(--gold-rim); }
+.goldilocks .state strong {
+  display: block;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+/* ─── Hypotheses ─────────────────────────────────────────────── */
+.hypothesis {
+  border-left: 2px solid var(--c-hypothesis);
+  padding: 0.9rem 1.1rem;
+  margin: 0.9rem 0;
+  background: rgba(22,45,82,0.35);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  transition: border-left-color var(--t-fast);
+}
+.hypothesis:hover { border-left-color: #a0c4e8; }
+.hypothesis .h-label {
+  font-family: "DM Mono", monospace;
+  color: var(--c-hypothesis);
+  font-size: 0.60rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.hypothesis h4 { font-family: "Cormorant Garamond", serif; font-size: 1.06rem; margin: 0.18rem 0 0.4rem; color: var(--cream); }
+.hypothesis p { color: var(--muted); font-size: 0.79rem; line-height: 1.65; }
+
+/* ─── Timeline ───────────────────────────────────────────────── */
+.timeline { margin: 1.3rem 0; border-left: 1px solid var(--gold-rim); padding-left: 0; }
+.timeline-item {
+  position: relative;
+  padding: 0 0 1.3rem 1.5rem;
+  transition: background var(--t-fast);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px; top: 0.52rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  border: 2px solid var(--gold-dim);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.timeline-item:hover::before { border-color: var(--gold); background: var(--gold-pale); }
+.timeline-item .date {
+  font-family: "DM Mono", monospace;
+  font-size: 0.60rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.timeline-item h4 { font-size: 1rem; font-weight: 500; margin: 0.12rem 0 0.3rem; color: var(--cream); }
+.timeline-item p { color: var(--muted); font-size: 0.77rem; line-height: 1.62; }
+
+/* ─── Matrix ─────────────────────────────────────────────────── */
+.matrix { display: grid; grid-template-columns: 160px 1fr 1fr; border: 1px solid var(--hairline); margin: 1.3rem 0; border-radius: var(--radius-md); overflow: hidden; }
+.matrix > div { padding: 0.9rem; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); color: var(--body-text); font-size: 0.76rem; line-height: 1.60; }
+.matrix > div:nth-child(3n) { border-right: none; }
+.matrix > div:nth-last-child(-n+3) { border-bottom: none; }
+.matrix .head { background: rgba(15,34,55,0.85); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); }
+.matrix .rowhead { background: rgba(15,34,55,0.65); font-family: "DM Mono",monospace; font-size: 0.59rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); }
+
+/* ─── Reference list ─────────────────────────────────────────── */
+.references {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--hairline);
+}
+.references h2 {
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+.ref-list { list-style: none; display: grid; gap: 0.6rem; counter-reset: refs; }
+.ref-list li {
+  counter-increment: refs;
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.65;
+  padding: 0.6rem 0.8rem 0.6rem 2.4rem;
+  position: relative;
+  border-radius: var(--radius-sm);
+  transition: background var(--t-fast);
+  scroll-margin-top: 96px;
+}
+.ref-list li:hover { background: rgba(201,168,76,0.04); }
+.ref-list li::before {
+  content: "[" counter(refs) "]";
+  position: absolute;
+  left: 0.4rem; top: 0.6rem;
+  color: var(--gold-dim);
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  width: 1.8rem;
+  text-align: right;
+}
+.ref-list li a { color: var(--gold); overflow-wrap: anywhere; }
+.ref-list li a:hover { color: var(--gold-light); }
+.ref-back { color: var(--faint); font-size: 0.70rem; margin-left: 0.3rem; }
+
+/* ─── Citations ──────────────────────────────────────────────── */
+.cite-ref {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65em;
+  font-weight: 500;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.14rem;
+}
+.cite-ref a { color: var(--gold-dim); }
+.cite-ref a:hover { color: var(--gold); }
+
+/* ─── Source note ────────────────────────────────────────────── */
+.source-note { font-family: "DM Mono",monospace; color: var(--faint); font-size: 0.60rem; line-height: 1.55; margin-top: 0.4rem; }
+
+/* ─── Link buttons ───────────────────────────────────────────── */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-rim);
+  color: var(--cream);
+  padding: 0.38rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: "DM Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.05em;
+  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+.link-btn:hover {
+  background: rgba(201,168,76,0.22);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  color: var(--cream);
+  text-decoration: none;
+}
+.paper-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+
+/* ─── Legal notes ────────────────────────────────────────────── */
+.legal-note { border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin: 1.3rem 0; background: rgba(201,168,76,0.05); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.legal-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 1.3rem 0; }
+.legal-card { border: 1px solid var(--hairline); padding: 1rem 1.1rem; background: rgba(15,34,55,0.50); border-radius: var(--radius-md); transition: border-color var(--t-fast); }
+.legal-card:hover { border-color: var(--gold-rim); }
+.legal-card .label { font-family: "DM Mono",monospace; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.70rem; color: var(--gold-dim); margin-bottom: 0.5rem; }
+.legal-card p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.80rem; }
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 2.5rem 32px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.70rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ─── Scroll-triggered fade-in ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .page-section {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.55s ease forwards;
+  }
+  .page-section:nth-child(1)  { animation-delay: 0.05s; }
+  .page-section:nth-child(2)  { animation-delay: 0.10s; }
+  .page-section:nth-child(3)  { animation-delay: 0.15s; }
+  .page-section:nth-child(4)  { animation-delay: 0.20s; }
+  .page-section:nth-child(n+5) { animation-delay: 0.25s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .page-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 20px 5rem; }
+  .toc-sidebar { display: none; }
+  .metric-grid, .peak-grid, .mechanism-grid, .status-legend, .goldilocks { grid-template-columns: 1fr; }
+  .nav-links { gap: 1rem; }
+  .nav-inner { padding: 0 20px; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .legal-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 590px) {
+  nav.site-nav { padding: 0; }
+  .container, .page-hero { padding-left: 18px; padding-right: 18px; }
+  .page-hero h1 { font-size: clamp(1.9rem, 10vw, 2.6rem); }
+  .section-title { font-size: 1.45rem; }
+  table.data-table { min-width: 560px; }
+  .data-table th, .data-table td { padding: 0.65rem 0.7rem; }
+  .matrix { grid-template-columns: 1fr; }
+  .matrix > div { border-right: none; }
+  .matrix .head:first-child { display: none; }
+  footer { padding: 2rem 18px; }
+}
+
+/* ─── Utility: overflow safety ───────────────────────────────── */
+html, body { max-width: 100%; }
+.wrap, .container, .page-layout, .page-layout > main, .page-section,
+.subsection, .prose, .paper-card, .callout, .theory-disclaimer,
+.chart-card, .timeline, .legal-grid, .legal-card, .references { min-width: 0; max-width: 100%; }
+.page-layout > main { width: 100%; }
+p, li, dd, dt, blockquote, .hero-desc, .hero-methods p, .statement,
+.paper-abstract, .theory-disclaimer, .status-item, .metric p, .peak p, .mech p,
+.hypothesis p, .timeline-item p, .matrix > div, .legal-card p, .source-note,
+.ref-list li, th, td { overflow-wrap: anywhere; word-break: normal; hyphens: auto; }
+a { overflow-wrap: anywhere; word-break: break-word; }
+code { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+img, picture, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+.data-table-wrap, .formula-box { width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent; }
+.data-table { max-width: none; }
+.nav-links { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+mjx-container { max-width: 100%; }
+mjx-container[display="true"] { display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 0.15rem; }
+.section-header { min-width: 0; }
+.section-title, .subsection h3, .paper-card h3, .callout .statement, .page-hero h1 { overflow-wrap: anywhere; }
+.cite-ref { white-space: normal; overflow-wrap: normal; }
+
+/* ─── Page-specific additions ────────────────────────────────── */
+.callout.emphasis {
+  border: 1px solid var(--gold);
+  border-left: 5px solid var(--gold-bright);
+  background: linear-gradient(135deg, rgba(201,168,76,0.16) 0%, rgba(15,34,55,0.75) 60%);
+  box-shadow: 0 0 0 1px rgba(201,168,76,0.18), 0 6px 28px rgba(0,0,0,0.35);
+}
+.callout.emphasis .kicker { color: var(--gold-bright); }
+.callout.emphasis .statement { color: var(--cream); font-size: 1.05rem; }
+.callout.emphasis .statement p { margin-bottom: 0.9rem; }
+.callout.emphasis .statement p:last-child { margin-bottom: 0; }
+mark {
+  background: rgba(212,168,67,0.22);
+  color: var(--cream);
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  box-shadow: inset 0 -2px 0 var(--gold);
+}
+.compare-table td:first-child { color: var(--cream); font-weight: 500; }
+blockquote.scr { border-left: 3px solid var(--gold-rim); margin: .9rem 0; padding: .35rem 1rem; color: var(--cream); font-style: italic; }
+blockquote.scr cite { display:block; font-style: normal; font-family: "DM Mono", monospace; font-size: .7rem; letter-spacing: .1em; color: var(--faint); margin-top: .25rem; }
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/CEAS">CEAS</a></li>
+<li><a href="/GRAIL">GRAIL</a></li>
+<li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+<li><a href="/MIA">MIA</a></li>
+<li><a class="active" href="/Research/">Research</a></li>
+<li><a href="/About">About</a></li>
+<li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="page-hero">
+<div class="breadcrumb">
+<a href="/" style="color:var(--faint);">Logarchéon</a>
+<span style="color:var(--faint);">/</span>
+<a href="/Research/" style="color:var(--faint);">Research</a>
+<span style="color:var(--faint);">/</span>
+<span>Justice Without Vengeance</span>
+</div>
+<h1 class="title">Justice Without Vengeance: The Militant Reading of Christian Courage Examined Against Scripture, the Catechism, and Canon Law</h1>
+<p class="hero-desc">
+      A recurring popular argument holds that God does not love everyone, that Christians need not pray for "God's enemies," that Christ's words about bringing a sword and his cleansing of the Temple license Christians to "go on offense" against evildoers, that the armor of God has no back-plate because the Christian must always advance, and that exceptional depravity is evidence of demonic possession. The argument's conclusions — that evil is real, that children must be defended, that cowardice is a sin, and that Christianity is not sentimental niceness — are sound. Its premises are not. This page tests each premise against the sources that bind a Catholic conscience.
+    </p>
+<div aria-label="Core proposition" class="hero-methods">
+<span class="method-label">Core proposition</span>
+<p><strong>Biblical courage requires justice without vengeance, moral clarity without hatred, spiritual warfare without demonizing human beings, and prayer even for those who must be stopped and punished.</strong> Every one of the militant reading's twelve premises collapses a distinction that Christianity requires — between loving sinners and approving sin, between prayer and exoneration, between justice and vengeance, between spiritual and physical warfare, between judging acts and judging souls, between divine judgment and delegated human authority.</p>
+</div>
+<div class="hero-badges">
+<span class="hero-badge">Moral Theology</span>
+<span class="hero-badge">Scripture</span>
+<span class="hero-badge">Catechism &amp; Canon Law</span>
+<span class="hero-badge">Research Analysis · 12 September 2026</span>
+</div>
+</div>
+</div>
+<div class="page-layout">
+<aside class="toc-sidebar">
+<div class="toc-label">Sections</div>
+<ul class="toc-list">
+<li><a class="toc-link toc-section" href="#s00">00 · The Argument and the Method</a></li>
+<li><a class="toc-link toc-section" href="#s01">01 · God Loves Every Person</a></li>
+<li><a class="toc-link toc-section" href="#s02">02 · "My Enemies" and "God's Enemies"</a></li>
+<li><a class="toc-link toc-section" href="#s03">03 · Prayer for Perpetrators</a></li>
+<li><a class="toc-link toc-section" href="#s04">04 · Matthew 10:34</a></li>
+<li><a class="toc-link toc-section" href="#s05">05 · The Sword and the Peace</a></li>
+<li><a class="toc-link toc-section" href="#s06">06 · The Cleansing of the Temple</a></li>
+<li><a class="toc-link toc-section" href="#s07">07 · The Armor of God</a></li>
+<li><a class="toc-link toc-section" href="#s08">08 · What Christian Offense Is</a></li>
+<li><a class="toc-link toc-section" href="#s09">09 · Depravity and Possession</a></li>
+<li><a class="toc-link toc-section" href="#s10">10 · Indwelling Is Not Possession</a></li>
+<li><a class="toc-link toc-section" href="#s11">11 · Divine Patience and Human Authority</a></li>
+<li><a class="toc-link toc-section" href="#s12">12 · The Collapsed Distinctions</a></li>
+<li><a class="toc-link toc-section" href="#sources">References</a></li>
+</ul>
+</aside>
+<main>
+
+<section class="page-section" id="s00">
+<div class="section-header"><span class="section-num">00</span><h2 class="section-title">The Argument and the Method</h2></div>
+<div class="prose">
+<p>The militant reading circulates widely in popular preaching, podcasts, and social media, usually in response to a crime against children or an act of open contempt for the faith. Its structure is stable enough to be stated without attribution to any single speaker. It runs: God hates certain sinners, not only their sins; Christ commanded prayer for our enemies but not for God's; Christians are therefore free to withhold prayer from the worst offenders; Christ said he came to bring a sword, and drove the money-changers out with a whip, so Christian courage means physical offense; the armor of God covers only the front because retreat is forbidden; the worst criminals are possessed, and Christians are correspondingly "possessed" by the Holy Spirit; and since God could destroy evil in an instant, his people should imitate that decisiveness.</p>
+<p>Each premise is tested below against four kinds of source, in descending order of authority for a Catholic: Scripture; the <em>Catechism of the Catholic Church</em>; the <em>Code of Canon Law</em>, where it bears on the point; and the theological tradition, chiefly Augustine and Aquinas. Scriptural quotations are kept short and given in the Revised Standard Version, Catholic Edition; the Catechism and the Code are cited by paragraph and canon. The purpose is not to deny the reading's valid conclusions but to show that they are reached through false premises, and that the same conclusions follow more securely from true ones.</p>
+</div>
+</section>
+
+<section class="page-section" id="s01">
+<div class="section-header"><span class="section-num">01</span><h2 class="section-title">"God Does Not Love Everybody" Is False</h2></div>
+<div class="prose">
+<p>The militant reading relies on texts such as Proverbs 6:16–19, which lists things the Lord hates — a lying tongue, hands that shed innocent blood — and on the psalmist's declaration that God hates all evildoers (Ps 5:5).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> These texts are real, but they do not cancel the universal statements about God's love, and the tradition has never read them as doing so.</p>
+<blockquote class="scr">"For God so loved the world that he gave his only Son."<cite>John 3:16</cite></blockquote>
+<blockquote class="scr">"who desires all men to be saved and to come to the knowledge of the truth."<cite>1 Timothy 2:4</cite></blockquote>
+<blockquote class="scr">"While we were yet sinners Christ died for us."<cite>Romans 5:8</cite></blockquote>
+<blockquote class="scr">"For thou lovest all things that exist, and hast loathing for none of the things which thou hast made."<cite>Wisdom 11:24</cite></blockquote>
+<p>The crucial distinction, drawn by Augustine and made a rule by Aquinas, is between the person and the sin. God loves every person as his creature and wills his salvation; God does not approve every person's conduct; God hates sin and the destruction it causes; and divine love includes judgment, correction, and punishment. Aquinas states it precisely: sinners are to be loved out of charity as to their nature, which is from God, and hated as to their sin, which is not.<sup class="cite-ref">[<a href="#ref-2">2</a>]</sup> The Hebrew idiom of "hating" is itself comparative and covenantal — "Jacob I loved, but Esau I hated" (Mal 1:2–3; Rom 9:13) is about election, not about the withdrawal of the Creator's love from a creature.<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup></p>
+<p>Catholic teaching is explicit. The Catechism, citing the Council of Quiercy of 853, teaches that there is no human being, past, present, or future, for whom Christ did not suffer.<sup class="cite-ref">[<a href="#ref-3">3</a>]</sup> It teaches that God predestines no one to hell, and that a person is lost only by a free and persistent turning away from God.<sup class="cite-ref">[<a href="#ref-4">4</a>]</sup> It defines God's very being as love.<sup class="cite-ref">[<a href="#ref-5">5</a>]</sup> The Council of Trent condemned the proposition that Christ died only for the predestined.<sup class="cite-ref">[<a href="#ref-6">6</a>]</sup></p>
+</div>
+<div class="callout">
+<span class="kicker">The corrected proposition</span>
+<div class="statement">God loves every person, although he does not love every person's choices, and that love does not prevent judgment.</div>
+</div>
+</section>
+
+<section class="page-section" id="s02">
+<div class="section-header"><span class="section-num">02</span><h2 class="section-title">The Distinction Between "My Enemies" and "God's Enemies" Is Invented</h2></div>
+<div class="prose">
+<p>The reading holds that Christ commands prayer for <em>our</em> enemies but not for <em>God's</em>. Scripture nowhere establishes that exception. Christ's command carries no qualification:</p>
+<blockquote class="scr">"Love your enemies and pray for those who persecute you."<cite>Matthew 5:44</cite></blockquote>
+<p>Paul commands that supplications, prayers, intercessions, and thanksgivings be made for all men, and specifically for kings and those in authority — the persecuting authorities of his own day (1 Tim 2:1–2).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> More decisively still:</p>
+<blockquote class="scr">"While we were enemies we were reconciled to God by the death of his Son."<cite>Romans 5:10</cite></blockquote>
+<p>Every unrepentant sinner is, in some sense, opposed to God; Paul says the carnal mind is enmity against God (Rom 8:7).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> If "God's enemies" could not be prayed for, Christians could not pray for the conversion of unbelievers, persecutors, or grave sinners — which is exactly what the Church prays for in the Solemn Intercessions of Good Friday, and what Christ commands. Paul himself persecuted the Church and would have qualified as an enemy of God on the reading's own terms; he received mercy, and says he received it so as to be an example (1 Tim 1:13–16).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> Aquinas treats the question directly: we ought to pray for sinners, since prayer for others is an act of charity, and charity extends to all who can attain beatitude, which every living sinner can.<sup class="cite-ref">[<a href="#ref-7">7</a>]</sup> The Catechism lists prayer for enemies and persecutors among the marks of Christian prayer and calls it the summit of prayer in Christ.<sup class="cite-ref">[<a href="#ref-8">8</a>]</sup></p>
+<p>The invented distinction would therefore eliminate the very possibility of conversion that the Gospel proclaims.</p>
+</div>
+</section>
+
+<section class="page-section" id="s03">
+<div class="section-header"><span class="section-num">03</span><h2 class="section-title">Christians Must Pray Even for Perpetrators of Terrible Crimes</h2></div>
+<div class="prose">
+<p>Praying for an offender does not mean praying that his crimes succeed; excusing what he did; opposing criminal punishment; returning him to a position of trust; preventing lawful authority from incapacitating him; or denying justice to his victims. A Christian can pray, in a single breath: bring his crimes to light, stop him, protect his victims, impose justice, and lead him to repentance. The Catechism is explicit that forgiveness is compatible with the demand for justice and with the protection of the innocent: legitimate defense is not only a right but a grave duty for those responsible for the lives of others, and the state has the right and duty to impose penalties proportionate to the offense.<sup class="cite-ref">[<a href="#ref-9">9</a>, <a href="#ref-10">10</a>]</sup></p>
+<blockquote class="scr">"Father, forgive them; for they know not what they do."<cite>Luke 23:34</cite></blockquote>
+<blockquote class="scr">"Lord, do not hold this sin against them."<cite>Acts 7:60</cite></blockquote>
+<p>Christ prayed for those crucifying him; Stephen prayed for those stoning him. Refusing to pray for a particular class of sinners is therefore inconsistent with Christ's example and with the Lord's Prayer itself, which the Catechism reads as making our own forgiveness conditional on our willingness to forgive.<sup class="cite-ref">[<a href="#ref-11">11</a>]</sup> The Church's discipline says the same: even the excommunicated are not cut off from the Church's prayer, and canon law forbids only their reception of the sacraments and exercise of office, not intercession on their behalf.<sup class="cite-ref">[<a href="#ref-12">12</a>]</sup> Justice and intercession are not opposites; in the Catholic order they are two acts of the same charity.</p>
+</div>
+</section>
+
+<section class="page-section" id="s04">
+<div class="section-header"><span class="section-num">04</span><h2 class="section-title">Matthew 10:34 Does Not Authorize Aggressive Violence</h2></div>
+<div class="prose">
+<p>The reading invokes:</p>
+<blockquote class="scr">"I have not come to bring peace, but a sword."<cite>Matthew 10:34</cite></blockquote>
+<p>The next verses define the sword:</p>
+<blockquote class="scr">"For I have come to set a man against his father, and a daughter against her mother."<cite>Matthew 10:35</cite></blockquote>
+<p>The subject is division within families caused by allegiance to Christ. Luke's parallel makes the sense unmistakable by using the word "division" in place of "sword" (Lk 12:51).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> The verse predicts the consequences of the Gospel; it does not command Christians to attack anyone. The interpretation is confirmed by Christ's own words at the two moments when a physical sword was actually at hand:</p>
+<blockquote class="scr">"Put your sword back into its place."<cite>Matthew 26:52</cite></blockquote>
+<blockquote class="scr">"My kingship is not of this world; if my kingship were of this world, my servants would fight."<cite>John 18:36</cite></blockquote>
+<p>Christ's truth produces division because some accept it and others reject it. Christians must not manufacture division, seek conflict, or read the verse as permission for vigilantism. The Catechism's treatment of the fifth commandment leaves no space for private violence undertaken in Christ's name: it condemns deliberate hatred and vengeance, reserves coercive force to legitimate authority, and binds even that authority to strict conditions.<sup class="cite-ref">[<a href="#ref-9">9</a>, <a href="#ref-13">13</a>]</sup></p>
+</div>
+</section>
+
+<section class="page-section" id="s05">
+<div class="section-header"><span class="section-num">05</span><h2 class="section-title">"Not Peace but a Sword" Cannot Be Isolated from Christ's Teaching on Peace</h2></div>
+<div class="prose">
+<blockquote class="scr">"Blessed are the peacemakers, for they shall be called sons of God."<cite>Matthew 5:9</cite></blockquote>
+<blockquote class="scr">"Peace I leave with you; my peace I give to you."<cite>John 14:27</cite></blockquote>
+<blockquote class="scr">"All who take the sword will perish by the sword."<cite>Matthew 26:52</cite></blockquote>
+<p>Matthew 10:34 therefore cannot mean that Christ opposes peace as such. It means that fidelity to truth sometimes destroys <em>false</em> peace — the appearance of harmony purchased by compromise. Augustine's definition of peace as the tranquillity of order underlies the whole Catholic account: a peace built on injustice is not peace but its counterfeit, and the Christian who disturbs it is not a breaker of peace but its restorer.<sup class="cite-ref">[<a href="#ref-14">14</a>]</sup> The Catechism, following <em>Gaudium et Spes</em>, teaches that peace is not merely the absence of war and cannot be reduced to a balance of power, but is the work of justice and the effect of charity.<sup class="cite-ref">[<a href="#ref-15">15</a>]</sup></p>
+<p>The Christian accepts unavoidable division for the truth but does not turn division, hostility, or combativeness into virtues. Aquinas classifies the deliberate love of strife as a vice against charity, and treats anger as virtuous only when it is measured by reason and directed to justice.<sup class="cite-ref">[<a href="#ref-16">16</a>]</sup></p>
+</div>
+</section>
+
+<section class="page-section" id="s06">
+<div class="section-header"><span class="section-num">06</span><h2 class="section-title">The Cleansing of the Temple Does Not Authorize Private Christian Violence</h2></div>
+<div class="prose">
+<p>The reading treats Christ's cleansing of the Temple as an example that Christians should physically "go on offense." The inference fails on five counts.</p>
+<ol style="padding-left:1.4rem;">
+<li>Christ possesses unique messianic authority over the Temple; the act fulfills Malachi 3:1–3 and Zechariah 14:21 and is a prophetic sign performed by the Lord of the house, not a precedent for its tenants.<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup></li>
+<li>John 2:15 associates the whip of cords with driving out the sheep and oxen; the Greek does not clearly state that Christ struck any person.<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup></li>
+<li>The Synoptic accounts (Mt 21:12–13; Mk 11:15–17; Lk 19:45–46) describe overturned tables and expulsion, not personal assault.<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup></li>
+<li>A unique act of judgment by Christ is not automatically a general instruction for private citizens; Aquinas holds that it is unlawful for a private person to kill or to inflict punishment, that power belonging only to public authority acting for the common good.<sup class="cite-ref">[<a href="#ref-17">17</a>]</sup></li>
+<li>Christ later forbids his disciples to defend his kingdom with the sword (Mt 26:52; Jn 18:36).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup></li>
+</ol>
+<p>The suggestion that "brood of vipers" was a Hebrew curse word, so that Christ used vulgar language, is speculative. The Gospels were written in Greek; the phrase (Mt 3:7; 12:34; 23:33) is a prophetic denunciation in the tradition of Isaiah and Jeremiah, and the Catechism treats Christ's denunciations of the Pharisees as prophetic teaching, not as license for coarse speech.<sup class="cite-ref">[<a href="#ref-1">1</a>, <a href="#ref-18">18</a>]</sup></p>
+</div>
+</section>
+
+<section class="page-section" id="s07">
+<div class="section-header"><span class="section-num">07</span><h2 class="section-title">The Armor of God Argues Against the Militarized Interpretation</h2></div>
+<div class="prose">
+<p>Ephesians says at the outset what the war is not:</p>
+<blockquote class="scr">"For we are not contending against flesh and blood."<cite>Ephesians 6:12</cite></blockquote>
+<p>The armor consists of truth, righteousness, the readiness of the gospel of peace, faith, salvation, and prayer (Eph 6:14–18). Its sole offensive instrument is named:</p>
+<blockquote class="scr">"the sword of the Spirit, which is the word of God."<cite>Ephesians 6:17</cite></blockquote>
+<p>The passage's repeated command is to <em>stand</em>: stand against the wiles of the devil (6:11); having done all, to stand (6:13); stand therefore (6:14).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> The claim that the armor lacks a back-plate because the Christian must always advance is imaginative preaching, not something Paul says; the Roman <em>lorica</em> the image draws on did in fact protect the back, and the point of the passage is not tactics but steadfastness. The Catechism reads the passage as describing the spiritual combat of the Christian life against the powers of darkness, fought with the sacraments, prayer, and the virtues.<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup> The emphasis is spiritual steadfastness, not physical aggression.</p>
+</div>
+</section>
+
+<section class="page-section" id="s08">
+<div class="section-header"><span class="section-num">08</span><h2 class="section-title">Christian "Offense" Is Spiritual and Moral, Not Vengeful</h2></div>
+<div class="prose">
+<p>Christians are to confront evil actively: by exposing concealed wrongdoing, defending the vulnerable, reporting crimes, pursuing lawful prosecution, preaching truth, resisting temptation, converting sinners, and refusing cowardly compromise.</p>
+<blockquote class="scr">"Take no part in the unfruitful works of darkness, but instead expose them."<cite>Ephesians 5:11</cite></blockquote>
+<p>But the same Scripture draws the line that the militant reading erases:</p>
+<blockquote class="scr">"Beloved, never avenge yourselves, but leave it to the wrath of God."<cite>Romans 12:19</cite></blockquote>
+<blockquote class="scr">"Do not be overcome by evil, but overcome evil with good."<cite>Romans 12:21</cite></blockquote>
+<blockquote class="scr">"For the anger of man does not work the righteousness of God."<cite>James 1:20</cite></blockquote>
+<p>The state may exercise coercive justice; Paul says the governing authority does not bear the sword in vain and is God's servant to execute wrath on the wrongdoer (Rom 13:4).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> That authority belongs to lawful government, not to private citizens conducting vengeance under the label of spiritual warfare. The Catechism assigns the protection of the common good, the punishment of offenders, and the use of arms to legitimate public authority alone, and it lists among the duties of citizens the reporting of crime and cooperation with lawful justice.<sup class="cite-ref">[<a href="#ref-9">9</a>, <a href="#ref-20">20</a>]</sup> Canon law reflects the same order: the Church's own penal law reserves the imposition of penalties to competent authority acting by a defined process, and it forbids self-help even in ecclesiastical matters.<sup class="cite-ref">[<a href="#ref-21">21</a>]</sup> Aquinas devotes a question to vengeance and concludes that it is lawful only when exercised by public authority for the correction of the offender and the good of the community, and never from hatred.<sup class="cite-ref">[<a href="#ref-22">22</a>]</sup></p>
+</div>
+</section>
+
+<section class="page-section" id="s09">
+<div class="section-header"><span class="section-num">09</span><h2 class="section-title">Heinous Conduct Does Not Prove Demonic Possession</h2></div>
+<div class="prose">
+<p>The reading suggests that people committing exceptionally depraved acts are possessed. Scripture and the Church certainly recognize possession; the Catechism affirms the reality of the devil and the Church's ministry of exorcism.<sup class="cite-ref">[<a href="#ref-23">23</a>]</sup> But neither teaches that unusual evil proves possession, and both forbid the inference.</p>
+<p>Several distinct realities must not be collapsed: temptation; habitual sin; psychological disorder; deliberate criminal choice; ideological corruption; demonic influence; and actual possession. Possession is a particular spiritual condition, not a synonym for moral depravity. The Catechism itself, in the paragraph on exorcism, instructs that illness, especially psychological illness, is to be distinguished from diabolical presence and that the discernment belongs to medical science and to the Church's judgment together.<sup class="cite-ref">[<a href="#ref-23">23</a>]</sup> The <em>Code of Canon Law</em> permits no one to exorcise the possessed without the special and express permission of the local ordinary, and requires that the permission be given only to a priest of piety, knowledge, prudence, and integrity of life — a discipline that presupposes that possession is rare, hard to discern, and never to be declared casually.<sup class="cite-ref">[<a href="#ref-24">24</a>]</sup> The 1999 Rite of Exorcism requires the exorcist to reach moral certainty of possession before proceeding and warns against confusing it with mental illness.<sup class="cite-ref">[<a href="#ref-25">25</a>]</sup></p>
+<p>Declaring someone possessed solely from his behavior therefore exceeds the available evidence and, worse, can diminish his moral responsibility by presenting him as a puppet — precisely the opposite of what the Catechism's teaching on imputability requires, which holds a person accountable for acts freely chosen.<sup class="cite-ref">[<a href="#ref-26">26</a>]</sup></p>
+<blockquote class="scr">"Beloved, do not believe every spirit, but test the spirits to see whether they are of God."<cite>1 John 4:1</cite></blockquote>
+<blockquote class="scr">"Therefore do not pronounce judgment before the time, before the Lord comes."<cite>1 Corinthians 4:5</cite></blockquote>
+<p>Acts may be judged objectively evil without any claim to supernatural knowledge of the offender's interior condition.</p>
+</div>
+</section>
+
+<section class="page-section" id="s10">
+<div class="section-header"><span class="section-num">10</span><h2 class="section-title">Christians Are Not "Possessed" by the Holy Spirit in an Equivalent Sense</h2></div>
+<div class="prose">
+<p>The reading constructs a symmetry: the wicked are possessed by evil spirits; Christians are possessed by the Holy Spirit. The language is misleading. Scripture describes Christians as a temple of the Holy Spirit (1 Cor 6:19), as filled with the Spirit (Eph 5:18), and as sealed with the promised Holy Spirit (Eph 1:13).<sup class="cite-ref">[<a href="#ref-1">1</a>]</sup> None of these is possession. The Holy Spirit does not override or destroy human personality and freedom; grace heals and elevates freedom. The Catechism teaches that grace does not diminish freedom but perfects it, and that the Spirit's indwelling makes the Christian a cooperator, not an instrument.<sup class="cite-ref">[<a href="#ref-27">27</a>]</sup> Aquinas defines the gifts of the Holy Spirit as habits by which the person is made readily movable by God, a movement that goes through the will, not around it.<sup class="cite-ref">[<a href="#ref-28">28</a>]</sup> Demonic possession, by contrast, is the suspension of a person's control over his own body by an alien agent. Divine indwelling and demonic possession are therefore not mirror images; the one restores the person to himself, the other takes him away.</p>
+</div>
+</section>
+
+<section class="page-section" id="s11">
+<div class="section-header"><span class="section-num">11</span><h2 class="section-title">"God Could Instantly Destroy Evil" Does Not Transfer Divine Authority to Us</h2></div>
+<div class="prose">
+<p>It is true that God could end evil immediately. But omnipotence does not authorize Christians to assume God's prerogative of final judgment. Scripture explains the delay:</p>
+<blockquote class="scr">"not wishing that any should perish, but that all should reach repentance."<cite>2 Peter 3:9</cite></blockquote>
+<blockquote class="scr">"Let both grow together until the harvest."<cite>Matthew 13:30</cite></blockquote>
+<p>God tolerates evil for a time because history remains open to repentance, conversion, justice, and redemption; his patience is not weakness. The Catechism teaches that God permits evil because he is powerful enough to draw good from it, and that the complete answer to why he does so is given only at the end, when the wheat and the weeds are finally separated.<sup class="cite-ref">[<a href="#ref-29">29</a>]</sup> Augustine says the same of the parable: the Church contains both until the harvest, and the servants who would pull the weeds up now are told to wait.<sup class="cite-ref">[<a href="#ref-30">30</a>]</sup></p>
+<p>The mistake is the move from "God has absolute power over evil" to "therefore Christians should imitate divine judgment through uncompromising human aggression." The conclusion does not follow. God is the omniscient judge; human beings possess limited knowledge and delegated authority. The Catechism reserves judgment of souls to God alone and forbids the rash judgment of persons.<sup class="cite-ref">[<a href="#ref-31">31</a>]</sup></p>
+</div>
+</section>
+
+<section class="page-section" id="s12">
+<div class="section-header"><span class="section-num">12</span><h2 class="section-title">The Deepest Error: Collapsing Distinctions Christianity Requires</h2></div>
+<div class="data-table-wrap">
+<table class="data-table compare-table">
+<thead><tr><th>Proper distinction</th><th>Erroneous collapse</th><th>Governing source</th></tr></thead>
+<tbody>
+<tr><td>Loving sinners vs. approving sin</td><td>Love treated as approval</td><td>Wis 11:24; CCC 605, 1037; Aquinas ST II-II q.25 a.6<sup class="cite-ref">[<a href="#ref-2">2</a>, <a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</sup></td></tr>
+<tr><td>Prayer vs. exoneration</td><td>Prayer treated as softness</td><td>Lk 23:34; Acts 7:60; CCC 2262, 2844<sup class="cite-ref">[<a href="#ref-8">8</a>, <a href="#ref-11">11</a>]</sup></td></tr>
+<tr><td>Justice vs. vengeance</td><td>Vengeance presented as courage</td><td>Rom 12:19; CCC 2302–2303; ST II-II q.108<sup class="cite-ref">[<a href="#ref-13">13</a>, <a href="#ref-22">22</a>]</sup></td></tr>
+<tr><td>Spiritual warfare vs. physical conflict</td><td>Human beings treated as the spiritual enemy</td><td>Eph 6:12; CCC 409, 2516<sup class="cite-ref">[<a href="#ref-19">19</a>]</sup></td></tr>
+<tr><td>Moral judgment vs. judgment of souls</td><td>Wicked conduct treated as proof of possession</td><td>1 Cor 4:5; CCC 1673, 1861; CIC c. 1172<sup class="cite-ref">[<a href="#ref-23">23</a>, <a href="#ref-24">24</a>, <a href="#ref-31">31</a>]</sup></td></tr>
+<tr><td>Gospel division vs. desired conflict</td><td>"Sword" treated as aggressive policy</td><td>Mt 10:34–36; Lk 12:51; Mt 26:52; CCC 2304<sup class="cite-ref">[<a href="#ref-1">1</a>, <a href="#ref-15">15</a>]</sup></td></tr>
+<tr><td>Divine judgment vs. human authority</td><td>God's power used to justify human aggression</td><td>2 Pet 3:9; Mt 13:30; Rom 13:4; CCC 2265–2266; ST II-II q.64 a.3<sup class="cite-ref">[<a href="#ref-9">9</a>, <a href="#ref-17">17</a>, <a href="#ref-29">29</a>]</sup></td></tr>
+<tr><td>Holy Spirit's indwelling vs. possession</td><td>Grace treated as a parallel form of possession</td><td>1 Cor 6:19; CCC 1742, 2003; ST I-II q.68<sup class="cite-ref">[<a href="#ref-27">27</a>, <a href="#ref-28">28</a>]</sup></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout emphasis">
+<span class="kicker">The finding</span>
+<div class="statement"><p>The militant reading is right that evil is real, that children must be defended, that Christians must reject cowardice, and that Christianity is not sentimental niceness. It reaches those valid conclusions through several false theological premises. <mark>Biblical courage requires justice without vengeance, moral clarity without hatred, spiritual warfare without demonizing human beings, and prayer even for those who must be stopped and punished.</mark></p></div>
+</div>
+</section>
+
+<div class="references" id="sources">
+<h2>References</h2>
+<ol class="ref-list">
+<li id="ref-1"><em>The Holy Bible</em>, Revised Standard Version, Catholic Edition (San Francisco: Ignatius Press, 1966/2006). Passages cited: Prov 6:16–19; Ps 5:5; Mal 1:2–3; Wis 11:24; Mt 3:7, 5:9, 5:44, 10:34–36, 12:34, 13:30, 21:12–13, 23:33, 26:52; Mk 11:15–17; Lk 12:51, 19:45–46, 23:34; Jn 2:15, 3:16, 14:27, 18:36; Acts 7:60; Rom 5:8, 5:10, 8:7, 9:13, 12:19–21, 13:4; 1 Cor 4:5, 6:19; Eph 1:13, 5:11, 5:18, 6:11–18; 1 Tim 1:13–16, 2:1–4; Jas 1:20; 2 Pet 3:9; 1 Jn 4:1. Text online at <a href="https://www.biblegateway.com/versions/Revised-Standard-Version-Catholic-Edition-RSVCE-Bible/" rel="noopener" target="_blank">Bible Gateway</a>.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-2">Aquinas, <em>Summa Theologiae</em> II-II, q. 25, a. 6 — <a href="https://www.newadvent.org/summa/3025.htm" rel="noopener" target="_blank">Whether we ought to love sinners out of charity</a>. Sinners loved as to their nature, hated as to their sin.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-3"><em>Catechism of the Catholic Church</em>, n. 605, citing the Council of Quiercy (853), DS 624 — <a href="https://www.vatican.va/archive/ENG0015/__P1O.HTM" rel="noopener" target="_blank">text</a>. No human being for whom Christ did not suffer.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-4"><em>Catechism</em>, n. 1037 — <a href="https://www.vatican.va/archive/ENG0015/__P2O.HTM" rel="noopener" target="_blank">text</a>. God predestines no one to hell; a willful turning away and persistence in it is required.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-5"><em>Catechism</em>, nn. 218–221 — <a href="https://www.vatican.va/archive/ENG0015/__P17.HTM" rel="noopener" target="_blank">text</a>. God is love; his love for the world, for Israel, and for each person.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-6">Council of Trent, Session VI (1547), <em>Decree on Justification</em>, ch. 2–3 and canon 17 — <a href="https://www.papalencyclicals.net/councils/trent/sixth-session.htm" rel="noopener" target="_blank">text</a>. Christ died for all, though not all receive the benefit; the proposition that grace is given only to the predestined anathematized.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-7">Aquinas, <em>Summa Theologiae</em> II-II, q. 83, a. 7–8 — <a href="https://www.newadvent.org/summa/3083.htm" rel="noopener" target="_blank">Whether we ought to pray for others, and for sinners</a>.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-8"><em>Catechism</em>, nn. 2262, 2844 — <a href="https://www.vatican.va/archive/ENG0015/__P7Z.HTM" rel="noopener" target="_blank">2262</a>; <a href="https://www.vatican.va/archive/ENG0015/__PCM.HTM" rel="noopener" target="_blank">2844</a>. The Sermon on the Mount's command to love enemies; prayer for enemies as the summit of Christian prayer.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-9"><em>Catechism</em>, nn. 2263–2267 — <a href="https://www.vatican.va/archive/ENG0015/__P7Z.HTM" rel="noopener" target="_blank">text</a>. Legitimate defense; the grave duty of those responsible for others; the right and duty of public authority to punish proportionately.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-10"><em>Catechism</em>, nn. 2266, 2306 — punishment's purposes of redress, protection, and correction; the refusal of violence in defense of rights compatible with justice.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-11"><em>Catechism</em>, nn. 2838–2845 — <a href="https://www.vatican.va/archive/ENG0015/__PCM.HTM" rel="noopener" target="_blank">text</a>. "Forgive us our trespasses, as we forgive": the petition's demand and its limit.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-12"><em>Code of Canon Law</em> (1983), c. 1331 — <a href="https://www.vatican.va/archive/cod-iuris-canonici/eng/documents/cic_lib6-cann1311-1363_en.html" rel="noopener" target="_blank">text</a>. Effects of excommunication limited to sacraments, ministry, and office; no prohibition of prayer for the excommunicated.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-13"><em>Catechism</em>, nn. 2302–2303 — <a href="https://www.vatican.va/archive/ENG0015/__P81.HTM" rel="noopener" target="_blank">text</a>. Deliberate anger and hatred as sins against the fifth commandment; the desire for vengeance condemned.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-14">Augustine, <em>De civitate Dei</em> XIX.13 — <a href="https://www.newadvent.org/fathers/120119.htm" rel="noopener" target="_blank">text</a>. Peace as the tranquillity of order.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-15"><em>Catechism</em>, nn. 2304–2305, following <em>Gaudium et Spes</em> 78 — <a href="https://www.vatican.va/archive/ENG0015/__P81.HTM" rel="noopener" target="_blank">text</a>. Peace as the work of justice and the effect of charity, not the absence of war.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-16">Aquinas, <em>Summa Theologiae</em> II-II, q. 41 (strife) and q. 158 (anger) — <a href="https://www.newadvent.org/summa/3041.htm" rel="noopener" target="_blank">q. 41</a>; <a href="https://www.newadvent.org/summa/3158.htm" rel="noopener" target="_blank">q. 158</a>.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-17">Aquinas, <em>Summa Theologiae</em> II-II, q. 64, a. 3 — <a href="https://www.newadvent.org/summa/3064.htm" rel="noopener" target="_blank">Whether it is lawful for a private individual to kill a man who has sinned</a>. Punishment reserved to public authority.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-18"><em>Catechism</em>, nn. 574–576 — <a href="https://www.vatican.va/archive/ENG0015/__P1M.HTM" rel="noopener" target="_blank">text</a>. Jesus and the Pharisees: his denunciations as prophetic teaching on the Law.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-19"><em>Catechism</em>, nn. 409, 2516, 2725 — the "hard battle" of the Christian life; the struggle against the powers of darkness fought with grace, the sacraments, and prayer.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-20"><em>Catechism</em>, nn. 2238–2240, 2255 — duties of citizens; cooperation with civil authority for the common good.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-21"><em>Code of Canon Law</em>, cc. 1341, 1342, 1717–1728 — imposition of penalties reserved to the ordinary or a judge by administrative or judicial process; no private infliction of penalty.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-22">Aquinas, <em>Summa Theologiae</em> II-II, q. 108 — <a href="https://www.newadvent.org/summa/3108.htm" rel="noopener" target="_blank">Of vengeance</a>. Lawful only by public authority, for correction and the common good, never from hatred.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-23"><em>Catechism</em>, nn. 391–395, 1673 — <a href="https://www.vatican.va/archive/ENG0015/__P1C.HTM" rel="noopener" target="_blank">391–395</a>; <a href="https://www.vatican.va/archive/ENG0015/__P50.HTM" rel="noopener" target="_blank">1673</a>. The reality and limits of the devil's power; exorcism; illness to be distinguished from diabolical presence.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-24"><em>Code of Canon Law</em>, c. 1172 §§1–2 — <a href="https://www.vatican.va/archive/cod-iuris-canonici/eng/documents/cic_lib4-cann1166-1190_en.html" rel="noopener" target="_blank">text</a>. Exorcism of the possessed only with the special and express permission of the local ordinary, given only to a priest of piety, knowledge, prudence, and integrity.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-25">Congregation for Divine Worship, <em>De exorcismis et supplicationibus quibusdam</em> (1999; rev. 2004), <em>Praenotanda</em> nn. 14–17. Moral certainty of possession required; distinction from mental illness; consultation of experts.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-26"><em>Catechism</em>, nn. 1734–1737, 1861 — imputability and responsibility for freely chosen acts.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-27"><em>Catechism</em>, nn. 1742, 2001–2003 — grace does not rival freedom but responds to and perfects it; the Spirit's indwelling and the Christian's cooperation.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-28">Aquinas, <em>Summa Theologiae</em> I-II, q. 68 — <a href="https://www.newadvent.org/summa/2068.htm" rel="noopener" target="_blank">Of the gifts of the Holy Spirit</a>. Gifts as habits disposing the person to be moved by God through the will.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-29"><em>Catechism</em>, nn. 309–314, 681, 1040 — God permits evil to draw good from it; the answer completed only at the final judgment.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-30">Augustine, <em>Sermon</em> 23 on the New Testament (on Mt 13:24–30) and <em>Contra epistulam Parmeniani</em> III — the wheat and the weeds; the Church's toleration of the wicked until the harvest.<a class="ref-back" href="#top"> ↑</a></li>
+<li id="ref-31"><em>Catechism</em>, nn. 1861, 2477–2478 — judgment of the sinner's state left to God; rash judgment forbidden; the duty to interpret a neighbor's conduct favorably.<a class="ref-back" href="#top"> ↑</a></li>
+</ol>
+</div>
+</main>
+</div>
+<footer>
+<p style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--faint);">William Huanshan Chuang &middot; Logarch&eacute;on Inc. &middot; Research Analysis &middot; 12 Sep 2026</p>
+</footer>
+</div>
+</body>
+</html>
