@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Coordinated Stalking Testimonies: A Coded Reading of 88 California Accounts — William Chuang · Logarchéon</title>
+<meta content="A hand-coded content analysis of 88 written testimonies of coordinated stalking from California residents (2019): writers, tactics described, police and mental-health contact, effects, and name-based demographics." name="description"/>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   THE TALENT AND THE THRONE — Logarchéon Research
+   Design System v2  ·  William Huanshan Chuang
+   Palette: deep navy × archival gold × documentary white
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+TC:wght@300;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+
+:root {
+  --navy:#0b1929; --navy-deep:#070f1a; --navy-mid:#0f2237; --navy-light:#162d52; --navy-rim:#1e3a64; --navy-glass:rgba(11,25,41,0.92);
+  --gold-bright:#d4a843; --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#8a6c2e; --gold-ink:#6b521f;
+  --gold-pale:rgba(201,168,76,0.12); --gold-glow:rgba(201,168,76,0.06); --gold-rim:rgba(201,168,76,0.22); --gold-border:rgba(201,168,76,0.30);
+  --cream:#f7f3ec; --parchment:#eee9de; --body-text:#ddd7cb; --muted:#bdb5a4; --faint:#7a7265; --hairline:rgba(201,168,76,0.15);
+  /* Source-type colors */
+  --c-scripture:#6dba96; --c-magisterium:#d4a843; --c-canon:#7ba8d4; --c-tradition:#a897b8;
+  --alert:#e8703a; --alert-deep:#c0392b; --alert-rim:rgba(232,112,58,0.34); --alert-pale:rgba(232,112,58,0.10);
+  --section-gap:5.5rem; --col-width:68ch; --radius-sm:3px; --radius-md:6px; --radius-lg:10px;
+  --t-fast:150ms ease; --t-med:250ms ease; --t-slow:400ms ease;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:"Source Serif 4","Noto Serif TC","PMingLiU",Georgia,serif;
+  background:var(--navy-deep); color:var(--body-text); line-height:1.78; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  font-feature-settings:"onum" 1,"liga" 1,"kern" 1;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(201,168,76,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 1000px at 85% 30%, rgba(30,58,100,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+.wrap { position:relative; z-index:1; }
+h1,h2,h3,h4,h5 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; color:var(--cream); line-height:1.15; letter-spacing:-0.015em; }
+a { color:var(--gold); text-decoration:none; transition:color var(--t-fast); }
+a:hover { color:var(--gold-light); }
+a:focus-visible { outline:2px solid var(--gold); outline-offset:3px; border-radius:2px; }
+strong { color:var(--cream); font-weight:700; }
+em { font-style:italic; }
+
+/* Navigation */
+nav.site-nav { position:sticky; top:0; z-index:100; background:var(--navy-glass); backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4); border-bottom:1px solid var(--hairline); }
+.nav-inner { max-width:1080px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:56px; gap:2rem; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.2rem; font-weight:600; color:var(--gold-light); letter-spacing:0.04em; flex-shrink:0; }
+.nav-links { display:flex; gap:1.6rem; list-style:none; overflow-x:auto; scrollbar-width:none; }
+.nav-links::-webkit-scrollbar { display:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.10em; text-transform:uppercase; color:var(--muted); white-space:nowrap; padding:0.25rem 0; border-bottom:2px solid transparent; transition:color var(--t-fast),border-color var(--t-fast); }
+.nav-links a:hover, .nav-links a.active { color:var(--gold-light); border-bottom-color:var(--gold); }
+
+/* Layout */
+.container { max-width:1080px; margin:0 auto; padding:0 32px; }
+.page-layout { display:grid; grid-template-columns:220px 1fr; gap:4.5rem; align-items:start; padding:4rem 32px 7rem; max-width:1080px; margin:0 auto; }
+.toc-sidebar { position:sticky; top:76px; border-left:2px solid var(--hairline); padding-left:1.2rem; max-height:calc(100vh - 96px); display:flex; flex-direction:column; min-height:0; }
+.toc-label { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); margin-bottom:0.9rem; }
+.toc-list { list-style:none; display:flex; flex-direction:column; gap:0.15rem; overflow-y:auto; padding-right:0.4rem; padding-bottom:1.5rem; scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
+.toc-link { font-family:"DM Mono",monospace; font-size:0.67rem; letter-spacing:0.03em; color:var(--muted); padding:0.28rem 0 0.28rem 0.9rem; display:block; border-left:2px solid transparent; margin-left:0; transition:color var(--t-fast),border-color var(--t-fast),background var(--t-fast); }
+.toc-link:hover { color:var(--gold-light); border-left-color:var(--gold); background:var(--gold-glow); }
+.toc-link.toc-alert { color:var(--alert); }
+
+/* Hero */
+.page-hero { border-bottom:1px solid var(--hairline); padding:4rem 0 3rem; }
+.breadcrumb { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.10em; text-transform:uppercase; color:var(--faint); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+.breadcrumb a { color:var(--faint); }
+.page-hero h1 { font-size:clamp(2.1rem,3.8vw,3.4rem); font-weight:300; max-width:28ch; margin-bottom:1.2rem; line-height:1.08; letter-spacing:-0.02em; }
+.page-hero h1 em { color:var(--gold-light); font-weight:300; }
+.page-hero h1::after { content:""; display:block; width:3.5rem; height:2px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); margin-top:1.1rem; }
+.hero-desc { color:var(--muted); font-size:1.02rem; max-width:66ch; line-height:1.80; margin-bottom:1.6rem; font-weight:300; }
+.hero-badges { display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.6rem; }
+.hero-badge { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-rim); padding:0.24rem 0.65rem; border-radius:2px; background:var(--gold-pale); }
+.hero-methods { max-width:72ch; margin:1.3rem 0 0; padding:1.1rem 1.3rem; background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-left:3px solid var(--gold-dim); border-radius:0 var(--radius-md) var(--radius-md) 0; }
+.hero-methods .method-label { display:block; margin-bottom:0.5rem; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); }
+.hero-methods p { color:var(--muted); font-size:0.88rem; line-height:1.80; }
+
+/* Sections */
+.page-section { margin-bottom:var(--section-gap); scroll-margin-top:72px; }
+.page-section + .page-section::before { content:""; display:block; height:1px; width:100%; margin-bottom:var(--section-gap); background:linear-gradient(90deg,transparent 0%,var(--gold-rim) 20%,var(--gold) 50%,var(--gold-rim) 80%,transparent 100%); opacity:0.5; }
+.section-header { display:flex; align-items:baseline; gap:1.1rem; padding-bottom:1rem; margin-bottom:2.4rem; position:relative; }
+.section-header::after { content:""; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,var(--gold-rim) 0%,transparent 70%); }
+.section-num { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.14em; color:var(--gold-dim); flex-shrink:0; padding-top:0.3rem; }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.75rem; font-weight:400; color:var(--gold-light); letter-spacing:-0.01em; }
+.subsection { margin:2.2rem 0; }
+.subsection h3 { font-size:1.18rem; font-weight:500; color:var(--cream); margin-bottom:1.1rem; padding-left:0.9rem; border-left:2px solid var(--gold-dim); }
+.prose { font-size:0.935rem; line-height:1.84; max-width:var(--col-width); }
+.prose p { margin:0 0 1.1rem; }
+.prose p:last-child { margin-bottom:0; }
+.prose ul, .prose ol { margin:0.8rem 0 1.2rem 1.4rem; }
+.prose li { margin:0.4rem 0; }
+
+.in-brief { max-width:var(--col-width); margin:0 0 1.6rem; padding:0.9rem 1.1rem; background:rgba(22,45,82,0.35); border:1px solid var(--hairline); border-left:3px solid var(--c-scripture); border-radius:0 var(--radius-md) var(--radius-md) 0; font-size:0.92rem; line-height:1.6; }
+.in-brief-label { display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-scripture); margin-bottom:0.45rem; }
+.theory-disclaimer { background:rgba(22,45,82,0.5); border:1px solid var(--hairline); border-left:3px solid var(--gold-dim); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:0.9rem 1.2rem; margin:0 0 1.6rem; font-size:0.86rem; color:var(--muted); font-style:italic; max-width:var(--col-width); }
+
+.callout { background:linear-gradient(135deg,rgba(201,168,76,0.09) 0%,rgba(15,34,55,0.65) 100%); border:1px solid var(--gold-rim); padding:1.3rem 1.5rem; margin:1.6rem 0; border-radius:var(--radius-md); position:relative; overflow:hidden; }
+.callout::before { content:""; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-dim) 0%,var(--gold) 50%,var(--gold-dim) 100%); }
+.callout .kicker { display:block; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--gold); margin-bottom:0.55rem; }
+.callout .statement { font-family:"Cormorant Garamond",serif; font-size:1.24rem; line-height:1.45; color:var(--cream); }
+.callout.alert { background:linear-gradient(135deg,var(--alert-pale) 0%,rgba(15,34,55,0.65) 100%); border-color:var(--alert-rim); }
+.callout.alert::before { background:linear-gradient(90deg,var(--alert-deep) 0%,var(--alert) 50%,var(--alert-deep) 100%); }
+.callout.alert .kicker { color:var(--alert); }
+.alert-section .section-num { color:var(--alert); }
+.alert-section .section-title { color:#f3c9b3; }
+.alert-section .subsection h3 { color:var(--alert); border-left-color:var(--alert-deep); }
+
+/* Source chips */
+.chip { display:inline-block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.09em; text-transform:uppercase; border:1px solid currentColor; border-radius:20px; padding:0.1rem 0.48rem; margin-right:0.35rem; vertical-align:0.10em; white-space:nowrap; }
+.chip.s { color:var(--c-scripture); }
+.chip.m { color:var(--c-magisterium); }
+.chip.k { color:var(--c-canon); }
+.chip.t { color:var(--c-tradition); }
+.status-legend { display:grid; grid-template-columns:repeat(4,1fr); gap:0.7rem; margin:1.3rem 0 0; }
+.status-item { background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-radius:var(--radius-sm); padding:0.7rem 0.85rem; color:var(--muted); font-size:0.73rem; line-height:1.55; }
+
+/* Tables */
+.data-table-wrap { overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--hairline); border-radius:var(--radius-md); box-shadow:0 2px 16px rgba(0,0,0,0.25); -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
+table.data-table { width:100%; border-collapse:collapse; min-width:640px; background:rgba(11,25,41,0.55); }
+.data-table th { font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); text-align:left; padding:0.8rem 0.9rem; border-bottom:1px solid var(--gold-rim); background:rgba(15,34,55,0.85); }
+.data-table td { padding:0.78rem 0.9rem; border-bottom:1px solid var(--hairline); font-size:0.79rem; line-height:1.65; vertical-align:top; }
+.data-table tr:hover td { background:rgba(201,168,76,0.04); }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table td:first-child { white-space:nowrap; color:var(--gold-light); font-family:"DM Mono",monospace; font-size:0.72rem; }
+
+/* Grids */
+.mechanism-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.9rem; margin:1.3rem 0; }
+.mech { border:1px solid var(--hairline); background:rgba(15,34,55,0.58); border-radius:var(--radius-md); padding:1.1rem 1.2rem; }
+.mech .mnum { font-family:"DM Mono",monospace; color:var(--gold-dim); font-size:0.59rem; letter-spacing:0.10em; }
+.mech h4 { color:var(--cream); font-size:1.05rem; margin:0.2rem 0 0.5rem; }
+.mech p { color:var(--muted); font-size:0.78rem; line-height:1.65; }
+.goldilocks { display:grid; grid-template-columns:repeat(3,1fr); gap:0.8rem; margin:0.6rem 0 1.4rem; }
+.goldilocks .state { text-align:center; padding:1rem 0.8rem; background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-radius:var(--radius-md); color:var(--muted); font-size:0.76rem; }
+.goldilocks .state strong { display:block; color:var(--gold-light); font-family:"Cormorant Garamond",serif; font-size:1.05rem; font-weight:500; margin-bottom:0.3rem; }
+.goldilocks .state.virtue { border-color:var(--gold-rim); background:rgba(201,168,76,0.08); }
+.goldilocks .state.vice strong { color:#f3c9b3; }
+.row-label { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-top:1.2rem; }
+.formula-box { margin:1.3rem 0; padding:1rem 1.3rem; border:1px solid var(--gold-rim); border-left:3px solid var(--gold); background:rgba(7,15,26,0.70); border-radius:0 var(--radius-md) var(--radius-md) 0; text-align:center; overflow-x:auto; color:var(--cream); }
+blockquote.q { max-width:var(--col-width); margin:1.2rem 0; padding:0.8rem 1.2rem; border-left:2px solid var(--gold); font-family:"Cormorant Garamond",serif; font-size:1.15rem; color:var(--cream); font-style:italic; }
+blockquote.q cite { display:block; font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); font-style:normal; margin-top:0.4rem; }
+
+
+/* Objection cards */
+.obj { scroll-margin-top:72px; border:1px solid var(--hairline); background:rgba(15,34,55,0.55); border-radius:var(--radius-md); padding:1.3rem 1.4rem; margin:1.4rem 0; position:relative; }
+.obj::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--alert) 0%,var(--gold) 100%); border-radius:var(--radius-md) 0 0 var(--radius-md); }
+.obj .onum { font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); }
+.obj h3 { font-size:1.2rem; color:var(--cream); margin:0.25rem 0 0.9rem; }
+.obj .part { margin:0.75rem 0; font-size:0.86rem; line-height:1.75; }
+.obj .lbl { display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.25rem; }
+.obj .p-obj .lbl { color:var(--alert); }
+.obj .p-sed .lbl { color:var(--c-scripture); }
+.obj .p-resp .lbl { color:var(--gold); }
+.obj .p-right .lbl { color:var(--c-tradition); }
+.obj .p-flaw .lbl { color:var(--alert); }
+.obj .p-path .lbl { color:var(--c-canon); }
+.obj ul { margin:0.3rem 0 0 1.2rem; }
+.obj li { margin:0.25rem 0; }
+.obj .p-obj { color:var(--muted); font-style:italic; }
+
+
+/* Extremes cards & part dividers */
+.verdict { display:inline-block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.10em; text-transform:uppercase; padding:0.14rem 0.55rem; border-radius:20px; border:1px solid currentColor; margin-left:0.4rem; vertical-align:0.15em; }
+.verdict.no { color:var(--alert); }
+.verdict.yes { color:var(--c-scripture); }
+.part-divider { margin:0 0 3.2rem; padding:1.4rem 0 0; border-top:1px solid var(--gold-rim); }
+.part-divider .part-kicker { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); }
+.part-divider .part-title { font-family:"Cormorant Garamond",serif; font-size:2rem; font-weight:300; color:var(--cream); margin-top:0.2rem; }
+.part-divider p { color:var(--muted); font-size:0.88rem; max-width:var(--col-width); margin-top:0.5rem; }
+.toc-part { font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dim); margin:0.9rem 0 0.2rem; padding-left:0; }
+.toc-part:first-child { margin-top:0; }
+.examen { list-style:none; counter-reset:ex; margin:0.6rem 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:0.6rem; }
+.examen li { counter-increment:ex; background:rgba(7,15,26,0.5); border:1px solid var(--hairline); border-radius:var(--radius-sm); padding:0.6rem 0.7rem; font-size:0.84rem; color:var(--cream); }
+.examen li::before { content:counter(ex) " · "; font-family:"DM Mono",monospace; font-size:0.64rem; color:var(--gold); }
+@media (max-width:860px){ .examen { grid-template-columns:1fr; } }
+.cite-this { margin-top:1.6rem; padding:0.9rem 1.1rem; border:1px dashed var(--gold-rim); border-radius:var(--radius-sm); font-size:0.78rem; color:var(--muted); }
+
+/* References */
+.references { margin-top:4rem; padding-top:2.5rem; border-top:1px solid var(--hairline); }
+.references h2 { font-size:1.5rem; color:var(--gold-light); margin-bottom:1.8rem; font-weight:400; }
+.ref-list { list-style:none; display:grid; gap:0.6rem; counter-reset:refs; }
+.ref-list li { counter-increment:refs; color:var(--muted); font-size:0.77rem; line-height:1.65; padding:0.6rem 0.8rem 0.6rem 2.4rem; position:relative; scroll-margin-top:96px; }
+.ref-list li::before { content:"[" counter(refs) "]"; position:absolute; left:0.4rem; top:0.6rem; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:0.62rem; width:1.8rem; text-align:right; }
+.ref-list li a { overflow-wrap:anywhere; }
+.cite-ref { font-family:"DM Mono",monospace; font-size:0.65em; vertical-align:super; line-height:0; margin-left:0.14rem; }
+.cite-ref a { color:var(--gold-dim); }
+footer { border-top:1px solid var(--hairline); padding:2.5rem 32px; font-family:"DM Mono",monospace; font-size:0.70rem; letter-spacing:0.06em; color:var(--faint); text-align:center; margin-top:2rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-section { opacity:0; transform:translateY(18px); animation:fadeUp 0.55s ease forwards; }
+  @keyframes fadeUp { to { opacity:1; transform:none; } }
+}
+@media (max-width:860px) {
+  .page-layout { grid-template-columns:1fr; gap:2rem; padding:2rem 20px 5rem; }
+  .toc-sidebar { display:none; }
+  .mechanism-grid, .status-legend, .goldilocks { grid-template-columns:1fr; }
+  .nav-inner { padding:0 20px; }
+}
+@media (max-width:590px) {
+  .container, .page-hero { padding-left:16px; padding-right:16px; }
+  .section-title { font-size:1.45rem; }
+  table.data-table { min-width:540px; }
+}
+html, body { max-width:100%; }
+.page-layout > main { min-width:0; width:100%; }
+p, li, .statement { overflow-wrap:anywhere; hyphens:auto; }
+td { overflow-wrap:break-word; }
+mjx-container[display="true"] { display:block; max-width:100%; overflow-x:auto; overflow-y:hidden; }
+
+/* Evidence grades */
+.grade { display:inline-block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid currentColor; border-radius:20px; padding:0.08rem 0.5rem; white-space:nowrap; vertical-align:0.1em; }
+.g-a { color:#6dba96; } .g-b { color:#7ba8d4; } .g-c { color:#d4a843; } .g-d { color:#e8703a; }
+.mech .grade { margin-top:0.6rem; }
+/* Diagram */
+figure.diagram { margin:1.8rem 0; padding:1rem; border:1px solid var(--hairline); border-radius:var(--radius-md); background:rgba(7,15,26,0.55); }
+figure.diagram svg { width:100%; height:auto; display:block; }
+figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.6rem; line-height:1.6; }
+.bx { fill:rgba(22,45,82,0.75); stroke:var(--gold-rim); stroke-width:1.2; }
+.bx.dim { fill:rgba(22,45,82,0.35); stroke-dasharray:4 3; }
+.bx.hi { fill:rgba(201,168,76,0.12); stroke:var(--gold); }
+.t1 { fill:var(--cream); font-family:"Source Serif 4","Noto Serif TC",serif; font-size:13px; text-anchor:middle; }
+.t2 { fill:var(--muted); font-family:"Source Serif 4","Noto Serif TC",serif; font-size:11px; text-anchor:middle; }
+.t3 { fill:var(--gold-dim); font-family:"DM Mono",monospace; font-size:9.5px; text-anchor:middle; }
+.bandlbl { fill:var(--gold); font-family:"DM Mono",monospace; font-size:9.5px; letter-spacing:1.5px; }
+.ln { stroke:var(--gold-light); stroke-width:1.4; fill:none; }
+.ln.dash { stroke:var(--alert); stroke-dasharray:5 4; }
+.ln.stop { stroke:var(--alert); }
+.ah { fill:var(--gold-light); }
+
+/* Charts — added for this page, in the Logarchéon palette */
+.kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0.8rem; margin:0 0 1.4rem; }
+.kpi { background:rgba(15,34,55,0.58); border:1px solid var(--hairline); border-radius:var(--radius-md); padding:1rem 1.1rem; }
+.kpi b { display:block; font-family:"Cormorant Garamond",serif; font-size:2.1rem; font-weight:500; color:var(--gold-light); line-height:1; font-variant-numeric:lining-nums tabular-nums; }
+.kpi b small { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.08em; color:var(--gold-dim); margin-left:0.3rem; }
+.kpi span { display:block; margin-top:0.5rem; color:var(--muted); font-size:0.78rem; line-height:1.5; }
+.chart-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.4rem 2rem; margin:1.6rem 0; }
+figure.chart { margin:0; padding:1.1rem 1.2rem; background:rgba(7,15,26,0.55); border:1px solid var(--hairline); border-radius:var(--radius-md); align-self:start; }
+figure.chart.wide { margin:1.6rem 0; }
+figure.chart figcaption { display:block; margin-bottom:0.9rem; }
+.ch-title { display:block; font-family:"Cormorant Garamond",serif; font-size:1.12rem; color:var(--cream); font-weight:500; }
+.ch-cap { display:block; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); margin-top:0.25rem; line-height:1.6; }
+.bars, .pbars { display:grid; gap:0.55rem; }
+.row, .prow { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:0.25rem 0.8rem; align-items:center; padding:0.15rem 0.3rem; margin:0 -0.3rem; border-radius:var(--radius-sm); }
+.row { cursor:default; }
+.row:hover, .row:focus-visible { background:var(--gold-glow); outline:none; }
+.row:focus-visible { box-shadow:0 0 0 1px var(--gold); }
+.row .lab, .prow .lab { font-size:0.8rem; color:var(--body-text); line-height:1.35; }
+.row .val, .prow .val { font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--gold-light); white-space:nowrap; font-variant-numeric:tabular-nums; }
+.track { grid-column:1 / -1; height:6px; background:rgba(201,168,76,0.08); border-radius:0 3px 3px 0; overflow:hidden; }
+.fill { height:100%; background:linear-gradient(90deg,var(--gold-dim) 0%,var(--gold) 100%); border-radius:0 3px 3px 0; }
+.pb { grid-column:1 / -1; display:grid; gap:3px; }
+.pb .b { height:6px; border-radius:0 3px 3px 0; min-width:2px; }
+.b.a, .sw.a { background:var(--gold); }
+.b.b, .sw.b { background:var(--c-canon); }
+.legend { display:flex; flex-wrap:wrap; gap:1rem; margin:0 0 0.8rem; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
+.legend .sw { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:0.45rem; vertical-align:-1px; }
+.pair { display:grid; gap:3px; min-width:130px; }
+.note-sm { font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.05em; color:var(--faint); margin-top:-0.8rem; }
+.terms { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.2rem; }
+.terms span { font-size:0.82rem; color:var(--cream); background:rgba(15,34,55,0.58); border:1px solid var(--hairline); border-radius:var(--radius-sm); padding:0.35rem 0.7rem; }
+.terms span b { font-family:"DM Mono",monospace; font-weight:400; font-size:0.7rem; color:var(--gold); margin-left:0.5rem; }
+details.cb { border:1px solid var(--hairline); border-radius:var(--radius-md); background:rgba(15,34,55,0.4); margin-top:1.2rem; }
+details.cb summary { cursor:pointer; padding:0.8rem 1rem; font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); }
+details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); border-radius:0; max-height:560px; overflow:auto; }
+#cb td:first-child { color:var(--gold-light); }
+#cb td { font-size:0.74rem; }
+#tip { position:fixed; z-index:200; max-width:300px; background:var(--navy-mid); color:var(--body-text); border:1px solid var(--gold-rim); font-size:0.74rem; line-height:1.55; padding:0.55rem 0.75rem; border-radius:var(--radius-sm); pointer-events:none; box-shadow:0 6px 24px rgba(0,0,0,0.45); }
+#tip b { font-family:"DM Mono",monospace; font-weight:400; color:var(--gold-light); }
+@media (max-width:860px){ .chart-grid { grid-template-columns:1fr; } .kpi-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:420px){ .kpi-grid { grid-template-columns:1fr; } }
+.totals-card { max-width:72ch; margin:0 0 1.2rem; }
+.totals-card p { margin:0 0 0.7rem; color:var(--body-text); }
+.totals-card p:last-child { margin:0.7rem 0 0; color:var(--muted); font-size:0.84rem; }
+.totals-card .data-table-wrap { margin:0.6rem 0; box-shadow:none; }
+.totals-card table.data-table { min-width:0; }
+.totals-card .data-table td { padding:0.45rem 0.8rem; font-size:0.78rem; }
+
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/CEAS">CEAS</a></li>
+<li><a href="/GRAIL">GRAIL</a></li>
+<li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+<li><a href="/MIA">MIA</a></li>
+<li><a class="active" href="/Research/">Research</a></li>
+<li><a href="/About">About</a></li>
+<li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="page-hero">
+<div class="breadcrumb"><a href="/">Logarchéon</a><span>/</span><a href="/Research/">Research</a><span>/</span><span>Coordinated Stalking Testimonies</span></div>
+<h1>Coordinated Stalking Testimonies: <em>A Coded Reading of 88 California Accounts</em>, 2019</h1>
+<p class="hero-desc">A content analysis of the written testimonies collected in <em>Testimonies of Coordinated Stalking by Multiple Persons from California Residents and Former California Residents</em>: who wrote them, what they describe, what happened when they went to the police or to doctors, and what the experience did to their lives. Every count is the number of testimonies that <em>mention</em> something, taken from what the writers themselves report.</p>
+<div class="in-brief totals-card"><span class="in-brief-label">Reading the totals</span>
+<p>The source has <strong>90 entries</strong>. Two people sent the form twice (#22/#23 and #85/#86); merging them gives <strong>88 testimonies</strong>, the base for every count of tactics, police, mental health and effects. Entry 13 is one form written by two sisters, so the number of <strong>people is 89</strong>, the base for gender, ethnicity and age. Smaller totals are subsets, each named where it is used:</p>
+<div class="data-table-wrap"><table class="data-table totals"><thead><tr><th>Total</th><th>What it counts</th></tr></thead><tbody>
+<tr><td>90</td><td>Forms in the source PDF (the cover&rsquo;s &ldquo;90 persons&rdquo;)</td></tr>
+<tr><td>88</td><td>Testimonies after merging the two repeat submissions</td></tr>
+<tr><td>89</td><td>People (88 testimonies, one written by two sisters)</td></tr>
+<tr><td>84 + 4</td><td>Testimonies from California addresses, plus 4 from elsewhere</td></tr>
+<tr><td>84</td><td>People with a usable ZIP code (ethnicity estimate)</td></tr>
+<tr><td>82</td><td>People whose gender the name or text shows (test of H1)</td></tr>
+<tr><td>81</td><td>Testimonies from writers identified as women (43) or men (38)</td></tr>
+<tr><td>79</td><td>People whose first name is common enough to estimate age</td></tr>
+<tr><td>60</td><td>Testimonies that reported to the police, a sheriff or the FBI</td></tr>
+<tr><td>39</td><td>Testimonies that say a clinician misdiagnosed them</td></tr>
+<tr><td>22</td><td>Testimonies that state when it began</td></tr>
+</tbody></table></div>
+<p>Entry numbers in the source run to 94 because four page numbers (6, 43, 52, 90) are the second page of a longer testimony.</p>
+</div>
+<div class="hero-methods">
+<span class="method-label">Abstract</span>
+<p>Ninety entries from 89 people were read completely and coded by hand against a fixed list of tactics, people involved, effects, and police and mental-health outcomes. The accounts share one pattern. Writers describe being followed in public and on the road, having their property damaged, and being watched. Two in three went to the police, a sheriff or the FBI, and over half of those say nothing came of it. Nearly half say a mental-health professional misdiagnosed them, most often with schizophrenia or a paranoid disorder. Moving house, again and again, is the most common effect. By first name, 44 of the 89 writers are women and 38 are men, so the hypothesis that most are women is not supported (p ≈ 0.29). Estimates from names show the writers lean white and less Hispanic than their own ZIP codes, and no writer has a Chinese or Korean surname. That points to how the organization gathered testimony, not to who experiences this. The page reports what the writers say and sets out both readings of such accounts without deciding between them.</p>
+</div>
+<div class="hero-badges">
+<span class="hero-badge">Content Analysis</span>
+<span class="hero-badge">California · 2019</span>
+<span class="hero-badge">n = 88 testimonies · 89 people</span>
+<span class="hero-badge">Hand-Coded</span>
+<span class="hero-badge">Research Page · 24 Sep 2026</span>
+</div>
+</div>
+</div>
+
+<div class="page-layout">
+<aside class="toc-sidebar">
+<div class="toc-label">Sections</div>
+<ul class="toc-list">
+<li class="toc-part">Introduction</li>
+<li><a class="toc-link" href="#finding">00 · Core Finding</a></li>
+<li><a class="toc-link" href="#method">01 · Source &amp; Method</a></li>
+<li class="toc-part">I · The Writers</li>
+<li><a class="toc-link" href="#who">02 · Who Wrote</a></li>
+<li><a class="toc-link" href="#names">03 · Names as a Lens</a></li>
+<li class="toc-part">II · The Accounts</li>
+<li><a class="toc-link" href="#what">04 · What They Describe</a></li>
+<li><a class="toc-link" href="#police">05 · Law Enforcement</a></li>
+<li><a class="toc-link" href="#health">06 · Mental Health</a></li>
+<li><a class="toc-link" href="#effects">07 · Effects on Life</a></li>
+<li class="toc-part">III · Assessment</li>
+<li><a class="toc-link" href="#gender">08 · Women and Men</a></li>
+<li><a class="toc-link" href="#words">09 · Shared Vocabulary</a></li>
+<li><a class="toc-link" href="#readings">10 · Two Readings</a></li>
+<li><a class="toc-link" href="#limits">11 · Limits</a></li>
+<li class="toc-part">Apparatus</li>
+<li><a class="toc-link" href="#codebook">Codebook</a></li>
+<li><a class="toc-link" href="#sources">References</a></li>
+</ul>
+</aside>
+<main>
+
+<section class="page-section" id="finding">
+<div class="section-header"><span class="section-num">00</span><h2 class="section-title">Core Finding</h2></div>
+<div class="kpi-grid" id="kpis"></div>
+<div class="callout"><span class="kicker">In one sentence</span><p class="statement">The writers describe one recurring pattern, being followed, watched and undermined by strangers and neighbors; they say the police rarely acted and clinicians called them ill; and the sample itself reflects the organization's own network more than California's population.</p></div>
+</section>
+
+<section class="page-section" id="method">
+<div class="section-header"><span class="section-num">01</span><h2 class="section-title">Source and Method</h2></div>
+<div class="prose">
+<p>The source is a compiled PDF of 90 testimony forms, dated June to October 2019 (one dated 2018), submitted by the group Advocacy for Humankind to the UN Office of the High Commissioner for Human Rights (OHCHR), under the NGO submissions to the Special Rapporteur on Torture.<span class="cite-ref"><a href="#ref-6">6</a></span> A companion submission reports survey counts of 417 self-reported victims across California, gathered by two support groups, with no breakdown by gender, age or ethnicity.<span class="cite-ref"><a href="#ref-7">7</a></span> The form asked for name, city and ZIP, then four questions: whether the person had experienced coordinated stalking, reported it to law enforcement, been misdiagnosed by mental-health professionals, and what the effects on their life had been. Later forms added a question on moving.</p>
+<p>Two people sent the form twice (#22/#23 and #85/#86), so these were merged, giving <strong>88 testimonies</strong>. Entry 13 is written by two sisters, so the count of people is <strong>89</strong>. Each testimony was read completely and coded against a fixed list; a keyword search served as a cross-check. Hover or focus any bar to see the entry numbers behind it.</p>
+</div>
+</section>
+
+<section class="page-section" id="who">
+<div class="section-header"><span class="section-num">02</span><h2 class="section-title">Who Wrote</h2></div>
+<div class="prose"><p>The form did not ask for gender, age, ethnicity or occupation. Gender here comes from first names; location from ZIP codes.</p></div>
+<div class="chart-grid">
+<figure class="chart"><figcaption><span class="ch-title">Gender, by first name</span><span class="ch-cap">89 people</span></figcaption><div class="bars" data-set="GEN" data-total="89"></div></figure>
+<figure class="chart"><figcaption><span class="ch-title">Where they live</span><span class="ch-cap">88 testimonies, by ZIP code</span></figcaption><div class="bars" data-set="REG"></div></figure>
+<figure class="chart"><figcaption><span class="ch-title">When the form was dated</span><span class="ch-cap">88 testimonies</span></figcaption><div class="bars" data-set="MON"></div></figure>
+<figure class="chart"><figcaption><span class="ch-title">How long it has been going on</span><span class="ch-cap">The 22 testimonies that state a start year or length, as of 2019 · median <span id="durmed"></span> years</span></figcaption><div class="bars" data-set="DUR" data-total="22"></div></figure>
+</div>
+<div class="theory-disclaimer">Age is almost never stated. The few who give it are older: one is 66, one is in her fifties, one in her sixties, one says it began in his fifties, and one has lived in Sonoma County for 55 years. That is too few to generalize from.</div>
+</section>
+
+<section class="page-section" id="names">
+<div class="section-header"><span class="section-num">03</span><h2 class="section-title">Names as a Demographic Lens</h2></div>
+<div class="prose"><p>The form did not ask about ethnicity or age, so these estimates come from names. They describe the group as a whole, not any one person.</p></div>
+<div class="subsection"><h3>Ethnicity</h3>
+<div class="prose">
+<p>Each person's surname, ZIP code and first name were combined using the U.S. Census method known as BISG (Bayesian Improved Surname Geocoding). The result is a probability for each Census group. Compared with the population of their own ZIP codes, the writers lean white: an estimated 62%, against 47% in their neighborhoods. They lean less Hispanic, 20% against 31%, and somewhat less Asian or Pacific Islander, 7% against 12%. Black writers match their neighborhoods, at 8% against 6%. The white and Hispanic gaps are about two standard errors, suggestive but borderline once six groups are tested.</p>
+<p>The most likely explanation is how the testimonies were gathered. Collections like this spread through an organization's own contacts, support groups and referrals, and one writer (#51) runs such groups in several states. The form was also in English. Recruitment that follows existing ties can leave whole communities out. Not one writer has a Chinese or Korean surname, although Chinese Americans alone are roughly 3–4% of Californians and more in the Bay Area. On that figure about three would be expected, and a sample with none would occur only about one time in 25. The Asian and Pacific Islander writers who do appear are Samoan, Filipino, Vietnamese, Lao and South Asian. These gaps describe who the organization reached, not who experiences this.</p>
+<p>The method also has blind spots. Married names hide origin, and the Census counts Middle Eastern and Persian people as white.</p>
+</div>
+<div class="chart-grid">
+<figure class="chart"><figcaption><span class="ch-title">Estimated ethnicity vs. their ZIP codes</span><span class="ch-cap">84 people with a usable ZIP code · Census 2010 groups</span></figcaption>
+<div class="legend"><span><i class="sw a"></i>Writers (estimated)</span><span><i class="sw b"></i>Their ZIP codes</span></div><div class="pbars" data-pair="ETH" data-scale="1.4"></div></figure>
+<figure class="chart"><figcaption><span class="ch-title">Age groups in 2019, from first names</span><span class="ch-cap">79 people whose first names are common enough in Social Security records</span></figcaption>
+<div class="legend"><span><i class="sw a"></i>Writers (estimated)</span><span><i class="sw b"></i>US adults</span></div><div class="pbars" data-pair="AGE" data-scale="3.5"></div></figure>
+</div></div>
+<div class="subsection"><h3>Surname origin</h3>
+<div class="prose">
+<p>Coded by language of origin, the surnames are mostly from the British Isles (44). Next come Spanish (15), German or Scandinavian (6), German or Ashkenazi Jewish (4) and Italian (4). Smaller groups are Persian, Samoan, Eastern European, Greek, Arabic, Filipino, Vietnamese, Lao, Portuguese and South Asian. Some first names show an origin the surname hides: Colombian, Japanese, Persian, Samoan and Lao. Only one writer states their own background (#81, Indian-Muslim).</p>
+<p>Estimated ethnicity made no clear difference to outcomes. White-leaning and Hispanic-leaning writers reported to police at similar rates (66% and 71%).</p>
+</div></div>
+<div class="subsection"><h3>Age</h3>
+<div class="prose"><p>Birth years were estimated from Social Security name counts for 1915–2001, adjusted for survival to 2019. This works for 79 of 89 people. As a group, the estimates match the US adult population almost exactly, with a median around 50, so first names alone reveal no age pattern here. The six writers who state an age, or give enough to work one out, all sit at or above the older end of their name's range. That hints the group is older than names suggest, but six people is too few to show it.</p></div></div>
+</section>
+
+<section class="page-section" id="what">
+<div class="section-header"><span class="section-num">04</span><h2 class="section-title">What They Describe</h2></div>
+<div class="prose"><p>The same small set of experiences comes up again and again: being followed in public and on the road, then damage to property and a sense of being watched. Most writers describe several of these together. The median testimony names three kinds; eleven name none, only saying they are a victim.</p></div>
+<div class="chart-grid">
+<figure class="chart"><figcaption><span class="ch-title">Tactics described</span><span class="ch-cap">Share of 88 testimonies</span></figcaption><div class="bars" data-set="T"></div></figure>
+<figure class="chart"><figcaption><span class="ch-title">Who they say is involved</span><span class="ch-cap">Share of 88 testimonies</span></figcaption><div class="bars" data-set="P"></div></figure>
+</div>
+<div class="in-brief"><span class="in-brief-label">Note</span>Three in four describe the people involved only as “strangers,” “the community” or “perpetrators.” When someone specific is named, it is usually a neighbor. A few point to an ex-spouse's family, a brother-in-law, a landlord, a former employer or a named group.</div>
+</section>
+
+<section class="page-section" id="police">
+<div class="section-header"><span class="section-num">05</span><h2 class="section-title">Contact with Law Enforcement</h2></div>
+<div class="prose"><p>Two in three say they went to the police, a sheriff or the FBI. Of those, over half say nothing came of it. About one in five say officers treated them as mentally ill or sent them toward psychiatric care.</p></div>
+<div class="chart-grid">
+<figure class="chart"><figcaption><span class="ch-title">Did they report?</span><span class="ch-cap">88 testimonies</span></figcaption><div class="bars" data-set="LEs"></div></figure>
+<figure class="chart"><figcaption><span class="ch-title">What happened, among those who reported</span><span class="ch-cap">Share of the 60 who reported · one testimony can count in several rows</span></figcaption><div class="bars" data-set="LE" data-total="60"></div></figure>
+</div>
+<div class="in-brief"><span class="in-brief-label">Note</span>Why people did not report: fear of retaliation, expecting to be called “crazy,” having no proof, or, in one case, fear of losing custody of a child. Two writers point to a gap in the law: a restraining order needs one named person and a credible threat of violence, and they say they cannot show either.</div>
+</section>
+
+<section class="page-section" id="health">
+<div class="section-header"><span class="section-num">06</span><h2 class="section-title">Mental-Health Contact</h2></div>
+<div class="prose"><p>The form asked, “Have you been mis-diagnosed by mental health professionals?” Nearly half say yes. Their word is <em>misdiagnosed</em>: almost all reject the diagnosis they were given. The most common diagnoses they report are schizophrenia and paranoid or delusional disorders, often with medication or a hold they say they did not agree to.</p></div>
+<div class="chart-grid">
+<figure class="chart"><figcaption><span class="ch-title">Answer to the misdiagnosis question</span><span class="ch-cap">88 testimonies</span></figcaption><div class="bars" data-set="MHs"></div></figure>
+<figure class="chart"><figcaption><span class="ch-title">What they report, among those who say yes</span><span class="ch-cap">Share of the 39 who say they were misdiagnosed or labeled</span></figcaption><div class="bars" data-set="MHf" data-total="39"></div></figure>
+</div>
+<div class="in-brief"><span class="in-brief-label">Note</span>Other answers go the other way. Three say a therapist, county clinic or hospital found no disorder. One writer (#92) obtained a brain scan read as normal and entered it in court. Two say their counselors accept their account. Six say they stay away from mental-health care so they will not be labeled.</div>
+</section>
+
+<section class="page-section" id="effects">
+<div class="section-header"><span class="section-num">07</span><h2 class="section-title">Effects on Their Lives</h2></div>
+<div class="prose"><p>Moving house is the most common effect, and it is often repeated. Several writers say they moved five, nine or “over 10” times, and that the harassment started again at each new address. Next come emotional strain, money, isolation and losing work. The typical story is a slide: job, then savings, then friends and family, sometimes all the way to homelessness.</p></div>
+<figure class="chart wide"><figcaption><span class="ch-title">Effects described</span><span class="ch-cap">Share of 88 testimonies</span></figcaption><div class="bars" data-set="E"></div></figure>
+<div class="callout alert"><span class="kicker">Sensitive</span><p class="statement" style="font-size:1.05rem">Five testimonies mention thinking about death or suicide, and one describes a past attempt. One writer (#62) says her father described the same experience in letters he left before his suicide in 1992.</p></div>
+</section>
+
+<section class="page-section" id="gender">
+<div class="section-header"><span class="section-num">08</span><h2 class="section-title">Women and Men Compared</h2></div>
+<div class="subsection"><h3>Hypothesis H1: most writers are women</h3>
+<div class="prose"><p>By first name, 44 people are women, 37 are men, and 8 names do not show gender; one of those (#7) is a man by his own text (“my son and wife”). With him counted, women are 44 of 82, or 53.7%. A one-sided binomial test against 50% gives p ≈ 0.29, with a 95% interval of 43–64%. H1 is not supported. Even if every unclear name were a woman (52 of 89, 58.4%), p ≈ 0.07.</p></div>
+<div class="data-table-wrap"><table class="data-table"><thead><tr><th>Treatment of unclear names</th><th>Women</th><th>Share</th><th>95% interval</th><th>p (one-sided)</th></tr></thead><tbody>
+<tr><td>Left out</td><td>44 / 81</td><td>54.3%</td><td>43.5–64.7%</td><td>0.25</td></tr>
+<tr><td>#7 counted as male (main)</td><td>44 / 82</td><td>53.7%</td><td>42.9–64.0%</td><td>0.29</td></tr>
+<tr><td>All 8 counted as male</td><td>44 / 89</td><td>49.4%</td><td>39.3–59.6%</td><td>0.58</td></tr>
+<tr><td>All 8 counted as female</td><td>52 / 89</td><td>58.4%</td><td>48.0–68.1%</td><td>0.07</td></tr>
+</tbody></table></div></div>
+<div class="subsection"><h3>What women and men describe</h3>
+<div class="prose"><p>This compares the 43 testimonies from women with the 38 from men. The biggest gap is fear and staying at home: 35% of women mention it, against 11% of men. Women also mention physical health decline, family strain and involuntary holds more often. But the sample is small and 27 comparisons were made. Once that is accounted for, none of the differences is statistically reliable. Treat them as leads for a larger study, not findings.</p></div>
+<div class="legend"><span><i class="sw a"></i>Women (n = 43)</span><span><i class="sw b"></i>Men (n = 38)</span></div>
+<div class="data-table-wrap"><table class="data-table" id="xg"><thead><tr><th>Item</th><th>Women</th><th>Men</th><th>Compared</th><th>p</th><th>p, corrected</th></tr></thead><tbody></tbody></table></div>
+<p class="note-sm">Fisher's exact test, two-sided; Holm correction for multiple comparisons. The 7 testimonies whose gender is unclear are left out.</p>
+</div>
+</section>
+
+<section class="page-section" id="words">
+<div class="section-header"><span class="section-num">09</span><h2 class="section-title">Shared Vocabulary</h2></div>
+<div class="prose"><p>The writers use a shared set of terms, many of which appear on gang-stalking support forums. That suggests many learned to name the experience from one another; one writer (#51) says she runs support groups in several states. Two of the terms come from the form's own questions (“coordinated stalking,” “misdiagnosed”), so counts for those are inflated.</p></div>
+<div class="terms" id="terms"></div>
+</section>
+
+<section class="page-section" id="readings">
+<div class="section-header"><span class="section-num">10</span><h2 class="section-title">Two Readings of the Same Accounts</h2></div>
+<div class="prose">
+<p>These are unverified first-person accounts. The collection presents them as evidence of real crimes and asks for legislation. The published clinical research reads the same kind of account differently. Sheridan and James (2015) studied 128 people who described group stalking and judged all of them likely to be delusional, while noting that they suffer “marked psychological and practical” harm.<span class="cite-ref"><a href="#ref-1">1</a></span> A 2020 content analysis of 50 such accounts found the same main themes as this collection: being followed or watched (94%) and isolation (34%).<span class="cite-ref"><a href="#ref-2">2</a></span></p>
+<p>This page reports what the writers say, including the details that cut in either direction: a PET scan read as normal and an officer-misconduct complaint sustained by a sheriff's department on one side, and on the other a 72-hour observation that followed a writer firing a gun into her ceiling at a suspected intruder. It does not decide between the two readings.</p>
+</div>
+</section>
+
+<section class="page-section" id="limits">
+<div class="section-header"><span class="section-num">11</span><h2 class="section-title">Limits</h2></div>
+<div class="mechanism-grid">
+<div class="mech"><span class="mnum">COUNT</span><h4>Mentions, not prevalence</h4><p>A count means a testimony mentions something. A short answer like “Yes. Yes. No.” cannot be coded, so every percentage is a lower bound.</p></div>
+<div class="mech"><span class="mnum">FORM</span><h4>The questions shape answers</h4><p>The form asked about police, misdiagnosis, moving and effects, so those topics appear more than they might in free accounts.</p></div>
+<div class="mech"><span class="mnum">SAMPLE</span><h4>Who the organization reached</h4><p>Writers chose to submit to an advocacy collection gathered through its own network, in English. They cannot stand in for everyone who reports this experience.</p></div>
+<div class="mech"><span class="mnum">CODING</span><h4>One coder</h4><p>A single reader coded every testimony, with a keyword cross-check but no second rater. The keyword pass agreed on 22 of 27 “hacked” codes and about three in five “followed” codes; most disagreements were figures of speech.</p></div>
+</div>
+</section>
+
+<section class="page-section" id="codebook">
+<div class="section-header"><span class="section-num">A</span><h2 class="section-title">Codebook</h2></div>
+<div class="prose"><p>Every testimony by entry number, so any count can be checked against the source PDF. Names are left out on purpose.</p></div>
+<details class="cb"><summary>Show all 88 coded testimonies</summary>
+<div class="data-table-wrap cbwrap"><table class="data-table" id="cb"><thead><tr><th>#</th><th>Gender</th><th>Region</th><th>Tactics</th><th>Involved</th><th>Effects</th><th>Police</th><th>Mental health</th></tr></thead><tbody></tbody></table></div>
+</details>
+</section>
+
+<div class="references" id="sources">
+<h2>References</h2>
+<ol class="ref-list">
+<li id="ref-1">Sheridan, Lorraine P., and David V. James. “Complaints of group-stalking (‘gang-stalking’): an exploratory study of their nature and impact on complainants.” <em>Journal of Forensic Psychiatry &amp; Psychology</em> 26, no. 5 (2015). <a href="https://www.tandfonline.com/doi/abs/10.1080/14789949.2015.1054857" rel="noopener" target="_blank">doi:10.1080/14789949.2015.1054857</a>.</li>
+<li id="ref-2">Sheridan, Lorraine, David V. James, and Jayden Roth. “The Phenomenology of Group Stalking (‘Gang-Stalking’): A Content Analysis of Subjective Experiences.” <em>International Journal of Environmental Research and Public Health</em> 17, no. 7 (2020): 2506. <a href="https://www.mdpi.com/1660-4601/17/7/2506" rel="noopener" target="_blank">mdpi.com/1660-4601/17/7/2506</a>.</li>
+<li id="ref-3">U.S. Census Bureau. <a href="https://www.census.gov/topics/population/genealogy/data/2010_surnames.html" rel="noopener" target="_blank">Frequently Occurring Surnames from the 2010 Census</a>; 2010 race and ethnicity by ZIP Code Tabulation Area, as packaged in the open-source <em>surgeo</em> library.</li>
+<li id="ref-4">Tzioumis, Konstantinos. “Demographic aspects of first names.” <em>Scientific Data</em> 5 (2018): 180025. First-name tables as packaged in <em>surgeo</em>.</li>
+<li id="ref-5">U.S. Social Security Administration. <a href="https://www.ssa.gov/oact/babynames/limits.html" rel="noopener" target="_blank">Beyond the Top 1000 Names: national data</a>, 1880–2016.</li>
+<li id="ref-6">Advocacy for Humankind. <em>Testimonies of Coordinated Stalking by Multiple Persons from California Residents and Former California Residents</em> (compiled PDF, 90 entries, 2019). Submission to OHCHR, Special Rapporteur on Torture, call for input (NGOs). <a href="https://web.archive.org/web/20200930111413/https://www.ohchr.org/Documents/Issues/Torture/Call/NGOs/Advforhumankind4.pdf" rel="noopener" target="_blank">Archived copy (Wayback Machine, 30 Sep 2020)</a>. Source document for all counts.</li>
+<li id="ref-7">Advocacy for Humankind, with the Bay Area Support Group and the Surveillance Harassment Survivors Alliance. <em>AFH Data on Self-Reported Victims of Coordinated Stalking in California</em> (undated). Submission to OHCHR. <a href="https://www.ohchr.org/sites/default/files/Documents/Issues/Torture/Call/NGOs/Advforhumankind2.pdf" rel="noopener" target="_blank">ohchr.org</a>.</li>
+</ol>
+<div class="cite-this"><strong>How to cite this page.</strong> Chuang, William Huanshan. “Coordinated Stalking Testimonies: A Coded Reading of 88 California Accounts, 2019.” Logarchéon Research, 24 September 2026. <span style="font-family:'DM Mono',monospace;font-size:0.72rem;">/coordinated-stalking-testimonies/</span></div>
+</div>
+</main>
+</div>
+<footer><p>William Huanshan Chuang · Logarchéon Inc. · Research Page · 24 Sep 2026</p></footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const D={"T": [{"label": "Followed on foot or in public places", "n": 45, "entries": [1, 4, 5, 8, 9, 10, 13, 15, 16, 20, 25, 27, 28, 29, 30, 31, 37, 38, 39, 42, 45, 46, 48, 49, 50, 51, 53, 56, 58, 59, 62, 64, 65, 67, 68, 69, 71, 73, 74, 76, 81, 82, 85, 88, 94]}, {"label": "Followed, boxed in or harassed by vehicles", "n": 41, "entries": [1, 3, 5, 7, 11, 13, 15, 18, 20, 30, 31, 34, 36, 37, 38, 39, 41, 42, 45, 46, 48, 49, 51, 53, 54, 58, 59, 61, 65, 68, 69, 75, 76, 80, 82, 85, 87, 88, 91, 93, 94]}, {"label": "Break-ins, theft or vandalism", "n": 35, "entries": [1, 2, 5, 7, 10, 18, 21, 31, 34, 35, 36, 37, 42, 45, 48, 51, 54, 56, 57, 58, 61, 64, 65, 67, 72, 75, 77, 83, 85, 87, 88, 89, 92, 93, 94]}, {"label": "Watched, recorded or tracked", "n": 32, "entries": [1, 2, 5, 18, 21, 27, 29, 31, 36, 37, 38, 40, 42, 44, 49, 51, 55, 61, 63, 64, 67, 71, 72, 75, 77, 81, 82, 85, 89, 91, 93, 94]}, {"label": "Slander, smear or blacklisting", "n": 28, "entries": [5, 7, 10, 18, 22, 32, 34, 37, 39, 40, 42, 44, 50, 51, 53, 56, 58, 64, 69, 73, 74, 81, 82, 83, 84, 87, 89, 94]}, {"label": "Stares, gestures, pointed remarks, mimicry", "n": 25, "entries": [1, 2, 4, 18, 21, 27, 31, 33, 36, 42, 44, 45, 46, 51, 54, 61, 64, 65, 67, 80, 81, 83, 85, 87, 91]}, {"label": "Phone, computer or accounts hacked", "n": 24, "entries": [1, 7, 13, 15, 18, 31, 36, 37, 51, 58, 61, 64, 71, 72, 75, 77, 82, 85, 87, 88, 89, 91, 92, 94]}, {"label": "Physical attack, threats or drugging", "n": 19, "entries": [2, 3, 7, 9, 10, 27, 35, 37, 44, 48, 51, 59, 61, 75, 80, 81, 85, 87, 89]}, {"label": "Workplace mobbing or sabotage", "n": 17, "entries": [1, 5, 7, 18, 20, 32, 33, 44, 57, 64, 65, 67, 74, 75, 83, 87, 94]}, {"label": "Noise campaigns", "n": 15, "entries": [7, 18, 49, 51, 53, 55, 57, 58, 61, 65, 77, 82, 87, 88, 94]}, {"label": "Family members also targeted", "n": 10, "entries": [10, 39, 40, 41, 56, 58, 67, 75, 80, 94]}, {"label": "Sleep deprivation", "n": 3, "entries": [24, 37, 77]}], "E": [{"label": "Moved home, often repeatedly", "n": 38, "entries": [1, 4, 9, 18, 30, 31, 33, 36, 37, 40, 41, 45, 46, 47, 54, 55, 56, 59, 60, 61, 62, 63, 64, 65, 66, 67, 69, 70, 72, 81, 83, 84, 85, 87, 89, 91, 93, 94]}, {"label": "Stress, anxiety, depression or trauma", "n": 36, "entries": [1, 3, 4, 7, 10, 18, 19, 20, 21, 22, 24, 25, 28, 30, 31, 34, 35, 36, 37, 42, 44, 48, 49, 51, 59, 60, 61, 65, 77, 78, 82, 83, 84, 85, 89, 93]}, {"label": "Financial loss or debt", "n": 33, "entries": [1, 2, 3, 11, 12, 14, 18, 20, 24, 28, 29, 31, 34, 35, 36, 37, 45, 46, 51, 56, 58, 59, 60, 64, 66, 72, 78, 84, 85, 87, 88, 89, 93]}, {"label": "Isolation, loss of friends", "n": 32, "entries": [1, 2, 3, 4, 5, 8, 12, 18, 19, 20, 22, 27, 31, 33, 34, 37, 50, 51, 53, 54, 59, 61, 64, 66, 68, 71, 74, 81, 83, 85, 89, 91]}, {"label": "Lost job, career or business", "n": 30, "entries": [1, 2, 7, 10, 14, 18, 20, 22, 24, 27, 28, 31, 35, 36, 37, 42, 44, 51, 56, 60, 63, 65, 66, 72, 74, 76, 81, 85, 87, 92]}, {"label": "Family or marriage strain", "n": 25, "entries": [2, 4, 10, 17, 20, 28, 31, 34, 35, 36, 39, 42, 48, 58, 59, 64, 65, 66, 75, 79, 83, 84, 89, 91, 92]}, {"label": "Fear; stays home; feels unsafe", "n": 19, "entries": [1, 4, 5, 9, 25, 30, 31, 37, 39, 42, 44, 48, 58, 67, 68, 71, 74, 75, 84]}, {"label": "Physical health decline", "n": 17, "entries": [12, 18, 22, 27, 35, 44, 47, 54, 58, 59, 60, 61, 67, 75, 81, 89, 91]}, {"label": "Loss of privacy or freedom", "n": 13, "entries": [1, 21, 45, 48, 49, 53, 59, 64, 67, 68, 69, 75, 82]}, {"label": "Homelessness", "n": 8, "entries": [7, 10, 13, 18, 34, 36, 60, 81]}, {"label": "Thoughts of death or suicide", "n": 5, "entries": [22, 33, 68, 77, 85]}, {"label": "Faith named as a source of strength", "n": 4, "entries": [32, 35, 67, 80]}], "P": [{"label": "Strangers / “the community”", "n": 66, "entries": [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 15, 16, 18, 20, 21, 22, 25, 27, 28, 29, 30, 31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 44, 45, 46, 48, 49, 51, 53, 54, 56, 58, 61, 62, 63, 64, 65, 68, 70, 71, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 85, 87, 88, 91, 92, 94]}, {"label": "Neighbors", "n": 26, "entries": [1, 10, 32, 37, 39, 44, 45, 46, 53, 55, 57, 59, 65, 67, 69, 74, 75, 77, 78, 81, 82, 84, 85, 91, 93, 94]}, {"label": "Employer or co-workers", "n": 11, "entries": [5, 7, 33, 44, 64, 65, 67, 72, 75, 78, 94]}, {"label": "Relatives or ex-spouse", "n": 7, "entries": [34, 42, 78, 83, 84, 89, 91]}, {"label": "Medical staff", "n": 4, "entries": [51, 85, 89, 91]}, {"label": "Police or officials", "n": 3, "entries": [10, 39, 61]}, {"label": "Landlord or property managers", "n": 2, "entries": [79, 89]}, {"label": "A named group", "n": 2, "entries": [50, 66]}, {"label": "Security guards", "n": 1, "entries": [51]}, {"label": "A named individual", "n": 1, "entries": [60]}], "LE": [{"label": "Nothing done, no report taken, or no reply", "n": 34, "entries": [2, 4, 5, 9, 10, 12, 13, 18, 27, 29, 30, 37, 40, 42, 45, 46, 48, 51, 53, 54, 56, 59, 61, 64, 65, 68, 75, 76, 78, 81, 82, 85, 87, 92]}, {"label": "Contacted the FBI (any outcome)", "n": 22, "entries": [2, 3, 7, 10, 11, 16, 19, 25, 27, 40, 45, 46, 47, 50, 59, 64, 68, 76, 78, 85, 88, 91]}, {"label": "Disbelieved, laughed at or mocked", "n": 12, "entries": [4, 5, 22, 30, 37, 41, 51, 57, 58, 68, 72, 87]}, {"label": "Pointed to mental health or called ill", "n": 11, "entries": [5, 12, 22, 41, 42, 53, 57, 60, 62, 64, 89]}, {"label": "Report taken or case opened", "n": 8, "entries": [10, 37, 59, 72, 76, 81, 89, 92]}, {"label": "Say police harmed, arrested or raided them", "n": 4, "entries": [10, 59, 61, 85]}], "LEs": [{"label": "Reported", "n": 60, "entries": [2, 3, 4, 5, 7, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 22, 25, 27, 28, 29, 30, 33, 34, 35, 37, 40, 41, 42, 45, 46, 47, 48, 50, 51, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 64, 65, 66, 68, 72, 75, 76, 78, 81, 82, 85, 87, 88, 89, 91, 92]}, {"label": "Did not report", "n": 20, "entries": [1, 8, 20, 24, 26, 31, 32, 36, 38, 39, 49, 63, 67, 71, 77, 79, 80, 83, 84, 93]}, {"label": "Not stated", "n": 8, "entries": [15, 21, 44, 69, 70, 73, 74, 94]}], "MHs": [{"label": "Says they were misdiagnosed or labeled", "n": 39, "entries": [1, 2, 3, 7, 11, 12, 13, 14, 15, 18, 19, 20, 22, 24, 27, 28, 31, 33, 34, 36, 40, 53, 57, 59, 60, 61, 63, 64, 65, 67, 68, 70, 72, 77, 78, 79, 89, 91, 92]}, {"label": "No misdiagnosis", "n": 28, "entries": [5, 8, 10, 17, 25, 26, 29, 30, 32, 35, 38, 42, 44, 48, 49, 50, 51, 55, 56, 58, 62, 75, 76, 80, 81, 82, 83, 84]}, {"label": "Avoided mental-health care", "n": 6, "entries": [4, 39, 41, 71, 85, 87]}, {"label": "Not stated", "n": 15, "entries": [9, 16, 21, 37, 45, 46, 47, 54, 66, 69, 73, 74, 88, 93, 94]}], "MHf": [{"label": "Schizophrenia or schizoaffective", "n": 13, "entries": [1, 7, 11, 12, 14, 15, 24, 27, 40, 63, 77, 78, 92]}, {"label": "Paranoid, delusional or psychotic", "n": 11, "entries": [1, 7, 27, 34, 40, 60, 65, 68, 72, 78, 79]}, {"label": "Forced or pressured medication", "n": 11, "entries": [1, 11, 12, 15, 22, 27, 31, 60, 64, 79, 89]}, {"label": "Involuntary hold or hospitalization", "n": 10, "entries": [2, 15, 18, 20, 31, 34, 36, 40, 59, 72]}, {"label": "Depression or anxiety", "n": 4, "entries": [57, 60, 64, 68]}, {"label": "Bipolar disorder", "n": 2, "entries": [1, 72]}, {"label": "Personality disorder", "n": 2, "entries": [79, 91]}], "REG": [{"label": "SF Bay Area", "n": 22, "entries": [1, 4, 5, 7, 18, 20, 28, 31, 38, 40, 42, 57, 62, 65, 66, 67, 77, 82, 83, 87, 88, 89]}, {"label": "Los Angeles County", "n": 21, "entries": [3, 9, 13, 14, 15, 16, 17, 21, 24, 30, 32, 34, 37, 41, 49, 50, 56, 60, 71, 81, 84]}, {"label": "Inland Empire / desert", "n": 9, "entries": [8, 10, 45, 46, 48, 54, 72, 78, 92]}, {"label": "Central Valley", "n": 8, "entries": [11, 58, 68, 70, 75, 79, 91, 93]}, {"label": "San Diego County", "n": 7, "entries": [12, 22, 27, 44, 51, 80, 85]}, {"label": "Sacramento area", "n": 7, "entries": [29, 39, 53, 55, 59, 64, 74]}, {"label": "Northern California", "n": 5, "entries": [19, 35, 36, 69, 73]}, {"label": "Orange County", "n": 5, "entries": [25, 26, 61, 63, 76]}, {"label": "Outside California", "n": 4, "entries": [2, 33, 47, 94]}], "MON": [{"label": "Apr 2018", "n": 1, "entries": [60]}, {"label": "Jun 2019", "n": 1, "entries": [12]}, {"label": "Jul 2019", "n": 2, "entries": [1, 5]}, {"label": "Aug 2019", "n": 53, "entries": [2, 3, 4, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 45, 46, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 58, 59, 72]}, {"label": "Sep 2019", "n": 30, "entries": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 87, 88, 89, 91, 92, 94]}, {"label": "Oct 2019", "n": 1, "entries": [93]}], "GEN": [{"label": "Women (by first name)", "n": 44, "entries": []}, {"label": "Men (by first name, or text for #7)", "n": 38, "entries": []}, {"label": "Name does not show gender", "n": 7, "entries": []}], "XG": [{"label": "Fear; stays home; feels unsafe", "f": 15, "nf": 43, "m": 4, "nm": 38, "p": 0.017, "holm": 0.46}, {"label": "Physical health decline", "f": 13, "nf": 43, "m": 4, "nm": 38, "p": 0.054, "holm": 1}, {"label": "Family or marriage strain", "f": 17, "nf": 43, "m": 8, "nm": 38, "p": 0.093, "holm": 1}, {"label": "Involuntary hold or hospitalization", "f": 8, "nf": 43, "m": 2, "nm": 38, "p": 0.094, "holm": 1}, {"label": "Sleep deprivation", "f": 0, "nf": 43, "m": 3, "nm": 38, "p": 0.099, "holm": 1}, {"label": "Watched, recorded or tracked", "f": 19, "nf": 43, "m": 10, "nm": 38, "p": 0.109, "holm": 1}, {"label": "Stares, gestures, pointed remarks, mimicry", "f": 16, "nf": 43, "m": 8, "nm": 38, "p": 0.146, "holm": 1}, {"label": "Break-ins, theft or vandalism", "f": 21, "nf": 43, "m": 12, "nm": 38, "p": 0.174, "holm": 1}, {"label": "Moved home, often repeatedly", "f": 22, "nf": 43, "m": 14, "nm": 38, "p": 0.263, "holm": 1}, {"label": "Physical attack, threats or drugging", "f": 12, "nf": 43, "m": 6, "nm": 38, "p": 0.284, "holm": 1}, {"label": "Thoughts of death or suicide", "f": 1, "nf": 43, "m": 3, "nm": 38, "p": 0.337, "holm": 1}, {"label": "Loss of privacy or freedom", "f": 8, "nf": 43, "m": 4, "nm": 38, "p": 0.362, "holm": 1}, {"label": "Stress, anxiety, depression or trauma", "f": 21, "nf": 43, "m": 14, "nm": 38, "p": 0.369, "holm": 1}, {"label": "Workplace mobbing or sabotage", "f": 7, "nf": 43, "m": 9, "nm": 38, "p": 0.419, "holm": 1}, {"label": "Phone, computer or accounts hacked", "f": 14, "nf": 43, "m": 9, "nm": 38, "p": 0.462, "holm": 1}, {"label": "Slander, smear or blacklisting", "f": 12, "nf": 43, "m": 14, "nm": 38, "p": 0.477, "holm": 1}, {"label": "Says misdiagnosed or labeled", "f": 21, "nf": 43, "m": 15, "nm": 38, "p": 0.502, "holm": 1}, {"label": "Followed, boxed in or harassed by vehicles", "f": 22, "nf": 43, "m": 16, "nm": 38, "p": 0.505, "holm": 1}, {"label": "Faith named as a source of strength", "f": 3, "nf": 43, "m": 1, "nm": 38, "p": 0.618, "holm": 1}, {"label": "Homelessness", "f": 5, "nf": 43, "m": 3, "nm": 38, "p": 0.717, "holm": 1}, {"label": "Family members also targeted", "f": 6, "nf": 43, "m": 4, "nm": 38, "p": 0.743, "holm": 1}, {"label": "Noise campaigns", "f": 6, "nf": 43, "m": 7, "nm": 38, "p": 0.763, "holm": 1}, {"label": "Reported to law enforcement", "f": 30, "nf": 43, "m": 25, "nm": 38, "p": 0.813, "holm": 1}, {"label": "Lost job, career or business", "f": 14, "nf": 43, "m": 14, "nm": 38, "p": 0.816, "holm": 1}, {"label": "Financial loss or debt", "f": 16, "nf": 43, "m": 16, "nm": 38, "p": 0.82, "holm": 1}, {"label": "Isolation, loss of friends", "f": 16, "nf": 43, "m": 13, "nm": 38, "p": 0.82, "holm": 1}, {"label": "Followed on foot or in public places", "f": 22, "nf": 43, "m": 18, "nm": 38, "p": 0.825, "holm": 0.82}], "TC": [{"label": "0", "n": 11, "entries": [12, 14, 17, 19, 26, 47, 60, 66, 70, 78, 79]}, {"label": "1", "n": 9, "entries": [8, 11, 16, 22, 24, 25, 28, 62, 63]}, {"label": "2", "n": 14, "entries": [3, 4, 9, 29, 30, 33, 35, 41, 50, 68, 73, 76, 84, 92]}, {"label": "3", "n": 14, "entries": [13, 15, 20, 21, 32, 34, 38, 40, 46, 54, 55, 71, 72, 74]}, {"label": "4", "n": 12, "entries": [2, 27, 45, 48, 49, 56, 57, 59, 69, 80, 83, 93]}, {"label": "5", "n": 7, "entries": [10, 36, 39, 53, 88, 89, 91]}, {"label": "6", "n": 7, "entries": [5, 31, 42, 44, 77, 81, 82]}, {"label": "7", "n": 7, "entries": [7, 58, 61, 64, 65, 67, 85]}, {"label": "8", "n": 4, "entries": [1, 18, 75, 87]}, {"label": "9", "n": 2, "entries": [37, 51]}, {"label": "10", "n": 1, "entries": [94]}], "DUR": [{"label": "Under 2 years", "n": 3, "entries": [10, 82, 85]}, {"label": "2–4 years", "n": 8, "entries": [31, 39, 41, 55, 59, 66, 75, 89]}, {"label": "5–9 years", "n": 6, "entries": [1, 5, 34, 60, 69, 81]}, {"label": "10–19 years", "n": 3, "entries": [42, 72, 92]}, {"label": "20+ years", "n": 2, "entries": [77, 91]}], "dur_median": 4.5, "dur_n": 22, "nrep": 60, "nys": 39, "CB": [{"e": 1, "g": "W", "r": "SF Bay Area", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Workplace mobbing or sabotage", "Phone, computer or accounts hacked", "Break-ins, theft or vandalism", "Watched, recorded or tracked", "Stares, gestures, pointed remarks, mimicry"], "p": ["Strangers / “the community”", "Neighbors"], "ef": ["Lost job, career or business", "Financial loss or debt", "Moved home, often repeatedly", "Isolation, loss of friends", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma", "Loss of privacy or freedom"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 2, "g": "W", "r": "Outside California", "t": ["Physical attack, threats or drugging", "Break-ins, theft or vandalism", "Watched, recorded or tracked", "Stares, gestures, pointed remarks, mimicry"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Financial loss or debt", "Isolation, loss of friends", "Family or marriage strain"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 3, "g": "M", "r": "Los Angeles County", "t": ["Physical attack, threats or drugging", "Followed, boxed in or harassed by vehicles"], "p": ["Strangers / “the community”"], "ef": ["Financial loss or debt", "Isolation, loss of friends", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 4, "g": "W", "r": "SF Bay Area", "t": ["Followed on foot or in public places", "Stares, gestures, pointed remarks, mimicry"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly", "Isolation, loss of friends", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma", "Family or marriage strain"], "le": "Reported", "mh": "Avoided mental-health care"}, {"e": 5, "g": "W", "r": "SF Bay Area", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Watched, recorded or tracked", "Break-ins, theft or vandalism", "Slander, smear or blacklisting", "Workplace mobbing or sabotage"], "p": ["Strangers / “the community”", "Employer or co-workers"], "ef": ["Isolation, loss of friends", "Fear; stays home; feels unsafe"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 7, "g": "M", "r": "SF Bay Area", "t": ["Workplace mobbing or sabotage", "Slander, smear or blacklisting", "Phone, computer or accounts hacked", "Break-ins, theft or vandalism", "Physical attack, threats or drugging", "Noise campaigns", "Followed, boxed in or harassed by vehicles"], "p": ["Strangers / “the community”", "Employer or co-workers"], "ef": ["Homelessness", "Lost job, career or business", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 8, "g": "M", "r": "Inland Empire / desert", "t": ["Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Isolation, loss of friends"], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 9, "g": "W", "r": "Los Angeles County", "t": ["Followed on foot or in public places", "Physical attack, threats or drugging"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly", "Fear; stays home; feels unsafe"], "le": "Reported", "mh": "Not stated"}, {"e": 10, "g": "M", "r": "Inland Empire / desert", "t": ["Followed on foot or in public places", "Physical attack, threats or drugging", "Break-ins, theft or vandalism", "Slander, smear or blacklisting", "Family members also targeted"], "p": ["Strangers / “the community”", "Neighbors", "Police or officials"], "ef": ["Homelessness", "Lost job, career or business", "Stress, anxiety, depression or trauma", "Family or marriage strain"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 11, "g": "M", "r": "Central Valley", "t": ["Followed, boxed in or harassed by vehicles"], "p": ["Strangers / “the community”"], "ef": ["Financial loss or debt"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 12, "g": "M", "r": "San Diego County", "t": [], "p": [], "ef": ["Financial loss or debt", "Isolation, loss of friends", "Physical health decline"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 13, "g": "W", "r": "Los Angeles County", "t": ["Followed, boxed in or harassed by vehicles", "Followed on foot or in public places", "Phone, computer or accounts hacked"], "p": ["Strangers / “the community”"], "ef": ["Homelessness"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 14, "g": "M", "r": "Los Angeles County", "t": [], "p": [], "ef": ["Lost job, career or business", "Financial loss or debt"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 15, "g": "W", "r": "Los Angeles County", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Phone, computer or accounts hacked"], "p": ["Strangers / “the community”"], "ef": [], "le": "Not stated", "mh": "Says they were misdiagnosed or labeled"}, {"e": 16, "g": "?", "r": "Los Angeles County", "t": ["Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": [], "le": "Reported", "mh": "Not stated"}, {"e": 17, "g": "W", "r": "Los Angeles County", "t": [], "p": [], "ef": ["Family or marriage strain"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 18, "g": "W", "r": "SF Bay Area", "t": ["Break-ins, theft or vandalism", "Noise campaigns", "Phone, computer or accounts hacked", "Watched, recorded or tracked", "Stares, gestures, pointed remarks, mimicry", "Followed, boxed in or harassed by vehicles", "Slander, smear or blacklisting", "Workplace mobbing or sabotage"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly", "Lost job, career or business", "Financial loss or debt", "Homelessness", "Stress, anxiety, depression or trauma", "Physical health decline", "Isolation, loss of friends"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 19, "g": "W", "r": "Northern California", "t": [], "p": [], "ef": ["Isolation, loss of friends", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 20, "g": "M", "r": "SF Bay Area", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Workplace mobbing or sabotage"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Financial loss or debt", "Family or marriage strain", "Isolation, loss of friends", "Stress, anxiety, depression or trauma"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 21, "g": "W", "r": "Los Angeles County", "t": ["Watched, recorded or tracked", "Break-ins, theft or vandalism", "Stares, gestures, pointed remarks, mimicry"], "p": ["Strangers / “the community”"], "ef": ["Loss of privacy or freedom", "Stress, anxiety, depression or trauma"], "le": "Not stated", "mh": "Not stated"}, {"e": 22, "g": "M", "r": "San Diego County", "t": ["Slander, smear or blacklisting"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Physical health decline", "Thoughts of death or suicide", "Stress, anxiety, depression or trauma", "Isolation, loss of friends"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 24, "g": "M", "r": "Los Angeles County", "t": ["Sleep deprivation"], "p": [], "ef": ["Lost job, career or business", "Financial loss or debt", "Stress, anxiety, depression or trauma"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 25, "g": "W", "r": "Orange County", "t": ["Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 26, "g": "M", "r": "Orange County", "t": [], "p": [], "ef": [], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 27, "g": "W", "r": "San Diego County", "t": ["Followed on foot or in public places", "Stares, gestures, pointed remarks, mimicry", "Watched, recorded or tracked", "Physical attack, threats or drugging"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Isolation, loss of friends", "Physical health decline"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 28, "g": "W", "r": "SF Bay Area", "t": ["Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Financial loss or debt", "Family or marriage strain", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 29, "g": "M", "r": "Sacramento area", "t": ["Followed on foot or in public places", "Watched, recorded or tracked"], "p": ["Strangers / “the community”"], "ef": ["Financial loss or debt"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 30, "g": "W", "r": "Los Angeles County", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 31, "g": "W", "r": "SF Bay Area", "t": ["Followed, boxed in or harassed by vehicles", "Followed on foot or in public places", "Watched, recorded or tracked", "Stares, gestures, pointed remarks, mimicry", "Break-ins, theft or vandalism", "Phone, computer or accounts hacked"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma", "Family or marriage strain", "Isolation, loss of friends", "Lost job, career or business", "Financial loss or debt"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 32, "g": "M", "r": "Los Angeles County", "t": ["Slander, smear or blacklisting", "Workplace mobbing or sabotage"], "p": ["Neighbors", "Strangers / “the community”"], "ef": ["Faith named as a source of strength"], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 33, "g": "M", "r": "Outside California", "t": ["Workplace mobbing or sabotage", "Stares, gestures, pointed remarks, mimicry"], "p": ["Employer or co-workers"], "ef": ["Isolation, loss of friends", "Thoughts of death or suicide", "Moved home, often repeatedly"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 34, "g": "W", "r": "Los Angeles County", "t": ["Followed, boxed in or harassed by vehicles", "Break-ins, theft or vandalism", "Slander, smear or blacklisting"], "p": ["Relatives or ex-spouse"], "ef": ["Financial loss or debt", "Isolation, loss of friends", "Family or marriage strain", "Homelessness", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 35, "g": "W", "r": "Northern California", "t": ["Break-ins, theft or vandalism", "Physical attack, threats or drugging"], "p": ["Strangers / “the community”"], "ef": ["Family or marriage strain", "Financial loss or debt", "Physical health decline", "Stress, anxiety, depression or trauma", "Lost job, career or business", "Faith named as a source of strength"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 36, "g": "W", "r": "Northern California", "t": ["Watched, recorded or tracked", "Stares, gestures, pointed remarks, mimicry", "Followed, boxed in or harassed by vehicles", "Break-ins, theft or vandalism", "Phone, computer or accounts hacked"], "p": ["Strangers / “the community”"], "ef": ["Homelessness", "Lost job, career or business", "Financial loss or debt", "Family or marriage strain", "Stress, anxiety, depression or trauma", "Moved home, often repeatedly"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 37, "g": "M", "r": "Los Angeles County", "t": ["Followed, boxed in or harassed by vehicles", "Followed on foot or in public places", "Phone, computer or accounts hacked", "Slander, smear or blacklisting", "Sleep deprivation", "Watched, recorded or tracked", "Break-ins, theft or vandalism", "Physical attack, threats or drugging"], "p": ["Strangers / “the community”", "Neighbors"], "ef": ["Moved home, often repeatedly", "Financial loss or debt", "Lost job, career or business", "Isolation, loss of friends", "Stress, anxiety, depression or trauma", "Fear; stays home; feels unsafe"], "le": "Reported", "mh": "Not stated"}, {"e": 38, "g": "?", "r": "SF Bay Area", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Watched, recorded or tracked"], "p": ["Strangers / “the community”"], "ef": [], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 39, "g": "M", "r": "Sacramento area", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Slander, smear or blacklisting", "Family members also targeted"], "p": ["Neighbors", "Strangers / “the community”", "Police or officials"], "ef": ["Family or marriage strain", "Fear; stays home; feels unsafe"], "le": "Did not report", "mh": "Avoided mental-health care"}, {"e": 40, "g": "M", "r": "SF Bay Area", "t": ["Slander, smear or blacklisting", "Watched, recorded or tracked", "Family members also targeted"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 41, "g": "M", "r": "Los Angeles County", "t": ["Followed, boxed in or harassed by vehicles", "Family members also targeted"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly"], "le": "Reported", "mh": "Avoided mental-health care"}, {"e": 42, "g": "W", "r": "SF Bay Area", "t": ["Stares, gestures, pointed remarks, mimicry", "Followed, boxed in or harassed by vehicles", "Followed on foot or in public places", "Slander, smear or blacklisting", "Watched, recorded or tracked", "Break-ins, theft or vandalism"], "p": ["Relatives or ex-spouse", "Strangers / “the community”"], "ef": ["Lost job, career or business", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma", "Family or marriage strain"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 44, "g": "W", "r": "San Diego County", "t": ["Slander, smear or blacklisting", "Workplace mobbing or sabotage", "Watched, recorded or tracked", "Physical attack, threats or drugging", "Stares, gestures, pointed remarks, mimicry"], "p": ["Neighbors", "Strangers / “the community”", "Employer or co-workers"], "ef": ["Lost job, career or business", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma", "Physical health decline"], "le": "Not stated", "mh": "No misdiagnosis"}, {"e": 45, "g": "M", "r": "Inland Empire / desert", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Stares, gestures, pointed remarks, mimicry", "Break-ins, theft or vandalism"], "p": ["Strangers / “the community”", "Neighbors"], "ef": ["Moved home, often repeatedly", "Financial loss or debt", "Loss of privacy or freedom"], "le": "Reported", "mh": "Not stated"}, {"e": 46, "g": "M", "r": "Inland Empire / desert", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Stares, gestures, pointed remarks, mimicry"], "p": ["Strangers / “the community”", "Neighbors"], "ef": ["Moved home, often repeatedly", "Financial loss or debt"], "le": "Reported", "mh": "Not stated"}, {"e": 47, "g": "M", "r": "Outside California", "t": [], "p": [], "ef": ["Moved home, often repeatedly", "Physical health decline"], "le": "Reported", "mh": "Not stated"}, {"e": 48, "g": "W", "r": "Inland Empire / desert", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Break-ins, theft or vandalism", "Physical attack, threats or drugging"], "p": ["Strangers / “the community”"], "ef": ["Family or marriage strain", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma", "Loss of privacy or freedom"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 49, "g": "M", "r": "Los Angeles County", "t": ["Followed, boxed in or harassed by vehicles", "Noise campaigns", "Watched, recorded or tracked", "Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Stress, anxiety, depression or trauma", "Loss of privacy or freedom"], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 50, "g": "?", "r": "Los Angeles County", "t": ["Followed on foot or in public places", "Slander, smear or blacklisting"], "p": ["A named group"], "ef": ["Isolation, loss of friends"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 51, "g": "W", "r": "San Diego County", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Stares, gestures, pointed remarks, mimicry", "Break-ins, theft or vandalism", "Phone, computer or accounts hacked", "Watched, recorded or tracked", "Noise campaigns", "Physical attack, threats or drugging", "Slander, smear or blacklisting"], "p": ["Strangers / “the community”", "Security guards", "Medical staff"], "ef": ["Financial loss or debt", "Lost job, career or business", "Isolation, loss of friends", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 53, "g": "?", "r": "Sacramento area", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Noise campaigns", "Slander, smear or blacklisting"], "p": ["Neighbors", "Strangers / “the community”"], "ef": ["Isolation, loss of friends", "Loss of privacy or freedom"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 54, "g": "W", "r": "Inland Empire / desert", "t": ["Followed, boxed in or harassed by vehicles", "Stares, gestures, pointed remarks, mimicry", "Break-ins, theft or vandalism"], "p": ["Strangers / “the community”"], "ef": ["Physical health decline", "Isolation, loss of friends", "Moved home, often repeatedly"], "le": "Reported", "mh": "Not stated"}, {"e": 55, "g": "W", "r": "Sacramento area", "t": ["Watched, recorded or tracked", "Noise campaigns"], "p": ["Neighbors"], "ef": ["Moved home, often repeatedly"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 56, "g": "W", "r": "Los Angeles County", "t": ["Slander, smear or blacklisting", "Break-ins, theft or vandalism", "Family members also targeted", "Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Financial loss or debt", "Moved home, often repeatedly"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 57, "g": "?", "r": "SF Bay Area", "t": ["Noise campaigns", "Break-ins, theft or vandalism", "Workplace mobbing or sabotage"], "p": ["Neighbors"], "ef": [], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 58, "g": "W", "r": "Central Valley", "t": ["Slander, smear or blacklisting", "Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Phone, computer or accounts hacked", "Noise campaigns", "Family members also targeted", "Break-ins, theft or vandalism"], "p": ["Strangers / “the community”"], "ef": ["Financial loss or debt", "Physical health decline", "Family or marriage strain", "Fear; stays home; feels unsafe"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 59, "g": "W", "r": "Sacramento area", "t": ["Followed on foot or in public places", "Physical attack, threats or drugging", "Followed, boxed in or harassed by vehicles"], "p": ["Neighbors"], "ef": ["Isolation, loss of friends", "Family or marriage strain", "Physical health decline", "Financial loss or debt", "Stress, anxiety, depression or trauma", "Moved home, often repeatedly", "Loss of privacy or freedom"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 60, "g": "W", "r": "Los Angeles County", "t": [], "p": ["A named individual"], "ef": ["Homelessness", "Moved home, often repeatedly", "Financial loss or debt", "Physical health decline", "Stress, anxiety, depression or trauma", "Lost job, career or business"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 61, "g": "W", "r": "Orange County", "t": ["Phone, computer or accounts hacked", "Watched, recorded or tracked", "Stares, gestures, pointed remarks, mimicry", "Break-ins, theft or vandalism", "Followed, boxed in or harassed by vehicles", "Noise campaigns", "Physical attack, threats or drugging"], "p": ["Strangers / “the community”", "Police or officials"], "ef": ["Moved home, often repeatedly", "Physical health decline", "Stress, anxiety, depression or trauma", "Isolation, loss of friends"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 62, "g": "W", "r": "SF Bay Area", "t": ["Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 63, "g": "?", "r": "Orange County", "t": ["Watched, recorded or tracked"], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly", "Lost job, career or business"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 64, "g": "M", "r": "Sacramento area", "t": ["Followed on foot or in public places", "Stares, gestures, pointed remarks, mimicry", "Watched, recorded or tracked", "Phone, computer or accounts hacked", "Slander, smear or blacklisting", "Workplace mobbing or sabotage", "Break-ins, theft or vandalism"], "p": ["Strangers / “the community”", "Employer or co-workers"], "ef": ["Moved home, often repeatedly", "Isolation, loss of friends", "Family or marriage strain", "Financial loss or debt", "Loss of privacy or freedom"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 65, "g": "M", "r": "SF Bay Area", "t": ["Workplace mobbing or sabotage", "Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Noise campaigns", "Stares, gestures, pointed remarks, mimicry", "Break-ins, theft or vandalism"], "p": ["Strangers / “the community”", "Neighbors", "Employer or co-workers"], "ef": ["Lost job, career or business", "Moved home, often repeatedly", "Stress, anxiety, depression or trauma", "Family or marriage strain"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 66, "g": "M", "r": "SF Bay Area", "t": [], "p": ["A named group"], "ef": ["Moved home, often repeatedly", "Family or marriage strain", "Lost job, career or business", "Financial loss or debt", "Isolation, loss of friends"], "le": "Reported", "mh": "Not stated"}, {"e": 67, "g": "W", "r": "SF Bay Area", "t": ["Followed on foot or in public places", "Watched, recorded or tracked", "Break-ins, theft or vandalism", "Family members also targeted", "Stares, gestures, pointed remarks, mimicry", "Workplace mobbing or sabotage"], "p": ["Employer or co-workers", "Neighbors"], "ef": ["Moved home, often repeatedly", "Fear; stays home; feels unsafe", "Physical health decline", "Loss of privacy or freedom", "Faith named as a source of strength"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 68, "g": "W", "r": "Central Valley", "t": ["Followed, boxed in or harassed by vehicles", "Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Fear; stays home; feels unsafe", "Loss of privacy or freedom", "Thoughts of death or suicide", "Isolation, loss of friends"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 69, "g": "W", "r": "Northern California", "t": ["Followed, boxed in or harassed by vehicles", "Followed on foot or in public places", "Slander, smear or blacklisting"], "p": ["Neighbors"], "ef": ["Moved home, often repeatedly", "Loss of privacy or freedom"], "le": "Not stated", "mh": "Not stated"}, {"e": 70, "g": "W", "r": "Central Valley", "t": [], "p": ["Strangers / “the community”"], "ef": ["Moved home, often repeatedly"], "le": "Not stated", "mh": "Says they were misdiagnosed or labeled"}, {"e": 71, "g": "M", "r": "Los Angeles County", "t": ["Phone, computer or accounts hacked", "Watched, recorded or tracked", "Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": ["Fear; stays home; feels unsafe", "Isolation, loss of friends"], "le": "Did not report", "mh": "Avoided mental-health care"}, {"e": 72, "g": "W", "r": "Inland Empire / desert", "t": ["Phone, computer or accounts hacked", "Watched, recorded or tracked", "Break-ins, theft or vandalism"], "p": ["Employer or co-workers"], "ef": ["Moved home, often repeatedly", "Financial loss or debt", "Lost job, career or business"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 73, "g": "M", "r": "Northern California", "t": ["Slander, smear or blacklisting", "Followed on foot or in public places"], "p": ["Strangers / “the community”"], "ef": [], "le": "Not stated", "mh": "Not stated"}, {"e": 74, "g": "M", "r": "Sacramento area", "t": ["Followed on foot or in public places", "Workplace mobbing or sabotage", "Slander, smear or blacklisting"], "p": ["Strangers / “the community”", "Neighbors"], "ef": ["Lost job, career or business", "Isolation, loss of friends", "Fear; stays home; feels unsafe"], "le": "Not stated", "mh": "Not stated"}, {"e": 75, "g": "W", "r": "Central Valley", "t": ["Physical attack, threats or drugging", "Break-ins, theft or vandalism", "Followed, boxed in or harassed by vehicles", "Phone, computer or accounts hacked", "Watched, recorded or tracked", "Family members also targeted", "Workplace mobbing or sabotage"], "p": ["Employer or co-workers", "Neighbors", "Strangers / “the community”"], "ef": ["Fear; stays home; feels unsafe", "Physical health decline", "Loss of privacy or freedom", "Family or marriage strain"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 76, "g": "M", "r": "Orange County", "t": ["Followed on foot or in public places", "Followed, boxed in or harassed by vehicles"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 77, "g": "M", "r": "SF Bay Area", "t": ["Noise campaigns", "Sleep deprivation", "Watched, recorded or tracked", "Break-ins, theft or vandalism", "Phone, computer or accounts hacked"], "p": ["Strangers / “the community”", "Neighbors"], "ef": ["Stress, anxiety, depression or trauma", "Thoughts of death or suicide"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 78, "g": "M", "r": "Inland Empire / desert", "t": [], "p": ["Relatives or ex-spouse", "Neighbors", "Employer or co-workers", "Strangers / “the community”"], "ef": ["Stress, anxiety, depression or trauma", "Financial loss or debt"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 79, "g": "W", "r": "Central Valley", "t": [], "p": ["Landlord or property managers"], "ef": ["Family or marriage strain"], "le": "Did not report", "mh": "Says they were misdiagnosed or labeled"}, {"e": 80, "g": "W", "r": "San Diego County", "t": ["Followed, boxed in or harassed by vehicles", "Stares, gestures, pointed remarks, mimicry", "Physical attack, threats or drugging", "Family members also targeted"], "p": ["Strangers / “the community”"], "ef": ["Faith named as a source of strength"], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 81, "g": "M", "r": "Los Angeles County", "t": ["Slander, smear or blacklisting", "Stares, gestures, pointed remarks, mimicry", "Physical attack, threats or drugging", "Followed on foot or in public places", "Watched, recorded or tracked"], "p": ["Neighbors", "Strangers / “the community”"], "ef": ["Moved home, often repeatedly", "Homelessness", "Isolation, loss of friends", "Lost job, career or business", "Physical health decline"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 82, "g": "M", "r": "SF Bay Area", "t": ["Slander, smear or blacklisting", "Watched, recorded or tracked", "Phone, computer or accounts hacked", "Followed on foot or in public places", "Followed, boxed in or harassed by vehicles", "Noise campaigns"], "p": ["Strangers / “the community”", "Neighbors"], "ef": ["Loss of privacy or freedom", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "No misdiagnosis"}, {"e": 83, "g": "M", "r": "SF Bay Area", "t": ["Workplace mobbing or sabotage", "Slander, smear or blacklisting", "Break-ins, theft or vandalism", "Stares, gestures, pointed remarks, mimicry"], "p": ["Strangers / “the community”", "Relatives or ex-spouse"], "ef": ["Isolation, loss of friends", "Moved home, often repeatedly", "Stress, anxiety, depression or trauma", "Family or marriage strain"], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 84, "g": "W", "r": "Los Angeles County", "t": ["Slander, smear or blacklisting"], "p": ["Neighbors", "Relatives or ex-spouse"], "ef": ["Moved home, often repeatedly", "Financial loss or debt", "Fear; stays home; feels unsafe", "Stress, anxiety, depression or trauma", "Family or marriage strain"], "le": "Did not report", "mh": "No misdiagnosis"}, {"e": 85, "g": "?", "r": "San Diego County", "t": ["Followed, boxed in or harassed by vehicles", "Followed on foot or in public places", "Watched, recorded or tracked", "Stares, gestures, pointed remarks, mimicry", "Break-ins, theft or vandalism", "Phone, computer or accounts hacked", "Physical attack, threats or drugging"], "p": ["Strangers / “the community”", "Neighbors", "Medical staff"], "ef": ["Moved home, often repeatedly", "Lost job, career or business", "Isolation, loss of friends", "Thoughts of death or suicide", "Stress, anxiety, depression or trauma", "Financial loss or debt"], "le": "Reported", "mh": "Avoided mental-health care"}, {"e": 87, "g": "M", "r": "SF Bay Area", "t": ["Workplace mobbing or sabotage", "Slander, smear or blacklisting", "Noise campaigns", "Followed, boxed in or harassed by vehicles", "Physical attack, threats or drugging", "Break-ins, theft or vandalism", "Phone, computer or accounts hacked", "Stares, gestures, pointed remarks, mimicry"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Financial loss or debt", "Moved home, often repeatedly"], "le": "Reported", "mh": "Avoided mental-health care"}, {"e": 88, "g": "M", "r": "SF Bay Area", "t": ["Followed, boxed in or harassed by vehicles", "Break-ins, theft or vandalism", "Phone, computer or accounts hacked", "Followed on foot or in public places", "Noise campaigns"], "p": ["Strangers / “the community”"], "ef": ["Financial loss or debt"], "le": "Reported", "mh": "Not stated"}, {"e": 89, "g": "W", "r": "SF Bay Area", "t": ["Watched, recorded or tracked", "Phone, computer or accounts hacked", "Slander, smear or blacklisting", "Break-ins, theft or vandalism", "Physical attack, threats or drugging"], "p": ["Landlord or property managers", "Relatives or ex-spouse", "Medical staff"], "ef": ["Moved home, often repeatedly", "Isolation, loss of friends", "Physical health decline", "Financial loss or debt", "Family or marriage strain", "Stress, anxiety, depression or trauma"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 91, "g": "W", "r": "Central Valley", "t": ["Followed, boxed in or harassed by vehicles", "Watched, recorded or tracked", "Phone, computer or accounts hacked", "Stares, gestures, pointed remarks, mimicry"], "p": ["Neighbors", "Strangers / “the community”", "Medical staff", "Relatives or ex-spouse"], "ef": ["Family or marriage strain", "Isolation, loss of friends", "Moved home, often repeatedly", "Physical health decline"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 92, "g": "M", "r": "Inland Empire / desert", "t": ["Break-ins, theft or vandalism", "Phone, computer or accounts hacked"], "p": ["Strangers / “the community”"], "ef": ["Lost job, career or business", "Family or marriage strain"], "le": "Reported", "mh": "Says they were misdiagnosed or labeled"}, {"e": 93, "g": "M", "r": "Central Valley", "t": ["Watched, recorded or tracked", "Followed, boxed in or harassed by vehicles", "Break-ins, theft or vandalism"], "p": ["Neighbors"], "ef": ["Moved home, often repeatedly", "Financial loss or debt", "Stress, anxiety, depression or trauma"], "le": "Did not report", "mh": "Not stated"}, {"e": 94, "g": "W", "r": "Outside California", "t": ["Followed on foot or in public places", "Watched, recorded or tracked", "Phone, computer or accounts hacked", "Workplace mobbing or sabotage", "Slander, smear or blacklisting", "Followed, boxed in or harassed by vehicles", "Noise campaigns", "Break-ins, theft or vandalism", "Family members also targeted"], "p": ["Strangers / “the community”", "Neighbors", "Employer or co-workers"], "ef": ["Moved home, often repeatedly"], "le": "Not stated", "mh": "Not stated"}]};
+const PAIRS={"ETH": [["White (non-Hispanic)", 62.2, 47.3], ["Hispanic", 19.6, 30.7], ["Asian / Pacific Islander", 6.9, 12.1], ["Black", 7.6, 6.3], ["Native American or multiple", 3.7, 3.7]], "AGE": [["18–29", 22.2, 21.0], ["30–39", 16.1, 16.4], ["40–49", 14.4, 14.4], ["50–59", 18.1, 16.2], ["60–69", 15.4, 15.8], ["70+", 13.8, 16.3]]};
+const TERMS=[["organized / gang stalking", 30], ["coordinated stalking", 32], ["victim / targeted", 28], ["smear campaign / slander", 16], ["perpetrators / perps", 14], ["24/7", 12], ["“nobody believes me”", 12], ["proof / evidence", 10], ["noise campaign", 8], ["road bullying / boxed in", 8], ["street harassment / street theater", 7], ["mobbing / color mobbing", 7], ["5150 / psych hold", 7], ["gaslighting", 5]];
+const N=88;const pct=(n,t)=>Math.round(100*n/t)+'%';
+document.querySelectorAll('.bars').forEach(el=>{
+  const set=D[el.dataset.set],total=+(el.dataset.total||N);
+  set.forEach(d=>{const r=document.createElement('div');r.className='row';r.tabIndex=0;
+    r.setAttribute('aria-label',d.label+': '+d.n+' of '+total);
+    r.innerHTML='<div class="lab"></div><div class="val">'+d.n+' · '+pct(d.n,total)+'</div><div class="track"><div class="fill" style="width:'+(100*d.n/total)+'%"></div></div>';
+    r.querySelector('.lab').textContent=d.label;
+    r._tip='<b>'+d.n+' of '+total+'</b> ('+pct(d.n,total)+')'+(d.entries&&d.entries.length?'<br>Entries: '+d.entries.map(e=>'#'+e).join(', '):'');
+    el.appendChild(r);});
+});
+document.querySelectorAll('.pbars').forEach(el=>{
+  const k=+el.dataset.scale;
+  PAIRS[el.dataset.pair].forEach(([l,x,y])=>{const r=document.createElement('div');r.className='prow';
+    r.setAttribute('role','img');r.setAttribute('aria-label',l+': '+x+'% vs '+y+'%');
+    r.innerHTML='<div class="lab"></div><div class="val">'+Math.round(x)+'% · '+Math.round(y)+'%</div><div class="pb"><div class="b a" style="width:'+Math.min(100,x*k)+'%"></div><div class="b b" style="width:'+Math.min(100,y*k)+'%"></div></div>';
+    r.querySelector('.lab').textContent=l;el.appendChild(r);});
+});
+document.getElementById('durmed').textContent=D.dur_median;
+const K=[[D.nrep,N,'went to the police, a sheriff or the FBI'],[D.LE.find(x=>x.label.startsWith('Nothing')).n,D.nrep,'of those say nothing came of it'],[D.nys,N,'say a mental-health professional misdiagnosed or labeled them'],[D.E.find(x=>x.label.startsWith('Moved')).n,N,'moved home at least once']];
+document.getElementById('kpis').innerHTML=K.map(([n,t,s])=>'<div class="kpi"><b>'+n+'<small>OF '+t+'</small></b><span>'+s+'</span></div>').join('');
+const xb=document.querySelector('#xg tbody');
+D.XG.forEach(x=>{const tr=document.createElement('tr');
+  tr.innerHTML='<td></td><td>'+x.f+'/'+x.nf+' · '+pct(x.f,x.nf)+'</td><td>'+x.m+'/'+x.nm+' · '+pct(x.m,x.nm)+'</td><td><div class="pair" aria-hidden="true"><div class="b a" style="height:6px;border-radius:0 3px 3px 0;width:'+(100*x.f/x.nf)+'%"></div><div class="b b" style="height:6px;border-radius:0 3px 3px 0;width:'+(100*x.m/x.nm)+'%"></div></div></td><td>'+x.p.toFixed(3)+'</td><td>'+x.holm.toFixed(2)+'</td>';
+  tr.firstChild.textContent=x.label;xb.appendChild(tr);});
+document.getElementById('terms').innerHTML=TERMS.map(([t,n])=>'<span>'+t+'<b>'+n+'</b></span>').join('');
+const cb=document.querySelector('#cb tbody');const GN={W:'Woman',M:'Man','?':'Unclear'};
+D.CB.forEach(r=>{const tr=document.createElement('tr');
+  [String(r.e),GN[r.g],r.r,r.t.join('; ')||'—',r.p.join('; ')||'—',r.ef.join('; ')||'—',r.le,r.mh].forEach(c=>{const td=document.createElement('td');td.textContent=c;tr.appendChild(td);});cb.appendChild(tr);});
+const tip=document.getElementById('tip');
+function show(r,x,y){tip.innerHTML=r._tip;tip.hidden=false;const w=tip.offsetWidth,h=tip.offsetHeight;let L=Math.min(x+14,innerWidth-w-8),T=y+14;if(T+h>innerHeight-8)T=y-h-10;tip.style.left=Math.max(8,L)+'px';tip.style.top=Math.max(8,T)+'px';}
+document.addEventListener('mousemove',e=>{const r=e.target.closest&&e.target.closest('.row');if(r)show(r,e.clientX,e.clientY);else tip.hidden=true;});
+document.addEventListener('focusin',e=>{const r=e.target.closest&&e.target.closest('.row');if(r){const b=r.getBoundingClientRect();show(r,b.left,b.bottom);}});
+document.addEventListener('focusout',()=>{tip.hidden=true;});
+
+</script>
+</body>
+</html>
