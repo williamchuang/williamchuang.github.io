@@ -230,6 +230,17 @@ figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.
 .ln.dash { stroke:var(--alert); stroke-dasharray:5 4; }
 .ln.stop { stroke:var(--alert); }
 .ah { fill:var(--gold-light); }
+/* Comparative model chart */
+.model-chart .axis { stroke:rgba(201,168,76,0.35); stroke-width:1; }
+.model-chart .grid { stroke:rgba(201,168,76,0.10); stroke-width:1; }
+.model-chart .bar-general { fill:#8f8a80; }
+.model-chart .bar-heavy { fill:#7ba8d4; }
+.model-chart .bar-sof { fill:#d4a843; }
+.model-chart .focus-band { fill:rgba(232,112,58,0.08); stroke:rgba(232,112,58,0.28); stroke-width:1; }
+.model-chart .axis-label { fill:var(--muted); font-family:"DM Mono",monospace; font-size:9px; }
+.model-chart .tick-label { fill:var(--muted); font-family:"DM Mono",monospace; font-size:8.5px; text-anchor:middle; }
+.model-chart .legend-label { fill:var(--muted); font-family:"Source Serif 4",serif; font-size:10px; }
+.model-chart .focus-label { fill:var(--alert); font-family:"DM Mono",monospace; font-size:9px; text-anchor:middle; }
 </style>
 </head>
 <body id="top">
@@ -264,7 +275,7 @@ figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.
 <span class="hero-badge">Taiwan · Hainan · Japan</span>
 <span class="hero-badge">Naval Special Warfare</span>
 <span class="hero-badge">Evidence-Graded</span>
-<span class="hero-badge">Research Page · 22 Sep 2026</span>
+<span class="hero-badge">Research Page · 24 Sep 2026</span>
 </div>
 </div>
 </div>
@@ -604,11 +615,11 @@ figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.
 <tr><td>Japanese naval landing force (陸戰隊)</td><td>Consistent with the finding that Taiwanese servicemen on Hainan were mainly in the landing forces (§03).</td></tr>
 <tr><td>Hard open-sea swimming; the shark and the long cloth</td><td>Consistent with naval training and seafaring lore; not unit-specific (§11).</td></tr>
 <tr><td>Platoon leader (小隊長; a post held in the U.S. Marine Corps by a lieutenant (O-1/O-2), and in a U.S. Navy SEAL platoon by a Navy lieutenant (O-3), the same grade as an Army or Marine Corps captain), mostly in southern Hainan</td><td>A platoon command narrows little by itself. "Southern Hainan" could mean Sanya (16th Guard), the southwest around Huangliu (黃流) and Ledong (楽東), pointing to the Yokosuka 4th SNLF (横四特); or the southeast around Lingshui (陵水) and Tengqiao (藤橋, on the Sanya–Lingshui border), pointing to the Sasebo 8th SNLF (佐八特).</td></tr>
-<tr><td>Many engagements with Communist forces</td><td>All three southern formations fought Communist forces; the Communist presence grew in 1943–45.</td></tr>
+<tr><td>Many close-range engagements with Communist forces; opponents usually appeared in groups</td><td>All three southern formations fought Communist forces; the Communist presence grew in 1943–45. The family memory describes repeated short-distance, group-on-group fighting rather than sniper-type engagements.</td></tr>
 <tr><td>Internment, then return to Taiwan</td><td>Typical: thousands waited at Sanya into mid-1946 (§05).</td></tr>
 </tbody></table></div>
 <div class="callout"><span class="kicker">The dating constraint</span><div class="statement">If he entered through the naval volunteer system, he could not have served before late 1943, and a platoon command (in U.S. terms, a lieutenant's post) after so short a time would be unusual. If he went to Hainan earlier as a civilian employee or police auxiliary and converted to volunteer status on the island — the documented Hainan pathway — both his length of service and his rank become easier to explain. The answer to "when did he first go to Hainan?" is the single most useful fact the family could recover.</div></div>
-<div class="theory-disclaimer">The veteran is not named here; he is the author's grandfather (see §13). The story is recorded as oral history, not as proof of any claim above; "we killed more than I could count" is taken as evidence of repeated combat exposure, not as a number, and the civilian deaths described in §04 are part of the context of those sweeps; nothing yet links this man to any particular event.</div>
+<div class="theory-disclaimer">The veteran is not named here; he is the author's grandfather (see §13). The story is family oral history, not a wartime personnel record. When specifically asked how many Communist fighters he himself had personally killed, he answered, <strong>“I personally killed so many Communist fighters that I lost count.”</strong> On another occasion, when pressed for an estimate, he recalled roughly <strong>45–55 or more</strong>. These statements are the principal evidence for his personal total; they are not a verified tally. The civilian deaths described in §04 remain part of the context of the wider sweeps, and nothing yet links this man to any particular event.</div>
 </section>
 
 <!-- AUTHOR -->
@@ -617,20 +628,122 @@ figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.
 <div class="in-brief"><span class="in-brief-label">In brief</span><p>The author is the grandson of the Erlin veteran in §12. This section asks whether that ancestry — a Taiwanese who rose from the lowest rank to platoon leader (in U.S. terms, a lieutenant's post — at the grade of a captain in a Navy SEAL platoon) in a Japanese naval landing force and fought the Qiongya (瓊崖) Communist forces — bears on whether his son or grandson could be trusted or recruited by the PRC, and whether suspecting them on that basis would be reasonable. The estimates are the author's own analytic judgments; subsection D sets out how each was derived, and subsection E compares them with an average Taiwanese adult, so that readers can check them.</p></div>
 <div class="theory-disclaimer"><strong>Disclosure.</strong> The author has a personal interest in this question. The method is therefore stated so that the conclusions do not rest on his word: base rates of espionage, how PRC recruitment works in practice, and how PRC political review (政審) treats family history.</div>
 
-<div class="subsection"><h3>A. The grandfather's record, as estimated</h3>
+<div class="subsection"><h3>A. The grandfather's record: oral-history anchor and comparative model</h3>
 <div class="prose">
-<p>In his own spoken account, given about twenty years ago, the grandfather said that he had killed more men than he could remember. He began at the lowest enlisted rank and rose to platoon leader (小隊長, equivalent to an ROC 排長, platoon leader; a post held in the U.S. Marine Corps by a lieutenant (O-1/O-2), and in a U.S. Navy SEAL platoon by a Navy lieutenant (O-3), the same grade as an Army or Marine Corps captain) — a rise that most likely required service from before 1943, reaching Hainan first as a civilian employee or police auxiliary (probability about 63 in 100; service of any kind before 1943, about 75 in 100; see D1). Combining his account with the island-wide figures in §04 gives the following estimate of his personal total, counting all opponents:</p>
+<p>The strongest evidence for the grandfather's personal combat total is his own testimony, given directly to family members about twenty years ago. When specifically asked how many Communist fighters he himself had personally killed, he answered, <strong>“I personally killed so many Communist fighters that I lost count.”</strong> On another occasion, when asked to estimate rather than answer generally, he recalled approximately <strong>45–55 or more</strong>. His remembered engagements were predominantly at short distance, against Communist adversaries who commonly appeared in groups, and the family remembers combat occurring with very high frequency during roughly twenty-two months of wartime service.</p>
+<p>He began at the lowest enlisted rank and rose to platoon leader (小隊長, equivalent to an ROC 排長, platoon leader; a post normally held in the U.S. Marine Corps by a lieutenant (O-1/O-2), while a U.S. Navy SEAL platoon may be led by a Navy lieutenant (O-3), pay-grade equivalent to an Army or Marine Corps captain). That rise most likely required service from before 1943, reaching Hainan first as a civilian employee or police auxiliary (probability about 63 in 100; service of any kind before 1943, about 75 in 100; see D1).</p>
+<p>The page therefore no longer derives his personal total from island-wide casualty figures. The oral-history estimate is the anchor; the statistical model below asks the narrower question: <em>is a remembered total of at least roughly 45–55 operationally plausible for about twenty-two months of frequent close-range group combat?</em></p>
 </div>
 <div class="data-table-wrap"><table class="data-table">
-<thead><tr><th>Personal total, all opponents</th><th>Probability (out of 100)</th></tr></thead>
+<thead><tr><th>Proposition</th><th>Evidence status</th></tr></thead>
 <tbody>
-<tr><td>Under 20</td><td>9</td></tr>
-<tr><td>20–59</td><td>60</td></tr>
-<tr><td>60–100</td><td>21</td></tr>
-<tr><td>Over 100</td><td>10</td></tr>
+<tr><td>Repeated direct personal killing in close-range combat</td><td>Strong family oral-history evidence</td></tr>
+<tr><td>Approximate remembered personal total</td><td><strong>About 45–55 or more Communist fighters</strong> — family oral-history datum, not a wartime tally</td></tr>
+<tr><td>Exact total</td><td>Unknown</td></tr>
+<tr><td>Under 20</td><td>Difficult to reconcile with the veteran's own recalled estimate</td></tr>
+<tr><td>60–100</td><td>Plausible, but inferential above the remembered anchor</td></tr>
+<tr><td>100+</td><td>Possible, not demonstrated</td></tr>
 </tbody></table></div>
+
+<div class="subsection" id="combat-model"><h3>Comparative model: how unusual is 45–55?</h3>
 <div class="prose">
-<p>The chance that Communist fighters alone numbered 60 or more is about 3 in 100 (derivation in D2). In keeping with §04, the sweeps in which such fighting took place also killed civilians; that belongs to the complete record.</p>
+<p>No comprehensive U.S. database records lifetime personal enemy kills across the Army, Marines, Navy, Reserve components, National Guard, Coast Guard, or federal/state/local law enforcement. Published individual totals are strongly selected toward roles such as snipers and aviators; infantry and special-operations records usually report results at patrol, platoon, or unit level. Law-enforcement national use-of-force data are incident-based rather than career kill ledgers, and participation is voluntary.<sup class="cite-ref"><a href="#ref-37">[37]</a></sup> Accordingly, the distributions below are <strong>reference-class models, not measured historical frequencies</strong>.</p>
+<p>Three empirical anchors constrain the model without turning it into a false census. Pew found that about 29 percent of U.S. veterans reported combat experience,<sup class="cite-ref"><a href="#ref-35">[35]</a></sup> so even before asking about killing an opponent, combat exposure is a minority experience. For one unusually well-documented Vietnam SEAL period, June 1969–April 1970, SEALs in the Mekong Delta conducted 1,192 missions resulting collectively in 581 Viet Cong killed and 193 captured; that calibrates mission-level tempo and lethality but not individual attribution.<sup class="cite-ref"><a href="#ref-36">[36]</a></sup> The FBI's national law-enforcement collection began nationwide in 2019 and records qualifying incidents, not lifetime named-officer totals.<sup class="cite-ref"><a href="#ref-37">[37]</a></sup></p>
+</div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Personal direct kills</th><th>General combat-exposed</th><th>Heavy infantry / recon</th><th>High-tempo raider / SOF</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>35–55%</td><td>15–30%</td><td>5–15%</td></tr>
+<tr><td>1–4</td><td>25–35%</td><td>20–30%</td><td>10–20%</td></tr>
+<tr><td>5–9</td><td>8–15%</td><td>15–20%</td><td>10–15%</td></tr>
+<tr><td>10–19</td><td>4–8%</td><td>12–18%</td><td>15–20%</td></tr>
+<tr><td>20–39</td><td>1–4%</td><td>8–15%</td><td>18–25%</td></tr>
+<tr><td>40–59</td><td>&lt;2%</td><td>4–8%</td><td>10–18%</td></tr>
+<tr><td>60–99</td><td>&lt;1%</td><td>2–5%</td><td>5–12%</td></tr>
+<tr><td>100+</td><td>Very rare</td><td>&lt;2%</td><td>1–5%</td></tr>
+</tbody></table></div>
+<div class="theory-disclaimer"><strong>How to read the table.</strong> These are judgmental uncertainty bands, not confidence intervals and not observed U.S. frequencies. They are deliberately broad. National Guard and Reserve personnel belong in the military comparison when serving in combat, but law enforcement remains a separate exposure regime because its national data are incident-based. If every active, reserve, Guard, Coast Guard, and law-enforcement member were pooled, zero would dominate the distribution and 45–55 would lie in an extreme right tail; the available data do not justify assigning an exact percentile to that pooled population.</div>
+<figure class="diagram model-chart">
+<svg viewBox="0 0 760 410" role="img" aria-labelledby="cmp-t cmp-d">
+<title id="cmp-t">Modeled personal direct-kill distributions by combat exposure</title>
+<desc id="cmp-d">Illustrative grouped-bar reference model comparing general combat-exposed personnel, heavy infantry or reconnaissance personnel, and high-tempo raider or special operations personnel. The 40 to 59 bin is highlighted because the oral-history estimate of 45 to 55 falls within it.</desc>
+<rect x="465" y="62" width="70" height="278" rx="4" class="focus-band"/>
+<text x="500" y="54" class="focus-label">45–55 oral-history anchor</text>
+<line x1="60" y1="330" x2="720" y2="330" class="grid"/>
+<text x="52" y="333" class="axis-label" text-anchor="end">0%</text>
+<line x1="60" y1="280" x2="720" y2="280" class="grid"/>
+<text x="52" y="283" class="axis-label" text-anchor="end">10%</text>
+<line x1="60" y1="230" x2="720" y2="230" class="grid"/>
+<text x="52" y="233" class="axis-label" text-anchor="end">20%</text>
+<line x1="60" y1="180" x2="720" y2="180" class="grid"/>
+<text x="52" y="183" class="axis-label" text-anchor="end">30%</text>
+<line x1="60" y1="130" x2="720" y2="130" class="grid"/>
+<text x="52" y="133" class="axis-label" text-anchor="end">40%</text>
+<line x1="60" y1="80" x2="720" y2="80" class="grid"/>
+<text x="52" y="83" class="axis-label" text-anchor="end">50%</text>
+<line x1="60" y1="80" x2="60" y2="330" class="axis"/>
+<line x1="60" y1="330" x2="720" y2="330" class="axis"/>
+<rect x="75" y="105.0" width="16" height="225.0" rx="2" class="bar-general"/>
+<rect x="94" y="220.0" width="16" height="110.0" rx="2" class="bar-heavy"/>
+<rect x="113" y="280.0" width="16" height="50.0" rx="2" class="bar-sof"/>
+<text x="104" y="350" class="tick-label">0</text>
+<rect x="155" y="180.0" width="16" height="150.0" rx="2" class="bar-general"/>
+<rect x="174" y="205.0" width="16" height="125.0" rx="2" class="bar-heavy"/>
+<rect x="193" y="255.0" width="16" height="75.0" rx="2" class="bar-sof"/>
+<text x="184" y="350" class="tick-label">1–4</text>
+<rect x="235" y="270.0" width="16" height="60.0" rx="2" class="bar-general"/>
+<rect x="254" y="240.0" width="16" height="90.0" rx="2" class="bar-heavy"/>
+<rect x="273" y="265.0" width="16" height="65.0" rx="2" class="bar-sof"/>
+<text x="264" y="350" class="tick-label">5–9</text>
+<rect x="315" y="295.0" width="16" height="35.0" rx="2" class="bar-general"/>
+<rect x="334" y="255.0" width="16" height="75.0" rx="2" class="bar-heavy"/>
+<rect x="353" y="240.0" width="16" height="90.0" rx="2" class="bar-sof"/>
+<text x="344" y="350" class="tick-label">10–19</text>
+<rect x="395" y="315.0" width="16" height="15.0" rx="2" class="bar-general"/>
+<rect x="414" y="275.0" width="16" height="55.0" rx="2" class="bar-heavy"/>
+<rect x="433" y="220.0" width="16" height="110.0" rx="2" class="bar-sof"/>
+<text x="424" y="350" class="tick-label">20–39</text>
+<rect x="475" y="322.5" width="16" height="7.5" rx="2" class="bar-general"/>
+<rect x="494" y="300.0" width="16" height="30.0" rx="2" class="bar-heavy"/>
+<rect x="513" y="265.0" width="16" height="65.0" rx="2" class="bar-sof"/>
+<text x="504" y="350" class="tick-label">40–59</text>
+<rect x="555" y="325.0" width="16" height="5.0" rx="2" class="bar-general"/>
+<rect x="574" y="317.5" width="16" height="12.5" rx="2" class="bar-heavy"/>
+<rect x="593" y="295.0" width="16" height="35.0" rx="2" class="bar-sof"/>
+<text x="584" y="350" class="tick-label">60–99</text>
+<rect x="635" y="327.5" width="16" height="2.5" rx="2" class="bar-general"/>
+<rect x="654" y="327.5" width="16" height="2.5" rx="2" class="bar-heavy"/>
+<rect x="673" y="320.0" width="16" height="10.0" rx="2" class="bar-sof"/>
+<text x="664" y="350" class="tick-label">100+</text>
+<text x="390" y="374" class="axis-label" text-anchor="middle">Personal direct kills</text>
+<rect x="135" y="390" width="12" height="10" rx="2" class="bar-general"/><text x="153" y="399" class="legend-label">General combat-exposed</text>
+<rect x="340" y="390" width="12" height="10" rx="2" class="bar-heavy"/><text x="358" y="399" class="legend-label">Heavy infantry / recon</text>
+<rect x="545" y="390" width="12" height="10" rx="2" class="bar-sof"/><text x="563" y="399" class="legend-label">High-tempo raider / SOF</text>
+</svg>
+<figcaption>Representative center points from the uncertainty bands above, normalized to 100 percent within each reference class. The visual is illustrative, not an empirical U.S. kill-count histogram.</figcaption>
+</figure>
+<div class="prose">
+<p><strong>What the comparison can support.</strong> A remembered total of at least 45–55 would be extraordinary against all uniformed military and law-enforcement personnel, because zero would dominate that pooled population. Against combat-exposed personnel it belongs in a small upper tail; against heavily exposed infantry or reconnaissance personnel it remains high; only within a deliberately selected high-tempo raider/SOF reference class does the 40–59 range become relatively common. Because no career-level U.S. dataset exists, this page does not assign a literal percentile or a historical rank.</p>
+</div>
+</div>
+
+<div class="subsection" id="hainan-plausibility"><h3>Hainan operational plausibility check</h3>
+<div class="prose">
+<p>Roughly twenty-two months is about ninety-five weeks. Family memory describes combat as occurring almost every week, but "combat" may have meant patrol or sweep activity rather than an actual firefight every time. To avoid taking the phrase literally, the model brackets substantive armed contact at roughly <strong>40–60 percent of weeks</strong>, or about <strong>38–57 contacts</strong>. Because both sides usually encountered one another in groups at short distance, personal kills should accumulate in bursts rather than at a constant one-per-contact rate.</p>
+</div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Illustrative personal result in a contact</th><th>Number of contacts</th><th>Contribution</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>18</td><td>0</td></tr>
+<tr><td>1</td><td>14</td><td>14</td></tr>
+<tr><td>2</td><td>8</td><td>16</td></tr>
+<tr><td>3</td><td>4</td><td>12</td></tr>
+<tr><td>4</td><td>2</td><td>8</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>46 substantive contacts</strong></td><td><strong>50 personal kills</strong></td></tr>
+</tbody></table></div>
+<div class="theory-disclaimer">This is a plausibility demonstration, not a reconstruction of what actually happened. It shows why a personal total around 45–55 does not require killing one opponent every week: many contacts can produce zero, while a smaller number of close-range group engagements can produce several personal kills at once. The surviving Yokosuka 4th SNLF battle-report series can eventually test the operational tempo at unit and platoon level (§04, §14).</div>
+</div>
+<div class="prose">
 <p><strong>Who the opponents were, and in what numbers.</strong> According to the family, the grandfather never encountered Western forces; every enemy he fought was Chinese. On the ground the same was true of both units in question: neither the Yokosuka 4th SNLF (横四特) nor the Sasebo 8th SNLF (佐八特) fought Western ground forces on Hainan. Their opponents were Nationalist (Chongqing) security and guerrilla units, local armed groups, and — increasingly, and in the later war above all — the Qiongya Communist forces, whose successor formation was later incorporated into the People's Liberation Army.</p>
 </div>
 <div class="data-table-wrap"><table class="data-table">
@@ -707,18 +820,8 @@ figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.
 </tbody></table></div>
 <div class="prose">
 <p>Service before 1943 = 63 + (0.6 × 15) + (0.5 × 6) ≈ 75 in 100, assuming 60 percent of auxiliary-route men and half of "other" began before 1943. Promotion mainly for combat: factors weighted combat performance 0.50, filling casualty gaps 0.20, language or liaison value 0.15, seniority 0.15; since casualty gaps were usually filled by proven fighters, half of that factor also counts as combat, giving 0.50 + (0.5 × 0.20) = 60 in 100.</p>
-<p><strong>D2. His personal total, all opponents.</strong> Model: K = (Communist dead attributable to a heavily engaged platoon) × (all-opponents multiplier) × (his personal share) × (service-length factor).</p>
-</div>
-<div class="data-table-wrap"><table class="data-table">
-<thead><tr><th>Input</th><th>Range</th><th>Central</th><th>Basis</th></tr></thead>
-<tbody>
-<tr><td>Communist dead, heavily engaged platoon, late war</td><td>30–100</td><td>55</td><td>Island-wide Communist dead scaled to naval forces and concentrated in the most active 20–30 percent of platoons (§13 A)</td></tr>
-<tr><td>All-opponents multiplier (adds Nationalist and local armed groups, and others)</td><td>2–3</td><td>2.5</td><td>Composition of opponents in Japanese records (§04)</td></tr>
-<tr><td>His personal share of the platoon's total</td><td>0.10–0.25</td><td>0.16</td><td>Average share in a platoon of 30–50 is 2–3 percent; ×4–8 for an exceptional fighter who later led</td></tr>
-<tr><td>Service-length factor</td><td>1.0–2.0</td><td>1.5</td><td>75 in 100 chance of service before 1943, including the heavy 1941–42 sweeps</td></tr>
-</tbody></table></div>
-<div class="prose">
-<p>Median: 55 × 2.5 × 0.16 × 1.5 ≈ 33, taken as 35. Spread: the input ranges combine to a log-standard deviation of about 0.52; adding 0.5 for uncertainty about whether the platoon was heavily engaged gives σ ≈ 0.72 on a lognormal distribution. That gives, before his testimony: under 20, 22; 20–59, 55; 60–100, 16; over 100, 7. His statement that he killed "more than I could remember" is then weighted by its likelihood in each band — 0.3, 0.8, 1.0, 1.0 — giving after the update: 9, 60, 21, 10. Communist fighters alone numbering 60 or more requires K ≥ 150 at the 2.5 multiplier: about 2 in 100 before the update and 3 after.</p>
+<p><strong>D2. His personal total: oral-history anchor and operational plausibility.</strong> The personal total is no longer derived from island-wide casualty figures. The primary datum is the veteran's own recollection: when specifically asked how many Communist fighters he personally killed, he answered that he had killed so many that he had lost count; when pressed on another occasion for an estimate, he recalled roughly 45–55 or more. The model therefore tests plausibility rather than generating the number.</p>
+<p>Twenty-two months is about 95 weeks. Treating the family phrase "combat almost every week" conservatively as 40–60 percent of weeks involving substantive armed contact gives about 38–57 contacts. A lumpy close-range distribution is more realistic than one kill per engagement: many contacts produce zero, while some group encounters produce two, three, four, or more personal kills. The illustrative 46-contact sequence in §13A produces 50 personal kills with 18 zero-kill contacts, 14 one-kill contacts, 8 two-kill contacts, 4 three-kill contacts, and 2 four-kill contacts. This demonstrates that the oral-history estimate is operationally plausible without claiming that this exact sequence occurred. Values above 55 remain possible but increasingly inferential; 100+ is not demonstrated by the present evidence.</p>
 <p><strong>D3. Accepted into the CCP, the PLA, or a PRC post of political trust (&lt; 1).</strong> These require PRC nationality, residency, and political review; Taiwanese residents of Taiwan are outside those channels. Taiwanese who crossed over and received PRC positions over seven decades number in the dozens — for example, 林毅夫, who left the ROC Army in 1979 — against some 23 million Taiwanese: on the order of one in a million. The "&lt; 1" is deliberately generous.</p>
 <p><strong>D4. The same, inside PRC political review with this family history (2–5).</strong> Probability of passing review for a sensitive post as a PRC national with a clean record, about 0.9 (judgment); × Taiwanese origin treated as a foreign-connection factor, 0.1 (judgment); × anti-Communist combat or collaborator lineage in reviews for sensitive units, 0.3–0.5 (judgment): 0.9 × 0.1 × 0.3–0.5 ≈ 2.7–4.5 percent. Ordinary enlistment review generally examines parents and immediate family, not grandparents; the grandfather's weight applies mainly to sensitive posts.</p>
 <p><strong>D5. Approached by PRC intelligence or United Front outreach, ordinary private citizen (1–6).</strong> Taiwan's 64 espionage prosecutions a year,<sup class="cite-ref"><a href="#ref-33">[33]</a></sup> with an assumed 10–100 approaches behind each, plus United Front programs (subsidized trips, temple and youth exchanges) reaching thousands a year, suggest roughly 10,000–50,000 Taiwanese contacted each year: 0.04–0.2 percent a person a year. Over a 30-year career, 1 − (1 − p)<sup>30</sup> ≈ 1.3–6.2 percent.</p>
@@ -806,13 +909,16 @@ figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.
 <li id="ref-32">Hainan Province. 海南省抗戰時期人口傷亡和財產損失調研報告 [Survey report on population casualties and property losses in Hainan Province during the War of Resistance], as republished by <a href="https://www.krzzjn.com/show-775-60383.html" rel="noopener" target="_blank">抗日戰爭紀念網 [Anti-Japanese War Memorial Network]</a>. Figure cited from secondary reporting; not yet verified against the report text.</li>
 <li id="ref-33">Taiwan National Security Bureau figures as reported in <a href="https://www.cnn.com/2025/01/13/china/taiwan-surge-suspected-chinese-espionage-hnk-intl/index.html" rel="noopener" target="_blank">CNN, "Taiwan sees threefold surge in suspected Chinese espionage cases" (13 January 2025)</a>; Central European Institute of Asian Studies, <a href="https://ceias.eu/a-threat-from-within-chinese-espionage-in-taiwan/" rel="noopener" target="_blank">"A threat from within: Chinese espionage in Taiwan"</a>.</li>
 <li id="ref-34">Ken McCallum, Director General of the UK Security Service (MI5), remarks at the Five Eyes security summit, Palo Alto, October 2023, as widely reported (statement that more than 20,000 people in Britain had been approached covertly online by Chinese intelligence).</li>
+<li id="ref-35">Pew Research Center. <a href="https://www.pewresearch.org/social-trends/2019/09/10/deployment-combat-and-their-consequences/" rel="noopener" target="_blank">“Deployment, combat and their consequences”</a>, 10 September 2019. About 29 percent of U.S. veterans surveyed reported combat experience at some point in their military career.</li>
+<li id="ref-36">Naval History and Heritage Command. <a href="https://www.history.navy.mil/content/dam/nhhc/research/publications/publication-508-pdf/WITS_508.pdf" rel="noopener" target="_blank"><em>War in the Shallows: U.S. Navy Coastal and Riverine Warfare in Vietnam, 1965–1968</em> / NHHC publication PDF</a>. The cited retrospective notes that from June 1969 through April 1970, SEALs in the Mekong Delta conducted 1,192 missions resulting collectively in 581 Viet Cong killed and 193 captured.</li>
+<li id="ref-37">Federal Bureau of Investigation. <a href="https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/ucr/use-of-force" rel="noopener" target="_blank">National Use-of-Force Data Collection</a>; see also the FBI's <a href="https://www.fbi.gov/news/press-releases/fbi-releases-2019-participation-data-for-the-national-use-of-force-data-collection" rel="noopener" target="_blank">2019 participation release</a>. Nationwide collection began 1 January 2019; participation is voluntary; qualifying reports are incident-based rather than lifetime career kill totals.</li>
 </ol>
-<div class="cite-this"><strong>How to cite this page.</strong> Chuang, William Huanshan. "Before the Frogmen: Hainan, the Taiwanese Naval Network, and the Origins of Taiwan's Navy Frogmen, 1939–1954." Logarchéon Research, 22 September 2026.</div>
+<div class="cite-this"><strong>How to cite this page.</strong> Chuang, William Huanshan. "Before the Frogmen: Hainan, the Taiwanese Naval Network, and the Origins of Taiwan's Navy Frogmen, 1939–1954." Logarchéon Research, 24 September 2026.</div>
 </div>
 </main>
 </div>
 <footer>
-<p>William Huanshan Chuang · Logarchéon Inc. · Research Page · 22 Sep 2026</p>
+<p>William Huanshan Chuang · Logarchéon Inc. · Research Page · 24 Sep 2026</p>
 </footer>
 </div>
 </body>
