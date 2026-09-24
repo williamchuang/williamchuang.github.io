@@ -254,8 +254,8 @@ figure.chart figcaption { display:block; margin-bottom:0.9rem; }
 .fill { height:100%; background:linear-gradient(90deg,var(--gold-dim) 0%,var(--gold) 100%); border-radius:0 3px 3px 0; }
 .pb { grid-column:1 / -1; display:grid; gap:3px; }
 .pb .b { height:6px; border-radius:0 3px 3px 0; min-width:2px; }
-.b.a, .sw.a { background:var(--gold); }
-.b.b, .sw.b { background:var(--c-canon); }
+.s-a { background:var(--gold); }
+.s-b { background:var(--c-canon); }
 .legend { display:flex; flex-wrap:wrap; gap:1rem; margin:0 0 0.8rem; font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
 .legend .sw { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:0.45rem; vertical-align:-1px; }
 .pair { display:grid; gap:3px; min-width:130px; }
@@ -278,6 +278,11 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 .totals-card .data-table-wrap { margin:0.6rem 0; box-shadow:none; }
 .totals-card table.data-table { min-width:0; }
 .totals-card .data-table td { padding:0.45rem 0.8rem; font-size:0.78rem; }
+.callout.assessment { margin:0 0 1.8rem; }
+.callout.assessment .research-backing { margin-top:1.1rem; padding-top:0.9rem; border-top:1px solid var(--hairline); max-width:none; }
+.callout.assessment .research-backing p { font-size:0.88rem; color:var(--body-text); }
+.callout.assessment .research-backing p:last-child { color:var(--muted); font-style:italic; }
+.callout.assessment .row-label { display:block; margin:0 0 0.6rem; }
 
 </style>
 </head>
@@ -322,7 +327,7 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 </div>
 <div class="hero-methods">
 <span class="method-label">Abstract</span>
-<p>Ninety entries from 89 people were read completely and coded by hand against a fixed list of tactics, people involved, effects, and police and mental-health outcomes. The accounts share one pattern. Writers describe being followed in public and on the road, having their property damaged, and being watched. Two in three went to the police, a sheriff or the FBI, and over half of those say nothing came of it. Nearly half say a mental-health professional misdiagnosed them, most often with schizophrenia or a paranoid disorder. Moving house, again and again, is the most common effect. By first name, 44 of the 89 writers are women and 38 are men, so the hypothesis that most are women is not supported (p ≈ 0.29). Estimates from names show the writers lean white and less Hispanic than their own ZIP codes, and no writer has a Chinese or Korean surname. That points to how the organization gathered testimony, not to who experiences this. The page reports what the writers say and sets out both readings of such accounts without deciding between them.</p>
+<p>Ninety entries from 89 people were read completely and coded by hand against a fixed list of tactics, people involved, effects, and police and mental-health outcomes. The accounts share one pattern. Writers describe being followed in public and on the road, having their property damaged, and being watched. Two in three went to the police, a sheriff or the FBI, and over half of those say nothing came of it. Nearly half say a mental-health professional misdiagnosed them, most often with schizophrenia or a paranoid disorder. Moving house, again and again, is the most common effect. By first name, 44 of the 89 writers are women and 38 are men, so the hypothesis that most are women is not supported (p ≈ 0.29). Estimates from names show the writers lean white and less Hispanic than their own ZIP codes, and no writer has a Chinese or Korean surname. That points to how the organization gathered testimony, not to who experiences this. The page reports what the writers say without deciding what the accounts show.</p>
 </div>
 <div class="hero-badges">
 <span class="hero-badge">Content Analysis</span>
@@ -352,8 +357,7 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 <li class="toc-part">III · Assessment</li>
 <li><a class="toc-link" href="#gender">08 · Women and Men</a></li>
 <li><a class="toc-link" href="#words">09 · Shared Vocabulary</a></li>
-<li><a class="toc-link" href="#readings">10 · Two Readings</a></li>
-<li><a class="toc-link" href="#limits">11 · Limits</a></li>
+<li><a class="toc-link" href="#limits">10 · Limits</a></li>
 <li class="toc-part">Apparatus</li>
 <li><a class="toc-link" href="#codebook">Codebook</a></li>
 <li><a class="toc-link" href="#sources">References</a></li>
@@ -363,6 +367,15 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 
 <section class="page-section" id="finding">
 <div class="section-header"><span class="section-num">00</span><h2 class="section-title">Core Finding</h2></div>
+<div class="callout assessment"><span class="kicker">Author&rsquo;s assessment &middot; fear and isolation as methods</span>
+<p class="statement" style="font-size:1.12rem">The author reads the pattern as having two main purposes, among others. <strong>First, a fear campaign</strong>, which, in the author&rsquo;s view, religious faith, prayer and practice can cancel entirely. <strong>Second, isolating targets in order to map their network</strong>, then applying the same treatment to each person in it.</p>
+<div class="prose research-backing">
+<span class="row-label">What research on torture says</span>
+<p><em>Fear.</em> In his 2020 report to the UN Human Rights Council on psychological torture, the Special Rapporteur on Torture, Nils Melzer, calls &ldquo;the deliberate and purposeful infliction of fear&rdquo; &ldquo;perhaps the most rudimentary method of psychological torture.&rdquo; He adds that &ldquo;prolonged experience of fear can be more debilitating and agonizing than the actual materialization of that fear.&rdquo;<span class="cite-ref"><a href="#ref-6">6</a></span> This collection was submitted to his office&rsquo;s call for input.<span class="cite-ref"><a href="#ref-4">4</a></span></p>
+<p><em>Isolation and the network.</em> The same report lists the basic human needs that psychological torture attacks. They include security (&ldquo;inducing fear, phobia and anxiety&rdquo;), &ldquo;social and emotional rapport (isolation, exclusion, emotional manipulation)&rdquo; and &ldquo;communal trust.&rdquo; It names cyber-harassment, surveillance, public shaming and defamation as ways to inflict such suffering.<span class="cite-ref"><a href="#ref-6">6</a></span> The best-documented case of targeting a person through their network is the East German Stasi&rsquo;s <em>Zersetzung</em> (&ldquo;decomposition&rdquo;). Its Directive 1/76 (January 1976) prescribed the &ldquo;systematic degradation of reputation, image, and prestige&rdquo; and the &ldquo;systematic engineering of social and professional failures.&rdquo; Its stated goal was the &ldquo;fragmentation, paralysis, disorganization, and isolation&rdquo; of targets, and officers worked through the target&rsquo;s friends, family and colleagues. The historian Mike Dennis estimates 4,500&ndash;5,000 such cases a year in 1985&ndash;88.<span class="cite-ref"><a href="#ref-8">8</a></span></p>
+<p><em>Faith.</em> Studies of torture survivors find that prior conviction protects. Ba&#351;o&#287;lu and colleagues (1997) compared 55 tortured political activists with 34 survivors who had no political involvement. Those without prior commitment suffered more during torture and more afterward, even though their torture had been less severe.<span class="cite-ref"><a href="#ref-7">7</a></span> The protective factor was commitment to the very cause for which the person was targeted. It follows that where the persecution is aimed at the faith itself, as in the PRC&rsquo;s campaigns against Catholics loyal to Rome, religious faith, prayer and practice are that commitment. The believer knows why he is targeted and what he holds to, and the fear loses its purchase.</p>
+<p>These sources show how fear and isolation work where they are proven to have been used. They do not by themselves show that the harassment the writers describe is organized this way.</p>
+</div></div>
 <div class="kpi-grid" id="kpis"></div>
 <div class="callout"><span class="kicker">In one sentence</span><p class="statement">The writers describe one recurring pattern, being followed, watched and undermined by strangers and neighbors; they say the police rarely acted and clinicians called them ill; and the sample itself reflects the organization's own network more than California's population.</p></div>
 </section>
@@ -370,7 +383,7 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 <section class="page-section" id="method">
 <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Source and Method</h2></div>
 <div class="prose">
-<p>The source is a compiled PDF of 90 testimony forms, dated June to October 2019 (one dated 2018), submitted by the group Advocacy for Humankind to the UN Office of the High Commissioner for Human Rights (OHCHR), under the NGO submissions to the Special Rapporteur on Torture.<span class="cite-ref"><a href="#ref-6">6</a></span> A companion submission reports survey counts of 417 self-reported victims across California, gathered by two support groups, with no breakdown by gender, age or ethnicity.<span class="cite-ref"><a href="#ref-7">7</a></span> The form asked for name, city and ZIP, then four questions: whether the person had experienced coordinated stalking, reported it to law enforcement, been misdiagnosed by mental-health professionals, and what the effects on their life had been. Later forms added a question on moving.</p>
+<p>The source is a compiled PDF of 90 testimony forms, dated June to October 2019 (one dated 2018), submitted by the group Advocacy for Humankind to the UN Office of the High Commissioner for Human Rights (OHCHR), under the NGO submissions to the Special Rapporteur on Torture.<span class="cite-ref"><a href="#ref-4">4</a></span> A companion submission reports survey counts of 417 self-reported victims across California, gathered by two support groups, with no breakdown by gender, age or ethnicity.<span class="cite-ref"><a href="#ref-5">5</a></span> The form asked for name, city and ZIP, then four questions: whether the person had experienced coordinated stalking, reported it to law enforcement, been misdiagnosed by mental-health professionals, and what the effects on their life had been. Later forms added a question on moving.</p>
 <p>Two people sent the form twice (#22/#23 and #85/#86), so these were merged, giving <strong>88 testimonies</strong>. Entry 13 is written by two sisters, so the count of people is <strong>89</strong>. Each testimony was read completely and coded against a fixed list; a keyword search served as a cross-check. Hover or focus any bar to see the entry numbers behind it.</p>
 </div>
 </section>
@@ -398,9 +411,9 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 </div>
 <div class="chart-grid">
 <figure class="chart"><figcaption><span class="ch-title">Estimated ethnicity vs. their ZIP codes</span><span class="ch-cap">84 people with a usable ZIP code · Census 2010 groups</span></figcaption>
-<div class="legend"><span><i class="sw a"></i>Writers (estimated)</span><span><i class="sw b"></i>Their ZIP codes</span></div><div class="pbars" data-pair="ETH" data-scale="1.4"></div></figure>
+<div class="legend"><span><i class="sw s-a"></i>Writers (estimated)</span><span><i class="sw s-b"></i>Their ZIP codes</span></div><div class="pbars" data-pair="ETH" data-scale="1.4"></div></figure>
 <figure class="chart"><figcaption><span class="ch-title">Age groups in 2019, from first names</span><span class="ch-cap">79 people whose first names are common enough in Social Security records</span></figcaption>
-<div class="legend"><span><i class="sw a"></i>Writers (estimated)</span><span><i class="sw b"></i>US adults</span></div><div class="pbars" data-pair="AGE" data-scale="3.5"></div></figure>
+<div class="legend"><span><i class="sw s-a"></i>Writers (estimated)</span><span><i class="sw s-b"></i>US adults</span></div><div class="pbars" data-pair="AGE" data-scale="3.5"></div></figure>
 </div></div>
 <div class="subsection"><h3>Surname origin</h3>
 <div class="prose">
@@ -445,6 +458,8 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 <div class="section-header"><span class="section-num">07</span><h2 class="section-title">Effects on Their Lives</h2></div>
 <div class="prose"><p>Moving house is the most common effect, and it is often repeated. Several writers say they moved five, nine or “over 10” times, and that the harassment started again at each new address. Next come emotional strain, money, isolation and losing work. The typical story is a slide: job, then savings, then friends and family, sometimes all the way to homelessness.</p></div>
 <figure class="chart wide"><figcaption><span class="ch-title">Effects described</span><span class="ch-cap">Share of 88 testimonies</span></figcaption><div class="bars" data-set="E"></div></figure>
+<div class="subsection"><h3>What the writers say it is for</h3>
+<div class="prose"><p>Several writers describe the harassment as having a purpose, not only effects. The most common is fear. Nineteen testimonies describe living in fear, and some name it as the aim: #51 says a confrontation&rsquo;s &ldquo;intent &hellip; was to invoke fear,&rdquo; and #67 describes &ldquo;scare tactics to keep me in fear of my life 24/7.&rdquo; The second is isolation. Thirty-two testimonies describe losing friends or being cut off, ten say family members were also targeted, and #91 describes strangers who &ldquo;want to become friends only to turn out as perpetrators gathering intel in order to influence old friends.&rdquo; Four writers name religious faith as what sustains them; none says faith ended the harassment. These are the writers&rsquo; own interpretations, and the page reports them as such.</p></div></div>
 <div class="callout alert"><span class="kicker">Sensitive</span><p class="statement" style="font-size:1.05rem">Five testimonies mention thinking about death or suicide, and one describes a past attempt. One writer (#62) says her father described the same experience in letters he left before his suicide in 1992.</p></div>
 </section>
 
@@ -460,7 +475,7 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 </tbody></table></div></div>
 <div class="subsection"><h3>What women and men describe</h3>
 <div class="prose"><p>This compares the 43 testimonies from women with the 38 from men. The biggest gap is fear and staying at home: 35% of women mention it, against 11% of men. Women also mention physical health decline, family strain and involuntary holds more often. But the sample is small and 27 comparisons were made. Once that is accounted for, none of the differences is statistically reliable. Treat them as leads for a larger study, not findings.</p></div>
-<div class="legend"><span><i class="sw a"></i>Women (n = 43)</span><span><i class="sw b"></i>Men (n = 38)</span></div>
+<div class="legend"><span><i class="sw s-a"></i>Women (n = 43)</span><span><i class="sw s-b"></i>Men (n = 38)</span></div>
 <div class="data-table-wrap"><table class="data-table" id="xg"><thead><tr><th>Item</th><th>Women</th><th>Men</th><th>Compared</th><th>p</th><th>p, corrected</th></tr></thead><tbody></tbody></table></div>
 <p class="note-sm">Fisher's exact test, two-sided; Holm correction for multiple comparisons. The 7 testimonies whose gender is unclear are left out.</p>
 </div>
@@ -472,16 +487,8 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 <div class="terms" id="terms"></div>
 </section>
 
-<section class="page-section" id="readings">
-<div class="section-header"><span class="section-num">10</span><h2 class="section-title">Two Readings of the Same Accounts</h2></div>
-<div class="prose">
-<p>These are unverified first-person accounts. The collection presents them as evidence of real crimes and asks for legislation. The published clinical research reads the same kind of account differently. Sheridan and James (2015) studied 128 people who described group stalking and judged all of them likely to be delusional, while noting that they suffer “marked psychological and practical” harm.<span class="cite-ref"><a href="#ref-1">1</a></span> A 2020 content analysis of 50 such accounts found the same main themes as this collection: being followed or watched (94%) and isolation (34%).<span class="cite-ref"><a href="#ref-2">2</a></span></p>
-<p>This page reports what the writers say, including the details that cut in either direction: a PET scan read as normal and an officer-misconduct complaint sustained by a sheriff's department on one side, and on the other a 72-hour observation that followed a writer firing a gun into her ceiling at a suspected intruder. It does not decide between the two readings.</p>
-</div>
-</section>
-
 <section class="page-section" id="limits">
-<div class="section-header"><span class="section-num">11</span><h2 class="section-title">Limits</h2></div>
+<div class="section-header"><span class="section-num">10</span><h2 class="section-title">Limits</h2></div>
 <div class="mechanism-grid">
 <div class="mech"><span class="mnum">COUNT</span><h4>Mentions, not prevalence</h4><p>A count means a testimony mentions something. A short answer like “Yes. Yes. No.” cannot be coded, so every percentage is a lower bound.</p></div>
 <div class="mech"><span class="mnum">FORM</span><h4>The questions shape answers</h4><p>The form asked about police, misdiagnosis, moving and effects, so those topics appear more than they might in free accounts.</p></div>
@@ -501,13 +508,14 @@ details.cb .cbwrap { margin:0; border:0; border-top:1px solid var(--hairline); b
 <div class="references" id="sources">
 <h2>References</h2>
 <ol class="ref-list">
-<li id="ref-1">Sheridan, Lorraine P., and David V. James. “Complaints of group-stalking (‘gang-stalking’): an exploratory study of their nature and impact on complainants.” <em>Journal of Forensic Psychiatry &amp; Psychology</em> 26, no. 5 (2015). <a href="https://www.tandfonline.com/doi/abs/10.1080/14789949.2015.1054857" rel="noopener" target="_blank">doi:10.1080/14789949.2015.1054857</a>.</li>
-<li id="ref-2">Sheridan, Lorraine, David V. James, and Jayden Roth. “The Phenomenology of Group Stalking (‘Gang-Stalking’): A Content Analysis of Subjective Experiences.” <em>International Journal of Environmental Research and Public Health</em> 17, no. 7 (2020): 2506. <a href="https://www.mdpi.com/1660-4601/17/7/2506" rel="noopener" target="_blank">mdpi.com/1660-4601/17/7/2506</a>.</li>
-<li id="ref-3">U.S. Census Bureau. <a href="https://www.census.gov/topics/population/genealogy/data/2010_surnames.html" rel="noopener" target="_blank">Frequently Occurring Surnames from the 2010 Census</a>; 2010 race and ethnicity by ZIP Code Tabulation Area, as packaged in the open-source <em>surgeo</em> library.</li>
-<li id="ref-4">Tzioumis, Konstantinos. “Demographic aspects of first names.” <em>Scientific Data</em> 5 (2018): 180025. First-name tables as packaged in <em>surgeo</em>.</li>
-<li id="ref-5">U.S. Social Security Administration. <a href="https://www.ssa.gov/oact/babynames/limits.html" rel="noopener" target="_blank">Beyond the Top 1000 Names: national data</a>, 1880–2016.</li>
-<li id="ref-6">Advocacy for Humankind. <em>Testimonies of Coordinated Stalking by Multiple Persons from California Residents and Former California Residents</em> (compiled PDF, 90 entries, 2019). Submission to OHCHR, Special Rapporteur on Torture, call for input (NGOs). <a href="https://web.archive.org/web/20200930111413/https://www.ohchr.org/Documents/Issues/Torture/Call/NGOs/Advforhumankind4.pdf" rel="noopener" target="_blank">Archived copy (Wayback Machine, 30 Sep 2020)</a>. Source document for all counts.</li>
-<li id="ref-7">Advocacy for Humankind, with the Bay Area Support Group and the Surveillance Harassment Survivors Alliance. <em>AFH Data on Self-Reported Victims of Coordinated Stalking in California</em> (undated). Submission to OHCHR. <a href="https://www.ohchr.org/sites/default/files/Documents/Issues/Torture/Call/NGOs/Advforhumankind2.pdf" rel="noopener" target="_blank">ohchr.org</a>.</li>
+<li id="ref-1">U.S. Census Bureau. <a href="https://www.census.gov/topics/population/genealogy/data/2010_surnames.html" rel="noopener" target="_blank">Frequently Occurring Surnames from the 2010 Census</a>; 2010 race and ethnicity by ZIP Code Tabulation Area, as packaged in the open-source <em>surgeo</em> library.</li>
+<li id="ref-2">Tzioumis, Konstantinos. “Demographic aspects of first names.” <em>Scientific Data</em> 5 (2018): 180025. First-name tables as packaged in <em>surgeo</em>.</li>
+<li id="ref-3">U.S. Social Security Administration. <a href="https://www.ssa.gov/oact/babynames/limits.html" rel="noopener" target="_blank">Beyond the Top 1000 Names: national data</a>, 1880–2016.</li>
+<li id="ref-4">Advocacy for Humankind. <em>Testimonies of Coordinated Stalking by Multiple Persons from California Residents and Former California Residents</em> (compiled PDF, 90 entries, 2019). Submission to OHCHR, Special Rapporteur on Torture, call for input (NGOs). <a href="https://web.archive.org/web/20200930111413/https://www.ohchr.org/Documents/Issues/Torture/Call/NGOs/Advforhumankind4.pdf" rel="noopener" target="_blank">Archived copy (Wayback Machine, 30 Sep 2020)</a>. Source document for all counts.</li>
+<li id="ref-5">Advocacy for Humankind, with the Bay Area Support Group and the Surveillance Harassment Survivors Alliance. <em>AFH Data on Self-Reported Victims of Coordinated Stalking in California</em> (undated). Submission to OHCHR. <a href="https://www.ohchr.org/sites/default/files/Documents/Issues/Torture/Call/NGOs/Advforhumankind2.pdf" rel="noopener" target="_blank">ohchr.org</a>.</li>
+<li id="ref-6">Melzer, Nils. <em>Psychological Torture and Ill-Treatment: Report of the Special Rapporteur on Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment</em>. UN Human Rights Council, A/HRC/43/49, 2020, paras. 46&ndash;48, 85. <a href="https://www.ohchr.org/en/documents/thematic-reports/ahrc4349-report-psychological-torture-and-ill-treatment" rel="noopener" target="_blank">ohchr.org</a>.</li>
+<li id="ref-7">Ba&#351;o&#287;lu, Metin, et al. &ldquo;Psychological preparedness for trauma as a protective factor in survivors of torture.&rdquo; <em>Psychological Medicine</em> 27, no. 6 (1997): 1421&ndash;1433. <a href="https://www.cambridge.org/core/journals/psychological-medicine/article/abs/psychological-preparedness-for-trauma-as-a-protective-factor-in-survivors-of-torture/020D65526D6A54E44422D87F8D1CEB92" rel="noopener" target="_blank">cambridge.org</a>.</li>
+<li id="ref-8">On <em>Zersetzung</em> and Stasi Directive 1/76: Sandra Pingel-Schliemann, <em>Zersetzen: Strategie einer Diktatur</em> (2004); Mike Dennis, <em>The Stasi: Myth and Reality</em> (2003); overview with translated excerpts at <a href="https://en.wikipedia.org/wiki/Zersetzung" rel="noopener" target="_blank">Wikipedia, &ldquo;Zersetzung&rdquo;</a>.</li>
 </ol>
 <div class="cite-this"><strong>How to cite this page.</strong> Chuang, William Huanshan. “Coordinated Stalking Testimonies: A Coded Reading of 88 California Accounts, 2019.” Logarchéon Research, 24 September 2026. <span style="font-family:'DM Mono',monospace;font-size:0.72rem;">/coordinated-stalking-testimonies/</span></div>
 </div>
@@ -535,7 +543,7 @@ document.querySelectorAll('.pbars').forEach(el=>{
   const k=+el.dataset.scale;
   PAIRS[el.dataset.pair].forEach(([l,x,y])=>{const r=document.createElement('div');r.className='prow';
     r.setAttribute('role','img');r.setAttribute('aria-label',l+': '+x+'% vs '+y+'%');
-    r.innerHTML='<div class="lab"></div><div class="val">'+Math.round(x)+'% · '+Math.round(y)+'%</div><div class="pb"><div class="b a" style="width:'+Math.min(100,x*k)+'%"></div><div class="b b" style="width:'+Math.min(100,y*k)+'%"></div></div>';
+    r.innerHTML='<div class="lab"></div><div class="val">'+Math.round(x)+'% · '+Math.round(y)+'%</div><div class="pb"><div class="b s-a" style="width:'+Math.min(100,x*k)+'%"></div><div class="b s-b" style="width:'+Math.min(100,y*k)+'%"></div></div>';
     r.querySelector('.lab').textContent=l;el.appendChild(r);});
 });
 document.getElementById('durmed').textContent=D.dur_median;
@@ -543,7 +551,7 @@ const K=[[D.nrep,N,'went to the police, a sheriff or the FBI'],[D.LE.find(x=>x.l
 document.getElementById('kpis').innerHTML=K.map(([n,t,s])=>'<div class="kpi"><b>'+n+'<small>OF '+t+'</small></b><span>'+s+'</span></div>').join('');
 const xb=document.querySelector('#xg tbody');
 D.XG.forEach(x=>{const tr=document.createElement('tr');
-  tr.innerHTML='<td></td><td>'+x.f+'/'+x.nf+' · '+pct(x.f,x.nf)+'</td><td>'+x.m+'/'+x.nm+' · '+pct(x.m,x.nm)+'</td><td><div class="pair" aria-hidden="true"><div class="b a" style="height:6px;border-radius:0 3px 3px 0;width:'+(100*x.f/x.nf)+'%"></div><div class="b b" style="height:6px;border-radius:0 3px 3px 0;width:'+(100*x.m/x.nm)+'%"></div></div></td><td>'+x.p.toFixed(3)+'</td><td>'+x.holm.toFixed(2)+'</td>';
+  tr.innerHTML='<td></td><td>'+x.f+'/'+x.nf+' · '+pct(x.f,x.nf)+'</td><td>'+x.m+'/'+x.nm+' · '+pct(x.m,x.nm)+'</td><td><div class="pair" aria-hidden="true"><div class="b s-a" style="height:6px;border-radius:0 3px 3px 0;width:'+(100*x.f/x.nf)+'%"></div><div class="b s-b" style="height:6px;border-radius:0 3px 3px 0;width:'+(100*x.m/x.nm)+'%"></div></div></td><td>'+x.p.toFixed(3)+'</td><td>'+x.holm.toFixed(2)+'</td>';
   tr.firstChild.textContent=x.label;xb.appendChild(tr);});
 document.getElementById('terms').innerHTML=TERMS.map(([t,n])=>'<span>'+t+'<b>'+n+'</b></span>').join('');
 const cb=document.querySelector('#cb tbody');const GN={W:'Woman',M:'Man','?':'Unclear'};
