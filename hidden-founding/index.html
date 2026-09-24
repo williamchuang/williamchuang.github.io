@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>The Hidden Founding: Catholic Agency and Irony in the Making of the United States — William Chuang · Logarchéon</title>
+<meta content="An evidence-graded account of the Catholic contribution to the American founding — decisive, largely absent from the national narrative, and repeatedly ironic — with a merged timeline of the military-religious orders, the Society of Jesus, the East India Company, and the three cities from 1048 to the present." name="description"/>
+<meta content="The Hidden Founding: Catholic Agency and Irony in the Making of the United States" property="og:title"/>
+<meta content="A revolution that denounced Catholic toleration was won with Catholic money, ships and soldiers; the first American bishop owed his appointment to a Protestant deist he had nursed through illness." property="og:description"/>
+<link href="https://williamchuang.github.io/hidden-founding/" rel="canonical"/>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   THE TALENT AND THE THRONE — Logarchéon Research
+   Design System v2  ·  William Huanshan Chuang
+   Palette: deep navy × archival gold × documentary white
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+TC:wght@300;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+
+:root {
+  --navy:#0b1929; --navy-deep:#070f1a; --navy-mid:#0f2237; --navy-light:#162d52; --navy-rim:#1e3a64; --navy-glass:rgba(11,25,41,0.92);
+  --gold-bright:#d4a843; --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#8a6c2e; --gold-ink:#6b521f;
+  --gold-pale:rgba(201,168,76,0.12); --gold-glow:rgba(201,168,76,0.06); --gold-rim:rgba(201,168,76,0.22); --gold-border:rgba(201,168,76,0.30);
+  --cream:#f7f3ec; --parchment:#eee9de; --body-text:#ddd7cb; --muted:#bdb5a4; --faint:#7a7265; --hairline:rgba(201,168,76,0.15);
+  /* Source-type colors */
+  --c-scripture:#6dba96; --c-magisterium:#d4a843; --c-canon:#7ba8d4; --c-tradition:#a897b8;
+  --alert:#e8703a; --alert-deep:#c0392b; --alert-rim:rgba(232,112,58,0.34); --alert-pale:rgba(232,112,58,0.10);
+  --section-gap:5.5rem; --col-width:68ch; --radius-sm:3px; --radius-md:6px; --radius-lg:10px;
+  --t-fast:150ms ease; --t-med:250ms ease; --t-slow:400ms ease;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:"Source Serif 4","Noto Serif TC","PMingLiU",Georgia,serif;
+  background:var(--navy-deep); color:var(--body-text); line-height:1.78; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  font-feature-settings:"onum" 1,"liga" 1,"kern" 1;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(201,168,76,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 1000px at 85% 30%, rgba(30,58,100,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+.wrap { position:relative; z-index:1; }
+h1,h2,h3,h4,h5 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; color:var(--cream); line-height:1.15; letter-spacing:-0.015em; }
+a { color:var(--gold); text-decoration:none; transition:color var(--t-fast); }
+a:hover { color:var(--gold-light); }
+a:focus-visible { outline:2px solid var(--gold); outline-offset:3px; border-radius:2px; }
+strong { color:var(--cream); font-weight:700; }
+em { font-style:italic; }
+
+/* Navigation */
+nav.site-nav { position:sticky; top:0; z-index:100; background:var(--navy-glass); backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4); border-bottom:1px solid var(--hairline); }
+.nav-inner { max-width:1080px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:56px; gap:2rem; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.2rem; font-weight:600; color:var(--gold-light); letter-spacing:0.04em; flex-shrink:0; }
+.nav-links { display:flex; gap:1.6rem; list-style:none; overflow-x:auto; scrollbar-width:none; }
+.nav-links::-webkit-scrollbar { display:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.10em; text-transform:uppercase; color:var(--muted); white-space:nowrap; padding:0.25rem 0; border-bottom:2px solid transparent; transition:color var(--t-fast),border-color var(--t-fast); }
+.nav-links a:hover, .nav-links a.active { color:var(--gold-light); border-bottom-color:var(--gold); }
+
+/* Layout */
+.container { max-width:1080px; margin:0 auto; padding:0 32px; }
+.page-layout { display:grid; grid-template-columns:220px 1fr; gap:4.5rem; align-items:start; padding:4rem 32px 7rem; max-width:1080px; margin:0 auto; }
+.toc-sidebar { position:sticky; top:76px; border-left:2px solid var(--hairline); padding-left:1.2rem; max-height:calc(100vh - 96px); display:flex; flex-direction:column; min-height:0; }
+.toc-label { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); margin-bottom:0.9rem; }
+.toc-list { list-style:none; display:flex; flex-direction:column; gap:0.15rem; overflow-y:auto; padding-right:0.4rem; padding-bottom:1.5rem; scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
+.toc-link { font-family:"DM Mono",monospace; font-size:0.67rem; letter-spacing:0.03em; color:var(--muted); padding:0.28rem 0 0.28rem 0.9rem; display:block; border-left:2px solid transparent; margin-left:0; transition:color var(--t-fast),border-color var(--t-fast),background var(--t-fast); }
+.toc-link:hover { color:var(--gold-light); border-left-color:var(--gold); background:var(--gold-glow); }
+.toc-link.toc-alert { color:var(--alert); }
+
+/* Hero */
+.page-hero { border-bottom:1px solid var(--hairline); padding:4rem 0 3rem; }
+.breadcrumb { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.10em; text-transform:uppercase; color:var(--faint); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+.breadcrumb a { color:var(--faint); }
+.page-hero h1 { font-size:clamp(2.1rem,3.8vw,3.4rem); font-weight:300; max-width:28ch; margin-bottom:1.2rem; line-height:1.08; letter-spacing:-0.02em; }
+.page-hero h1 em { color:var(--gold-light); font-weight:300; }
+.page-hero h1::after { content:""; display:block; width:3.5rem; height:2px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); margin-top:1.1rem; }
+.hero-desc { color:var(--muted); font-size:1.02rem; max-width:66ch; line-height:1.80; margin-bottom:1.6rem; font-weight:300; }
+.hero-badges { display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.6rem; }
+.hero-badge { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-rim); padding:0.24rem 0.65rem; border-radius:2px; background:var(--gold-pale); }
+.hero-methods { max-width:72ch; margin:1.3rem 0 0; padding:1.1rem 1.3rem; background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-left:3px solid var(--gold-dim); border-radius:0 var(--radius-md) var(--radius-md) 0; }
+.hero-methods .method-label { display:block; margin-bottom:0.5rem; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); }
+.hero-methods p { color:var(--muted); font-size:0.88rem; line-height:1.80; }
+
+/* Sections */
+.page-section { margin-bottom:var(--section-gap); scroll-margin-top:72px; }
+.page-section + .page-section::before { content:""; display:block; height:1px; width:100%; margin-bottom:var(--section-gap); background:linear-gradient(90deg,transparent 0%,var(--gold-rim) 20%,var(--gold) 50%,var(--gold-rim) 80%,transparent 100%); opacity:0.5; }
+.section-header { display:flex; align-items:baseline; gap:1.1rem; padding-bottom:1rem; margin-bottom:2.4rem; position:relative; }
+.section-header::after { content:""; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,var(--gold-rim) 0%,transparent 70%); }
+.section-num { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.14em; color:var(--gold-dim); flex-shrink:0; padding-top:0.3rem; }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.75rem; font-weight:400; color:var(--gold-light); letter-spacing:-0.01em; }
+.subsection { margin:2.2rem 0; }
+.subsection h3 { font-size:1.18rem; font-weight:500; color:var(--cream); margin-bottom:1.1rem; padding-left:0.9rem; border-left:2px solid var(--gold-dim); }
+.prose { font-size:0.935rem; line-height:1.84; max-width:var(--col-width); }
+.prose p { margin:0 0 1.1rem; }
+.prose p:last-child { margin-bottom:0; }
+.prose ul, .prose ol { margin:0.8rem 0 1.2rem 1.4rem; }
+.prose li { margin:0.4rem 0; }
+
+.in-brief { max-width:var(--col-width); margin:0 0 1.6rem; padding:0.9rem 1.1rem; background:rgba(22,45,82,0.35); border:1px solid var(--hairline); border-left:3px solid var(--c-scripture); border-radius:0 var(--radius-md) var(--radius-md) 0; font-size:0.92rem; line-height:1.6; }
+.in-brief-label { display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-scripture); margin-bottom:0.45rem; }
+.theory-disclaimer { background:rgba(22,45,82,0.5); border:1px solid var(--hairline); border-left:3px solid var(--gold-dim); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:0.9rem 1.2rem; margin:0 0 1.6rem; font-size:0.86rem; color:var(--muted); font-style:italic; max-width:var(--col-width); }
+
+.callout { background:linear-gradient(135deg,rgba(201,168,76,0.09) 0%,rgba(15,34,55,0.65) 100%); border:1px solid var(--gold-rim); padding:1.3rem 1.5rem; margin:1.6rem 0; border-radius:var(--radius-md); position:relative; overflow:hidden; }
+.callout::before { content:""; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-dim) 0%,var(--gold) 50%,var(--gold-dim) 100%); }
+.callout .kicker { display:block; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--gold); margin-bottom:0.55rem; }
+.callout .statement { font-family:"Cormorant Garamond",serif; font-size:1.24rem; line-height:1.45; color:var(--cream); }
+.callout.alert { background:linear-gradient(135deg,var(--alert-pale) 0%,rgba(15,34,55,0.65) 100%); border-color:var(--alert-rim); }
+.callout.alert::before { background:linear-gradient(90deg,var(--alert-deep) 0%,var(--alert) 50%,var(--alert-deep) 100%); }
+.callout.alert .kicker { color:var(--alert); }
+.alert-section .section-num { color:var(--alert); }
+.alert-section .section-title { color:#f3c9b3; }
+.alert-section .subsection h3 { color:var(--alert); border-left-color:var(--alert-deep); }
+
+/* Source chips */
+.chip { display:inline-block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.09em; text-transform:uppercase; border:1px solid currentColor; border-radius:20px; padding:0.1rem 0.48rem; margin-right:0.35rem; vertical-align:0.10em; white-space:nowrap; }
+.chip.s { color:var(--c-scripture); }
+.chip.m { color:var(--c-magisterium); }
+.chip.k { color:var(--c-canon); }
+.chip.t { color:var(--c-tradition); }
+.status-legend { display:grid; grid-template-columns:repeat(4,1fr); gap:0.7rem; margin:1.3rem 0 0; }
+.status-item { background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-radius:var(--radius-sm); padding:0.7rem 0.85rem; color:var(--muted); font-size:0.73rem; line-height:1.55; }
+
+/* Tables */
+.data-table-wrap { overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--hairline); border-radius:var(--radius-md); box-shadow:0 2px 16px rgba(0,0,0,0.25); -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
+table.data-table { width:100%; border-collapse:collapse; min-width:640px; background:rgba(11,25,41,0.55); }
+.data-table th { font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); text-align:left; padding:0.8rem 0.9rem; border-bottom:1px solid var(--gold-rim); background:rgba(15,34,55,0.85); }
+.data-table td { padding:0.78rem 0.9rem; border-bottom:1px solid var(--hairline); font-size:0.79rem; line-height:1.65; vertical-align:top; }
+.data-table tr:hover td { background:rgba(201,168,76,0.04); }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table td:first-child { white-space:nowrap; color:var(--gold-light); font-family:"DM Mono",monospace; font-size:0.72rem; }
+
+/* Grids */
+.mechanism-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.9rem; margin:1.3rem 0; }
+.mech { border:1px solid var(--hairline); background:rgba(15,34,55,0.58); border-radius:var(--radius-md); padding:1.1rem 1.2rem; }
+.mech .mnum { font-family:"DM Mono",monospace; color:var(--gold-dim); font-size:0.59rem; letter-spacing:0.10em; }
+.mech h4 { color:var(--cream); font-size:1.05rem; margin:0.2rem 0 0.5rem; }
+.mech p { color:var(--muted); font-size:0.78rem; line-height:1.65; }
+.goldilocks { display:grid; grid-template-columns:repeat(3,1fr); gap:0.8rem; margin:0.6rem 0 1.4rem; }
+.goldilocks .state { text-align:center; padding:1rem 0.8rem; background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-radius:var(--radius-md); color:var(--muted); font-size:0.76rem; }
+.goldilocks .state strong { display:block; color:var(--gold-light); font-family:"Cormorant Garamond",serif; font-size:1.05rem; font-weight:500; margin-bottom:0.3rem; }
+.goldilocks .state.virtue { border-color:var(--gold-rim); background:rgba(201,168,76,0.08); }
+.goldilocks .state.vice strong { color:#f3c9b3; }
+.row-label { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-top:1.2rem; }
+.formula-box { margin:1.3rem 0; padding:1rem 1.3rem; border:1px solid var(--gold-rim); border-left:3px solid var(--gold); background:rgba(7,15,26,0.70); border-radius:0 var(--radius-md) var(--radius-md) 0; text-align:center; overflow-x:auto; color:var(--cream); }
+blockquote.q { max-width:var(--col-width); margin:1.2rem 0; padding:0.8rem 1.2rem; border-left:2px solid var(--gold); font-family:"Cormorant Garamond",serif; font-size:1.15rem; color:var(--cream); font-style:italic; }
+blockquote.q cite { display:block; font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); font-style:normal; margin-top:0.4rem; }
+
+/* Objection cards */
+.obj { scroll-margin-top:72px; border:1px solid var(--hairline); background:rgba(15,34,55,0.55); border-radius:var(--radius-md); padding:1.3rem 1.4rem; margin:1.4rem 0; position:relative; }
+.obj::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--alert) 0%,var(--gold) 100%); border-radius:var(--radius-md) 0 0 var(--radius-md); }
+.obj .onum { font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); }
+.obj h3 { font-size:1.2rem; color:var(--cream); margin:0.25rem 0 0.9rem; }
+.obj .part { margin:0.75rem 0; font-size:0.86rem; line-height:1.75; }
+.obj .lbl { display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.25rem; }
+.obj .p-obj .lbl { color:var(--alert); }
+.obj .p-sed .lbl { color:var(--c-scripture); }
+.obj .p-resp .lbl { color:var(--gold); }
+.obj .p-right .lbl { color:var(--c-tradition); }
+.obj .p-flaw .lbl { color:var(--alert); }
+.obj .p-path .lbl { color:var(--c-canon); }
+.obj ul { margin:0.3rem 0 0 1.2rem; }
+.obj li { margin:0.25rem 0; }
+.obj .p-obj { color:var(--muted); font-style:italic; }
+
+/* Extremes cards & part dividers */
+.verdict { display:inline-block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.10em; text-transform:uppercase; padding:0.14rem 0.55rem; border-radius:20px; border:1px solid currentColor; margin-left:0.4rem; vertical-align:0.15em; }
+.verdict.no { color:var(--alert); }
+.verdict.yes { color:var(--c-scripture); }
+.part-divider { margin:0 0 3.2rem; padding:1.4rem 0 0; border-top:1px solid var(--gold-rim); }
+.part-divider .part-kicker { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); }
+.part-divider .part-title { font-family:"Cormorant Garamond",serif; font-size:2rem; font-weight:300; color:var(--cream); margin-top:0.2rem; }
+.part-divider p { color:var(--muted); font-size:0.88rem; max-width:var(--col-width); margin-top:0.5rem; }
+.toc-part { font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dim); margin:0.9rem 0 0.2rem; padding-left:0; }
+.toc-part:first-child { margin-top:0; }
+.examen { list-style:none; counter-reset:ex; margin:0.6rem 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:0.6rem; }
+.examen li { counter-increment:ex; background:rgba(7,15,26,0.5); border:1px solid var(--hairline); border-radius:var(--radius-sm); padding:0.6rem 0.7rem; font-size:0.84rem; color:var(--cream); }
+.examen li::before { content:counter(ex) " · "; font-family:"DM Mono",monospace; font-size:0.64rem; color:var(--gold); }
+@media (max-width:860px){ .examen { grid-template-columns:1fr; } }
+.cite-this { margin-top:1.6rem; padding:0.9rem 1.1rem; border:1px dashed var(--gold-rim); border-radius:var(--radius-sm); font-size:0.78rem; color:var(--muted); }
+
+/* References */
+.references { margin-top:4rem; padding-top:2.5rem; border-top:1px solid var(--hairline); }
+.references h2 { font-size:1.5rem; color:var(--gold-light); margin-bottom:1.8rem; font-weight:400; }
+.ref-list { list-style:none; display:grid; gap:0.6rem; counter-reset:refs; }
+.ref-list li { counter-increment:refs; color:var(--muted); font-size:0.77rem; line-height:1.65; padding:0.6rem 0.8rem 0.6rem 2.4rem; position:relative; scroll-margin-top:96px; }
+.ref-list li::before { content:"[" counter(refs) "]"; position:absolute; left:0.4rem; top:0.6rem; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:0.62rem; width:1.8rem; text-align:right; }
+.ref-list li a { overflow-wrap:anywhere; }
+.cite-ref { font-family:"DM Mono",monospace; font-size:0.65em; vertical-align:super; line-height:0; margin-left:0.14rem; }
+.cite-ref a { color:var(--gold-dim); }
+footer { border-top:1px solid var(--hairline); padding:2.5rem 32px; font-family:"DM Mono",monospace; font-size:0.70rem; letter-spacing:0.06em; color:var(--faint); text-align:center; margin-top:2rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-section { opacity:0; transform:translateY(18px); animation:fadeUp 0.55s ease forwards; }
+  @keyframes fadeUp { to { opacity:1; transform:none; } }
+}
+@media (max-width:860px) {
+  .page-layout { grid-template-columns:1fr; gap:2rem; padding:2rem 20px 5rem; }
+  .toc-sidebar { display:none; }
+  .mechanism-grid, .status-legend, .goldilocks { grid-template-columns:1fr; }
+  .nav-inner { padding:0 20px; }
+}
+@media (max-width:590px) {
+  .container, .page-hero { padding-left:16px; padding-right:16px; }
+  .section-title { font-size:1.45rem; }
+  table.data-table { min-width:540px; }
+}
+html, body { max-width:100%; }
+.page-layout > main { min-width:0; width:100%; }
+p, li, .statement { overflow-wrap:anywhere; hyphens:auto; }
+td { overflow-wrap:break-word; }
+mjx-container[display="true"] { display:block; max-width:100%; overflow-x:auto; overflow-y:hidden; }
+
+/* Evidence grades */
+.grade { display:inline-block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid currentColor; border-radius:20px; padding:0.08rem 0.5rem; white-space:nowrap; vertical-align:0.1em; }
+.g-a { color:#6dba96; } .g-b { color:#7ba8d4; } .g-c { color:#d4a843; } .g-d { color:#e8703a; }
+.mech .grade { margin-top:0.6rem; }
+/* Diagram */
+figure.diagram { margin:1.8rem 0; padding:1rem; border:1px solid var(--hairline); border-radius:var(--radius-md); background:rgba(7,15,26,0.55); }
+figure.diagram svg { width:100%; height:auto; display:block; }
+figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.6rem; line-height:1.6; }
+.bx { fill:rgba(22,45,82,0.75); stroke:var(--gold-rim); stroke-width:1.2; }
+.bx.dim { fill:rgba(22,45,82,0.35); stroke-dasharray:4 3; }
+.bx.hi { fill:rgba(201,168,76,0.12); stroke:var(--gold); }
+.t1 { fill:var(--cream); font-family:"Source Serif 4","Noto Serif TC",serif; font-size:13px; text-anchor:middle; }
+.t2 { fill:var(--muted); font-family:"Source Serif 4","Noto Serif TC",serif; font-size:11px; text-anchor:middle; }
+.t3 { fill:var(--gold-dim); font-family:"DM Mono",monospace; font-size:9.5px; text-anchor:middle; }
+.bandlbl { fill:var(--gold); font-family:"DM Mono",monospace; font-size:9.5px; letter-spacing:1.5px; }
+.ln { stroke:var(--gold-light); stroke-width:1.4; fill:none; }
+.ln.dash { stroke:var(--alert); stroke-dasharray:5 4; }
+.ln.stop { stroke:var(--alert); }
+.ah { fill:var(--gold-light); }
+
+/* Strand tags */
+.strand { display:inline-block; font-family:"DM Mono",monospace; font-size:0.54rem; letter-spacing:0.09em; text-transform:uppercase; border:1px solid currentColor; border-radius:2px; padding:0.05rem 0.4rem; margin-right:0.25rem; white-space:nowrap; vertical-align:0.08em; opacity:0.9; }
+.s-order { color:#a897b8; } .s-jesuit { color:#6dba96; } .s-christ { color:#c9a84c; }
+.s-company { color:#7ba8d4; } .s-sea { color:#5f9ea0; } .s-america { color:#d4a843; }
+.s-vatican { color:#e2c97e; } .s-london { color:#8fa8c8; } .s-dc { color:#d99a6c; }
+.s-finance { color:#b0906a; } .s-care { color:#8fc0a9; } .s-contested { color:#e8703a; }
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/CEAS">CEAS</a></li>
+<li><a href="/GRAIL">GRAIL</a></li>
+<li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+<li><a href="/MIA">MIA</a></li>
+<li><a class="active" href="/Research/">Research</a></li>
+<li><a href="/About">About</a></li>
+<li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="page-hero">
+<div class="breadcrumb">
+<a href="/">Logarchéon</a><span>/</span><a href="/Research/">Research</a><span>/</span><span>The Hidden Founding</span>
+</div>
+<h1>The Hidden Founding: <em>Catholic Agency and Irony in the Making of the United States</em>, 1048–2025</h1>
+<p class="hero-desc">A revolution that denounced Catholic toleration was won with Catholic money, ships and soldiers. The first American bishop owed his appointment to a Protestant deist he had nursed through illness. A religious order that Rome had abolished survived in the open in Maryland because the new republic disclaimed all authority over religion. This page documents that record in one strictly chronological sequence, with every contested claim travelling alongside its refutation rather than being silently dropped.</p>
+<div class="hero-methods">
+<span class="method-label">Abstract</span>
+<p>This page documents the Catholic contribution to the founding of the United States — decisive, largely absent from the national narrative, and repeatedly ironic. A revolution that denounced Catholic toleration was won with Catholic money, ships and soldiers. The first American bishop owed his appointment to a Protestant deist he had nursed through illness. A religious order that Rome had abolished survived in the open in Maryland, and under Russian protection, because the new republic disclaimed all authority over religion. The analytic spine is a licensing model — piracy, privateering and chartered monopoly as three states of one armed commercial system, and papal bulls, royal charters and letters of marque as instruments of the same kind — which explains the whole sequence without appeal to hidden agency. A graded appendix separates what the record supports from what it refutes, including Fawcett's East India Company flag thesis, the Essene origin of the skull and crossbones, the Carroll land donation, and the three-cities sovereignty claim.</p>
+</div>
+<div class="hero-badges">
+<span class="hero-badge">Institutional History</span>
+<span class="hero-badge">Orders · Companies · Cities</span>
+<span class="hero-badge">Catholic America</span>
+<span class="hero-badge">Evidence-Graded</span>
+<span class="hero-badge">Research Page · 24 Sep 2026</span>
+</div>
+</div>
+</div>
+
+<div class="page-layout">
+<aside class="toc-sidebar">
+<div class="toc-label">Sections</div>
+<ul class="toc-list">
+<li class="toc-part">Introduction</li>
+<li><a class="toc-link" href="#opening">00 · The Priest and the Deist</a></li>
+<li><a class="toc-link" href="#finding">01 · Core Finding</a></li>
+<li><a class="toc-link" href="#method">02 · Sources, Grades, Strands</a></li>
+<li><a class="toc-link" href="#licence">03 · The Licence Thesis</a></li>
+<li class="toc-part">I · The Sorted Timeline</li>
+<li><a class="toc-link" href="#t1">04 · 754–1540</a></li>
+<li><a class="toc-link" href="#t2">05 · 1542–1700</a></li>
+<li><a class="toc-link" href="#t3">06 · 1704–1765</a></li>
+<li><a class="toc-link" href="#t4">07 · 1765–1776</a></li>
+<li><a class="toc-link" href="#t5">08 · 1778–1793</a></li>
+<li><a class="toc-link" href="#t6">09 · 1798–1834</a></li>
+<li><a class="toc-link" href="#t7">10 · 1835–1900</a></li>
+<li><a class="toc-link" href="#t8">11 · 1901–2025</a></li>
+<li><a class="toc-link" href="#strands">12 · The Timeline by Strand</a></li>
+<li class="toc-part">II · Analysis</li>
+<li><a class="toc-link" href="#bengal">13 · Bengal to Baltimore</a></li>
+<li><a class="toc-link" href="#suppression">14 · Suppression &amp; Restoration</a></li>
+<li><a class="toc-link" href="#maryland">15 · The Maryland Estates</a></li>
+<li><a class="toc-link" href="#franklin">16 · Franklin &amp; the Catholics</a></li>
+<li><a class="toc-link" href="#care">17 · The Hidden Instrument</a></li>
+<li><a class="toc-link" href="#silver">18 · Piracy &amp; the Silver Chain</a></li>
+<li><a class="toc-link" href="#nests">19 · The Nest and the Port</a></li>
+<li><a class="toc-link" href="#cities">20 · The Three Cities</a></li>
+<li class="toc-part">III · Apparatus</li>
+<li><a class="toc-link toc-alert" href="#graded">21 · Graded Claims</a></li>
+<li><a class="toc-link" href="#agenda">22 · Research Agenda</a></li>
+<li><a class="toc-link" href="#conclusion">23 · Conclusion</a></li>
+<li><a class="toc-link" href="#sources">References</a></li>
+</ul>
+</aside>
+
+<main>
+
+<!-- 00 -->
+<section class="page-section" id="opening">
+<div class="section-header"><span class="section-num">00</span><h2 class="section-title">The Priest and the Deist</h2></div>
+<div class="prose">
+<p>In the late spring of 1776 a man of seventy lay ill on the road south from Montreal. The mission had failed completely: the Canadians would not join the American union, and the reason was on paper in two documents Congress had issued weeks apart — one denouncing the Quebec Act for tolerating Catholicism in the harshest terms available, the other inviting Catholic Canadians to make common cause. They had read both.</p>
+<p>Benjamin Franklin, the most celebrated American alive, was nursed back to Philadelphia by a Catholic priest. John Carroll belonged to an order Rome had abolished three years earlier, and came from a colony where saying Mass in public was a crime and Catholics could not vote, hold office, practise law, or run a school.</p>
+<p>Eight years later, in Paris, Rome asked the American government how the Catholics of the new republic should be governed. Congress answered in May 1784 that it held no authority whatever over religion and could neither approve nor object. The reply was meant as constitutional principle. Its unintended effect was to leave Franklin's private opinion as the only American input Rome possessed — and he recommended the priest who had nursed him. On 6 June 1784 John Carroll was named Superior of the Mission. In 1789 he became the first Catholic bishop in the United States, with jurisdiction from the Atlantic to the Mississippi, and founded Georgetown.</p>
+</div>
+<div class="callout"><span class="kicker">The shape of the whole story</span><div class="statement">The first head of the Catholic Church in America was, in practice, chosen by a Protestant deist, because a legislature had declined to have a religious policy.</div></div>
+<div class="prose"><p>This page is an attempt to document that pattern at length. Four ironies recur.</p></div>
+<div class="mechanism-grid">
+<div class="mech"><div class="mnum">IRONY I</div><h4>The republic was rescued by the powers it had denounced</h4><p>France supplied the navy, the subsidies and the loans; Spain took the Gulf; Havana raised the money for Yorktown in a matter of hours; de Grasse, trained in the galleys of the Order of Malta, closed the Chesapeake. A revolution whose founding grievances included Catholic toleration was decided by Catholic monarchies.</p></div>
+<div class="mech"><div class="mnum">IRONY II</div><h4>Each shaped the other's institutions</h4><p>Franklin's recommendation governed the American church for a generation; Charles Carroll, barred from voting in his own colony, signed the Declaration with his address attached; Daniel Carroll and Thomas FitzSimons signed the Constitution.</p></div>
+<div class="mech"><div class="mnum">IRONY III</div><h4>A suppressed order survived here in the open</h4><p>From 1773 to 1814 the Society of Jesus did not canonically exist. In Maryland its former members held roughly 12,000 acres under a state charter, ran a college, and from 1805 lived under the Russian province — because an Orthodox empress had refused to publish a papal brief, and because a republic that could not establish a religion could not abolish one either.</p></div>
+<div class="mech"><div class="mnum">IRONY IV</div><h4>The machinery of revolution was built to police piracy</h4><p>Vice-admiralty jurisdiction without juries entered colonial life in 1698 as a remedy in the East India Company's interest. Seventy years later it was a grievance in the Declaration.</p></div>
+</div>
+<div class="prose">
+<p>None of this requires a hidden hand. Every link is a public instrument — a bull, a charter, a statute, a treaty, a letter — and the documentary record is stranger than the conspiratorial one. The concealment is not in the events but in the telling: these facts were not suppressed, they were simply left out of the national story, and the point of the timeline that follows is to put them back in one sequence where they can be checked.</p>
+</div>
+</section>
+
+<!-- 01 -->
+<section class="page-section" id="finding">
+<div class="section-header"><span class="section-num">01</span><h2 class="section-title">Core Finding: Licence, Not Conspiracy</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Four institutions that look unrelated — the knightly orders, the Jesuits, the East India Company, and the American founding — are joined by a single mechanism. Each depended on a licence granted by a sovereign: a papal bull, a royal charter, a letter of marque. When the licensing power turned against them, the ones that survived did so by moving the licence somewhere else. The ones that could not move it disappeared.</p></div>
+<div class="mechanism-grid">
+<div class="mech"><div class="mnum">M1 · TEMPLAR ASSETS</div><h4>Relocated into a crown order</h4><p>Suppressed in 1312, the Temple's Iberian property and personnel passed in 1317 and 1319 to Montesa and the Order of Christ — royal creations under crown administration from 1523. Prince Henry's voyages were funded by those revenues. No surviving fleet, no hidden succession.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">M2 · THE SOCIETY OF JESUS</div><h4>Relocated into an Orthodox empire</h4><p>Suppressed worldwide in 1773 by a brief extracted by Catholic crowns, the Society continued at Polotsk because Catherine II declined to promulgate it, with superiors and a novitiate, for forty-one years. Restoration in 1814 extended a living body rather than reviving a dead one.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">M3 · THE ORDER OF ST JOHN</div><h4>Surrendered territory, retained sovereignty</h4><p>Stripped of its French commanderies in 1792 and of Malta in 1798, rescued uncanonically by Paul I and left stateless in 1801, the Order settled in Rome in 1834 and had its Grand Mastership restored in 1879. It holds extraterritorial premises — Palazzo Malta and the Villa del Priorato on the Aventine, and Fort St Angelo since 1998 — but no sovereign territory, and it never recovered the island.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">M4 · THE EAST INDIA COMPANY</div><h4>Never suppressed, and left no successor</h4><p>Statutorily stripped of its monopolies in 1813 and 1833, it ceased trading in 1834 and was dissolved in 1874. What passed to Jardine Matheson, Dent, Russell &amp; Co and the Bombay houses was the deregulated trade and its function, not the corporation.</p><span class="grade g-a">Grade A</span></div>
+</div>
+<div class="callout"><span class="kicker">The defensible model</span><div class="statement">Piracy, privateering and chartered monopoly were three licensing states of one armed commercial system, and the boundary between them was drawn by whoever held the pen. Institutions outlive the states that suppress them by moving the licence; institutions with no principle beyond extraction do not outlive the charter.</div></div>
+<figure class="diagram">
+<svg viewBox="0 0 760 470" role="img" aria-labelledby="lic-t lic-d">
+<title id="lic-t">Relocation of licence across four institutions</title>
+<desc id="lic-d">Four horizontal bands. Each shows an institution, the suppressing power, the destination to which its licence moved, and the surviving form. The East India Company band terminates without a successor.</desc>
+<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text x="12" y="24" class="bandlbl">SUPPRESSED BY</text><text x="300" y="24" class="bandlbl">LICENCE MOVES TO</text><text x="580" y="24" class="bandlbl">SURVIVING FORM</text>
+
+<rect x="20" y="40" width="210" height="58" rx="6" class="bx"/><text x="125" y="63" class="t1">Templars · 1312</text><text x="125" y="84" class="t2">Clement V, under Philip IV</text>
+<rect x="285" y="40" width="200" height="58" rx="6" class="bx"/><text x="385" y="63" class="t1">Iberian crowns</text><text x="385" y="84" class="t2">Montesa 1317 · Christ 1319</text>
+<rect x="540" y="40" width="200" height="58" rx="6" class="bx hi"/><text x="640" y="63" class="t1">Royal order, then honour</text><text x="640" y="84" class="t2">padroado 1523 · decoration 1834</text>
+<path d="M230,69 L285,69" class="ln" marker-end="url(#ar2)"/><path d="M485,69 L540,69" class="ln" marker-end="url(#ar2)"/>
+
+<rect x="20" y="145" width="210" height="58" rx="6" class="bx"/><text x="125" y="168" class="t1">Society of Jesus · 1773</text><text x="125" y="189" class="t2">Clement XIV, under Bourbons</text>
+<rect x="285" y="145" width="200" height="58" rx="6" class="bx"/><text x="385" y="168" class="t1">Russia · Polotsk</text><text x="385" y="189" class="t2">Catherine II does not promulgate</text>
+<rect x="540" y="145" width="200" height="58" rx="6" class="bx hi"/><text x="640" y="168" class="t1">Restored 1814</text><text x="640" y="189" class="t2">Maryland affiliates 1805</text>
+<path d="M230,174 L285,174" class="ln" marker-end="url(#ar2)"/><path d="M485,174 L540,174" class="ln" marker-end="url(#ar2)"/>
+
+<rect x="20" y="250" width="210" height="58" rx="6" class="bx"/><text x="125" y="273" class="t1">Order of St John · 1798</text><text x="125" y="294" class="t2">France 1792 · Napoleon 1798</text>
+<rect x="285" y="250" width="200" height="58" rx="6" class="bx"/><text x="385" y="273" class="t1">Russia, then Rome</text><text x="385" y="294" class="t2">Paul I 1798–1801, unrecognized</text>
+<rect x="540" y="250" width="200" height="58" rx="6" class="bx hi"/><text x="640" y="273" class="t1">Sovereignty, no territory</text><text x="640" y="294" class="t2">Rome 1834 · Grand Master 1879</text>
+<path d="M230,279 L285,279" class="ln" marker-end="url(#ar2)"/><path d="M485,279 L540,279" class="ln" marker-end="url(#ar2)"/>
+
+<rect x="20" y="355" width="210" height="58" rx="6" class="bx"/><text x="125" y="378" class="t1">East India Company</text><text x="125" y="399" class="t2">not suppressed — wound up</text>
+<rect x="285" y="355" width="200" height="58" rx="6" class="bx dim"/><text x="385" y="378" class="t1">Statute, 1813 · 1833 · 1874</text><text x="385" y="399" class="t2">monopolies stripped, then dissolved</text>
+<rect x="540" y="355" width="200" height="58" rx="6" class="bx dim"/><text x="640" y="378" class="t1">No successor body</text><text x="640" y="399" class="t2">trade privatizes to private firms</text>
+<path d="M230,384 L285,384" class="ln" marker-end="url(#ar2)"/><path d="M485,384 L540,384" class="ln stop" marker-end="url(#ar2)"/>
+<text x="385" y="440" class="t3">the only strand here whose institution ends rather than relocates</text>
+</svg>
+<figcaption>The first three bands show relocation of a licence; the fourth shows termination. The contrast is the page's central observation, and it needs no hidden continuity to state.</figcaption>
+</figure>
+</section>
+
+<!-- 01 -->
+<section class="page-section" id="method">
+<div class="section-header"><span class="section-num">02</span><h2 class="section-title">Sources, Evidence Grades, and Strand Tags</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Every timeline entry carries a strand tag so the four histories can be read separately or together. Claims that the popular literature treats as established but the record does not support are kept on the page, marked, rather than removed — a reader should be able to see what was rejected and why.</p></div>
+<div class="status-legend">
+<div class="status-item"><span class="grade g-a">Grade A</span><br/>Primary instrument or its text: a bull, a charter, a statute, a treaty, a dated act of state.</div>
+<div class="status-item"><span class="grade g-b">Grade B</span><br/>Institutional or scholarly secondary work resting on such records.</div>
+<div class="status-item"><span class="grade g-c">Grade C</span><br/>Memoir, biography, encyclopedia entry, or press account not yet matched to a document.</div>
+<div class="status-item"><span class="grade g-d">Grade D</span><br/>Inference or hypothesis: consistent with the evidence, testable, not yet shown.</div>
+</div>
+<div class="prose" style="margin-top:1.4rem">
+<p><strong>Strand tags.</strong> <span class="strand s-order">Order</span> the Hospitallers, Templars and Teutonic Knights; <span class="strand s-christ">Christ</span> the Iberian successor orders; <span class="strand s-jesuit">Jesuit</span> the Society of Jesus; <span class="strand s-company">Company</span> the English East India Company; <span class="strand s-sea">Sea</span> piracy, privateering and licensed maritime violence; <span class="strand s-america">America</span> the colonies and the republic; <span class="strand s-vatican">Vatican</span> the papacy as a temporal power; <span class="strand s-london">London</span> the City Corporation and its market; <span class="strand s-dc">DC</span> the federal district; <span class="strand s-finance">Finance</span> the private houses; <span class="strand s-care">Care</span> Catholic medical care and its consequences; <span class="strand s-contested">Contested</span> claims retained with their refutation.</p>
+<p><strong>Method.</strong> Entries are ordered strictly by date, to the day where an instrument supplies one and to the hour in the three places where hours are known and bear on the reading. Era headings serve navigation only. Where a span is all the record gives, the entry appears at the start of that span. Nothing has been ordered for narrative effect, and the causal arguments in Part II are built from entries a reader can check against Part I rather than from proximity alone.</p>
+<p><strong>Terms.</strong> "Suppression" means the canonical act of 1773 (<em>Dominus ac Redemptor</em>), not expulsion by a state, which is what Portugal did in 1759, France in 1764, and Spain in 1767. "Restoration," for the Order of St John, has two senses that must be kept apart: territorial restoration, provided for at Amiens in 1802 and never carried out, and institutional restoration, accomplished at Rome in 1834 and 1879. "Country traders" were private merchants licensed by the Company to carry cargoes it would not carry itself. "Privateer" denotes a commerce raider holding a commission; "pirate" denotes one who does not, and much of Part II concerns who held the power to make that distinction.</p>
+</div>
+<div class="theory-disclaimer"><strong>On the record's hard parts.</strong> This page reports documented violence and documented injury with their causes, including the Bengal famine, the atrocities aboard the Ganj-i-Sawai, the Gordon Riots, the enslaved labor of the Maryland Jesuit estates and the 1838 sale, and the disenfranchisement of the District's residents. Omitting them would misstate how these institutions actually worked.</div>
+</section>
+
+<!-- 02 -->
+<section class="page-section" id="licence">
+<div class="section-header"><span class="section-num">03</span><h2 class="section-title">The Licence Thesis</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The East India Company's charter granted it the right to make war, sign treaties, coin money and take prizes. A pirate did the same things without a charter. The difference was legal, not behavioral — which is why the same act could be a crime, a public service, or an act of state depending on who was describing it.</p></div>
+<div class="prose">
+<p><strong>The chartered raider.</strong> The Company chartered on 31 December 1600 was not a purely commercial body. James Lancaster, who commanded the first voyage, had been a privateer against Spain. Between 1686 and 1690, under Sir Josiah Child, the Company made open war on the Mughal Empire, seizing Mughal shipping and preying on Red Sea pilgrim traffic — corporately, under charter, what Henry Every's men would be hanged for doing privately five years later.</p>
+<p><strong>The boundary made legal.</strong> Every's capture of the Ganj-i-Sawai on 7 September 1695 brought Aurangzeb to close the Company's factories at Surat, Bombay, Broach, Agra and Ahmedabad and imprison its officers. The Company's losses were real and its disavowal sincere; what the episode shows is that the most informed commercial court in Asia treated English pirates and the English company as one body. The Company's answer was to make the distinction explicit and to police it: convoy escorts, a doubled bounty, and the piracy acts of 1698 and 1700 allowing vice-admiralty trials in the colonies without juries.</p>
+<p><strong>The boundary aimed.</strong> Once it existed it could be used. Before 1698 the Company prosecuted lawful English interlopers as pirates. Kanhoji Angre held a commission from his own state and was called a pirate for taxing Company shipping. The Qawasim of the Gulf were given a coast named for the accusation and campaigned against in 1809 and 1819, on a charge that scholarship — including al-Qasimi's — argues was manufactured to remove a commercial rival.</p>
+<p><strong>Absorption rather than extinction.</strong> Morgan became Lieutenant Governor of Jamaica; Woodes Rogers, a privateer, became Governor of the Bahamas and suppressed Nassau in 1718; the amnesties of 1698 and 1717 returned pirate crews to naval and Company service. Piracy did not end in the 1720s so much as it was licensed, and the licensing coincided with the consolidation of chartered trade.</p>
+</div>
+<div class="goldilocks">
+<div class="state vice"><strong>Unlicensed</strong>Piracy. Hanged when caught; pardoned in general amnesties; fenced through colonial ports.</div>
+<div class="state virtue"><strong>Commissioned</strong>Privateering. The same acts under a letter of marque; the American republic's first instrument at sea.</div>
+<div class="state"><strong>Chartered</strong>Monopoly. War, treaty, coinage and prize-taking granted corporately, with an army and a revenue.</div>
+</div>
+<div class="theory-disclaimer"><strong>What this thesis does not claim.</strong> It does not claim that pirates worked for the Company, which fails on dates and is refuted by the Every episode directly. It claims that the categories were assigned by charter-holders and that the assignment served commercial ends. See §18 for the sorting of the stronger and weaker forms of the argument.</div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Part I</div><div class="part-title">The Sorted Timeline</div><p>All strands interleaved in one sequence, 754 to 2025. Era headings are navigation only; the order is strictly chronological.</p></div>
+
+<!-- 03 -->
+<section class="page-section" id="t1">
+<div class="section-header"><span class="section-num">04</span><h2 class="section-title">Before the Companies, 754–1540</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>754 / 756</td><td>Donation of Pepin; the Exarchate of Ravenna passes to the papacy. The Papal States begin as a temporal sovereignty.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>c.750–850</td><td>The <em>Donation of Constantine</em> forged; exposed by Lorenzo Valla in 1440 on philological grounds. The founding document of papal temporal claims was a fabrication, demonstrated by textual criticism.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>c.1048–1080</td><td>Amalfitan merchant hospital of St John founded at Jerusalem under Fatimid permission — the Order's true point of origin, earlier than the crusade.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1067</td><td>William I's charter to the citizens of London, confirming their law-worthiness — the oldest instrument of the City's corporate continuity.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>15 Jul 1099</td><td>Jerusalem taken; Gerard reorganizes the hospital under crusader rule.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>15 Feb 1113</td><td><em>Pie postulatio voluntatis</em>; Paschal II erects the Order as a religious institution. Hospital, reorganization and canonical erection are three distinct events, commonly compressed into one.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1119</td><td>The Order of the Temple founded.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>c.1185</td><td>The Temple Church consecrated in London; the Templars' English headquarters serves as a treasury for the Crown. After 1312 the site passes eventually to the lawyers of the Inner and Middle Temple — continuity of premises, not of order.</td><td><span class="strand s-london">London</span> <span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1187 / 1189 / 1190 / 1191</td><td>Jerusalem lost; Henry FitzAilwin becomes first Mayor of London; the Teutonic Knights founded; the London Commune recognized.</td><td><span class="strand s-order">Order</span> <span class="strand s-london">London</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>15 Jun 1215</td><td>Magna Carta cl. 13 guarantees the City its ancient liberties and free customs; the Mayor sits among the twenty-five enforcers. This clause, not any modern arrangement, is the root of the City's distinct standing.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1291 / 1310</td><td>Acre falls; the Hospitallers take Rhodes.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>13 Oct 1307</td><td>Mass arrest of the Templars in France on Philip IV's order.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>22 Mar 1312</td><td><em>Vox in Excelso</em> suppresses the Temple — by administrative provision rather than condemnation for heresy.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>2 May 1312</td><td><em>Ad Providam</em> transfers Templar assets to the Hospitallers — except in Iberia, where the crowns retained them.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1309–1377 / 1378–1417</td><td>The Avignon papacy; then the Western Schism. Papal temporal standing at its weakest before 1798.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1317 / 14 Mar 1319</td><td>Montesa erected in Aragon; the Order of Christ erected in Portugal, seated at Tomar, taking the Templar property and personnel of the kingdom.</td><td><span class="strand s-christ">Christ</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1420–1460</td><td>Prince Henry administers the Order of Christ; its revenues fund the Atlantic voyages, and its cross marks Portuguese sails. A Portuguese royal-order enterprise, not a Templar survival.</td><td><span class="strand s-christ">Christ</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>18 Apr 1506</td><td>The present St Peter's begun.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1522–1523</td><td>Rhodes besieged and lost to Suleiman; the Order is homeless for eight years.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1523</td><td>Adrian VI grants the Portuguese crown perpetual administration of the Order of Christ; the Order becomes the instrument of the <em>padroado</em>, the crown's right of ecclesiastical patronage overseas.</td><td><span class="strand s-christ">Christ</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>6 May 1527</td><td>The Sack of Rome.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>23 Mar 1530</td><td>Charles V grants Malta to the Hospitallers, under the feudal suzerainty of the Viceroy of Sicily — a tie that will matter when the Bourbons acquire Naples.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>15 Aug 1534</td><td>The Montmartre vows.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>27 Sep 1540</td><td><em>Regimini militantis Ecclesiae</em>; Paul III erects the Society of Jesus — founded in the same Iberian military-religious milieu as the crown orders, but structured against their model: no choir, no habit, no military arm, and a fourth vow to the pope.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 04 -->
+<section class="page-section" id="t2">
+<div class="section-header"><span class="section-num">05</span><h2 class="section-title">Missions and Charters, 1542–1700</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>6 May 1542</td><td>Xavier reaches Goa; Japan 15 Aug 1549; dies at Shangchuan 3 Dec 1552. The Jesuits enter Asia inside the Portuguese <em>padroado</em> — that is, licensed by the Order of Christ's crown patronage. Order and Society are linked institutionally from the start.</td><td><span class="strand s-jesuit">Jesuit</span> <span class="strand s-christ">Christ</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>8 Sep 1565</td><td>St Augustine founded — the first permanent parish in what becomes the United States.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1566–1571</td><td>The Jesuit Ajacán mission in Virginia; destroyed. The first Jesuit attempt in the future United States.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>23 Jan 1571</td><td>The Royal Exchange opened by Elizabeth I.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1582 / 1601</td><td>Ricci enters China; reaches Beijing. The accommodation method begins.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>31 Dec 1600</td><td><strong>The East India Company chartered</strong> at a meeting in the City; the VOC follows on 20 Mar 1602. The chartered-company form and the City's capital market appear together, in the same generation in which Spain and Portugal run crown-order colonization.</td><td><span class="strand s-london">London</span> <span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1604–1611</td><td>Acadia and Québec founded; Jesuits arrive in Acadia 1611, Québec 1625.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1609–1768</td><td>The Paraguay reductions: Jesuit mission-states of up to 140,000 Guaraní with their own militia. Their autonomy becomes the standing charge against the Society.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1632–1648</td><td>Isaac de Razilly, a professed Knight of Malta, sent to Acadia as lieutenant-general; Charles Huault de Montmagny, also a Knight, governs New France 1636–48. The Order's first documented figures in North America.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>25 Mar 1634</td><td>The <em>Ark</em> and <em>Dove</em> land at St Clement's Island; Andrew White SJ says the first Mass. Maryland is a Jesuit mission from day one.</td><td><span class="strand s-jesuit">Jesuit</span> <span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1642–1649</td><td>The North American martyrs.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>21 Apr 1649</td><td>The Maryland Toleration Act.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1651–1665</td><td>The Order of St John purchases St Christopher, St Barthélemy, St Croix and St Martin from the failing Compagnie des Îles de l'Amérique; Philippe de Lonvilliers de Poincy governs from St Kitts. The Order's only sovereign territory in the Americas; sold to Colbert's company in 1665.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1662 / 1749 / 1751</td><td>Ninian Beall patents the Rock of Dumbarton, the future Georgetown; Alexandria founded; the Maryland Assembly establishes George Town. The two ports the federal district will absorb predate it by a century.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>2–6 Sep 1666</td><td>The Great Fire of London.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1686–1690</td><td><strong>Child's War.</strong> The Company makes open war on the Mughal Empire, seizing shipping and preying on Red Sea pilgrim traffic under charter. It loses and pays indemnity — but establishes the precedent that governs everything after it.</td><td><span class="strand s-company">Company</span> <span class="strand s-sea">Sea</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1690s</td><td>The Pirate Round. Frederick Philipse of New York supplies Adam Baldridge's Madagascar base; Thomas Tew sails under Rhode Island commission; Kidd is financed by Bellomont, Somers, Orford, Shrewsbury and Romney — the Whig establishment that also charters the New East India Company in 1698.</td><td><span class="strand s-sea">Sea</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1692</td><td>The Kangxi Edict of Toleration.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>27 Jul 1694</td><td>The Bank of England chartered; Jonathan's Coffee House and the origins of the Stock Exchange follow in 1698. The City becomes the financing centre for chartered ventures — the machinery that will later rescue and then absorb the Company.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>7 Sep 1695</td><td><strong>Henry Every takes the Ganj-i-Sawai</strong>, a Mughal pilgrim ship returning from Mecca, with atrocities against passengers; the plunder includes Spanish rials. Aurangzeb closes five Company factories and imprisons its officers; Bombay's governor Sir John Gayer reports the brutality to the Privy Council; the Crown's bounty is doubled by the Company, producing what is often called the first worldwide manhunt. Parliament later excludes Every by name from its pardons.</td><td><span class="strand s-sea">Sea</span> <span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1698 / 1700</td><td>The New East India Company chartered by the same Whig syndicate; the piracy acts allow vice-admiralty trials in the colonies without juries. Suppressing piracy means asserting metropolitan jurisdiction over colonial ports and colonial juries — the constitutional grievance of 1765–75, rehearsed seventy years early and in the Company's interest.</td><td><span class="strand s-company">Company</span> <span class="strand s-sea">Sea</span> <span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 05 -->
+<section class="page-section" id="t3">
+<div class="section-header"><span class="section-num">06</span><h2 class="section-title">The Label as Instrument; the Society Under Attack, 1704–1765</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>1704</td><td>Maryland's <em>Act to Prevent the Growth of Popery</em>: Catholics lose the vote, office, the bar, public Mass and Catholic schools. Catholic boys, the Carrolls among them, are sent to the Jesuit college at St Omer.</td><td><span class="strand s-america">America</span> <span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1704, 1715, 1742</td><td>The Chinese Rites condemnations. Clement XI and Benedict XIV rule against accommodation; the Kangxi emperor expels missionaries who reject his terms. The China mission is crippled half a century before the Society itself falls.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1713</td><td>The Peace of Utrecht demobilizes the privateers of the War of the Spanish Succession. Benjamin Hornigold and others continue from New Providence without a commission: the licence lapses, the conduct does not. The same cycle runs in reverse in 1775.</td><td><span class="strand s-sea">Sea</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1715–1718</td><td>The Nassau pirate republic — Hornigold, Blackbeard, Bellamy, Vane, Bonny and Read — narrated in Woodard's <em>The Republic of Pirates</em>.<sup class="cite-ref"><a href="#ref-18">[18]</a></sup> No individual of this cohort survives into the Revolution fifty-eight years later; the continuity runs through ports, offices and families, not persons (§19).</td><td><span class="strand s-sea">Sea</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1717 / Jul 1718</td><td>The second general amnesty; Woodes Rogers, privateer, arrives as Governor of the Bahamas with a royal pardon and suppresses Nassau. Piracy is absorbed and licensed rather than extinguished, and the absorption coincides with the consolidation of chartered trade.</td><td><span class="strand s-sea">Sea</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1735 onward</td><td>The Bourbons of Naples and Sicily hold the feudal suzerainty over Malta created in 1530. Carlos III rules Naples before Spain — so the crown that will expel the Jesuits in 1767 is the Order's own feudal overlord.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>13 Jan 1750</td><td>The Treaty of Madrid; the Guaraní War follows, 1754–56. Spain and Portugal move against the reductions.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1 Nov 1755</td><td>The Lisbon earthquake; Pombal's ascendancy.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>23 Jun 1757</td><td>Plassey.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>3 Sep 1759</td><td><strong>Pombal expels the Jesuits from Portugal and its empire.</strong> The sequence begins outside the Bourbon family: Portugal is Braganza, and the Bourbon courts follow this precedent rather than setting it.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1761</td><td>The Pacte de Famille binds the Bourbon crowns of France, Spain, Naples and Parma — the instrument through which they will act jointly on the Society from 1767.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>26 Nov 1764</td><td>France suppresses the Society under Louis XV.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 06 -->
+<section class="page-section" id="t4">
+<div class="section-header"><span class="section-num">07</span><h2 class="section-title">Collapse and Revolution, 1765–1776</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>12 Aug 1765</td><td><strong>The <em>diwani</em> granted.</strong> Shah Alam II gives the Company the land revenue of Bengal, Bihar and Orissa. A trading corporation becomes a tax-farming state with an army — and misreads a windfall as an income stream.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1765</td><td>Charles Carroll of Carrollton returns to Maryland at 28, educated at St Omer and in France and London, and legally barred from voting or office.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>2 Apr 1767</td><td>Carlos III expels the Jesuits from Spain and its empire, including the missions of Baja California and Sonora; Naples and Sicily follow the same year, Parma in 1768.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1768 / 1769</td><td>Grand Master Pinto expels the Jesuits from Malta — five years before the papal brief — and their college endowment founds the University of Malta. A small sovereign dependent on Bourbon goodwill acts in step with its patrons.</td><td><span class="strand s-order">Order</span> <span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1769–1770</td><td><strong>The Bengal famine.</strong> Perhaps seven to ten million dead — plausibly a third of the population — while revenue collection is pressed, in some districts more aggressively than before. The asset the Company's valuation rested on ceases to exist.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Jun 1772</td><td>Neale, James, Fordyce and Down fail; the Ayr Bank follows; houses go down across Britain and the Netherlands. EIC stock, heavily used as loan collateral, collapses.</td><td><span class="strand s-london">London</span> <span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>late 1772</td><td>Franklin, colonial agent in London, obtains and forwards the Hutchinson letters to Massachusetts.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>spring 1773</td><td>Charles Carroll's <em>First Citizen</em> letters answer Daniel Dulany in the <em>Maryland Gazette</em>, arguing that the power to govern comes from the consent of the people. Dulany attacks Carroll's religion; the public sides with Carroll.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>10 May / Jun 1773</td><td>The Tea Act; the Regulating Act; £1.4 million advanced. Parliament grants the bailout and takes the Company in exchange — from here the Company is an instrument of British fiscal policy.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>21 Jul 1773</td><td><strong><em>Dominus ac Redemptor</em>.</strong> Clement XIV signs the brief suppressing the Society; promulgated 16 Aug. Some 23,000 Jesuits are dispersed; Lorenzo Ricci, the Superior General, dies in Castel Sant'Angelo in 1775. Extracted by Catholic crowns holding Avignon and Benevento as leverage, with the threat of national schism explicit.</td><td><span class="strand s-jesuit">Jesuit</span> <span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1773 onward</td><td><strong>The survivals.</strong> Catherine II declines to promulgate the brief in the newly annexed Belarusian territories; the colleges at Polotsk continue, with superiors and a novitiate, for forty-one years. Frederick II does the same in Silesia for a period. In China, ex-Jesuits remain at the Qing court in astronomy, painting and cartography; the mission passes to the Lazarists in 1785, while the <em>padroado</em> structure outlives the Society that worked inside it.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1773</td><td>Hastings establishes the Bengal opium monopoly; the Company licenses country traders to carry into China rather than carrying itself — the private-firm structure that later swallows the trade, created here as a liability shield.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>16 Dec 1773, c.7 p.m. – midnight</td><td>342 chests destroyed at Griffin's Wharf. The Tea Act was a bailout mechanism, not a tax: it would have made legal Company tea cheaper in Boston than smuggled Dutch tea. What made it intolerable was the retained Townshend duty, the destruction of colonial middlemen, and consignees who included Governor Hutchinson's two sons and a nephew.</td><td><span class="strand s-america">America</span> <span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>29 / 31 Jan 1774</td><td>Franklin denounced for about an hour by Solicitor General Wedderburn before the Privy Council in the Cockpit; dismissed as deputy postmaster general two days later. His humiliation and the Company's bailout are one affair.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>spring / 22 Jun 1774</td><td>The Coercive Acts; the Quebec Act guarantees Catholic free exercise in Canada. Congress denounces it to Britain in October in the harshest anti-Catholic terms, and simultaneously invites the Canadians to join the union. The Canadians have both documents.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1774</td><td>John Carroll, a suppressed Jesuit with no order to belong to, returns to Maryland. Charles Carroll is elected to the second Maryland Convention — the first Catholic in office there since 1715.</td><td><span class="strand s-jesuit">Jesuit</span> <span class="strand s-america">America</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Dec 1774 – Feb 1775</td><td><strong>Franklin offers to pay for the destroyed tea himself</strong>, through the Quaker intermediaries David Barclay and John Fothergill, if the Coercive Acts are repealed. He had called the destruction an act of violent injustice. He wanted the licence reformed, not captured.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>13 Oct 1775</td><td>Congress creates the Continental Navy.</td><td><span class="strand s-sea">Sea</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>3 Dec 1775</td><td>The Continental Colors raised aboard the <em>Alfred</em> at Philadelphia. The dinner speech later attributed to Franklin is dated 13 December — ten days too late, and in the wrong city.</td><td><span class="strand s-sea">Sea</span> <span class="strand s-contested">Contested</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>3–4 Mar 1776</td><td>The raid on Nassau — first amphibious action of the American navy and marines, on the ground the pirate republic held until 1718, to seize powder for Washington's army.</td><td><span class="strand s-sea">Sea</span> <span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Mar–Jun 1776</td><td>The Canada mission: Franklin, Chase, Charles Carroll and the priest John Carroll, brought for Catholic credibility. It fails. Franklin falls ill on the return and John Carroll nurses him back to Philadelphia — the origin of the friendship.</td><td><span class="strand s-america">America</span> <span class="strand s-care">Care</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>4 Jul / 2 Aug 1776</td><td>The Declaration adopted; Carroll elected a Maryland delegate the same day, too late to vote. On 2 August he signs the engrossed copy and, when a delegate remarks that a dozen men share his name, returns to add <em>of Carrollton</em> — the wealthiest man in America, the only Catholic signer, supplying his address.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-b">B</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 07 -->
+<section class="page-section" id="t5">
+<div class="section-header"><span class="section-num">08</span><h2 class="section-title">The Licence Changes Hands, 1778–1793</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>1775–1783</td><td>Congress issues letters of marque; between roughly 1,700 and 2,000 American privateers take more British tonnage than the Continental Navy. The United States begins by claiming the sovereign power to say who is a pirate.</td><td><span class="strand s-sea">Sea</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>6 Feb 1778</td><td>The Franco-American treaties. The alliance supplies the navy, the subsidies and the loans without which Congress cannot pay its army.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1779–1781</td><td>Bernardo de Gálvez takes Baton Rouge, Mobile and Pensacola, tying down British forces in the Gulf; in 1781 Havana raises roughly half a million pesos in hours for the Yorktown campaign.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>2–9 Jun 1780</td><td>The Gordon Riots — the worst civil disorder in London's history, against Catholic relief; Newgate burned. The metropolis of the empire remains violently anti-Catholic in the years its Catholic adversaries are deciding the American war.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>5 Sep / 19 Oct 1781</td><td>The Battle of the Chesapeake; de Grasse, trained in the Order of Malta's galleys and a Knight, closes the bay. Yorktown surrenders. French troops are roughly half the besieging force.</td><td><span class="strand s-america">America</span> <span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>21 Jun 1783</td><td><strong>The Philadelphia mutiny.</strong> Unpaid Continental soldiers surround Congress; Pennsylvania declines to call out its militia; Congress flees to Princeton. This produces the federal-district clause.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>27 Jun 1783</td><td>General chapter of the ex-Jesuit clergy at White Marsh, Maryland: the Constitution of the Clergy drafted, and a petition to Rome for an American superior rather than a bishop from London.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1783</td><td>Franklin sends the <em>Libertas Americana</em> medal to Grand Master de Rohan, who replies warmly — recognition of the new republic by the Order, not pressure by the republic on the Order.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-c">C</span></td></tr>
+<tr><td>22 Feb 1784</td><td>The <em>Empress of China</em> sails from New York under a congressional sea letter, financed by Robert Morris and Daniel Parker; returns 11 May 1785 at a large profit. Independence puts Americans outside the Navigation Acts and therefore outside the Company's monopoly.</td><td><span class="strand s-company">Company</span> <span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>11 May 1784</td><td>Congress replies to Rome, through the Paris nunciature, that it holds no authority whatever over religion and can neither approve nor object. The statement of constitutional principle leaves Franklin's private opinion as the only American input.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>6 Jun 1784</td><td><strong>John Carroll named Superior of the Mission</strong>, on Franklin's recommendation to the nuncio Giuseppe Doria Pamphilj. The first head of the American church is, in practice, a Protestant deist's suggestion accepted by Rome.</td><td><span class="strand s-america">America</span> <span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>13 Aug 1784</td><td>Pitt's India Act puts the Company under a Board of Control.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>17 Sep 1787</td><td>The Constitution signed. Daniel Carroll of Maryland and Thomas FitzSimons of Pennsylvania are the two Catholic signers; Article I, §8, cl. 17 creates the district power.</td><td><span class="strand s-america">America</span> <span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>23 Jan 1789</td><td>The Georgetown deed; the college founded by former Jesuits during the suppression, successor to the Bohemia Manor school where the Carrolls were taught.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>25 Sep / 6 Nov 1789</td><td>The First Amendment sent to the states; John Carroll appointed first bishop of Baltimore, with jurisdiction from the Atlantic to the Mississippi. Consecrated 15 Aug 1790 at Lulworth.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>16 Jul 1790</td><td>The Residence Act, following the Compromise of 1790 — assumption of state war debts traded for a southern capital.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1791</td><td>The Sulpicians arrive at Baltimore; the United States begins absorbing exiled continental clergy, and Rome acquires an institutional stake in a country that can place personnel it cannot place elsewhere.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>30 Mar / 15 Apr 1791</td><td>The nineteen proprietors' agreement: land ceded, half the lots returned, £25 an acre for public grounds, nothing for streets. The first boundary stone set at Jones Point, surveyed by Andrew Ellicott with Benjamin Banneker.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1791–1792</td><td>L'Enfant's plan; his demolition of Daniel Carroll of Duddington's house; his dismissal in February 1792. Daniel Carroll of Rock Creek serves as one of the three commissioners. This is the episode from which the "Carroll donated the land" story derives.</td><td><span class="strand s-dc">DC</span> <span class="strand s-contested">Contested</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1792</td><td>The Maryland legislature charters the <strong>Corporation of Roman Catholic Clergymen</strong>, which takes title to the ex-Jesuit estates — the legal vehicle by which a suppressed order holds roughly 12,000 acres through forty-one years of canonical non-existence.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1792</td><td>Revolutionary France confiscates the French commanderies — the bulk of the Order of St John's revenue. The Order is financially finished six years before Napoleon takes the island.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>18 Sep 1793</td><td>The Capitol cornerstone, laid with Masonic ceremony, Washington presiding, Daniel Carroll present. The concrete Carroll–Masonic overlap, alongside the 1738 papal ban on Masonic membership that American Catholics of that generation did not strictly enforce.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 08 -->
+<section class="page-section" id="t6">
+<div class="section-header"><span class="section-num">09</span><h2 class="section-title">Dispossession and Restoration, 1796–1834</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>1796</td><td>Joseph Pulis appointed the first American consul at Malta, under the Order's government — a commercial posting, not a diplomatic intervention.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-c">C</span></td></tr>
+<tr><td>15 / 20 Feb 1798</td><td>The Roman Republic proclaimed; Pius VI removed; he dies at Valence on 29 Aug 1799.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>12 Jun 1798</td><td>Hompesch surrenders Malta to Napoleon and abdicates.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Nov 1798 – 1801</td><td><strong>The Russian interlude.</strong> The knights elect Paul I of Russia — Orthodox, married, canonically impossible — as Grand Master; he shelters the Order at St Petersburg. Rome never recognizes the election. Paul is assassinated on 23 Mar 1801; Alexander I withdraws; the Grand Mastership lapses for decades. The same empire shelters the Jesuits and the Knights in the same years, for reasons of state rather than religion.</td><td><span class="strand s-order">Order</span> <span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1800–1802</td><td>The government moves from Philadelphia; the District of Columbia Organic Act of 27 Feb 1801 leaves residents without congressional representation, a condition unbroken since; Washington City incorporated 1802.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1801 / 1814</td><td>Malta passes to Britain in fact, then by the Treaty of Paris. The Treaty of Amiens of 27 Mar 1802 had provided for its return to the Order; Britain refused to evacuate, and the refusal helped restart the war. No American role; the American squadron used Valletta as a Mediterranean base in the Barbary Wars, which amounted to accepting the dispossession.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1801 / 1804 / 1805</td><td>Partial Jesuit restorations: Russia, the Kingdom of the Two Sicilies, and then America — Carroll's correspondence with the Russian province produces affiliation, vows renewed at Georgetown under Robert Molyneux, and a novitiate in 1806. The American Society exists canonically as a dependency of Polotsk until 1814.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1801–1810</td><td>The Guangdong pirate confederation under Zheng Yi and Zheng Yi Sao levies protection on coastal shipping, in the same waters as the opium clippers — which is why those ships are armed.</td><td><span class="strand s-sea">Sea</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1809</td><td>Napoleon annexes the Papal States; Pius VII imprisoned at Savona and Fontainebleau until 1814. The Qawasim campaigns of 1809 and 1819 proceed on a manufactured piracy charge.</td><td><span class="strand s-vatican">Vatican</span> <span class="strand s-sea">Sea</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>21 Jul 1813</td><td>The Charter Act ends the Company's India monopoly.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>7 Aug 1814</td><td><strong><em>Sollicitudo omnium ecclesiarum</em></strong> restores the Society universally. The Bourbon coalition that extracted the 1773 brief had been broken by revolution and, where restored, now wanted the Society as an ally against it; the order had survived continuously at Polotsk; and Pius VII, released from five years' captivity in May, acted within three months.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>24 Aug 1814</td><td>The British burn the Capitol, the President's House and the Navy Yard; removal of the capital is debated in Congress and defeated narrowly.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>9 Jun 1815</td><td>The Congress of Vienna restores the Papal States. Ferdinand VII invites the Jesuits back to Spain the same year; Naples had readmitted them in 1804.</td><td><span class="strand s-vatican">Vatican</span> <span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1820 / 1823 / 1833</td><td>The Maryland Jesuits restored and Georgetown returns to the Society; Belgian Jesuits sent from White Marsh to Florissant, Missouri, producing St Louis University; the Maryland Province erected, the first in the United States. The westward expansion runs out of Maryland, not New England.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1824 / 1832</td><td>Samuel Russell founds Russell &amp; Co at Canton; Jardine, Matheson &amp; Co founded. William Huntington Russell, a cousin of Samuel Russell, founds Skull and Bones at Yale in 1832 — the imagery descending from Christian memento mori, not from piracy and not from the Essenes.</td><td><span class="strand s-finance">Finance</span> <span class="strand s-contested">Contested</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1832</td><td>James de Rothschild floats the papal loan for Gregory XVI — the beginning of nineteenth-century Rothschild involvement in papal finance, a relationship that lapses long before the IOR is founded in 1942.</td><td><span class="strand s-finance">Finance</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>14 Nov 1832</td><td>Charles Carroll of Carrollton dies at Baltimore, aged 95, last living signer since 4 July 1826, when Jefferson died about 12:50 p.m. and Adams about 6:20 p.m. Asked what he looked back on with greatest satisfaction, he named not the Declaration but the practice of the duties of his religion.</td><td><span class="strand s-america">America</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>28 Aug 1833 / 22 Apr 1834</td><td><strong>The hinge.</strong> The Charter Act ends the China monopoly, effective the following April; the Company ceases commercial operations. The trade does not end — it privatizes to Jardine Matheson, Dent, Russell &amp; Co and the Bombay houses.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1834</td><td>Portugal dissolves the religious orders; the Order of Christ survives as a state decoration, with a separate papal Supreme Order of Christ retained by Rome. The Order of Malta's headquarters settle permanently in Rome, at Palazzo Malta on Via dei Condotti; the Magistral Villa on the Aventine holds the Grand Priory. Both carry extraterritoriality granted by Italy — the legal species of an embassy, not of a state.</td><td><span class="strand s-christ">Christ</span> <span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 09 -->
+<section class="page-section" id="t7">
+<div class="section-header"><span class="section-num">10</span><h2 class="section-title">The Two Cities, the Families, the Trade, 1835–1900</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>9 Sep 1835</td><td><strong>The Municipal Corporations Act</strong> reforms every English borough — and exempts the City of London. This exemption, not any secret arrangement, is why the Corporation's medieval structure survives into the present.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1839</td><td>The City of London Police established separately, and never merged into the Metropolitan Police.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1830s onward</td><td>David Sassoon, chief treasurer of Baghdad, flees Ottoman persecution to Bushehr and then Bombay; the Baghdadi network — Sassoon, Ezra, Gubbay, later Kadoorie — builds across Bombay, Calcutta, Shanghai and Hong Kong, and after 1834 becomes the largest single force in the Malwa opium trade. Comparable in weight: the Scottish houses (Jardine, Matheson, Dent) and the New England houses (Perkins, Forbes, Cabot, Delano, Russell). Warren Delano Jr, FDR's grandfather, is a Russell &amp; Co partner.</td><td><span class="strand s-finance">Finance</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>3–25 Jun 1839 / 29 Aug 1842</td><td>Lin Zexu destroys the confiscated opium at Humen; the Treaty of Nanking cedes Hong Kong. The second war follows, 1856–60. The private firms, not the Company, are the beneficiaries.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1842</td><td>Jesuits return to China at Xujiahui, under treaty-port protection — a different licence from the <em>padroado</em> they left.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1838</td><td>The Maryland Jesuits sell 272 enslaved people from the estates to Louisiana planters, substantially to relieve Georgetown's debts. The endowment that carried the Society through suppression was slave-worked land, and the restoration was partly financed by that sale.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1829 / 1850</td><td>Catholic Emancipation; the restoration of the Catholic hierarchy in England, and the "papal aggression" panic that followed.</td><td><span class="strand s-london">London</span> <span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>9 Jul 1846</td><td>Alexandria retroceded to Virginia; the District loses a third of its area.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>4 Jul 1848 / Mar 1854</td><td>The Washington Monument cornerstone laid; the stone sent by Pius IX is stolen and destroyed by Know-Nothings, and construction halts for over twenty years.</td><td><span class="strand s-dc">DC</span> <span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1855 / 1889</td><td>The Metropolitan Board of Works excludes the City; the London County Council is created around it.</td><td><span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1861–1865</td><td>Some 600–700 Catholic sisters nurse both armies. The care is the most effective solvent of American anti-Catholicism in the century.</td><td><span class="strand s-care">Care</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>16 Apr 1862 / 1867</td><td>Emancipation in the District, nine months before the Emancipation Proclamation; Black male suffrage in the District.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>2 Aug 1858 / 1 Jun 1874</td><td>The Government of India Act; the East India Company dissolved by statute. It is the one institution on this page that ends rather than relocates, and it leaves no successor body.</td><td><span class="strand s-company">Company</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1863</td><td>Boston College founded from the Maryland Province. New England enters the Jesuit story late, and from Maryland.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>20 Sep 1870 / 1871</td><td>Porta Pia; Rome taken and the Papal States extinguished. The Law of Guarantees is rejected; the Roman Question opens, and the popes remain without territory for fifty-nine years.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1871–1874 / 1874–1967</td><td>Territorial government in the District under Alexander Shepherd, ended after its bankruptcy; then rule by three appointed commissioners for ninety-three years. The District's elective government is removed for nearly a century.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1875 / 1879</td><td>The Suez purchase financed; the Ottoman Public Debt Administration established; <strong>Leo XIII restores the office of Grand Master</strong> of the Order of St John — sovereignty of a functional kind, exercised from extraterritorial premises rather than over territory, and a hospitaller mission without a fleet.</td><td><span class="strand s-finance">Finance</span> <span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 10 -->
+<section class="page-section" id="t8">
+<div class="section-header"><span class="section-num">11</span><h2 class="section-title">The Modern Settlement, 1901–2025</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Strand</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>1901–1902</td><td>The McMillan Plan restores the L'Enfant framework and creates the Mall as it stands.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1913</td><td>The Federal Reserve Act.</td><td><span class="strand s-finance">Finance</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1924</td><td>The Nuns of the Battlefield monument dedicated in Washington, honouring the sisters who nursed both sides in the Civil War.</td><td><span class="strand s-dc">DC</span> <span class="strand s-care">Care</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1927 / 1953 / 1974</td><td>The American, Western and Federal Associations of the Order of Malta founded — a twentieth-century re-entry, with no continuity from the Caribbean period or the founding era.</td><td><span class="strand s-order">Order</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>11 Feb 1929</td><td><strong>The Lateran Treaty.</strong> Vatican City created as a state of about 44 hectares; the Roman Question closed; the financial convention compensating the Holy See for the lost Papal States founds the modern Vatican finance apparatus.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1938</td><td>The DC flag adopted after a design competition: three stars and two bars from the Washington family arms, documented from the fourteenth century.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1938</td><td>Dr Harley Hotz, a Catholic family physician in Omaha, sends the young Warren Buffett to St Catherine's Hospital for an emergency appendectomy after a ruptured appendix; three weeks among the sisters, by Buffett's own later account probably the first Protestant child they had encountered there.</td><td><span class="strand s-care">Care</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1942</td><td>The Institute for the Works of Religion founded under Bernardino Nogara. No Rothschild role; the nineteenth-century papal-loan relationship had long lapsed.</td><td><span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1949–1955</td><td>The Jesuits expelled from China; the Chinese province reconstitutes in Taiwan and the Philippines.</td><td><span class="strand s-jesuit">Jesuit</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>1959</td><td>Don Keough — an Iowa farm boy by way of Creighton, the Jesuit university in Omaha, earning $12,000 a year with five children headed for Catholic schools — moves in across the street from Buffett. He becomes president of Coca-Cola and a Berkshire director. Walter Scott Jr, of the same Omaha network, brings MidAmerican Energy to Berkshire in 1999 and serves as a director until 2021.</td><td><span class="strand s-care">Care</span></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>29 Mar 1961 / 1970 / 24 Dec 1973</td><td>The Twenty-third Amendment gives the District presidential electors; a non-voting delegate follows; the Home Rule Act restores an elected mayor and council — with congressional review of every act and of the budget retained.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1978 / 1993 / 2021</td><td>The representation amendment fails ratification; statehood bills fail.</td><td><span class="strand s-dc">DC</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>1982 / 27 Oct 1986</td><td>The Banco Ambrosiano collapse; Big Bang deregulates the City.</td><td><span class="strand s-vatican">Vatican</span> <span class="strand s-london">London</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>2007–2009 / 2013–2014</td><td>The financial crisis; the IOR reforms under Francis.</td><td><span class="strand s-london">London</span> <span class="strand s-vatican">Vatican</span></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>10 Nov 2025</td><td>Buffett's final shareholder letter opens with the 1938 appendicitis and the nuns who cared for him, then with the neighbours. Catholic institutional density in a mid-century American city — hospital, university, parish schools — is placed at the origin of the life story.</td><td><span class="strand s-care">Care</span></td><td><span class="grade g-b">B</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 11 -->
+<section class="page-section" id="strands">
+<div class="section-header"><span class="section-num">12</span><h2 class="section-title">The Timeline by Strand: A Second Sort</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The same events, re-cut. Part I answers what was happening simultaneously; this section answers what happened to each institution, so a single strand can be read from beginning to end. Nothing here is new evidence — it is the same entries under a different sort key, and the two views should agree at every date.</p></div>
+<div class="prose">
+<p><strong>Reading the two views together.</strong> A chronological sort makes coincidence visible and causation hard to follow; a strand sort does the reverse. Three findings on this page came from the first view — the two suppressions of 1773 falling five months apart, the four acts of 1784 falling within six months, and Russia sheltering both the Jesuits and the Knights in the same years. Three came from the second — each order's survival by relocating its licence, the Company as the only strand that terminates, and the District as the only city whose inhabitants lost rights at founding. A claim that appears in only one view is worth re-checking in the other.</p>
+</div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Lane</th><th>Span</th><th>Shape of the lane</th></tr></thead>
+<tbody>
+<tr><td>Orders of St John and the Temple</td><td>1048–2025</td><td>Founded → dispossessed four times (1187, 1291, 1522, 1798) → relocated each time → sovereignty without territory</td></tr>
+<tr><td>Order of Christ and the Iberian successors</td><td>1319–1834</td><td>Created from another order's confiscated assets → crown-administered → instrument of empire → decoration</td></tr>
+<tr><td>Society of Jesus</td><td>1540–2025</td><td>Founded → expelled by states → suppressed by Rome → survives in a non-Catholic empire → restored → expelled again in China</td></tr>
+<tr><td>East India Company</td><td>1600–1874</td><td>Chartered → territorial state → insolvent → nationalized → wound up → <strong>no successor</strong></td></tr>
+<tr><td>Piracy and privateering</td><td>1686–1819</td><td>Unlicensed → criminalized → absorbed → re-licensed by a new state</td></tr>
+<tr><td>Catholic America</td><td>1565–1832</td><td>Missionary → proscribed (1704) → disproportionately decisive (1776–84) → established (1789)</td></tr>
+<tr><td>The three cities</td><td>1067–2025</td><td>Three separate legal species; the lane runs in parallel throughout and never converges</td></tr>
+<tr><td>Care</td><td>1776–2025</td><td>Personal → institutional → civic</td></tr>
+</tbody></table></div>
+
+<div class="subsection"><h3>Lane A · The Orders, 1048–2025</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Turn</th></tr></thead>
+<tbody>
+<tr><td>c.1048–1113</td><td>Amalfitan hospital; Gerard's reorganization; <em>Pie postulatio voluntatis</em></td><td>Founded</td></tr>
+<tr><td>1187 / 1291 / 1522</td><td>Jerusalem, Acre, Rhodes lost</td><td>Dispossessed ×3</td></tr>
+<tr><td>1307–1312</td><td>Templar arrests; <em>Vox in Excelso</em>; <em>Ad Providam</em></td><td>A sister order ended; its assets relocated</td></tr>
+<tr><td>1530 / 1651–65</td><td>Malta granted; the Caribbean islands held and sold</td><td>Territorial sovereignty, twice</td></tr>
+<tr><td>1792 / 1798</td><td>French commanderies confiscated; Malta surrendered</td><td>Dispossessed</td></tr>
+<tr><td>1798–1801</td><td>Paul I elected Grand Master; Rome never recognizes it; the office lapses</td><td>Relocation attempted, failed</td></tr>
+<tr><td>1834 / 1879</td><td>Palazzo Malta and the Aventine villa; Leo XIII restores the Grand Mastership</td><td>Restored as functional sovereignty, on extraterritorial premises</td></tr>
+<tr><td>1935 / 1998</td><td>The Italian Court of Cassation recognizes the Order's sovereign personality; Fort St Angelo leased for 99 years with limited extraterritoriality and no right of asylum</td><td>Recognized in law; a foothold on the island, not its recovery</td></tr>
+<tr><td>1927 / 1953 / 1974</td><td>The three American Associations</td><td>Re-entry, no continuity from 1665</td></tr>
+</tbody></table></div></div>
+
+<div class="subsection"><h3>Lane B · The Society of Jesus, 1540–2025</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Turn</th></tr></thead>
+<tbody>
+<tr><td>1540</td><td><em>Regimini militantis Ecclesiae</em></td><td>Founded</td></tr>
+<tr><td>1542–1692</td><td>Goa, Japan, China; Acadia, Québec, Maryland; the reductions</td><td>Expansion under the <em>padroado</em> and French and English crowns</td></tr>
+<tr><td>1759 / 1764 / 1767–68</td><td>Portugal; France; Spain, Naples, Parma</td><td>Expelled by states</td></tr>
+<tr><td>1768</td><td>Pinto expels them from Malta; the endowment founds a university</td><td>Expelled by a client sovereign</td></tr>
+<tr><td>21 Jul 1773</td><td><em>Dominus ac Redemptor</em></td><td>Suppressed by Rome</td></tr>
+<tr><td>1773–1814</td><td>Polotsk continues; Silesia for a period; ex-Jesuits at the Qing court</td><td>Relocated to a non-Catholic empire</td></tr>
+<tr><td>1783 / 1792</td><td>White Marsh chapter; the Maryland Corporation chartered</td><td>Property preserved by state charter</td></tr>
+<tr><td>1805–1806</td><td>Maryland affiliates with the Russian province; novitiate at Georgetown</td><td>Canonically alive again, via Russia</td></tr>
+<tr><td>7 Aug 1814 / 1820 / 1833</td><td>Universal restoration; Maryland restored; the Maryland Province erected</td><td>Restored</td></tr>
+<tr><td>1838</td><td>272 enslaved people sold from the estates</td><td>The endowment's cost, paid by others</td></tr>
+<tr><td>1842 / 1949–55</td><td>Return to China at Xujiahui; expulsion from China</td><td>Re-licensed, then expelled again</td></tr>
+</tbody></table></div></div>
+
+<div class="subsection"><h3>Lane C · The East India Company, 1600–1874</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Turn</th></tr></thead>
+<tbody>
+<tr><td>31 Dec 1600</td><td>Chartered with rights of war, treaty, coinage and prize-taking</td><td>Chartered</td></tr>
+<tr><td>1686–1690 / 1695</td><td>Child's War; the Ganj-i-Sawai and Aurangzeb's closures</td><td>Armed sovereign in fact; then nearly destroyed by an unlicensed imitator</td></tr>
+<tr><td>1698–1700</td><td>Piracy acts; colonial vice-admiralty jurisdiction</td><td>The boundary made legal — and exported to America</td></tr>
+<tr><td>1757 / 1765</td><td>Plassey; the <em>diwani</em></td><td>Territorial revenue state</td></tr>
+<tr><td>1769–1772</td><td>Bengal famine; credit collapse; insolvency</td><td>Bankrupt</td></tr>
+<tr><td>1773 / 1784</td><td>Regulating Act and bailout; Pitt's India Act</td><td>Nationalized in stages</td></tr>
+<tr><td>1813 / 1833–34</td><td>Monopolies ended; trading ceases</td><td>Function privatized to other firms</td></tr>
+<tr><td>1858 / 1874</td><td>Government of India Act; dissolved by statute</td><td><strong>Ended — no successor body</strong></td></tr>
+</tbody></table></div></div>
+
+<div class="subsection"><h3>Lane D · Piracy and privateering, 1686–1819</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Turn</th></tr></thead>
+<tbody>
+<tr><td>1686–1690</td><td>Child's War: the Company raids under charter</td><td>Licensed predation</td></tr>
+<tr><td>1690s</td><td>The Pirate Round; colonial ports as markets and shelters</td><td>Tolerated, and politically useful ashore</td></tr>
+<tr><td>1695–1700</td><td>The Ganj-i-Sawai; the manhunt; the piracy acts</td><td>Criminalized, and jurisdiction centralized</td></tr>
+<tr><td>1713</td><td>Utrecht demobilizes the privateers</td><td>Licence lapses; conduct continues</td></tr>
+<tr><td>1715–1718</td><td>Nassau; Rogers's pardon and suppression</td><td>Absorbed by amnesty</td></tr>
+<tr><td>1739–1763</td><td>Colonial privateering in the imperial wars</td><td>Re-licensed by the metropole</td></tr>
+<tr><td>1775–1783</td><td>Letters of marque; 1,700–2,000 American privateers; Nassau raided</td><td>Re-licensed by a new state</td></tr>
+<tr><td>1801–1819</td><td>The Guangdong confederation; the Qawasim campaigns</td><td>The label aimed at commercial rivals</td></tr>
+</tbody></table></div></div>
+
+<div class="subsection"><h3>Lane E · Catholic America, 1565–1832</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Turn</th></tr></thead>
+<tbody>
+<tr><td>1565 / 1634 / 1649</td><td>St Augustine; the <em>Ark</em> and <em>Dove</em>; the Toleration Act</td><td>Missionary and briefly tolerated</td></tr>
+<tr><td>1704</td><td>Maryland's anti-popery act</td><td>Proscribed</td></tr>
+<tr><td>1774</td><td>Charles Carroll elected — first Catholic in Maryland office since 1715</td><td>The ban cracks</td></tr>
+<tr><td>1776–1781</td><td>The Canada mission; Carroll's signature; France, Spain, Havana, de Grasse</td><td>Disproportionately decisive</td></tr>
+<tr><td>1784 / 1787 / 1789</td><td>Carroll named Superior; two Catholic signers; first bishop, Georgetown, First Amendment</td><td>Established</td></tr>
+<tr><td>1832</td><td>Charles Carroll of Carrollton dies, last signer</td><td>The founding generation closes</td></tr>
+</tbody></table></div></div>
+
+<div class="subsection"><h3>Lane F · The three cities, 1067–2025</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Date</th><th>Event</th><th>Turn</th></tr></thead>
+<tbody>
+<tr><td>1067 / 1215 / 1835</td><td>Charter; Magna Carta cl. 13; exemption from municipal reform</td><td>London: survives by exemption</td></tr>
+<tr><td>754 / 1798 / 1809 / 1870 / 1929</td><td>Donation of Pepin; two annexations; Porta Pia; the Lateran Treaty</td><td>Rome: extinguished, then restored by treaty at 44 hectares</td></tr>
+<tr><td>1790 / 1801 / 1874 / 1973</td><td>Residence Act; representation removed; elective government abolished; partial home rule</td><td>Washington: rights lost at founding, not recovered</td></tr>
+</tbody></table></div></div>
+
+<div class="theory-disclaimer"><strong>Two notes on this section.</strong> First, a third sort is possible and would suit the page's thesis: by <em>licensing instrument</em> rather than by date or institution — every bull, charter, letter of marque, statute and treaty here, listed with its issuer and what it authorized. It is not built, because it would duplicate content the other two sorts already carry; the reference list at the foot of the page is its skeleton. Second, a swimlane diagram of these eight lanes on a compressed time axis would restate the §00 figure at timeline scale, with the Company lane the only one terminating. It is deferred to a later pass rather than approximated here.</div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Part II</div><div class="part-title">Analysis</div><p>Seven arguments built from entries in Part I: the fiscal chain, the suppression and its reversal, the Maryland estates, Franklin's actual record, care as a political solvent, the silver that joins piracy to opium, and the port communities that carried anti-piracy into the Revolution.</p></div>
+
+<!-- 12 -->
+<section class="page-section" id="bengal">
+<div class="section-header"><span class="section-num">13</span><h2 class="section-title">Bengal to Baltimore: The Fiscal Chain</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The first Catholic bishop of the United States owed his appointment, through five documented links, to a land-revenue settlement made in Bengal in 1765 by men who had never heard of him. Every link is a public instrument. No hidden agency is required, and that is the point.</p></div>
+<div class="mechanism-grid">
+<div class="mech"><div class="mnum">LINK 1 · REVENUE</div><h4>Bengal, 1765–1770</h4><p>The <em>diwani</em> makes the Company a revenue state; dividends are raised against an asset that the famine of 1769–70 destroys while collection continues.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">LINK 2 · INSOLVENCY</div><h4>London, 1772–1773</h4><p>Credit collapse; the Company cannot pay its customs bonds and seeks £1.4 million. Parliament grants it and takes control by the Regulating Act, then disposes of the tea surplus on America.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">LINK 3 · BOSTON</div><h4>December 1773</h4><p>A bailout wearing the face of local patronage. The Coercive Acts convert a tax dispute into a constitutional one — and the Quebec Act, passed the same session, makes Catholic toleration a colonial grievance.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">LINK 4 · CATHOLIC POWERS</div><h4>1778–1781</h4><p>France supplies the navy and the loans; Spain takes the Gulf; Havana funds Yorktown; de Grasse closes the Chesapeake. A republic whose founding grievances included Catholic toleration is rescued by the Catholic monarchies.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">LINK 5 · THE VACANCY</div><h4>May–June 1784</h4><p>Congress tells Rome it has no authority over religion. The reply, intended as principle, leaves Franklin's private opinion as the only American input — and he names the priest who nursed him in 1776.</p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">RESULT</div><h4>Baltimore, 1789</h4><p>A suppressed Jesuit becomes first bishop of a diocese running to the Mississippi, and founds Georgetown, on a Protestant deist's recommendation accepted by Rome.</p><span class="grade g-a">Grade A</span></div>
+</div>
+<div class="prose">
+<p><strong>On causation.</strong> Every link is a documented, public, institutional act: a revenue grant, a bankruptcy, a statute, a treaty, a letter. The chain is astonishing in its span and unremarkable in its mechanics. When a story of this shape is available, the burden on any hidden-agency account rises sharply — it must explain what the ordinary account leaves unexplained, and here very little remains.</p>
+<p><strong>On religious liberty.</strong> The American separation of church and state was not, in 1784, primarily an idea that triumphed. It was a legislature's confession of incapacity, and that incapacity produced immediately an American church that Rome governed without a state intermediary. John Carroll grasped the implication: a government that cannot establish a religion cannot suppress one either.</p>
+<p><strong>What the argument does not claim.</strong> It does not claim that British India policy was designed to produce any American outcome; it claims the opposite. It does not treat Catholic contribution as a hidden hand — French and Spanish intervention was public, treaty-bound and self-interested. And it does not require the Bengal famine to be read as intentional; the culpability lies in an extraction structure that continued through it.</p>
+</div>
+</section>
+
+<!-- 13 -->
+<section class="page-section" id="suppression">
+<div class="section-header"><span class="section-num">14</span><h2 class="section-title">Suppression and Restoration: A Causal Decomposition</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The Society was suppressed by Catholic kings, preserved by an Orthodox empress, given political room by a man who imprisoned the pope, and restored by that pope three months after his release. Each of those four statements is documented, and together they explain 1814 without appeal to any hidden actor.</p></div>
+<div class="subsection"><h3>Who suppressed it</h3>
+<div class="prose"><p>The agent was a coalition of Catholic crowns, not a doctrinal judgment. Braganza Portugal initiated in 1759; the Bourbon courts of France (1764), Spain (1767), Naples and Sicily (1767) and Parma (1768) followed, bound by the Pacte de Famille of 1761 and acting jointly from 1767. They pressed the 1769 conclave; the Spanish ambassador Floridablanca extracted the brief in 1773, with France holding Avignon and Naples holding Benevento as leverage and the threat of national schism explicit. The motive was regalist rather than theological: these governments wanted appointments, revenues and education under royal control, and the Society's fourth vow, independent colleges and Paraguay reductions made it the one body that could not be nationalized.</p></div></div>
+<div class="subsection"><h3>What made restoration possible</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Cause</th><th>Role</th><th>Counterfactual test</th></tr></thead>
+<tbody>
+<tr><td>Lapse of the Bourbon veto</td><td>Necessary condition. Napoleon dismantled every member of the coalition between 1792 and 1808; and where the dynasties returned in 1814–15 they wanted the Society back, as an instrument against the revolution that had nearly destroyed them.</td><td>Remove it and restoration comes eventually, once a pope is free to act.</td></tr>
+<tr><td>Russian survival at Polotsk</td><td>Material cause. Catherine II's refusal to promulgate kept superiors, novices and continuous formation alive for forty-one years. Restoration extended a living body.</td><td>Remove it and 1814 produces a decree with nothing to apply it to.</td></tr>
+<tr><td>Pius VII's captivity, 1809–1814</td><td>Sets the date, and the motive. A pope held five years by a regalist state reads the Society's fourth vow as insurance rather than threat; he signs within three months of returning to Rome.</td><td>Remove it and the timing slips; the outcome likely stands.</td></tr>
+<tr><td>Unmet demand for clergy and schools</td><td>Supplies urgency. The suppression stripped roughly 800 colleges and seminaries; the revolutionary years destroyed much of what replaced them.</td><td>Remove it and restoration is slower, not impossible.</td></tr>
+<tr><td>American petitioning</td><td>Contributing context only. Carroll's affiliation request of 1803–05 was the fourth and last of the partial restorations, after Russia (1801) and Naples (1804).</td><td>Remove it and 1814 is unchanged.</td></tr>
+</tbody></table></div></div>
+<div class="callout"><span class="kicker">The corrected formulation</span><div class="statement">Napoleon is the efficient cause — he cleared the obstacle and supplied the motive, by failing. Russia is the material cause — it preserved the body to be restored. Pius VII's captivity fixes the date. Carroll caused the American province, not the restoration of the Society.</div></div>
+<div class="theory-disclaimer"><strong>A note on the Order of Malta, which followed a different mechanism.</strong> Its territorial restoration was provided for at Amiens in 1802 and never carried out; Britain refused to evacuate and the 1814 Treaty of Paris confirmed Malta as British. Its institutional recovery was papal and late: Rome in 1834, the Grand Mastership in 1879. The United States played no part in either, and its use of Valletta as a naval base after 1801 amounted to accepting the dispossession. The Society survived by relocating its canonical existence; the Order survived by giving up territory and keeping sovereignty.</div>
+</section>
+
+<!-- 14 -->
+<section class="page-section" id="maryland">
+<div class="section-header"><span class="section-num">15</span><h2 class="section-title">The Maryland Estates: Where the Suppressed Jesuits Actually Were</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>After 1773 the American ex-Jesuits had a headquarters, and it was in Maryland — not Boston, which had no Catholic church until 1788. They were not hidden: they were public secular priests holding roughly 12,000 acres, first under their own names and then under a state charter of 1792. Their continuity is a story about corporate law and Russian foreign policy.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Property</th><th>County</th><th>Role</th></tr></thead>
+<tbody>
+<tr><td>White Marsh</td><td>Prince George's</td><td>The effective headquarters. The general chapters of the clergy met here, including that of 27 June 1783, which drafted the Constitution of the Clergy and petitioned Rome for an American superior. Carroll's appointment came out of this room.</td></tr>
+<tr><td>St Thomas Manor</td><td>Charles (Port Tobacco)</td><td>The largest estate; the manor house still stands.</td></tr>
+<tr><td>Newtown Manor; St Inigoes</td><td>St Mary's</td><td>The oldest, from the 1630s and 1660s.</td></tr>
+<tr><td>Bohemia Manor</td><td>Cecil</td><td>The school where Charles Carroll and John Carroll were taught before St Omer — the nearest thing to a Jesuit academy in the colonies, and the ancestor of Georgetown.</td></tr>
+<tr><td>Old St Joseph's</td><td>Philadelphia</td><td>Founded 1733; for decades the only place Mass could be said publicly in the English colonies.</td></tr>
+<tr><td>Conewago; Goshenhoppen (Bally)</td><td>Adams; Berks, Pa.</td><td>The Pennsylvania cluster. Ferdinand Farmer, an ex-Jesuit, ran the Philadelphia and New Jersey circuit and helped found St Peter's, New York, in 1785.</td></tr>
+</tbody></table></div>
+<div class="prose">
+<p><strong>The legal vehicle.</strong> The Corporation of Roman Catholic Clergymen, chartered by the Maryland legislature in 1792, took title to the estates and still exists. It is the mechanism by which a canonically non-existent order kept its property — the same manoeuvre the Order of Christ performed in reverse, and the reason the American Society had assets to restart with.</p>
+<p><strong>The Russian affiliation.</strong> Carroll opened correspondence with the Russian province around 1803. Rome permitted the Maryland ex-Jesuits to affiliate with the surviving Russian province; in 1805 the remaining men renewed their vows at Georgetown under Robert Molyneux, and a novitiate opened in 1806. From 1805 to 1814 the American Jesuits existed canonically as a dependency of Polotsk. An Orthodox empress's refusal to publish a papal brief is the legal thread by which the Society survived in the United States.</p>
+<p><strong>What the endowment was.</strong> The estates were tobacco plantations worked by enslaved people, and protecting them from confiscation is why the ex-Jesuits stayed organized at all. In 1838 the Maryland Jesuits sold 272 enslaved people to Louisiana planters, substantially to relieve Georgetown's debts. Any account of how the Society survived the suppression in America has to carry this, because the property that carried it is the same property.</p>
+</div>
+</section>
+
+<!-- 15 -->
+<section class="page-section" id="franklin">
+<div class="section-header"><span class="section-num">16</span><h2 class="section-title">Franklin and the Catholics: Documented, Contested, Refuted</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Franklin's relationship with the East India Company was adversarial and well documented; his relationship with American Catholics was personal and consequential. The claim that he proposed the Company's flag for the United States rests on a speech that the theory's own author could not trace.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Claim</th><th>Status</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Franklin forwarded the Hutchinson letters, was denounced in the Cockpit, and lost his postmastership six weeks after the Tea Party</td><td>Documented. Hutchinson's sons and nephew were among the Boston consignees; his humiliation and the Company's bailout are one affair.</td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Franklin satirized the extraction logic in September 1773, at the height of the Company's parliamentary rescue</td><td>Documented: <em>Rules by Which a Great Empire May Be Reduced to a Small One</em>; <em>An Edict by the King of Prussia</em>.</td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Franklin offered to reimburse the Company for the destroyed tea out of his own pocket</td><td>Documented in the Quaker back-channel of Dec 1774 – Feb 1775. Dissolves the "Franklin served the Company" framing: he wanted the Company made whole and the constitutional question settled separately.</td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Franklin was the de facto American channel to the Holy See through the Paris nunciature, and recommended John Carroll</td><td>Documented. Congress's May 1784 disclaimer left his private opinion as the only American input; Carroll was named in June.</td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Franklin proposed the East India Company's flag as the American ensign</td><td><strong>Refuted.</strong> He was not a member of the Naval Committee and there is no known evidence he had any role in creating the Continental Colors; the flag-committee story is a myth. The 13 December 1775 dinner speech could not be traced by Fawcett himself, and the delegates were in Philadelphia, not Cambridge, that day — ten days after the Colors were raised aboard the <em>Alfred</em>.<sup class="cite-ref"><a href="#ref-4">[4]</a></sup></td><td>—</td></tr>
+<tr><td>The Company's flag was a familiar sight in American ports</td><td><strong>Refuted</strong>, by Fawcett's own analysis: Company ships wore the striped colours east of the Cape of Good Hope and the ordinary red ensign in Atlantic waters, so the 1773 tea ships would have flown the red ensign.<sup class="cite-ref"><a href="#ref-4">[4]</a></sup></td><td>—</td></tr>
+</tbody></table></div>
+<div class="prose">
+<p><strong>The likelier explanation for the stripes</strong> is domestic. Striped flags were already in colonial use, and a striped field with the Union in the canton says exactly what Congress meant in December 1775, when it still sought reconciliation: thirteen united colonies, still under the Crown, at war with the ministry rather than the King.</p>
+<p><strong>The specimen value of the flag claim.</strong> One cautious 1937 article in <em>The Mariner's Mirror</em> said only that the derivation had prima facie probability; an anecdote its own author could not source was carried forward; eighty years of citation without re-examination followed; and the claim now appears in encyclopedias as established. The failure is not fabrication but citation decay, and it is worth keeping on the page as an example of how such claims form.</p>
+</div>
+</section>
+
+<!-- 16 -->
+<section class="page-section" id="care">
+<div class="section-header"><span class="section-num">17</span><h2 class="section-title">The Hidden Instrument: Catholic Care, 1776 and 1938</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Unconditional medical care given to religious outsiders did more to dissolve American anti-Catholicism than any argument. Two cases bracket the whole arc: a deist nursed by a Jesuit in 1776, when Maryland Catholics were barred from office, and a Protestant boy nursed by sisters in 1938, when their hospitals were part of the civic furniture of a midwestern city.</p></div>
+<div class="prose">
+<p>The most effective Catholic instrument in American history was not argument, money or political office. It was medical care given without condition to people who had every social reason to distrust the giver — and it worked on individuals decades before it worked on the public.</p>
+<p>This is the Hospitaller charism, traceable to the Amalfitan hospital of the 1040s with which this timeline opens, and it is the one thing the American record shows working continuously from the Revolution to the present. Two cases bracket the arc, and the inversion between them is the finding.</p>
+</div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>&nbsp;</th><th>Benjamin Franklin</th><th>Warren Buffett</th></tr></thead>
+<tbody>
+<tr><td>First contact</td><td>1776; nursed by Fr John Carroll on the retreat from the failed Canada mission</td><td>1938; Dr Harley Hotz sends him to St Catherine's, Omaha, after a ruptured appendix; three weeks with the sisters</td></tr>
+<tr><td>Position of the patient</td><td>Deist raised Presbyterian; Congress had weeks earlier denounced the Quebec Act's toleration of Catholicism</td><td>Protestant, and by his own account probably the first Protestant child the sisters had seen there</td></tr>
+<tr><td>Interval to consequence</td><td>8 years</td><td>~21 years to the neighbour (1959); ~50 to the Coca-Cola position</td></tr>
+<tr><td>The consequence</td><td>1784 recommendation to the nuncio; Carroll named Superior of the Mission, then first bishop of Baltimore with jurisdiction to the Mississippi</td><td>Don Keough, Creighton graduate, rises to Coca-Cola's presidency and joins Berkshire's board; the Omaha network supplies directors and deals across five decades</td></tr>
+<tr><td>Direction of benefit</td><td>A Protestant's standing shapes a Catholic institution</td><td>Catholic-formed men shape a Protestant-led company</td></tr>
+<tr><td>Mechanism</td><td colspan="2">Care given without condition to a religious outsider, at a moment of vulnerability, converted into lasting trust</td></tr>
+</tbody></table></div>
+<div class="prose"><p><strong>The inversion is the finding.</strong> In 1784 a Protestant's recommendation determined the governance of an American Catholic institution. From 1959 forward, men formed in Catholic institutions — Creighton, the parish schools Keough was paying for on $12,000 a year — shaped the board and the deal flow of a Protestant-led company. The same mechanism of trust built through proximity, running the other way, one hundred and seventy-five years apart. Between the endpoints sit the Ursulines and Jackson at New Orleans in 1815, the cholera and yellow-fever epidemics, and the Civil War nursing that put a monument to the sisters in Washington in 1924. The care is in the record throughout; it is the telling that has been thin.</p></div>
+<div class="theory-disclaimer"><strong>A limit on the Buffett case.</strong> Buffett has consistently attributed the 1988–93 Coca-Cola purchase to the economics of the business, and Keough was not a decision-maker in it. The defensible claim is that the friendship gave unusual access to management judgment and that Keough later served as a Berkshire director — not that the friendship caused the investment. Stated more strongly it invites the obvious rebuttal.</div>
+</section>
+
+<!-- 17 -->
+<section class="page-section" id="silver">
+<div class="section-header"><span class="section-num">18</span><h2 class="section-title">Piracy, Privateering, and the Silver Chain</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Piracy and the opium trade are connected — through silver, as two sequential solutions to the same balance-of-payments problem, separated by fifty years. They are not connected by continuity of personnel, and the claim that pirates ran opium for the Company fails on dates.</p></div>
+<div class="prose">
+<p><strong>The chain.</strong> Spanish American silver was the principal target of Caribbean piracy and privateering between roughly 1570 and 1700. The same silver flowed to Canton, because China would sell tea and take little else. The resulting bullion drain was Britain's structural problem after 1765, and Bengal opium under the 1773 monopoly was the commodity that reversed the flow, so that tea could be bought with Indian opium rather than European silver. The Ganj-i-Sawai plunder of 1695 included Spanish rials; the same metal ran through both eras.</p>
+<p><strong>Why the personnel claim fails.</strong> The golden age of Atlantic piracy ends around 1722–26; the Bengal opium monopoly begins in 1773. There is no overlap. The men who carried opium to China were licensed country traders and, after 1834, private firms — smugglers under Qing law and lawful merchants under British law. Calling them pirates is rhetorically satisfying and legally wrong, and the wrongness will be used against the argument.</p>
+<p><strong>Where the categories genuinely merge.</strong> On the Chinese coast. Opium moved inshore in the armed "fast crabs" and "scrambling dragons," crewed by men who ran contraband and raided by turn; Zheng Yi Sao's confederation levied protection over coastal shipping in the same waters, 1801–10, which is why the clippers were armed. That is a documented commercial relationship between the trade and organized maritime force — narrower than the popular claim, and much harder to dismiss.</p>
+<p><strong>The skull and crossbones.</strong> The Essene attribution does not hold: ossuary reburial was a general Second Temple Jewish practice, roughly 20 BC to AD 70, and the Qumran cemetery contains primary inhumations without ossuaries. The documented lineage is Christian — Adam's skull at Golgotha beneath the crucifix, and memento mori in seventeenth- and eighteenth-century funerary carving across Britain, the Low Countries and New England, which sailors saw in every churchyard. The earliest firm flag attestation, Emanuel Wynne off Santiago de Cuba in 1700, pairs skull and crossbones with an hourglass, making the design a legible sentence: your time is running out.</p>
+<p><strong>The American inheritance.</strong> What the colonies retained was capacity, not criminality: shipwrights, gunners, prize crews, admiralty lawyers, and merchant houses that knew how to arm a vessel and sell a cargo of uncertain provenance. In the imperial wars that capacity was licensed as privateering. In 1775 Congress licensed it again, and its navy's first operation was a raid on Nassau — the pirate republic Woodes Rogers had suppressed in 1718.</p>
+</div>
+</section>
+
+<!-- 18 -->
+<section class="page-section" id="nests">
+<div class="section-header"><span class="section-num">19</span><h2 class="section-title">The Nest and the Port: Human Continuity from Piracy to Revolution</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>An earlier formulation on this page held that piracy suppression reached 1776 through law rather than through people. That was too narrow. Two major studies show the transmission also ran through the port communities themselves — the merchants, governors, prize-court officers and families who sheltered pirates in the 1690s and resisted imperial jurisdiction thereafter. Not the same individuals; the same social formation.</p></div>
+<div class="subsection"><h3>Piracy lived on land</h3>
+<div class="prose">
+<p>Mark Hanna's <em>Pirate Nests and the Rise of the British Empire</em> turns the subject inside out. Rather than following colorful individuals at sea, Hanna concentrates on the nexus between land and sea, arguing that piracy persists for a reason and that when the reason disappears the pirates do too — so the supportive nests ashore, not the perpetrators afloat, are what suppression must actually target.<sup class="cite-ref"><a href="#ref-19">[19]</a></sup> Piracy and unregulated privateering flourished in the Pacific, Caribbean and Indian Ocean because of the active support of merchant elites in the North American colonies; far from hindering trade, the marauders' enterprises contributed to commercial development and to the economic infrastructure of the port towns.<sup class="cite-ref"><a href="#ref-19">[19]</a></sup></p>
+<p>The political content is explicit. Hanna argues that wherever piracy flourished, it was because landed communities had political reasons for hindering imperial attempts to define piracy as entirely criminal, and that tolerance for pirates served as a test of where colonists stood on imperial integration: one faction accepted integration as the price of prosperity, while others — notably in the non-royal colonies — preferred the immediate benefits that sheltering pirates brought to hard-pressed local societies.<sup class="cite-ref"><a href="#ref-19">[19]</a></sup> Popular support rested on traditions of self-reliance and autonomy that rejected metropolitan attempts to control the situation, and reviewers have noted that the account helps locate early American history and the Revolution.<sup class="cite-ref"><a href="#ref-19">[19]</a></sup></p>
+</div></div>
+<div class="subsection"><h3>The pirates held office</h3>
+<div class="prose">
+<p>Douglas Burgess's <em>The Politics of Piracy</em> supplies the personnel directly. Against the unlettered stereotype, he shows that pirates and illicit traders moved easily in colonial society, attaining respectability and even political office, while the goods they supplied became a cornerstone of colonial trade and transformed port cities from barren outposts into rich capitals.<sup class="cite-ref"><a href="#ref-20">[20]</a></sup> The transformation reached the political sphere: colonial governors furnished local mariners with privateering commissions, presided over prize courts that validated stolen wares, and defended their prerogatives as vice-admirals.<sup class="cite-ref"><a href="#ref-20">[20]</a></sup></p>
+<p>His conclusion is the one this section exists to record. The war on piracy, remembered as a triumph for the English state and its colonies, in fact drove a wedge between them, imperiling the American enterprise and bringing the colonies to the verge of rebellion; by the end of the seventeenth century the social and political structures erected in the colonies to protect illicit trade amounted to an independent American legal system, and the resulting tensions presage, and may predestine, the dissolution of 1776.<sup class="cite-ref"><a href="#ref-20">[20]</a></sup> His closing chapter is titled "Forgotten Revolutions."</p>
+</div></div>
+<div class="callout"><span class="kicker">The corrected formulation</span><div class="statement">Anti-piracy reached 1776 through two channels, not one. The jurisdiction persisted in statute — vice-admiralty trials without juries, enacted in 1698 and 1700 and still a grievance seventy years later. The constituency persisted in the ports — the merchant families, governors' offices, prize courts and legal structures built to shelter illicit trade, which remained in place to resist the same jurisdiction in 1765. Human continuity here means continuity of a social formation, not of individuals, and it requires no one to live eighty years.</div></div>
+<div class="prose">
+<p><strong>Why this strengthens the licence thesis rather than complicating it.</strong> Hanna's reframing supplies the missing middle term. If piracy lives in the communities that service it, then suppressing piracy necessarily means asserting jurisdiction over colonial ports, colonial juries and colonial governors — which is exactly what the 1698 and 1700 acts did. The constitutional grievance of the 1760s is therefore not a coincidence of legal form but the predictable consequence of how the earlier suppression had to be carried out. The licence was policed by taking authority away from the places that issued the unofficial version of it.</p>
+<p><strong>What remains unproven.</strong> None of this establishes that shipboard pirate governance — elected captains, written articles, shared plunder, compensation for injury — entered American republican thought. That is a separate claim, argued by Rediker and Linebaugh, and it is graded separately at §21, Claim 11. The institutional and social transmission is documented; the ideological transmission is not, and merging the two would weaken both.</p>
+</div>
+</section>
+
+<!-- 19 -->
+<section class="page-section" id="cities">
+<div class="section-header"><span class="section-num">20</span><h2 class="section-title">The Three Cities, Settled on Dates</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The claim that London, the Vatican and Washington form one sovereign entity dissolves when their legal histories are laid side by side. They are three different legal species, created eight centuries apart, and the one alleged to be the senior partner is the one Congress can legislate for at will.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>&nbsp;</th><th>City of London</th><th>Vatican City</th><th>District of Columbia</th></tr></thead>
+<tbody>
+<tr><td>Origin</td><td>Charter of 1067; Mayor 1189; Magna Carta cl. 13, 1215</td><td>Lateran Treaty, 11 Feb 1929 — after 59 years with no territory at all</td><td>Residence Act, 16 Jul 1790, under Article I, §8, cl. 17</td></tr>
+<tr><td>Legal character</td><td>A municipal corporation, wholly subject to Parliament</td><td>A sovereign state of about 44 hectares</td><td>A federal district governed by Congress</td></tr>
+<tr><td>Why it looks anomalous</td><td>Exempted from the Municipal Corporations Act of 1835; separate police from 1839; excluded from the MBW in 1855 and the LCC in 1889</td><td>Temporal power twice annihilated — 1798 and 1809 — and extinguished in 1870 before treaty restoration</td><td>Residents lost representation in 1801; elected government abolished 1874; partly restored 1973 subject to congressional review</td></tr>
+<tr><td>Can it legislate for the others?</td><td>No. It cannot legislate for itself against Parliament.</td><td>No. It has no jurisdiction over either.</td><td>No. It cannot legislate for itself without congressional review.</td></tr>
+</tbody></table></div>
+<div class="prose">
+<p><strong>A fourth legal species, in the same city.</strong> The Order of St John is sovereign in international law with no territory, operating from extraterritorial premises in Rome — Palazzo Malta on Via dei Condotti, the Villa del Priorato on the Aventine, and since 1998 Fort St Angelo at Birgu under a 99-year agreement carrying limited extraterritoriality and no right of asylum. Its international personality is functional: recognized by the Italian Court of Cassation in 1935, exercised through diplomatic relations with more than a hundred states, its own passports, and permanent observer status at the United Nations — all without governing territory or a population. Vatican City, by contrast, is sovereign with territory and citizens. Rome therefore contains two sovereign subjects of different kinds, neither with jurisdiction over the other, which is the clearest available demonstration that "sovereign city" names a legal form rather than a rank.</p>
+<p><strong>The Temple Church shows what the resemblance amounts to.</strong> The Templars' English headquarters passed, after 1312, to the lawyers of the Inner and Middle Temple. The premises continued; the order did not. That is the general form of the apparent continuities in this material.</p>
+<p><strong>On the Carroll land.</strong> Daniel Carroll of Duddington's property was taken under the 1791 proprietors' agreement, compensated by lot sales and disputed at the time — L'Enfant demolished his house over it. It was a cession with compensation and litigation, not a donation establishing a city-state.</p>
+<p><strong>On the DC flag.</strong> Three stars and two bars come from the Washington family arms, documented from the fourteenth century and adopted for the flag in 1938 after a design competition. The Fibonacci reading cannot fail — the early terms cover nearly every small count anyone would use — and a claim with no falsification condition proves nothing, while discrediting the material around it.</p>
+<p><strong>The real asymmetry.</strong> Of the three, the District is the only one whose inhabitants lost rights at its founding and have not recovered them. The City kept its liberties through every reform; the papacy recovered sovereignty by treaty; Washingtonians were disenfranchised in 1801 to make a capital no state could coerce, and the 1783 Philadelphia mutiny remains the whole justification. That asymmetry of power is visible entirely in statute, and is more interesting than the hidden one.</p>
+</div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Part III</div><div class="part-title">Apparatus</div><p>The graded appendix, the archival agenda, and the conclusion.</p></div>
+
+<!-- 20 -->
+<section class="page-section alert-section" id="graded">
+<div class="section-header"><span class="section-num">21</span><h2 class="section-title">Graded Claims: Documented, Contested, Refuted</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Claims that circulate widely are kept here with their status, rather than dropped. Documenting folklore as folklore is itself scholarly work, and it protects the surrounding argument from being read as assertion.</p></div>
+
+<div class="obj" id="obj-1">
+<div class="onum">Claim 01 <span class="verdict no">Refuted</span></div>
+<h3>The American flag derives from the East India Company's</h3>
+<div class="part p-obj"><span class="lbl">The claim</span>The Continental Colors of 1775 copied the Company's striped flag, and Franklin urged its adoption in a speech at a Philadelphia dinner.</div>
+<div class="part p-flaw"><span class="lbl">What fails</span>Franklin was not on the Naval Committee and had no known role in the design; the flag-committee story is a myth. Fawcett, who advanced the derivation thesis in 1937, could not trace the speech and said so; its date of 13 December falls ten days after the Colors were raised aboard the <em>Alfred</em>, and the delegates were in Philadelphia, not Cambridge. Company ships wore the striped colours only east of the Cape, flying the red ensign in Atlantic waters.<sup class="cite-ref"><a href="#ref-4">[4]</a></sup></div>
+<div class="part p-path"><span class="lbl">What remains</span>A real visual resemblance, best explained as convergence within a shared maritime design vocabulary, and a useful specimen of citation decay.</div>
+</div>
+
+<div class="obj" id="obj-2">
+<div class="onum">Claim 02 <span class="verdict no">Refuted</span></div>
+<h3>The skull and crossbones descends from Essene ossuary practice</h3>
+<div class="part p-flaw"><span class="lbl">What fails</span>Ossuary reburial was general in Second Temple Judea, not an Essene distinctive, and the Qumran cemetery — the site most associated with the Essenes — contains primary inhumations without ossuaries.</div>
+<div class="part p-path"><span class="lbl">What remains</span>A documented Christian lineage: Adam's skull at Golgotha in crucifixion iconography, and memento mori funerary carving across northern Europe and New England. Wynne's 1700 flag pairs the device with an hourglass, completing the sentence.</div>
+</div>
+
+<div class="obj" id="obj-3">
+<div class="onum">Claim 03 <span class="verdict no">Refuted</span></div>
+<h3>Private families bought the East India Company</h3>
+<div class="part p-flaw"><span class="lbl">What fails</span>The Company was wound up by statute — monopolies stripped in 1813 and 1833, trading ceased 1834, dissolved 1874. No transfer of the corporation to private hands occurred.</div>
+<div class="part p-path"><span class="lbl">What remains, and is stronger</span>The private houses captured the <em>deregulated trade</em> after 1834 — Jardine Matheson, Dent, Russell &amp; Co, the Bombay Parsi and Baghdadi houses. That is documented and much harder to argue with than an ownership transfer refutable in one sentence.</div>
+</div>
+
+<div class="obj" id="obj-4">
+<div class="onum">Claim 04 <span class="verdict no">Refuted</span></div>
+<h3>London, the Vatican and Washington form one sovereign entity</h3>
+<div class="part p-flaw"><span class="lbl">What fails</span>Three legal species created eight centuries apart; see §17. The supposed senior partner is the one Congress can legislate for at will. The Carroll land was a compensated cession, not a donation; the DC flag's three stars and two bars come from the Washington arms.</div>
+<div class="part p-path"><span class="lbl">What remains</span>A genuine asymmetry — the District's residents lost rights at its founding and have not recovered them — visible entirely in statute.</div>
+</div>
+
+<div class="obj" id="obj-5">
+<div class="onum">Claim 05 <span class="verdict no">Refuted</span></div>
+<h3>A Templar fleet carried the order's assets to Portugal and thence to the Atlantic</h3>
+<div class="part p-flaw"><span class="lbl">What fails</span>The Order of Christ was a royal creation of 1319 holding Templar property under crown authority, made a perpetual crown administration in 1523. Prince Henry's voyages were funded by its revenues. The documented mechanism requires no surviving navy.</div>
+<div class="part p-path"><span class="lbl">What remains</span>A real institutional continuity of <em>assets and personnel</em> in Iberia — which is what <em>Ad Providam</em> failed to transfer there, and which is more interesting than a fleet.</div>
+</div>
+
+<div class="obj" id="obj-6">
+<div class="onum">Claim 06 <span class="verdict no">Refuted</span></div>
+<h3>American influence restored the Jesuits; Carroll caused 1814</h3>
+<div class="part p-flaw"><span class="lbl">What fails</span>The decisive causes were European: the collapse of the Bourbon veto, the Russian survival, and Pius VII's captivity. America was the fourth and last of the partial restorations, after Russia (1801) and Naples (1804). Rome had already erected Baltimore as a metropolitan see in 1808 — investing in America six years before the restoration, which is causation running the other way.</div>
+<div class="part p-path"><span class="lbl">What remains, and is better</span>Carroll caused the American province; and the United States gave a suppressed order a place to hold 12,000 acres and run a college in the open while Catholic Europe still forbade it. That is the same mechanism as the Franklin case: an absence of state authority over religion producing consequences no one designed.</div>
+</div>
+
+<div class="obj" id="obj-7">
+<div class="onum">Claim 07 <span class="verdict no">Not used</span></div>
+<h3>Napoleon as initiated Templar, and Templar agency behind 1814</h3>
+<div class="part p-obj"><span class="lbl">The claim</span>Napoleon held an esoteric initiation, went to Rome in search of missing Templar records, and thereby caused the Jesuit restoration.</div>
+<div class="part p-flaw"><span class="lbl">Why the inference fails even if the premise is granted</span>The restoration followed his <em>defeat</em>: Pius VII returned in May 1814 and signed in August, three months after Napoleon's power collapsed. His ecclesiastical policy — the Concordat, the Organic Articles, the annexation of the Papal States — was regalist, the very program a fourth vow to the pope opposes. And the necessary condition, the survival at Polotsk from 1773, predates him and lay in an empire he invaded and failed to hold.</div>
+<div class="part p-path"><span class="lbl">The usable residue</span>An irony, not an agency: the Napoleonic wars destroyed the regalist state system that had suppressed the Society, and the man who imprisoned the pope made the Society's restoration possible by failing.</div>
+</div>
+
+<div class="obj" id="obj-8">
+<div class="onum">Claim 08 <span class="verdict yes">Contested — usable in a narrowed form</span></div>
+<h3>Pirates worked for the East India Company</h3>
+<div class="part p-flaw"><span class="lbl">What fails</span>Dates: Atlantic piracy ends c.1722–26, the opium monopoly begins 1773. And the Every episode cuts directly against it — the Company lost five factories and its officers' liberty to a pirate's act.</div>
+<div class="part p-resp"><span class="lbl">What survives, and is strong</span>Piracy and chartered monopoly were two licensing states of one armed commercial system, and the boundary was drawn by whoever held the charter. Supporting: Child's War, in which the Company did under charter what Every was hanged for; the interloper, Angre and Qawasim cases, in which the label removed commercial rivals; the productivity of the threat, which justified armed Indiamen, convoys, extraterritorial jurisdiction and the Bombay Marine; the armed inshore distribution network on the China coast; and the absorptive amnesties of 1698 and 1717.</div>
+<div class="part p-right"><span class="lbl">Weaker arguments, dropped</span>That the Company's disavowal was merely interested testimony — its Surat losses were real and a defence under duress can still be true. That Qing illegality makes the opium traders pirates — smuggling with escorts is still not taking other ships' cargo by force.</div>
+</div>
+
+<div class="obj" id="obj-9">
+<div class="onum">Claim 09 <span class="verdict yes">Contested</span></div>
+<h3>Opium capital funded Skull and Bones</h3>
+<div class="part p-resp"><span class="lbl">Status</span>William Huntington Russell, who founded the society at Yale in 1832, was a cousin of Samuel Russell of Russell &amp; Co. Treat the kinship as fact and the funding as asserted rather than documented. The related Yale link — Elihu Yale's Madras fortune, made amid Company corruption proceedings — is institutional descent through an endowment, not continuity of conduct.</div>
+</div>
+
+<div class="obj" id="obj-10">
+<div class="onum">Claim 10 <span class="verdict yes">Contested</span></div>
+<h3>Financial engineering lay behind the Jesuit suppression</h3>
+<div class="part p-resp"><span class="lbl">Status</span>The documented drivers are the Bourbon courts and Pombal, acting on regalist and colonial grounds, with the reductions and the Society's independent revenues as the grievance. A banking explanation is not needed and is not evidenced. Similarly, Rothschild involvement in papal finance is real for the nineteenth century (from the 1832 loan) and absent from the IOR, founded in 1942 under Nogara; conflating the two periods is the standard error.</div>
+</div>
+
+<div class="obj" id="obj-11">
+<div class="onum">Claim 11 <span class="verdict yes">Contested — two schools</span></div>
+<h3>Caribbean pirate governance shaped American political development</h3>
+<div class="part p-sed"><span class="lbl">For, ideological</span>Rediker's <em>Villains of All Nations</em> and <em>Between the Devil and the Deep Blue Sea</em>, and Linebaugh and Rediker's <em>The Many-Headed Hydra</em>, argue for a revolutionary Atlantic in which a multiracial maritime workforce carried radical practice — elected captains, written articles, shared plunder, compensation for injury — into the Age of Revolution.<sup class="cite-ref"><a href="#ref-22">[22]</a></sup><sup class="cite-ref"><a href="#ref-23">[23]</a></sup></div>
+<div class="part p-resp"><span class="lbl">For, institutional and social</span>Hanna and Burgess argue, from different premises, that the communities which sheltered pirates built the colonial legal and political structures that later refused imperial authority, and that pirates and illicit traders held respectable standing and public office.<sup class="cite-ref"><a href="#ref-19">[19]</a></sup><sup class="cite-ref"><a href="#ref-20">[20]</a></sup> See §19.</div>
+<div class="part p-flaw"><span class="lbl">Against</span>No founder cites pirate articles. The shipboard practices have closer analogues in ordinary merchant-ship custom and in earlier buccaneer <em>chasse-partie</em> agreements. And the colonial elite prosecuted pirates readily once imperial integration served its interests — the same men on both sides of the transition.</div>
+<div class="part p-path"><span class="lbl">Assessment</span>The institutional and social transmission is documented and belongs on the page. The ideological transmission of shipboard democracy into republican thought remains the weaker claim. The two should be argued separately: merging them lets the stronger carry the weaker, which is how the composite version gets dismissed whole.</div>
+</div>
+
+<div class="callout alert"><span class="kicker">Framing safeguard</span><div class="statement">The Baghdadi strand is real history and belongs in the record — but it travels with the Scottish and New England houses at equal weight, which the evidence supports, and with the British-state monopoly that created the trade named first. Keeping all three in frame is both accurate and what protects the argument from being read as something it is not.</div></div>
+</section>
+
+<!-- 21 -->
+<section class="page-section" id="agenda">
+<div class="section-header"><span class="section-num">22</span><h2 class="section-title">Research Agenda</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>#</th><th>Target</th><th>Where</th><th>What it would settle</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>The 1791 proprietors' agreement and the Duddington compensation record</td><td>National Archives; DC commissioners' papers</td><td>Closes the "Carroll donated the land" claim on primary evidence rather than secondary correction</td></tr>
+<tr><td>2</td><td>Franklin's Paris journal entry recommending Carroll, and the Doria Pamphilj correspondence</td><td>Papers of Benjamin Franklin; Vatican Secret Archives, nunciature of France</td><td>Converts the recommendation from Grade B to Grade A</td></tr>
+<tr><td>3</td><td>The 1783 White Marsh chapter minutes and the 1792 Corporation charter</td><td>Maryland Province Archives, Georgetown; Maryland State Archives</td><td>The legal mechanism of Jesuit survival, documented end to end</td></tr>
+<tr><td>4</td><td>Carroll's correspondence with the Russian province, 1803–05</td><td>Georgetown; Russian province records</td><td>The affiliation that made the American Society canonically real before 1814</td></tr>
+<tr><td>5</td><td>Pinto's 1768 expulsion decree and the transfer of the Jesuit endowment to the University of Malta</td><td>National Library of Malta; Order of Malta archives</td><td>Whether the Maltese expulsion was Bourbon-aligned policy or local ecclesiastical conflict</td></tr>
+<tr><td>6</td><td>Company court minutes on the Every affair and the 1698–1700 piracy legislation</td><td>British Library, India Office Records; Privy Council registers</td><td>The Company's own framing of the pirate boundary, in its own words</td></tr>
+<tr><td>7</td><td>Records of the Order's Caribbean period, 1651–65</td><td>Order of Malta archives, Valletta; French colonial archives</td><td>The one episode of the Order exercising territorial sovereignty in the Americas</td></tr>
+<tr><td>8</td><td>The 1838 sale documents for the 272 enslaved people</td><td>Georgetown Slavery Archive; Maryland Province Archives</td><td>The financial relationship between the estates, the sale, and the restored province</td></tr>
+</tbody></table></div>
+<div class="prose"><p>Two of these — items 2 and 4 — would raise the page's central chain from Grade B to Grade A at its weakest joints. Items 1 and 8 concern the material the page most needs to state accurately rather than comfortably.</p></div>
+</section>
+
+<!-- 22 -->
+<section class="page-section" id="conclusion">
+<div class="section-header"><span class="section-num">23</span><h2 class="section-title">Conclusion</h2></div>
+<div class="prose">
+<p>Three observations survive the sorting.</p>
+<p><strong>The category was always legal, never moral.</strong> Every was hanged for what Child's Company had done under charter. The Qawasim were destroyed for taxing a route the Company taxed. When the colonists became a state, their first act at sea was to issue commissions of their own. Nothing in this requires a hidden hand; it requires only that one notice who holds the pen.</p>
+<p><strong>Anti-piracy built the machinery that provoked the Revolution, and left the constituency to resist it.</strong> Vice-admiralty jurisdiction without juries entered American life in 1698 as a Company remedy against pirate-harbouring ports. Seventy years later it was the grievance. The transmission ran on two channels: the jurisdiction persisted in statute, and the port communities that had sheltered the trade — their merchant families, governors' offices and prize courts — persisted alongside it. The empire's instrument for policing its own frontier of licence became the instrument that lost it the frontier, in the same places it had first been aimed.</p>
+<p><strong>Institutions are rarely restored by their friends.</strong> The Society was suppressed by Catholic kings, preserved by an Orthodox empress, given political room by a man who imprisoned the pope, and restored by that pope three months after his release. The Order of Malta was rescued uncanonically by a Russian emperor, lost its island to a British refusal to evacuate, and recovered as sovereignty exercised from two extraterritorial houses in Rome rather than over any territory of its own. The papacy spent fifty-nine years with no land at all. And the one body here that was never suppressed — the Company, which had no principle beyond extraction — was wound up by statute and left no successor.</p>
+<p>Two dates are worth noticing now that everything sits in one sequence. <strong>21 July and 16 December 1773</strong> fall five months apart: the Society suppressed under crown pressure, and the Company's surplus destroyed in Boston — the two institutions that had carried European expansion into Asia and America, both broken in the same year by the states that had chartered them. And <strong>1784</strong> does double duty: in February the <em>Empress of China</em> sails to breach the Company's monopoly; in May Congress disclaims authority over religion; in June a suppressed Jesuit is named to lead the American church on a Protestant deist's recommendation; and in August Parliament puts the Company under a Board of Control. The new republic took up one licensing power and set down another in the same six months.</p>
+</div>
+<div class="callout"><span class="kicker">Summary</span><div class="statement">Licence, not conspiracy. The institutions that survived suppression did so by moving their licence to a jurisdiction that would not enforce it; the institution that held the most licence and the least principle is the only one that ended.</div></div>
+</section>
+
+<div class="references" id="sources">
+<h2>References</h2>
+<ol class="ref-list">
+<li id="ref-1">Clement V. <em>Vox in Excelso</em> (22 March 1312) and <em>Ad Providam</em> (2 May 1312), in the acts of the Council of Vienne.</li>
+<li id="ref-2">Paul III. <em>Regimini militantis Ecclesiae</em> (27 September 1540); Clement XIV, <em>Dominus ac Redemptor</em> (21 July 1773); Pius VII, <em>Sollicitudo omnium ecclesiarum</em> (7 August 1814).</li>
+<li id="ref-3">Kevin Nichols. "Militant Monks and Masons," Parts 1 and 2. <em>The Square Magazine</em>, 2026 Q2 and Q3. <a href="https://www.thesquaremagazine.com/mag/article/2026q2militant-monks-and-masons-p1/" rel="noopener" target="_blank">Part 1</a>; Part 2 (automated access disallowed at time of writing; abstract consulted).</li>
+<li id="ref-4">Peter Ansoff. "Sir Charles Fawcett Redux: The Historical Connection between the East India Company Flag and the American Continental Colors." Proceedings of the 24th International Congress of Vexillology. <a href="https://fiav.org/wp-content/uploads/2021/06/icv24-03ansoff.pdf" rel="noopener" target="_blank">PDF</a>. Re-evaluates Sir Charles Fawcett, "The Striped Flag of the East India Company, and its Connexion with the American 'Stars and Stripes'," <em>The Mariner's Mirror</em> (October 1937).</li>
+<li id="ref-5">Sir John Gayer, Governor of Bombay, to the Privy Council, on the plunder of the Ganj-i-Sawai (1695); Company court minutes and the Privy Council bounty, British Library, India Office Records.</li>
+<li id="ref-6">Piracy Act 1698 (11 Will. 3 c. 7) and related legislation establishing colonial vice-admiralty jurisdiction.</li>
+<li id="ref-7">Regulating Act 1773 (13 Geo. 3 c. 63); Tea Act 1773 (13 Geo. 3 c. 44); East India Company Act 1784 (Pitt's India Act, 24 Geo. 3 c. 25); Government of India Act 1858; East India Stock Dividend Redemption Act 1873.</li>
+<li id="ref-8">Quebec Act 1774 (14 Geo. 3 c. 83); the Continental Congress, <em>Address to the People of Great Britain</em> (October 1774) and <em>Letter to the Inhabitants of the Province of Quebec</em> (October 1774).</li>
+<li id="ref-9">Benjamin Franklin. <em>Rules by Which a Great Empire May Be Reduced to a Small One</em> and <em>An Edict by the King of Prussia</em> (September 1773); the negotiations with David Barclay and John Fothergill, winter 1774–75, in <em>The Papers of Benjamin Franklin</em>.</li>
+<li id="ref-10">Journals of the Continental Congress, resolution on the papal inquiry (May 1784); brief of Pius VI appointing John Carroll Superior of the Mission (6 June 1784).</li>
+<li id="ref-11">Residence Act 1790; Agreement of the Proprietors of the Federal City (30 March 1791); District of Columbia Organic Act 1801; District of Columbia Home Rule Act 1973.</li>
+<li id="ref-12">Municipal Corporations Act 1835; City of London Police Act 1839; Metropolis Management Act 1855; Local Government Act 1888.</li>
+<li id="ref-13">Lateran Treaty and Financial Convention, 11 February 1929.</li>
+<li id="ref-14">Sultan bin Muhammad al-Qasimi. <em>The Myth of Arab Piracy in the Gulf.</em> London: Croom Helm, 1986.</li>
+<li id="ref-15">Georgetown Slavery Archive and the Maryland Province Archives, Georgetown University, on the 1838 sale of 272 enslaved people.</li>
+<li id="ref-16">Warren E. Buffett. Shareholder letter, 10 November 2025, on the 1938 appendicitis, Dr Harley Hotz, St Catherine's Hospital, and Don Keough.</li>
+<li id="ref-17">Reuters and Associated Press reporting on Warren Buffett's 2012 radiation treatment at the Nebraska Medical Center, Omaha — noted here because the treatment is often misattributed to a Catholic institution.</li>
+<li id="ref-18">Colin Woodard. <em>The Republic of Pirates: Being the True and Surprising Story of the Caribbean Pirates and the Man Who Brought Them Down.</em> Orlando: Harcourt, 2007. Narrative account of the Nassau period, 1715–1725, and of Woodes Rogers.</li>
+<li id="ref-19">Mark G. Hanna. <em>Pirate Nests and the Rise of the British Empire, 1570–1740.</em> Chapel Hill: University of North Carolina Press for the Omohundro Institute of Early American History and Culture, 2015. <a href="https://oieahc.wm.edu/publications/books/available-titles/pirate-nests-and-the-rise-of-the-british-empire-1570-1740-2/" rel="noopener" target="_blank">Publisher's page</a>. See also the review by Guy Chet, H-War, March 2016, and the review in <em>Britain and the World</em> 9:2 (2016).</li>
+<li id="ref-20">Douglas R. Burgess Jr. <em>The Politics of Piracy: Crime and Civil Disobedience in Colonial America.</em> Hanover, N.H.: University Press of New England, 2014. <a href="https://press.uchicago.edu/ucp/books/book/distributed/P/bo44311089.html" rel="noopener" target="_blank">Publisher's page</a>. Concluding chapter: "Forgotten Revolutions."</li>
+<li id="ref-21">Kevin P. McDonald. <em>Pirates, Merchants, Settlers, and Slaves: Colonial America and the Indo-Atlantic World.</em> Berkeley: University of California Press, 2015. On the New York–Madagascar circuit as a social and commercial network.</li>
+<li id="ref-22">Marcus Rediker. <em>Villains of All Nations: Atlantic Pirates in the Golden Age.</em> Boston: Beacon Press, 2004; and <em>Between the Devil and the Deep Blue Sea: Merchant Seamen, Pirates, and the Anglo-American Maritime World, 1700–1750.</em> Cambridge: Cambridge University Press, 1987.</li>
+<li id="ref-23">Peter Linebaugh and Marcus Rediker. <em>The Many-Headed Hydra: Sailors, Slaves, Commoners, and the Hidden History of the Revolutionary Atlantic.</em> Boston: Beacon Press, 2000.</li>
+<li id="ref-24">Carl Ubbelohde. <em>The Vice-Admiralty Courts and the American Revolution.</em> Chapel Hill: University of North Carolina Press for the Institute of Early American History and Culture, 1960. The standard monograph on the jurisdictional thread from the 1698 and 1700 acts to the grievances of the 1760s.</li>
+<li id="ref-25">Corte di Cassazione (Sezioni Unite), decision of 1935 recognizing the international personality of the Sovereign Military Order of Malta; and the Order's Constitutional Charter and Code, on sovereignty exercised without territory.</li>
+<li id="ref-26">Agreement between the Sovereign Military Order of Malta and the Republic of Malta on the use of Fort St Angelo, Birgu, 1998: a 99-year grant carrying limited extraterritoriality, with no jurisdiction and no right of asylum.</li>
+</ol>
+<div class="theory-disclaimer" style="margin-top:1.4rem"><strong>On the reference apparatus.</strong> Entries 1, 2, 5–13 are cited by instrument rather than by edition; the intention is that each be replaced with a specific printed or archival citation as the items in §19 are worked through. Entry 3's Part 2 was not readable by automated fetch at the time of writing and should be consulted directly.</div>
+<div class="cite-this"><strong>How to cite this page.</strong> Chuang, William Huanshan. "The Hidden Founding: Catholic Agency and Irony in the Making of the United States, 1048–2025." Logarchéon Research, 24 September 2026.</div>
+</div>
+</main>
+</div>
+<footer>
+<p>William Huanshan Chuang · Logarchéon Inc. · Research Page · 24 Sep 2026</p>
+</footer>
+</div>
+</body>
+</html>
