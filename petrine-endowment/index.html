@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>The Petrine Endowment: How the Vatican Archive Can Pay the Holy See in Perpetuity — William Chuang · Logarchéon</title>
+<meta content="How saving the Vatican Library and Archive's licensing income for 25 years can pay the Holy See's structural deficit in perpetuity: an evidence-graded, Euclidean reconstruction of Holy See finances, a valuation of the publishable layer of the Vatican Library and Apostolic Archive, and a three-vault endowment design built to pay salaries and pensions through every economic regime, including pandemic closure." name="description"/>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Logarchéon Research — Design System v2 · William Huanshan Chuang
+   Palette: deep navy × archival gold × documentary white
+═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+TC:wght@300;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+
+:root {
+  --navy:#0b1929; --navy-deep:#070f1a; --navy-mid:#0f2237; --navy-light:#162d52; --navy-rim:#1e3a64; --navy-glass:rgba(11,25,41,0.92);
+  --gold-bright:#d4a843; --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#8a6c2e; --gold-ink:#6b521f;
+  --gold-pale:rgba(201,168,76,0.12); --gold-glow:rgba(201,168,76,0.06); --gold-rim:rgba(201,168,76,0.22); --gold-border:rgba(201,168,76,0.30);
+  --cream:#f7f3ec; --parchment:#eee9de; --body-text:#ddd7cb; --muted:#bdb5a4; --faint:#7a7265; --hairline:rgba(201,168,76,0.15);
+  --c-scripture:#6dba96; --c-magisterium:#d4a843; --c-canon:#7ba8d4; --c-tradition:#a897b8;
+  --alert:#e8703a; --alert-deep:#c0392b; --alert-rim:rgba(232,112,58,0.34); --alert-pale:rgba(232,112,58,0.10);
+  --section-gap:5.5rem; --col-width:68ch; --radius-sm:3px; --radius-md:6px; --radius-lg:10px;
+  --t-fast:150ms ease; --t-med:250ms ease; --t-slow:400ms ease;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:"Source Serif 4","Noto Serif TC","PMingLiU",Georgia,serif;
+  background:var(--navy-deep); color:var(--body-text); line-height:1.78; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  font-feature-settings:"onum" 1,"liga" 1,"kern" 1;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(201,168,76,0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 1000px at 85% 30%, rgba(30,58,100,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+.wrap { position:relative; z-index:1; }
+h1,h2,h3,h4,h5 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; color:var(--cream); line-height:1.15; letter-spacing:-0.015em; }
+a { color:var(--gold); text-decoration:none; transition:color var(--t-fast); }
+a:hover { color:var(--gold-light); }
+a:focus-visible { outline:2px solid var(--gold); outline-offset:3px; border-radius:2px; }
+strong { color:var(--cream); font-weight:700; }
+em { font-style:italic; }
+
+nav.site-nav { position:sticky; top:0; z-index:100; background:var(--navy-glass); backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4); border-bottom:1px solid var(--hairline); }
+.nav-inner { max-width:1080px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:56px; gap:2rem; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.2rem; font-weight:600; color:var(--gold-light); letter-spacing:0.04em; flex-shrink:0; }
+.nav-links { display:flex; gap:1.6rem; list-style:none; overflow-x:auto; scrollbar-width:none; }
+.nav-links::-webkit-scrollbar { display:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.10em; text-transform:uppercase; color:var(--muted); white-space:nowrap; padding:0.25rem 0; border-bottom:2px solid transparent; transition:color var(--t-fast),border-color var(--t-fast); }
+.nav-links a:hover, .nav-links a.active { color:var(--gold-light); border-bottom-color:var(--gold); }
+
+.container { max-width:1080px; margin:0 auto; padding:0 32px; }
+.page-layout { display:grid; grid-template-columns:220px 1fr; gap:4.5rem; align-items:start; padding:4rem 32px 7rem; max-width:1080px; margin:0 auto; }
+.toc-sidebar { position:sticky; top:76px; border-left:2px solid var(--hairline); padding-left:1.2rem; max-height:calc(100vh - 96px); display:flex; flex-direction:column; min-height:0; }
+.toc-label { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); margin-bottom:0.9rem; }
+.toc-list { list-style:none; display:flex; flex-direction:column; gap:0.15rem; overflow-y:auto; padding-right:0.4rem; padding-bottom:1.5rem; scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
+.toc-link { font-family:"DM Mono",monospace; font-size:0.67rem; letter-spacing:0.03em; color:var(--muted); padding:0.28rem 0 0.28rem 0.9rem; display:block; border-left:2px solid transparent; transition:color var(--t-fast),border-color var(--t-fast),background var(--t-fast); }
+.toc-link:hover { color:var(--gold-light); border-left-color:var(--gold); background:var(--gold-glow); }
+.toc-part { font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dim); margin:0.9rem 0 0.2rem; }
+.toc-part:first-child { margin-top:0; }
+
+.page-hero { border-bottom:1px solid var(--hairline); padding:4rem 0 3rem; }
+.breadcrumb { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.10em; text-transform:uppercase; color:var(--faint); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+.breadcrumb a { color:var(--faint); }
+.page-hero h1 { font-size:clamp(2.1rem,3.8vw,3.4rem); font-weight:300; max-width:28ch; margin-bottom:1.2rem; line-height:1.08; letter-spacing:-0.02em; }
+.page-hero h1 em { color:var(--gold-light); font-weight:300; }
+.page-hero h1::after { content:""; display:block; width:3.5rem; height:2px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); margin-top:1.1rem; }
+.hero-desc { color:var(--muted); font-size:1.02rem; max-width:66ch; line-height:1.80; margin-bottom:1.6rem; font-weight:300; }
+.hero-badges { display:flex; gap:0.6rem; flex-wrap:wrap; margin:1.3rem 0 0.6rem; }
+.hero-badge { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-rim); padding:0.24rem 0.65rem; border-radius:2px; background:var(--gold-pale); }
+.hero-methods { max-width:72ch; margin:1.3rem 0 0; padding:1.1rem 1.3rem; background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-left:3px solid var(--gold-dim); border-radius:0 var(--radius-md) var(--radius-md) 0; }
+.hero-methods .method-label { display:block; margin-bottom:0.5rem; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); }
+.hero-methods p { color:var(--muted); font-size:0.88rem; line-height:1.80; }
+
+.page-section { margin-bottom:var(--section-gap); scroll-margin-top:72px; }
+.page-section + .page-section::before { content:""; display:block; height:1px; width:100%; margin-bottom:var(--section-gap); background:linear-gradient(90deg,transparent 0%,var(--gold-rim) 20%,var(--gold) 50%,var(--gold-rim) 80%,transparent 100%); opacity:0.5; }
+.section-header { display:flex; align-items:baseline; gap:1.1rem; padding-bottom:1rem; margin-bottom:2.4rem; position:relative; }
+.section-header::after { content:""; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,var(--gold-rim) 0%,transparent 70%); }
+.section-num { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.14em; color:var(--gold-dim); flex-shrink:0; padding-top:0.3rem; }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.75rem; font-weight:400; color:var(--gold-light); letter-spacing:-0.01em; }
+.subsection { margin:2.2rem 0; }
+.subsection h3 { font-size:1.18rem; font-weight:500; color:var(--cream); margin-bottom:1.1rem; padding-left:0.9rem; border-left:2px solid var(--gold-dim); }
+.prose { font-size:0.935rem; line-height:1.84; max-width:var(--col-width); }
+.prose p { margin:0 0 1.1rem; }
+.prose p:last-child { margin-bottom:0; }
+.prose ul, .prose ol { margin:0.8rem 0 1.2rem 1.4rem; }
+.prose li { margin:0.4rem 0; }
+
+.in-brief { max-width:var(--col-width); margin:0 0 1.6rem; padding:0.9rem 1.1rem; background:rgba(22,45,82,0.35); border:1px solid var(--hairline); border-left:3px solid var(--c-scripture); border-radius:0 var(--radius-md) var(--radius-md) 0; font-size:0.92rem; line-height:1.6; }
+.in-brief-label { display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-scripture); margin-bottom:0.45rem; }
+.theory-disclaimer { background:rgba(22,45,82,0.5); border:1px solid var(--hairline); border-left:3px solid var(--gold-dim); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:0.9rem 1.2rem; margin:0 0 1.6rem; font-size:0.86rem; color:var(--muted); font-style:italic; max-width:var(--col-width); }
+
+.callout { background:linear-gradient(135deg,rgba(201,168,76,0.09) 0%,rgba(15,34,55,0.65) 100%); border:1px solid var(--gold-rim); padding:1.3rem 1.5rem; margin:1.6rem 0; border-radius:var(--radius-md); position:relative; overflow:hidden; }
+.callout::before { content:""; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-dim) 0%,var(--gold) 50%,var(--gold-dim) 100%); }
+.callout .kicker { display:block; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--gold); margin-bottom:0.55rem; }
+.callout .statement { font-family:"Cormorant Garamond",serif; font-size:1.24rem; line-height:1.45; color:var(--cream); }
+.callout.alert { background:linear-gradient(135deg,var(--alert-pale) 0%,rgba(15,34,55,0.65) 100%); border-color:var(--alert-rim); }
+.callout.alert::before { background:linear-gradient(90deg,var(--alert-deep) 0%,var(--alert) 50%,var(--alert-deep) 100%); }
+.callout.alert .kicker { color:var(--alert); }
+
+.status-legend { display:grid; grid-template-columns:repeat(4,1fr); gap:0.7rem; margin:1.3rem 0 0; }
+.status-item { background:rgba(15,34,55,0.55); border:1px solid var(--hairline); border-radius:var(--radius-sm); padding:0.7rem 0.85rem; color:var(--muted); font-size:0.73rem; line-height:1.55; }
+
+.data-table-wrap { overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--hairline); border-radius:var(--radius-md); box-shadow:0 2px 16px rgba(0,0,0,0.25); -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--gold-dim) transparent; }
+table.data-table { width:100%; border-collapse:collapse; min-width:640px; background:rgba(11,25,41,0.55); }
+.data-table th { font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); text-align:left; padding:0.8rem 0.9rem; border-bottom:1px solid var(--gold-rim); background:rgba(15,34,55,0.85); }
+.data-table td { padding:0.78rem 0.9rem; border-bottom:1px solid var(--hairline); font-size:0.79rem; line-height:1.65; vertical-align:top; }
+.data-table tr:hover td { background:rgba(201,168,76,0.04); }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table td:first-child { color:var(--gold-light); font-family:"DM Mono",monospace; font-size:0.72rem; }
+.data-table tr.total td { border-top:1px solid var(--gold-rim); color:var(--cream); font-weight:600; }
+
+.mechanism-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.9rem; margin:1.3rem 0; }
+.mech { border:1px solid var(--hairline); background:rgba(15,34,55,0.58); border-radius:var(--radius-md); padding:1.1rem 1.2rem; }
+.mech .mnum { font-family:"DM Mono",monospace; color:var(--gold-dim); font-size:0.59rem; letter-spacing:0.10em; }
+.mech h4 { color:var(--cream); font-size:1.05rem; margin:0.2rem 0 0.5rem; }
+.mech p { color:var(--muted); font-size:0.78rem; line-height:1.65; margin-bottom:0.6rem; }
+.formula-box { margin:1.3rem 0; padding:1rem 1.3rem; border:1px solid var(--gold-rim); border-left:3px solid var(--gold); background:rgba(7,15,26,0.70); border-radius:0 var(--radius-md) var(--radius-md) 0; overflow-x:auto; color:var(--cream); font-family:"DM Mono",monospace; font-size:0.8rem; line-height:1.9; max-width:var(--col-width); }
+.formula-box .fl { display:block; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.4rem; }
+
+.demo { max-width:var(--col-width); margin:1.2rem 0 1.6rem; padding:1.1rem 1.3rem; border:1px solid var(--hairline); border-radius:var(--radius-md); background:rgba(15,34,55,0.45); }
+.demo .dl { display:block; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-canon); margin-bottom:0.5rem; }
+.demo p { font-size:0.9rem; line-height:1.8; margin:0 0 0.8rem; }
+.demo p:last-child { margin-bottom:0; }
+.prop { max-width:var(--col-width); margin:1.2rem 0; padding:1rem 1.2rem; border-left:3px solid var(--gold); background:rgba(201,168,76,0.07); border-radius:0 var(--radius-md) var(--radius-md) 0; }
+.prop .pl { display:block; font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.35rem; }
+.prop p { font-family:"Cormorant Garamond",serif; font-size:1.18rem; line-height:1.45; color:var(--cream); }
+.qed { font-family:"DM Mono",monospace; color:var(--gold); }
+
+.obj { scroll-margin-top:72px; border:1px solid var(--hairline); background:rgba(15,34,55,0.55); border-radius:var(--radius-md); padding:1.3rem 1.4rem; margin:1.4rem 0; position:relative; }
+.obj::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--alert) 0%,var(--gold) 100%); border-radius:var(--radius-md) 0 0 var(--radius-md); }
+.obj .onum { font-family:"DM Mono",monospace; font-size:0.60rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); }
+.obj h3 { font-size:1.2rem; color:var(--cream); margin:0.25rem 0 0.9rem; }
+.obj .part { margin:0.75rem 0; font-size:0.86rem; line-height:1.75; }
+.obj .lbl { display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.25rem; font-style:normal; }
+.obj .p-obj .lbl { color:var(--alert); }
+.obj .p-resp .lbl { color:var(--gold); }
+.obj .p-obj { color:var(--muted); font-style:italic; }
+
+.part-divider { margin:0 0 3.2rem; padding:1.4rem 0 0; border-top:1px solid var(--gold-rim); }
+.part-divider .part-kicker { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); }
+.part-divider .part-title { font-family:"Cormorant Garamond",serif; font-size:2rem; font-weight:300; color:var(--cream); margin-top:0.2rem; }
+.part-divider p { color:var(--muted); font-size:0.88rem; max-width:var(--col-width); margin-top:0.5rem; }
+.warrant { max-width:var(--col-width); margin:1.8rem 0 0.4rem; padding:1rem 1.2rem 1.05rem; border:1px solid rgba(168,151,184,0.28); border-left:3px solid var(--c-tradition); background:rgba(168,151,184,0.06); border-radius:0 var(--radius-md) var(--radius-md) 0; }
+.warrant .wl { display:block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-tradition); margin-bottom:0.6rem; }
+.warrant ul { list-style:none; margin:0; display:grid; gap:0.5rem; }
+.warrant li { font-size:0.83rem; line-height:1.72; color:var(--body-text); }
+.warrant .wt { display:inline-block; font-family:"DM Mono",monospace; font-size:0.58rem; letter-spacing:0.06em; color:var(--c-tradition); border:1px solid rgba(168,151,184,0.45); border-radius:20px; padding:0.02rem 0.5rem; margin-right:0.5rem; vertical-align:0.1em; white-space:nowrap; }
+.w1 { color:#6dba96; } .w2 { color:#7ba8d4; } .w3 { color:#d4a843; } .w4 { color:#e2c97e; } .w5 { color:#a897b8; } .w6 { color:#e8703a; }
+.obj .p-sed .lbl { color:var(--c-scripture); }
+.cite-this { margin-top:1.6rem; padding:0.9rem 1.1rem; border:1px dashed var(--gold-rim); border-radius:var(--radius-sm); font-size:0.78rem; color:var(--muted); }
+
+.references { margin-top:4rem; padding-top:2.5rem; border-top:1px solid var(--hairline); scroll-margin-top:72px; }
+.references h2 { font-size:1.5rem; color:var(--gold-light); margin-bottom:1.8rem; font-weight:400; }
+.ref-list { list-style:none; display:grid; gap:0.6rem; counter-reset:refs; }
+.ref-list li { counter-increment:refs; color:var(--muted); font-size:0.77rem; line-height:1.65; padding:0.6rem 0.8rem 0.6rem 2.4rem; position:relative; scroll-margin-top:96px; }
+.ref-list li::before { content:"[" counter(refs) "]"; position:absolute; left:0.4rem; top:0.6rem; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:0.62rem; width:1.8rem; text-align:right; }
+.ref-list li:target { background:var(--gold-pale); border-radius:var(--radius-sm); }
+.ref-list li a { overflow-wrap:anywhere; }
+.cite-ref { font-family:"DM Mono",monospace; font-size:0.65em; vertical-align:super; line-height:0; margin-left:0.14rem; }
+.cite-ref a { color:var(--gold-dim); }
+footer { border-top:1px solid var(--hairline); padding:2.5rem 32px; font-family:"DM Mono",monospace; font-size:0.70rem; letter-spacing:0.06em; color:var(--faint); text-align:center; margin-top:2rem; }
+
+.grade { display:inline-block; font-family:"DM Mono",monospace; font-size:0.56rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid currentColor; border-radius:20px; padding:0.08rem 0.5rem; white-space:nowrap; vertical-align:0.1em; font-style:normal; }
+.g-a { color:#6dba96; } .g-b { color:#7ba8d4; } .g-c { color:#d4a843; } .g-d { color:#e8703a; }
+
+figure.diagram { margin:1.8rem 0; padding:1rem; border:1px solid var(--hairline); border-radius:var(--radius-md); background:rgba(7,15,26,0.55); }
+figure.diagram .svg-scroll { overflow-x:auto; }
+figure.diagram svg { width:100%; min-width:560px; height:auto; display:block; }
+figure.diagram figcaption { color:var(--muted); font-size:0.76rem; margin-top:0.6rem; line-height:1.6; }
+.bx { fill:rgba(22,45,82,0.75); stroke:var(--gold-rim); stroke-width:1.2; }
+.bx.hi { fill:rgba(201,168,76,0.12); stroke:var(--gold); }
+.bx.gr { fill:rgba(109,186,150,0.10); stroke:#6dba96; }
+.bx.al { fill:rgba(232,112,58,0.08); stroke:var(--alert); }
+.t1 { fill:var(--cream); font-family:"Source Serif 4",serif; font-size:13px; text-anchor:middle; }
+.t2 { fill:var(--muted); font-family:"Source Serif 4",serif; font-size:11px; text-anchor:middle; }
+.t3 { fill:var(--gold-dim); font-family:"DM Mono",monospace; font-size:9.5px; text-anchor:middle; }
+.bandlbl { fill:var(--gold); font-family:"DM Mono",monospace; font-size:9.5px; letter-spacing:1.5px; }
+.ln { stroke:var(--gold-light); stroke-width:1.4; fill:none; }
+.ah { fill:var(--gold-light); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-section { opacity:0; transform:translateY(18px); animation:fadeUp 0.55s ease forwards; }
+  @keyframes fadeUp { to { opacity:1; transform:none; } }
+}
+@media (max-width:860px) {
+  .page-layout { grid-template-columns:1fr; gap:2rem; padding:2rem 20px 5rem; }
+  .toc-sidebar { display:none; }
+  .mechanism-grid, .status-legend { grid-template-columns:1fr; }
+  .nav-inner { padding:0 20px; }
+}
+@media (max-width:590px) {
+  .container { padding-left:16px; padding-right:16px; }
+  .page-layout { padding-left:16px; padding-right:16px; }
+  .section-title { font-size:1.45rem; }
+  table.data-table { min-width:540px; }
+}
+html, body { max-width:100%; }
+.page-layout > main { min-width:0; width:100%; }
+p, li, .statement { overflow-wrap:anywhere; hyphens:auto; }
+td { overflow-wrap:break-word; }
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/CEAS">CEAS</a></li>
+<li><a href="/GRAIL">GRAIL</a></li>
+<li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+<li><a href="/MIA">MIA</a></li>
+<li><a class="active" href="/Research/">Research</a></li>
+<li><a href="/About">About</a></li>
+<li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="page-hero">
+<div class="breadcrumb">
+<a href="/">Logarchéon</a><span>/</span><a href="/Research/">Research</a><span>/</span><span>The Petrine Endowment</span>
+</div>
+<h1>The Petrine Endowment: <em>How the Vatican Library and Archive Can Pay the Holy See's Deficit in Perpetuity — a Euclidean Plan for Salaries, Pensions, and the 25-Year Bridge</em></h1>
+<p class="hero-desc">A demonstration, in the order of definitions, postulates, and propositions, of why the Holy See's deficit is structural; an evidence-graded valuation of what the publishable layer of the Vatican Library and the 85 kilometres of the Apostolic Archive could earn without alienating a single object; a proof that this income, saved rather than spent for about 25 years, pays the structural deficit every year in perpetuity; and a three-vault endowment design, with a bridge for the first 25 years, meant to keep paying employees and pensioners through inflation, depression, war, sanctions, market collapse, and a second pandemic.</p>
+<div class="hero-methods">
+<span class="method-label">Abstract</span>
+<p>The Holy See reported a consolidated operating deficit of €44.4 million for 2024, down from €83.5 million in 2023, and reached a small surplus only through investment returns, asset sales, and a rise in donations. Its pension fund carries an unfunded liability that has never been published and is reported between €0.35 and €1.5 billion. This page argues four things. First, the deficit follows from the <em>form</em> of the Holy See's revenue and cost functions, so no cost discipline closes it. Second, the Library and Archive hold a large informational layer — on this page's estimate, roughly 125–590 billion tokens of publishable text, much of it never transcribed — that can be licensed without alienation, while every individual scholar keeps free reading access. Third, that layer is worth roughly zero to €2.9 billion in present value, with a base case near €0.6 billion: <strong>necessary, but not sufficient</strong> if its income is spent as it arrives. The earlier version of this plan, which rested the endowment on corpus licensing, is corrected here. <strong>Saved instead of spent, the same income becomes perpetual:</strong> about €40 million a year placed in a permanent fund for 25 years, earning 4 percent a year after inflation, grows to about €1.67 billion; spending 3.5 percent of it pays about €58 million a year for ever — roughly the likely structural deficit of €60 million — whether subscriptions rise or fall, and through the next pandemic (Proposition 6). The price is a 25-year wait, bridged by operating gains, donations given as permanent capital, and a spent share of the archive income; the pension gap still needs other money. Fourth, what survives every economic regime is an <em>order of vaults</em> — a liquidity vault of 24–36 months of payroll, an unlevered pension-matching vault, and a perpetual vault spent at 3.5 percent real — capitalized from six uncorrelated sources over 25 years. The base case requires about €3.1 billion and raises about €3.35 billion. Every figure carries a grade; every model input is exposed so that it can be replaced. Every step is also warranted from Scripture, Tradition, the Catechism, the Code of Canon Law, and papal acts (§01A); the warrants support principles, never numbers, and where the tradition cuts against the plan, §18A says so.</p>
+</div>
+<div class="hero-badges">
+<span class="hero-badge">Institutional Finance</span>
+<span class="hero-badge">Endowment Design</span>
+<span class="hero-badge">Archives · AI</span>
+<span class="hero-badge">Euclidean Method</span>
+<span class="hero-badge">Evidence-Graded</span>
+<span class="hero-badge">Canon Law · Magisterium</span>
+<span class="hero-badge">Research Page · 24 Sep 2026</span>
+</div>
+</div>
+</div>
+
+<div class="page-layout">
+<aside class="toc-sidebar">
+<div class="toc-label">Sections</div>
+<ul class="toc-list">
+<li class="toc-part">Introduction</li>
+<li><a class="toc-link" href="#finding">00 · Core Finding</a></li>
+<li><a class="toc-link" href="#method">01 · Sources &amp; Grades</a></li>
+<li><a class="toc-link" href="#warrants">01A · Warrants</a></li>
+<li class="toc-part">I · The Problem Stated Exactly</li>
+<li><a class="toc-link" href="#definitions">02 · Definitions</a></li>
+<li><a class="toc-link" href="#postulates">03 · Postulates</a></li>
+<li><a class="toc-link" href="#ledger-pub">04 · The Published Ledger</a></li>
+<li><a class="toc-link" href="#prop1">05 · Prop. 1 · Structural</a></li>
+<li><a class="toc-link" href="#prop2">06 · Prop. 2 · Pensions</a></li>
+<li class="toc-part">II · Valuing the Open Layer</li>
+<li><a class="toc-link" href="#inventory">07 · Inventory &amp; Gates</a></li>
+<li><a class="toc-link" href="#comparables">08 · Market Comparables</a></li>
+<li><a class="toc-link" href="#valuation">09 · Valuation Model</a></li>
+<li><a class="toc-link" href="#prop3">10 · Prop. 3 · Not Sufficient</a></li>
+<li class="toc-part">III · The Perpetual Structure</li>
+<li><a class="toc-link" href="#capital">11 · Capital Required</a></li>
+<li><a class="toc-link" href="#vaults">12 · The Three Vaults</a></li>
+<li><a class="toc-link" href="#funding">13 · Funding the Vaults</a></li>
+<li><a class="toc-link" href="#bridge">13A · Prop. 6 · The 25-Year Bridge</a></li>
+<li><a class="toc-link" href="#stress">14 · Prop. 4 · Every Regime</a></li>
+<li><a class="toc-link" href="#ai">15 · AI, Present &amp; Future</a></li>
+<li><a class="toc-link" href="#governance">16 · Prop. 5 · One Mandate</a></li>
+<li class="toc-part">IV · Assessment</li>
+<li><a class="toc-link" href="#ledger">17 · Evidence Ledger</a></li>
+<li><a class="toc-link" href="#defeaters">18 · What Would Defeat It</a></li>
+<li><a class="toc-link" href="#objections">18A · Objections from Tradition</a></li>
+<li><a class="toc-link" href="#agenda">19 · Measurement Agenda</a></li>
+<li class="toc-part">Conclusion</li>
+<li><a class="toc-link" href="#conclusion">20 · Conclusion</a></li>
+<li class="toc-part">Apparatus</li>
+<li><a class="toc-link" href="#sources">References</a></li>
+</ul>
+</aside>
+
+<main>
+
+<!-- 00 -->
+<section class="page-section" id="finding">
+<div class="section-header"><span class="section-num">00</span><h2 class="section-title">Core Finding: What the Archive Can Do, and What It Cannot</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The Holy See spends more each year than its recurring income, for reasons built into how it earns and spends. Its libraries and archives can earn real money from their digital copies without selling anything — but not enough to fix the problem alone. The durable answer is a permanent endowment in three separate compartments, filled from several sources that do not all fail at the same time.</p></div>
+<div class="mechanism-grid">
+<div class="mech"><div class="mnum">F1 · THE GAP</div><h4>Structural, not administrative</h4><p>Operating deficit €44.4M in 2024 (€83.5M in 2023); the year closed €1.6M positive only after €46M of investment returns, one-off asset sales, and higher donations.<sup class="cite-ref"><a href="#ref-1">[1]</a></sup><sup class="cite-ref"><a href="#ref-4">[4]</a></sup></p><span class="grade g-a">Grade A</span></div>
+<div class="mech"><div class="mnum">F2 · THE HIDDEN LIABILITY</div><h4>An unpublished pension gap</h4><p>No official figure exists. Reported estimates run from about €0.35B to at least €1.5B, for roughly 5,000 employees and retirees.<sup class="cite-ref"><a href="#ref-5">[5]</a></sup><sup class="cite-ref"><a href="#ref-6">[6]</a></sup><sup class="cite-ref"><a href="#ref-8">[8]</a></sup></p><span class="grade g-c">Grade C</span></div>
+<div class="mech"><div class="mnum">F3 · THE OPEN LAYER</div><h4>Real value, bounded</h4><p>About 125–590B tokens of publishable text across Library manuscripts, the open Archive, and unique printed matter. Net present value roughly €0–2.9B; base case about €0.6B.</p><span class="grade g-d">Grade D (model)</span></div>
+<div class="mech"><div class="mnum">F4 · THE STRUCTURE</div><h4>Three vaults, six sources</h4><p>Liquidity (24–36 months of payroll), pension-matching (unlevered), perpetual (3.5% real draw). Need €1.7–4.4B, base €3.1B; base-case sources about €3.35B over 25 years.</p><span class="grade g-d">Grade D (design)</span></div>
+</div>
+<div class="callout"><span class="kicker">The defensible model</span><div class="statement">The informational layer of the patrimony is a real and growing asset, and it should be licensed — non-exclusively, term-limited, and never at the cost of free reading. But survival through every economic regime comes from structure, not from any single revenue stream: a consolidated treasury, a measured pension liability, and an order of vaults that absorbs shocks in sequence.</div></div>
+<div class="callout"><span class="kicker">The archive route to perpetuity · Proposition 6</span><div class="statement">About €40 million a year saved in a permanent fund for 25 years, at 4 percent after inflation, grows to about €1.67 billion. Spending 3.5 percent of it pays about €58 million a year for ever — roughly the likely €60 million structural deficit — whatever subscriptions do. Two costs: a 25-year wait, during which the deficit is still carried as it is today while the bridge of §13A takes over; and the pension gap, which the archive does not close.</div></div>
+<div class="theory-disclaimer"><strong>A correction to the earlier draft.</strong> The first statement of this plan made licensing of the corpus the principal source of the endowment. The valuation in §09 does not support that. The corpus is one of six sources, and the plan is built so that it still closes if AI-data prices collapse (§14, §18).</div>
+</section>
+
+<!-- 01 -->
+<section class="page-section" id="method">
+<div class="section-header"><span class="section-num">01</span><h2 class="section-title">Sources, Evidence Grades, and Scope</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Some numbers here are official, some are journalism, and many are this page's own estimates. Each carries a grade so the reader can see which is which, and every estimate shows its inputs so a better number can be substituted.</p></div>
+<div class="status-legend">
+<div class="status-item"><span class="grade g-a">Grade A</span><br/>Official publication of the Holy See or of the institution itself (Secretariat for the Economy, Press Office, the Library, the Archive, the Church Commissioners).</div>
+<div class="status-item"><span class="grade g-b">Grade B</span><br/>Reputable press or scholarly reporting of official figures; peer-reviewed or institutional technical reports.</div>
+<div class="status-item"><span class="grade g-c">Grade C</span><br/>Single-source reporting, leaked internal estimates, advocacy outlets, or figures not yet matched to an official document.</div>
+<div class="status-item"><span class="grade g-d">Grade D</span><br/>This page's model assumption or estimate: stated, bounded, and replaceable.</div>
+</div>
+<div class="prose" style="margin-top:1.4rem">
+<p><strong>Scope.</strong> The subject is the Holy See (D1), not Vatican City State, dioceses, religious orders, or Catholic universities, whose assets the Holy See does not own. The Vatican Museums belong to the Governorate of Vatican City State and pass their profits upward; they appear here only as a revenue line and a shock channel.</p>
+<p><strong>What is excluded.</strong> Nothing on this page values or proposes to release material that is closed: documents after the present opening boundary (the end of the pontificate of Pius XII, October 1958),<sup class="cite-ref"><a href="#ref-19">[19]</a></sup> anything under the pontifical secret or the sacramental seal, diplomatic material still sensitive, and personal data of living persons. That material is not estimated at all; its value to this plan is set at zero by postulate (P3).</p>
+<p><strong>Standing.</strong> This is an outside analytic proposal, written from public sources. It is not advice to any Vatican body, and it makes no claim about what any official intends.</p>
+</div>
+</section>
+
+
+<!-- 01A -->
+<section class="page-section" id="warrants">
+<div class="section-header"><span class="section-num">01A</span><h2 class="section-title">Warrants: Scripture, Tradition, Magisterium, Canon Law</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Each step of the plan names the teaching or law behind it. Those sources support the principles. They do not support the numbers or the design, which stay this page's own judgment.</p></div>
+<div class="prose"><p>The Church's own law was written for this subject. Book V of the Code of Canon Law (cann. 1254–1310) governs how the Church acquires, administers, and alienates temporal goods, and can. 1273 names the Roman Pontiff "the supreme administrator and steward of all ecclesiastical goods."<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> Scripture and the Fathers supply the older grammar of stewardship; the Catechism and the social encyclicals state its present form.<sup class="cite-ref"><a href="#ref-33">[33]</a></sup><sup class="cite-ref"><a href="#ref-63">[63]</a></sup> Each later section therefore closes with a <em>Warrants</em> box, and the sources are ranked by weight as follows.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Weight</th><th>Source</th><th>Standing</th></tr></thead>
+<tbody>
+<tr><td><span class="w1">W1</span></td><td>Sacred Scripture (RSV-CE)</td><td>Read within Tradition (<em>Dei Verbum</em> 9–10)<sup class="cite-ref"><a href="#ref-52">[52]</a></sup></td></tr>
+<tr><td><span class="w2">W2</span></td><td>Code of Canon Law (1983)</td><td>Universal law, binding<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></td></tr>
+<tr><td><span class="w3">W3</span></td><td>Catechism; Second Vatican Council; social encyclicals</td><td>The Catechism is "a sure norm for teaching the faith" (<em>Fidei depositum</em>)<sup class="cite-ref"><a href="#ref-53">[53]</a></sup>; ordinary magisterium</td></tr>
+<tr><td><span class="w4">W4</span></td><td>Papal acts governing the Holy See: <em>Fidelis dispensator et prudens</em> (2014), <em>Praedicate Evangelium</em> (2022), <em>Il diritto nativo</em> (2023), <em>Coniuncta cura</em> (2025), Francis's letters of 16 September and 19 November 2024</td><td>Particular law and acts of governance<sup class="cite-ref"><a href="#ref-34">[34]</a></sup><sup class="cite-ref"><a href="#ref-35">[35]</a></sup><sup class="cite-ref"><a href="#ref-36">[36]</a></sup><sup class="cite-ref"><a href="#ref-37">[37]</a></sup><sup class="cite-ref"><a href="#ref-38">[38]</a></sup><sup class="cite-ref"><a href="#ref-39">[39]</a></sup></td></tr>
+<tr><td><span class="w5">W5</span></td><td>Fathers, Doctors, monastic rule: Justin, Ambrose, Benedict, Aquinas</td><td>Witnesses of Tradition, not law<sup class="cite-ref"><a href="#ref-58">[58]</a></sup><sup class="cite-ref"><a href="#ref-59">[59]</a></sup><sup class="cite-ref"><a href="#ref-60">[60]</a></sup><sup class="cite-ref"><a href="#ref-61">[61]</a></sup></td></tr>
+<tr><td><span class="w6">W6</span></td><td>This page's application</td><td>Prudential judgment, binding on no one</td></tr>
+</tbody></table></div>
+<div class="theory-disclaimer">No document of the Church mandates this plan. The warrants show that its principles — stewardship, just wages, pensions, transparency, secrecy where owed, free access to learning, prudence toward the future — are the Church's own. The figures, the vault design, and the licensing model are W6 throughout. Where Scripture or the Fathers argue against a step, the objection is set out in §18A rather than left unstated.</div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Part I</div><div class="part-title">The Problem Stated Exactly</div><p>Terms fixed before use, assumptions placed where they can be inspected, and the published ledger read against them.</p></div>
+
+<!-- 02 -->
+<section class="page-section" id="definitions">
+<div class="section-header"><span class="section-num">02</span><h2 class="section-title">Definitions</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Most arguments about Vatican money go wrong because "the Vatican," "selling the treasures," and "the deficit" each mean several things. These definitions fix one meaning for each word, and the rest of the page uses only those meanings.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Term</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td>D1 · Holy See</td><td>The governing body of the universal Church: the Pope and the Roman Curia with its dicasteries, tribunals, and diplomatic service. Distinct from Vatican City State and from the assets of dioceses, orders, and institutions.</td></tr>
+<tr><td>D2 · Mission cost</td><td>Expenditure required to keep the universal function operating: nunciatures, dicasteries, tribunals, support to local Churches in need, communications, and the conservation of the patrimony.</td></tr>
+<tr><td>D3 · Patrimony</td><td>Assets held in trust and treated as non-alienable: manuscripts, archives, works of art, and historic buildings.</td></tr>
+<tr><td>D4 · Alienation</td><td>Transfer of ownership or of physical custody of patrimony.</td></tr>
+<tr><td>D5 · Informational layer</td><td>Everything that can be derived from an object without moving it or changing its ownership: images, transcriptions, translations, catalogue metadata, indices, and verified provenance records.</td></tr>
+<tr><td>D6 · Open layer</td><td>The part of the informational layer that passes all three gates of §07 (temporal, categorical, personal).</td></tr>
+<tr><td>D7 · Licence</td><td>A non-exclusive, term-limited, revocable permission to use part of the open layer. It transfers no ownership and no custody.</td></tr>
+<tr><td>D8 · Structural deficit</td><td>A deficit that follows from the form of the revenue and cost functions, not from error in administering them.</td></tr>
+<tr><td>D9 · Endowment</td><td>Capital held in perpetuity, of which only a rule-bound share of return is spent.</td></tr>
+<tr><td>D10 · Vault</td><td>A legally and accounting-separate compartment of the endowment with one purpose, one investment mandate, and one drawing rule.</td></tr>
+<tr><td>D11 · Regime</td><td>A persistent economic state: growth, inflation, deflationary depression, stagflation, pandemic closure, war or sanctions, financial crash, technological price shock, or reputational shock.</td></tr>
+<tr><td>D12 · Real spending rate</td><td>Annual spending from an endowment divided by its value, net of inflation.</td></tr>
+</tbody></table></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">D1</span>The Apostolic or Holy See means the Roman Pontiff with the Secretariat of State and the other institutes of the Roman Curia (can. 361); the Catholic Church and the Apostolic See are moral persons by divine ordinance (can. 113 §1).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">D3–D4</span>"Stable patrimony" (can. 1291) and "goods precious for artistic or historical reasons," whose alienation needs the Holy See's permission (can. 1292 §2).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">D5</span>"Goods of production — material or immaterial … oblige their possessors to employ them in ways that will benefit the greatest number" (CCC 2405).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup> John Paul II names "the possession of know-how, technology and skill" as a form of ownership "no less important than land" (<em>Centesimus Annus</em> 32).<sup class="cite-ref"><a href="#ref-46">[46]</a></sup></li><li><span class="wt">D9</span>Pious foundations (can. 1303 §1); endowment money is to be "invested cautiously and usefully" (can. 1305).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li></ul></div>
+</section>
+
+<!-- 03 -->
+<section class="page-section" id="postulates">
+<div class="section-header"><span class="section-num">03</span><h2 class="section-title">Postulates and Common Notions</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>These are the rules the plan will not break. Anyone who rejects one of them should reject the plan at that point, not later.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Postulate</th><th>Statement</th></tr></thead>
+<tbody>
+<tr><td>P1 · Mission first</td><td>The mission is not subordinate to revenue. A plan that shrinks the universal function to fit income dissolves the problem; it does not solve it.</td></tr>
+<tr><td>P2 · No alienation</td><td>Patrimony (D3) is not alienated (D4) while another lawful means meets the need. Canon law permits alienation with the Holy See's permission and a just cause (can. 1292 §2; can. 1293 §1); this page adopts the stricter rule as a prudential choice, not a doctrine (§18A, Objection 2).</td></tr>
+<tr><td>P3 · Closed stays closed</td><td>Pontifical secret, the sacramental seal, diplomatic confidentiality, privacy of living persons, and the per-pontificate opening schedule bind absolutely.</td></tr>
+<tr><td>P4 · Lawful revenue</td><td>Revenue and investment must be lawful under the Holy See's own law and investment ethics, and no licensee may use the corpus for purposes contrary to them.</td></tr>
+<tr><td>P5 · Free reading</td><td>Any individual may continue to read what is open without charge, in continuity with the Library's long practice of making its holdings available to scholars.<sup class="cite-ref"><a href="#ref-18">[18]</a></sup> Charges fall only on bulk, machine, and commercial use.</td></tr>
+<tr><td>P6 · Justice to workers</td><td>Accrued pension rights are honoured. Reform may change future accrual, never benefits already earned.</td></tr>
+</tbody></table></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Common notion</th><th>Statement</th></tr></thead>
+<tbody>
+<tr><td>CN1</td><td>A liability that is not measured cannot be funded; it can only be deferred.</td></tr>
+<tr><td>CN2</td><td>Income that falls in a shock cannot insure against that shock.</td></tr>
+<tr><td>CN3</td><td>If spending stays below the real return over the horizon, the principal is preserved in real terms.</td></tr>
+<tr><td>CN4</td><td>A one-off sale is capital, not income.</td></tr>
+<tr><td>CN5</td><td>An exclusive licence to one buyer converts the institution's asset into that buyer's moat.</td></tr>
+</tbody></table></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">P1</span>The Church's proper purposes are "to order divine worship, to care for the decent support of the clergy and other ministers, and to exercise works of the sacred apostolate and of charity, especially toward the needy" (can. 1254 §2).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> The goods of the Holy See have a universal destination (<em>Il diritto nativo</em>).<sup class="cite-ref"><a href="#ref-34">[34]</a></sup></li><li><span class="wt">P2</span>Alienation is lawful with permission and "a just cause, such as urgent necessity, evident advantage, piety, charity, or some other grave pastoral reason" (can. 1292 §2; can. 1293 §1).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> P2 is stricter than the law by choice; see §18A, Objection 2.</li><li><span class="wt">P3</span>The sacramental seal is inviolable (can. 983 §1; CCC 2490). "Professional secrets … or confidential information given under the seal of secrecy must be kept" (CCC 2491); "everyone should observe an appropriate reserve concerning persons' private lives" (CCC 2492; can. 220).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup><sup class="cite-ref"><a href="#ref-33">[33]</a></sup> Secret archives are kept secret (can. 489 §1), and the pontifical secret is governed by <em>Secreta continere</em> (1974).<sup class="cite-ref"><a href="#ref-55">[55]</a></sup></li><li><span class="wt">P4</span>The Church may acquire goods "by every just means of natural or positive law permitted to others" (can. 1259).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> "The decision to invest in one place rather than another … is always a moral and cultural choice" (<em>Centesimus Annus</em> 36).<sup class="cite-ref"><a href="#ref-46">[46]</a></sup> Money must serve, not rule (<em>Evangelii Gaudium</em> 57–58).<sup class="cite-ref"><a href="#ref-47">[47]</a></sup> Screens: <em>Mensuram bonam</em> (Pontifical Academy of Social Sciences, 2022).<sup class="cite-ref"><a href="#ref-54">[54]</a></sup></li><li><span class="wt">P5</span>"You received without pay, give without pay" (Mt 10:8). Nicholas V wished the manuscripts to be "available for scholars to read and study"; Sixtus IV founded the Library by the bull <em>Ad decorem militantis Ecclesiae</em> (15 June 1475); Leo XIII opened the Archive in 1881.<sup class="cite-ref"><a href="#ref-62">[62]</a></sup><sup class="cite-ref"><a href="#ref-19">[19]</a></sup> Spiritual goods are never sold (CCC 2121): what is charged for is new labour, never grace.<sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li><li><span class="wt">P6</span>"The laborer deserves his wages" (1 Tim 5:18); "you shall give him his hire on the day he earns it" (Dt 24:15; Lev 19:13; Jas 5:4); "to deprive an employee of his wages is to shed blood" (Sir 34:22). Lay Church workers have a right to decent remuneration and to "social provision, social security, and health benefits" (can. 231 §2); clergy are owed support in illness, incapacity, and old age (can. 281 §2); administrators must "pay a just and decent wage" (can. 1286).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> "It is unjust not to pay the social security contributions required by legitimate authority" (CCC 2436; also 2434).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup> <em>Laborem Exercens</em> 19 names "the right to a pension and to insurance for old age"; also <em>Rerum Novarum</em> 45 and <em>Gaudium et Spes</em> 67.<sup class="cite-ref"><a href="#ref-45">[45]</a></sup><sup class="cite-ref"><a href="#ref-43">[43]</a></sup><sup class="cite-ref"><a href="#ref-49">[49]</a></sup></li><li><span class="wt">CN1</span>"Which of you, desiring to build a tower, does not first sit down and count the cost?" (Lk 14:28). Administrators must make "an accurate and clear inventory" (can. 1283 2°) and keep books with an annual report (can. 1284 §2 7°–8°).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">CN2</span>Joseph's grain "shall be a reserve for the land against the seven years of famine" (Gen 41:36); the ant "prepares her food in summer" (Prov 6:6–8).</li><li><span class="wt">CN3</span>"A good man leaves an inheritance to his children's children" (Prov 13:22). "The notion of the common good also extends to future generations" (<em>Laudato Si'</em> 159).<sup class="cite-ref"><a href="#ref-48">[48]</a></sup></li><li><span class="wt">CN4</span>Money from an alienation "is either to be invested carefully for the advantage of the Church or to be expended prudently according to the purposes of the alienation" (can. 1294 §2) — that is, treated as capital.<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">CN5</span>The universal destination of goods (CCC 2402–2405).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li></ul></div>
+</section>
+
+<!-- 04 -->
+<section class="page-section" id="ledger-pub">
+<div class="section-header"><span class="section-num">04</span><h2 class="section-title">The Published Ledger, 2023–2024</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The most recent consolidated accounts cover 2024 and were published in November 2025. They show real improvement, but most of it came from donations and one-off items rather than a change in the underlying shape of the finances.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Line</th><th>Figure</th><th>Source</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Operating income / expense, 2024</td><td>€1.23B / €1.275B</td><td>CNS via America<sup class="cite-ref"><a href="#ref-4">[4]</a></sup></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Operating deficit</td><td>€44.4M (2024); €83.5M (2023)</td><td>Press Office; Crux<sup class="cite-ref"><a href="#ref-1">[1]</a></sup><sup class="cite-ref"><a href="#ref-5">[5]</a></sup></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Final result</td><td>+€1.6M (2024); −€51.2M (2023)</td><td>Vatican News<sup class="cite-ref"><a href="#ref-3">[3]</a></sup></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>What closed the gap</td><td>€46M from investment returns, one-off asset sales, and higher donations; donations up 12%</td><td>America; Vatican News<sup class="cite-ref"><a href="#ref-3">[3]</a></sup><sup class="cite-ref"><a href="#ref-4">[4]</a></sup></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Excluding hospitals</td><td>Operating deficit €33.5M before extraordinary and financial results (2023: €46M); total expense €527.8M</td><td>Secretariat for the Economy<sup class="cite-ref"><a href="#ref-2">[2]</a></sup>; America<sup class="cite-ref"><a href="#ref-4">[4]</a></sup></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Personnel share (excl. hospitals)</td><td>33% of €527.8M ≈ €174M</td><td>America<sup class="cite-ref"><a href="#ref-4">[4]</a></sup> (arithmetic by this page)</td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Peter's Pence, 2024</td><td>Income €58M (donations €54.3M); spending €75.4M; €16.5M drawn from reserve (2023: €51M)</td><td>Peter's Pence disclosure<sup class="cite-ref"><a href="#ref-9">[9]</a></sup>; Silere non possum<sup class="cite-ref"><a href="#ref-10">[10]</a></sup></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Dicastery expenses covered by Peter's Pence</td><td>€61.2M of €367.4M (17%)</td><td>Peter's Pence disclosure<sup class="cite-ref"><a href="#ref-9">[9]</a></sup></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>IOR, 2024</td><td>Net profit €32.8M; dividend to the Pope €13.8M</td><td>As reported by FSSPX News<sup class="cite-ref"><a href="#ref-8">[8]</a></sup></td><td><span class="grade g-c">C</span></td></tr>
+<tr><td>Vatican Museums</td><td>6.8M visitors (2024); revenue about $100M a year</td><td>Art Newspaper<sup class="cite-ref"><a href="#ref-13">[13]</a></sup>; ERC<sup class="cite-ref"><a href="#ref-14">[14]</a></sup></td><td><span class="grade g-b">B</span> / <span class="grade g-c">C</span></td></tr>
+<tr><td>Employees' view</td><td>The employees' association read the surplus as donation-driven rather than structural, and noted that wages were not indexed to living costs</td><td>The Pillar<sup class="cite-ref"><a href="#ref-11">[11]</a></sup></td><td><span class="grade g-b">B</span></td></tr>
+</tbody></table></div>
+<div class="theory-disclaimer">The Secretariat itself described complete financial sustainability as a long-term goal and the 2024 result as one needing future confirmation.<sup class="cite-ref"><a href="#ref-1">[1]</a></sup><sup class="cite-ref"><a href="#ref-3">[3]</a></sup> Consolidated statements for 2025 had not been located when this page was written; the ledger should be updated when they appear.</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Transparency</span>"We aim at what is honorable not only in the Lord's sight but also in the sight of men" (2 Cor 8:20–21). Administrators "are to render an account to the faithful concerning the goods offered by the faithful to the Church" (can. 1287 §2).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">Stewardship</span>Francis took the name of the Secretariat for the Economy's founding act, <em>Fidelis dispensator et prudens</em> (2014), from Lk 12:42.<sup class="cite-ref"><a href="#ref-38">[38]</a></sup></li><li><span class="wt">Truth</span>Leo XIII, opening the Archive to historians, recalled that the first law of history is not to dare to say anything false, and the second not to fear to say anything true (<em>Saepenumero considerantes</em>, 1883).<sup class="cite-ref"><a href="#ref-56">[56]</a></sup></li></ul></div>
+</section>
+
+<!-- 05 -->
+<section class="page-section" id="prop1">
+<div class="section-header"><span class="section-num">05</span><h2 class="section-title">Proposition 1: The Deficit Is Structural</h2></div>
+<div class="formula-box"><span class="fl">The identity</span>Deficit = (Mission cost + Pension accrual) − (Donations + Investment yield + Commercial receipts + Diocesan contributions)</div>
+<div class="prop"><span class="pl">Proposition 1</span><p>Every term of the identity moves against solvency for reasons internal to the institution's form; therefore the deficit is structural (D8).</p></div>
+<div class="demo"><span class="dl">Demonstration</span>
+<p><strong>Mission cost</strong> does not fall to fit income, by P1: a universal Church cannot keep a partial presence. It rises with inflation and with the maintenance of historic property, which the 2024 statement names as a cause of higher costs.<sup class="cite-ref"><a href="#ref-4">[4]</a></sup></p>
+<p><strong>Donations</strong> are the largest discretionary term and the least reliable. Giving capacity sits disproportionately in the North, where affiliation and institutional trust have declined; membership growth sits in the South, where capacity is lower. In 2024 the Peter's Pence rise came largely from private donors and from one country's jump, while diocesan giving was flat.<sup class="cite-ref"><a href="#ref-10">[10]</a></sup> A term that moves on trust and geography cannot be steered by administration.</p>
+<p><strong>Investment yield</strong> is bounded by a small corpus and by P4. It was decisive in 2024 precisely because the operating result was negative (CN4: part of it was one-off).</p>
+<p><strong>Commercial receipts</strong> are bounded by physical throughput, and that throughput wears the asset: footfall, light, and humidity degrade what is shown. In 2020 museum visits fell by about 82 percent in one year.<sup class="cite-ref"><a href="#ref-12">[12]</a></sup></p>
+<p><strong>Diocesan contributions</strong> under canon 1271 are requests, not assessments; the Holy See has no power of levy.</p>
+<p><strong>Pension accrual</strong> rises with longevity while the contributing base does not grow (§06).</p>
+<p>Each term is determined by the institution's form, not by the quality of its administration; so the sum is too. <span class="qed">∎</span></p>
+</div>
+<div class="prose"><p><strong>Corollary 1.1.</strong> No cost discipline, however strict, closes a gap whose cause is the shape of the revenue function. This is why a decade of reform reduced waste and improved transparency without reaching solvency.</p>
+<p><strong>Corollary 1.2.</strong> There are only two exits: make assessment real, or endow the function permanently. The first pushes cost onto dioceses that are themselves strained and would contradict canon 1271's voluntary character. The second is the subject of Part III.</p></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Levy</span>Bishops assist the Apostolic See "by reason of the bond of unity and charity and according to the resources of their dioceses" (can. 1271): a request, not a tax.<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">Giving</span>The faithful are obliged to assist with the needs of the Church (can. 222 §1; CCC 2043); special collections for universal needs (can. 1266).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup><sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li><li><span class="wt">Holy See</span>Francis (16 Sep 2024): a "zero deficit" is "an actually achievable objective"; resources "are limited and must be managed with rigour"; each institution should "strive to find external resources for its mission."<sup class="cite-ref"><a href="#ref-36">[36]</a></sup></li></ul></div>
+</section>
+
+<!-- 06 -->
+<section class="page-section" id="prop2">
+<div class="section-header"><span class="section-num">06</span><h2 class="section-title">Proposition 2: The Pension Liability Is the Dominant Unknown</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The annual deficit is tens of millions; the pension gap is probably hundreds of millions to more than a billion. Nobody outside has an official number, and the 2024 statement does not address it.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Estimate</th><th>Figure</th><th>Source</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Internal reports, c. 2015</td><td>Unfunded liability of almost €1.5B</td><td>The Pillar<sup class="cite-ref"><a href="#ref-6">[6]</a></sup></td><td><span class="grade g-c">C</span></td></tr>
+<tr><td>Press, 2025</td><td>At least €1.5B</td><td>Crux<sup class="cite-ref"><a href="#ref-5">[5]</a></sup></td><td><span class="grade g-c">C</span></td></tr>
+<tr><td>Press, 2025</td><td>€350M to €1B, for about 5,000 employees and retirees</td><td>FSSPX News<sup class="cite-ref"><a href="#ref-8">[8]</a></sup>; Omnes<sup class="cite-ref"><a href="#ref-7">[7]</a></sup></td><td><span class="grade g-c">C</span></td></tr>
+<tr><td>Nov 2024 papal letter</td><td>Independent experts found a serious prospective imbalance; the system could not guarantee obligations in the medium term</td><td>As reported by The Pillar<sup class="cite-ref"><a href="#ref-6">[6]</a></sup></td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Leo XIV, 2025</td><td>Said the pension fund has to be examined and can be dealt with</td><td>Crux<sup class="cite-ref"><a href="#ref-5">[5]</a></sup></td><td><span class="grade g-b">B</span></td></tr>
+</tbody></table></div>
+<div class="prop"><span class="pl">Proposition 2</span><p>The pension liability exceeds the annual deficit by a factor of roughly 4 to 45, and until it is measured by a published independent actuarial valuation, no solvency plan can be demonstrated complete.</p></div>
+<div class="demo"><span class="dl">Demonstration</span>
+<p>The reported range, €0.35–1.5B, against an operating deficit of €33.5–83.5M, gives a ratio between about 4 and 45. By CN1, an unmeasured liability can only be deferred. Every later capital figure on this page therefore carries the pension gap as a range, P ∈ [€0.35B, €1.5B], and the first item of the measurement agenda (§19) is its valuation. <span class="qed">∎</span></p>
+</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Holy See</span>Francis (19 Nov 2024): "the current system is not able to guarantee in the medium term the fulfilment of the pension obligation for future generations"; the aim is coverage "in a perspective of justice and equity between the different generations."<sup class="cite-ref"><a href="#ref-37">[37]</a></sup></li><li><span class="wt">Scripture</span>"Do not cast me off in the time of old age" (Ps 71:9). The Levites "withdraw from the work of the service" at fifty "but minister to their brethren" (Num 8:25–26) — Scripture's first retirement. Providing for one's own is a matter of faith (1 Tim 5:8).</li><li><span class="wt">Fathers</span>From the Sunday collection "the president … succours the orphans and widows and those who, through sickness or any other cause, are in want" (Justin, <em>First Apology</em> 67).<sup class="cite-ref"><a href="#ref-59">[59]</a></sup></li></ul></div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Part II</div><div class="part-title">Valuing the Open Layer</div><p>What the Library and the "miles-long" Archive hold, what may lawfully be published, and what the market would pay for it.</p></div>
+
+<!-- 07 -->
+<section class="page-section" id="inventory">
+<div class="section-header"><span class="section-num">07</span><h2 class="section-title">Inventory and the Three Gates</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The Library holds more than 82,000 manuscripts and 1.6 million printed books; the Archive fills more than 85 kilometres (53 miles) of shelving. Only material that passes three separate tests is counted. Everything else is valued at zero.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Holding</th><th>Published extent</th><th>Status</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Library manuscripts</td><td>More than 82,000</td><td>A May 2025 agreement with the Colnaghi Foundation covers restoration and digitization of 80,000+ manuscripts<sup class="cite-ref"><a href="#ref-16">[16]</a></sup>; the digital library's own counter lists 31,030 digitized<sup class="cite-ref"><a href="#ref-17">[17]</a></sup></td><td><span class="grade g-a">A</span> / <span class="grade g-b">B</span></td></tr>
+<tr><td>Printed books</td><td>1.6 million, incl. 8,000+ incunabula</td><td>Largely held elsewhere too; exclusivity low</td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Other Library collections</td><td>Graphic materials, coins, medals, archival fonds</td><td>Partly online via IIIF<sup class="cite-ref"><a href="#ref-18">[18]</a></sup></td><td><span class="grade g-a">A</span></td></tr>
+<tr><td>Apostolic Archive</td><td>600+ fonds on 85+ linear km, 8th–20th centuries</td><td>Open to scholars through October 1958<sup class="cite-ref"><a href="#ref-19">[19]</a></sup><sup class="cite-ref"><a href="#ref-20">[20]</a></sup></td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+<div class="subsection"><h3>The three gates</h3>
+<div class="prose"><ol>
+<li><strong>Temporal gate.</strong> Only material within the opened pontificates — currently through October 1958 — passes. When a new pontificate opens by papal decision, its material becomes eligible; the plan never anticipates that decision.</li>
+<li><strong>Categorical gate.</strong> Even within opened periods, anything under the seal, the pontifical secret, or still-sensitive diplomatic confidence is excluded, as are any categories the Archive itself withholds.</li>
+<li><strong>Personal gate.</strong> Personal data of people who may still be living is excluded or redacted.</li>
+</ol>
+<p>Each gate has a machine pre-screen and a mandatory human archivist decision; a document passes only when all three are passed and signed (§15). A single leak of closed material would defeat the plan on principle, whatever its economics (§18).</p></div></div>
+<div class="subsection"><h3>Size of the open layer</h3>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Component</th><th>Pages (estimate)</th><th>Tokens per page</th><th>Tokens</th><th>Exclusivity</th></tr></thead>
+<tbody>
+<tr><td>Library manuscripts</td><td>30–45M (82,000 × 350–550 pp.)</td><td>500–900</td><td>14–41B</td><td>High: mostly never transcribed</td></tr>
+<tr><td>Archive, open portion after gates</td><td>250–630M (85,000 m × 5,000–9,000 pp./m × 65–85% open × 90–97% after gates)</td><td>400–800</td><td>100–505B</td><td>High: handwritten, unpublished, unique</td></tr>
+<tr><td>Printed books, unique share</td><td>24–72M (1.6M × ~300 pp. × 5–15%)</td><td>400–600</td><td>10–43B</td><td>Low to moderate</td></tr>
+<tr class="total"><td>Total open layer</td><td>~300–750M pages</td><td>—</td><td>~125–590B</td><td>—</td></tr>
+</tbody></table></div>
+<div class="theory-disclaimer">All inputs in this table are <span class="grade g-d">D</span>: pages per codex, pages per linear metre, the pre-1958 share of the Archive, and tokenization rates for Latin, Italian, Greek, Syriac, Arabic, Ge'ez and other scripts are assumptions. The Archive's page census, by fonds and date, is the single most valuable number the Holy See could publish for this plan (§19). For scale: Harvard's Institutional Books release comprises about 983,000 public-domain volumes, 394 million pages, and 242 billion tokens.<sup class="cite-ref"><a href="#ref-25">[25]</a></sup><sup class="cite-ref"><a href="#ref-26">[26]</a></sup> The Vatican's open layer is of the same order — but, unlike Harvard's printed books, most of it has never been turned into text.</div>
+</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Inventory</span>Can. 1283 2°.<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> St Benedict's abbot keeps a list of the monastery's tools, "so that he may know what he gives and what he receives back" (<em>Rule</em> 32).<sup class="cite-ref"><a href="#ref-60">[60]</a></sup></li><li><span class="wt">Gates</span>P3 above; the Archive opens its holdings pontificate by pontificate, a practice dating from 1924.<sup class="cite-ref"><a href="#ref-19">[19]</a></sup></li><li><span class="wt">Scripture</span>"It is the glory of God to conceal things, but the glory of kings is to search things out" (Prov 25:2). The scribe trained for the kingdom "brings out of his treasure what is new and what is old" (Mt 13:52).</li></ul></div>
+</section>
+
+<!-- 08 -->
+<section class="page-section" id="comparables">
+<div class="section-header"><span class="section-num">08</span><h2 class="section-title">Market Comparables: What Text Is Worth</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Prices for text used to train AI range over roughly four orders of magnitude. Copyrighted trade books sit at the top; old printed public-domain books sit near zero, because a leading university released a quarter-trillion tokens of them openly. The Vatican's value lies in the gap: text that exists nowhere else in machine-readable form, with an unbroken record of where it came from.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Comparable</th><th>Terms</th><th>Implied price per million tokens</th><th>Grade</th></tr></thead>
+<tbody>
+<tr><td>Bulk text (published estimate)</td><td>About 0.001 cent per word<sup class="cite-ref"><a href="#ref-24">[24]</a></sup></td><td>≈ €6–7 (floor)</td><td><span class="grade g-c">C</span></td></tr>
+<tr><td>HarperCollins–Microsoft (2024)</td><td>$5,000 per title for three years, split with authors, opt-in, output capped at 200 consecutive words or 5% of a book<sup class="cite-ref"><a href="#ref-21">[21]</a></sup><sup class="cite-ref"><a href="#ref-27">[27]</a></sup></td><td>≈ $50,000 at ~100k tokens a title (copyright ceiling)</td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Wiley</td><td>$49M AI-licensing revenue in fiscal 2026<sup class="cite-ref"><a href="#ref-22">[22]</a></sup></td><td>Not derivable; shows a durable market for curated scholarly text</td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>News Corp</td><td>Reported $250M agreement for WSJ content<sup class="cite-ref"><a href="#ref-23">[23]</a></sup></td><td>Not derivable; includes ongoing feed</td><td><span class="grade g-b">B</span></td></tr>
+<tr><td>Harvard Institutional Books 1.0</td><td>242B tokens of public-domain books, released openly<sup class="cite-ref"><a href="#ref-25">[25]</a></sup></td><td>≈ 0 for printed public-domain text</td><td><span class="grade g-a">A</span></td></tr>
+</tbody></table></div>
+<div class="prose">
+<p><strong>What follows.</strong> The Vatican cannot sell copyright in a twelfth-century register; there is none to sell. What it can offer is <em>access and labour</em>: high-resolution images not otherwise available, transcriptions that did not exist before, catalogue structure, and certified provenance. The Harvard team itself argues that the scarcity of well-documented data with clear provenance chains is the pressing need in AI training.<sup class="cite-ref"><a href="#ref-25">[25]</a></sup> This page therefore prices the Vatican corpus at <strong>€10–75 per million tokens per licence term</strong>: above the bulk floor because it is unique and verified, far below the copyright ceiling because it is not copyright. Printed public-domain books are priced at zero.</p>
+</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Justice</span>Contracts "are subject to commutative justice" (CCC 2411).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup> A thing may not be sold above its just price (Aquinas, <em>ST</em> II-II q.77 a.1).<sup class="cite-ref"><a href="#ref-61">[61]</a></sup></li><li><span class="wt">Prudence</span>"The sons of this world are wiser in their own generation than the sons of light" (Lk 16:8): the market is consulted for its prices, not its purposes.</li></ul></div>
+</section>
+
+<!-- 09 -->
+<section class="page-section" id="valuation">
+<div class="section-header"><span class="section-num">09</span><h2 class="section-title">The Valuation Model</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Five ways of earning from the open layer, each estimated in a low, base, and high case. In the base case they net about €37 million a year once mature, worth about €0.6 billion today. In the low case the project barely pays for itself unless partners fund the scanning.</p></div>
+<div class="formula-box"><span class="fl">Channel 1 · AI training licences</span>R₁ = T × p × n ÷ τ<br/>T = licensable tokens · p = € per million tokens · n = licensees per cycle · τ = licence term (3 yrs)<br/>Low: 125B × €10 × 3 ÷ 3 ≈ €1.3M/yr · Base: 250B × €30 × 6 ÷ 3 = €15M/yr · High: 500B × €75 × 5 ÷ 3 ≈ €62M/yr</div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Channel</th><th>Mechanism</th><th>Low €M/yr</th><th>Base €M/yr</th><th>High €M/yr</th></tr></thead>
+<tbody>
+<tr><td>C1 · AI training licences</td><td>Non-exclusive, 3-year, output-capped, attribution required; model above</td><td>1</td><td>15</td><td>60</td></tr>
+<tr><td>C2 · Institutional research platform</td><td>Bulk search, API, and downloadable transcriptions for universities and libraries; reading stays free (P5). Low 1,000 × €3k; base 2,500 × €6k; high 5,000 × €10k</td><td>3</td><td>15</td><td>50</td></tr>
+<tr><td>C3 · Image and reproduction licensing</td><td>Publishers, media, exhibitions, and merchandise using master-resolution images (incremental to present practice)</td><td>2</td><td>5</td><td>12</td></tr>
+<tr><td>C4 · Grounded retrieval and provenance services</td><td>Usage-metered access for AI systems that must cite authenticated sources; verification of citations and documents against the record</td><td>1</td><td>6</td><td>25</td></tr>
+<tr><td>C5 · Digital visitation</td><td>Remote and immersive access to Library and Museum holdings; no footfall, no wear, no closure risk</td><td>2</td><td>8</td><td>25</td></tr>
+<tr class="total"><td>Gross</td><td></td><td>9</td><td>49</td><td>172</td></tr>
+<tr><td>Less platform operating cost</td><td>Staff, compute, rights compliance, archivist review</td><td>−5</td><td>−12</td><td>−28</td></tr>
+<tr class="total"><td>Net, at maturity</td><td></td><td>4</td><td>37</td><td>144</td></tr>
+</tbody></table></div>
+<div class="formula-box"><span class="fl">Present value, net of one-time capital</span>PV = N ÷ (r − g) − K<br/>r = 5% real discount · g = real growth of net revenue (low −3%, base −1%, high 0%) · K = Holy See share of imaging and transcription capital<br/>Low: 4 ÷ 0.08 − 70 ≈ −€20M · Base: 37 ÷ 0.06 − 40 ≈ €0.58B · High: 144 ÷ 0.05 − 8 ≈ €2.9B</div>
+<div class="prose">
+<p><strong>The capital, K.</strong> A first phase of about 100 million priority pages costs, on this page's assumptions, €0.4–1.4 per page for imaging, handwritten-text recognition with language-model correction, and sampled human quality control: €40–140M. Precedent exists for partners funding digitization — the Colnaghi agreement is one<sup class="cite-ref"><a href="#ref-16">[16]</a></sup> — so the Holy See's share is taken as 20–50 percent. <span class="grade g-d">D</span></p>
+<p><strong>The cost side.</strong> Machine assistance in translation across the Curia's working languages, cataloguing, and first-pass document triage can save an estimated 3–8 percent of the roughly €174M personnel line, or €5–14M a year, achieved through attrition and redeployment rather than dismissal (P6). Capitalized at 5 percent: €0.1–0.28B. <span class="grade g-d">D</span></p>
+</div>
+<div class="theory-disclaimer">Why the growth rates are negative or zero: AI-data prices may fall as synthetic data improves, and litigation may reshape the market either way. The model therefore assumes no real growth in any case. Channels C2, C3 and C5 are not AI-dependent, which is why the base case still holds most of its value if C1 goes to zero (€22M net, ≈ €0.33B).</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Talents</span>"I was afraid, and I went and hid your talent in the ground" (Mt 25:25) is the servant condemned; "trade with these till I come" (Lk 19:13).</li><li><span class="wt">Stewardship</span>"The ownership of any property makes its holder a steward of Providence, with the task of making it fruitful and communicating its benefits to others" (CCC 2404).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li><li><span class="wt">Workers</span>The cost-side savings come through attrition and redeployment, never dismissal, under P6.</li></ul></div>
+</section>
+
+<!-- 10 -->
+<section class="page-section" id="prop3">
+<div class="section-header"><span class="section-num">10</span><h2 class="section-title">Proposition 3: The Open Layer Is Necessary but Not Sufficient</h2></div>
+<div class="prop"><span class="pl">Proposition 3</span><p>The informational layer yields permanent income without alienation, and that income is uncorrelated with donations; but its present value, roughly €0–2.9B with a base of about €0.6B, is less than the capital the Holy See requires, roughly €1.7–4.4B with a base of about €3.1B (§11). It is therefore one necessary source among several, not the sufficient one.</p></div>
+<div class="demo"><span class="dl">Demonstration</span>
+<p><em>Without alienation:</em> the value of a codex lies in its content, provenance, and authenticated custody. Separating the physical object from its informational layer (D5) lets the second be licensed (D7) while the first moves nowhere and is handled less. P2 holds.</p>
+<p><em>Uncorrelated:</em> licence and subscription revenue depends on research budgets and technology markets, not on the geography of Catholic giving or on trust in Church administration. It therefore satisfies the requirement, stated in the earlier draft as N5, for a revenue source independent of donation trends.</p>
+<p><em>Not sufficient:</em> by §09 the base-case value is €0.58B; by §11 the base-case requirement is €3.1B. The ratio is under one-fifth. Even the high case (€2.9B) falls short of the high requirement (€4.4B). <span class="qed">∎</span></p>
+</div>
+<div class="callout alert"><span class="kicker">What this corrects</span><div class="statement">An endowment built chiefly on a decade of corpus licensing would be exposed to that decade's AI-data prices. The plan below uses the corpus for what it does best — a steady, donation-independent stream — and rests the structure on six sources.</div></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Diversity</span>"Give a portion to seven, or even to eight, for you know not what evil may happen on earth" (Eccl 11:2): no single source carries the whole weight.</li></ul></div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Part III</div><div class="part-title">The Perpetual Structure</div><p>How much capital is needed, how it is divided, where it comes from, and how it behaves in every economic regime.</p></div>
+
+<!-- 11 -->
+<section class="page-section" id="capital">
+<div class="section-header"><span class="section-num">11</span><h2 class="section-title">Capital Required</h2></div>
+<div class="formula-box"><span class="fl">Three requirements</span>Perpetual vault: E = D ÷ s &nbsp;&nbsp; (D = structural deficit, s = 3.5% real)<br/>Pension vault: P = unfunded pension liability (§06)<br/>Liquidity vault: L = 24–36 months × personnel cost (≈ €174M/yr)</div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Component</th><th>Low</th><th>Base</th><th>High</th><th>Inputs</th></tr></thead>
+<tbody>
+<tr><td>Perpetual vault E</td><td>€1.0B</td><td>€1.7B</td><td>€2.4B</td><td>D = €35M / €60M / €85M, bracketing the 2024 ex-hospitals and 2023 consolidated deficits</td></tr>
+<tr><td>Pension vault P</td><td>€0.35B</td><td>€1.0B</td><td>€1.5B</td><td>Reported range (§06)</td></tr>
+<tr><td>Liquidity vault L</td><td>€0.35B</td><td>€0.44B</td><td>€0.52B</td><td>24 / 30 / 36 months of personnel cost</td></tr>
+<tr class="total"><td>Total</td><td>€1.7B</td><td>€3.1B</td><td>€4.4B</td><td></td></tr>
+</tbody></table></div>
+<div class="prose"><p><strong>Why 3.5 percent.</strong> The Church of England's endowment, managed by the Church Commissioners, targets a long-run return of inflation plus 4 percent, returned 8 percent in 2025, and has averaged 8.6 percent nominal over ten years; it now stands at £11.6B and funds about a fifth of that Church's running costs.<sup class="cite-ref"><a href="#ref-28">[28]</a></sup><sup class="cite-ref"><a href="#ref-29">[29]</a></sup> A draw of 3.5 percent real leaves a margin below such a return target, so that the principal is expected to grow in real terms across a complete cycle (CN3). The margin is what absorbs a decade of poor returns.</p></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Counting</span>Lk 14:28–30. Foresight (<em>providentia</em>) is a part of prudence (Aquinas, <em>ST</em> II-II q.49 a.6).<sup class="cite-ref"><a href="#ref-61">[61]</a></sup></li><li><span class="wt">Budget</span>Administrators are to prepare annual budgets (can. 1284 §3).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> Prudence is "right reason in action" (CCC 1806).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li></ul></div>
+</section>
+
+<!-- 12 -->
+<section class="page-section" id="vaults">
+<div class="section-header"><span class="section-num">12</span><h2 class="section-title">The Three Vaults</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>Money meant for next month's salaries, money owed to retirees, and money meant to last for ever should not sit in the same pot or be invested the same way. Each vault has one job, one investment rule, and one drawing rule, and shocks are absorbed by them in a fixed order.</p></div>
+<figure class="diagram">
+<div class="svg-scroll">
+<svg viewBox="0 0 760 520" role="img" aria-labelledby="v-t v-d">
+<title id="v-t">Three-vault architecture</title>
+<desc id="v-d">Six sources flow into a consolidated investment pool, which feeds a liquidity vault, a pension vault, and a perpetual vault, which in turn pay salaries, pensions, and mission costs.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text x="12" y="24" class="bandlbl">SOURCES</text>
+<rect x="20" y="36" width="112" height="50" rx="6" class="bx"/><text x="76" y="58" class="t1">Open layer</text><text x="76" y="76" class="t2">C1–C5 net</text>
+<rect x="143" y="36" width="112" height="50" rx="6" class="bx"/><text x="199" y="58" class="t1">Founding</text><text x="199" y="76" class="t2">campaign</text>
+<rect x="266" y="36" width="112" height="50" rx="6" class="bx"/><text x="322" y="58" class="t1">Bequests</text><text x="322" y="76" class="t2">planned giving</text>
+<rect x="389" y="36" width="112" height="50" rx="6" class="bx"/><text x="445" y="58" class="t1">IOR dividend</text><text x="445" y="76" class="t2">routed</text>
+<rect x="512" y="36" width="112" height="50" rx="6" class="bx"/><text x="568" y="58" class="t1">Real estate</text><text x="568" y="76" class="t2">market rents</text>
+<rect x="635" y="36" width="112" height="50" rx="6" class="bx"/><text x="691" y="58" class="t1">Efficiency</text><text x="691" y="76" class="t2">AI savings</text>
+<path d="M76,86 L330,160" class="ln" marker-end="url(#ar)"/><path d="M199,86 L345,160" class="ln" marker-end="url(#ar)"/><path d="M322,86 L365,160" class="ln" marker-end="url(#ar)"/><path d="M445,86 L395,160" class="ln" marker-end="url(#ar)"/><path d="M568,86 L415,160" class="ln" marker-end="url(#ar)"/><path d="M691,86 L430,160" class="ln" marker-end="url(#ar)"/>
+<text x="12" y="150" class="bandlbl">TREASURY</text>
+<rect x="190" y="162" width="380" height="60" rx="6" class="bx hi"/><text x="380" y="187" class="t1">Consolidated Investment Pool</text><text x="380" y="207" class="t2">one mandate · one audited NAV · entities hold units</text>
+<path d="M260,222 L130,290" class="ln" marker-end="url(#ar)"/><path d="M380,222 L380,290" class="ln" marker-end="url(#ar)"/><path d="M500,222 L630,290" class="ln" marker-end="url(#ar)"/>
+<text x="12" y="282" class="bandlbl">VAULTS</text>
+<rect x="30" y="292" width="200" height="78" rx="6" class="bx al"/><text x="130" y="316" class="t1">I · Liquidity vault</text><text x="130" y="336" class="t2">24–36 months of payroll</text><text x="130" y="354" class="t2">cash · short sovereigns</text>
+<rect x="280" y="292" width="200" height="78" rx="6" class="bx gr"/><text x="380" y="316" class="t1">II · Pension vault</text><text x="380" y="336" class="t2">accrued benefits, matched</text><text x="380" y="354" class="t2">inflation-linked · unlevered</text>
+<rect x="530" y="292" width="200" height="78" rx="6" class="bx hi"/><text x="630" y="316" class="t1">III · Perpetual vault</text><text x="630" y="336" class="t2">3.5% real smoothed draw</text><text x="630" y="354" class="t2">global diversified</text>
+<path d="M560,370 C540,420 300,400 200,372" class="ln" marker-end="url(#ar)"/><text x="400" y="420" class="t3">refill vault I after any drawdown</text>
+<text x="12" y="452" class="bandlbl">PAYS</text>
+<rect x="30" y="464" width="200" height="40" rx="6" class="bx"/><text x="130" y="489" class="t1">Salaries in a shock</text>
+<rect x="280" y="464" width="200" height="40" rx="6" class="bx"/><text x="380" y="489" class="t1">Pensions, always</text>
+<rect x="530" y="464" width="200" height="40" rx="6" class="bx"/><text x="630" y="489" class="t1">Structural deficit, always</text>
+<path d="M100,370 L100,464" class="ln" marker-end="url(#ar)"/><path d="M380,370 L380,464" class="ln" marker-end="url(#ar)"/><path d="M660,370 L660,464" class="ln" marker-end="url(#ar)"/>
+</svg>
+</div>
+<figcaption>Sources feed one pool; the pool feeds three vaults with separate mandates. The perpetual vault refills the liquidity vault after a shock, never the reverse. Entities keep the administration of their units; ownership already rests with the Holy See (§16).</figcaption>
+</figure>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Vault</th><th>Purpose</th><th>Investment mandate</th><th>Drawing rule</th></tr></thead>
+<tbody>
+<tr><td>I · Liquidity</td><td>Pay salaries and operations when revenue stops</td><td>Euro cash and short high-grade sovereign bills, spread across several custodians and jurisdictions</td><td>Drawn only when operating revenue falls below a trigger; refilled from surpluses and from vault III within five years</td></tr>
+<tr><td>II · Pension</td><td>Pay every accrued benefit (P6)</td><td>Inflation-linked sovereign bonds matched to the duration of the liability; no leverage, so that a bond-market shock cannot force sales</td><td>Pays benefits as due; contributions on a published schedule toward 100% funding in 20–25 years</td></tr>
+<tr><td>III · Perpetual</td><td>Cover the structural deficit for ever</td><td>Global diversified portfolio (indicatively 45–55% equities, 15–25% real assets, 15–20% high-grade bonds, 5–10% diversifiers), within P4</td><td>Smoothed rule below; principal never spent</td></tr>
+</tbody></table></div>
+<div class="formula-box"><span class="fl">Smoothed spending rule for vault III</span>S<sub>t</sub> = 0.7 × S<sub>t−1</sub> × (1 + π<sub>t</sub>) + 0.3 × (0.035 × E<sub>t−1</sub>)<br/>bounded: 0.025 × E<sub>t−1</sub> ≤ S<sub>t</sub> ≤ 0.045 × E<sub>t−1</sub><br/>π = inflation · E = vault value · the 70/30 weighting keeps spending stable when markets are not</div>
+<div class="prose"><p><strong>The order of absorption.</strong> A shock is absorbed first by vault I, whose job it is; vault III keeps paying its smoothed draw; vault II is never touched for operations. This ordering is what lets the structure survive regimes that no single asset class survives (§14).</p>
+<p><strong>The lesson of over-commitment.</strong> The Church Commissioners lost a large part of their assets in the early 1990s through over-commitment and poor investment decisions — later put at about £800M, a third of the fund.<sup class="cite-ref"><a href="#ref-30">[30]</a></sup> The bounded spending rule, the unlevered pension vault, and the independent investment committee (§16) exist to make that failure structurally hard to repeat.</p></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Canon</span>Canon law already separates three funds: an institute for the support of clergy, provision for their social security, and a common fund for other obligations and poorer dioceses (can. 1274 §§1–3).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> The three vaults follow that model.</li><li><span class="wt">Purpose</span>"Offerings given by the faithful for a certain purpose can be applied only for that same purpose" (can. 1267 §3): the rule that walls off the pension vault.<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">Reserve</span>"Precious treasure remains in a wise man's dwelling, but a foolish man devours it" (Prov 21:20).</li><li><span class="wt">Leverage</span>"The borrower is the slave of the lender" (Prov 22:7). Caution is a part of prudence (<em>ST</em> II-II q.49 a.8).<sup class="cite-ref"><a href="#ref-61">[61]</a></sup></li><li><span class="wt">Draw</span>"The faithful and wise steward" gives "their portion of food at the proper time" (Lk 12:42). Nehemiah set treasurers over the storehouses because "they were counted reliable" (Neh 13:13).</li></ul></div>
+</section>
+
+<!-- 13 -->
+<section class="page-section" id="funding">
+<div class="section-header"><span class="section-num">13</span><h2 class="section-title">Funding the Vaults: Six Sources over 25 Years</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>No single source is large enough, and no single source can be trusted in every kind of bad year. Six together, compounding over 25 years, reach the base-case need; in the pessimistic case they fall short and the pension must be reformed faster.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Source</th><th>Mechanism</th><th>Low</th><th>Base</th><th>High</th></tr></thead>
+<tbody>
+<tr><td>S1 · Open layer</td><td>80% of net C1–C5 capitalized; ramp in years 3–7, maturity from year 8; compounding at ~4% real</td><td>€0.05B</td><td>€0.9B</td><td>€3.0B</td></tr>
+<tr><td>S2 · Founding campaign</td><td>Endowment-restricted gifts over 10 years: endowed nunciatures, chairs, conservation posts, Library fellowships. Donors who will not fund a deficit will often fund a permanent named purpose</td><td>€0.4B</td><td>€1.0B</td><td>€2.0B</td></tr>
+<tr><td>S3 · Bequests</td><td>A planned-giving programme directing bequests (already a Peter's Pence channel<sup class="cite-ref"><a href="#ref-9">[9]</a></sup>) to the endowment; €15M/yr base</td><td>€0.2B</td><td>€0.55B</td><td>€1.0B</td></tr>
+<tr><td>S4 · IOR dividend</td><td>Route the annual dividend (€13.8M reported for 2024<sup class="cite-ref"><a href="#ref-8">[8]</a></sup>) to capital rather than operations; €10M/yr base</td><td>€0.15B</td><td>€0.35B</td><td>€0.5B</td></tr>
+<tr><td>S5 · Real estate</td><td>Move below-market lets toward market as leases roll, and capitalize approved disposals of non-mission, non-patrimonial property (CN4: capital, not income)</td><td>€0.1B</td><td>€0.4B</td><td>€0.8B</td></tr>
+<tr><td>S6 · Efficiency</td><td>Capitalized AI-assisted savings (§09)</td><td>€0.05B</td><td>€0.15B</td><td>€0.3B</td></tr>
+<tr class="total"><td>Total by year 25</td><td></td><td>€0.95B</td><td>€3.35B</td><td>€7.6B</td></tr>
+<tr class="total"><td>Requirement (§11)</td><td></td><td>€1.7B</td><td>€3.1B</td><td>€4.4B</td></tr>
+</tbody></table></div>
+<div class="prose">
+<p><strong>Reading the table.</strong> The base case closes with a small margin. The low column pairs every pessimistic source with the lowest requirement; it falls short by about €0.75B, which means the horizon stretches to 35 years or more and the pension reform of §16 must bite earlier. The high column overshoots, and the surplus would let the draw on donations fall — returning Peter's Pence to charity rather than to administration.</p>
+<p><strong>Sequencing.</strong> Years 1–5: fill vault I first (safety before growth), commission the actuarial valuation, run the transcription pilot. Years 3–15: fund vault II on its schedule. Years 5–25: build vault III. Real-estate rent normalization proceeds lease by lease, since abrupt increases on resident employees would conflict with P6.</p>
+</div>
+<div class="theory-disclaimer">Every figure in this section is <span class="grade g-d">D</span>. The campaign target has no official basis; it is sized against what large Catholic institutions and the Church of England's endowment show to be achievable, and it is the input most worth testing with real donor research (§19).</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Means</span>Every just means (can. 1259); wills of the faithful "are to be fulfilled most diligently" (can. 1300); foundations (can. 1303).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">Freedom</span>Giving is free, "not reluctantly or under compulsion" (2 Cor 9:7; can. 1261 §1).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">Equality</span>"Not that others should be eased and you burdened, but … as a matter of equality" (2 Cor 8:13).</li><li><span class="wt">Rents</span>Rent normalization is bounded by the just wage (can. 1286; CCC 2434).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup><sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li></ul></div>
+</section>
+
+
+<!-- 13A -->
+<section class="page-section" id="bridge">
+<div class="section-header"><span class="section-num">13A</span><h2 class="section-title">Proposition 6 and the First 25 Years: The Bridge</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The archive alone can pay the structural deficit every year, indefinitely — but only if its income is saved, not spent, for about 25 years. Until then, the deficit is carried by operating gains that start at once, by donations turned into permanent capital, and by the part of the archive income that is spent. Donations stop deciding whether salaries are paid by about year 5 to 10; they remain for the pension catch-up and for charity.</p></div>
+
+<div class="subsection"><h3>Can the archive pay it alone?</h3>
+<div class="prose"><p>While the pension gap is being closed, the yearly bill has two parts: the structural deficit, and the payment that retires the pension gap over 25 years at 3 percent after inflation.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Annual line</th><th>Low</th><th>Base</th><th>High</th></tr></thead>
+<tbody>
+<tr><td>Structural deficit (§11)</td><td>€35M</td><td>€60M</td><td>€85M</td></tr>
+<tr><td>Pension gap retired over 25 years</td><td>€20M</td><td>€57M</td><td>€86M</td></tr>
+<tr class="total"><td>Yearly need</td><td>≈ €55M</td><td>≈ €117M</td><td>≈ €171M</td></tr>
+<tr><td>Archive income after costs, if spent as earned (subscription model)</td><td>≈ €0</td><td>≈ €40M</td><td>€145–195M</td></tr>
+</tbody></table></div>
+<div class="prose"><p>Spent as it arrives, the likely archive income covers about a third of the yearly need, and about two-thirds once the pension gap is closed. Only the high case — roughly €150M a year in gross sales, for instance 5,000 institutions at €15,000, a million public subscribers at €40, and €30M from companies — pays everything outright, and no evidence yet shows that demand exists (§19). Subscription income also depends on renewals and can fall in a crisis, as museum tickets fell in 2020 (CN2). Income that arrives every year regardless of sales comes only from capital.</p></div>
+<div class="formula-box"><span class="fl">The saving route</span>F = A × [(1 + r)<sup>n</sup> − 1] ÷ r &nbsp;·&nbsp; A = €40M/yr, r = 4% real, n = 25<br/>F = 40 × (2.666 − 1) ÷ 0.04 ≈ €1.67B<br/>Perpetual draw = 0.035 × F ≈ €58M/yr ≈ D<sub>base</sub> (€60M)<br/>Half-saving variant: A = €20M/yr → F ≈ €0.83B → ≈ €29M/yr for ever, while €20M/yr is spent from maturity</div>
+<div class="prop"><span class="pl">Proposition 6</span><p>If the likely net archive income of about €40 million a year is placed in the perpetual vault for 25 years and earns 4 percent a year after inflation, the vault then pays about €58 million a year in perpetuity under the 3.5 percent rule, which covers the likely structural deficit independently of subscriptions and donations. It does not close the pension gap.</p></div>
+<div class="demo"><span class="dl">Demonstration</span>
+<p>The future value of a level annual saving A at real rate r over n years is A[(1 + r)<sup>n</sup> − 1]/r; with A = €40M, r = 0.04, n = 25 this is ≈ €1.67B. Under the spending rule of §12, the draw is 3.5 percent of the vault, ≈ €58M, which lies within 4 percent of D = €60M. Since the draw is set below the expected real return, the principal is preserved in real terms (CN3), so the payment recurs every year without limit. The draw depends on the vault's value, not on the year's sales, so a fall in subscriptions or a closure like 2020 does not stop it; vault I absorbs the fall in market value during a crash (Proposition 4). The pension gap, P ≥ €0.35B, is a separate liability that this vault is not drawn to meet. <span class="qed">∎</span></p>
+</div>
+<div class="subsection"><h3>The two costs</h3>
+<div class="prose"><ol>
+<li><strong>The 25-year wait.</strong> The same €40M cannot be both spent and saved, so until the vault is large enough the deficit is carried as it is today — by donations and one-off sales — and, increasingly, by the bridge below. Because the platform ramps up over years 3 to 7 (§13), 25 years of mature income ends near year 30 from launch.</li>
+<li><strong>The pension gap still needs other money:</strong> the founding campaign, bequests, the Vatican Bank dividend, and property (§13).</li>
+</ol></div></div>
+</div>
+
+<div class="subsection"><h3>What carries the first 25 years</h3>
+<div class="prose"><ol>
+<li><strong>Sources that help from year one, with no donations.</strong> Efficiency savings of about €5–14M a year, reached through attrition and redeployment, never dismissal (P6); the Vatican Bank dividend of about €10–14M a year, routed to the deficit; below-market leases moved to market as each renews, reaching about €5–10M a year over a decade; and reform of future pension accrual (§16), which raises nothing but slows the growth of the gap at once while every benefit already earned stays guaranteed.</li>
+<li><strong>Donations turned into permanent income.</strong> A euro given to operations is spent once; the same euro given to the perpetual vault pays about 3.5 cents every year, for ever. A founding campaign raising €100M a year for ten years builds a €1B fund paying about €35M a year from then on. Endowed nunciatures, endowed curatorial posts in the Library, and a named pension-guarantee fund give donors a permanent named purpose — and restricted gifts must be used for that purpose only (can. 1267 §3).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li>
+<li><strong>A split of the archive income.</strong> In the likely case, spend half (about €20M a year) on the deficit once the platform matures, and save the other half, which builds about €0.83B and pays about €29M a year for ever. §13's S1 line assumes 80 percent saved, between the two routes.</li>
+<li><strong>Rejected: borrowing against future archive income.</strong> It would bring the money forward, but it creates the debt the plan rules out ("the borrower is the slave of the lender," Prov 22:7) and breaks the rule that vault II never borrows.</li>
+</ol></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Year</th><th>Efficiency</th><th>Rents</th><th>Bank dividend</th><th>Campaign fund draw</th><th>Archive (half spent)</th><th>Paid without new donations</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>€2M</td><td>€1M</td><td>€10M</td><td>€3.5M</td><td>—</td><td>≈ €17M (≈ 28% of €60M)</td></tr>
+<tr><td>5</td><td>€10M</td><td>€5M</td><td>€10M</td><td>€17.5M</td><td>€10M</td><td>≈ €52M (≈ 88%)</td></tr>
+<tr class="total"><td>10</td><td>€12M</td><td>€10M</td><td>€10M</td><td>€35M</td><td>€20M</td><td>≈ €87M (deficit covered; ≈ €27M left over)</td></tr>
+</tbody></table></div>
+<div class="prose"><p><strong>Years 10 to 25.</strong> The €27M left over and bequests of about €15M a year go to closing the pension gap, which needs about €57M a year. The remaining €15M or so still comes from Peter's Pence and other gifts, or the pension schedule lengthens past 25 years. In the low case, with a campaign of only €400M, the deficit is about 60 percent covered by year 10.</p></div>
+<div class="theory-disclaimer">Every figure in this section is <span class="grade g-d">D</span>. The campaign path is the least certain input and the first to test (§19, item 7). Peter's Pence is not replaced; it stops being the line on which salaries depend, and a surplus returns it to charity.</div>
+</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Plenty</span>In the seven years of plenty Joseph took "the fifth part of the produce of the land" and laid it up as "a reserve for the land against the seven years of famine" (Gen 41:34–36): saving first, spending later.</li><li><span class="wt">Perpetuity</span>Pious foundations (can. 1303 §1); endowment money "invested cautiously and usefully" (can. 1305).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> "A good man leaves an inheritance to his children's children" (Prov 13:22); the common good "extends to future generations" (<em>Laudato Si'</em> 159).<sup class="cite-ref"><a href="#ref-48">[48]</a></sup></li><li><span class="wt">Counting</span>"Which of you, desiring to build a tower, does not first sit down and count the cost, whether he has enough to complete it?" (Lk 14:28).</li><li><span class="wt">Gifts</span>Offerings given for a purpose "can be applied only for that same purpose" (can. 1267 §3); giving is free, "not reluctantly or under compulsion" (2 Cor 9:7; can. 1261 §1).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li><li><span class="wt">Debt</span>"The borrower is the slave of the lender" (Prov 22:7).</li></ul></div>
+</section>
+
+<!-- 14 -->
+<section class="page-section" id="stress">
+<div class="section-header"><span class="section-num">14</span><h2 class="section-title">Proposition 4: The Structure Survives Every Regime</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>For each kind of bad economy, this table asks what income falls, what holds, and which vault carries the payroll. The same structure answers all of them, including a replay of 2020.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Regime (D11)</th><th>What falls</th><th>What holds</th><th>Absorbed by</th></tr></thead>
+<tbody>
+<tr><td>Inflationary boom</td><td>Real value of nominal bonds and fixed rents</td><td>Inflation-linked bonds, equities and real assets over time, indexed licence fees</td><td>Vault II hedged by design; vault III real assets</td></tr>
+<tr><td>Deflationary depression</td><td>Equities, rents, donations</td><td>High-grade bonds, cash, institutional subscriptions (multi-year)</td><td>Vault I; vault III spending floor at 2.5%</td></tr>
+<tr><td>Stagflation</td><td>Equities and bonds together</td><td>Inflation-linked bonds, real assets, cash</td><td>Vault II untouched; vault I for operations</td></tr>
+<tr><td>Pandemic closure</td><td>Museum tickets, rents, collections in parishes</td><td>Digital visitation (C5), licences, subscriptions, all vaults</td><td>Vault I (replay below)</td></tr>
+<tr><td>War, sanctions, capital controls</td><td>Access to assets in any one jurisdiction</td><td>Assets spread across custodians and legal systems</td><td>Vault I's multi-custodian design</td></tr>
+<tr><td>Financial crash (equities −50%)</td><td>Vault III value; investment income</td><td>Smoothed rule keeps 70% of prior spending; vaults I and II are not in equities</td><td>Smoothing plus vault I</td></tr>
+<tr><td>AI-data price collapse</td><td>C1, part of C4</td><td>C2, C3, C5 and five other sources</td><td>C1 is about 30% of S1; losing it removes ≈ €0.27B, leaving the base case within 1% of its requirement</td></tr>
+<tr><td>Reputational shock</td><td>Donations and the campaign</td><td>Contractual licence and subscription revenue; vault income</td><td>Vault III draw is independent of donations</td></tr>
+</tbody></table></div>
+<div class="formula-box"><span class="fl">COVID replay</span>Months of cover = L ÷ (annual shortfall ÷ 12)<br/>2020 evidence: museum visits −82%; APSA rents −30% for March–June; projected deficit ≥ €50M<br/>Severe shock assumed here: shortfall €100–150M/yr (museums, rents, and half of Peter's Pence lost at once)<br/>Base L €0.44B → 35–53 months · Low L €0.35B → 28–42 months</div>
+<div class="prose"><p>The 2020 evidence: the Museums lost about 5.6 million visitors, falling to 1.3 million, with closures running into 2021<sup class="cite-ref"><a href="#ref-12">[12]</a></sup>; APSA reported a loss of almost 30 percent of rental income between March and June 2020, and the 2020 deficit was projected at €50M or more.<sup class="cite-ref"><a href="#ref-15">[15]</a></sup> Even the low liquidity vault covers a shock two to three times worse than 2020 for more than two years, longer than the closures lasted.</p></div>
+<div class="prop"><span class="pl">Proposition 4</span><p>If vault I holds at least 24 months of personnel cost, vault II is matched and unlevered, and vault III is drawn by the bounded smoothed rule, then salaries and pensions are paid in every regime of D11 for at least 24 months, and in every regime except a simultaneous collapse of all eight channels, indefinitely.</p></div>
+<div class="demo"><span class="dl">Demonstration</span>
+<p>Pensions: vault II's assets are matched to its liability in timing and inflation (D10), so no market regime alters its ability to pay; it is never drawn for operations. Salaries: in any regime the shortfall is at most total non-endowment revenue; vault I covers 24 months of personnel cost unconditionally by construction. Beyond 24 months: vault III continues to pay at least 2.5% of its value (the floor), and the table shows that in each single regime at least one income family holds (CN2 is satisfied because the families are not exposed to the same shock). Only if every channel fails together — a condition that would also end the Holy See's operations in any design — does the proposition fail. <span class="qed">∎</span></p>
+</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Rock</span>"The rain fell, and the floods came, and the winds blew and beat upon that house, but it did not fall" (Mt 7:25).</li><li><span class="wt">Famine</span>When famine was foretold, "the disciples determined, every one according to his ability, to send relief" (Acts 11:28–29) — the first Christian reserve against a known shock.</li></ul></div>
+</section>
+
+<!-- 15 -->
+<section class="page-section" id="ai">
+<div class="section-header"><span class="section-num">15</span><h2 class="section-title">AI, Present and Future: Where It Carries Weight, and Where It Must Not</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The reason the archive was never a source of income is that no one could read it at scale. Machine reading of handwriting changes that. But machines must never be the ones who decide what is released.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Use</th><th>What it does</th><th>Where it counts</th><th>Guardrail</th></tr></thead>
+<tbody>
+<tr><td>Handwritten-text recognition</td><td>Turns images of manuscripts and registers into searchable text, with language-model correction by script and period</td><td>Creates the corpus; the enabling step for C1–C4</td><td>Published error rates by fonds; sampled human verification</td></tr>
+<tr><td>Cataloguing and indexing</td><td>Names, places, dates, and cross-references extracted across fonds</td><td>C2 value; scholarly access</td><td>Archivist sign-off on authority records</td></tr>
+<tr><td>Gate pre-screen</td><td>Flags possible closed categories and personal data</td><td>Protects P3</td><td><strong>Advisory only.</strong> Release requires a named human archivist; audit log kept for ever</td></tr>
+<tr><td>Curial translation</td><td>First drafts across working languages</td><td>S6 savings</td><td>Human translator of record for anything official</td></tr>
+<tr><td>Provenance signing</td><td>Cryptographic content credentials attached to each digital surrogate; post-quantum signature schemes for records meant to outlast current cryptography</td><td>C4; the provenance premium</td><td>Keys held in the Archive, not by licensees</td></tr>
+<tr><td>Imaging science</td><td>Multispectral imaging recovers erased under-texts in palimpsests</td><td>New informational layer from existing objects, with no alienation</td><td>Conservation protocols govern handling</td></tr>
+<tr><td>Risk monitoring</td><td>Watches exposures, liquidity, and custodian concentration across vaults</td><td>Governance (§16)</td><td>No autonomous trading; decisions stay with the committee</td></tr>
+</tbody></table></div>
+<div class="subsection"><h3>What the next decade is likely to change</h3>
+<div class="prose"><ul>
+<li><strong>From training to retrieval.</strong> Systems that act on a user's behalf need authoritative sources they can cite, which favours usage-metered access over one-time training sales. Ongoing feed agreements already exist between news organizations and AI firms.<sup class="cite-ref"><a href="#ref-31">[31]</a></sup> This is why C4 is priced as a service, and why the model does not depend on C1.</li>
+<li><strong>The provenance premium.</strong> As machine-generated text spreads, human-written text with an unbroken, documented chain of custody becomes scarcer relative to demand. The Archive's custody record, running across many centuries, is its most defensible advantage. <span class="grade g-d">D</span></li>
+<li><strong>Cheaper reading, lower barrier.</strong> Each fall in transcription cost lowers K and raises the share of the Archive worth reading, so the corpus's size grows with the technology, not only with the opening schedule.</li>
+</ul></div></div>
+<div class="theory-disclaimer"><strong>What AI must not be used for here:</strong> deciding releases; trading the endowment; or tailoring donor appeals by psychological profiling. Donor communication must state the facts — including the deficit and the pension gap — and let donors judge. An endowment built on persuasion that hides the record would repeat the trust failure that made the donation term unreliable in the first place.</div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Technology</span>"Science and technology are precious resources when placed at the service of man" (CCC 2293).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li><li><span class="wt">Responsibility</span>"Ultimate responsibility for decisions made using AI rests with the human decision-makers," and AI "must be directed by human intelligence" (<em>Antiqua et nova</em> 44, 48).<sup class="cite-ref"><a href="#ref-41">[41]</a></sup> Hence a named archivist signs every release.</li><li><span class="wt">Leo XIV</span>The Church answers "another industrial revolution and … developments in the field of artificial intelligence that pose new challenges for the defence of human dignity, justice and labour" (address to the College of Cardinals, 10 May 2025).<sup class="cite-ref"><a href="#ref-42">[42]</a></sup></li><li><span class="wt">Honesty</span>No manipulative appeals: "by the open statement of the truth" (2 Cor 4:2); on lying, CCC 2482–2486.<sup class="cite-ref"><a href="#ref-33">[33]</a></sup></li></ul></div>
+</section>
+
+<!-- 16 -->
+<section class="page-section" id="governance">
+<div class="section-header"><span class="section-num">16</span><h2 class="section-title">Proposition 5: One Mandate, Shared Administration</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The earlier draft required a single treasury. Two acts of papal law now frame that requirement. Francis's <em>Il diritto nativo</em> (2023) declared that all goods of the Holy See are public ecclesiastical goods, held by curial bodies in the Pope's name, "not for themselves, like a private proprietor."<sup class="cite-ref"><a href="#ref-34">[34]</a></sup> Leo XIV's <em>Coniuncta cura</em> (published 6 October 2025) repealed the 2022 rescript that gave the IOR exclusive competence over asset management, bound every investment to the Investment Committee and the approved Investment Policy, and spoke of "co-responsibility in <em>communio</em>."<sup class="cite-ref"><a href="#ref-35">[35]</a></sup> This section shows that a unitized pool fits both.</p></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Condition</th><th>Requirement</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>N1 · Consolidated accounting</td><td>Every entity holding funds reports into one consolidated statement, on time</td><td>Largely met: consolidated statements now published<sup class="cite-ref"><a href="#ref-2">[2]</a></sup></td></tr>
+<tr><td>N2 · One investment mandate</td><td>Parallel portfolios end; one policy, one risk budget, one audited value</td><td>Partly met: <em>Coniuncta cura</em> binds all investment to the Investment Committee and Investment Policy<sup class="cite-ref"><a href="#ref-35">[35]</a></sup>; custodians and managers may still differ</td></tr>
+<tr><td>N3 · Pension measured</td><td>Published independent actuarial valuation and funding schedule</td><td>Not met (§06)</td></tr>
+<tr><td>N4 · Published independent audit</td><td>Annually, by a firm of international standing</td><td>Partly met</td></tr>
+<tr><td>N5 · Uncorrelated revenue</td><td>A source independent of donation trends</td><td>Met in design by S1 (§10)</td></tr>
+</tbody></table></div>
+<div class="prop"><span class="pl">Proposition 5</span><p>A unitized Consolidated Investment Pool satisfies N2 while each entity keeps the administration of its own units; it therefore agrees both with <em>Il diritto nativo</em>, under which ownership already rests with the Holy See, and with <em>Coniuncta cura</em>, under which responsibility is shared under one committee.</p></div>
+<div class="demo"><span class="dl">Demonstration</span>
+<p>By <em>Il diritto nativo</em>, ownership already rests with the Holy See: "no institution or entity can claim private and exclusive ownership or title to the goods of the Holy See."<sup class="cite-ref"><a href="#ref-34">[34]</a></sup> Let each entity — a dicastery, the Peter's Pence reserve, APSA, a pontifical fund — hold units in a single pool, as participants hold units in a common investment fund, and keep the administration of its units, its own accounts, and the right to redeem them for its institutional purposes. Nothing is centralized that is not already the Holy See's. Yet the pool has one mandate, one custodian panel, one risk budget, and one audited net asset value, which is what N2 requires, because the failures N2 addresses came from invisible parallel portfolios, not from dispersed administration as such. <em>Coniuncta cura</em>'s rule that investment follow the Investment Committee and the Investment Policy — through the IOR, or through intermediaries abroad where the competent bodies judge that more efficient — is already the pool's mandate in law.<sup class="cite-ref"><a href="#ref-35">[35]</a></sup> <span class="qed">∎</span></p>
+</div>
+<div class="subsection"><h3>Governance of the vaults</h3>
+<div class="prose"><ul>
+<li>An investment committee with a majority of independent professional members, fixed terms, published conflict-of-interest declarations, and no single person holding discretion over a transaction above a set threshold.</li>
+<li>A licensing board, separate from the investment committee, that approves every licence against P2–P5; licences are non-exclusive (CN5), time-limited, output-capped, and revocable for breach.</li>
+<li>A statute of perpetuity: vault III principal may be spent only by a formal act of the Pope after a published opinion of the committee — the endowment equivalent of a constitutional amendment.</li>
+</ul></div></div>
+<div class="subsection"><h3>Pension reform consistent with P6</h3>
+<div class="prose"><ol>
+<li>Commission and publish the actuarial valuation (N3).</li>
+<li>Guarantee every accrued benefit through vault II.</li>
+<li>For future service, move to a hybrid: a modest defined-benefit floor plus a defined-contribution account. The Church of England made a comparable division in 1998, leaving the Church Commissioners responsible for pensions accrued before that date.<sup class="cite-ref"><a href="#ref-30">[30]</a></sup></li>
+<li>Index wages and pensions by a published rule, not by annual discretion, so that the burden of balancing is not carried silently by employees.</li>
+</ol></div></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Persons</span>"Able men … who are trustworthy and who hate a bribe" (Ex 18:21); men "of good repute" (Acts 6:3).</li><li><span class="wt">Canon</span>Every juridic person has a finance council or at least two counsellors (can. 1280); the Pope is "the supreme administrator and steward of all ecclesiastical goods" (can. 1273).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> The Council for the Economy, Secretariat for the Economy, APSA, and Auditor General: <em>Praedicate Evangelium</em> arts. 205–224.<sup class="cite-ref"><a href="#ref-39">[39]</a></sup></li><li><span class="wt">Communio</span>Public goods held for the mission (<em>Il diritto nativo</em>); "co-responsibility in <em>communio</em>" (<em>Coniuncta cura</em>).<sup class="cite-ref"><a href="#ref-34">[34]</a></sup><sup class="cite-ref"><a href="#ref-35">[35]</a></sup> Subsidiarity (CCC 1883; <em>Quadragesimo Anno</em> 79).<sup class="cite-ref"><a href="#ref-33">[33]</a></sup><sup class="cite-ref"><a href="#ref-44">[44]</a></sup></li><li><span class="wt">Pensions</span><em>Presbyterorum Ordinis</em> 20–21; <em>Apostolicam Actuositatem</em> 22; can. 1274 §2.<sup class="cite-ref"><a href="#ref-50">[50]</a></sup><sup class="cite-ref"><a href="#ref-51">[51]</a></sup><sup class="cite-ref"><a href="#ref-32">[32]</a></sup></li></ul></div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Part IV</div><div class="part-title">Assessment</div><p>What is proven, what is estimated, what could break it, and what must be measured first.</p></div>
+
+<!-- 17 -->
+<section class="page-section" id="ledger">
+<div class="section-header"><span class="section-num">17</span><h2 class="section-title">Evidence Ledger</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>Proposition</th><th>Status</th><th>Grade</th><th>Principal warrant (weight)</th></tr></thead>
+<tbody>
+<tr><td>2024 operating deficit €44.4M; small surplus from one-offs</td><td>Published</td><td><span class="grade g-a">A</span></td><td>can. 1287 §2 (W2); 2 Cor 8:20–21 (W1)</td></tr>
+<tr><td>The deficit is structural</td><td>Demonstrated from the identity (Prop. 1)</td><td><span class="grade g-b">B</span></td><td>can. 1271; can. 1254 §2 (W2)</td></tr>
+<tr><td>Pension gap €0.35–1.5B</td><td>Reported, unofficial</td><td><span class="grade g-c">C</span></td><td>Francis, letter of 19 Nov 2024 (W4); can. 231 §2 (W2)</td></tr>
+<tr><td>Library: 82,000+ manuscripts; Archive: 85+ km, open to 1958</td><td>Published</td><td><span class="grade g-a">A</span></td><td>Sixtus IV, 1475; Leo XIII, 1881 (W4)</td></tr>
+<tr><td>Open layer ≈ 125–590B tokens</td><td>Modelled</td><td><span class="grade g-d">D</span></td><td>CCC 2405; <em>Centesimus Annus</em> 32 (W3)</td></tr>
+<tr><td>Price band €10–75 per million tokens</td><td>Inferred from comparables</td><td><span class="grade g-d">D</span></td><td>CCC 2411 (W3); <em>ST</em> II-II q.77 a.1 (W5)</td></tr>
+<tr><td>Open-layer PV ≈ €0–2.9B, base €0.6B</td><td>Modelled</td><td><span class="grade g-d">D</span></td><td>Mt 25:25 (W1); CCC 2404 (W3)</td></tr>
+<tr><td>Licensing alone is insufficient</td><td>Demonstrated conditional on the model (Prop. 3)</td><td><span class="grade g-d">D</span></td><td>Eccl 11:2 (W1)</td></tr>
+<tr><td>Capital need €1.7–4.4B, base €3.1B</td><td>Modelled</td><td><span class="grade g-d">D</span></td><td>Lk 14:28 (W1); can. 1284 §3 (W2)</td></tr>
+<tr><td>Three vaults survive every single regime</td><td>Demonstrated conditional on sizing (Prop. 4)</td><td><span class="grade g-d">D</span></td><td>Gen 41:36 (W1); can. 1274; can. 1305 (W2)</td></tr>
+<tr><td>Archive income saved 25 years pays the deficit in perpetuity</td><td>Demonstrated conditional on the model (Prop. 6)</td><td><span class="grade g-d">D</span></td><td>Gen 41:34–36 (W1); can. 1305 (W2)</td></tr>
+<tr><td>Unitized pool fits <em>Il diritto nativo</em> and <em>Coniuncta cura</em></td><td>Demonstrated in structure (Prop. 5)</td><td><span class="grade g-b">B</span></td><td><em>Il diritto nativo</em>; <em>Coniuncta cura</em> (W4); CCC 1883 (W3)</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 18 -->
+<section class="page-section" id="defeaters">
+<div class="section-header"><span class="section-num">18</span><h2 class="section-title">What Would Defeat This Plan</h2></div>
+<div class="obj"><div class="onum">Defeater 1</div><h3>The corpus is smaller, or already published</h3>
+<div class="part p-obj"><span class="lbl">The risk</span>Much of the Library is edited or public domain elsewhere; the Archive's pre-1958 share may be lower than assumed.</div>
+<div class="part p-resp"><span class="lbl">Response</span>S1 is 27% of base-case sources. If it fell to the low case, the plan survives by a longer horizon. Measure first (§19, item 2).</div></div>
+<div class="obj"><div class="onum">Defeater 2</div><h3>AI-data prices collapse</h3>
+<div class="part p-obj"><span class="lbl">The risk</span>Synthetic data or litigation drives C1 toward zero.</div>
+<div class="part p-resp"><span class="lbl">Response</span>Base case modelled with no real growth; C2, C3, C5 do not depend on AI training. Proposition 4 already includes this regime.</div></div>
+<div class="obj"><div class="onum">Defeater 3</div><h3>A gate fails</h3>
+<div class="part p-obj"><span class="lbl">The risk</span>Closed or personal material is released through machine error.</div>
+<div class="part p-resp"><span class="lbl">Response</span>This defeats the plan on principle, not economics. Hence: machine pre-screen advisory only; named human sign-off; phased release beginning with the oldest, least sensitive fonds.</div></div>
+<div class="obj"><div class="onum">Defeater 4</div><h3>It is read as "selling the treasures"</h3>
+<div class="part p-obj"><span class="lbl">The risk</span>The distinction between alienation and licensing is sound but subtle; a reputational failure would damage the donation term.</div>
+<div class="part p-resp"><span class="lbl">Response</span>P5 keeps reading free for every person; licences are non-exclusive; revenue goes to salaries, pensions, and the mission, reported line by line.</div></div>
+<div class="obj"><div class="onum">Defeater 5</div><h3>Governance relapse</h3>
+<div class="part p-obj"><span class="lbl">The risk</span>Discretion over a large transaction returns to one person or office.</div>
+<div class="part p-resp"><span class="lbl">Response</span>Committee thresholds, published declarations, statute of perpetuity (§16).</div></div>
+<div class="obj"><div class="onum">Defeater 6</div><h3>The pension gap exceeds €1.5B</h3>
+<div class="part p-obj"><span class="lbl">The risk</span>The valuation comes in above every reported figure.</div>
+<div class="part p-resp"><span class="lbl">Response</span>Vault II's schedule lengthens; the future-accrual reform starts at once; the campaign adds a pension tranche. The plan's structure is unchanged; its horizon is not.</div></div>
+</section>
+
+
+<!-- 18A -->
+<section class="page-section" id="objections">
+<div class="section-header"><span class="section-num">18A</span><h2 class="section-title">Objections from Scripture and Tradition</h2></div>
+<div class="in-brief"><span class="in-brief-label">In brief</span><p>The strongest arguments against the plan come from inside the tradition, not outside it. They are set out here in the form of the <em>Summa</em>: objection, the contrary authority where there is one, and reply. One of them (Ambrose) is conceded in part.</p></div>
+<div class="obj"><div class="onum">Objection 1</div><h3>"Do not lay up for yourselves treasures on earth"</h3><div class="part p-obj"><span class="lbl">Objection</span>Christ forbids storing treasure (Mt 6:19) and condemns the rich man who built bigger barns (Lk 12:16–21). An endowment is a barn.</div><div class="part p-sed"><span class="lbl">On the contrary</span>Joseph stored a fifth of the harvest as "a reserve for the land against the seven years of famine" (Gen 41:34–36), and Egypt lived.</div><div class="part p-resp"><span class="lbl">Reply</span>The fool is condemned as one "who lays up treasure for himself, and is not rich toward God" (Lk 12:21). The fault is the owner's purpose, not the barn. The endowment is held for workers, retirees, and the poor (CCC 2404)<sup class="cite-ref"><a href="#ref-33">[33]</a></sup>, is spent by rule, and returns any surplus to charity.</div></div>
+<div class="obj"><div class="onum">Objection 2</div><h3>St Ambrose: the Church's gold is for spending</h3><div class="part p-obj"><span class="lbl">Objection</span>"The Church has gold, not to store up, but to lay out, and to spend on those who need." Ambrose broke up sacred vessels to ransom captives, and St Lawrence showed the poor as "the treasures of the Church" (<em>De officiis</em> II.28).<sup class="cite-ref"><a href="#ref-58">[58]</a></sup> P2 contradicts him.</div><div class="part p-resp"><span class="lbl">Reply</span>Agreed, and canon law agrees: alienation is lawful for "urgent necessity … charity" (can. 1293 §1).<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> P2 is prudential, not doctrinal. It holds only while licensing the informational layer meets the need without destroying what cannot be replaced. If captives must be ransomed, Ambrose governs, and P2 yields.</div></div>
+<div class="obj"><div class="onum">Objection 3</div><h3>"Give without pay"</h3><div class="part p-obj"><span class="lbl">Objection</span>"You received without pay, give without pay" (Mt 10:8). Licensing the Church's learning sells what was freely received.</div><div class="part p-sed"><span class="lbl">On the contrary</span>"The laborer deserves his wages" (1 Tim 5:18; Lk 10:7).</div><div class="part p-resp"><span class="lbl">Reply</span>Reading stays free (P5). What is charged for is new labour — imaging, transcription, search, service — and commercial use. Simony concerns spiritual goods (CCC 2121)<sup class="cite-ref"><a href="#ref-33">[33]</a></sup>; no sacrament and no spiritual good is licensed.</div></div>
+<div class="obj"><div class="onum">Objection 4</div><h3>Interest and usury</h3><div class="part p-obj"><span class="lbl">Objection</span>Scripture forbids interest (Ex 22:25; Lev 25:36–37), and Benedict XIV's <em>Vix pervenit</em> (1745) condemned gain from a loan as such.<sup class="cite-ref"><a href="#ref-57">[57]</a></sup> An endowment lives on returns.</div><div class="part p-resp"><span class="lbl">Reply</span>Aquinas holds that one who entrusts money to a merchant in a kind of partnership "does not transfer the ownership" and may lawfully take a share of the profit (<em>ST</em> II-II q.78 a.2 ad 5).<sup class="cite-ref"><a href="#ref-61">[61]</a></sup> <em>Vix pervenit</em> itself says it does "not deny that … certain other titles … may run parallel" with a loan, giving "entirely just and legitimate reasons" for return (§III).<sup class="cite-ref"><a href="#ref-57">[57]</a></sup> Present law requires administrators to invest (can. 1284 §2 6°; can. 1305)<sup class="cite-ref"><a href="#ref-32">[32]</a></sup>, and P4's ethical screen applies.</div></div>
+<div class="obj"><div class="onum">Objection 5</div><h3>"Do not be anxious about tomorrow"</h3><div class="part p-obj"><span class="lbl">Objection</span>Christ says, "Do not be anxious about tomorrow" (Mt 6:34). Planning for a pandemic shows a lack of trust in Providence.</div><div class="part p-sed"><span class="lbl">On the contrary</span>The same Lord tells the builder to "sit down and count the cost" before he begins (Lk 14:28).</div><div class="part p-resp"><span class="lbl">Reply</span>Aquinas teaches that solicitude for the future is wrong only when it is excessive, untimely, or put before God (<em>ST</em> II-II q.55 a.7).<sup class="cite-ref"><a href="#ref-61">[61]</a></sup> A reserve fixed by rule removes anxiety rather than feeding it.</div></div>
+<div class="obj"><div class="onum">Objection 6</div><h3>Canon 1271 names the dioceses as the lawful source</h3><div class="part p-obj"><span class="lbl">Objection</span>The Code provides that bishops assist the Apostolic See (can. 1271). An endowment bypasses that bond of communion.</div><div class="part p-resp"><span class="lbl">Reply</span>Can. 1271 asks "according to the resources of their dioceses," in "the bond of unity and charity."<sup class="cite-ref"><a href="#ref-32">[32]</a></sup> The endowment keeps the bond and lightens the load on poor dioceses: "not that others should be eased and you burdened, but … as a matter of equality" (2 Cor 8:13).</div></div>
+<div class="obj"><div class="onum">Objection 7</div><h3>Licensing feeds concentrated technological power</h3><div class="part p-obj"><span class="lbl">Objection</span><em>Antiqua et nova</em> warns against technocratic control by large companies.<sup class="cite-ref"><a href="#ref-41">[41]</a></sup> Licensing the corpus to them cooperates with that power.</div><div class="part p-resp"><span class="lbl">Reply</span>Licences are non-exclusive (CN5), term-limited, output-capped, revocable, and reviewed against P4 by a board separate from the investment committee. Any cooperation with a licensee's misuse is material and remote, and the board can end it; exclusivity, which would build a single firm's moat, is forbidden.</div></div>
+</section>
+
+<!-- 19 -->
+<section class="page-section" id="agenda">
+<div class="section-header"><span class="section-num">19</span><h2 class="section-title">Measurement Agenda: What to Know Before Building</h2></div>
+<div class="data-table-wrap"><table class="data-table">
+<thead><tr><th>#</th><th>Measurement</th><th>Held by</th><th>What it would settle</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Independent actuarial valuation of the pension fund, published</td><td>Secretariat for the Economy; pension fund</td><td>P, and the size of vault II</td></tr>
+<tr><td>2</td><td>Page census of the Archive by fonds and date; open/closed split</td><td>Apostolic Archive</td><td>T for the Archive; the largest uncertainty in §07</td></tr>
+<tr><td>3</td><td>Share of Library manuscripts already edited or transcribed elsewhere</td><td>Apostolic Library</td><td>True exclusivity of the manuscript layer</td></tr>
+<tr><td>4</td><td>Pilot: one million pages through recognition, with error rates by script, language, and century</td><td>Library and Archive, with a partner</td><td>Real cost per page (K); quality of the corpus</td></tr>
+<tr><td>5</td><td>Market sounding: ten AI developers, twenty research libraries</td><td>Independent adviser</td><td>p, n, and subscription fees</td></tr>
+<tr><td>6</td><td>Rent roll against market for APSA's portfolio</td><td>APSA</td><td>S5</td></tr>
+<tr><td>7</td><td>Donor research on endowment-restricted versus operating gifts</td><td>Peter's Pence office</td><td>S2 and S3</td></tr>
+<tr><td>8</td><td>Legal opinion on reproduction rights under Vatican law and a model licence</td><td>Legal offices of the Holy See</td><td>Enforceability of D7 abroad</td></tr>
+</tbody></table></div>
+</section>
+
+<div class="part-divider"><div class="part-kicker">Conclusion</div><div class="part-title">What Can Be Said Now</div></div>
+
+<!-- 20 -->
+<section class="page-section" id="conclusion">
+<div class="section-header"><span class="section-num">20</span><h2 class="section-title">Conclusion</h2></div>
+<div class="prose">
+<p>The Holy See was impoverished in 1870, recapitalized in 1929, and has been in structural deficit for decades. Its 2024 accounts show discipline and transparency that earlier decades lacked, but they also show that the operating gap remains and that the year was balanced by donations and one-off items. The pension liability, the largest single number, is still unmeasured in public.</p>
+<p>The Library and the Archive can help. For the first time, machines can read a millennium of handwriting at scale, and the resulting corpus — unique, multilingual, and backed by an unbroken record of custody — can be licensed without moving or selling anything, while every person keeps the right to read it free. On this page's model it is worth something between nothing and about €2.9 billion, most likely around €0.6 billion.</p>
+<p>That is not enough to carry the Church's central government alone, and a plan that pretended otherwise would fail in the first decade of falling AI-data prices. What survives every regime is structure: one set of books, one investment mandate owned in units, a measured pension, and three vaults — liquidity, pension, perpetual — filled from six sources that do not fail together. In the base case the need is about €3.1 billion and the sources reach about €3.35 billion in 25 years. And the archive, saved rather than spent for those 25 years, pays the structural deficit on its own thereafter, for ever (Proposition 6). The originality claimed here is in the combination: machine-read corpus valuation under canonical gates, informational licensing kept apart from alienation and from free reading, and capitalization into a regime-tested order of vaults — not in any single element.</p>
+</div>
+<div class="callout"><span class="kicker">Summary</span><div class="statement">The archive pays a stream; the structure pays the salaries. Measure the pension, consolidate the mandate, keep reading free, license without exclusivity, and let three vaults absorb what no single source can.</div></div>
+<div class="warrant"><span class="wl">Warrants · Scripture, Tradition, Magisterium, Canon Law</span><ul><li><span class="wt">Steward</span>"It is required of stewards that they be found trustworthy" (1 Cor 4:2). "He who is faithful in a very little is faithful also in much" (Lk 16:10).</li><li><span class="wt">Poor</span>A surplus returns Peter's Pence to charity, as Leo XIV's <em>Dilexi te</em> (4 October 2025) asks of a Church that loves the poor.<sup class="cite-ref"><a href="#ref-40">[40]</a></sup></li></ul></div>
+</section>
+
+<div class="references" id="sources">
+<h2>References</h2>
+<ol class="ref-list">
+<li id="ref-1">Holy See Press Office. <a href="https://press.vatican.va/content/salastampa/en/info/2025/11/26/251126a.html" rel="noopener" target="_blank">"Secretariat for the Economy – Holy See Consolidated Financial Statements 2024"</a>, 26 November 2025.</li>
+<li id="ref-2">Secretariat for the Economy. <a href="https://www.spe.va/content/dam/spe/documenti/2024_Holy_See_Financial_Statements.pdf" rel="noopener" target="_blank"><em>2024 Consolidated Financial Statement, Holy See</em></a> (PDF).</li>
+<li id="ref-3">Vatican News. <a href="https://www.vaticannews.va/en/vatican-city/news/2025-11/holy-see-secretariat-economy-2024-financial-report.html" rel="noopener" target="_blank">"Holy See closes 2024 with a surplus of 1.6 million euro"</a>, 26 November 2025.</li>
+<li id="ref-4">Catholic News Service, via America. <a href="https://www.americamagazine.org/news/2025/11/26/vatican-reports-surplus-2024-asset-sales-increased-donations/" rel="noopener" target="_blank">"Vatican's 2024 surplus represents 'significant progress'"</a>, 26 November 2025.</li>
+<li id="ref-5">Crux. <a href="https://cruxnow.com/vatican/2025/11/vatican-budget-shortfall-nearly-halved-in-2024" rel="noopener" target="_blank">"Vatican budget shortfall nearly halved in 2024"</a>, 27 November 2025.</li>
+<li id="ref-6">The Pillar. <a href="https://www.pillarcatholic.com/p/vatican-pension-deficit-estimated" rel="noopener" target="_blank">"Vatican pension deficit estimated at 1.4 billion euros — 10 years ago"</a>, 7 April 2025.</li>
+<li id="ref-7">Omnes. <a href="https://www.omnesmag.com/en/news/an-explanation-of-the-vaticans-financial-situation/" rel="noopener" target="_blank">"An explanation of the Vatican's financial situation"</a>, August 2025.</li>
+<li id="ref-8">FSSPX News. <a href="https://fsspx.news/en/news/vatican-bank-green-finances-remain-red-53064" rel="noopener" target="_blank">"Vatican: Bank in the Green, But Finances Remain in the Red"</a>, June 2025. An advocacy outlet; its figures are graded C here unless confirmed elsewhere.</li>
+<li id="ref-9">Peter's Pence. <a href="https://press.vatican.va/content/dam/salastampa/it/bollettino/documentazione-linkata/EN-Rapporto%20Obolo%202024%20in%20EUR.pdf" rel="noopener" target="_blank"><em>Annual Disclosure 2024</em></a> (PDF).</li>
+<li id="ref-10">Silere non possum. <a href="https://www.silerenonpossum.com/en/report-obolosanpietro2024/" rel="noopener" target="_blank">"Peter's Pence 2024: More Income, Less Spending"</a>, 27 June 2025.</li>
+<li id="ref-11">The Pillar. <a href="https://www.pillarcatholic.com/p/vatican-employees-association-meets" rel="noopener" target="_blank">"Vatican employees' association meets financial report 'with skepticism'"</a>, December 2025.</li>
+<li id="ref-12">Catholic News Agency. <a href="https://www.catholicnewsagency.com/amp/news/247723/visits-to-vatican-museums-fell-by-56-million-in-2020" rel="noopener" target="_blank">"Visits to Vatican Museums fell by 5.6 million in 2020"</a>.</li>
+<li id="ref-13">The Art Newspaper. <a href="https://www.theartnewspaper.com/2025/04/01/the-worlds-most-visited-museums-2024-" rel="noopener" target="_blank">"The world's most-visited museums 2024"</a>.</li>
+<li id="ref-14">Economic Research Council. <a href="https://ercouncil.org/2025/the-economy-of-the-vatican/" rel="noopener" target="_blank">"The Economy of the Vatican"</a>, 2025.</li>
+<li id="ref-15">Italianismo. <a href="https://italianismo.com.br/en/falta-de-turista-prejudica-economia-do-vaticano/" rel="noopener" target="_blank">"Lack of tourists hurts Vatican economy"</a>, July 2020 (reporting APSA statements to <em>Le Monde</em>).</li>
+<li id="ref-16">Catholic World Report / CNA. <a href="https://www.catholicworldreport.com/2025/05/30/more-than-80000-manuscripts-from-the-vatican-library-to-be-restored-and-digitized/" rel="noopener" target="_blank">"More than 80,000 manuscripts from the Vatican Library to be restored and digitized"</a>, 30 May 2025.</li>
+<li id="ref-17">Biblioteca Apostolica Vaticana. <a href="https://digi.vatlib.it/mss/" rel="noopener" target="_blank">DigiVatLib, manuscripts list</a> (counter of digitized manuscripts).</li>
+<li id="ref-18">Biblioteca Apostolica Vaticana. <a href="https://www.vaticanlibrary.va/en/home.php" rel="noopener" target="_blank">Home page and digital collections</a>; see also <a href="https://www.cambridge.org/core/books/book-conservation-and-digitization/conservation-towards-largescale-digitization-at-the-vatican-library/F7A95FB758E8C2E56D2FC5720D5E7C70" rel="noopener" target="_blank">"Conservation towards Large-Scale Digitization at the Vatican Library"</a>, Cambridge University Press, on the Library's founding tasks of preservation and free scholarly access.</li>
+<li id="ref-19">Archivio Apostolico Vaticano. <a href="https://www.archivioapostolicovaticano.va/content/aav/en/l-archivio.html" rel="noopener" target="_blank">"The Archives"</a>.</li>
+<li id="ref-20">Vatican News. <a href="https://www.vaticannews.va/en/vatican-city/news/2025-08/the-apostolic-library-and-the-apostolic-archive.html" rel="noopener" target="_blank">"The Apostolic Library and the Apostolic Archive"</a>, August 2025.</li>
+<li id="ref-21">Authors Guild. <a href="https://authorsguild.org/news/harpercollins-ai-licensing-deal/" rel="noopener" target="_blank">"HarperCollins AI Licensing Deal"</a>.</li>
+<li id="ref-22">Slashdot, summarizing Wiley's fiscal 2026 disclosures. <a href="https://news.slashdot.org/story/26/09/21/0551218/are-book-publishers-warming-up-to-the-ai-industry" rel="noopener" target="_blank">"Are Book Publishers Warming Up to the AI Industry?"</a>, September 2026.</li>
+<li id="ref-23">Publishers Weekly. <a href="https://www.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/96533-agents-authors-question-harpercollins-ai-deal.html" rel="noopener" target="_blank">"Agents, Authors Question HarperCollins AI Deal"</a>, 19 November 2024.</li>
+<li id="ref-24">Thad McIlroy. <a href="https://thefutureofpublishing.com/2025/11/licensing-for-ai-what-should-book-publishers-authors-do/" rel="noopener" target="_blank">"Licensing for AI: What Should Book Publishers &amp; Authors Do?"</a></li>
+<li id="ref-25">Cargnelutti, Brobston, Leppert et al. <a href="https://arxiv.org/pdf/2506.08300" rel="noopener" target="_blank">"Institutional Books 1.0: A 242B token dataset from Harvard Library's collections"</a>, arXiv:2506.08300, June 2025.</li>
+<li id="ref-26">Tomorrow's Publisher. <a href="https://tomorrowspublisher.today/regulation/harvard-releases-million-books-to-train-ai-models/" rel="noopener" target="_blank">"Harvard releases million books to train AI models"</a>, June 2025.</li>
+<li id="ref-27">Transparency Coalition. <a href="https://www.transparencycoalition.ai/news/harpercollins-ai-deal-with-microsoft-sets-first-public-price-for-training-data" rel="noopener" target="_blank">"HarperCollins, Microsoft AI deal sets first public price for training data"</a>, November 2024.</li>
+<li id="ref-28">Church of England. <a href="https://www.churchofengland.org/media/finance-news/church-commissioners-england-endowment-fund-delivers-8-return-2025" rel="noopener" target="_blank">"Church Commissioners for England endowment fund delivers 8% return in 2025"</a>, May 2026.</li>
+<li id="ref-29">Civil Society. <a href="https://www.civilsociety.co.uk/news/church-of-england-s-endowment-fund-grows-to-11-6bn.html" rel="noopener" target="_blank">"Church of England's endowment fund grows to £11.6bn"</a>, May 2026.</li>
+<li id="ref-30">Wikipedia. <a href="https://en.wikipedia.org/wiki/Church_Commissioners" rel="noopener" target="_blank">"Church Commissioners"</a> (early-1990s losses; pre-1998 clergy pensions).</li>
+<li id="ref-31">AI Watch.dog. <a href="https://aiwatch.dog/licensing" rel="noopener" target="_blank">"Content Licensing Deals"</a> (tracker of publisher–AI agreements, including real-time feed arrangements).</li>
+<li id="ref-32"><em>Code of Canon Law</em> (1983), English translation. <a href="https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html" rel="noopener" target="_blank">vatican.va</a>; Book V, <a href="https://www.vatican.va/archive/cod-iuris-canonici/eng/documents/cic_lib5-cann1254-1310_en.html" rel="noopener" target="_blank">cann. 1254–1310</a>.</li>
+<li id="ref-33"><em>Catechism of the Catholic Church</em>, 2nd ed. <a href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" rel="noopener" target="_blank">vatican.va</a>.</li>
+<li id="ref-34">Francis. <a href="https://www.vatican.va/content/francesco/it/motu_proprio/documents/20230220-il-diritto-nativo.html" rel="noopener" target="_blank">Motu proprio <em>Il diritto nativo</em></a>, 20 February 2023; English summary in <a href="https://www.vaticannews.va/en/pope/news/2023-02/pope-the-goods-of-the-holy-see-have-a-universal-destination.html" rel="noopener" target="_blank">Vatican News</a>.</li>
+<li id="ref-35">Leo XIV. Motu proprio <em>Coniuncta cura</em>, published 6 October 2025. <a href="https://www.vaticannews.va/en/pope/news/2025-10/pope-leo-issues-new-motu-proprio-concerning-holy-see-investments.html" rel="noopener" target="_blank">Vatican News</a>.</li>
+<li id="ref-36">Francis. <a href="https://www.vatican.va/content/francesco/en/letters/2024/documents/20240916-lettera-collegio-cardinalizio.html" rel="noopener" target="_blank">Letter to the College of Cardinals</a>, 16 September 2024.</li>
+<li id="ref-37">Francis. <a href="https://www.vatican.va/content/francesco/en/letters/2024/documents/20241119-lettera-istituzioni-uffici-santasede.html" rel="noopener" target="_blank">Letter on the Pension Fund</a>, 19 November 2024.</li>
+<li id="ref-38">Francis. <a href="https://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio_20140224_fidelis-dispensator-et-prudens.html" rel="noopener" target="_blank">Motu proprio <em>Fidelis dispensator et prudens</em></a>, 24 February 2014.</li>
+<li id="ref-39">Francis. <a href="https://www.vatican.va/content/francesco/en/apost_constitutions/documents/20220319-costituzione-ap-praedicate-evangelium.html" rel="noopener" target="_blank">Apostolic constitution <em>Praedicate Evangelium</em></a>, 19 March 2022, arts. 205–224.</li>
+<li id="ref-40">Leo XIV. <a href="https://www.vatican.va/content/leo-xiv/en/apost_exhortations/documents/20251004-dilexi-te.html" rel="noopener" target="_blank">Apostolic exhortation <em>Dilexi te</em></a>, 4 October 2025.</li>
+<li id="ref-41">Dicastery for the Doctrine of the Faith and Dicastery for Culture and Education. <a href="https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html" rel="noopener" target="_blank"><em>Antiqua et nova</em></a>, 28 January 2025.</li>
+<li id="ref-42">Leo XIV. <a href="https://www.vatican.va/content/leo-xiv/en/speeches/2025/may/documents/20250510-collegio-cardinalizio.html" rel="noopener" target="_blank">Address to the College of Cardinals</a>, 10 May 2025.</li>
+<li id="ref-43">Leo XIII. <a href="https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html" rel="noopener" target="_blank"><em>Rerum Novarum</em></a>, 1891.</li>
+<li id="ref-44">Pius XI. <a href="https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19310515_quadragesimo-anno.html" rel="noopener" target="_blank"><em>Quadragesimo Anno</em></a>, 1931.</li>
+<li id="ref-45">John Paul II. <a href="https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html" rel="noopener" target="_blank"><em>Laborem Exercens</em></a>, 1981.</li>
+<li id="ref-46">John Paul II. <a href="https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html" rel="noopener" target="_blank"><em>Centesimus Annus</em></a>, 1991.</li>
+<li id="ref-47">Francis. <a href="https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html" rel="noopener" target="_blank"><em>Evangelii Gaudium</em></a>, 2013.</li>
+<li id="ref-48">Francis. <a href="https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html" rel="noopener" target="_blank"><em>Laudato Si'</em></a>, 2015.</li>
+<li id="ref-49">Second Vatican Council. <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html" rel="noopener" target="_blank"><em>Gaudium et Spes</em></a>, 1965.</li>
+<li id="ref-50">Second Vatican Council. <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_en.html" rel="noopener" target="_blank"><em>Presbyterorum Ordinis</em></a>, 1965.</li>
+<li id="ref-51">Second Vatican Council. <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_en.html" rel="noopener" target="_blank"><em>Apostolicam Actuositatem</em></a>, 1965.</li>
+<li id="ref-52">Second Vatican Council. <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html" rel="noopener" target="_blank"><em>Dei Verbum</em></a>, 1965.</li>
+<li id="ref-53">John Paul II. <a href="https://www.vatican.va/content/john-paul-ii/en/apost_constitutions/documents/hf_jp-ii_apc_19921011_fidei-depositum.html" rel="noopener" target="_blank">Apostolic constitution <em>Fidei depositum</em></a>, 1992.</li>
+<li id="ref-54">Pontifical Academy of Social Sciences. <a href="https://www.pass.va/en/publications/other-publications/mensuram_bonam_eng.html" rel="noopener" target="_blank"><em>Mensuram Bonam: Faith-Based Measures for Catholic Investors</em></a>, 2022.</li>
+<li id="ref-55">Secretariat of State. Instruction <em>Secreta continere</em> on the pontifical secret, 4 February 1974, <em>AAS</em> 66 (1974).</li>
+<li id="ref-56">Leo XIII. <a href="https://www.documentacatholicaomnia.eu/04z/z_1883-08-18__SS_Leo_XIII__Saepenumero_Considerantes__IT.doc.html" rel="noopener" target="_blank"><em>Saepenumero considerantes</em></a>, 18 August 1883.</li>
+<li id="ref-57">Benedict XIV. <a href="https://www.papalencyclicals.net/ben14/b14vixpe.htm" rel="noopener" target="_blank"><em>Vix pervenit</em></a>, 1745.</li>
+<li id="ref-58">Ambrose of Milan. <a href="https://www.newadvent.org/fathers/34012.htm" rel="noopener" target="_blank"><em>De officiis</em>, Book II</a>, ch. 28.</li>
+<li id="ref-59">Justin Martyr. <a href="https://www.newadvent.org/fathers/0126.htm" rel="noopener" target="_blank"><em>First Apology</em></a>, ch. 67.</li>
+<li id="ref-60">Benedict of Nursia. <em>Rule</em>, chs. 31–32.</li>
+<li id="ref-61">Thomas Aquinas. <a href="https://www.newadvent.org/summa/3.htm" rel="noopener" target="_blank"><em>Summa Theologiae</em> II-II</a>, qq. 49, 55, 77, 78.</li>
+<li id="ref-62">Biblioteca Apostolica Vaticana. <a href="https://www.vaticanlibrary.va/en/the-library/history-of-BAV.html" rel="noopener" target="_blank">"History"</a> (Nicholas V; Sixtus IV, <em>Ad decorem militantis Ecclesiae</em>, 15 June 1475).</li>
+<li id="ref-63"><em>The Holy Bible</em>, Revised Standard Version, Catholic Edition (RSV-CE). Scripture is cited by book, chapter, and verse throughout.</li>
+</ol>
+<div class="cite-this"><strong>How to cite this page.</strong> Chuang, William Huanshan. "The Petrine Endowment: How the Vatican Library and Archive Can Pay the Holy See's Deficit in Perpetuity — a Euclidean Plan for Salaries, Pensions, and the 25-Year Bridge." Logarchéon Research, 24 September 2026.</div>
+</div>
+</main>
+</div>
+<footer>
+<p>William Huanshan Chuang · Logarchéon Inc. · Research Page · 24 Sep 2026</p>
+</footer>
+</div>
+</body>
+</html>
