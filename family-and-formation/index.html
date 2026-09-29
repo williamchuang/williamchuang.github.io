@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Family, Formation, and Faith — William Chuang · Logarchéon</title>
+<meta name="description" content="William Huanshan Chuang: family, formation, and Catholic faith."/>
+<meta property="og:title" content="Family, Formation, and Faith — William Chuang · Logarchéon"/>
+<meta property="og:description" content="William Huanshan Chuang: family, formation, and Catholic faith."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=DM+Mono:wght@300;400;500&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
+  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
+  --section-gap:4rem;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Libre Baskerville",Georgia,serif;
+  background:var(--navy); color:var(--cream);
+  line-height:1.75; overflow-x:hidden;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 600px 800px at 88% 25%,rgba(201,168,76,0.04) 0%,transparent 55%);
+}
+body::after {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.wrap { position:relative; z-index:1; }
+
+/* Typography */
+h1,h2,h3,h4 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; color:var(--cream); line-height:1.2; letter-spacing:-0.01em; }
+a { color:var(--gold); text-decoration:none; }
+a:hover { color:var(--gold-light); text-decoration:underline; }
+p { margin-bottom:1rem; color:var(--body); }
+p:last-child { margin-bottom:0; }
+.mono { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
+
+/* Nav */
+nav.site-nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(10,22,40,0.97); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-dim); padding:0 28px;
+}
+.nav-inner { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:54px; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.25rem; font-weight:500; color:var(--gold-light); letter-spacing:0.02em; }
+.nav-links { display:flex; gap:1.8rem; list-style:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+.nav-links a:hover,.nav-links a.active { color:var(--gold); text-decoration:none; }
+
+/* Page layout */
+.page-wrap { max-width:1060px; margin:0 auto; padding:0 28px 6rem; }
+
+/* Hero */
+.hero {
+  padding:4rem 0 3rem;
+  border-bottom:1px solid var(--border-dim);
+  margin-bottom:3.5rem;
+}
+.hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem; display:flex; align-items:center; gap:0.6rem; }
+.hero-grid { display:grid; grid-template-columns:1fr; gap:2rem; align-items:start; }
+.hero-left h1 { font-size:clamp(2.4rem,4.5vw,4rem); font-weight:300; margin-bottom:0.6rem; }
+.hero-left h1 em { font-style:italic; color:var(--gold-light); }
+.hero-left .title-line { font-family:"DM Mono",monospace; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:1.4rem; }
+.hero-left .lead { font-size:1.05rem; line-height:1.8; color:var(--body); }
+.hero-badges { display:flex; flex-wrap:wrap; gap:0.55rem; margin-top:1.6rem; }
+.badge {
+  font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase;
+  color:var(--gold); border:1px solid var(--border); padding:0.3rem 0.7rem; border-radius:2px;
+  background:var(--gold-pale);
+}
+.hero-right { padding-top:0.5rem; }
+.identity-card {
+  background:rgba(14,31,58,0.75); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.5rem;
+}
+.identity-card h4 { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:0.9rem; }
+.identity-card ul { list-style:none; display:grid; gap:0.5rem; }
+.identity-card li { color:var(--body); font-size:0.88rem; line-height:1.5; padding-left:1.1rem; position:relative; }
+.identity-card li::before { content:"—"; position:absolute; left:0; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:0.7rem; }
+
+/* Section */
+.section { margin-bottom:var(--section-gap); }
+.section-header { display:flex; align-items:baseline; gap:1.2rem; border-bottom:1px solid var(--border-dim); padding-bottom:0.9rem; margin-bottom:2rem; }
+.section-num { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
+
+/* Prose blocks */
+.prose { width:100%; }
+.prose p { color:var(--body); }
+.prose p + p { margin-top:0.9rem; }
+.prose strong { color:var(--cream); }
+
+/* Single-column prose */
+.prose-grid { display:grid; grid-template-columns:1fr; gap:2rem; }
+
+/* Research programme card */
+.programme-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.6rem; margin-bottom:1.2rem;
+  border-left:3px solid var(--gold-dim);
+  transition:border-color 0.2s;
+}
+.programme-card:hover { border-left-color:var(--gold); }
+.programme-card h3 { font-size:1.05rem; color:var(--cream); margin-bottom:0.35rem; }
+.programme-card .card-meta { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.7rem; display:flex; flex-direction:column; gap:0.28rem; }
+.programme-card .card-meta span { line-height:1.5; }
+.programme-card p { color:var(--body); font-size:0.9rem; line-height:1.7; margin-bottom:0; }
+.programme-card p + p { margin-top:0.7rem; }
+.cite-chip { font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--gold); white-space:normal; word-break:break-word; }
+.programme-card figure { margin:1rem 0; text-align:center; }
+.programme-card figcaption { font-family:"DM Mono",monospace; font-size:0.65rem; color:var(--faint); line-height:1.6; margin-top:0.5rem; text-align:left; }
+
+/* Collaborator card */
+.collab-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border);
+  border-radius:4px; padding:1.6rem 1.8rem; margin-bottom:1.5rem;
+}
+.collab-card h3 { font-size:1.2rem; color:var(--cream); margin-bottom:0.25rem; }
+.collab-card .collab-title { font-size:0.9rem; color:var(--gold-light); margin-bottom:1rem; font-style:italic; }
+.collab-card p { color:var(--body); font-size:0.92rem; line-height:1.72; margin-bottom:0.75rem; }
+.collab-card p:last-child { margin-bottom:0; }
+.collab-credentials { list-style:none; display:grid; gap:0.4rem; margin-top:0.8rem; }
+.collab-credentials li { color:var(--body); font-size:0.88rem; padding-left:1.1rem; position:relative; }
+.collab-credentials li::before { content:"✓"; position:absolute; left:0; color:var(--gold); font-size:0.7rem; }
+
+/* Tech identity cards */
+.tech-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1.2rem; }
+.tech-card {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.1rem 1.3rem;
+}
+.tech-card h4 { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+.tech-card p { color:var(--muted); font-size:0.84rem; line-height:1.6; margin-bottom:0; }
+
+/* Manifesto pull-quote */
+.pull-quote {
+  border-left:3px solid var(--gold-dim); padding:1.1rem 1.4rem;
+  margin:1.5rem 0; background:rgba(14,31,58,0.5); border-radius:0 4px 4px 0;
+  font-style:italic; color:var(--body); font-size:0.97rem; line-height:1.75;
+}
+.pull-quote cite { display:block; font-style:normal; margin-top:0.5rem; font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); }
+
+/* Faith section */
+.cross { color:var(--gold-dim); font-size:1rem; margin:0 0.3rem; }
+.patron-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1rem; }
+.patron-card { background:rgba(14,31,58,0.5); border:1px solid var(--border-dim); border-radius:4px; padding:1rem 1.2rem; }
+.patron-card h4 { font-size:0.97rem; color:var(--cream); margin-bottom:0.3rem; }
+.patron-card p { color:var(--muted); font-size:0.83rem; line-height:1.6; margin-bottom:0; }
+.daily-prayer { background:rgba(14,31,58,0.7); border:1px solid var(--border-dim); border-radius:4px; padding:1.4rem 1.6rem; margin-top:1.4rem; font-size:0.9rem; color:var(--body); line-height:1.8; font-style:italic; }
+.daily-prayer .prayer-source { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin-top:0.8rem; display:block; font-style:normal; }
+
+/* Contact */
+.contact-grid { display:grid; grid-template-columns:1fr; gap:0.8rem; margin-top:1rem; }
+.contact-item { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; }
+.contact-item .label { color:var(--faint); text-transform:uppercase; letter-spacing:0.1em; font-size:0.62rem; display:block; margin-bottom:0.2rem; }
+.contact-item a,.contact-item span { color:var(--body); }
+.contact-item a:hover { color:var(--gold-light); }
+
+/* Footer */
+footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--faint); text-align:center; }
+
+/* Responsive — single-column layout is now the baseline; these are kept for any future additions */
+@media(max-width:820px) {
+  .research-table th:nth-child(4),
+  .research-table td:nth-child(4) { display:none; }
+}
+
+/* Research table */
+.research-table-wrap { overflow-x:auto; margin-top:1.6rem; }
+.research-table { width:100%; border-collapse:collapse; font-size:0.84rem; }
+.research-table th {
+  font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.09em;
+  text-transform:uppercase; color:var(--gold-dim); font-weight:400;
+  padding:0.6rem 0.9rem; border-bottom:1px solid var(--border-dim);
+  text-align:left; white-space:normal;
+}
+.research-table td {
+  padding:0.75rem 0.9rem; border-bottom:1px solid var(--border-dim);
+  color:var(--body); vertical-align:top; line-height:1.65;
+}
+.research-table tr:last-child td { border-bottom:none; }
+.research-table tr:hover td { background:rgba(201,168,76,0.04); }
+.research-table td:first-child { color:var(--cream); font-size:0.86rem; }
+.research-table td .zh { display:block; font-size:0.75rem; color:var(--faint); margin-top:0.15rem; }
+.research-table td .size-num { font-family:"DM Mono",monospace; font-size:0.95rem; color:var(--gold); }
+.research-table td .size-sub { display:block; font-size:0.68rem; color:var(--faint); font-family:"DM Mono",monospace; letter-spacing:0.05em; }
+.rt-tag {
+  display:inline-block; font-family:"DM Mono",monospace; font-size:0.6rem;
+  letter-spacing:0.06em; text-transform:uppercase; padding:0.18rem 0.5rem;
+  border:1px solid var(--border-dim); border-radius:2px; color:var(--gold-dim);
+  margin:0.25rem 0.2rem 0 0; background:var(--gold-glow);
+}
+
+/* Assessment bar */
+.assess-block { margin-top:1.6rem; border-top:1px solid var(--border-dim); padding-top:1.4rem; }
+.assess-label-row {
+  display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;
+}
+.assess-text { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+.assess-bar-wrap { flex:1; min-width:120px; max-width:260px; height:4px; background:rgba(201,168,76,0.13); border-radius:2px; }
+.assess-bar-fill { height:100%; width:62%; background:var(--gold); border-radius:2px; }
+.assess-pct { font-family:"DM Mono",monospace; font-size:1rem; color:var(--gold-light); letter-spacing:0.04em; }
+.assess-icd { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); }
+
+@media(max-width:700px){.prose-grid{grid-template-columns:minmax(0,1fr)!important}.prose,.programme-card,.card-meta,.page-wrap p,.page-wrap h3{overflow-wrap:anywhere;min-width:0}.page-wrap table{display:block;overflow-x:auto}.page-wrap img,.page-wrap svg{max-width:100%}.nav-inner{flex-wrap:wrap;gap:0.6rem}.nav-links{flex-wrap:wrap;gap:0.8rem}}
+details.collapse{margin:1.2rem 0;border:1px solid var(--border-dim);border-radius:4px;background:rgba(14,31,58,0.35)}
+details.collapse>summary{cursor:pointer;list-style:none;padding:0.8rem 1.1rem;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold)}
+details.collapse>summary::-webkit-details-marker{display:none}
+details.collapse>summary::before{content:"\25B8\00A0";color:var(--gold-dim)}
+details.collapse[open]>summary::before{content:"\25BE\00A0"}
+details.collapse>.collapse-body{padding:0.2rem 1.2rem 1rem}
+
+/* founder-page refinements */
+.prose p,.lead{font-size:1.02rem;line-height:1.8}
+.badge{font-size:0.7rem}
+.identity-card li{font-size:0.92rem}
+.tech-card p{font-size:0.92rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:0.7rem;margin-top:1.4rem}
+.cta{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.6rem 1rem;border:1px solid var(--gold);border-radius:2px;color:var(--gold);text-decoration:none;background:var(--gold-pale)}
+.cta.primary{background:var(--gold);color:var(--navy)}
+.evidence{list-style:none;padding:0;margin:0;display:grid;gap:0.8rem}
+.evidence li{padding:0.85rem 1.1rem;border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;background:rgba(14,31,58,0.55);font-size:0.98rem;line-height:1.7;color:var(--body)}
+.evidence .k{display:block;font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem}
+.more-link{font-family:"DM Mono",monospace;font-size:0.74rem;letter-spacing:0.07em;text-transform:uppercase;margin:1.4rem 0 0.4rem}
+.more-link a{color:var(--gold)}
+.contact-item .label{font-size:0.7rem}
+.tech-card h3{font-family:"DM Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;font-weight:400}
+.prose{max-width:72ch}
+.identity-card h2{font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);font-weight:400;margin-bottom:0.8rem}
+@media(max-width:700px){.cta{flex:1 1 100%;text-align:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/About">About</a></li>
+<li><a href="/Research">Research</a></li>
+<li><a href="/CEAS">CEAS</a></li>
+<li><a href="/GRAIL">GRAIL</a></li>
+<li><a href="/MIA">MIA</a></li>
+<li><a href="/About#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<div class="page-wrap">
+<header class="hero">
+<div class="breadcrumb"><span><a href="/About" style="color:var(--gold);">About</a></span><span style="color:var(--border);">/</span><span>Family, Formation, and Faith</span></div>
+<h1>Family, Formation,<br/><em>and Faith</em></h1>
+<p class="title-line">William Huanshan Chuang (莊桓山)</p>
+</header>
+<section class="section" id="vocation">
+<div class="section-header">
+<span class="section-num">01</span>
+<h2 class="section-title">Family and Formation</h2>
+</div>
+<div class="prose-grid">
+<div class="prose">
+<p>
+        I was born in New Taipei City, Taiwan, in 1988, and am the twentieth
+        generation of the Chuang (莊) family to settle in Taiwan,
+        tracing our ancestry to the 1600s following the Dutch occupation period.
+      </p>
+<p>
+        My family has been Catholic for several generations.
+        My grandfather and great-grandfather were Catholic,
+        and in family memory our ancestors helped offer a portion of the
+        family estate as a chapel and a place of hospitality for fellow
+        Catholics travelling through the region — a small act of
+        the same custodial spirit that 莊起元’s engagement with
+        the Jesuit intellectual tradition reflects at the level of letters:
+        the faith received, housed, and passed on.
+      </p>
+<details class="collapse"><summary>The Changzhou Chuang lineage · 莊起元 and the Jesuit encounter</summary><div class="collapse-body">
+<p>
+        Within the Changzhou Chuang lineage, the encounter with
+        Jesuit Catholic intellectual culture is documented as early as
+        <strong>莊起元</strong> (Ch’i-yüan Chuang, 1559–1633;
+        <em>jinshi</em> 1610; official to Taipu si shaoqing) —
+        a member of the Wujin, Changzhou Chuang clan — who read and wrote
+        a poem of reflection on Diego de Pantoja SJ’s
+        <em>Qike</em> (七克, <em>The Seven Victories over Sin</em>, 1614),
+        the Jesuit moral-theology work presenting the seven virtues against
+        the seven deadly sins in vocabulary accessible to Chinese literati.
+        His poem, 讀《七克》西書有感, stands as an early documented moment
+        of Chuang-lineage engagement with the Jesuit intellectual programme
+        in China.
+      </p>
+<p>
+        The Changzhou region was not a peripheral site of Catholic life in
+        Ming and Qing China: the same Jiangnan literati world that produced
+        the Three Pillars of Chinese Catholicism in the Wanli period,
+        and that gave rise to the Changzhou School of Thought a century later,
+        was also the milieu in which Catholic communities formed around
+        education, hospitality, and the care of travelling faithful.
+      </p>
+<p>The Chuang lineage carries an intellectual heritage rooted in the centuries-long encounter between the Chinese civilizational tradition and Catholic intellectual culture. The Changzhou School’s treatment of 中華 later influenced the names of both the Republic of China and the People’s Republic of China.</p>
+<!-- One-line intro + link button -->
+<div style="margin:1.2rem 0;padding:1rem 1.3rem;background:rgba(14,31,58,0.6);border:1px solid var(--border-dim);border-radius:4px;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+<p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">
+          How the Changzhou School coined 中華 — and why both the ROC and PRC still bear that name.
+        </p>
+<a href="/hua" style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:0.35rem 0.85rem;border-radius:2px;background:var(--gold-pale);white-space:nowrap;flex-shrink:0;">
+          Read the study →
+        </a>
+</div>
+</div></details>
+
+<p>
+        My maternal grandmother’s family name was Hong (洪).
+      </p>
+<details class="collapse"><summary>The Hong (洪) lineage · Quanzhou and Lukong</summary><div class="collapse-body">
+<p>
+        The Hong lineage has historic concentrations in 泉州 (Quanzhou), Fujian —
+        a lineage that spans both dynasties and both sides of a great dynastic rupture.
+        One notable figure is 洪承疇 (Chengchou Hong, 1593–1665),
+        born in Nan’an, Quanzhou: a Wanli-era <em>jinshi</em> who first served
+        the Ming, rising to Minister of War and Governor-General of the northeast,
+        before defecting to the Qing after his capture at the Battle of Songjin (1642).
+        He went on to become the first Han Grand Secretary of the Qing dynasty and
+        one of the architects of its consolidation of South China —
+        a figure mourned by Ming loyalists and honoured by Qing emperors,
+        carrying in a single life the fracture between the two orders.
+        He was also part of the same Jiangnan literati and military-reform circle
+        that included Xu Guangqi (Paul, one of the Three Pillars of Chinese Catholicism)
+        in the promotion of European cannon and Jesuit-informed military science.
+        The Hong lineage also spread through 鹿港 (Lukong) in Taiwan —
+        where 鹿 means deer and 港 means port, the same 港 as in 香港 (Hong Kong,
+        Fragrant Harbour). Lukong was the island’s second city in the Qing era.
+      </p>
+</div></details>
+
+<p>
+        My formation draws on three traditions that are not decorative
+        affiliations but the anthropology beneath the work:
+        Cistercian stillness, Jesuit study, and the Order of Malta —
+        <em>tuitio fidei et obsequium pauperum</em>
+        (defence of the faith and service to the poor). Each names something
+        real: the contemplative discipline required for long-horizon research;
+        the rigour and ordered inquiry of the Jesuit intellectual tradition;
+        and the obligation to place whatever knowledge one possesses in service
+        of human dignity.
+      </p>
+<p style="color:var(--muted);font-size:0.92rem;line-height:1.8;border-left:2px solid var(--border);padding-left:1rem;margin:1.4rem 0;">
+        Rigor is fidelity. Security protects human dignity under uncertainty.
+      </p>
+<p>
+        Hazing says: I endured it, so you must. Stewardship says: I endured it,
+        so you don’t have to. That distinction marks the difference between
+        an institution that consumes those it forms and one that multiplies
+        what it received.
+      </p>
+</div>
+<div class="prose">
+<p>
+        My father, Prof. John Baptist Chuang (Johannes Baptista Chuang),
+        was baptized in infancy and received much of his formation
+        within the life of the Church. After elementary school he entered a
+        <em>petit séminaire</em>, later continued in major seminary
+        formation, and went on to pursue advanced philosophical study.
+        He earned a Ph.D. in Philosophy at Fu Jen Catholic University and
+        later served in Catholic higher education under the shared guidance
+        of diocesan leadership and multiple religious communities.
+        His scholarly work centers on religion and ecology, Catholic
+        environmental ethics, religious ethics and bioethics, philosophy
+        of religion, and the traditions of Chinese philosophy, culture,
+        and religion — including several publications engaging
+        <em>Laudato Si’</em>. The intellectual seriousness, the
+        integration of faith and scholarship, and the sense that ideas
+        must be ordered to truth and the common good — all of these
+        I received first from him.
+      </p>
+<p>
+        In parish life, he also served at Beibin Parish (北濱堂) in
+        Hualien City, one of the earliest Catholic communities on
+        Taiwan’s east coast, during the years when the Diocese of
+        Hualien was shepherded by Bishop Paul Shan Kuo-hsi, S.J.
+        (單國璽), who was later created a cardinal.
+      </p>
+<p>
+        During his philosophical formation at Fu Jen, my father studied
+        under several senior teachers who helped shape both his intellectual
+        discipline and his spiritual seriousness. Among them were
+        Archbishop Luo Guang (羅光), who encouraged careful reading in
+        classical sources including the <em>Shan Hai Jing</em>
+        (《山海經》), and Professor Xiang Tui-chieh (項退結), who served
+        as his Ph.D. thesis advisor. Their influence contributed to the
+        careful style of thought and moral seriousness that has marked
+        his teaching and service throughout his career.
+      </p>
+<p>
+        Among his teachers was also <strong>嚴靈峰</strong> (Yen Ling-feng,
+        birth name 明傑, 字旭, 1904–1999): scholar, intelligence officer,
+        mayor of Fuzhou, and one of the twentieth century’s great
+        bibliographers of Taoist and pre-Qin classical texts.
+      </p>
+<details class="collapse"><summary>嚴靈峰 · Yen Ling-feng, my father’s teacher</summary><div class="collapse-body">
+<p>
+        Born in
+        Lianjiang, Fujian, into a family of physicians, he entered
+        <strong>Moscow’s Eastern University</strong> in 1927, where
+        his classmates included <strong>Deng Xiaoping</strong>,
+        Yang Shangkun, and <strong>Chiang Ching-kuo</strong>. During his
+        time in Moscow, he debated Stalin directly — arguing, in the
+        theoretical idiom of the Comintern seminars, that the economies of
+        colonised territories under capitalism could nonetheless develop —
+        and Stalin had no answer.
+        The <em>Fuzhou Evening News</em>, the official press of the city
+        where he later served as mayor, records: <em>“In history,
+        perhaps only Yen Ling-feng dared to argue with Stalin.”</em>
+        He narrowly escaped deportation to a Siberian labor camp at
+        Khabarovsk for his Trotskyist activities, saved only through
+        the intervention of 鄧中夏.
+      </p>
+<p>
+        He returned to China in 1928. By 1937 he had joined the
+        <strong>Military Intelligence Service (軍統)</strong> as Fujian
+        station chief under Dai Li, dismantling CCP underground networks
+        across the province; he later served as deputy director of military
+        intelligence in Chongqing and head of its CCP section.
+        In 1946 he was appointed <strong>Mayor of Fuzhou</strong>, where
+        he worked to restore civilian life after the Japanese occupation.
+        After 1949 he went to Taiwan, serving as NSB chief of staff,
+        ROC representative to Japan, and representative to Hong Kong
+        and Macau — simultaneously holding a lectureship at
+        <strong>Fu Jen University’s philosophy graduate
+        institute</strong> and a concurrent appointment at National Taiwan
+        University, where he taught my father. One contemporary
+        assessment: <em>“On the mainland, the top operative within
+        Military Intelligence; in Taiwan, Chiang Ching-kuo’s
+        number-one behind-the-scenes adviser.”</em> After Taiwan’s
+        lifting of martial law he became an internationally recognised
+        scholar; his bibliographies of the <em>Tao Te Ching</em>,
+        Zhuangzi, Laozi, and the pre-Qin classical corpus — over
+        sixty works totaling more than twenty million characters —
+        remain standard reference works held in the national libraries
+        of China, the United States, and Britain.
+      </p>
+</div></details>
+
+<p>
+        As a child, I occasionally accompanied my father on those visits to
+        Professor Yan at Fu Jen. I was not part of their conversations, but
+        the tone stayed with me across the years: seriousness of conscience,
+        restraint in speech, a quiet steadiness in the presence of someone
+        who had passed through the century’s great contests —
+        the Comintern, the Stalinist purges, the Civil War, the intelligence
+        wars of the Cold War — without being captured by any single
+        side of them. Even without explanations, I learned that integrity
+        is often formed slowly, through example more than words.
+      </p>
+<p>
+        I studied theoretical physics at National Taiwan University and
+        National Dong Hwa University, ranking first in my cohort at NDHU,
+        before pursuing advanced mathematics at San Francisco State University
+        (M.A.) and the University of Arizona (M.S.). A decade of Catholic
+        educational formation — St. Ignatius School and later Jesuit
+        university study — shaped the intellectual discipline and moral
+        seriousness that now underlies both the AI architecture and the
+        international law research.
+      </p>
+
+<details class="collapse"><summary>A note on surnames · 莊 and 嚴</summary><div class="collapse-body">
+<p>
+<strong>A note on surnames — set down with humility and in the
+        hope that those who know more will one day fill in what I cannot:</strong>
+        Classical clan accounts trace both 莊 (Chuang/Zhuang) and 嚴 (Yan/Yen)
+        to the lineage of King Zhuang of Chu (楚莊王), one of the Spring and
+        Autumn Five Hegemons. The decisive event separating them was the Eastern
+        Han naming taboo surrounding Emperor Ming of Han (漢明帝, 劉莊): families
+        surnamed 莊 were compelled empire-wide to adopt 嚴 as an alternative,
+        producing 嚴 not as a pre-existing parallel lineage but as a surname
+        effectively coined under state compulsion from 莊 itself — the same
+        lineage reissued under a different character by imperial edict.
+        Yan Ziling (嚴子陵, also known as 嚴光) is the most frequently cited
+        example. The saying 莊嚴本一家 (莊 and 嚴 are of one bloodline) and the
+        institution of the 莊嚴宗親會 (Chuang-Yen Clan Association, the ancestral
+        kinship body uniting families of both surnames) reflect this origin literally.
+        What happened across subsequent generations — which branches
+        reverted, which did not, under what local pressures — the
+        surviving records do not tell us with consistency, and I will not
+        assert what they do not show. I record this as documented historical
+        etymology, not as a genealogical claim about any particular living
+        relationship.
+      </p>
+</div></details>
+
+<p style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;margin:1.2rem 0 1.4rem;"><a href="/chu-chuang-yen-network/" style="color:var(--gold);">The Chu–Chuang–Yen Network · 朱–莊–嚴 · Lineage, Intermarriage, and Institutions &rarr;</a></p>
+
+<p style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;margin:1.2rem 0 1.4rem;"><a href="/institutional-and-prc-networks/" style="color:var(--gold);">Institutional and PRC Networks · Li Ka-shing in Taiwan, Chartered Power, the Continental Bloc, and PRC-Affiliated Figures &rarr;</a></p>
+<p>
+        My father’s academic publications are available on
+        <a href="https://scholar.google.com/citations?hl=zh-TW&amp;user=EUDuih4AAAAJ&amp;view_op=list_works&amp;sortby=pubdate" rel="noopener" target="_blank">Google Scholar</a>.
+      </p>
+<p>
+        My name carries several layers I rarely explain in full.
+        My Mandarin name Tao-Mao (道茂) honours St. Thomas Aquinas, whose feast
+        falls near my birthday.
+        The traditional Mandarin rendering of Thomas —
+        <strong>Duōmò, 多默</strong> — was established by the
+        <strong>台灣主教團</strong> (Taiwan Bishops’ Conference):
+        多 (<em>many</em>) + 默 (<em>silence, stillness</em>), yielding
+        <em>The Many Silences</em> or <em>The Silent Ones</em> —
+        a name I find far more beautiful than its modern equivalent 道茂.
+        The same conference’s <strong>總修院</strong> (major seminary) bears
+        the saint’s name under a parallel transliteration,
+        <strong>多瑪斯</strong> (Duōmǎsī),
+        with a building on its grounds named accordingly.
+        My father grew up within those walls; the saint had already shaped his
+        formation long before marking my name, and it was his wish — as much
+        as any convention — that I be placed under the same patron.
+        One further detail, particular to that era: a family chose the Mandarin
+        characters at birth, but the Roman rendering remained unknown until the
+        child’s first passport application — which might come months
+        or years later for those with plans to travel abroad, or indefinitely for
+        those without. The same applied to name changes: revising one’s
+        Mandarin name is an established convention in Taiwan, undertaken by many
+        as they grow older, and each change reset the same process — the
+        revised Roman form unknown until the next passport application.
+        The family chose the characters; the state returned the English.  Huanshan (桓山) came later — a quiet
+        filial echo of <em>Juan</em> (the Spanish form of John) — so
+        that the name carries, in sound and meaning, “John’s
+        son.” The character 桓 joins 木 (tree; the upright and rooted)
+        with 亘 — the sun (日) held between heaven and earth (二).
+        William, in time, became a reminder to follow not my own will but God’s.
+      </p>
+<p>
+        My confirmation name is
+        <strong>Íñigo</strong> — the baptismal name of
+        <strong>St. Íñigo of Oña</strong>
+        (d. 1 June 1057; canonized 1259 by Pope Alexander IV):
+        the Benedictine abbot of San Salvador at Oña in Castile,
+        a hermit who left his mountain solitude to reform monasteries at the
+        request of King Sancho III of Pamplona, peacemaker and miracle worker,
+        mourned at his death by Christians, Jews, and Muslims alike.
+        He is the saint after whom Ignatius of Loyola was baptized
+        Íñigo — the Basque name from which the Jesuit founder
+        later adopted the Latin form <em>Ignatius</em>, patron of the Society of Jesus
+        and of much of this work.
+      </p>
+<p>
+        Its Basque root — <em>Eneko</em>, from <em>ene</em>
+        (“mine”) with a diminutive suffix — means
+        <em>my little one</em>: a tender claim that belongs to God
+        before anything else.
+        Through Ignatius it carries the Latin <em>ignis</em> — fire —
+        the same fire that descended at Pentecost as tongues of flame
+        upon the disciples so that every nation heard in its own language
+        (Acts 2:3): the sign of the Holy Spirit.
+      </p>
+</div></div></section>
+<section class="section" id="faith">
+<div class="section-header">
+<span class="section-num">02</span>
+<h2 class="section-title">Faith &amp; Identity</h2>
+</div>
+<div class="prose" style="margin-bottom:1.8rem;">
+<p>
+<span class="cross">✝</span>
+      My philosophical and spiritual formation runs through three traditions
+      held together: the Cistercian practice of interior stillness and
+      contemplative stability; the Jesuit discipline of discernment, rigorous
+      service through intellect, and formation of conscience; and the
+      Order of Malta’s <em>tuitio fidei et obsequium pauperum</em>—
+      the defence of the Faith and service to the poor and the sick.
+      I pursue this work under spiritual direction and in fidelity to the Church.
+      <span class="cross">✝</span>
+</p>
+<p>
+      I am a <strong>Fourth Degree Knight of Columbus</strong> (Fr. McGivney Assembly,
+      U.S. Patriot Degree) and an <strong>Auxiliary and Provisional Member
+      of the Sovereign Military Order of Malta</strong>. These are not ceremonial
+      affiliations. The K of C’s founding charism—priestly charity
+      and protection of families, exemplified by Blessed Michael McGivney—and
+      the Order of Malta’s millennium-old commitment to the poor and the
+      sick are the moral framework within which all of Logarchéon’s
+      work is evaluated. The AI manifesto’s bias toward those at the bottom
+      of the pyramid, and the IR programme’s concern for populations
+      living under coercion, are expressions of the same vocation.
+    </p>
+<div style="margin:1.6rem 0;padding:1.2rem 1.4rem;background:rgba(14,31,58,0.5);border:1px solid var(--border-dim);border-radius:4px;">
+<p style="font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:0;">The Jerusalem Cross is the emblem of the Order and the Kingdom of Jerusalem.</p>
+</div>
+</div>
+<div class="patron-grid">
+<div style="margin-bottom:1.8rem;">
+<h3 style="font-size:1.1rem;color:var(--gold-light);font-family:'Cormorant Garamond',serif;margin-bottom:1.2rem;border-left:2px solid var(--gold-dim);padding-left:0.8rem;">
+        Patrons &amp; Influences
+      </h3>
+<p style="color:var(--muted);font-size:0.83rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.2rem;">
+        Gratitude for the saints whose lives and writings shape my work and prayer
+      </p>
+<div style="display:grid;gap:0.7rem;">
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. John the Baptist <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">1st c. BC</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Witness, repentance, and preparation. At the Visitation (Lk 1:39–45)
+            he already rejoices before Christ hidden in Mary — the new Ark of the
+            Covenant who carries the Word made flesh, the true Bread of Life,
+            and the eternal High Priest. His leap in the womb echoes David dancing
+            before the Ark (2 Sam 6), making him the first prophet to recognize
+            and rejoice before the living Presence.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. John the Evangelist <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">1st c. AD</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            The Beloved Disciple: the Prologue that opens with the Word
+            (John 1:1–14), the witness at the foot of the Cross,
+            the first to believe at the empty tomb. His Gospel and First Letter
+            (“God is love”, 1 Jn 4:8) ground the unity of
+            truth and charity that this work seeks.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Matthew the Apostle <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">1st c. AD</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            The Gospel of mercy, especially Matthew 25,
+            grounding service to “our Lords the sick.”
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">Blessed Fra’ Gerard <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">11th c.</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Humble care for the sick and poor;
+            founder of the Jerusalem hospital that became the Order’s spiritual root.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Íñigo of Oña <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">d. 1057</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Benedictine hermit and reforming abbot; the saint after whom
+            Ignatius of Loyola was baptized. Peacemaker and miracle worker
+            mourned by Christians, Jews, and Muslims alike.
+            My confirmation patron.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Bernard of Clairvaux <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1090</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Stability, charity, and interior stillness.
+            <em>Sermons on the Song of Songs</em>;
+            <em>De Diligendo Deo</em> (On Loving God);
+            <em>De laude novae militiae</em>;
+            and especially <em>De Gradibus Humilitatis et Superbiae</em>
+            (On the Steps of Humility and Pride).
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Thomas Aquinas <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1225</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Clarity of reason ordered to truth.
+            My original Mandarin name, Tao-Mao (道茂), was given in his honour,
+            as my birthday falls near his feast day.
+            The traditional Mandarin rendering of Thomas —
+            <strong>Duōmò, 多默</strong>: 多 (<em>many</em>) + 默 (<em>silence</em>),
+            <em>The Many Silences</em> — was established by the
+            <strong>台灣主教團</strong> (Taiwan Bishops’ Conference).
+            Their <strong>總修院</strong> (major seminary) bears the same patron under
+            the transliteration <strong>多瑪斯</strong> (Duōmǎsī),
+            with a building on its grounds named accordingly.
+            My father grew up there; it was his wish that I carry the same patron’s name.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Francis of Assisi <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">1181–1226</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Poverty, creation, and peace. Founder of the Franciscan Order —
+            the first Catholic missionaries to reach China (John of Montecorvino OFM,
+            1294) and the custodians of the Holy Land to this day.
+            His greeting and motto: <em>Pax et Bonum</em> —
+            Peace and All Good.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Ignatius of Loyola <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1491</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Discernment, disciplined service, and formation of conscience.
+            Baptized Íñigo after St. Íñigo of Oña;
+            founder of the Society of Jesus whose formation shaped more than
+            a decade of my education.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Teresa of Ávila <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1515</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Friendship with Christ in prayer and action.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. John of the Cross <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1542</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            The purifying path to union with God.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. John Bosco <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1815</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Forming the young through reason, faith, and patient kindness.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">Blessed Michael McGivney <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1852</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Priestly charity and protection of families;
+            founder of the Knights of Columbus.
+          </p>
+</div>
+<div class="programme-card" style="padding:0.9rem 1.2rem;">
+<h3 style="font-size:0.95rem;">St. Josémaría Escrivá <span style="color:var(--faint);font-size:0.78rem;font-family:'DM Mono',monospace;">b. 1902</span></h3>
+<p style="font-size:0.88rem;margin-bottom:0;">
+            Sanctifying ordinary work and study.
+          </p>
+</div>
+</div>
+</div>
+<div class="patron-card">
+<h4>Catholic Works &amp; Resources</h4>
+<p>
+<a href="/Research#faith">Taiwan / Holy See pastoral strategy paper →</a><br/>
+<a href="https://drive.google.com/file/d/1IFu_0nuuAQfeySwB_esI6RyAnRZrMZjt/view?usp=sharing" rel="noopener noreferrer" target="_blank">Plenary Indulgence adult catechesis →</a><br/>
+<a href="https://drive.google.com/file/d/1z2DScf5YcLpmvriAV2tGQspHBHSB_o4T/view?usp=sharing" rel="noopener noreferrer" target="_blank">Rule of Life (Ignatian–Cistercian lay horarium) →</a><br/>
+<a href="https://drive.google.com/file/d/1_bDq1rkjYoNoNCNpw43WRFs-QeE7CyMM/view?usp=sharing" rel="noopener noreferrer" target="_blank">Algerian as Tavern Inscription (typography &amp; sacred art) →</a>
+</p>
+</div>
+</div>
+<div class="daily-prayer">
+    Lord Jesus, thou hast seen fit to enlist me for thy service among the Knights
+    and Dames of Saint John of Jerusalem. I humbly entreat thee, through the
+    intercession of the Most Holy Virgin of Philermo, of Saint John the Baptist,
+    Blessed Gerard, and all the Saints and blesseds of our Order, to keep me
+    faithful to the traditions of our Order. Be it mine to practice and defend
+    the Catholic, the Apostolic, the Roman faith against the enemies of religion;
+    be it mine to practice charity towards my neighbors, especially the poor and
+    the sick. Give me the strength I need to carry out this my resolve, forgetful
+    of myself, learning ever from the Holy Gospel a spirit of deep and generous
+    Christian devotion, striving ever to promote God’s glory, the world’s
+    peace, and all that may benefit the Order of Saint John of Jerusalem. Amen.
+    <span class="prayer-source">Daily Prayer of the Order of Malta</span>
+</div>
+</section>
+<section class="section" id="mission">
+<div class="section-header">
+<span class="section-num">03</span>
+<h2 class="section-title">Personal Mission</h2>
+</div>
+<div style="max-width:820px;margin:3.5rem auto 3rem;padding:0 1.6rem;">
+  <div style="border-top:1px solid var(--border-dim);padding-top:2rem;">
+
+    <p style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold-dim);margin:0 0 0.2rem;">Personal Mission</p>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:600;color:var(--cream);letter-spacing:0.01em;margin:0 0 0.35rem;line-height:1.3;">
+      Bridge and Eyes · Taiwan's Catholic Church and the People of Taiwan
+    </h2>
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:0.96rem;font-style:italic;color:var(--gold-dim);margin:0 0 1.5rem;letter-spacing:0.02em;">
+      Tuitio Fidei et Obsequium Pauperum
+    </p>
+
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.04rem;color:var(--body);line-height:1.88;margin:0 0 1.3rem;">
+      The Holy See recognizes the Republic of China — one of the last surviving threads of a diplomatic architecture most of the world has allowed to fray. Taiwan's roughly three hundred thousand Catholics hold complete communion with Rome; by geopolitical circumstance rather than fault, they remain largely invisible to Catholics elsewhere, while the workings of the global Church — its institutions, its currents, its lines of communion — remain equally opaque to them. The Order of Malta, as a sovereign subject of international law in diplomatic relation with the Holy See and with over one hundred states, moves through channels that others cannot readily enter. That position carries obligations in both directions.
+    </p>
+
+    <p style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;margin:1rem 0 1.4rem;"><a href="/faith-under-coercion/" style="color:var(--gold);">Faith under Coercion · Bridge and Eyes: Tuitio Fidei · Obsequium Pauperum &rarr;</a></p>
+
+    <p style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin:1.2rem 0 0.4rem;">Stewardship · 1/10 and the Long Horizon</p>
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.04rem;color:var(--body);line-height:1.88;margin:0 0 0.9rem;">
+      As a standing plan: one tenth of Logarchéon's distributions will be directed to the Church and her charitable works — a figure that matches the statutory rate for C-Corp charitable deductions under
+      <strong style="color:var(--cream);">IRC §170(b)(2)</strong>,
+      grounded theologically in the stewardship principles of
+      <strong style="color:var(--cream);">CCC 2402–2404</strong>
+      and
+      <strong style="color:var(--cream);">Canon 222</strong>.
+      The enterprise is at the opening of its J-curve; there is nothing to tithe yet. The intention is stated now because it should not wait for prosperity to be decided.
+    </p>
+
+    
+
+  </div>
+</div>
+<div style="max-width:860px;margin:2rem auto 2rem;padding:0 1.5rem;position:relative;z-index:1;">
+<p style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;margin:1rem 0 1.4rem;"><a href="/faith-under-coercion/" style="color:var(--gold);">Faith under Coercion · Genesis 3:22 · Hegel · Gramsci · Identity Integrity · 鎮壓 and the Long Tradition &rarr;</a></p>
+</div>
+</section>
+</div>
+<footer>
+  © <span id="yr"></span> William Huanshan Chuang · Logarchéon Inc.
+  All rights reserved. · U.S. provisional patent applications filed 2025.
+  · Views are the author’s own.
+</footer>
+</div>
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</body>
+</html>
