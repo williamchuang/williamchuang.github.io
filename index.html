@@ -544,7 +544,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
       <li><a href="#comparison" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Artificial Narrow Intelligence (ANI) vs Artificial Superintelligence (ASI)</a></li>
       <li><a href="#mathematics" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Mathematics</a></li>
-      <li><a href="#roadmap" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Roadmap</a></li>
+      <li><a href="#roadmap" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Progress</a></li>
       <li><a href="#language-rsi" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">recursive self-improvement (RSI)</a></li>
       <li><a href="#code-is-data" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .2s,background .2s;">Code = Data</a></li>
       <li><a href="#contact" class="btn-primary" style="font-size:0.72rem;padding:8px 18px;">Contact</a></li>
@@ -1568,30 +1568,55 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 <div class="container">
 
   <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Execution plan · one-person company</span>
+  <span class="mono" style="display:block;margin-bottom:16px;">Progress &middot; updated October 2026</span>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
-    48-Week Roadmap to Certification
+    Progress to Certification
   </h2>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:24px;">
-    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:3px solid var(--gold);padding:16px 20px;">
-      <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Phase 1 &middot; Weeks 1–18 &middot; ~8 months to here</div>
-      <p style="font-size:0.87rem;color:rgba(245,240,232,0.7);line-height:1.65;margin:0 0 6px;">Working product live by week 8. Six discriminating demos. Cert Level 3.</p>
-      <div style="font-family:'DM Mono',monospace;font-size:0.63rem;color:var(--gold-dim);">Confidence: weeks 1–8 ~90% &middot; weeks 9–18 ~75%</div>
-    </div>
-    <div style="background:var(--navy-mid);border:1px solid var(--border-dim);border-left:3px solid rgba(201,168,76,0.35);padding:16px 20px;">
-      <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;">Phase 2 &middot; Weeks 19–48 &middot; Cert Level 4–5</div>
-      <p style="font-size:0.87rem;color:rgba(245,240,232,0.5);line-height:1.65;margin:0 0 6px;">RSI closed loop. Physical-ASI seed evidence. User feedback compounds improvement.</p>
-      <div style="font-family:'DM Mono',monospace;font-size:0.63rem;color:rgba(201,168,76,0.35);">Confidence: weeks 19–32 ~60% &middot; weeks 33–48 ~50%</div>
-    </div>
-  </div>
-
-  <p style="color:rgba(245,240,232,0.4);font-size:0.83rem;max-width:68ch;margin-bottom:20px;line-height:1.7;border-left:2px solid var(--border-dim);padding-left:0.9rem;">
-    AI agents generate ~80% of the code. Irreplaceable human contributions: architecture decisions and
-    causal correctness judgements in the &Psi;-engine.
-    Timeline assumes undivided focus &mdash; part-time roughly doubles the calendar.
-    Cert Level&nbsp;4 (RSI closed loop) at week 32 is the primary target; Cert Level&nbsp;5 at week 48 is the stretch target.
+  <p style="color:rgba(245,240,232,0.55);font-size:0.9rem;max-width:68ch;margin-bottom:24px;line-height:1.7;">
+    Every commitment of the programme, marked as it stands. &ldquo;Complete&rdquo; means built and passed its
+    pre-registered test; &ldquo;research scale&rdquo; means on research-scale tasks, before the production model.
   </p>
+
+  <style>
+  .pg-tally { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px; }
+  .pg-chip { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.08em; text-transform:uppercase; padding:3px 9px; border-radius:2px; white-space:nowrap; }
+  .pg-chip.done { color:var(--gold); border:1px solid var(--border); background:var(--gold-glow); }
+  .pg-chip.prog { color:var(--gold); border:1px solid rgba(201,168,76,0.35); }
+  .pg-chip.plan { color:rgba(245,240,232,0.45); border:1px solid var(--border-dim); }
+  .pg-list { list-style:none; margin:0 0 36px; padding:0; border-top:1px solid var(--border-dim); columns:2; column-gap:32px; }
+  .pg-list li { break-inside:avoid; display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:9px 0; border-bottom:1px solid var(--border-dim); }
+  .pg-list .pg-item { font-size:0.86rem; color:rgba(245,240,232,0.78); line-height:1.45; }
+  .pg-list .pg-group { display:block; font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:2px; }
+  @media(max-width:760px){ .pg-list { columns:1; } }
+  </style>
+
+  <div class="pg-tally">
+    <span class="pg-chip done">13 complete</span>
+    <span class="pg-chip prog">4 in progress</span>
+    <span class="pg-chip plan">3 planned or research</span>
+  </div>
+  <ul class="pg-list">
+    <li><span class="pg-item"><span class="pg-group">Foundations</span>Lecture notes, formal verification layer and reproducible test harness</span><span class="pg-chip done">Complete</span></li>
+    <li><span class="pg-item"><span class="pg-group">Foundations</span>Language-level self-improvement prototype</span><span class="pg-chip done">Complete</span></li>
+    <li><span class="pg-item"><span class="pg-group">Foundations</span>GRAIL-native research build</span><span class="pg-chip done">Complete</span></li>
+    <li><span class="pg-item"><span class="pg-group">&Psi;-operator &mdash; causal engine</span>Causal identification with machine-checked derivations</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">&Psi;-operator &mdash; causal engine</span>Counterfactuals and inverse design with memory</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">&Psi;-operator &mdash; causal engine</span>Safe behavioural editing without retraining</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">&Psi;-operator &mdash; causal engine</span>Causal reversal and action-order demonstrations</span><span class="pg-chip prog">In progress</span></li>
+    <li><span class="pg-item"><span class="pg-group">CEAS &mdash; global coordination</span>Coordination scaling under the locality bound</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">CEAS &mdash; global coordination</span>Learned global coordination at scale</span><span class="pg-chip prog">In progress</span></li>
+    <li><span class="pg-item"><span class="pg-group">GRAIL &mdash; invariant geometry</span>Symmetry generalisation to unseen group elements</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">GRAIL &mdash; invariant geometry</span>Automorphic kernel inside the architecture</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">GRAIL &mdash; invariant geometry</span>Retrofit of existing models (MIA Tiers 0&ndash;2)</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">Integration and self-improvement</span>Triadic integration and the complete ablation</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">Integration and self-improvement</span>Closed self-improvement loop with a machine-checked gate</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">Integration and self-improvement</span>World-model self-improvement</span><span class="pg-chip done">Complete &middot; research scale</span></li>
+    <li><span class="pg-item"><span class="pg-group">Integration and self-improvement</span>Physical-ASI seed evidence: all test batteries, scaling exponents, public audit bundle</span><span class="pg-chip prog">In progress</span></li>
+    <li><span class="pg-item"><span class="pg-group">Product</span>Public deployment with free user access</span><span class="pg-chip prog">In progress</span></li>
+    <li><span class="pg-item"><span class="pg-group">Product</span>Self-improvement applied to production code</span><span class="pg-chip plan">Planned</span></li>
+    <li><span class="pg-item"><span class="pg-group">Long horizon</span>ASI claim: cluster-scale evidence across ten or more domains</span><span class="pg-chip plan">Planned</span></li>
+    <li><span class="pg-item"><span class="pg-group">Long horizon</span>Physics correspondences; quantum and topological substrates</span><span class="pg-chip plan">Research</span></li>
+  </ul>
 
   <!-- LANGUAGE ASSIGNMENT NOTE -->
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:36px;">
@@ -1655,116 +1680,112 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     color:rgba(245,240,232,0.4); border:1px solid var(--border-dim);
     padding:2px 7px; border-radius:2px; margin-top:6px;
   }
-  .rq-progress { display:inline-block; margin-left:6px; font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,168,76,0.35); padding:2px 7px; }
+  .rq-progress { display:inline-block; white-space:nowrap; margin-left:6px; font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,168,76,0.35); padding:2px 7px; }
   @media(max-width:900px){ .rq-grid{ grid-template-columns:repeat(2,1fr); } }
   @media(max-width:520px){ .rq-grid{ grid-template-columns:1fr; } }
   </style>
 
   <div class="rq-grid">
-    <div class="rq-phase-label">Phase 0 &mdash; Theory &amp; formal verification (complete)</div>
-
-    <div class="rq-card has-cert" style="border-left:3px solid var(--gold);">
-      <span class="rq-q">Complete &middot; Sept 2026</span>
-      <div class="rq-focus">Lecture notes v21.1 (510 pages) &middot; formal verification layer &middot; reproducible test harness</div>
-      <span class="rq-lang">Lean 4 + LaTeX + JAX</span>
-      <p class="rq-milestone">Theoretical framework, formal verification of core invariants, and a reproducible test harness.</p>
-      <span class="rq-cert" style="background:rgba(201,168,76,0.18);">&#10003; Done</span>
+    <div class="rq-phase-label">Foundations</div>
+    <div class="rq-card has-cert">
+      <div class="rq-focus">Lecture notes, formal verification layer and reproducible test harness</div>
+      <span class="rq-cert">Complete</span>
     </div>
-
-    <div class="rq-card" style="border-left:3px solid rgba(201,168,76,0.35);">
-      <span class="rq-q">Complete &middot; Sept 2026</span>
+    <div class="rq-card has-cert">
       <div class="rq-focus">Language-level self-improvement prototype</div>
-      <span class="rq-lang">Racket + Lean 4</span>
-      <p class="rq-milestone">Gated loop: each language change must make more errors impossible, keep every known-good program valid, and improve on the error suite.</p>
-      <span class="rq-cert" style="background:rgba(201,168,76,0.18);">&#10003; Done</span>
+      <p class="rq-milestone">Racket + Lean&nbsp;4</p>
+      <span class="rq-cert">Complete</span>
     </div>
-
-    <div class="rq-card" style="border-left:3px solid rgba(201,168,76,0.35);">
-      <span class="rq-q">Complete &middot; Oct 2026</span>
+    <div class="rq-card has-cert">
       <div class="rq-focus">GRAIL-native research build</div>
-      <span class="rq-lang">Python + Racket + Lean 4</span>
-      <p class="rq-milestone">The architecture's own primitives implemented from first principles, with their invariance properties verified, and gated self-improvement loops whose every accepted step carries a machine-checked certificate.</p>
-      <span class="rq-cert" style="background:rgba(201,168,76,0.18);">&#10003; Done</span>
+      <p class="rq-milestone">The architecture&rsquo;s own primitives, implemented from first principles</p>
+      <span class="rq-cert">Complete</span>
     </div>
-
-    <div class="rq-card" style="border-left:3px solid rgba(201,168,76,0.2);">
-      <span class="rq-q">Next</span>
-      <div class="rq-focus">Scale the gated loop to production code</div>
-      <span class="rq-lang">Racket + Lean 4 + Python</span>
-      <p class="rq-milestone">Apply the gated language loop to the production codebase.</p>
+    <div class="rq-phase-label">&Psi;-operator &mdash; causal engine</div>
+    <div class="rq-card has-cert">
+      <div class="rq-focus">Causal identification with machine-checked derivations</div>
+      <p class="rq-milestone">SWI-Prolog + Lean&nbsp;4</p>
+      <span class="rq-cert">Complete &middot; research scale</span>
     </div>
-
-    <div class="rq-phase-label">Phase 1 &mdash; Working product, discriminating demos, Cert Level 3</div>
-
+    <div class="rq-card has-cert">
+      <div class="rq-focus">Counterfactuals and inverse design with memory</div>
+      <p class="rq-milestone">Demo E</p>
+      <span class="rq-cert">Complete &middot; research scale</span>
+    </div>
+    <div class="rq-card has-cert">
+      <div class="rq-focus">Safe behavioural editing without retraining</div>
+      <span class="rq-cert">Complete &middot; research scale</span>
+    </div>
     <div class="rq-card">
-      <span class="rq-q">Weeks 1–2</span>
-      <div class="rq-focus">Deploy existing model</div>
-      <span class="rq-lang">Python / FastAPI</span>
-      <p class="rq-milestone">Public URL live. Oracle Cloud ARM serving the trained CEAS+&Psi;+GRAIL model. Supabase auth. Free user access from day one.</p>
+      <div class="rq-focus">Causal reversal and action-order demonstrations</div>
+      <p class="rq-milestone">Demos A + B &middot; public release with the product</p>
+      <span class="rq-progress" style="margin-left:0;">In progress</span>
     </div>
-
+    <div class="rq-phase-label">CEAS &mdash; global coordination</div>
+    <div class="rq-card has-cert">
+      <div class="rq-focus">Coordination scaling under the locality bound</div>
+      <p class="rq-milestone">Demo C</p>
+      <span class="rq-cert">Complete &middot; research scale</span>
+    </div>
     <div class="rq-card">
-      <span class="rq-q">Weeks 3–6</span>
-      <div class="rq-focus">&Psi;-causal engine</div>
-      <span class="rq-lang">SWI-Prolog</span>
-      <p class="rq-milestone">&Psi;-engine outperforms correlation-only LLMs on a do-calculus evaluation suite. Causal reversal and action-order demos live. Correlation-only models cannot identify this in general.</p>
-      <span class="rq-demo-badge">Demos A + B</span>
+      <div class="rq-focus">Learned global coordination at scale</div>
+      <span class="rq-progress" style="margin-left:0;">In progress</span>
     </div>
-
+    <div class="rq-phase-label">GRAIL &mdash; invariant geometry</div>
     <div class="rq-card has-cert">
-      <span class="rq-q">Weeks 7–8</span>
-      <div class="rq-focus">CEAS coordination</div>
-      <span class="rq-lang">Python / JAX</span>
-      <p class="rq-milestone">T<sub>CEAS</sub>(N) = o(N) scaling chart &mdash; crossover with local attention visible at a defined scale threshold. First public milestone: product live, two demos running.</p>
-      <span class="rq-demo-badge">Demo C</span>
+      <div class="rq-focus">Symmetry generalisation to unseen group elements</div>
+      <p class="rq-milestone">Demo D</p>
+      <span class="rq-cert">Complete &middot; research scale</span>
     </div>
-
     <div class="rq-card has-cert">
-      <span class="rq-q">Weeks 9–11</span>
-      <div class="rq-focus">GRAIL geometry</div>
-      <span class="rq-lang">Python / JAX</span>
-      <p class="rq-milestone">Symmetry generalisation to unseen group elements. &epsilon;<sub>twin</sub> &le; 10<sup>&minus;6</sup>. Invariance holds by construction.</p>
-      <span class="rq-cert">Cert Level 2</span>
-      <span class="rq-demo-badge" style="margin-left:6px;">Demo D</span>
-      <span class="rq-progress">In progress</span>
+      <div class="rq-focus">Automorphic kernel inside the architecture</div>
+      <span class="rq-cert">Complete &middot; research scale</span>
     </div>
-
     <div class="rq-card has-cert">
-      <span class="rq-q">Weeks 12–18</span>
-      <div class="rq-focus">Triadic integration</div>
-      <span class="rq-lang">Lean 4 + Racket + JAX</span>
-      <p class="rq-milestone">All three components wired. Pre-registered ablation: the complete triad against all 7 variants.</p>
-      <span class="rq-cert">Cert Level 3</span>
+      <div class="rq-focus">Retrofit of existing models (MIA Tiers 0&ndash;2)</div>
+      <span class="rq-cert">Complete &middot; research scale</span>
     </div>
-
-    <div class="rq-phase-label p2">Phase 2 &mdash; Memory, RSI loop, Cert Level 4&ndash;5 (research, not guaranteed)</div>
-
+    <div class="rq-phase-label">Integration and self-improvement</div>
+    <div class="rq-card has-cert">
+      <div class="rq-focus">Triadic integration and the complete ablation</div>
+      <p class="rq-milestone">Cert Level 3</p>
+      <span class="rq-cert">Complete &middot; research scale</span>
+    </div>
+    <div class="rq-card has-cert">
+      <div class="rq-focus">Closed self-improvement loop with a machine-checked gate</div>
+      <p class="rq-milestone">Cert Level 4 &middot; Demo F</p>
+      <span class="rq-cert">Complete &middot; research scale</span>
+    </div>
+    <div class="rq-card has-cert">
+      <div class="rq-focus">World-model self-improvement</div>
+      <p class="rq-milestone">Causal structure, symmetry and temperature schedule</p>
+      <span class="rq-cert">Complete &middot; research scale</span>
+    </div>
     <div class="rq-card">
-      <span class="rq-q">Weeks 19–22</span>
-      <div class="rq-focus">Memory + inverse design</div>
-      <span class="rq-lang">Racket + Python</span>
-      <p class="rq-milestone">Episodic + semantic memory. Inverse design: given target state, compute action sequence. Pearl Rung 4 &mdash; LLMs cannot invert physical dynamics outside training data.</p>
-      <span class="rq-demo-badge">Demo E</span>
+      <div class="rq-focus">Physical-ASI seed evidence: all test batteries, scaling exponents, public audit bundle</div>
+      <p class="rq-milestone">Cert Level 5</p>
+      <span class="rq-progress" style="margin-left:0;">In progress</span>
     </div>
-
-    <div class="rq-card has-cert">
-      <span class="rq-q">Weeks 23–32</span>
-      <div class="rq-focus">RSI-0 closed loop</div>
-      <span class="rq-lang">Racket + Lean 4 + Python</span>
-      <p class="rq-milestone">A defined minimum of verified cycles. No manual edits inside the loop. Lean&nbsp;4 gate active. User feedback compounds improvement each verified cycle.</p>
-      <span class="rq-cert">Cert Level 4</span>
-      <span class="rq-demo-badge" style="margin-left:6px;">Demo F</span>
-      <span class="rq-progress">In progress</span>
+    <div class="rq-phase-label">Product</div>
+    <div class="rq-card">
+      <div class="rq-focus">Public deployment with free user access</div>
+      <p class="rq-milestone">FastAPI &middot; Oracle Cloud ARM &middot; Supabase</p>
+      <span class="rq-progress" style="margin-left:0;">In progress</span>
     </div>
-
-    <div class="rq-card has-cert">
-      <span class="rq-q">Weeks 33–48</span>
-      <div class="rq-focus">Physical-ASI seed evidence</div>
-      <span class="rq-lang">All four languages</span>
-      <p class="rq-milestone">All 23 test batteries. J(N) = &alpha;N<sup>&minus;p</sup> with p<sub>triad</sub> &gt; p<sub>baseline</sub>. Complete audit bundle on GitHub. Cert Level 5 if all 23 pass simultaneously.</p>
-      <span class="rq-cert" style="background:rgba(201,168,76,0.18);border-color:var(--gold);">Cert Level 5 attempt</span>
+    <div class="rq-card">
+      <div class="rq-focus">Self-improvement applied to production code</div>
+      <span class="rq-demo-badge">Planned</span>
     </div>
-
+    <div class="rq-phase-label">Long horizon</div>
+    <div class="rq-card">
+      <div class="rq-focus">ASI claim: cluster-scale evidence across ten or more domains</div>
+      <p class="rq-milestone">Cert Level 6</p>
+      <span class="rq-demo-badge">Planned</span>
+    </div>
+    <div class="rq-card">
+      <div class="rq-focus">Physics correspondences; quantum and topological substrates</div>
+      <span class="rq-demo-badge">Research</span>
+    </div>
   </div>
 
   <!-- 6 DEMOS -->
@@ -1809,7 +1830,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
     <div class="demo-card">
       <span class="demo-letter">A</span>
-      <span class="demo-when">Weeks 3&ndash;4</span>
+      <span class="demo-when">In progress</span>
       <div class="demo-title">Causal reversal</div>
       <p class="demo-why">A dataset where X appears to prevent Y in observed data, but causes Y when you intervene. LLMs give the wrong direction. The &Psi;-engine computes P(Y|do(X=x)) by SCM mutilation &mdash; correct whenever the effect is identifiable.</p>
       <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.1</div>
@@ -1817,7 +1838,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
     <div class="demo-card">
       <span class="demo-letter">B</span>
-      <span class="demo-when">Weeks 5&ndash;6</span>
+      <span class="demo-when">In progress</span>
       <div class="demo-title">Action order matters</div>
       <p class="demo-why">&ldquo;Open drawer then grasp&rdquo; &ne; &ldquo;grasp then open drawer.&rdquo; LLMs treat these as semantically similar. &Psi;-causal has [T<sub>a</sub>,&thinsp;T<sub>b</sub>] built in &mdash; the commutator is measurable and non-zero.</p>
       <div class="demo-proof">Design principle &middot; lecture notes v21.1</div>
@@ -1825,7 +1846,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
     <div class="demo-card">
       <span class="demo-letter">C</span>
-      <span class="demo-when">Weeks 7&ndash;8</span>
+      <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Global coordination scaling</div>
       <p class="demo-why">On N-bit global parity, CEAS reduces coordination rounds via the rank-one collective variable &phi;(t). Crossover with local attention visible at a measurable scale threshold on a reproducible chart.</p>
       <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.1</div>
@@ -1833,15 +1854,15 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
     <div class="demo-card">
       <span class="demo-letter">D</span>
-      <span class="demo-when">Weeks 9&ndash;11</span>
-      <div class="demo-title">Symmetry generalisation <span class="rq-progress">In progress</span></div>
+      <span class="demo-when">Complete &middot; research scale</span>
+      <div class="demo-title">Symmetry generalisation</div>
       <p class="demo-why">Train on a set of group elements; test on unseen elements from the same group. GRAIL: zero error gap. Euclidean transformer: degrades. I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k) holds by construction, not by approximation.</p>
       <div class="demo-proof">&epsilon;<sub>twin</sub> &le; 10<sup>&minus;6</sup> &middot; GRAIL invariant kernel</div>
     </div>
 
     <div class="demo-card">
       <span class="demo-letter">E</span>
-      <span class="demo-when">Weeks 19&ndash;22</span>
+      <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Physical inverse design</div>
       <p class="demo-why">Given a target state, compute the action sequence that causes it. LLMs pattern-match forward &mdash; they do not invert physical dynamics outside their training distribution. The &Psi;-engine solves this by construction.</p>
       <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.1</div>
@@ -1849,8 +1870,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
     <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
       <span class="demo-letter" style="color:rgba(201,168,76,0.55);">F</span>
-      <span class="demo-when">Weeks 23&ndash;32</span>
-      <div class="demo-title">Autonomous improvement loop <span class="rq-progress">In progress</span></div>
+      <span class="demo-when">Complete &middot; research scale</span>
+      <div class="demo-title">Autonomous improvement loop</div>
       <p class="demo-why">A defined minimum of closed-loop cycles with no human edits inside the loop. Lean&nbsp;4 gate active throughout. User queries feed the continuous fine-tuning cycle.</p>
       <div class="demo-proof">Gated closed loop &middot; pre-registered cycle count</div>
     </div>
@@ -1864,23 +1885,23 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <div style="display:flex;flex-direction:column;gap:6px;">
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.3);width:56px;flex-shrink:0;">Level 1</span>
-          <span style="color:rgba(245,240,232,0.35);">ANI &mdash; one task or one domain</span>
+          <span style="color:rgba(245,240,232,0.35);">ANI &mdash; one task or one domain</span><span class="rq-progress">Complete &middot; research scale</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.3);width:56px;flex-shrink:0;">Level 2</span>
-          <span style="color:rgba(245,240,232,0.45);">One component beats its baseline (week 11)</span><span class="rq-progress">In progress</span>
+          <span style="color:rgba(245,240,232,0.45);">One component beats its baseline</span><span class="rq-progress">Complete &middot; research scale</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.3);width:56px;flex-shrink:0;">Level 3</span>
-          <span style="color:rgba(245,240,232,0.55);">Triad beats all 7 ablation variants (week 18)</span>
+          <span style="color:rgba(245,240,232,0.55);">Triad beats all 7 ablation variants</span><span class="rq-progress">Complete &middot; research scale</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;background:var(--gold-glow);padding:6px 8px;border-radius:2px;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);width:56px;flex-shrink:0;">Level 4</span>
-          <span style="color:rgba(245,240,232,0.75);">&ge;20 closed-loop RSI cycles, no manual edits (week 32)</span><span class="rq-progress">In progress</span>
+          <span style="color:rgba(245,240,232,0.75);">&ge;20 closed-loop RSI cycles, no manual edits</span><span class="rq-progress">Complete &middot; research scale</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;background:rgba(201,168,76,0.1);padding:6px 8px;border-radius:2px;border:1px solid var(--border);">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);width:56px;flex-shrink:0;">Level 5</span>
-          <span style="color:rgba(245,240,232,0.85);">Physical-ASI seed &mdash; all 23 tests, all 4 Pearl rungs, GRAIL orbit verified (week 48)</span>
+          <span style="color:rgba(245,240,232,0.85);">Physical-ASI seed &mdash; all 23 tests, all 4 Pearl rungs, GRAIL orbit verified</span><span class="rq-progress">In progress</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;padding:6px 8px;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.2);width:56px;flex-shrink:0;">Level 6</span>
