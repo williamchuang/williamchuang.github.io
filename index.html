@@ -1934,6 +1934,188 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 </div>
 </section>
 
+<!-- ═══ SELF-EVALUATION · 2 October 2026 · BEGIN ═══
+     Self-contained block (markup + scoped styles). To update, replace everything from this
+     BEGIN comment through the matching END comment with the next dated evaluation. -->
+<section id="self-evaluation" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+  <style>
+  #self-evaluation .se-h3 { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:var(--gold-light); margin:34px 0 10px; }
+  #self-evaluation .se-chips { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 8px; }
+  #self-evaluation .se-chip { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border); background:var(--gold-glow); padding:4px 10px; border-radius:2px; }
+  #self-evaluation .se-wrap { overflow-x:auto; border:1px solid var(--border-dim); border-radius:3px; margin:8px 0 10px; }
+  #self-evaluation table { border-collapse:collapse; width:100%; font-family:'DM Mono',monospace; font-size:0.72rem; color:rgba(245,240,232,0.78); }
+  #self-evaluation th { text-align:left; font-weight:400; font-size:0.6rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); padding:9px 10px; border-bottom:1px solid var(--border); white-space:nowrap; background:rgba(14,31,58,0.6); }
+  #self-evaluation td { padding:7px 10px; border-bottom:1px solid var(--border-dim); vertical-align:top; white-space:nowrap; }
+  #self-evaluation td:first-child + td, #self-evaluation .se-q td:first-child { white-space:normal; min-width:150px; }
+  #self-evaluation .se-q td:first-child { min-width:280px; max-width:380px; }
+  #self-evaluation tr.se-me td { color:var(--gold-light); background:var(--gold-glow); }
+  #self-evaluation tr.se-cal td { color:rgba(245,240,232,0.5); font-style:italic; }
+  #self-evaluation .se-note { font-size:0.8rem; color:rgba(245,240,232,0.5); line-height:1.65; max-width:90ch; margin:0 0 6px; }
+  #self-evaluation .se-legend { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:6px 24px; margin:10px 0 12px; font-size:0.8rem; color:rgba(245,240,232,0.62); line-height:1.55; }
+  #self-evaluation .se-legend b { font-family:'DM Mono',monospace; font-weight:400; color:var(--gold); margin-right:6px; }
+  #self-evaluation .se-formula { font-family:'DM Mono',monospace; font-size:0.78rem; color:var(--gold-light); background:rgba(14,31,58,0.55); border-left:3px solid var(--gold-dim); padding:10px 14px; margin:10px 0; overflow-x:auto; white-space:nowrap; }
+  #self-evaluation pre { font-family:'DM Mono',monospace; font-size:0.7rem; line-height:1.5; color:rgba(245,240,232,0.75); background:rgba(14,31,58,0.55); border:1px solid var(--border-dim); border-radius:3px; padding:14px 16px; overflow-x:auto; margin:8px 0 10px; }
+  #self-evaluation details summary { cursor:pointer; font-family:'DM Mono',monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); padding:8px 0; }
+  #self-evaluation a.se-link { color:var(--gold); text-decoration:none; border-bottom:1px solid var(--border); }
+  </style>
+
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Self-evaluation &middot; 2 October 2026</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    Where the current build stands
+  </h2>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:14px;">
+    Logarch&eacute;on&rsquo;s current build (CEAS&ndash;&Psi;&ndash;GRAIL) placed among 51 AI developments of 2026, each scored from
+    measured numbers on one [0,&nbsp;100] line. Status as of 2 October 2026.
+    <a class="se-link" href="/ai-ladder-evaluation-2026-10-02/index.html">Complete study &rarr;</a>
+  </p>
+  <div class="se-chips">
+    <span class="se-chip">Ungated line &middot; 1st of 51 &middot; 61.4</span>
+    <span class="se-chip">Strict line &middot; 1st of 51 &middot; 61.4</span>
+    <span class="se-chip">Strict ladder index &middot; 75.9</span>
+    <span class="se-chip">Computed level &middot; 5 (4&dagger;)</span>
+  </div>
+
+  <h3 class="se-h3">1 &middot; Measured ladder quantities</h3>
+  <p class="se-note">Eight quantities, each in [0,&nbsp;1], computed only from measured numbers.</p>
+  <div class="se-legend">
+    <div><b>C</b>coordination: 1 &minus; q (q = architectural fact or measured round count)</div>
+    <div><b>&Psi;</b>causal: mean of &acirc;&#8322;, &acirc;&#8323;, abstention rate, inverse-design success (chance-corrected)</div>
+    <div><b>G</b>invariance: min(1, acc<sub>unseen</sub>/acc<sub>seen</sub>) on held-out group elements</div>
+    <div><b>R</b>loop: min(1, K/20)&middot;(1 &minus; h), K self-modifying cycles, h human step</div>
+    <div><b>U</b>control across cycles: g&middot;min(1, cycles/2), g = fraction of remaining error removed</div>
+    <div><b>H</b>held-out verification: 1 third-party blind, 0.5 developer-held hidden set, 0 none</div>
+    <div><b>B</b>breadth: min(1, n/10), n domains at or above the best human</div>
+    <div><b>S</b>scaling: 1 if a fitted exponent&rsquo;s CI excludes 0, else 0</div>
+    <div><b>P</b>pillar core: (C&middot;&Psi;&middot;G)<sup>1/3</sup></div>
+  </div>
+  <div class="se-formula">Strict I = 100 &middot; P &middot; [1 + R + (U + H)/2 + (B + S)/2] / 4 &nbsp;&nbsp;&middot;&nbsp;&nbsp; Alt A = 100 &middot; mean(C, &Psi;, G, R, U, H, B, S)</div>
+  <div class="se-wrap"><table class="se-q">
+    <thead><tr><th>System</th><th>C</th><th>Ψ</th><th>G</th><th>R</th><th>U</th><th>H</th><th>B</th><th>S</th><th>P</th><th>Strict I</th><th>Bounded I</th><th>Alt A</th><th>Level</th></tr></thead>
+    <tbody>
+<tr class="se-me"><td>Logarchéon current build</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0.574</td><td>0.5</td><td>0 (·)</td><td>1</td><td>1</td><td>75.9</td><td>75.9–88.4</td><td>75.9</td><td>5 (4†)</td></tr>
+<tr><td>Hyperagents</td><td>1</td><td>·</td><td>·</td><td>1</td><td>0.332</td><td>0.5</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–85.4</td><td>35.4</td><td>2</td></tr>
+<tr><td>GPT-6 Astra</td><td>1</td><td>·</td><td>·</td><td>0 (≤0.5)</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–87.5</td><td>25.0</td><td>2</td></tr>
+<tr><td>GPT-6.1 Sol, GPT-5.6 Sol, Opus 5, Opus 5.5, Opus 4.8, Gemini 3.8 Flash, Grok 4.6, Kimi K3, Qwen3.8 (27B), GLM-5.3, Seed, Sakana AI Scientist, Co-Scientist, AlphaProof, Aristotle</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–100</td><td>25.0</td><td>2</td></tr>
+<tr><td>Darwin Gödel Machine</td><td>1</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–100</td><td>25.0</td><td>2</td></tr>
+<tr><td>MACE / GNoME</td><td>0.667 (≤1)</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–100</td><td>20.8</td><td>2 (via G)</td></tr>
+<tr><td>DeepSeek V4-Pro</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0.5</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–93.8</td><td>18.8</td><td>2</td></tr>
+<tr><td>Huxley-Gödel Machine</td><td>1</td><td>·</td><td>·</td><td>0</td><td>·</td><td>0.5</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–93.8</td><td>18.8</td><td>2</td></tr>
+<tr><td>Self-improving embodied FMs</td><td>1</td><td>·</td><td>·</td><td>0 (≤0.05)</td><td>0.300</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–67.5</td><td>16.3</td><td>2</td></tr>
+<tr><td>π*0.6</td><td>1</td><td>·</td><td>·</td><td>0</td><td>0.25 (≤0.5)</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–93.8</td><td>15.6</td><td>2</td></tr>
+<tr><td>AlphaEvolve</td><td>1</td><td>0.238</td><td>·</td><td>0</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–99.6</td><td>15.5</td><td>2</td></tr>
+<tr><td>GPT-5.5 / 5.3</td><td>1</td><td>0.085</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–94.2</td><td>13.6</td><td>2</td></tr>
+<tr><td>Gemini 4 Argon, Muse Spark, V-JEPA 2-AC, Absolute Zero, Gemini Robotics 2, GR00T, AgiBot GO-2, AlphaFold 3</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–100</td><td>12.5</td><td>2</td></tr>
+<tr class="se-cal"><td>Calibration: GPT-4 on CLadder</td><td>1</td><td>0.117</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0</td><td>0</td><td>0–85.1</td><td>14.0</td><td>2</td></tr>
+<tr class="se-cal"><td>Calibration: Euclidean transformer inside the build</td><td>1</td><td>—</td><td>0.300</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="se-note">&ldquo;&middot;&rdquo; unmeasured (strict value 0; bounded value runs over [0,&nbsp;1]); a narrower bounded range is given in parentheses. &ldquo;&mdash;&rdquo; not applicable. Bounded I runs from the strict value to the value with every unmeasured cell at 1.
+  &dagger; Level 4 applies if U is read against the loop&rsquo;s own earlier miss, which rises with wear, instead of against the frozen controller.</p>
+
+  <h3 class="se-h3">2 &middot; The index line</h3>
+  <pre>STRICT INDEX (necessity-gated)
+0         20        40        60        80       100
+|---------|---------|---------|---------|---------|
+X  ← 33 systems at 0 (Astra, Opus 5.5, Gemini 4, Hyperagents, DGM, AlphaEvolve, robots, provers …)
+                                      L (Logarchéon build) 75.9
+bounded:  build [75.9 ===== 88.4]   EFM [0 ====== 67.5]   Hyperagents [0 ======= 85.4]
+          Astra [0 ======= 87.5]   most others [0 ========== 100]
+
+ALTERNATIVE A (arithmetic mean, no necessity gate)
+0         20        40        60        80       100
+|---------|---------|---------|---------|---------|
+      ^12.5 Argon, Muse, V-JEPA, robots, AF3
+        ^15.5-16.3 AlphaEvolve, π*0.6, EFM
+         ^18.8-20.8 DeepSeek, HGM, MACE
+            ^25.0 ARC-verified LLMs, DGM, provers, Co-Scientist, Sakana
+                ^35.4 Hyperagents
+                                      ^75.9 Logarchéon build</pre>
+
+  <h3 class="se-h3">3 &middot; The leaders on each reading</h3>
+  <div class="se-formula">Score = (20&middot;B1 + 15&middot;B2 + 15&middot;B5 + 15&middot;Q/10) / 6.5 &nbsp;&nbsp;&middot;&nbsp;&nbsp; ungated: Q = Alt A &nbsp;&middot;&nbsp; strict: Q = Strict I</div>
+  <div class="se-wrap"><table>
+    <thead><tr><th>#</th><th>Ungated reading</th><th>Score</th><th>#</th><th>Strict reading</th><th>Score</th></tr></thead>
+    <tbody>
+<tr class="se-me"><td>1</td><td>Logarchéon current build</td><td>61.4</td><td>1</td><td>Logarchéon current build</td><td>61.4</td></tr>
+<tr><td>2</td><td>Hyperagents</td><td>60.5</td><td>2=</td><td>AlphaEvolve</td><td>52.3</td></tr>
+<tr><td>3</td><td>AlphaEvolve</td><td>55.9</td><td>2=</td><td>Hyperagents</td><td>52.3</td></tr>
+<tr><td>4</td><td>Darwin Gödel Machine</td><td>55.8</td><td>4</td><td>Darwin Gödel Machine</td><td>50.0</td></tr>
+<tr><td>5</td><td>Equivariant scientific ML</td><td>54.0</td><td>5=</td><td>Equivariant scientific ML</td><td>49.2</td></tr>
+<tr><td>6</td><td>Self-improving robot models</td><td>53.0</td><td>5=</td><td>V-JEPA 2-AC</td><td>49.2</td></tr>
+<tr><td>7</td><td>AlphaProof</td><td>52.7</td><td>5=</td><td>Self-improving robot models</td><td>49.2</td></tr>
+<tr><td>8</td><td>V-JEPA 2-AC</td><td>52.1</td><td>8=</td><td>AlphaProof, Absolute Zero, Huxley-Gödel Machine</td><td>46.9</td></tr>
+    </tbody>
+  </table></div>
+  <p class="se-note">B1 novelty, B2 breadth per resource, B5 protocol discipline (each 0&ndash;10); Q the measured ladder index. With the conservative ladder index (64.2), the current build scores 58.7 and ranks second on the ungated reading.</p>
+
+  <h3 class="se-h3">4 &middot; The 51-development mixed line</h3>
+  <details>
+    <summary>Show all 51 developments</summary>
+    <div class="se-wrap"><table>
+      <thead><tr><th>#</th><th>Development</th><th>Group</th><th>Rank (0–12)</th><th>Level</th><th>B1</th><th>B2</th><th>B5</th><th>Q-ung.</th><th>Ungated</th><th>Q-str.</th><th>Strict</th></tr></thead>
+      <tbody>
+<tr class="se-me"><td>1</td><td>Logarchéon current build (CEAS–Ψ–GRAIL)</td><td>Logarchéon</td><td>1 (aim 8→10)</td><td>L5 own rule</td><td>4.5</td><td>5</td><td>8</td><td>75.9</td><td>61.4</td><td>75.9</td><td>61.4</td></tr>
+<tr><td>2</td><td>Hyperagents</td><td>Self-improvement loops</td><td>4</td><td>L1</td><td>8</td><td>6</td><td>6</td><td>35.4</td><td>60.5</td><td>0</td><td>52.3</td></tr>
+<tr><td>3</td><td>AlphaEvolve</td><td>Self-improvement loops</td><td>4</td><td>L1</td><td>8</td><td>6</td><td>6</td><td>15.5</td><td>55.9</td><td>0</td><td>52.3</td></tr>
+<tr><td>4</td><td>Darwin Gödel Machine</td><td>Self-improvement loops</td><td>4</td><td>L1</td><td>8</td><td>5</td><td>6</td><td>25</td><td>55.8</td><td>0</td><td>50.0</td></tr>
+<tr><td>5</td><td>Equivariant sci-ML</td><td>Science, proof &amp; geometry</td><td>1</td><td>L2</td><td>7</td><td>5</td><td>7</td><td>20.8</td><td>54.0</td><td>0</td><td>49.2</td></tr>
+<tr><td>6</td><td>Self-improving EFMs</td><td>World models &amp; robotics</td><td>8 (partial)</td><td>L1</td><td>7</td><td>6</td><td>6</td><td>16.3</td><td>53.0</td><td>0</td><td>49.2</td></tr>
+<tr><td>7</td><td>AlphaProof</td><td>Science, proof &amp; geometry</td><td>1</td><td>L1</td><td>7</td><td>4</td><td>7</td><td>25</td><td>52.7</td><td>0</td><td>46.9</td></tr>
+<tr><td>8</td><td>V-JEPA 2-AC</td><td>World models &amp; robotics</td><td>8 (partial)</td><td>L1</td><td>7</td><td>6</td><td>6</td><td>12.5</td><td>52.1</td><td>0</td><td>49.2</td></tr>
+<tr><td>9</td><td>Harmonic Aristotle</td><td>Science, proof &amp; geometry</td><td>1</td><td>L1</td><td>6</td><td>4</td><td>8</td><td>25</td><td>51.9</td><td>0</td><td>46.2</td></tr>
+<tr><td>10</td><td>Huxley-Gödel Machine</td><td>Self-improvement loops</td><td>4</td><td>L1</td><td>7</td><td>5</td><td>6</td><td>18.8</td><td>51.3</td><td>0</td><td>46.9</td></tr>
+<tr><td>11</td><td>DeepSeek V4-Pro</td><td>Chinese models</td><td>4–5</td><td>L1</td><td>6</td><td>6</td><td>6</td><td>18.8</td><td>50.5</td><td>0</td><td>46.2</td></tr>
+<tr><td>12</td><td>Absolute Zero Reasoner</td><td>Self-improvement loops</td><td>4</td><td>L1</td><td>7</td><td>5</td><td>6</td><td>12.5</td><td>49.8</td><td>0</td><td>46.9</td></tr>
+<tr><td>13</td><td>Co-Scientist</td><td>Self-improvement loops</td><td>3</td><td>L1</td><td>6</td><td>5</td><td>6</td><td>25</td><td>49.6</td><td>0</td><td>43.8</td></tr>
+<tr><td>14</td><td>Sakana AI Scientist</td><td>Self-improvement loops</td><td>3–4</td><td>L1</td><td>6</td><td>5</td><td>5</td><td>25</td><td>47.3</td><td>0</td><td>41.5</td></tr>
+<tr><td>15</td><td>AlphaFold 3</td><td>Science, proof &amp; geometry</td><td>1</td><td>L1</td><td>6</td><td>5</td><td>6</td><td>12.5</td><td>46.7</td><td>0</td><td>43.8</td></tr>
+<tr><td>16</td><td>DoWhy / y0 / Ananke</td><td>Science, proof &amp; geometry</td><td>0</td><td>L2</td><td>5</td><td>3</td><td>8</td><td>12.5</td><td>43.7</td><td>0</td><td>40.8</td></tr>
+<tr><td>17</td><td>UAE K2 Think / Falcon H1R</td><td>Rest of world</td><td>3</td><td>L1</td><td>4</td><td>5</td><td>7</td><td>12.5</td><td>42.9</td><td>0</td><td>40.0</td></tr>
+<tr><td>18</td><td>Physical Intelligence π0.5/π*0.6</td><td>World models &amp; robotics</td><td>8 (partial)</td><td>L1</td><td>6</td><td>5</td><td>4</td><td>15.6</td><td>42.8</td><td>0</td><td>39.2</td></tr>
+<tr><td>19</td><td>Kimi K3</td><td>Chinese models</td><td>4–5</td><td>L1</td><td>5</td><td>5</td><td>4</td><td>25</td><td>41.9</td><td>0</td><td>36.2</td></tr>
+<tr><td>20</td><td>Anthropic Opus 5/5.5, Mythos</td><td>US frontier models</td><td>5</td><td>L1</td><td>4</td><td>4</td><td>6</td><td>25</td><td>41.2</td><td>0</td><td>35.4</td></tr>
+<tr><td>21</td><td>Genie 3</td><td>World models &amp; robotics</td><td>n/a</td><td>n/a</td><td>6</td><td>4</td><td>4</td><td>12.5</td><td>39.8</td><td>0</td><td>36.9</td></tr>
+<tr><td>22</td><td>GPT-6 Astra</td><td>US frontier models</td><td>5</td><td>L1</td><td>5</td><td>4</td><td>4</td><td>25</td><td>39.6</td><td>0</td><td>33.8</td></tr>
+<tr><td>23</td><td>Apertus 1.5</td><td>Rest of world</td><td>2–3</td><td>L1</td><td>2</td><td>4</td><td>9</td><td>12.5</td><td>39.0</td><td>0</td><td>36.2</td></tr>
+<tr><td>23</td><td>Gemini Robotics 2</td><td>World models &amp; robotics</td><td>8 (partial)</td><td>L1</td><td>5</td><td>5</td><td>4</td><td>12.5</td><td>39.0</td><td>0</td><td>36.2</td></tr>
+<tr><td>23</td><td>Intern-S2</td><td>Chinese models</td><td>4–5</td><td>L1</td><td>5</td><td>5</td><td>4</td><td>12.5</td><td>39.0</td><td>0</td><td>36.2</td></tr>
+<tr><td>23</td><td>NVIDIA Cosmos / GR00T</td><td>World models &amp; robotics</td><td>8 (partial)</td><td>L1</td><td>5</td><td>5</td><td>4</td><td>12.5</td><td>39.0</td><td>0</td><td>36.2</td></tr>
+<tr><td>27</td><td>ByteDance Seed 2.0 / Prover</td><td>Chinese models</td><td>4–5</td><td>L1</td><td>4</td><td>5</td><td>4</td><td>25</td><td>38.8</td><td>0</td><td>33.1</td></tr>
+<tr><td>28</td><td>Korea sovereign FMs</td><td>Rest of world</td><td>3</td><td>L1</td><td>4</td><td>5</td><td>5</td><td>12.5</td><td>38.3</td><td>0</td><td>35.4</td></tr>
+<tr><td>29</td><td>AgiBot GO-2</td><td>World models &amp; robotics</td><td>8 (partial)</td><td>L1</td><td>5</td><td>5</td><td>3</td><td>12.5</td><td>36.7</td><td>0</td><td>33.8</td></tr>
+<tr><td>29</td><td>Hyperbolic nets incl. HELM</td><td>Science, proof &amp; geometry</td><td>1–2</td><td>L2</td><td>5</td><td>3</td><td>5</td><td>12.5</td><td>36.7</td><td>0</td><td>33.8</td></tr>
+<tr><td>29</td><td>OpenAI research intern</td><td>Self-improvement loops</td><td>4</td><td>L1</td><td>5</td><td>4</td><td>4</td><td>12.5</td><td>36.7</td><td>0</td><td>33.8</td></tr>
+<tr><td>32</td><td>Qwen3.8-Max</td><td>Chinese models</td><td>4–5</td><td>L1</td><td>4</td><td>5</td><td>3</td><td>25</td><td>36.5</td><td>0</td><td>30.8</td></tr>
+<tr><td>33</td><td>Wayve</td><td>World models &amp; robotics</td><td>1</td><td>L1</td><td>5</td><td>4</td><td>3</td><td>12.5</td><td>34.4</td><td>0</td><td>31.5</td></tr>
+<tr><td>34</td><td>Gemini 3.5–3.8 / 4 Argon</td><td>US frontier models</td><td>5</td><td>L1</td><td>4</td><td>4</td><td>4</td><td>12.5</td><td>33.7</td><td>0</td><td>30.8</td></tr>
+<tr><td>35</td><td>GLM-5.3</td><td>Chinese models</td><td>4–5</td><td>L1</td><td>3</td><td>5</td><td>3</td><td>25</td><td>33.5</td><td>0</td><td>27.7</td></tr>
+<tr><td>36</td><td>Isomorphic Labs</td><td>Science, proof &amp; geometry</td><td>1</td><td>L1–L2</td><td>5</td><td>3</td><td>3</td><td>12.5</td><td>32.1</td><td>0</td><td>29.2</td></tr>
+<tr><td>37</td><td>Grok 4.6</td><td>US frontier models</td><td>4–5</td><td>L1</td><td>4</td><td>4</td><td>2</td><td>25</td><td>31.9</td><td>0</td><td>26.2</td></tr>
+<tr><td>38</td><td>Meta Muse Spark</td><td>US frontier models</td><td>5</td><td>L1</td><td>4</td><td>4</td><td>3</td><td>12.5</td><td>31.3</td><td>0</td><td>28.5</td></tr>
+<tr><td>38</td><td>MiniMax M2.7/M3</td><td>Chinese models</td><td>4</td><td>L1</td><td>4</td><td>4</td><td>3</td><td>12.5</td><td>31.3</td><td>0</td><td>28.5</td></tr>
+<tr><td>40</td><td>Mistral AI</td><td>Rest of world</td><td>3–4</td><td>L1</td><td>3</td><td>4</td><td>4</td><td>12.5</td><td>30.6</td><td>0</td><td>27.7</td></tr>
+<tr><td>41</td><td>Unitree</td><td>World models &amp; robotics</td><td>8 (partial)</td><td>L1</td><td>3.5</td><td>4</td><td>3</td><td>12.5</td><td>29.8</td><td>0</td><td>26.9</td></tr>
+<tr><td>42</td><td>ERNIE 5.1</td><td>Chinese models</td><td>4–5</td><td>L1</td><td>4</td><td>4</td><td>2</td><td>12.5</td><td>29.0</td><td>0</td><td>26.2</td></tr>
+<tr><td>42</td><td>Figure / Skild</td><td>World models &amp; robotics</td><td>2–3</td><td>L1</td><td>4</td><td>4</td><td>2</td><td>12.5</td><td>29.0</td><td>0</td><td>26.2</td></tr>
+<tr><td>44</td><td>Inkling</td><td>US frontier models</td><td>3–4</td><td>L1</td><td>3</td><td>4</td><td>3</td><td>12.5</td><td>28.3</td><td>0</td><td>25.4</td></tr>
+<tr><td>44</td><td>Microsoft MAI</td><td>US frontier models</td><td>3–4</td><td>L1</td><td>3</td><td>4</td><td>3</td><td>12.5</td><td>28.3</td><td>0</td><td>25.4</td></tr>
+<tr><td>44</td><td>Sarvam-105B</td><td>Rest of world</td><td>2–3</td><td>L1</td><td>3</td><td>4</td><td>3</td><td>12.5</td><td>28.3</td><td>0</td><td>25.4</td></tr>
+<tr><td>44</td><td>SEA-LION v4</td><td>Rest of world</td><td>2–3</td><td>L1</td><td>3</td><td>4</td><td>3</td><td>12.5</td><td>28.3</td><td>0</td><td>25.4</td></tr>
+<tr><td>44</td><td>Tencent Hunyuan</td><td>Chinese models</td><td>3–4</td><td>L1</td><td>3</td><td>4</td><td>3</td><td>12.5</td><td>28.3</td><td>0</td><td>25.4</td></tr>
+<tr><td>49</td><td>Cohere + Aleph Alpha</td><td>Rest of world</td><td>2–3</td><td>L1</td><td>2</td><td>4</td><td>3</td><td>12.5</td><td>25.2</td><td>0</td><td>22.3</td></tr>
+<tr><td>49</td><td>Sber / Yandex</td><td>Rest of world</td><td>2–3</td><td>L1</td><td>2</td><td>4</td><td>3</td><td>12.5</td><td>25.2</td><td>0</td><td>22.3</td></tr>
+<tr><td>51</td><td>Amazon Nova 2</td><td>US frontier models</td><td>2–3</td><td>L1</td><td>2</td><td>4</td><td>2</td><td>12.5</td><td>22.9</td><td>0</td><td>20.0</td></tr>
+      </tbody>
+    </table></div>
+    <p class="se-note">Sorted by the ungated score; tied scores share a rank. Developments absent from the quantified table receive the floor value Q-ungated = 12.5.</p>
+  </details>
+</div>
+</section>
+<!-- ═══ SELF-EVALUATION · 2 October 2026 · END ═══ -->
+
+
 
 
 
