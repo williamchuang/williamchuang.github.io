@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Measuring the Path to Superintelligence · 2 October 2026 — William Chuang / Logarch&eacute;on</title>
+<meta name="description" content="A quantified evaluation of 2026 AI developments on the Logarchéon certification ladder: the necessity of the three pillars (coordination, causal reasoning, invariant geometry), an index computed from measured numbers, and a 51-entity line placing Logarchéon's current build. William Chuang / Logarchéon Inc., October 2026."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
+  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
+  --red:#e07070; --green:#4cc9b0; --amber:#e2c97e;
+  --section-gap:5rem;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Libre Baskerville",Georgia,serif;
+  background:var(--navy); color:var(--cream);
+  line-height:1.72; overflow-x:hidden;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 600px 800px at 90% 20%,rgba(201,168,76,0.05) 0%,transparent 55%);
+}
+body::after {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.wrap { position:relative; z-index:1; }
+h1,h2,h3,h4,h5 { font-family:"Cormorant Garamond",Georgia,serif; letter-spacing:-0.01em; font-weight:500; color:var(--cream); line-height:1.2; }
+a { color:var(--gold); text-decoration:none; }
+a:hover { color:var(--gold-light); text-decoration:underline; }
+code { font-family:"DM Mono",monospace; font-size:0.82rem; background:var(--navy-mid); padding:0.1em 0.35em; border-radius:3px; color:var(--cream); }
+strong { color:var(--cream); font-weight:700; }
+em { font-style:italic; }
+.mono { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
+
+/* Nav */
+nav.site-nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(10,22,40,0.96); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-dim); padding:0 28px;
+}
+.nav-inner { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:54px; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.25rem; font-weight:500; color:var(--gold-light); letter-spacing:0.02em; }
+.nav-links { display:flex; gap:1.8rem; list-style:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+.nav-links a:hover,.nav-links a.active { color:var(--gold); text-decoration:none; }
+
+/* Layout */
+.container { max-width:1060px; margin:0 auto; padding:0 28px; }
+.page-layout {
+  display:grid; grid-template-columns:210px 1fr; gap:4rem;
+  align-items:start; padding:4rem 28px 6rem;
+  max-width:1060px; margin:0 auto;
+}
+
+/* TOC */
+.toc-sidebar { position:sticky; top:74px; border-left:1px solid var(--border); padding-left:1.4rem; }
+.toc-label { font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:1rem; }
+.toc-list { list-style:none; display:flex; flex-direction:column; gap:0.25rem; }
+.toc-link { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.05em; color:var(--body); padding:0.25rem 0; display:block; border-left:2px solid transparent; margin-left:-1.5rem; padding-left:1.3rem; transition:color 0.2s,border-color 0.2s; }
+.toc-link:hover { color:var(--gold); border-color:var(--gold); text-decoration:none; }
+
+/* Hero */
+.page-hero { border-bottom:1px solid var(--border-dim); padding:3.5rem 0 2.5rem; }
+.page-hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.2rem; display:flex; align-items:center; gap:0.6rem; }
+.page-hero h1 { font-size:clamp(2.2rem,4vw,3.6rem); font-weight:300; max-width:22ch; margin-bottom:1rem; }
+.page-hero h1 em { font-style:italic; color:var(--gold-light); }
+.hero-desc { color:var(--body); font-size:1.05rem; max-width:62ch; line-height:1.75; margin-bottom:1.5rem; }
+.hero-badges { display:flex; gap:0.7rem; flex-wrap:wrap; margin-bottom:0.5rem; }
+.hero-badge { font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border); padding:0.28rem 0.7rem; border-radius:2px; background:var(--gold-pale); }
+
+/* Sections */
+.page-section { margin-bottom:var(--section-gap); }
+.section-header { display:flex; align-items:baseline; gap:1.2rem; border-bottom:1px solid var(--border-dim); padding-bottom:0.9rem; margin-bottom:2.2rem; }
+.section-num { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
+
+/* Paper cards */
+.paper-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.6rem; margin:1.2rem 0;
+  transition:border-color 0.2s;
+}
+.paper-card:hover { border-color:var(--border); }
+.paper-card h3 { font-size:1.15rem; font-weight:500; color:var(--cream); margin:0 0 0.4rem; }
+.paper-meta { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.6rem; display:flex; flex-wrap:wrap; gap:0.6rem; }
+.paper-meta span::after { content:" ·"; margin-left:0.3rem; }
+.paper-meta span:last-child::after { content:""; }
+.paper-abstract { color:var(--body); font-size:0.92rem; line-height:1.7; margin-bottom:0.75rem; max-width:72ch; }
+.paper-abstract p { margin-bottom:0.6rem; }
+.paper-links { display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.6rem; }
+
+/* Link buttons */
+.link-btn {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:var(--gold-pale); border:1px solid var(--border);
+  color:var(--cream); padding:0.35rem 0.85rem; border-radius:3px;
+  font-family:"DM Mono",monospace; font-size:0.68rem; letter-spacing:0.05em;
+  transition:background 0.2s,border-color 0.2s; text-decoration:none;
+}
+.link-btn:hover { background:rgba(201,168,76,0.22); border-color:var(--gold); color:var(--cream); text-decoration:none; }
+.link-btn .lbl { font-size:0.6rem; letter-spacing:0.12em; color:var(--gold); border:1px solid var(--gold-dim); padding:0.08rem 0.25rem; border-radius:2px; margin-right:0.1rem; }
+
+/* Theory disclaimer */
+.theory-disclaimer {
+  background:rgba(25,40,80,0.6); border:1px solid var(--border-dim);
+  border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0;
+  padding:0.9rem 1.2rem; margin:0 0 1.5rem; font-size:0.88rem;
+  color:var(--muted); font-style:italic;
+}
+
+/* Footer */
+footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--faint); text-align:center; }
+
+/* Subsection */
+.subsection { margin:2rem 0; }
+.subsection h3 { font-size:1.2rem; color:var(--cream); margin-bottom:1rem; border-left:2px solid var(--gold-dim); padding-left:0.85rem; }
+
+/* ── GLI-specific styles ── */
+
+/* Filter button row */
+.gli-filters {
+  display:flex; gap:0.45rem; flex-wrap:wrap; margin-bottom:1.4rem;
+}
+.gli-btn {
+  font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.07em;
+  text-transform:uppercase; padding:0.3rem 0.75rem;
+  border:1px solid var(--border-dim); border-radius:2px;
+  background:rgba(14,31,58,0.6); color:var(--muted); cursor:pointer;
+  transition:all 0.18s;
+}
+.gli-btn:hover { border-color:var(--gold-dim); color:var(--body); }
+.gli-btn.active { background:var(--gold-pale); border-color:var(--gold); color:var(--gold-light); }
+
+/* Score cards grid */
+.gli-cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(80px,1fr));
+  gap:6px; margin-bottom:1.6rem;
+}
+.gli-card {
+  background:rgba(14,31,58,0.75);
+  border:1px solid var(--border-dim);
+  border-radius:3px; padding:0.5rem 0.3rem;
+  text-align:center; position:relative;
+}
+.gli-card.special-case { border-style:dashed; }
+.gli-card-rank { font-family:"DM Mono",monospace; font-size:0.6rem; color:var(--faint); margin-bottom:1px; }
+.gli-card-code { font-family:"DM Mono",monospace; font-size:0.7rem; color:var(--muted); margin-bottom:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.gli-card-score { font-size:1.1rem; font-weight:600; line-height:1.1; font-family:"DM Mono",monospace; }
+.gli-card-tag { font-family:"DM Mono",monospace; font-size:0.52rem; letter-spacing:0.06em; text-transform:uppercase; padding:0 3px; border-radius:2px; display:inline-block; margin-top:2px; }
+.gli-card-bar { height:2px; border-radius:1px; margin-top:4px; background:rgba(201,168,76,0.12); overflow:hidden; }
+.gli-card-bar-fill { height:100%; border-radius:1px; }
+
+/* Tag pills */
+.tag-auth { background:rgba(14,31,58,0.8); color:var(--faint); border:1px solid var(--border-dim); }
+.tag-conflict { background:rgba(224,112,112,0.12); color:#e07070; }
+.tag-micro { background:rgba(201,168,76,0.1); color:var(--gold-dim); }
+
+/* Score table */
+.gli-table-wrap { overflow-x:auto; margin-bottom:2rem; -webkit-overflow-scrolling:touch; }
+.gli-table {
+  width:100%; border-collapse:collapse;
+  font-family:"DM Mono",monospace; font-size:0.72rem; min-width:680px;
+}
+.gli-table th {
+  text-align:left; padding:0.5rem 0.6rem;
+  border-bottom:1px solid var(--border);
+  color:var(--gold-dim); letter-spacing:0.08em; text-transform:uppercase;
+  font-size:0.62rem; white-space:nowrap;
+}
+.gli-table td {
+  padding:0.4rem 0.6rem;
+  border-bottom:1px solid var(--border-dim);
+  color:var(--body); vertical-align:middle;
+}
+.gli-table tr:last-child td { border-bottom:none; }
+.gli-table tr:hover td { background:rgba(201,168,76,0.04); }
+.gli-table .rank-col { color:var(--faint); font-size:0.62rem; }
+.gli-table .country-col { font-weight:500; }
+.gli-table .score-col { font-weight:700; }
+.gli-mini-bar { display:inline-block; width:40px; height:3px; border-radius:1px; background:rgba(201,168,76,0.12); vertical-align:middle; margin-right:4px; position:relative; overflow:hidden; }
+.gli-mini-fill { position:absolute; left:0; top:0; height:100%; border-radius:1px; }
+.gli-total-score { font-family:"DM Mono",monospace; font-size:0.78rem; font-weight:700; }
+
+/* Stat bar */
+.gli-stat-row {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  margin-bottom:1.4rem;
+}
+.gli-stat {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-radius:3px; padding:0.5rem 0.9rem;
+  font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--muted);
+}
+.gli-stat strong { color:var(--gold-light); font-size:0.9rem; display:block; margin-bottom:1px; }
+
+/* Country prose entries */
+.country-entry {
+  padding:1.1rem 0;
+  border-bottom:1px solid var(--border-dim);
+}
+.country-entry:last-child { border-bottom:none; }
+.country-entry-header {
+  display:flex; align-items:baseline; gap:0.7rem;
+  margin-bottom:0.45rem; flex-wrap:wrap;
+}
+.country-entry-name {
+  font-family:"Cormorant Garamond",serif; font-size:1.15rem;
+  font-weight:500; color:var(--cream);
+}
+.country-entry-score {
+  font-family:"DM Mono",monospace; font-size:0.88rem;
+  font-weight:700; color:var(--gold);
+}
+.country-entry-rank {
+  font-family:"DM Mono",monospace; font-size:0.62rem;
+  color:var(--faint); letter-spacing:0.08em;
+}
+.country-entry-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+.country-entry-tag {
+  font-family:"DM Mono",monospace; font-size:0.58rem;
+  letter-spacing:0.08em; text-transform:uppercase;
+  padding:0.1rem 0.35rem; border-radius:2px;
+}
+.country-entry p {
+  color:var(--body); font-size:0.91rem; line-height:1.75; max-width:72ch;
+}
+.country-entry .indicators {
+  display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;
+}
+.country-entry .ind-chip {
+  font-family:"DM Mono",monospace; font-size:0.6rem; letter-spacing:0.06em;
+  padding:0.12rem 0.4rem; border-radius:2px;
+  background:rgba(14,31,58,0.8); border:1px solid var(--border-dim);
+  color:var(--muted);
+}
+
+/* Floor box */
+.gli-floor-box {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-left:3px solid #e07070; border-radius:0 3px 3px 0;
+  padding:0.7rem 1rem; margin-bottom:1.2rem;
+  font-family:"DM Mono",monospace; font-size:0.72rem; color:var(--muted);
+  line-height:1.8;
+}
+
+/* Methodology box */
+.method-box {
+  background:rgba(14,31,58,0.55); border:1px solid var(--border-dim);
+  border-left:3px solid var(--gold-dim); border-radius:0 4px 4px 0;
+  padding:1.1rem 1.4rem; margin:1.4rem 0;
+  font-size:0.88rem; color:var(--muted); line-height:1.75;
+}
+.method-box strong { color:var(--cream); }
+
+/* Responsive */
+@media(max-width:860px) {
+  .page-layout { grid-template-columns:minmax(0,1fr); gap:2rem; padding:2rem 16px 4rem; }
+  .page-layout > * { min-width:0; }
+  .nav-links { flex-wrap:wrap; max-width:100%; }
+  pre, .formula { max-width:100%; overflow-x:auto; }
+  .toc-sidebar { display:none; }
+  .gli-cards { grid-template-columns:repeat(auto-fill,minmax(64px,1fr)); }
+}
+
+/* ── Study-specific styles ── */
+.h1-date { display:block; font-family:"DM Mono",monospace; font-size:0.8rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dim); margin-top:0.9rem; }
+.masthead { font-family:"DM Mono",monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem; }
+.masthead span::after { content:" ·"; margin-left:0.4rem; color:var(--faint); }
+.masthead span:last-child::after { content:""; }
+.subtitle { font-family:"Cormorant Garamond",serif; font-size:1.35rem; font-style:italic; color:var(--gold-light); margin:-0.4rem 0 1.4rem; max-width:48ch; line-height:1.35; }
+.lede { font-size:1.02rem; color:var(--body); max-width:66ch; line-height:1.8; margin-bottom:1.2rem; border-left:2px solid var(--gold-dim); padding-left:1rem; }
+.prose p { color:var(--body); font-size:0.94rem; line-height:1.8; margin-bottom:0.9rem; max-width:72ch; }
+.prose ul, .prose ol { color:var(--body); font-size:0.92rem; line-height:1.75; margin:0 0 1rem 1.3rem; max-width:70ch; }
+.prose li { margin-bottom:0.35rem; }
+.abs-item { margin-bottom:0.9rem; }
+.abs-item .abs-label { font-family:"DM Mono",monospace; font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:0.2rem; }
+.takeaway { background:rgba(201,168,76,0.06); border:1px solid var(--border-dim); border-left:3px solid var(--gold); padding:0.75rem 1rem; margin:1.2rem 0 0; font-size:0.88rem; color:var(--cream); border-radius:0 3px 3px 0; }
+.takeaway b { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-right:0.4rem; }
+.purpose { font-size:0.86rem; color:var(--muted); font-style:italic; margin-bottom:1.3rem; max-width:70ch; }
+.formula { font-family:"DM Mono",monospace; font-size:0.86rem; color:var(--gold-light); background:rgba(14,31,58,0.75); border:1px solid var(--border-dim); padding:0.8rem 1rem; border-radius:3px; margin:0.9rem 0; overflow-x:auto; white-space:nowrap; }
+.data-table td.hl, .gli-table tr.hl td { background:rgba(201,168,76,0.08); color:var(--cream); }
+.verdict-yes { color:var(--green); } .verdict-mid { color:var(--amber); } .verdict-no { color:var(--red); }
+pre.line { font-family:"DM Mono",monospace; font-size:0.7rem; line-height:1.5; color:var(--body); background:rgba(14,31,58,0.75); border:1px solid var(--border-dim); padding:0.9rem 1rem; border-radius:3px; overflow-x:auto; margin:1rem 0; }
+.toggle-row { display:flex; gap:0.45rem; flex-wrap:wrap; margin-bottom:0.8rem; align-items:center; }
+.toggle-label { font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-right:0.3rem; }
+.findings { counter-reset:f; list-style:none; margin:0; padding:0; }
+.findings li { counter-increment:f; position:relative; padding:0.6rem 0 0.6rem 2.4rem; border-bottom:1px solid var(--border-dim); color:var(--body); font-size:0.92rem; line-height:1.75; max-width:74ch; }
+.findings li::before { content:counter(f,decimal-leading-zero); position:absolute; left:0; top:0.65rem; font-family:"DM Mono",monospace; font-size:0.7rem; color:var(--gold); }
+.gli-table.wrap td { white-space:normal; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Logarch&eacute;on</a>
+    <ul class="nav-links">
+      <li><a href="/CEAS">CEAS</a></li>
+      <li><a href="/GRAIL">GRAIL</a></li>
+      <li><a href="/Ψ-Operator-Framework">Ψ-Operator</a></li>
+      <li><a href="/MIA">MIA</a></li>
+      <li><a href="/Research/" class="active">Research</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/files/william_chuang_cv.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="/" style="color:var(--faint);">Logarch&eacute;on</a>
+      <span style="color:var(--faint);">/</span>
+      <a href="/Research/" style="color:var(--faint);">Research</a>
+      <span style="color:var(--faint);">/</span>
+      <span>Quantified Ladder Evaluation &middot; 2 October 2026</span>
+    </div>
+    <div class="masthead">
+      <span>Artificial Intelligence</span><span>Quantified Self-Evaluation</span><span>51 AI developments &middot; status to 2 October 2026</span><span>Working Draft</span><span>2 October 2026</span>
+    </div>
+    <h1>Measuring the Path<br><em>to Superintelligence</em><span class="h1-date">Evaluation of 2 October 2026</span></h1>
+    <p class="subtitle">The necessity of three pillars, and Logarch&eacute;on&rsquo;s current build placed among 2026 AI developments on one measured line</p>
+    <p class="lede">
+      Two questions, answered in order. The first is whether the three pillars of the Logarch&eacute;on certification
+      ladder &mdash; nonlocal coordination (CEAS), causal reasoning (&Psi;) and invariant geometry (GRAIL) &mdash; are
+      necessary for superintelligence, as named mechanisms or as functions that other mathematics can supply. The
+      second is where Logarch&eacute;on&rsquo;s current build (CEAS&ndash;&Psi;&ndash;GRAIL) stands among the AI developments of
+      2026 when each development is scored from measured numbers, reduced to research scale, on a single [0,&nbsp;100] line.
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge">AI Evaluation &middot; Self-Assessment</span>
+      <span class="hero-badge">51 Developments &middot; 7 Groups</span>
+      <span class="hero-badge">8 Measured Quantities</span>
+      <span class="hero-badge">Logarch&eacute;on Inc. &middot; William Chuang</span>
+    </div>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#abstract" class="toc-link">Abstract</a></li>
+      <li><a href="#position" class="toc-link">Present Position</a></li>
+      <li><a href="#findings" class="toc-link">Summary of Findings</a></li>
+      <li><a href="#method" class="toc-link">Method</a></li>
+      <li><a href="#necessity" class="toc-link">I &middot; Pillar Necessity</a></li>
+      <li><a href="#index" class="toc-link">II &middot; Measured Index</a></li>
+      <li><a href="#interactive" class="toc-link">III &middot; The 51-Entity Line</a></li>
+      <li><a href="#firmness" class="toc-link">IV &middot; Firmness of the Lead</a></li>
+      <li><a href="#limits" class="toc-link">V &middot; Limits of the Numbers</a></li>
+      <li><a href="#plan" class="toc-link">VI &middot; Plan of the Study</a></li>
+      <li><a href="#sources" class="toc-link">Sources</a></li>
+    </ul>
+  </aside>
+
+  <main>
+
+<!-- ═══════════ ABSTRACT ═══════════ -->
+<section class="page-section" id="abstract">
+  <div class="section-header"><span class="section-num">00</span><h2 class="section-title">Abstract</h2></div>
+  <div class="prose">
+    <div class="abs-item"><span class="abs-label">The central question</span>
+      <p>Are coordination, causal reasoning and invariant geometry necessary on the way to superintelligence, and, if they are
+      required at least as functions, which 2026 AI developments have demonstrated them, measured rather than described?</p></div>
+    <div class="abs-item"><span class="abs-label">The thesis advanced here</span>
+      <p>(i) Causal reasoning at Pearl&rsquo;s second and third rungs is necessary as a function, by a proven theorem.
+      (ii) Nonlocal coordination is necessary as a function only where communication rounds are counted, and ordinary global
+      attention already supplies it. (iii) Exact invariance is a proven efficiency, not a proven necessity, and becomes
+      necessary only where exactness on unseen group elements is part of the task. (iv) The joint necessity of the three is not
+      proved. (v) When the ladder term is computed from measured numbers instead of judged in prose, Logarch&eacute;on&rsquo;s
+      current build ranks first of 51 developments on both readings of the line, by 0.9 points on the ungated reading and by about
+      9 points on the strict reading. Each clause is defeasible by a measurement named in the method.</p></div>
+    <div class="abs-item"><span class="abs-label">How the thesis is tested</span>
+      <p>Each pillar&rsquo;s necessity is checked against published theorems. Eight quantities, each in [0,&nbsp;1], are computed by
+      stated formulas from measured numbers: coordination C, causal reasoning &Psi;, invariance G, the closed self-improvement loop R,
+      control improving across cycles U, held-out verification H, breadth B and scaling S. They are aggregated into a ladder index in
+      which a missing pillar zeroes the core. That index then replaces the one prose-judged ladder criterion in a four-criterion line
+      covering 51 developments. Sensitivity readings bound every result.</p></div>
+    <div class="abs-item"><span class="abs-label">Second thesis</span>
+      <p>The lead measured here is a lead in demonstrated ladder evidence, not in capability. The build&rsquo;s measurements come from its
+      own synthetic tasks, and most pillar cells of other systems are unmeasured. Running one battery on every runnable system is the
+      only route to a comparison that is measured throughout.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════ PRESENT POSITION ═══════════ -->
+<section class="page-section" id="position">
+  <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Present Position</h2></div>
+  <p class="purpose">What this section is for: the state of the field and of the ladder at the date of the study, before any scoring.</p>
+  <div class="prose">
+    <p>As of 2 October 2026 the most capable public systems are OpenAI&rsquo;s GPT-6 Astra, Anthropic&rsquo;s Claude Opus 5.5 and Google&rsquo;s
+    Gemini 4 Argon. On the ladder&rsquo;s 0&ndash;12 Rank scale they sit at Rank 5 (Emerging AGI). On the Certification Levels they sit at
+    Level 1 read literally and at Level 2 read functionally. Global attention gives every transformer the coordination function, while no
+    frontier system has published a group-invariance measurement or a current causal-rung score, and every frontier self-improvement loop
+    still has human gating.</p>
+    <p>The systems nearest the ladder&rsquo;s middle rungs are research-scale loops: Meta&rsquo;s Hyperagents, Google DeepMind&rsquo;s
+    AlphaEvolve, the Darwin G&ouml;del Machine and the Huxley-G&ouml;del Machine. Each runs twenty or more cycles without manual edits,
+    and none has separable causal, invariance and coordination components. Embodied systems (DeepMind&rsquo;s self-improving embodied
+    foundation models, Physical Intelligence, Gemini Robotics 2, NVIDIA GR00T) improve control, mostly between human-run releases.</p>
+    <p>Logarch&eacute;on&rsquo;s current build meets Certification Level 5 under its own certification rule: all 23 test batteries pass at research
+    scale, simulated control improves across self-improvement cycles on validation and on unused hidden seeds, and a hidden benchmark
+    committed by hash in advance is consistent with validation. Two of the ten hard exclusion conditions are not cleared (transfer to an unseen
+    task family; a falling self-improvement rate) and two are partly cleared (one task family per loop; no adversarial benchmark). Level 6
+    is at the groundwork stage.</p>
+  </div>
+  <div class="subsection"><h3>The two scales of the ladder</h3>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Certification Level</th><th>Pass criterion (lecture notes)</th></tr></thead><tbody>
+    <tr><td>1 &middot; ANI</td><td>Passes one task or one domain.</td></tr>
+    <tr><td>2 &middot; Architecture demonstration</td><td>At least one of CEAS, &Psi;, GRAIL beats its baseline independently.</td></tr>
+    <tr><td>3 &middot; Triadic integration</td><td>J<sub>111</sub> below all seven ablation variants.</td></tr>
+    <tr><td>4 &middot; Recursive triadic improvement</td><td>All three modules improve over K &ge; 20 closed-loop cycles, with no manual edits inside the loop.</td></tr>
+    <tr><td>5 &middot; Physical-ASI seed</td><td>Level 4, plus all three Pearl rungs and inverse design, invariant generalisation, nonlocal coordination, control improving across self-improvement cycles, and ablation superadditivity.</td></tr>
+    <tr><td>6 &middot; ASI claim</td><td>Level 5, plus best-baseline-beating performance across at least ten domains, an improvement process that itself improves, scaling exponents that predict larger hardware, and consistent private and adversarial benchmarks.</td></tr>
+  </tbody></table></div>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Rank</th><th>Capability class</th><th>Rank</th><th>Capability class</th></tr></thead><tbody>
+    <tr><td>0</td><td>Classical automation</td><td>7</td><td>Expert / Exceptional AGI</td></tr>
+    <tr><td>1</td><td>Narrow AI</td><td>8</td><td>Embodied AGI / Physical AI</td></tr>
+    <tr><td>2</td><td>Foundation / frontier AI</td><td>9</td><td>Artificial superintelligence</td></tr>
+    <tr><td>3</td><td>Agentic AI</td><td>10</td><td>Physical ASI</td></tr>
+    <tr><td>4</td><td>AI-amplified R&amp;D</td><td>11</td><td>Recursive ASI</td></tr>
+    <tr><td>5</td><td>Emerging AGI</td><td>12</td><td>Complete-spectrum ASI</td></tr>
+    <tr><td>6</td><td>Competent AGI</td><td></td><td></td></tr>
+  </tbody></table></div>
+  <p class="purpose" style="font-style:normal;">Certification Levels measure evidence about one architecture; Ranks measure capability class. There is no Certification Level 7: a &ldquo;7&rdquo; exists only as Rank 7 (Expert AGI) or as RSI Level 7 (closed-loop successor design) in the notes&rsquo; separate table of self-improvement levels.</p>
+  </div>
+  <div class="takeaway"><b>Take-away</b>The frontier leads in capability class; the ladder&rsquo;s middle and upper rungs are populated only by research-scale systems, and Logarch&eacute;on&rsquo;s current build is the one development that claims Level 5.</div>
+</section>
+
+<!-- ═══════════ FINDINGS ═══════════ -->
+<section class="page-section" id="findings">
+  <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Summary of Findings</h2></div>
+  <ol class="findings">
+    <li><strong>Causal reasoning is necessary as a function.</strong> The Causal Hierarchy Theorem shows that answering rung-2 and rung-3 questions requires information at that rung or above; an explicit causal engine is one way to supply it, not the only way.</li>
+    <li><strong>Nonlocal coordination is necessary as a function only in a round-count model,</strong> and global attention or a global mean already supplies it. On the build&rsquo;s own scaling tasks a plain global mean matched CEAS exactly.</li>
+    <li><strong>Exact invariance is a proven efficiency</strong> (a |G|-fold effective sample gain, and excess risk equal to the non-invariant part of the predictor), necessary only where exactness on unseen group elements is required.</li>
+    <li><strong>The joint necessity of the three pillars is not proved;</strong> the independence of the three obstructions is asserted, not shown.</li>
+    <li><strong>On the measured ladder index, Logarch&eacute;on&rsquo;s current build scores 75.9</strong> (bounded 75.9&ndash;88.4; 64.2 under conservative readings) at computed Level 5, and is the only system above zero on the strict, necessity-gated index.</li>
+    <li><strong>Every other system scores zero on the strict index because its pillars are unmeasured,</strong> not because a measurement failed: its bounded intervals reach 67.5&ndash;100.</li>
+    <li><strong>On the 51-entity line, with the ladder term computed from measurements, the build ranks first on both readings:</strong> 61.4 against Hyperagents&rsquo; 60.5 (ungated), and 61.4 against 52.3 for AlphaEvolve and Hyperagents (strict). With the prose-judged ladder term, it had ranked 9th&ndash;11th at 60.0.</li>
+    <li><strong>The ungated lead is fragile.</strong> With the conservative ladder index the build scores 58.7 and falls to second behind Hyperagents.</li>
+    <li><strong>The build fails Level 6 on four counts:</strong> breadth B = 0, no prediction to larger hardware tested, an improver that grew once (+0.0041; sign-test p = 0.40), and no adversarial set.</li>
+  </ol>
+</section>
+
+<!-- ═══════════ METHOD ═══════════ -->
+<section class="page-section" id="method">
+  <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Method</h2></div>
+  <p class="purpose">What this section is for: every rule of measurement and aggregation, fixed before any system is scored, with the exclusions stated as prominently as the rules.</p>
+
+  <div class="subsection"><h3>Rule 1 &middot; Pillars are required as functions</h3>
+  <div class="prose"><p>Following the ladder strictly means requiring the three functions, not the three named modules: any mechanism that provides a pillar&rsquo;s function by a mathematically equivalent route counts. Each function is tested by a number measurable on any system (Part I).</p></div></div>
+
+  <div class="subsection"><h3>Rule 2 &middot; Eight quantities, each in [0, 1], from measured numbers only</h3>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Quantity</th><th>Formula</th><th>Rule for edge cases</th></tr></thead><tbody>
+    <tr><td>C &middot; coordination</td><td>1 &minus; q</td><td>q is an architectural fact or a measured round count. Global attention gives q = 0; local message passing in 3-D gives q = 1/3.</td></tr>
+    <tr><td>&Psi; &middot; causal</td><td>mean of four terms: &acirc;<sub>2</sub>, &acirc;<sub>3</sub>, abstention rate, inverse-design success; &acirc; = clip((a &minus; c)/(1 &minus; c), 0, 1)</td><td>Chance c = 0.5 for binary items (CLadder); c = 0 for numeric or open-ended items (the build&rsquo;s demos, CausalReasoningBenchmark, inverse design). A pooled score with no rung split and an unverified definition (CausalDS, secondary source) is excluded from the strict reading and shown as a sensitivity.</td></tr>
+    <tr><td>G &middot; invariance</td><td>min(1, acc<sub>unseen</sub> / acc<sub>seen</sub>) on held-out group elements, or 1 when exact invariance holds by construction</td><td>ARC-AGI is never used for G. Learned or augmented invariance with no measured error counts as unmeasured.</td></tr>
+    <tr><td>R &middot; loop</td><td>min(1, K/20)&middot;(1 &minus; h)</td><td>K counts cycles that modify the system&rsquo;s own code, weights or scaffold; h = 0 when the published procedure has no human step inside a cycle.</td></tr>
+    <tr><td>R2</td><td>fraction of cycles that improved</td><td>Used only in the Level 4 threshold (&ge; 0.6).</td></tr>
+    <tr><td>U &middot; control across cycles</td><td>g&middot;min(1, cycles/2); g = (E<sub>0</sub> &minus; E<sub>1</sub>)/E<sub>0</sub>, or (P<sub>1</sub> &minus; P<sub>0</sub>)/(1 &minus; P<sub>0</sub>) for success rates</td><td>A single improvement phase counts half; an unknown cycle count is treated as one phase.</td></tr>
+    <tr><td>H &middot; held-out verification</td><td>1, 0.5 or 0</td><td>1: scored by a third party on a set the developer could not see, with no third-party finding of overstatement. 0.5: a developer-held hidden set (hash-committed included), a developer-chosen held-out domain, a third-party run on a public set, or a third-party finding of overstatement. 0: none reported.</td></tr>
+    <tr><td>B &middot; breadth</td><td>min(1, n/10)</td><td>n counts domains with independent measurement at or above the best human.</td></tr>
+    <tr><td>S &middot; scaling</td><td>1 if a fitted exponent&rsquo;s confidence interval excludes 0 against a baseline, else 0</td><td>Log-linear fits without an exponent and interval score 0.</td></tr>
+  </tbody></table></div></div>
+
+  <div class="subsection"><h3>Rule 3 &middot; Level thresholds</h3>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Level</th><th>Threshold rule (pillar equivalence allowed)</th></tr></thead><tbody>
+    <tr><td>L1 &middot; ANI</td><td>Any measured score on one task.</td></tr>
+    <tr><td>L2 &middot; Architecture demonstration</td><td>C &ge; 0.9, or &Psi; &ge; 0.5, or G &ge; 0.9.</td></tr>
+    <tr><td>L3 &middot; Triadic integration</td><td>All three pillars meet their L2 thresholds, and a 2<sup>3</sup> ablation shows J<sub>111</sub> below all seven variants.</td></tr>
+    <tr><td>L4 &middot; Recursive improvement</td><td>L3, R = 1 (K &ge; 20, h = 0), R2 &ge; 0.6, and every module improved inside the loop (battery R3).</td></tr>
+    <tr><td>L5 &middot; Physical-ASI seed</td><td>L4, every &Psi; term &ge; 0.8, G &ge; 0.9 with &epsilon;<sub>twin</sub> &le; 10<sup>&minus;6</sup>, C = 1, U &gt; 0, H &ge; 0.5, and ablation superadditivity.</td></tr>
+    <tr><td>L6 &middot; ASI claim</td><td>L5, B = 1, S = 1 with a confirmed prediction on larger hardware, a significant measured rise of the improver (R<sub>t+K</sub> &gt; R<sub>t</sub>), and H = 1 including an adversarial set.</td></tr>
+  </tbody></table></div></div>
+
+  <div class="subsection"><h3>Rule 4 &middot; The ladder index, with necessity built in</h3>
+  <div class="formula">I = 100 &middot; P &middot; [1 + R + (U + H)/2 + (B + S)/2] / 4, &nbsp; P = (C &middot; &Psi; &middot; G)<sup>1/3</sup></div>
+  <div class="prose"><p>The geometric mean encodes necessity: a zero pillar gives a zero core and a zero index. The bracket follows the ladder&rsquo;s stages: a complete core alone is worth 25 (Levels 2&ndash;3), the loop adds up to 25 (Level 4), control and held-out verification add up to 25 (Level 5), breadth and scaling add up to 25 (Level 6). The higher stages are additive inside the gate, so partial progress counts. Because the formula is monotone, the lower end of each bounded interval equals the strict value.</p></div>
+  <div class="formula">Alternative A (no gate): arithmetic mean of C, &Psi;, G, R, U, H, B, S &times; 100</div>
+  <div class="formula">Alternative B (proof-weighted gate): I = 100 &middot; &radic;(C&middot;&Psi;) &middot; [1 + G + R + (U + H)/2 + (B + S)/2] / 5</div></div>
+
+  <div class="subsection"><h3>Rule 5 &middot; The 51-entity line</h3>
+  <div class="formula">Score = (20&middot;B1 + 15&middot;B2 + 15&middot;B5 + 15&middot;Q/10) / 6.5</div>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Criterion</th><th>Weight</th><th>What it measures</th></tr></thead><tbody>
+    <tr><td>B1 &middot; novelty of the mechanism</td><td>20</td><td>A new mechanism, as opposed to an integration of known parts.</td></tr>
+    <tr><td>B2 &middot; breadth per unit of resource</td><td>15</td><td>Capability shown per unit of compute, log-discounted.</td></tr>
+    <tr><td>B5 &middot; falsifiability and protocol discipline</td><td>15</td><td>Pre-registration, stated gates, negative results reported.</td></tr>
+    <tr><td>Q &middot; measured ladder index</td><td>15</td><td>Q-ungated = Alternative A; Q-strict = the gated index I. Scaled from 0&ndash;100 to 0&ndash;10.</td></tr>
+  </tbody></table></div>
+  <div class="prose"><p>Every development is reduced to research scale: compute, capital and deployment are removed, and each is judged on its own published evidence. The prose-judged ladder criterion of the earlier line (B6) is replaced by Q, so the ladder term is computed from measurements; B1, B2 and B5 are carried over unchanged from the own-evidence line.</p></div></div>
+
+  <div class="subsection"><h3>Exclusions</h3>
+  <div class="method-box">
+    <strong>No credit for peer review, outside evaluation, replication or adoption</strong> on the 51-entity line: every development is judged on its own evidence, so a self-certified build and a peer-reviewed system are compared on the same terms.<br>
+    <strong>Unmeasured counts as zero on the strict reading,</strong> and as the interval [0,&nbsp;1] on the bounded reading.<br>
+    <strong>Instruments and components with no ladder index are left out:</strong> METR, the CLadder-type causal benchmarks, the UK AI Security Institute and the Muon optimiser.<br>
+    <strong>Enablers with no mechanism to score are left out:</strong> NVIDIA compute, TSMC, Huawei Ascend, national compute programmes, and announced laboratories with no public system.<br>
+    <strong>Systems absent from the measured table</strong> are transformer-based with only C = 1 measured, and receive the floor value Q-ungated = 12.5.<br>
+    <strong>B1, B2 and B5 remain judgements recorded in prose;</strong> only the ladder term is computed from measurements.<br>
+    <strong>Hidden-benchmark seed values are not reproduced.</strong>
+  </div></div>
+  <div class="takeaway"><b>Take-away</b>Every number on this page follows from the rules above; changing a rule changes the result, and the sensitivity readings in Parts II and IV show by how much.</div>
+</section>
+
+<!-- ═══════════ PART I ═══════════ -->
+<section class="page-section" id="necessity">
+  <div class="section-header"><span class="section-num">04</span><h2 class="section-title">I &middot; Are the Pillars Necessary?</h2></div>
+  <p class="purpose">What this section is for: to settle, from published theorems, which pillar is required, in what sense, and by what measurable criterion.</p>
+  <div class="prose"><p>The lecture notes (v21.5) prove three narrow theorems: a round separation (local message passing needs at least D rounds, where D is the diameter, while one all-reduce suffices; physical time is &Omega;(N<sup>1/d</sup>) for either model), a two-model non-identifiability example with a worst-case error floor of 1/4, and a finite-group Reynolds risk identity. The broader triadic necessity theorem builds the three capabilities into its definition of scalable superintelligence and asserts that &ldquo;these three obstructions are independent&rdquo; without a separating construction; &ldquo;Architecture from Theory&rdquo; is labelled a conjecture.</p></div>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Pillar</th><th>Verdict</th><th>Theorem behind it</th><th>Criterion measurable on any system</th></tr></thead><tbody>
+    <tr><td>CEAS</td><td class="verdict-mid">Necessary as a function, proven only in a unit-cost-broadcast (round-count) model; not necessary in physical time</td><td>Round separation (notes); LOCAL t-hop lower bound (Ghaffari); GNN depth&times;width bounds (Loukas)</td><td>Rounds exponent q in T(N) &prop; N<sup>q</sup> on globally sensitive aggregation: local q = 1/d, functional CEAS q &asymp; 0. Any all-reduce qualifies (global attention, a global mean, a bus, a tree).</td></tr>
+    <tr><td>&Psi; &middot; rungs 2&ndash;3</td><td class="verdict-yes">Necessary as a function, proven</td><td>Causal Hierarchy Theorem (Bareinboim, Correa, Ibeling &amp; Icard): rung collapse occurs only on a measure-zero set of models; meagre-set version (Ibeling &amp; Icard); robust agents imply an approximate causal model (Richens &amp; Everitt)</td><td>Rung-2 and rung-3 accuracy above chance; correct abstention on non-identifiable queries; the 1/4 error floor on observationally equivalent pairs.</td></tr>
+    <tr><td>&Psi; &middot; inverse design</td><td class="verdict-mid">Unproven as a separate necessity; reduces to rung 2 plus planning</td><td>None found</td><td>Success rate in reaching a target under constraints, against a forward-only baseline.</td></tr>
+    <tr><td>GRAIL</td><td class="verdict-mid">Efficient, not strictly necessary; a symmetry prior is necessary only if exact invariance on unseen orbit elements is required</td><td>Excess risk equals &Vert;f<sup>&perp;</sup>&Vert;<sup>2</sup> (Elesedy &amp; Zaidi); |G|-fold sample gain (Tahmasebi &amp; Jegelka); canonicalisation is equivalent (Kaba et al.)</td><td>Retention on held-out group elements; &epsilon;<sub>inv</sub> = E&Vert;F(gx) &minus; F(x)&Vert;<sup>2</sup>; any map that factors through X/G qualifies.</td></tr>
+    <tr><td>Triad jointly</td><td class="verdict-no">Unproven</td><td>Independence asserted, not shown</td><td>Main effects of a 2<sup>3</sup> ablation.</td></tr>
+  </tbody></table></div>
+  <div class="subsection"><h3>Three concessions that bound the verdicts</h3>
+  <div class="prose"><ol>
+    <li>The notes state that standard transformer self-attention already realises an aggregate primitive, so the round theorem does not by itself distinguish CEAS from transformers.</li>
+    <li>On the build&rsquo;s own R4 tasks a global mean matched CEAS exactly, and the entropy-corridor controller failed its CEAS hypothesis test (mean &minus;0.002), while the &beta;-controller passed (+0.092).</li>
+    <li>GRAIL&rsquo;s necessity argument is a no-free-lunch argument that does not exclude canonicalisation or learned invariance, which grows with scale in vision models (Gruver et al.).</li>
+  </ol>
+  <p>The Causal Hierarchy Theorem does not require an explicit causal-model engine: causal statements in training text, or experiments run through tools, can carry rung-2 information. Following the ladder strictly therefore means requiring the three functions, and treating GRAIL&rsquo;s function as required only because the ladder writes exact invariance into its definition.</p></div></div>
+  <div class="takeaway"><b>Take-away</b>Of the three pillars, only the causal function is proven necessary without a cost-model caveat; a proof-weighted index gates on causal reasoning and coordination, and measured causal accuracy is the pillar frontier systems have yet to report.</div>
+</section>
+
+<!-- ═══════════ PART II ═══════════ -->
+<section class="page-section" id="index">
+  <div class="section-header"><span class="section-num">05</span><h2 class="section-title">II &middot; The Measured Ladder Index</h2></div>
+  <p class="purpose">What this section is for: the eight quantities computed for each system, the resulting index and level, and how far each result moves under alternative readings.</p>
+  <div class="theory-disclaimer">Cells give the strict value. &ldquo;&middot;&rdquo; means unmeasured, so the bounded value runs over [0,&nbsp;1]; a narrower bounded range is given in brackets. &dagger; Level 4 applies if U is read against the loop&rsquo;s own earlier miss, which rises with wear, instead of against the frozen controller.</div>
+  <div class="gli-table-wrap"><table class="gli-table"><thead><tr><th>System</th><th>C</th><th>&Psi;</th><th>G</th><th>R</th><th>U</th><th>H</th><th>B</th><th>S</th><th>P</th><th>Strict I</th><th>Bounded I</th><th>Alt A</th><th>Level</th></tr></thead><tbody>
+    <tr class="hl"><td>Logarch&eacute;on current build</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0.574</td><td>0.5</td><td>0 (&middot;)</td><td>1</td><td>1</td><td><strong>75.9</strong></td><td>75.9&ndash;88.4</td><td>75.9</td><td>5 (4&dagger;)</td></tr>
+    <tr><td>Hyperagents</td><td>1</td><td>&middot;</td><td>&middot;</td><td>1</td><td>0.332</td><td>0.5</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;85.4</td><td>35.4</td><td>2</td></tr>
+    <tr><td>GPT-6 Astra</td><td>1</td><td>&middot;</td><td>&middot;</td><td>0 (&le;0.5)</td><td>&middot;</td><td>1</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;87.5</td><td>25.0</td><td>2</td></tr>
+    <tr><td>GPT-6.1 Sol, GPT-5.6 Sol, Opus 5, Opus 5.5, Opus 4.8, Gemini 3.8 Flash, Grok 4.6, Kimi K3, Qwen3.8 (27B), GLM-5.3, Seed, Sakana AI Scientist, Co-Scientist, AlphaProof, Aristotle</td><td>1</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>1</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;100</td><td>25.0</td><td>2</td></tr>
+    <tr><td>Darwin G&ouml;del Machine</td><td>1</td><td>&middot;</td><td>&middot;</td><td>1</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;100</td><td>25.0</td><td>2</td></tr>
+    <tr><td>MACE / GNoME</td><td>0.667 (&le;1)</td><td>&middot;</td><td>1</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;100</td><td>20.8</td><td>2 (via G)</td></tr>
+    <tr><td>DeepSeek V4-Pro</td><td>1</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0.5</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;93.8</td><td>18.8</td><td>2</td></tr>
+    <tr><td>Huxley-G&ouml;del Machine</td><td>1</td><td>&middot;</td><td>&middot;</td><td>0</td><td>&middot;</td><td>0.5</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;93.8</td><td>18.8</td><td>2</td></tr>
+    <tr><td>Self-improving embodied FMs</td><td>1</td><td>&middot;</td><td>&middot;</td><td>0 (&le;0.05)</td><td>0.300</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;67.5</td><td>16.3</td><td>2</td></tr>
+    <tr><td>&pi;*0.6</td><td>1</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0.25 (&le;0.5)</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;93.8</td><td>15.6</td><td>2</td></tr>
+    <tr><td>AlphaEvolve</td><td>1</td><td>0.238</td><td>&middot;</td><td>0</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;99.6</td><td>15.5</td><td>2</td></tr>
+    <tr><td>GPT-5.5 / 5.3</td><td>1</td><td>0.085</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;94.2</td><td>13.6</td><td>2</td></tr>
+    <tr><td>Gemini 4 Argon, Muse Spark, V-JEPA 2-AC, Absolute Zero, Gemini Robotics 2, GR00T, AgiBot GO-2, AlphaFold 3</td><td>1</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;100</td><td>12.5</td><td>2</td></tr>
+    <tr><td><em>Calibration:</em> GPT-4 on CLadder</td><td>1</td><td>0.117</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>&middot;</td><td>0</td><td>0</td><td>0&ndash;85.1</td><td>14.0</td><td>2</td></tr>
+    <tr><td><em>Calibration:</em> Euclidean transformer inside the build</td><td>1</td><td>&mdash;</td><td>0.300</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+  </tbody></table></div>
+
+  <div class="subsection"><h3>How the non-trivial cells are computed</h3>
+  <div class="prose"><ul>
+    <li><strong>Logarch&eacute;on current build.</strong> &Psi; = mean(24/24, 5/5, 26/26, 100/100) = 1 with c = 0. G = 1.000/1.000 on SL<sub>2</sub>(&#8477;), with &epsilon;<sub>twin</sub> &asymp; 10<sup>&minus;13</sup>. R = min(1, 40/20)&middot;1 = 1, and R2 = 0.80 (31&ndash;33 of 40 cycles). U = mean over six seeds of (1 &minus; loop/frozen) = 0.574, multiplied by min(1, 24/2) = 1. S = 1 from the token-axis difference interval [0.692, 0.936]. I = 100&middot;1&middot;(1 + 1 + 1.074/2 + 1/2)/4 = 75.9.</li>
+    <li><strong>Hyperagents.</strong> U = (0.372 &minus; 0.060)/0.94 = 0.332 over 100 iterations of robotics reward design. H = 0.5 because the held-out domain was chosen by the developer.</li>
+    <li><strong>Self-improving embodied FMs.</strong> g takes three values: (0.875 &minus; 0.63)/0.37 = 0.662 on the real robot, (0.75 &minus; 0.45)/0.55 = 0.545 in simulation, and 0.595 on BananaTable. Their mean is 0.601; one phase halves it to U = 0.300.</li>
+    <li><strong>&pi;*0.6.</strong> The primary abstract reports that the method roughly halves the task failure rate, so g = 0.5; the cycle count is unknown, so one phase halves it to U = 0.25.</li>
+    <li><strong>AlphaEvolve.</strong> The target was matched or beaten on about 75% + 20% of 50+ problems, so inverse-design success = 0.95 and &Psi; = 0.95/4 = 0.238. Crediting a design task run against an exact evaluator as inverse design is a judgement.</li>
+    <li><strong>GPT-5.3.</strong> Complete identification specification was 34.1% (c = 0), so &Psi; = 0.341/4.</li>
+    <li><strong>GPT-4 on CLadder.</strong> &Psi; = [(0.628 &minus; 0.5)/0.5 + (0.606 &minus; 0.5)/0.5]/4 = 0.117.</li>
+    <li><strong>GPT-6 Astra.</strong> The upper bound on R comes from the report that more than half of 4&ndash;8 hour research tasks needed at least one human intervention, which gives h &ge; 0.5.</li>
+    <li><strong>H = 1 assignments</strong> come from ARC Prize semi-private scores, live IMO contests, blind peer review and an independent experiment. DeepSeek receives 0.5 because NIST CAISI found it performed worse than its own report suggested.</li>
+  </ul></div></div>
+
+  <div class="subsection"><h3>Sensitivities</h3>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Reading</th><th>Effect</th></tr></thead><tbody>
+    <tr><td>U read against the loop&rsquo;s own miss (U = 0)</td><td>Build falls to 68.8 (Level 4).</td></tr>
+    <tr><td>Wilson 95% lower bounds on the small &Psi; samples (5/5 gives 0.566; &Psi; = 0.815)</td><td>Build 70.9.</td></tr>
+    <tr><td>Both of the above</td><td>Build 64.2.</td></tr>
+    <tr><td>Alternative B (proof-weighted gate)</td><td>Build 80.7, or 75.0 with U = 0; AlphaEvolve 9.7, GPT-4 6.8, GPT-5.3 5.8 &mdash; the only aggregation that lifts other systems above zero.</td></tr>
+    <tr><td>Unreported h counted as 1</td><td>Hyperagents&rsquo; Alternative A falls from 35.4 to 22.9; the Darwin G&ouml;del Machine&rsquo;s from 25.0 to 12.5. Strict index unchanged.</td></tr>
+    <tr><td>CausalDS pass rate read as pooled accuracy</td><td>Opus 4.8 and GPT-5.5 &Psi; = 0.412, Gemini 3.1 Pro 0.383; strict index still 0, because G is unmeasured.</td></tr>
+  </tbody></table></div></div>
+
+  <div class="subsection"><h3>The index line</h3>
+  <pre class="line">STRICT INDEX (necessity-gated)
+0         20        40        60        80       100
+|---------|---------|---------|---------|---------|
+X  &larr; 33 systems at 0 (Astra, Opus 5.5, Gemini 4, Hyperagents, DGM, AlphaEvolve, robots, provers &hellip;)
+                                      L (Logarch&eacute;on build) 75.9
+bounded:  build [75.9 ===== 88.4]   EFM [0 ====== 67.5]   Hyperagents [0 ======= 85.4]
+          Astra [0 ======= 87.5]   most others [0 ========== 100]
+
+ALTERNATIVE A (arithmetic mean, no necessity gate)
+0         20        40        60        80       100
+|---------|---------|---------|---------|---------|
+      ^12.5 Argon, Muse, V-JEPA, robots, AF3
+        ^15.5-16.3 AlphaEvolve, &pi;*0.6, EFM
+         ^18.8-20.8 DeepSeek, HGM, MACE
+            ^25.0 ARC-verified LLMs, DGM, provers, Co-Scientist, Sakana
+                ^35.4 Hyperagents
+                                      ^75.9 Logarch&eacute;on build</pre></div>
+  <div class="takeaway"><b>Take-away</b>The strict line has one non-zero point because the necessity gate meets unmeasured pillars everywhere else; it records what has been shown, not a ranking of ability.</div>
+</section>
+
+<!-- ═══════════ PART III ═══════════ -->
+<section class="page-section" id="interactive">
+  <div class="section-header"><span class="section-num">06</span><h2 class="section-title">III &middot; The 51-Entity Line</h2></div>
+  <p class="purpose">What this section is for: every development on one [0,&nbsp;100] line, with the ladder term computed from measurements, under both readings.</p>
+  <div class="theory-disclaimer" style="margin-bottom:1.2rem;">
+    Score = (20&middot;B1 + 15&middot;B2 + 15&middot;B5 + 15&middot;Q/10)/6.5. Ungated: Q = Alternative A. Strict: Q = the necessity-gated index, so every system with an unmeasured pillar has Q = 0. Before the ladder term was measured, the same line with the prose-judged ladder criterion placed Logarch&eacute;on&rsquo;s current build 9th&ndash;11th at 60.0.
+  </div>
+  <div class="toggle-row"><span class="toggle-label">Reading</span><button class="gli-btn active" data-read="u">Ungated</button><button class="gli-btn" data-read="s">Strict</button></div>
+  <div class="gli-filters" id="gliFilters"></div>
+  <div class="gli-stat-row" id="gliStats"></div>
+  <div class="gli-cards" id="gliCards"></div>
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold-light);margin-bottom:0.8rem;">Indicator Table</h3>
+  <p style="font-size:0.82rem;color:var(--faint);font-family:'DM Mono',monospace;margin-bottom:0.7rem;letter-spacing:0.05em;">
+    RANK = capability rank (0&ndash;12) &nbsp;&middot; LEVEL = certification level (functional) &nbsp;&middot; B1 novelty &nbsp;&middot; B2 breadth per resource &nbsp;&middot; B5 protocol discipline &nbsp;&middot; Q = measured ladder index
+  </p>
+  <div class="gli-table-wrap"><table class="gli-table" id="gliTable"><thead><tr>
+    <th class="rank-col">#</th><th>Development</th><th>Group</th><th>Rank</th><th>Level</th><th>B1</th><th>B2</th><th>B5</th><th>Q-ung.</th><th>Ungated</th><th>Q-str.</th><th>Strict</th>
+  </tr></thead><tbody id="gliTbody"></tbody></table></div>
+  <div class="subsection"><h3>The leaders on each reading</h3>
+  <div class="gli-table-wrap"><table class="gli-table"><thead><tr><th>#</th><th>Ungated reading</th><th>Score</th><th>#</th><th>Strict reading</th><th>Score</th></tr></thead><tbody>
+    <tr class="hl"><td>1</td><td>Logarch&eacute;on current build</td><td>61.4</td><td>1</td><td>Logarch&eacute;on current build</td><td>61.4</td></tr>
+    <tr><td>2</td><td>Hyperagents</td><td>60.5</td><td>2=</td><td>AlphaEvolve</td><td>52.3</td></tr>
+    <tr><td>3</td><td>AlphaEvolve</td><td>55.9</td><td>2=</td><td>Hyperagents</td><td>52.3</td></tr>
+    <tr><td>4</td><td>Darwin G&ouml;del Machine</td><td>55.8</td><td>4</td><td>Darwin G&ouml;del Machine</td><td>50.0</td></tr>
+    <tr><td>5</td><td>Equivariant scientific ML</td><td>54.0</td><td>5=</td><td>Equivariant scientific ML</td><td>49.2</td></tr>
+    <tr><td>6</td><td>Self-improving robot models</td><td>53.0</td><td>5=</td><td>V-JEPA 2-AC</td><td>49.2</td></tr>
+    <tr><td>7</td><td>AlphaProof</td><td>52.7</td><td>5=</td><td>Self-improving robot models</td><td>49.2</td></tr>
+    <tr><td>8</td><td>V-JEPA 2-AC</td><td>52.1</td><td>8=</td><td>AlphaProof, Absolute Zero, Huxley-G&ouml;del Machine</td><td>46.9</td></tr>
+  </tbody></table></div></div>
+  <div class="takeaway"><b>Take-away</b>With the ladder term measured, Logarch&eacute;on&rsquo;s current build leads both readings; frontier general models fall to the middle of the line (GPT-6 Astra 39.6 ungated, 33.8 strict), behind the research-scale self-improvement and world-model systems.</div>
+</section>
+
+<!-- ═══════════ PART IV ═══════════ -->
+<section class="page-section" id="firmness">
+  <div class="section-header"><span class="section-num">07</span><h2 class="section-title">IV &middot; Firmness of the Lead</h2></div>
+  <p class="purpose">What this section is for: how much of the first place survives a change of reading.</p>
+  <div class="gli-table-wrap"><table class="gli-table wrap"><thead><tr><th>Reading</th><th>Logarch&eacute;on build</th><th>Nearest rival</th><th>Margin</th><th>What the margin rests on</th></tr></thead><tbody>
+    <tr><td>Ungated, Q = 75.9</td><td>61.4 (1st)</td><td>Hyperagents 60.5</td><td>+0.9</td><td>Measured pillar evidence; Hyperagents leads on novelty (B1 8 against 4.5).</td></tr>
+    <tr><td>Ungated, conservative Q = 64.2</td><td>58.7 (2nd)</td><td>Hyperagents 60.5</td><td>&minus;1.8</td><td>Control judged against the loop&rsquo;s own error, and cautious bounds on the small causal samples.</td></tr>
+    <tr><td>Strict, Q = 75.9</td><td>61.4 (1st)</td><td>AlphaEvolve, Hyperagents 52.3</td><td>about +9</td><td>The rule that an unmeasured pillar counts as zero: others lose the ladder term because their pillars have not been measured, not because a measurement failed.</td></tr>
+    <tr><td>Prose-judged ladder term (earlier line)</td><td>60.0 (9th&ndash;11th)</td><td>Hyperagents 73.1</td><td>&minus;13.1</td><td>The ladder criterion judged in prose instead of measured.</td></tr>
+  </tbody></table></div>
+  <div class="takeaway"><b>Take-away</b>The strict first place is robust to the build&rsquo;s own sensitivities but depends on the zero-for-unmeasured rule; the ungated first place depends on one reading of the control quantity.</div>
+</section>
+
+<!-- ═══════════ PART V ═══════════ -->
+<section class="page-section" id="limits">
+  <div class="section-header"><span class="section-num">08</span><h2 class="section-title">V &middot; What the Numbers Cannot Say</h2></div>
+  <p class="purpose">What this section is for: the exclusions of the evidence, stated as prominently as its findings.</p>
+  <div class="prose"><ol>
+    <li><strong>Equal numbers do not mean equal capability.</strong> The build&rsquo;s values of 1.0 are exact results on its own synthetic tasks: 24 causal questions, the SL<sub>2</sub>(&#8477;) and PSL<sub>2</sub>(&#8484;) groups, a two-dimensional point mass, 16 causal blocks and at most 40 cycles on one workstation, measured against correlation-only baselines and SmolLM2-135M. Frontier numbers come from public benchmarks of a different order of difficulty; ARC-AGI-3 measures novel-task generalisation, not group invariance.</li>
+    <li><strong>Most frontier pillar cells are unmeasured.</strong> The strict index records demonstrated ladder evidence; the bounded intervals of 0&ndash;100 show how little the public record constrains those systems.</li>
+    <li><strong>The ladder was written around one architecture.</strong> Its Level 5 checks (&epsilon;<sub>twin</sub> &le; 10<sup>&minus;6</sup>, a hash-committed hidden set, an R2 rate) are quantities the build was designed to report, and the coordination term gives every transformer the same score as CEAS.</li>
+    <li><strong>Three of the four line criteria remain prose judgements</strong> (B1, B2, B5).</li>
+    <li><strong>Verification is internal.</strong> The build is self-certified; its reviews were carried out by separate AI agents reading the same files, and no outside party has rerun it.</li>
+    <li><strong>Two hard exclusion conditions of the examination are not cleared</strong> (transfer to an unseen task family; a falling self-improvement rate), and two are partly cleared (one task family per loop; no adversarial benchmark). The Level 5 verdict applies the certification report&rsquo;s rule and is stated together with these conditions.</li>
+    <li><strong>Level 6 is not met.</strong> Breadth B = 0; no prediction to larger hardware has been tested; the improver grew once (+0.0041, 9 of 16 tasks won, one-sided sign-test p = 0.40); no adversarial set exists.</li>
+  </ol></div>
+  <div class="takeaway"><b>Take-away</b>The line measures demonstrated ladder evidence at research scale; it does not measure capability, and it is not an outside verification.</div>
+</section>
+
+<!-- ═══════════ PART VI ═══════════ -->
+<section class="page-section" id="plan">
+  <div class="section-header"><span class="section-num">09</span><h2 class="section-title">VI &middot; Plan of the Study</h2></div>
+  <p class="purpose">What this section is for: the one route to a comparison measured throughout &mdash; the same battery run on every system that can be run.</p>
+  <div class="prose"><ol>
+    <li><strong>Choose models.</strong> Open-weight models with ARC Prize scores: Qwen3.8-27B, DeepSeek V4, GLM-5.3 and Kimi K3; frontier APIs where access exists.</li>
+    <li><strong>C:</strong> fit q from the number of reasoning steps needed against N on globally sensitive aggregation and parity tasks.</li>
+    <li><strong>&Psi;:</strong> run the 24-question suite, the action-order demonstration, the non-identifiable abstention items, physical inverse design and the per-rung CLadder splits, at the stated chance levels.</li>
+    <li><strong>G:</strong> measure seen/unseen retention and &epsilon;<sub>inv</sub> on SL<sub>2</sub>(&#8477;) and PSL<sub>2</sub>(&#8484;) inputs, presented in context and after fine-tuning.</li>
+    <li><strong>R, R2 and U:</strong> place each model as the proposer inside the same 40-cycle gated loop, log h, and run the same control plant.</li>
+    <li><strong>H:</strong> score on the unused hash-committed hidden seeds, plus an adversarial set built by a third party.</li>
+    <li><strong>S:</strong> use the scaling axes of battery R4 with bootstrap intervals.</li>
+    <li><strong>Release:</strong> publish the audit bundle (scripts, logs, Lean files and used seeds) so that every number above can be checked from the files alone.</li>
+  </ol>
+  <p>Runs on 27&ndash;30B models fit on one or two large GPUs; the loop runs (40 cycles &times; 3 seeds per model) are the main cost. Every cell would then be measured on identical items, and the bounded intervals would collapse to points.</p></div>
+  <div class="takeaway"><b>Take-away</b>The next measurement that can change this page is the same battery on open-weight models.</div>
+</section>
+
+<!-- ═══════════ SOURCES ═══════════ -->
+<section class="page-section" id="sources">
+  <div class="section-header"><span class="section-num">10</span><h2 class="section-title">Sources</h2></div>
+  <div class="prose"><ul>
+    <li>Bareinboim, Correa, Ibeling &amp; Icard, &ldquo;On Pearl&rsquo;s Hierarchy and the Foundations of Causal Inference&rdquo; (<a href="https://causalai.net/r60.pdf">causalai.net/r60.pdf</a>); Ibeling &amp; Icard (<a href="https://arxiv.org/abs/2107.08558">arXiv 2107.08558</a>); Richens &amp; Everitt (<a href="https://arxiv.org/html/2402.10877">arXiv 2402.10877</a>); Ze&#269;evi&#263; et al. (<a href="https://arxiv.org/abs/2308.13067">arXiv 2308.13067</a>).</li>
+    <li>Ghaffari, LOCAL model notes (<a href="https://people.csail.mit.edu/ghaffari/APC/LOCAL.pdf">MIT</a>); Loukas (<a href="https://arxiv.org/abs/1907.03199">arXiv 1907.03199</a>).</li>
+    <li>Elesedy &amp; Zaidi (<a href="https://arxiv.org/pdf/2102.10333">arXiv 2102.10333</a>); Tahmasebi &amp; Jegelka (<a href="https://arxiv.org/abs/2303.14269">arXiv 2303.14269</a>); Kaba et al. (<a href="https://arxiv.org/abs/2211.06489">arXiv 2211.06489</a>); Gruver et al. (<a href="https://arxiv.org/abs/2210.02984">arXiv 2210.02984</a>).</li>
+    <li>CLadder (<a href="https://arxiv.org/html/2312.04350">arXiv 2312.04350</a>); CausalReasoningBenchmark (<a href="https://arxiv.org/html/2602.20571">arXiv 2602.20571</a>); ARC Prize results (<a href="https://arcprize.org/results">arcprize.org</a>).</li>
+    <li>Hyperagents (<a href="https://arxiv.org/abs/2603.19461">arXiv 2603.19461</a>); self-improving embodied foundation models (<a href="https://self-improving-efms.github.io/">project page</a>); &pi;*0.6 (<a href="https://arxiv.org/html/2511.14759">arXiv 2511.14759</a>); AlphaEvolve (<a href="https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/">Google DeepMind</a>).</li>
+    <li>OpenAI research-automation report (<a href="https://www.helpnetsecurity.com/2026/09/07/openai-research-automation-intern/">Help Net Security, 7 September 2026</a>); NIST CAISI on DeepSeek (<a href="https://the-decoder.com/china-is-falling-behind-in-the-ai-race-according-to-a-us-government-benchmark/">The Decoder</a>).</li>
+    <li>Logarch&eacute;on, <em>Lecture Notes: From Physical AI to ASI</em>, v21.5 (October 2026), including Research Build I&ndash;XI; certification battery report and pass-by-pass results record of the build.</li>
+  </ul></div>
+</section>
+
+  </main>
+</div>
+
+<footer>Logarch&eacute;on Inc. &middot; William Chuang &middot; Quantified Ladder Evaluation &middot; Working Draft &middot; 2 October 2026</footer>
+</div>
+
+<script>
+const DATA = [{"n": "Logarchéon current build (CEAS–Ψ–GRAIL)", "rank": "1 (aim 8→10)", "lvl": "L5 own rule", "b1": 4.5, "b2": 5.0, "b5": 8.0, "qa": 75.9, "sa": 61.4, "qs": 75.9, "ss": 61.4, "g": "logarcheon"}, {"n": "Hyperagents", "rank": "4", "lvl": "L1", "b1": 8.0, "b2": 6.0, "b5": 6.0, "qa": 35.4, "sa": 60.5, "qs": 0.0, "ss": 52.3, "g": "loop"}, {"n": "AlphaEvolve", "rank": "4", "lvl": "L1", "b1": 8.0, "b2": 6.0, "b5": 6.0, "qa": 15.5, "sa": 55.9, "qs": 0.0, "ss": 52.3, "g": "loop"}, {"n": "Darwin Gödel Machine", "rank": "4", "lvl": "L1", "b1": 8.0, "b2": 5.0, "b5": 6.0, "qa": 25.0, "sa": 55.8, "qs": 0.0, "ss": 50.0, "g": "loop"}, {"n": "Equivariant sci-ML", "rank": "1", "lvl": "L2", "b1": 7.0, "b2": 5.0, "b5": 7.0, "qa": 20.8, "sa": 54.0, "qs": 0.0, "ss": 49.2, "g": "science"}, {"n": "Self-improving EFMs", "rank": "8 (partial)", "lvl": "L1", "b1": 7.0, "b2": 6.0, "b5": 6.0, "qa": 16.3, "sa": 53.0, "qs": 0.0, "ss": 49.2, "g": "embodied"}, {"n": "AlphaProof", "rank": "1", "lvl": "L1", "b1": 7.0, "b2": 4.0, "b5": 7.0, "qa": 25.0, "sa": 52.7, "qs": 0.0, "ss": 46.9, "g": "science"}, {"n": "V-JEPA 2-AC", "rank": "8 (partial)", "lvl": "L1", "b1": 7.0, "b2": 6.0, "b5": 6.0, "qa": 12.5, "sa": 52.1, "qs": 0.0, "ss": 49.2, "g": "embodied"}, {"n": "Harmonic Aristotle", "rank": "1", "lvl": "L1", "b1": 6.0, "b2": 4.0, "b5": 8.0, "qa": 25.0, "sa": 51.9, "qs": 0.0, "ss": 46.2, "g": "science"}, {"n": "Huxley-Gödel Machine", "rank": "4", "lvl": "L1", "b1": 7.0, "b2": 5.0, "b5": 6.0, "qa": 18.8, "sa": 51.3, "qs": 0.0, "ss": 46.9, "g": "loop"}, {"n": "DeepSeek V4-Pro", "rank": "4–5", "lvl": "L1", "b1": 6.0, "b2": 6.0, "b5": 6.0, "qa": 18.8, "sa": 50.5, "qs": 0.0, "ss": 46.2, "g": "cn"}, {"n": "Absolute Zero Reasoner", "rank": "4", "lvl": "L1", "b1": 7.0, "b2": 5.0, "b5": 6.0, "qa": 12.5, "sa": 49.8, "qs": 0.0, "ss": 46.9, "g": "loop"}, {"n": "Co-Scientist", "rank": "3", "lvl": "L1", "b1": 6.0, "b2": 5.0, "b5": 6.0, "qa": 25.0, "sa": 49.6, "qs": 0.0, "ss": 43.8, "g": "loop"}, {"n": "Sakana AI Scientist", "rank": "3–4", "lvl": "L1", "b1": 6.0, "b2": 5.0, "b5": 5.0, "qa": 25.0, "sa": 47.3, "qs": 0.0, "ss": 41.5, "g": "loop"}, {"n": "AlphaFold 3", "rank": "1", "lvl": "L1", "b1": 6.0, "b2": 5.0, "b5": 6.0, "qa": 12.5, "sa": 46.7, "qs": 0.0, "ss": 43.8, "g": "science"}, {"n": "DoWhy / y0 / Ananke", "rank": "0", "lvl": "L2", "b1": 5.0, "b2": 3.0, "b5": 8.0, "qa": 12.5, "sa": 43.7, "qs": 0.0, "ss": 40.8, "g": "science"}, {"n": "UAE K2 Think / Falcon H1R", "rank": "3", "lvl": "L1", "b1": 4.0, "b2": 5.0, "b5": 7.0, "qa": 12.5, "sa": 42.9, "qs": 0.0, "ss": 40.0, "g": "world"}, {"n": "Physical Intelligence π0.5/π*0.6", "rank": "8 (partial)", "lvl": "L1", "b1": 6.0, "b2": 5.0, "b5": 4.0, "qa": 15.6, "sa": 42.8, "qs": 0.0, "ss": 39.2, "g": "embodied"}, {"n": "Kimi K3", "rank": "4–5", "lvl": "L1", "b1": 5.0, "b2": 5.0, "b5": 4.0, "qa": 25.0, "sa": 41.9, "qs": 0.0, "ss": 36.2, "g": "cn"}, {"n": "Anthropic Opus 5/5.5, Mythos", "rank": "5", "lvl": "L1", "b1": 4.0, "b2": 4.0, "b5": 6.0, "qa": 25.0, "sa": 41.2, "qs": 0.0, "ss": 35.4, "g": "us"}, {"n": "Genie 3", "rank": "n/a", "lvl": "n/a", "b1": 6.0, "b2": 4.0, "b5": 4.0, "qa": 12.5, "sa": 39.8, "qs": 0.0, "ss": 36.9, "g": "embodied"}, {"n": "GPT-6 Astra", "rank": "5", "lvl": "L1", "b1": 5.0, "b2": 4.0, "b5": 4.0, "qa": 25.0, "sa": 39.6, "qs": 0.0, "ss": 33.8, "g": "us"}, {"n": "Apertus 1.5", "rank": "2–3", "lvl": "L1", "b1": 2.0, "b2": 4.0, "b5": 9.0, "qa": 12.5, "sa": 39.0, "qs": 0.0, "ss": 36.2, "g": "world"}, {"n": "Gemini Robotics 2", "rank": "8 (partial)", "lvl": "L1", "b1": 5.0, "b2": 5.0, "b5": 4.0, "qa": 12.5, "sa": 39.0, "qs": 0.0, "ss": 36.2, "g": "embodied"}, {"n": "Intern-S2", "rank": "4–5", "lvl": "L1", "b1": 5.0, "b2": 5.0, "b5": 4.0, "qa": 12.5, "sa": 39.0, "qs": 0.0, "ss": 36.2, "g": "cn"}, {"n": "NVIDIA Cosmos / GR00T", "rank": "8 (partial)", "lvl": "L1", "b1": 5.0, "b2": 5.0, "b5": 4.0, "qa": 12.5, "sa": 39.0, "qs": 0.0, "ss": 36.2, "g": "embodied"}, {"n": "ByteDance Seed 2.0 / Prover", "rank": "4–5", "lvl": "L1", "b1": 4.0, "b2": 5.0, "b5": 4.0, "qa": 25.0, "sa": 38.8, "qs": 0.0, "ss": 33.1, "g": "cn"}, {"n": "Korea sovereign FMs", "rank": "3", "lvl": "L1", "b1": 4.0, "b2": 5.0, "b5": 5.0, "qa": 12.5, "sa": 38.3, "qs": 0.0, "ss": 35.4, "g": "world"}, {"n": "AgiBot GO-2", "rank": "8 (partial)", "lvl": "L1", "b1": 5.0, "b2": 5.0, "b5": 3.0, "qa": 12.5, "sa": 36.7, "qs": 0.0, "ss": 33.8, "g": "embodied"}, {"n": "Hyperbolic nets incl. HELM", "rank": "1–2", "lvl": "L2", "b1": 5.0, "b2": 3.0, "b5": 5.0, "qa": 12.5, "sa": 36.7, "qs": 0.0, "ss": 33.8, "g": "science"}, {"n": "OpenAI research intern", "rank": "4", "lvl": "L1", "b1": 5.0, "b2": 4.0, "b5": 4.0, "qa": 12.5, "sa": 36.7, "qs": 0.0, "ss": 33.8, "g": "loop"}, {"n": "Qwen3.8-Max", "rank": "4–5", "lvl": "L1", "b1": 4.0, "b2": 5.0, "b5": 3.0, "qa": 25.0, "sa": 36.5, "qs": 0.0, "ss": 30.8, "g": "cn"}, {"n": "Wayve", "rank": "1", "lvl": "L1", "b1": 5.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 34.4, "qs": 0.0, "ss": 31.5, "g": "embodied"}, {"n": "Gemini 3.5–3.8 / 4 Argon", "rank": "5", "lvl": "L1", "b1": 4.0, "b2": 4.0, "b5": 4.0, "qa": 12.5, "sa": 33.7, "qs": 0.0, "ss": 30.8, "g": "us"}, {"n": "GLM-5.3", "rank": "4–5", "lvl": "L1", "b1": 3.0, "b2": 5.0, "b5": 3.0, "qa": 25.0, "sa": 33.5, "qs": 0.0, "ss": 27.7, "g": "cn"}, {"n": "Isomorphic Labs", "rank": "1", "lvl": "L1–L2", "b1": 5.0, "b2": 3.0, "b5": 3.0, "qa": 12.5, "sa": 32.1, "qs": 0.0, "ss": 29.2, "g": "science"}, {"n": "Grok 4.6", "rank": "4–5", "lvl": "L1", "b1": 4.0, "b2": 4.0, "b5": 2.0, "qa": 25.0, "sa": 31.9, "qs": 0.0, "ss": 26.2, "g": "us"}, {"n": "Meta Muse Spark", "rank": "5", "lvl": "L1", "b1": 4.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 31.3, "qs": 0.0, "ss": 28.5, "g": "us"}, {"n": "MiniMax M2.7/M3", "rank": "4", "lvl": "L1", "b1": 4.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 31.3, "qs": 0.0, "ss": 28.5, "g": "cn"}, {"n": "Mistral AI", "rank": "3–4", "lvl": "L1", "b1": 3.0, "b2": 4.0, "b5": 4.0, "qa": 12.5, "sa": 30.6, "qs": 0.0, "ss": 27.7, "g": "world"}, {"n": "Unitree", "rank": "8 (partial)", "lvl": "L1", "b1": 3.5, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 29.8, "qs": 0.0, "ss": 26.9, "g": "embodied"}, {"n": "ERNIE 5.1", "rank": "4–5", "lvl": "L1", "b1": 4.0, "b2": 4.0, "b5": 2.0, "qa": 12.5, "sa": 29.0, "qs": 0.0, "ss": 26.2, "g": "cn"}, {"n": "Figure / Skild", "rank": "2–3", "lvl": "L1", "b1": 4.0, "b2": 4.0, "b5": 2.0, "qa": 12.5, "sa": 29.0, "qs": 0.0, "ss": 26.2, "g": "embodied"}, {"n": "Inkling", "rank": "3–4", "lvl": "L1", "b1": 3.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 28.3, "qs": 0.0, "ss": 25.4, "g": "us"}, {"n": "Microsoft MAI", "rank": "3–4", "lvl": "L1", "b1": 3.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 28.3, "qs": 0.0, "ss": 25.4, "g": "us"}, {"n": "SEA-LION v4", "rank": "2–3", "lvl": "L1", "b1": 3.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 28.3, "qs": 0.0, "ss": 25.4, "g": "world"}, {"n": "Sarvam-105B", "rank": "2–3", "lvl": "L1", "b1": 3.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 28.3, "qs": 0.0, "ss": 25.4, "g": "world"}, {"n": "Tencent Hunyuan", "rank": "3–4", "lvl": "L1", "b1": 3.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 28.3, "qs": 0.0, "ss": 25.4, "g": "cn"}, {"n": "Cohere + Aleph Alpha", "rank": "2–3", "lvl": "L1", "b1": 2.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 25.2, "qs": 0.0, "ss": 22.3, "g": "world"}, {"n": "Sber / Yandex", "rank": "2–3", "lvl": "L1", "b1": 2.0, "b2": 4.0, "b5": 3.0, "qa": 12.5, "sa": 25.2, "qs": 0.0, "ss": 22.3, "g": "world"}, {"n": "Amazon Nova 2", "rank": "2–3", "lvl": "L1", "b1": 2.0, "b2": 4.0, "b5": 2.0, "qa": 12.5, "sa": 22.9, "qs": 0.0, "ss": 20.0, "g": "us"}];
+const GROUPS = {logarcheon:"Logarchéon", loop:"Self-improvement loops", embodied:"World models & robotics", science:"Science, proof & geometry", us:"US frontier models", cn:"Chinese models", world:"Rest of world"};
+let reading = "u", group = "all";
+function colorFor(v) { if (v >= 55) return "#e2c97e"; if (v >= 45) return "#c9a84c"; if (v >= 35) return "#a07d3a"; return "#8a8070"; }
+function render() {
+  const key = reading === "u" ? "sa" : "ss";
+  const sorted = [...DATA].sort((a, b) => b[key] - a[key] || a.n.localeCompare(b.n));
+  const ranks = new Map(); let prev = null, rk = 0;
+  sorted.forEach((e, i) => { if (e[key] !== prev) rk = i + 1; prev = e[key]; ranks.set(e.n, rk); });
+  const shown = sorted.filter(e => group === "all" || e.g === group);
+  const vals = shown.map(e => e[key]);
+  const mean = vals.reduce((a, b) => a + b, 0) / (vals.length || 1);
+  document.getElementById("gliStats").innerHTML =
+    `<div class="gli-stat"><strong>${shown.length}</strong>developments shown</div>` +
+    `<div class="gli-stat"><strong>${reading === "u" ? "Ungated" : "Strict"}</strong>reading</div>` +
+    `<div class="gli-stat"><strong>${Math.max(...vals).toFixed(1)}</strong>highest</div>` +
+    `<div class="gli-stat"><strong>${mean.toFixed(1)}</strong>mean</div>`;
+  document.getElementById("gliCards").innerHTML = shown.map(e => {
+    const v = e[key], short = e.n.replace("Logarchéon current build (CEAS–Ψ–GRAIL)", "Logarchéon");
+    return `<div class="gli-card${e.g === "logarcheon" ? " special-case" : ""}" title="${e.n}">` +
+      `<div class="gli-card-rank">#${ranks.get(e.n)}</div><div class="gli-card-code">${short}</div>` +
+      `<div class="gli-card-score" style="color:${colorFor(v)}">${v.toFixed(1)}</div>` +
+      `<div class="gli-card-bar"><div class="gli-card-bar-fill" style="width:${v}%;background:${colorFor(v)}"></div></div></div>`;
+  }).join("");
+  document.getElementById("gliTbody").innerHTML = shown.map(e => {
+    const f = x => (Math.round(x * 10) / 10).toString();
+    return `<tr${e.g === "logarcheon" ? ' class="hl"' : ""}><td class="rank-col">${ranks.get(e.n)}</td><td class="country-col">${e.n}</td>` +
+      `<td>${GROUPS[e.g]}</td><td>${e.rank}</td><td>${e.lvl}</td><td>${f(e.b1)}</td><td>${f(e.b2)}</td><td>${f(e.b5)}</td>` +
+      `<td>${f(e.qa)}</td><td class="score-col" style="color:${colorFor(e.sa)}">${e.sa.toFixed(1)}</td>` +
+      `<td>${f(e.qs)}</td><td class="score-col" style="color:${colorFor(e.ss)}">${e.ss.toFixed(1)}</td></tr>`;
+  }).join("");
+}
+const fEl = document.getElementById("gliFilters");
+fEl.innerHTML = `<button class="gli-btn active" data-g="all">All 51</button>` +
+  Object.entries(GROUPS).map(([k, v]) => `<button class="gli-btn" data-g="${k}">${v}</button>`).join("");
+fEl.addEventListener("click", ev => { const b = ev.target.closest("button"); if (!b) return;
+  group = b.dataset.g; fEl.querySelectorAll("button").forEach(x => x.classList.toggle("active", x === b)); render(); });
+document.querySelectorAll("[data-read]").forEach(b => b.addEventListener("click", () => {
+  reading = b.dataset.read; document.querySelectorAll("[data-read]").forEach(x => x.classList.toggle("active", x === b)); render(); }));
+render();
+</script>
+</body>
+</html>
