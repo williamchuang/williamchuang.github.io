@@ -342,180 +342,138 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 </style></head><body><div class="wrap">
 <header><div class="mono eyebrow">Logarchéon · Research Demonstration</div>
 <h1>MSIA <span class="accent">Encryption</span> Demo</h1>
-<p class="lede"><strong>This tool locks a short message so only someone with the same secret key can read it</strong> — like a padlock where the key is a set of numbers you choose. The lock is built from advanced math (the geodesic length spectrum of a Fuchsian group; the key is the entries of <em>g</em> Möbius generators), but you don't need to know any of that to use it. Just pick your numbers, type a message, and press a button. Everything runs on your own device — nothing is sent anywhere. This is a research demo, not a vetted security product. <a href="#" id="srcLink" target="_blank" rel="noopener">Source</a> · U.S. Patent Pending 64/067,703.</p></header>
-<div class="howto"><h2>How to use it — 3 simple steps</h2><ol>
-<li><b>Make your secret key.</b> <span class="plain">Tap <em>Load demo key</em> to fill in a ready-made one, or type your own numbers. Both sides — sender and reader — must use the exact same key. (Advanced: the key is g generator matrices; the page checks they're valid as you type.)</span></li>
-<li><b>To send a secret message:</b> <span class="plain">use the <b style="color:#8fa3b5">blue box</b> below. Type your message, press <em>Encrypt</em>, then <em>Copy</em> the scrambled code and send it to your friend. Also tell them your key and the settings you used.</span></li>
-<li><b>To read a message you got:</b> <span class="plain">use the <b style="color:#c9a84c">gold box</b>. Put in the same key and settings, paste the scrambled code, and press <em>Decrypt</em>. Your message appears.</span></li>
-</ol><p class="plain" style="margin-top:.9rem">New to this? <b style="color:var(--ok)">Start with the green practice box just below</b> — it's the easy version. Then come down to the full tool. &nbsp;·&nbsp; Already know how? <a href="https://williamchuang.github.io/tool/" style="color:var(--gold);border-bottom:1px solid var(--border-dim)" target="_blank" rel="noopener">Open the standalone tool ↗</a></p></div>
+<p class="lede"><strong>Public-key encryption: anyone holding the public key can encrypt; only the holder of the matching secret key can decrypt.</strong> The scheme is MSIA-LWE: Module Learning-With-Errors encryption over ℤ<sub>3329</sub>[x]/(x<sup>256</sup>+1), with messages carried in the MSIA slot format, whose slot labels are geodesic lengths in a fixed Fuchsian group. No hash function appears anywhere in the scheme. All computation runs locally in the browser; nothing is transmitted. This is a research demonstration, not a vetted security product. <a href="#" id="srcLink" target="_blank" rel="noopener">Source</a> · U.S. Patent Pending 64/067,703.</p></header>
+<style>
+.ml-params{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:.3rem 0 .9rem}
+@media(max-width:680px){.ml-params{grid-template-columns:1fr}}
+.ml-param{background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;padding:.7rem .8rem;cursor:pointer;text-align:left;color:var(--muted);font-family:inherit;transition:border-color .2s,background .2s}
+.ml-param:hover{border-color:var(--gold-dim)}
+.ml-param.active{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.ml-param .pn{display:block;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.ml-param .pd{display:block;font-size:.76rem;line-height:1.5}
+.station.keys{border-top:3px solid var(--ok)}.station.keys>h2{color:var(--ok)}
+.station.oracle{border-top:3px solid var(--err)}.station.oracle>h2{color:var(--err)}
+.ml-row{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.35rem 0}
+.ml-mini{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--border);border-radius:3px;padding:.35rem .7rem;cursor:pointer}
+.ml-mini:hover{background:var(--gold-glow)}
+.ml-mini:disabled{opacity:.4;cursor:not-allowed}
+.ml-slots{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);line-height:1.6;margin-top:.5rem;word-break:break-word}
+.ml-slots b{color:var(--gold-light);font-weight:400}
+.ml-tbl{width:100%;border-collapse:collapse;font-size:.8rem;margin:.5rem 0 1rem;color:var(--muted)}
+.ml-tbl th{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);text-align:left;border-bottom:1px solid var(--border);padding:.4rem .5rem}
+.ml-tbl td{border-bottom:1px solid var(--border-dim);padding:.4rem .5rem;vertical-align:top}
+.ml-tbl td.num{font-family:'DM Mono',monospace;white-space:nowrap}
+.ml-scroll{overflow-x:auto}
+.ml-h3{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:1.2rem 0 .5rem}
+.ml-p{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:.7rem;max-width:74ch}
+.ml-p strong{color:var(--cream)}
+.nt{text-transform:none}
+</style>
 
-<div class="tutorial">
-<div class="tuhead"><span class="tubadge">★ Start here — simplified version</span>
-<h2>Try the cipher</h2>
-<p>This uses the same algorithm as the full tool below, with two generators fixed and standard mode only. Enter a key, type a message, encrypt it, then decrypt to see it come back. The trace formula check runs live as you type.</p></div>
+<div class="howto"><h2>MSIA-LWE in three steps</h2><ol>
+<li><b>Key pair.</b> <span class="plain">Choose a parameter set and press <em>Generate key pair</em>. The public key may be published; the secret key stays with its holder.</span></li>
+<li><b>Encrypt.</b> <span class="plain">Any sender pastes the public key, types a message and presses <em>Encrypt</em>. Each encryption draws fresh randomness, so one message gives a different ciphertext every time.</span></li>
+<li><b>Decrypt.</b> <span class="plain">The key holder pastes the ciphertext and the secret key and presses <em>Decrypt</em>.</span></li>
+</ol></div>
 
-<!-- KEY FIELD -->
-<div class="tut-field">
-  <div class="tut-step">Step 1 · Your key — two 2×2 matrices</div>
-  <p class="tut-explain">Each matrix must be <b>hyperbolic</b>: the trace (top-left + bottom-right diagonal) must satisfy <b>|trace| > 2</b> — meaning the sum is greater than 2 or less than −2. This is the geodesic condition. The cipher checks it live for each matrix as you type.</p>
-  <div class="tut-gens">
-    <div class="tut-genbox">
-      <div class="tut-glabel">T₁ — first generator</div>
-      <div class="matrix">
-        <input id="tg0_00" inputmode="decimal" placeholder="a" oninput="tutKey()">
-        <input id="tg0_01" inputmode="decimal" placeholder="b" oninput="tutKey()">
-        <input id="tg0_10" inputmode="decimal" placeholder="c" oninput="tutKey()">
-        <input id="tg0_11" inputmode="decimal" placeholder="d" oninput="tutKey()">
-      </div>
-      <div class="tut-trace idle" id="tut_t1">trace (a+d) = ?</div>
-    </div>
-    <div class="tut-genbox">
-      <div class="tut-glabel">T₂ — second generator</div>
-      <div class="matrix">
-        <input id="tg1_00" inputmode="decimal" placeholder="a" oninput="tutKey()">
-        <input id="tg1_01" inputmode="decimal" placeholder="b" oninput="tutKey()">
-        <input id="tg1_10" inputmode="decimal" placeholder="c" oninput="tutKey()">
-        <input id="tg1_11" inputmode="decimal" placeholder="d" oninput="tutKey()">
-      </div>
-      <div class="tut-trace idle" id="tut_t2">trace (a+d) = ?</div>
-    </div>
-  </div>
-  <div class="keystatus idle" id="tut_ks">Fill all eight boxes above, or tap a key below.</div>
+<div id="status" class="anchor-top">Initializing…</div>
 
-  <!-- KEY EXAMPLES -->
-  <div class="tut-examples">
-    <div class="tut-exhead">✓ Valid keys — tap to fill</div>
-    <div class="tut-exrow">
-      <button class="tut-exbtn ok" onclick="tutFill([[2,1],[1,1]],[[3,1],[1,1]])">
-        <span class="ex-name">Easy integers</span>
-        <span class="ex-tr">T₁ trace = 3 · T₂ trace = 4 · both &gt; 2 ✓</span></button>
-      <button class="tut-exbtn ok" onclick="tutFill([[2.5,0.5],[1,1]],[[1.5,1],[1,2.5]])">
-        <span class="ex-name">Decimals</span>
-        <span class="ex-tr">T₁ trace = 3.5 · T₂ trace = 4 · both &gt; 2 ✓</span></button>
-      <button class="tut-exbtn ok" onclick="tutFill([[-2.5,1],[0,-1]],[[3,0.5],[0,1]])">
-        <span class="ex-name">Negative trace</span>
-        <span class="ex-tr">T₁ trace = −3.5 · |trace| &gt; 2 works too ✓</span></button>
-      <button class="tut-exbtn ok" onclick="tutDemo()">
-        <span class="ex-name">Demo (cosh/sinh)</span>
-        <span class="ex-tr">T₁ trace ≈ 3.62 · T₂ trace ≈ 4.71 ✓</span></button>
-    </div>
-    <div class="tut-exhead bad">✗ Invalid keys — tap to see why they fail</div>
-    <div class="tut-exrow">
-      <button class="tut-exbtn fail" onclick="tutFill([[1,0],[0,1]],[[3,1],[1,1]])">
-        <span class="ex-name">Identity</span>
-        <span class="ex-tr">T₁ trace = 2 — not &gt; 2, so it fails</span></button>
-      <button class="tut-exbtn fail" onclick="tutFill([[0,1],[-1,1]],[[3,1],[1,1]])">
-        <span class="ex-name">Rotation (elliptic)</span>
-        <span class="ex-tr">T₁ trace = 1 — a rotation, not hyperbolic</span></button>
-      <button class="tut-exbtn fail" onclick="tutFill([[1.5,0],[0,0.5]],[[1.5,0],[0,0.5]])">
-        <span class="ex-name">Both exactly 2</span>
-        <span class="ex-tr">Both traces = 2 — exactly 2 is not &gt; 2</span></button>
-    </div>
-  </div>
+<div class="station keys"><h2>⓪ Key pair</h2>
+<p class="sub">Module rank <i>k</i> and noise width η set the security level. All three sets use the ring ℤ<sub>3329</sub>[x]/(x<sup>256</sup>+1) and centered binomial noise CBD(η).</p>
+<div class="ml-params" id="mlParams">
+<button class="ml-param" data-k="2" data-eta="3"><span class="pn"><span class="nt">k = 2 · η = 3</span></span><span class="pd">Primal core-SVP: 2<sup>118.6</sup> classical, 2<sup>107.6</sup> quantum. Failure per block: 6.9 × 10<sup>−60</sup>. Public key 2 310 bytes.</span></button>
+<button class="ml-param active" data-k="3" data-eta="2"><span class="pn"><span class="nt">k = 3 · η = 2</span></span><span class="pd">Primal core-SVP: 2<sup>182.2</sup> classical, 2<sup>165.4</sup> quantum. Failure per block: 1.5 × 10<sup>−91</sup>. Public key 4 614 bytes.</span></button>
+<button class="ml-param" data-k="4" data-eta="2"><span class="pn"><span class="nt">k = 4 · η = 2</span></span><span class="pd">Primal core-SVP: 2<sup>255.2</sup> classical, 2<sup>231.6</sup> quantum. Failure per block: 2.6 × 10<sup>−70</sup>. Public key 7 686 bytes.</span></button>
+</div>
+<button class="btn btn-primary" id="mlGen">Generate key pair</button>
+<div class="console"><div class="chead"><span class="ctitle">Public key</span><div class="ctools"><button class="btn btn-secondary" id="mlPkCopy" disabled>Copy</button><button class="btn btn-secondary" id="mlPkSave" disabled>Save</button></div></div>
+<pre id="mlPkOut"><span class="placeholder">The public key appears here.</span></pre></div>
+<div class="console"><div class="chead"><span class="ctitle">Secret key</span><div class="ctools"><button class="btn btn-secondary" id="mlSkCopy" disabled>Copy</button><button class="btn btn-secondary" id="mlSkSave" disabled>Save</button></div></div>
+<pre id="mlSkOut"><span class="placeholder">The secret key appears here.</span></pre>
+<div class="timing" id="mlGenTiming"></div></div>
 </div>
 
-<!-- ENCRYPT / DECRYPT -->
-<div class="tut-tool-row">
-  <div class="tut-half enc">
-    <div class="tut-step">Step 2 · Encrypt a message</div>
-    <textarea id="tut_plain" rows="2" placeholder="Type your message here" disabled oninput="tutCount()"></textarea>
-    <span class="counter" id="tut_cnt" style="margin-bottom:.3rem">0 / 64</span>
-    <button class="btn btn-primary" id="tut_encBtn" onclick="tutEncrypt()" disabled>Encrypt →</button>
-    <div class="console" style="margin-top:.6rem">
-      <div class="chead"><span class="ctitle">Scrambled code</span>
-        <button class="btn btn-secondary" id="tut_copyBtn" onclick="tutCopy()" disabled style="margin:0;padding:.3rem .75rem;font-size:.65rem">Copy to decrypt →</button>
-      </div>
-      <pre id="tut_code"><span class="placeholder">Scrambled code appears here.</span></pre>
-    </div>
-  </div>
-  <div class="tut-half dec">
-    <div class="tut-step">Step 3 · Decrypt</div>
-    <textarea id="tut_cipher" rows="2" placeholder="Paste code here (or press Copy →)" disabled></textarea>
-    <span style="display:block;height:1.55rem"></span>
-    <button class="btn btn-primary" id="tut_decBtn" onclick="tutDecrypt()" disabled style="background:var(--gold)">← Decrypt</button>
-    <div class="console" style="margin-top:.6rem">
-      <div class="chead"><span class="ctitle">Your message</span></div>
-      <pre id="tut_result"><span class="placeholder">Your message appears here.</span></pre>
-    </div>
-  </div>
+<div class="station encrypt"><h2>① Encrypt</h2>
+<p class="sub">Encryption needs only the public key.</p>
+<div class="field"><div class="keyhead"><div class="step">Step 1 · <b>Public key</b></div><button class="preset" id="mlUsePk">Use generated key</button></div>
+<textarea id="mlPkIn" rows="3" placeholder="Paste a public key (MLp1…)"></textarea></div>
+<div class="field"><div class="step">Step 2 · <b>Message</b></div>
+<textarea id="mlMsg" rows="2" placeholder="Type a message">MSIA-LWE · hash-free Module-LWE encryption</textarea>
+<span class="counter"><span id="mlCnt">0</span> / 4096 bytes</span></div>
+<button class="btn btn-primary" id="mlEnc">Encrypt</button>
+<div class="ml-slots" id="mlSlots"></div>
+<div class="console"><div class="chead"><span class="ctitle">Ciphertext</span><div class="ctools"><button class="btn btn-secondary" id="mlCtCopy" disabled>Copy</button><button class="btn btn-secondary" id="mlCtSave" disabled>Save</button></div></div>
+<pre id="mlCtOut"><span class="placeholder">The ciphertext appears here.</span></pre>
+<div class="timing" id="mlEncTiming"></div></div>
 </div>
 
-<div class="tugrad"><h3>Ready for more?</h3>
-<p>The full tool below lets you choose 2–6 generators, High mode for stronger encryption, and an optional AES-GCM outer wrap.</p>
-<a class="tubtn" href="#fulltool">Go to the full tool ↓</a>
-&nbsp;&nbsp;<a class="tubtn" href="https://williamchuang.github.io/tool/" target="_blank" rel="noopener" style="background:var(--navy-mid);color:var(--gold);border:1px solid var(--border)">Open standalone ↗</a></div>
+<div class="station decrypt"><h2>② Decrypt</h2>
+<p class="sub">Decryption needs the secret key that matches the public key used for encryption.</p>
+<div class="field"><div class="keyhead"><div class="step">Step 1 · <b>Secret key</b></div><button class="preset" id="mlUseSk">Use generated key</button></div>
+<textarea id="mlSkIn" rows="2" placeholder="Paste a secret key (MLs1…)"></textarea></div>
+<div class="field"><div class="keyhead"><div class="step">Step 2 · <b>Ciphertext</b></div><button class="preset" id="mlUseCt">Use ciphertext above</button></div>
+<label class="filelabel" for="mlFile">Open a saved file</label><input type="file" id="mlFile" accept=".txt">
+<textarea id="mlCtIn" rows="3" placeholder="Paste a ciphertext (MLc1…)"></textarea></div>
+<button class="btn btn-primary" id="mlDec">Decrypt</button>
+<div class="console"><div class="chead"><span class="ctitle">Message</span></div>
+<pre id="mlDecOut"><span class="placeholder">The decrypted message appears here.</span></pre></div>
 </div>
 
-<div id="status" class="anchor-top">Initializing…</div><span id="fulltool"></span>
-<div class="controls"><div class="ctl-row">
-<div class="ctl"><span class="lbl">Strength <span style="color:var(--faint);text-transform:none;letter-spacing:0">(generators)</span></span><div class="seg" id="genSeg">
-<button data-g="2" onclick="setG(2)">2</button><button data-g="3" class="active" onclick="setG(3)">3</button>
-<button data-g="4" onclick="setG(4)">4</button><button data-g="5" onclick="setG(5)">5</button><button data-g="6" onclick="setG(6)">6</button></div></div>
-<div class="ctl"><span class="lbl">Mode <span style="color:var(--faint);text-transform:none;letter-spacing:0">(precision)</span></span><div class="seg" id="precSeg">
-<button data-p="standard" onclick="setPrec('standard')">Standard</button><button data-p="high" class="active" onclick="setPrec('high')">High (safer)</button></div></div>
-<div class="ctl"><span class="lbl">Hide method <span style="color:var(--faint);text-transform:none;letter-spacing:0">(extra lock)</span></span><div class="seg" id="wrapSeg">
-<button data-w="off" class="active" onclick="setWrap('off')">Off</button><button data-w="on" onclick="setWrap('on')">On</button></div></div>
-</div><div class="ctl-desc" id="ctlDesc"></div></div>
-<div class="secbar"><h3>How hard is it to crack? (changes with your settings)</h3>
-<div class="secgrid">
-<div class="seccell"><div class="k">Number of possible keys</div><div class="v" id="sc_keyspace">—</div><div class="s" id="sc_keyspace_s"></div></div>
-<div class="seccell"><div class="k">Time to crack — normal computer</div><div class="v" id="sc_cls">—</div><div class="s">fastest computers today</div></div>
-<div class="seccell"><div class="k">Time to crack — future quantum computer</div><div class="v" id="sc_q">—</div><div class="s" id="sc_q_s"></div></div>
-</div><div class="qverdict" id="qverdict"></div></div>
-<div class="station encrypt"><h2>① Send a secret message</h2><p class="sub">Put in your key, type your message, and press Encrypt. You'll get scrambled code to copy and send.</p>
-<div class="field"><div class="keyhead"><div class="step">Step 1 · <b>Your secret key</b> — the numbers</div>
-<button class="preset" onclick="loadPreset('e')">Load demo key</button></div>
-<div class="explain">These boxes are your key. Tap <b>Load demo key</b> for a ready-made one, or type your own numbers (decimals and negatives are fine). The page shows a green check when the numbers work. <span style="color:var(--faint)">(Advanced: each box-set is a 2×2 generator matrix; each must be hyperbolic — its two corner-to-corner numbers add to more than 2, or less than −2.)</span></div>
-<div class="gens" id="e_gens"></div>
-<div class="keystatus idle" id="e_keyStatus">Fill the boxes, or tap Load demo key.</div></div><div class="field"><div class="step">Step 2 · <b>Your message</b></div>
-<div class="explain">Type anything — any language, emoji, or symbols.</div>
-<textarea id="ptext" rows="2" placeholder="Type your secret message here" disabled oninput="updateCounter()"></textarea>
-<span class="counter">message size: <span id="cnt">0</span> / <span id="cntMax">64</span> <span id="cntChars" style="color:var(--faint)"></span></span></div>
-<div class="field" style="margin-bottom:.4rem"><div class="step">Step 3 · <b>Scramble it</b></div>
-<button class="btn btn-primary" id="encBtn" onclick="doEncrypt()" disabled>Encrypt (scramble my message)</button></div>
-<div class="console"><div class="chead"><span class="ctitle">Scrambled code — copy this and send it</span>
-<div class="ctools"><button class="btn btn-secondary" id="copyBtn" onclick="copyBlob()" disabled>Copy</button>
-<button class="btn btn-secondary" id="dlBtn" onclick="downloadBlob()" disabled>Save as file</button></div></div>
-<pre id="encOut"><span class="placeholder">Your scrambled code will appear here. Send it to your friend along with the key and settings.</span></pre>
-<div class="timing" id="encTiming"></div></div></div><div class="station decrypt"><h2>② Read a secret message</h2><p class="sub">Use the same key and settings the sender used, paste their scrambled code, and press Decrypt.</p>
-<div class="field"><div class="keyhead"><div class="step">Step 1 · <b>The same secret key</b></div>
-<button class="preset" onclick="loadPreset('d')">Load demo key</button></div>
-<div class="explain">Enter the exact same numbers the sender used. If even one is different, it won't open. <span style="color:var(--faint)">(And set the same Strength and Mode at the top.)</span></div>
-<div class="gens" id="d_gens"></div>
-<div class="keystatus idle" id="d_keyStatus">Enter the same numbers the sender gave you.</div></div><div class="field"><div class="step">Step 2 · <b>The scrambled code</b></div>
-<div class="explain">Paste the code your friend sent, or open their saved file.</div>
-<label class="filelabel" for="blobFile">Open a saved file</label><input type="file" id="blobFile" accept=".json,.txt" onchange="loadFile()">
-<textarea id="btext" rows="4" placeholder="Paste the scrambled code here" disabled></textarea></div>
-<div class="field" style="margin-bottom:.4rem"><div class="step">Step 3 · <b>Open it</b></div>
-<button class="btn btn-primary" id="decBtn" onclick="doDecrypt()" disabled>Decrypt (show my message)</button></div>
-<div class="console"><div class="chead"><span class="ctitle">The message</span></div>
-<pre id="decOut"><span class="placeholder">The secret message will appear here.</span></pre></div></div><div class="notes"><h2>Notes</h2>
+<div class="station oracle"><h2>③ Decryption-oracle attack</h2>
+<p class="sub">The scheme is IND-CPA secure under decision Module-LWE; it is not IND-CCA secure. An attacker who can submit chosen ciphertexts to the key holder and observe the decrypted bits sends malformed ciphertexts <i>u</i> = <i>h</i>·<i>e<sub>j</sub></i>, <i>v</i> = <i>c</i> (constant), and each reply reveals [<i>s<sub>j,i</sub></i> ≤ τ] for all 256 coefficients at once. 2η<i>k</i> replies determine the secret key. This console runs that attack against the key pair generated above, using its decryption function as the oracle.</p>
+<button class="btn btn-primary" id="mlAtk">Run the attack</button>
+<div class="console"><div class="chead"><span class="ctitle">Result</span></div>
+<pre id="mlAtkOut"><span class="placeholder">Generate a key pair first.</span></pre></div>
+</div>
+
+<div class="notes"><h2>MSIA-LWE · construction and measured results</h2>
+<div class="nbody" style="padding:0 0 1rem">
+<p class="ml-p"><strong>Scheme.</strong> Key generation draws a uniform matrix <i>A</i> ∈ <i>R<sub>q</sub></i><sup>k×k</sup> and short <i>s</i>, <i>e</i> ← CBD(η)<sup>k</sup>, and publishes (<i>A</i>, <i>t</i> = <i>As</i> + <i>e</i>). A 256-bit block <i>m</i> is encrypted with fresh short <i>r</i>, <i>e</i><sub>1</sub>, <i>e</i><sub>2</sub> as <i>u</i> = <i>A</i><sup>⊤</sup><i>r</i> + <i>e</i><sub>1</sub>, <i>v</i> = <i>t</i><sup>⊤</sup><i>r</i> + <i>e</i><sub>2</sub> + ⌈<i>q</i>/2⌋<i>m</i>, and decrypted by rounding <i>v</i> − <i>s</i><sup>⊤</sup><i>u</i>. This is the Lyubashevsky–Peikert–Regev design in module form; IND-CPA security reduces to decision Module-LWE by the standard two-step hybrid (Lyubashevsky, Peikert, Regev, EUROCRYPT 2010; Bos et al., CRYSTALS-Kyber, EuroS&amp;P 2018). <i>A</i> is transmitted in complete form, so no hash or XOF expands a seed, and all randomness comes from <code>crypto.getRandomValues</code>.</p>
+<p class="ml-p"><strong>MSIA slot encoding.</strong> A message of bytes <i>c</i><sub>0</sub>, <i>c</i><sub>1</sub>, … becomes the slot list (ℓ<sub><i>i</i></sub>, <i>c<sub>i</sub></i>), with ℓ<sub><i>i</i></sub> = round(10 · 2 arccosh(|tr(<i>G</i><sub>1</sub><sup><i>i</i>+1</sup><i>G</i><sub>2</sub>)|/2)) in the fixed group generated by <i>G</i><sub>1</sub> = (cosh 1.2, sinh 1.2; sinh 1.2, cosh 1.2) and <i>G</i><sub>2</sub> = diag(<i>e</i><sup>1.5</sup>, <i>e</i><sup>−1.5</sup>). The axes are perpendicular and sinh 1.2 · sinh 1.5 &gt; 1, so the group is discrete and free. The labels are public, depend only on position, and increase strictly, so the encoding is an injective map; the slot list is serialized into 256-bit blocks behind a two-byte length header. The geometry supplies the message format and carries no secret: security rests on Module-LWE alone.</p>
+
+<div class="ml-h3">Correctness</div>
+<p class="ml-p">The noise in a decrypted coefficient is <i>e</i><sup>⊤</sup><i>r</i> + <i>e</i><sub>2</sub> − <i>s</i><sup>⊤</sup><i>e</i><sub>1</sub>, a sum of 2<i>kn</i> products of independent CBD(η) variables plus one CBD(η) term. Its law was computed exactly by convolution; a coefficient fails when |noise| ≥ ⌈<i>q</i>/4⌉, and a union bound over 256 coefficients gives the per-block figures in the key-pair panel. The Python reference and this JavaScript port interoperate byte for byte in both directions.</p>
+
+<div class="ml-h3">Lattice reduction against deliberately small parameters</div>
+<p class="ml-p">Key recovery for <i>k</i> = 2 and ring degree <i>n</i> ∈ {8, …, 64} (LWE dimension 2<i>n</i>, the real <i>q</i> = 3329 and η = 2) by the primal attack: Kannan embedding, LLL, then BKZ with block size β raised in steps of 5 (fpylll, long-double Gram–Schmidt, one process per dimension, 900 s BKZ budget within a 25-minute run limit).</p>
+<div class="ml-scroll"><table class="ml-tbl"><thead><tr><th>LWE dimension</th><th>Secret recovered</th><th>Reduction used</th><th>Time</th></tr></thead><tbody>
+<tr><td class="num">16</td><td>yes</td><td>LLL</td><td class="num">0.0 s</td></tr>
+<tr><td class="num">32</td><td>yes</td><td>LLL</td><td class="num">0.1 s</td></tr>
+<tr><td class="num">48</td><td>yes</td><td>LLL</td><td class="num">0.2 s</td></tr>
+<tr><td class="num">64</td><td>yes</td><td>LLL</td><td class="num">0.6 s</td></tr>
+<tr><td class="num">80</td><td>yes</td><td>LLL, then BKZ up to β = 10</td><td class="num">2.5 s</td></tr>
+<tr><td class="num">96</td><td>yes</td><td>LLL, then BKZ up to β = 25</td><td class="num">14.4 s</td></tr>
+<tr><td class="num">112</td><td>yes</td><td>LLL, then BKZ up to β = 35</td><td class="num">51.9 s</td></tr>
+<tr><td class="num">128</td><td>no (not within the 25-minute run limit)</td><td>—</td><td class="num">—</td></tr>
+</tbody></table></div>
+<p class="ml-p">The core-SVP model predicts β ≈ 406, 624 and 874 for the real parameter sets (LWE dimension 512, 768 and 1024), against β ≤ 35 for the dimensions broken here.</p>
+
+<div class="ml-h3">Chapter 2 attack battery at <span class="nt"><i>k</i> = 3, η = 2</span></div>
+<div class="ml-scroll"><table class="ml-tbl"><thead><tr><th>Attack (v1 analogue)</th><th>Measured outcome</th></tr></thead><tbody>
+<tr><td>IND-CPA distinguishers on (pk, <i>c</i>), 0<sup>256</sup> vs 1<sup>256</sup>: mean of <i>v</i>, band test on <i>v</i>, <i>t</i> substituted for <i>s</i></td><td class="num">advantage 0.017–0.047 over 600 trials (3σ noise level 0.061)</td></tr>
+<tr><td>Deterministic-encryption test: one message encrypted 200 times</td><td class="num">200 distinct ciphertexts</td></tr>
+<tr><td>Exact linear algebra: solve <i>t</i> = <i>As</i> over ℤ<sub>q</sub> ignoring <i>e</i></td><td class="num">0.1 % of coefficients correct (chance level); decryption bit error 0.50</td></tr>
+<tr><td>Known-plaintext reuse: read <i>m</i><sub>2</sub> from <i>c</i><sub>2</sub> − <i>c</i><sub>1</sub> given (<i>m</i><sub>1</sub>, <i>c</i><sub>1</sub>)</td><td class="num">bit accuracy 0.496 (chance 0.5)</td></tr>
+<tr><td>Ciphertext coefficient uniformity, 16 bins</td><td class="num">χ² = 14.0, 15 d.o.f. (99th percentile 30.6)</td></tr>
+<tr><td>Invariant leakage: traces or lengths of key or message in the ciphertext</td><td class="num">none transmitted; only the block count depends on the message</td></tr>
+<tr><td>Decryption oracle (reaction attack)</td><td class="num">secret key recovered with 2η<i>k</i> queries (12 for <i>k</i> = 3)</td></tr>
+</tbody></table></div>
+
+<div class="ml-h3">Parameter estimates</div>
+<p class="ml-p">Cost of the primal uSVP attack in the core-SVP model of Alkim, Ducas, Pöppelmann and Schwabe (USENIX Security 2016): the smallest β with σ√β ≤ δ<sub>β</sub><sup>2β−d−1</sup><i>q</i><sup><i>m</i>/<i>d</i></sup>, costed at 2<sup>0.292β</sup> classically and 2<sup>0.265β</sup> quantumly. The same script reproduces the published ML-KEM primal figures of 118, 182 and 256 classical bits, and the three MSIA-LWE sets coincide with those key-recovery instances. The Sage lattice-estimator of Albrecht et al. was not run.</p>
+<div class="ml-scroll"><table class="ml-tbl"><thead><tr><th>Set</th><th><span class="nt">β</span></th><th>Samples <span class="nt"><i>m</i></span></th><th>Classical</th><th>Quantum</th><th>Failure per block</th></tr></thead><tbody>
+<tr><td>k = 2 · η = 3</td><td class="num">406</td><td class="num">486</td><td class="num">2<sup>118.6</sup></td><td class="num">2<sup>107.6</sup></td><td class="num">6.9 × 10<sup>−60</sup></td></tr>
+<tr><td>k = 3 · η = 2</td><td class="num">624</td><td class="num">658</td><td class="num">2<sup>182.2</sup></td><td class="num">2<sup>165.4</sup></td><td class="num">1.5 × 10<sup>−91</sup></td></tr>
+<tr><td>k = 4 · η = 2</td><td class="num">874</td><td class="num">842</td><td class="num">2<sup>255.2</sup></td><td class="num">2<sup>231.6</sup></td><td class="num">2.6 × 10<sup>−70</sup></td></tr>
+</tbody></table></div>
+</div>
+</div>
+
+<div class="notes"><h2>Notes</h2>
 
 <div class="nbody" style="padding:0 0 1rem">
   <p>MSIA is one small worked example from a larger study of post-quantum cryptographic primitives rooted in the Langlands program, hyperbolic geometry, and related number-theoretic structures. That study sits alongside Logarchéon&rsquo;s primary research tracks in <strong>ASI seed architecture</strong> (the CEAS / Ψ-operator / GRAIL triadic framework) and <strong>Indo-Pacific lawfare</strong> — it is not the center of those programs, but draws on the same mathematical substrate.</p>
-  <p>The construction came from the matrix identity det(I − zA)⁻¹ = exp(Σ Tr(Aᵐ)zᵐ/m), which translates simultaneously between symbolic dynamics, linear algebra, and spectral geometry. Making that translation one-way is the cryptographic idea; the specific hard problem is the <strong>length-spectrum inverse problem</strong> for Kleinian groups in ℍⁿ, n≥3. See the detailed sections below the tool for the full mathematical development.</p>
-</div>
-
-<div class="secpanels">
-<div class="secpanel algebraic"><h3>Pure algebraic (Sparse)</h3><span class="tag weak">not secure as-is</span>
-<div class="body">Decryption by Vandermonde inversion of the power-sum traces — no hash. Mathematically closest to the bare construction; not cryptographically secure on its own and carries no authentication.</div></div>
-<div class="secpanel hashed"><h3>Hashed FO-KEM (this demo)</h3><span class="tag ok">authenticated</span>
-<div class="body">Lengths → SHA-512 → 256-bit key, XOR keystream, HMAC-SHA-512 tag. Gives authentication (CCA2-style). The demo faithfully implements the geometric construction, but since the formal hardness proofs are still in progress, it derives the cipher key through SHA-512 so a well-studied security floor is in place today; the brute-force and quantum figures in the live panel above measure that SHA-512 floor. Note: SHA-512 is NSA-designed and NIST-standardized — the same institutional provenance as Dual_EC_DRBG, the only NIST-standardized algorithm for which a backdoor was subsequently documented (2013). No weakness in SHA-512 is known; the trust is conditional, not provable. See §7 below.</div></div>
-</div>
-
-<div class="warn-callout">
-  <span class="wc-label">⚠ Institutional trust caveat</span>
-  <p><strong>SHA-512 is NSA-designed and NIST-standardized — the same institutional relationship that produced Dual_EC_DRBG.</strong> Dual_EC_DRBG (Dual Elliptic Curve DRBG) was standardized by NIST in 2006. Documents disclosed in 2013 showed the NSA had inserted a backdoor by controlling the elliptic curve point selection; RSA Security was reportedly paid to make it the library default. It remains the only NIST-standardized cryptographic algorithm for which a deliberately inserted backdoor has been documented. SHA-512 (FIPS 180-2, 2001) is NSA-designed under the same institutional relationship, and HMAC-SHA-512 derives its security entirely from SHA-512. <strong>No weakness in SHA-512 is publicly known.</strong> But under the legal regime described in §7–§8 — CALEA, §702, compelled-assistance frameworks that reach standards bodies — that guarantee cannot be verified from outside the design process. The floor presented by this demo is a conditional trust, not a mathematical proof of security. The Algebraic constructions section above runs the original MSIA design with no hash in the path and no reliance on this institutional trust.</p>
-</div>
-
-<div class="nbody" style="padding:.8rem 0 .4rem">
-<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Brute-force &amp; quantum resistance</h3>
-<p style="font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:.6rem">Each generator adds four real key parameters (~97 bits at High precision). Once the key space exceeds the 256-bit derived key, the SHA-512 floor dominates; under Grover that floor is 2¹²⁸ — the NIST quantum-safe bar.</p>
-<table class="bftable"><tr><th>config</th><th>key space</th><th>classical</th><th>quantum (Grover)</th><th>quantum-safe?</th></tr>
-<tr><td>Standard g=2</td><td>2⁶¹</td><td>~21 min (nation-state)</td><td>instant</td><td class="danger">no</td></tr>
-<tr><td>High g=2</td><td>2¹⁹⁴</td><td>&gt; age of universe</td><td>~10⁶ yr</td><td class="danger">no (2⁹⁷)</td></tr>
-<tr><td>High g=3</td><td>2²⁵⁶ (SHA-capped)</td><td>&gt; age of universe</td><td>&gt; age of universe</td><td class="safe">yes (2¹²⁸)</td></tr>
-<tr><td>High g≥4</td><td>2²⁵⁶ (SHA-capped)</td><td>&gt; age of universe</td><td>&gt; age of universe</td><td class="safe">yes (margin)</td></tr></table>
+  <p>The construction came from the matrix identity det(I − zA)⁻¹ = exp(Σ Tr(Aᵐ)zᵐ/m), which translates simultaneously between symbolic dynamics, linear algebra, and spectral geometry. See the detailed sections below the tool for the full mathematical development.</p>
 </div>
 
 <div class="nbody" style="padding:.8rem 0 .4rem">
@@ -527,16 +485,6 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
   <p style="margin-top:.6rem">The Salt Typhoon intrusion — in which PRC-affiliated actors reached the lawful-intercept infrastructure inside U.S. carrier networks — illustrates the same principle at scale: the attack surface is not the encrypted channel but the hardware and firmware layer beneath it, which the intercept mandate requires to be maintained and reachable. The author identified this class of carrier-infrastructure vulnerability as the critical attack vector before Salt Typhoon became public news. The implication for this demo: running the browser offline removes the network-layer threat, but not the firmware, hardware-subsystem, or side-channel threat. For adversary-grade protection against those vectors, the implementation must run on verified, audited hardware with a reduced firmware attack surface — which is outside the scope of a browser demo.</p>
   <p style="margin-top:.6rem"><strong>This page is a research demonstration of the mathematical construction.</strong> For a commercial-scale implementation addressing the hardware threat model — air-gapped deployment, audited firmware stack, side-channel hardening — see the contact below.</p>
 </div>
-</div>
-
-<div class="nbody" style="padding:.8rem 0 .4rem">
-<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Choosing the key</h3>
-<p style="font-size:.86rem;color:var(--muted);line-height:1.65">Each number may be <strong>positive or negative</strong> and need not be a whole number (e.g. <code>-2.5</code>, <code>1.41421356</code>). Each generator must be hyperbolic: its two diagonal numbers add to more than 2 or less than −2, checked live. Digit count does not affect speed — a double is 64 bits regardless. More digits give a larger key space at no speed cost.</p>
-</div>
-
-<div class="nbody" style="padding:.8rem 0 .4rem">
-<h3 style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Demo scope</h3>
-<p style="font-size:.86rem;color:var(--muted);line-height:1.65">This demo handles short messages (up to 64 bytes). The method generalizes to full documents and files in a native implementation; the limit is a property of this demo, not of the construction.</p>
 </div>
 
 <div class="biz-card" id="bizCard">
@@ -593,510 +541,7 @@ footer .mono{display:block;margin-bottom:.5rem;font-size:.66rem}.engine{font-fam
 </div>
 
 </div>
-<!-- ════════════════ ALGEBRAIC CONSTRUCTIONS SECTION (inject before footer) ════════════════ -->
-<style>
-.alg-wrap{margin:2.4rem 0 1rem;border:1px solid var(--border);border-radius:6px;background:var(--navy-mid);padding:1.4rem 1.5rem;box-shadow:0 0 0 1px var(--border-dim),0 0 40px rgba(201,168,76,0.05)}
-.alg-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);border-radius:3px;padding:.22rem .6rem;margin-bottom:.7rem}
-.alg-frame{border-left:3px solid var(--gold);background:var(--gold-glow);padding:.8rem 1rem;margin:.2rem 0 1.1rem;font-size:.88rem;color:var(--muted);line-height:1.7;max-width:74ch}
-.alg-frame strong{color:var(--cream)}
-.alg-wrap h3.alg-h{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:400;color:var(--cream);border-left:3px solid var(--gold);padding-left:.8rem;margin:0 0 .5rem;line-height:1.25}
-.alg-lead{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:74ch;margin-bottom:1.1rem}
-.alg-lead strong{color:var(--cream)}
-.alg-seg-row{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start;margin:.4rem 0 1rem}
-.alg-seg-group .seglab{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
-.alg-vseg{display:flex;flex-wrap:wrap;gap:.4rem}
-.alg-vseg button{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;padding:.5rem .85rem;cursor:pointer;transition:all .2s}
-.alg-vseg button:hover{border-color:var(--gold-dim);color:var(--cream)}
-.alg-vseg button.active{background:rgba(201,168,76,.12);border-color:var(--gold);color:var(--gold)}
-.alg-vdesc{font-size:.85rem;color:var(--muted);line-height:1.6;background:var(--navy);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);border-radius:0 4px 4px 0;padding:.7rem .9rem;margin-bottom:1rem}
-.alg-vdesc strong{color:var(--cream)}
-.alg-keybox{background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;padding:.9rem 1rem;margin-bottom:1rem}
-.alg-keybox h4{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:0 0 .2rem}
-.alg-keyhint{font-size:.78rem;color:var(--faint);line-height:1.5;margin-bottom:.7rem}
-.alg-gens{display:flex;flex-wrap:wrap;gap:1rem}
-.alg-gen{flex:0 0 190px}
-.alg-gen.hidden{display:none}
-.alg-gen .glab{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--muted);margin-bottom:.3rem;display:flex;justify-content:space-between;align-items:baseline}
-.alg-gen .gtrace{font-size:.62rem}
-.alg-gen .gtrace.ok{color:var(--ok)} .alg-gen .gtrace.bad{color:var(--err)}
-.alg-mat{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;width:100%}
-.alg-mat input{width:100%;min-width:0;box-sizing:border-box;background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:3px;color:var(--cream);font-family:'DM Mono',monospace;font-size:.8rem;padding:.4rem .45rem;text-align:center}
-.alg-mat input:focus{outline:none;border-color:var(--gold-dim)}
-.alg-mat input.cellbad{border-color:var(--err)}
-.alg-keyactions{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
-.alg-mini{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--navy-mid);border:1px solid var(--border-dim);border-radius:3px;padding:.35rem .6rem;cursor:pointer;transition:all .2s}
-.alg-mini:hover{border-color:var(--gold-dim);color:var(--cream)}
-.alg-schnote{font-size:.76rem;color:var(--faint);font-style:italic;margin-top:.3rem}
-.alg-io{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.6rem 0}
-@media(max-width:680px){.alg-io{grid-template-columns:1fr}}
-.alg-col h4{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:0 0 .4rem;display:flex;justify-content:space-between;align-items:baseline}
-.alg-col textarea{width:100%;box-sizing:border-box;min-height:80px;background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;color:var(--cream);font-family:'DM Mono',monospace;font-size:.82rem;padding:.6rem;resize:vertical;line-height:1.5}
-.alg-col textarea:focus{outline:none;border-color:var(--gold-dim)}
-.alg-conactions{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.4rem;align-items:center}
-.alg-btn{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);border-radius:4px;padding:.55rem 1rem;cursor:pointer;margin:.5rem .4rem .2rem 0;transition:all .2s}
-.alg-btn:hover{background:rgba(201,168,76,.2)}
-.alg-btn:disabled{opacity:.4;cursor:not-allowed}
-.alg-status{font-family:'DM Mono',monospace;font-size:.74rem;margin:.5rem 0;min-height:1.1em;line-height:1.5}
-.alg-status.ok{color:var(--ok)} .alg-status.err{color:var(--err)} .alg-status.run{color:var(--gold)} .alg-status.warn{color:#d9a441}
-.alg-status .cpybtn{margin-left:.6rem}
-.alg-panel{margin-top:1rem;border-top:1px solid var(--border-dim);padding-top:1rem;display:none}
-.alg-panel.show{display:block}
-.alg-panel h4{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:0 0 .5rem}
-.alg-grid2{display:grid;grid-template-columns:1.1fr 1fr;gap:1.2rem;align-items:start}
-@media(max-width:680px){.alg-grid2{grid-template-columns:1fr}}
-.alg-data .row{display:flex;gap:.6rem;font-family:'DM Mono',monospace;font-size:.76rem;margin-bottom:.4rem;line-height:1.5}
-.alg-data .row .lab{color:var(--gold-dim);min-width:5.5em;flex:0 0 auto}
-.alg-data .row .val{color:var(--cream);word-break:break-word}
-.alg-spy{display:block;margin:0 auto;background:var(--navy);border:1px solid var(--border-dim);border-radius:4px;max-width:100%}
-.alg-spy-cap{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--faint);text-align:center;margin-top:.4rem}
-.alg-note{font-size:.78rem;color:var(--faint);line-height:1.55;margin-top:.8rem;font-style:italic}
-.alg-dec-wrap{margin-top:1.8rem;border-top:2px solid var(--border-dim);padding-top:1.4rem}
-.alg-dec-wrap h3.alg-h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;font-weight:400;color:var(--cream);border-left:3px solid var(--gold-dim);padding-left:.8rem;margin:0 0 .4rem}
-.alg-dec-lead{font-size:.85rem;color:var(--muted);line-height:1.6;max-width:74ch;margin-bottom:.9rem}
-</style>
-<div class="alg-wrap" id="algWrap">
-  <span class="alg-badge">Faithful implementation · original MSIA design</span>
-  <h3 class="alg-h">Algebraic constructions — companion matrices &amp; trace recovery</h3>
-  <div class="alg-frame"><strong>How this differs from the demonstrations above.</strong> The tutorial and the everyday tool exist to teach the workflow — key in, message in, ciphertext out — and in implementation they still derive their keystream through a hash (the SHA-512 / FO-KEM floor noted in the footer). <strong>This section is the fair demonstration:</strong> it runs the original MSIA design directly, with no hash anywhere in the encryption path. Security rests on the algebraic structure itself — the trace-recovery problem — analyzed in MSIA in Depth below. This matters on two dimensions, not one. The first is mathematical: the security argument moves from "trust a hash function" to "trust a published open problem in arithmetic geometry." The second is institutional: the hash-free path places no reliance on NSA-designed, NIST-standardized primitives developed under the same legal and institutional framework described in §7 below. SHA-512 is NSA-designed (FIPS 180-2, 2001). The only NIST-standardized algorithm for which a deliberately inserted backdoor was subsequently documented is Dual_EC_DRBG — also NSA-designed, standardized 2006, backdoor disclosed 2013. No weakness in SHA-512 is known; but under the legal regime described in §7, that guarantee cannot be independently verified from outside the design process. The algebraic construction here requires no such trust: its hardness is a public mathematical statement whose analysis is open to the entire research community and is not contingent on the integrity of any government-adjacent standards body.</div>
-  <p class="alg-lead">Each character's count becomes a companion block of <em>x<sup>ℓ</sup>−1</em>; the blocks are assembled by block-diagonal concatenation and disguised by a random diagonal similarity <em>D<sup>−1</sup>AD</em>; and for the pure-algebraic variant, decryption recovers the message by solving the Vandermonde system from the power-trace vector <em>T</em> — no hash involved.</p>
 
-  <div class="alg-seg-row">
-    <div class="alg-seg-group">
-      <div class="seglab">Construction</div>
-      <div class="alg-vseg" id="algVseg">
-        <button data-v="sparse" class="active">Sparse · trace-driven</button>
-        <button data-v="cca">Distinct + Frobenius/Brauer · CCA2</button>
-        <button data-v="schottky">Schottky group · SL₂(𝔽ₚ)</button>
-      </div>
-    </div>
-    <div class="alg-seg-group" id="algGenSegGroup">
-      <div class="seglab">Generators</div>
-      <div class="alg-vseg" id="algGenSeg">
-        <button data-g="2" class="active">2 · G1 G2</button>
-        <button data-g="3">3 · G1 G2 G3</button>
-      </div>
-    </div>
-  </div>
-  <div class="alg-vdesc" id="algVdesc"></div>
-
-  <div class="alg-keybox" id="algKeybox">
-    <h4>Encryption key — generator matrices</h4>
-    <div class="alg-keyhint">The key is a set of 2×2 generators. Each must be hyperbolic: |trace| &gt; 2. Lengths ℓ are derived from these, exactly like the tutorial. Three generators deepen the key space — a ciphertext made with 3 must be decrypted with 3.</div>
-    <div class="alg-gens" id="algGensHost">
-      <div class="alg-gen" data-i="0">
-        <div class="glab"><span>G1 (T₁)</span><span class="gtrace" id="algTr0"></span></div>
-        <div class="alg-mat"><input id="alg_g0_00" inputmode="decimal" placeholder="a"><input id="alg_g0_01" inputmode="decimal" placeholder="b"><input id="alg_g0_10" inputmode="decimal" placeholder="c"><input id="alg_g0_11" inputmode="decimal" placeholder="d"></div>
-      </div>
-      <div class="alg-gen" data-i="1">
-        <div class="glab"><span>G2 (T₂)</span><span class="gtrace" id="algTr1"></span></div>
-        <div class="alg-mat"><input id="alg_g1_00" inputmode="decimal" placeholder="a"><input id="alg_g1_01" inputmode="decimal" placeholder="b"><input id="alg_g1_10" inputmode="decimal" placeholder="c"><input id="alg_g1_11" inputmode="decimal" placeholder="d"></div>
-      </div>
-      <div class="alg-gen hidden" data-i="2" id="algGen2">
-        <div class="glab"><span>G3 (T₃)</span><span class="gtrace" id="algTr2"></span></div>
-        <div class="alg-mat"><input id="alg_g2_00" inputmode="decimal" placeholder="a"><input id="alg_g2_01" inputmode="decimal" placeholder="b"><input id="alg_g2_10" inputmode="decimal" placeholder="c"><input id="alg_g2_11" inputmode="decimal" placeholder="d"></div>
-      </div>
-    </div>
-    <div class="alg-keyactions">
-      <button class="alg-mini" id="algKeyDemo">Use demo key</button>
-      <button class="alg-mini" id="algKeyRand">Random hyperbolic key</button>
-    </div>
-    <div class="alg-schnote" id="algSchNote" style="display:none">The Schottky variant generates its own random SL₂(𝔽ₚ) generators per encryption — the key boxes above are not used for it.</div>
-  </div>
-
-  <div class="alg-io">
-    <div class="alg-col">
-      <h4><span>Message</span><span id="algCount" style="font-family:'DM Mono',monospace;font-size:.66rem;color:var(--faint);text-transform:none;letter-spacing:0">0 / 128 bytes</span></h4>
-      <textarea id="algIn" placeholder="Type a short message (demo cap: 128 bytes)…">MSIA companion-matrix demo</textarea>
-      <button class="alg-btn" id="algEncBtn">Encrypt →</button>
-    </div>
-    <div class="alg-col">
-      <h4><span>Ciphertext object (JSON)</span></h4>
-      <textarea id="algBlob" placeholder="Encrypt to produce the algebraic object…"></textarea>
-      <div class="alg-conactions">
-        <button class="alg-mini" id="algCopy">Copy</button>
-        <button class="alg-mini" id="algSave">Save .json</button>
-        <button class="alg-mini" id="algUpload">Upload .json</button>
-        <input type="file" id="algFile" accept="application/json,.json" style="display:none">
-        <button class="alg-btn" id="algDecBtn" style="margin:0 0 0 auto">← Decrypt</button>
-      </div>
-    </div>
-  </div>
-  <div class="alg-status" id="algStatus"></div>
-
-  <div class="alg-panel" id="algPanel">
-    <h4>Companion structure (chunk 1)</h4>
-    <div class="alg-grid2">
-      <div class="alg-data" id="algData"></div>
-      <div><canvas class="alg-spy" id="algSpy" width="220" height="220"></canvas><div class="alg-spy-cap" id="algSpyCap"></div></div>
-    </div>
-    <p class="alg-note" id="algRecNote"></p>
-  </div>
-
-  <!-- ===== second, standalone DECRYPT console ===== -->
-  <div class="alg-dec-wrap">
-    <h3 class="alg-h2">Decrypt console — paste or upload a ciphertext</h3>
-    <p class="alg-dec-lead">A clean station for the receiving side. Paste a JSON ciphertext (or upload the saved file) and decrypt it on its own — the variant and generator count are read from the object, and the companion structure is shown as it recovers the message.</p>
-    <div class="alg-col">
-      <h4><span>Ciphertext object (JSON)</span></h4>
-      <textarea id="algDIn" placeholder="Paste a ciphertext JSON here, or upload one…"></textarea>
-      <div class="alg-conactions">
-        <button class="alg-mini" id="algDUpload">Upload .json</button>
-        <input type="file" id="algDFile" accept="application/json,.json" style="display:none">
-        <button class="alg-mini" id="algDClear">Clear</button>
-        <button class="alg-btn" id="algDDecBtn" style="margin:0 0 0 auto">Decrypt →</button>
-      </div>
-    </div>
-    <div class="alg-status" id="algDStatus"></div>
-    <div class="alg-col" style="margin-top:.6rem">
-      <h4>Recovered message</h4>
-      <textarea id="algDOut" placeholder="The recovered plaintext appears here…" readonly></textarea>
-    </div>
-    <div class="alg-panel" id="algDPanel">
-      <h4>Companion structure (chunk 1)</h4>
-      <div class="alg-grid2">
-        <div class="alg-data" id="algDData"></div>
-        <div><canvas class="alg-spy" id="algDSpy" width="220" height="220"></canvas><div class="alg-spy-cap" id="algDSpyCap"></div></div>
-      </div>
-      <p class="alg-note" id="algDRecNote"></p>
-    </div>
-  </div>
-</div>
-
-<script>
-const ALG_P=131071n, ALG_EXT=2n, ALG_KEY_BYTES=32;
-function _amp(b,e,m){b%=m;if(b<0n)b+=m;let r=1n;while(e>0n){if(e&1n)r=(r*b)%m;b=(b*b)%m;e>>=1n;}return r;}
-function _ainv(a,m){return _amp(((a%m)+m)%m,m-2n,m);}
-function _am2(a,b){return[[a[0][0]*b[0][0]+a[0][1]*b[1][0],a[0][0]*b[0][1]+a[0][1]*b[1][1]],[a[1][0]*b[0][0]+a[1][1]*b[1][0],a[1][0]*b[0][1]+a[1][1]*b[1][1]]];}
-function _apow2(base,n){let res=[[1,0],[0,1]],B=[base[0].slice(),base[1].slice()];while(n>0){if(n&1)res=_am2(res,B);B=_am2(B,B);n=Math.floor(n/2);}return res;}
-function _alenG(gens,idx,scale){let M=_apow2(gens[0],idx+1);for(let k=1;k<gens.length;k++)M=_am2(M,gens[k]);const tr=Math.abs(M[0][0]+M[1][1])/2;const L=2*Math.acosh(tr);let l=BigInt(Math.round(scale*L))%ALG_P;if(l<0n)l+=ALG_P;return l===0n?1n:l;}
-function _alen(G1,G2,idx,scale){return _alenG([G1,G2],idx,scale);}
-function _atraces(slots){const t=slots.length,T=[];for(let k=0;k<t;k++){let s=0n;for(const[l,c]of slots){s=(s+BigInt(c)*_amp(l,BigInt(k),ALG_P))%ALG_P;}T.push(s);}return T;}
-function _avand(ells,T){const t=ells.length,M=[];for(let k=0;k<t;k++){const row=[];for(let j=0;j<t;j++)row.push(_amp(ells[j],BigInt(k),ALG_P));row.push(((T[k]%ALG_P)+ALG_P)%ALG_P);M.push(row);}
- for(let i=0;i<t;i++){let piv=-1;for(let r=i;r<t;r++){if(M[r][i]!==0n){piv=r;break;}}if(piv<0)throw new Error('singular Vandermonde (ℓ not distinct?)');[M[i],M[piv]]=[M[piv],M[i]];const inv=_ainv(M[i][i],ALG_P);M[i]=M[i].map(x=>(x*inv)%ALG_P);for(let r=0;r<t;r++){if(r!==i&&M[r][i]!==0n){const fac=M[r][i];for(let c=0;c<=t;c++)M[r][c]=(((M[r][c]-fac*M[i][c])%ALG_P)+ALG_P)%ALG_P;}}}
- return M.map(row=>row[t]);}
-function _adim(slots){let n=0n;for(const[l,c]of slots)n+=l*BigInt(c);return n;}
-function _afrob(x,power,p,n){const mod=(p**n)-1n;const e=_amp(p,BigInt(power),mod);return _amp(x,e,p**n);}
-class _ABrauer{constructor(){this.map=new Map();}hide(x){const k=x.toString();if(!this.map.has(k))this.map.set(k,BigInt(this.map.size+1));return this.map.get(k);}}
-async function _asha512(b){const d=await crypto.subtle.digest('SHA-512',b);return new Uint8Array(d);}
-async function _ahmac(k,m){const key=await crypto.subtle.importKey('raw',k,{name:'HMAC',hash:'SHA-512'},false,['sign']);return new Uint8Array(await crypto.subtle.sign('HMAC',key,m));}
-function _axor(key,data){const o=new Uint8Array(data.length);for(let i=0;i<data.length;i++)o[i]=data[i]^key[i%key.length];return o;}
-function _ai2b(x,nb){const o=new Uint8Array(nb);let v=x;for(let i=nb-1;i>=0;i--){o[i]=Number(v&0xffn);v>>=8n;}return o;}
-function _akeybuf(clsIds){const nb=Math.floor((ALG_P.toString(2).length+7)/8);const t=new Uint8Array(clsIds.length*nb);clsIds.forEach((x,i)=>t.set(_ai2b(x,nb),i*nb));return t;}
-
-function _aEncSparseG(gens,pt,chunk,scale){const data=new TextEncoder().encode(pt);const chunks=[];let off=0;
- for(let ci=0;ci<Math.ceil(data.length/chunk);ci++){const blk=data.slice(ci*chunk,(ci+1)*chunk);const seen=new Set(),slots=[];
-  for(let j=0;j<blk.length;j++){let l=_alenG(gens,off+j,scale);while(seen.has(l.toString())){l=(l+1n)%ALG_P;if(l===0n)l=1n;}seen.add(l.toString());slots.push([l,blk[j]]);}
-  off+=blk.length;const ells=slots.map(s=>s[0]),T=_atraces(slots),n=_adim(slots);
-  chunks.push({ells:ells.map(x=>x.toString()),T:T.map(x=>x.toString()),n:n.toString(),bytes:blk.length});}
- return{variant:'sparse',ngen:gens.length,chunks,origLen:data.length};}
-function _aDecSparse(ct){const out=[];for(const ch of ct.chunks){const ells=ch.ells.map(x=>BigInt(x)),T=ch.T.map(x=>BigInt(x));const cv=_avand(ells,T);for(const c of cv)out.push(Number(((c%256n)+256n)%256n));}return new TextDecoder().decode(new Uint8Array(out.slice(0,ct.origLen)));}
-
-async function _aEncCCAG(gens,pt,chunk,scale){const data=new TextEncoder().encode(pt);const brauer=new _ABrauer();const chunks=[];let off=0;
- for(let ci=0;ci<Math.ceil(data.length/chunk);ci++){const blk=data.slice(ci*chunk,(ci+1)*chunk);const seen=new Set(),slots=[],clsIds=[];
-  for(let j=0;j<blk.length;j++){let l=_alenG(gens,off+j,scale);while(seen.has(l.toString())){l=(l+1n)%ALG_P;if(l===0n)l=1n;}seen.add(l.toString());const tw=_afrob(l,1,ALG_P,ALG_EXT)%ALG_P;clsIds.push(brauer.hide(tw));slots.push([l,blk[j]]);}
-  off+=blk.length;const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=_axor(K,blk);const tag=await _ahmac(K,ctB);const T=_atraces(slots);
-  chunks.push({ct:Array.from(ctB),tag:Array.from(tag),clsIds:clsIds.map(x=>x.toString()),ells:slots.map(s=>s[0].toString()),T:T.map(x=>x.toString()),n:_adim(slots).toString(),bytes:blk.length});}
- return{variant:'cca',ngen:gens.length,chunks,origLen:data.length};}
-async function _aDecCCA(ct){const out=[];for(const ch of ct.chunks){const clsIds=ch.clsIds.map(x=>BigInt(x));const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=new Uint8Array(ch.ct),tag=new Uint8Array(ch.tag);const calc=await _ahmac(K,ctB);let ok=calc.length===tag.length;for(let i=0;i<tag.length;i++)if(calc[i]!==tag[i])ok=false;if(!ok)throw new Error('MAC verification failed — CCA detected');const blk=_axor(K,ctB);const ells=ch.ells.map(x=>BigInt(x)),T=ch.T.map(x=>BigInt(x));const cv=_avand(ells,T);for(let i=0;i<cv.length;i++)if(Number(((cv[i]%256n)+256n)%256n)!==blk[i])throw new Error('Trace mismatch — tampering suspected');for(const b of blk)out.push(b);}return new TextDecoder().decode(new Uint8Array(out.slice(0,ct.origLen)));}
-
-function _aRandBelow(maxEx){const bits=maxEx.toString(2).length;let r;do{let v=0n;for(let i=0;i<bits;i+=32)v=(v<<32n)|BigInt(Math.floor(Math.random()*0x100000000));r=v%(1n<<BigInt(bits));}while(r>=maxEx);return r;}
-function _aRandSL2(p){const a=_aRandBelow(p-1n)+1n,b=_aRandBelow(p-1n)+1n,c=_aRandBelow(p-1n)+1n;const d=(_ainv(a,p)*((1n+b*c)%p))%p;return[[a,b],[c,d]];}
-function _aSchottkyTrace(a,b,wl,p){let M=[[1n,0n],[0n,1n]];const ia=[[a[1][1],(-a[0][1]%p+p)%p],[(-a[1][0]%p+p)%p,a[0][0]]];const ib=[[b[1][1],(-b[0][1]%p+p)%p],[(-b[1][0]%p+p)%p,b[0][0]]];const gens=[a,b,ia,ib];for(let i=0;i<wl;i++){const G=gens[Math.floor(Math.random()*4)];M=[[(M[0][0]*G[0][0]+M[0][1]*G[1][0])%p,(M[0][0]*G[0][1]+M[0][1]*G[1][1])%p],[(M[1][0]*G[0][0]+M[1][1]*G[1][0])%p,(M[1][0]*G[0][1]+M[1][1]*G[1][1])%p]];}return((M[0][0]+M[1][1])%p+p)%p;}
-async function _aEncSchottky(pt){const data=new TextEncoder().encode(pt);const a=_aRandSL2(ALG_P),b=_aRandSL2(ALG_P);const brauer=new _ABrauer();const clsIds=[];for(let i=0;i<data.length;i++){const tr=_aSchottkyTrace(a,b,i+5,ALG_P);const tw=_afrob(tr,1,ALG_P,ALG_EXT);clsIds.push(brauer.hide(tw));}const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=_axor(K,data);const tag=await _ahmac(K,ctB);return{variant:'schottky',ct:Array.from(ctB),tag:Array.from(tag),clsIds:clsIds.map(x=>x.toString()),origLen:data.length};}
-async function _aDecSchottky(ct){const clsIds=ct.clsIds.map(x=>BigInt(x));const K=(await _asha512(_akeybuf(clsIds))).slice(0,ALG_KEY_BYTES);const ctB=new Uint8Array(ct.ct),tag=new Uint8Array(ct.tag);const calc=await _ahmac(K,ctB);let ok=calc.length===tag.length;for(let i=0;i<tag.length;i++)if(calc[i]!==tag[i])ok=false;if(!ok)throw new Error('HMAC verification failed');return new TextDecoder().decode(_axor(K,ctB).slice(0,ct.origLen));}
-
-/* ===== Pyodide-side Python (faithful to notebooks, scipy-free so it loads reliably) ===== */
-const ALG_PY = String.raw`import math, hashlib, hmac, json, secrets
-from math import acosh, ceil
-ALG_P=131071; ALG_EXT=2; KEY_BYTES=32
-def _vand(ells,T,P):
-    t=len(ells); M=[[pow(ells[j],k,P) for j in range(t)]+[T[k]%P] for k in range(t)]
-    for i in range(t):
-        piv=next(r for r in range(i,t) if M[r][i]); M[i],M[piv]=M[piv],M[i]
-        inv=pow(M[i][i],P-2,P); M[i]=[(x*inv)%P for x in M[i]]
-        for r in range(t):
-            if r!=i and M[r][i]:
-                f=M[r][i]; M[r]=[(M[r][c]-f*M[i][c])%P for c in range(t+1)]
-    return [row[-1] for row in M]
-def _mul2(a,b): return [[a[0][0]*b[0][0]+a[0][1]*b[1][0],a[0][0]*b[0][1]+a[0][1]*b[1][1]],[a[1][0]*b[0][0]+a[1][1]*b[1][0],a[1][0]*b[0][1]+a[1][1]*b[1][1]]]
-def _pow2(base,n):
-    res=[[1.0,0.0],[0.0,1.0]]; B=[r[:] for r in base]
-    while n:
-        if n&1: res=_mul2(res,B)
-        B=_mul2(B,B); n>>=1
-    return res
-def _lenG(gens,idx,scale,P):
-    M=_pow2(gens[0],idx+1)
-    for k in range(1,len(gens)): M=_mul2(M,gens[k])
-    L=2*acosh(abs(M[0][0]+M[1][1])/2); l=int(round(scale*L))%P; return l or 1
-def _len(G1,G2,idx,scale,P): return _lenG([G1,G2],idx,scale,P)
-def _traces(slots,P):
-    T=[]
-    for k in range(len(slots)):
-        s=0
-        for l,c in slots: s=(s+c*pow(l,k,P))%P
-        T.append(s)
-    return T
-def _dim(slots): return sum(l*c for l,c in slots)
-def _frob(x,power,p,n): return pow(x,pow(p,power,p**n-1),p**n)
-class _Br:
-    def __init__(self): self.m={}
-    def hide(self,x):
-        if x not in self.m: self.m[x]=len(self.m)+1
-        return self.m[x]
-def _dk(cls,P):
-    nb=(P.bit_length()+7)//8; return hashlib.sha512(b''.join(int(x).to_bytes(nb,'big') for x in cls)).digest()[:KEY_BYTES]
-def _xor(k,d):
-    ks=(k*((len(d)//len(k))+1))[:len(d)]; return bytes(a^b for a,b in zip(d,ks))
-def alg_enc_sparse_g(gens,pt,chunk,scale):
-    data=pt.encode(); chunks=[]; off=0
-    for ci in range(ceil(len(data)/chunk)):
-        blk=data[ci*chunk:(ci+1)*chunk]; seen=set(); slots=[]
-        for j,by in enumerate(blk):
-            l=_lenG(gens,off+j,scale,ALG_P)
-            while l in seen: l=(l+1)%ALG_P or 1
-            seen.add(l); slots.append((l,by))
-        off+=len(blk); T=_traces(slots,ALG_P)
-        chunks.append({'ells':[str(l) for l,_ in slots],'T':[str(x) for x in T],'n':str(_dim(slots)),'bytes':len(blk)})
-    return json.dumps({'variant':'sparse','ngen':len(gens),'chunks':chunks,'origLen':len(data)})
-def alg_dec_sparse(blob):
-    o=json.loads(blob); out=[]
-    for ch in o['chunks']:
-        cv=_vand([int(x) for x in ch['ells']],[int(x) for x in ch['T']],ALG_P); out.extend(c%256 for c in cv)
-    return bytes(out[:o['origLen']]).decode('utf-8')
-def alg_enc_cca_g(gens,pt,chunk,scale):
-    data=pt.encode(); br=_Br(); chunks=[]; off=0
-    for ci in range(ceil(len(data)/chunk)):
-        blk=data[ci*chunk:(ci+1)*chunk]; seen=set(); slots=[]; cls=[]
-        for j,by in enumerate(blk):
-            l=_lenG(gens,off+j,scale,ALG_P)
-            while l in seen: l=(l+1)%ALG_P or 1
-            seen.add(l); tw=_frob(l,1,ALG_P,ALG_EXT)%ALG_P; cls.append(br.hide(tw)); slots.append((l,by))
-        off+=len(blk); K=_dk(cls,ALG_P); ct=_xor(K,blk); tag=hmac.new(K,ct,hashlib.sha512).digest(); T=_traces(slots,ALG_P)
-        chunks.append({'ct':list(ct),'tag':list(tag),'clsIds':[str(x) for x in cls],'ells':[str(l) for l,_ in slots],'T':[str(x) for x in T],'n':str(_dim(slots)),'bytes':len(blk)})
-    return json.dumps({'variant':'cca','ngen':len(gens),'chunks':chunks,'origLen':len(data)})
-def alg_dec_cca(blob):
-    o=json.loads(blob); out=[]
-    for ch in o['chunks']:
-        cls=[int(x) for x in ch['clsIds']]; K=_dk(cls,ALG_P); ct=bytes(ch['ct']); tag=bytes(ch['tag'])
-        if not hmac.compare_digest(tag,hmac.new(K,ct,hashlib.sha512).digest()): raise ValueError('MAC verification failed — CCA detected')
-        blk=_xor(K,ct); cv=_vand([int(x) for x in ch['ells']],[int(x) for x in ch['T']],ALG_P)
-        if any((c%256)!=blk[i] for i,c in enumerate(cv)): raise ValueError('Trace mismatch — tampering suspected')
-        out.extend(blk)
-    return bytes(out[:o['origLen']]).decode('utf-8')
-def _rsl2(p):
-    a=secrets.randbelow(p-1)+1; b=secrets.randbelow(p-1)+1; c=secrets.randbelow(p-1)+1; d=(pow(a,p-2,p)*((1+b*c)%p))%p; return [[a,b],[c,d]]
-def _strace(a,b,wl,p):
-    M=[[1,0],[0,1]]; ia=[[a[1][1],(-a[0][1])%p],[(-a[1][0])%p,a[0][0]]]; ib=[[b[1][1],(-b[0][1])%p],[(-b[1][0])%p,b[0][0]]]; gens=[a,b,ia,ib]
-    for _ in range(wl):
-        G=secrets.choice(gens); M=[[(M[0][0]*G[0][0]+M[0][1]*G[1][0])%p,(M[0][0]*G[0][1]+M[0][1]*G[1][1])%p],[(M[1][0]*G[0][0]+M[1][1]*G[1][0])%p,(M[1][0]*G[0][1]+M[1][1]*G[1][1])%p]]
-    return (M[0][0]+M[1][1])%p
-def alg_enc_schottky(pt):
-    data=pt.encode(); a=_rsl2(ALG_P); b=_rsl2(ALG_P); br=_Br(); cls=[]
-    for i,by in enumerate(data):
-        tr=_strace(a,b,i+5,ALG_P); tw=_frob(tr,1,ALG_P,ALG_EXT); cls.append(br.hide(tw))
-    K=_dk(cls,ALG_P); ct=_xor(K,data); tag=hmac.new(K,ct,hashlib.sha512).digest()
-    return json.dumps({'variant':'schottky','ct':list(ct),'tag':list(tag),'clsIds':[str(x) for x in cls],'origLen':len(data)})
-def alg_dec_schottky(blob):
-    o=json.loads(blob); cls=[int(x) for x in o['clsIds']]; K=_dk(cls,ALG_P); ct=bytes(o['ct']); tag=bytes(o['tag'])
-    if not hmac.compare_digest(tag,hmac.new(K,ct,hashlib.sha512).digest()): raise ValueError('HMAC verification failed')
-    return _xor(K,ct)[:o['origLen']].decode('utf-8')
-
-def alg_enc_sparse(G1,G2,pt,chunk,scale): return alg_enc_sparse_g([G1,G2],pt,chunk,scale)
-def alg_enc_cca(G1,G2,pt,chunk,scale): return alg_enc_cca_g([G1,G2],pt,chunk,scale)
-`;
-
-
-function _aEncSparse(G1,G2,pt,chunk,scale){return _aEncSparseG([G1,G2],pt,chunk,scale);}
-async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,chunk,scale);}
-
-/* ===== UI wiring v3 (N-gen key + 2/3 selector + watchdog + decrypt console) ===== */
-(function(){
- let algVariant='sparse', algNgen=2, algEngine=null, algPy=null;
- const MSG_BYTE_CAP=128; // evidence-based: keeps runtime ~instant and stays below float-overflow of the length map; far too small for an image
- const $=id=>document.getElementById(id);
- function byteLen(s){return new TextEncoder().encode(s).length;}
- function updCount(){ const v=$('algIn').value; const nb=byteLen(v), nc=[...v].length; const el=$('algCount');
-  el.textContent=nb+' / '+MSG_BYTE_CAP+' bytes'+(nb!==nc?(' \u00b7 '+nc+' chars'):''); el.className='alg-count'+(nb>MSG_BYTE_CAP?' over':''); }
- function setStatus(el,t,c){el.innerHTML=t;el.className='alg-status'+(c?' '+c:'');}
- const status=$('algStatus'), dstatus=$('algDStatus');
- const VDESC={
-  sparse:'<strong>Sparse \u00b7 trace-driven.</strong> The pure-algebraic construction with no hash. Each byte\u2019s count becomes a companion block of x<sup>\u2113</sup>\u22121; blocks are assembled block-diagonally and disguised by a random diagonal similarity D<sup>\u22121</sup>AD. Decryption recovers the message by solving the Vandermonde system from the power-trace vector T. The companion matrix is the algebraic object; recovery is by trace inversion.',
-  cca:'<strong>Distinct + Frobenius/Brauer \u00b7 CCA2.</strong> Distinct lengths \u2113 are passed through a Frobenius twist and Brauer-class hiding to derive the key, wrapped with the Fujisaki\u2013Okamoto KEM (XOR + HMAC-SHA-512) for IND-CCA2 authentication. The power-trace vector T is retained as a tamper-consistency check. Recovery is by the hashed KEM; the trace check runs alongside.',
-  schottky:'<strong>Schottky group \u00b7 SL\u2082(\U0001D53D\u209A).</strong> Lengths come from random Schottky words over SL\u2082(\U0001D53D\u209A) generators rather than a fixed pair, twisted and hidden as above, then FO-KEM wrapped. The companion matrix and its eigenvalues are shown as the algebraic object; recovery is by the hashed KEM. Each encryption uses fresh random generators, so a ciphertext is self-contained.'
- };
-
- /* ---- key input ---- */
- function parseNum(raw){ if(typeof raw!=='string')return NaN; let s=raw.trim(); if(s==='')return NaN;
-  s=s.replace(/\u2212/g,'-').replace(/[\u00a0\u2007\u202f]/g,'');
-  if(!/^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$/.test(s))return NaN; const v=Number(s); return Number.isFinite(v)?v:NaN; }
- function readGen(i){ const v=['00','01','10','11'].map(rc=>parseNum($('alg_g'+i+'_'+rc).value));
-  ['00','01','10','11'].forEach((rc,k)=>{ const el=$('alg_g'+i+'_'+rc); if(el&&el.value.trim()!==''&&Number.isNaN(v[k]))el.classList.add('cellbad'); else if(el)el.classList.remove('cellbad'); });
-  return [[v[0],v[1]],[v[2],v[3]]]; }
- function traceOf(G){ return G[0][0]+G[1][1]; }
- function updTrace(){ for(let i=0;i<algNgen;i++){ const G=readGen(i); const tr=traceOf(G); const el=$('algTr'+i); if(!el)continue;
-   if([G[0][0],G[0][1],G[1][0],G[1][1]].some(x=>Number.isNaN(x))){ el.textContent='incomplete'; el.className='gtrace'; }
-   else if(Math.abs(tr)>2){ el.textContent='trace '+tr.toFixed(2)+' \u2713'; el.className='gtrace ok'; }
-   else { el.textContent='trace '+tr.toFixed(2)+' \u2717 need |tr|>2'; el.className='gtrace bad'; } } }
- function getGens(){ const g=[]; for(let i=0;i<algNgen;i++)g.push(readGen(i)); return g; }
- function gensValid(){ const gs=getGens(); for(const G of gs){ if([G[0][0],G[0][1],G[1][0],G[1][1]].some(x=>Number.isNaN(x)))return false; if(Math.abs(traceOf(G))<=2)return false; } return true; }
- function setGen(i,G){ const f=['00','01','10','11'],flat=[G[0][0],G[0][1],G[1][0],G[1][1]]; f.forEach((rc,k)=>{ const el=$('alg_g'+i+'_'+rc); if(el)el.value=flat[k]; }); }
- function demoKey(){ const s=[1.2,1.5,1.1];
-  setGen(0,[[Math.cosh(s[0])+Math.sinh(s[0]),Math.sinh(s[0])],[Math.sinh(s[0]),Math.cosh(s[0])-Math.sinh(s[0])]]);
-  setGen(1,[[Math.cosh(s[1]),Math.sinh(s[1])],[Math.sinh(s[1]),Math.cosh(s[1])]]);
-  setGen(2,[[Math.cosh(s[2])+0.3,Math.sinh(s[2])],[Math.sinh(s[2]),Math.cosh(s[2])-0.3]]); updTrace(); }
- function randKey(){ for(let i=0;i<3;i++){ const s=0.8+Math.random()*1.4;
-   const a=Math.cosh(s)+Math.sinh(s)*(Math.random()<.5?1:-1), b=Math.sinh(s)*(0.5+Math.random()), c=Math.sinh(s)*(0.5+Math.random()), d=(1+b*c)/a;
-   setGen(i,[[a,b],[c,d]]); } updTrace(); }
- ['0','1','2'].forEach(i=>['00','01','10','11'].forEach(rc=>{ const el=$('alg_g'+i+'_'+rc); if(el)el.addEventListener('input',updTrace); }));
- $('algKeyDemo').addEventListener('click',demoKey);
- $('algKeyRand').addEventListener('click',randKey);
- $('algIn').addEventListener('input',updCount); updCount();
-
- /* ---- generator-count selector ---- */
- function setNgen(n){ algNgen=n;
-  $('algGenSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('active',+b.dataset.g===n));
-  $('algGen2').classList.toggle('hidden',n<3); updTrace(); }
- $('algGenSeg').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>setNgen(+btn.dataset.g)));
-
- /* ---- variant selector ---- */
- $('algVseg').querySelectorAll('button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-   $('algVseg').querySelectorAll('button').forEach(b=>b.classList.remove('active'));
-   btn.classList.add('active'); algVariant=btn.dataset.v; $('algVdesc').innerHTML=VDESC[algVariant];
-   $('algPanel').classList.remove('show');
-   const sch=algVariant==='schottky';
-   $('algSchNote').style.display=sch?'block':'none';
-   $('algKeybox').style.opacity=sch?'.5':'1';
-   $('algGenSegGroup').style.opacity=sch?'.5':'1';
-  });
- });
- $('algVdesc').innerHTML=VDESC.sparse;
- demoKey(); setNgen(2);
-
- /* ---- engine: JS first (instant). Reuse Pyodide only if the main tool already loaded it, OR if user opts in. ---- */
- let algPyLoading=null;
- function loadPyodideForAlg(){ if(algPyLoading)return algPyLoading;
-  algPyLoading=new Promise((res,rej)=>{
-   if(window.loadPyodide){res();return;}
-   const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/pyodide/v0.27.3/full/pyodide.js';
-   s.onload=()=>res();s.onerror=()=>rej(new Error('loader'));document.head.appendChild(s);
-   setTimeout(()=>rej(new Error('timeout')),60000);});
-  return algPyLoading; }
- async function ensureCPython(stEl){ // explicit opt-in path
-  if(algEngine==='pyodide')return true;
-  setStatus(stEl,'Loading CPython engine (Pyodide) \u2014 this downloads ~10MB and may take a minute on first use\u2026','run');
-  try{ if(typeof pyodideSupported==='function' && !pyodideSupported()){ throw new Error('env'); }
-   if(window.pyodide && window.loadPyodide){ algPy=window.pyodide; } else { await loadPyodideForAlg(); algPy=await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.3/full/'}); }
-   await algPy.runPythonAsync(ALG_PY); algEngine='pyodide'; return true;
-  }catch(e){ setStatus(stEl,'Could not load CPython ('+e.message+'). Staying on the JavaScript engine.','warn'); return false; } }
- function ensureJS(){ if(!algEngine)algEngine='js'; }
-
- /* ---- watchdog: if a JS op runs unexpectedly long, tell the user and offer CPython ---- */
- function startWatch(stEl,label){
-  const t0=Date.now();
-  const id=setTimeout(()=>{ setStatus(stEl,label+' is taking longer than expected on the JavaScript engine. It should still finish \u2014 or you can <button class="alg-mini cpybtn" id="algCpyOffer">switch to CPython</button>.','warn');
-    const off=$('algCpyOffer'); if(off)off.addEventListener('click',()=>ensureCPython(stEl)); },30000);
-  return {done:()=>{clearTimeout(id);return Date.now()-t0;}};
- }
-
- /* ---- sparsity sketch (shared) ---- */
- function drawSpy(canvasId,ells){ const cv=$(canvasId),ctx=cv.getContext('2d'),W=cv.width,H=cv.height; ctx.clearRect(0,0,W,H);
-  const css=getComputedStyle(document.documentElement);
-  const gold=(css.getPropertyValue('--gold')||'#c9a84c').trim(); const dim=(css.getPropertyValue('--border-dim')||'#1e3a64').trim();
-  const blocks=ells.map(x=>Number(x)); const total=blocks.reduce((a,b)=>a+b,0); if(total===0)return;
-  const scale=Math.min(W,H)/total; ctx.strokeStyle=dim;ctx.lineWidth=1;ctx.strokeRect(.5,.5,W-1,H-1); let off=0;
-  for(const b of blocks){ const x=off*scale,sz=b*scale; ctx.strokeStyle=dim;ctx.strokeRect(x,x,sz,sz); ctx.fillStyle=gold;
-   const step=Math.max(sz/b,0.8);
-   for(let i=1;i<b;i++){ const px=x+(i-1)*step, py=x+i*step; ctx.fillRect(px,py,Math.max(step*.7,1),Math.max(step*.7,1)); }
-   ctx.fillRect(x+(b-1)*step, x, Math.max(step*.7,1), Math.max(step*.7,1)); off+=b; } }
- function showPanel(panelId,dataId,spyId,capId,noteId,blobObj){ const ch=(blobObj.chunks?blobObj.chunks[0]:blobObj); const ells=ch.ells||[]; let rows='';
-  const ng=blobObj.ngen?(' \u00b7 '+blobObj.ngen+' generators'):'';
-  if(blobObj.variant!=='schottky'){
-   rows+='<div class="row"><span class="lab">dim n</span><span class="val">'+(ch.n||'\u2014')+' &nbsp;(\u03a3 \u2113\u00b7c, block-diagonal'+ng+')</span></div>';
-   rows+='<div class="row"><span class="lab">\u2113 vector</span><span class="val">['+ells.join(', ')+']</span></div>';
-   if(ch.T)rows+='<div class="row"><span class="lab">trace T</span><span class="val">['+ch.T.join(', ')+']</span></div>';
-  } else {
-   rows+='<div class="row"><span class="lab">class IDs</span><span class="val">['+(blobObj.clsIds||[]).slice(0,16).join(', ')+(blobObj.clsIds&&blobObj.clsIds.length>16?', \u2026':'')+']</span></div>';
-   rows+='<div class="row"><span class="lab">length</span><span class="val">'+(blobObj.origLen||0)+' bytes \u00b7 random SL\u2082(\U0001D53D\u209A) generators</span></div>';
-  }
-  $(dataId).innerHTML=rows; const cap=$(capId);
-  if(blobObj.variant!=='schottky' && ells.length){ drawSpy(spyId,ells); cap.textContent='block-diagonal companion structure (chunk 1)'; }
-  else { const ctx=$(spyId).getContext('2d'); ctx.clearRect(0,0,220,220); cap.textContent='(Schottky uses random generators \u2014 no fixed block layout)'; }
-  const note=$(noteId);
-  if(blobObj.variant==='sparse') note.textContent='Recovery path: solve \u03a3 c\u1d62 \u2113\u1d62\u1d4f = T\u2096 for the byte counts c\u1d62 via Gauss\u2013Jordan over \U0001D53D_P, then c\u1d62 mod 256. No hash is used \u2014 this is the pure trace-inversion path.';
-  else if(blobObj.variant==='cca') note.textContent='Recovery path: derive the key from the Brauer class-IDs, verify HMAC-SHA-512, XOR-decrypt, then re-solve the Vandermonde trace system as a tamper-consistency check.';
-  else note.textContent='Recovery path: derive the key from the Brauer class-IDs of the Schottky-word traces, verify HMAC-SHA-512, XOR-decrypt. The companion matrix is shown as the algebraic object.';
-  $(panelId).classList.add('show'); }
-
- /* ---- encrypt (main station) ---- */
- async function doEnc(){ const msg=$('algIn').value; if(!msg){setStatus(status,'Type a message first.','err');return;}
-  if(byteLen(msg)>MSG_BYTE_CAP){ setStatus(status,'Message is '+byteLen(msg)+' bytes \u2014 the demo caps at '+MSG_BYTE_CAP+' bytes to keep the construction fast and text-only. Please shorten it.','err'); updCount(); return; }
-  if(algVariant!=='schottky' && !gensValid()){ setStatus(status,'Set a valid key first \u2014 every generator needs |trace| > 2.','err'); updTrace(); return; }
-  $('algEncBtn').disabled=true;$('algDecBtn').disabled=true; setStatus(status,'Working\u2026','run');
-  const w=startWatch(status,'Encryption');
-  try{ ensureJS(); const gens=getGens(); let blob;
-   if(algEngine==='pyodide'){ algPy.globals.set('_gs',algPy.toPy(gens)); algPy.globals.set('_m',msg);
-    if(algVariant==='sparse')blob=await algPy.runPythonAsync('alg_enc_sparse_g(_gs.to_py(),_m,5,10)');
-    else if(algVariant==='cca')blob=await algPy.runPythonAsync('alg_enc_cca_g(_gs.to_py(),_m,8,10)');
-    else blob=await algPy.runPythonAsync('alg_enc_schottky(_m)'); blob=JSON.parse(blob);
-   } else { if(algVariant==='sparse')blob=_aEncSparseG(gens,msg,5,10);
-    else if(algVariant==='cca')blob=await _aEncCCAG(gens,msg,8,10); else blob=await _aEncSchottky(msg); }
-   const ms=w.done(); $('algBlob').value=JSON.stringify(blob);
-   showPanel('algPanel','algData','algSpy','algSpyCap','algRecNote',blob);
-   setStatus(status,'Encrypted \u00b7 '+algVariant+(blob.ngen?(' \u00b7 '+blob.ngen+' gens'):'')+' \u00b7 '+(algEngine==='pyodide'?'CPython':'JavaScript')+' \u00b7 '+ms+' ms.','ok');
-  }catch(e){ w.done(); setStatus(status,'Error: '+e.message,'err'); } $('algEncBtn').disabled=false;$('algDecBtn').disabled=false; }
-
- /* ---- decrypt (main station, in place) ---- */
- async function doDec(){ const raw=$('algBlob').value.trim(); if(!raw){setStatus(status,'Nothing to decrypt.','err');return;}
-  $('algEncBtn').disabled=true;$('algDecBtn').disabled=true; setStatus(status,'Working\u2026','run');
-  const w=startWatch(status,'Decryption');
-  try{ ensureJS(); const obj=JSON.parse(raw); const v=obj.variant||algVariant; let pt;
-   if(algEngine==='pyodide'){ algPy.globals.set('_b',raw);
-    if(v==='sparse')pt=await algPy.runPythonAsync('alg_dec_sparse(_b)'); else if(v==='cca')pt=await algPy.runPythonAsync('alg_dec_cca(_b)'); else pt=await algPy.runPythonAsync('alg_dec_schottky(_b)');
-   } else { if(v==='sparse')pt=_aDecSparse(obj); else if(v==='cca')pt=await _aDecCCA(obj); else pt=await _aDecSchottky(obj); }
-   const ms=w.done(); $('algIn').value=pt; showPanel('algPanel','algData','algSpy','algSpyCap','algRecNote',obj);
-   setStatus(status,'Decrypted \u00b7 recovered '+pt.length+' char(s) \u00b7 '+(algEngine==='pyodide'?'CPython':'JavaScript')+' \u00b7 '+ms+' ms.','ok');
-  }catch(e){ w.done(); setStatus(status,'Decrypt failed: '+e.message,'err'); } $('algEncBtn').disabled=false;$('algDecBtn').disabled=false; }
-
- /* ---- console actions (main station) ---- */
- function doCopy(){ const t=$('algBlob').value; if(!t){setStatus(status,'Nothing to copy \u2014 encrypt first.','err');return;}
-  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(()=>setStatus(status,'Ciphertext copied to clipboard.','ok'),()=>fallbackCopy(t)); } else fallbackCopy(t); }
- function fallbackCopy(t){ const ta=$('algBlob'); ta.focus(); ta.select(); try{ document.execCommand('copy'); setStatus(status,'Ciphertext copied.','ok'); }catch(e){ setStatus(status,'Copy not supported \u2014 select the text manually.','err'); } }
- function saveBlob(text,name,stEl){ if(!text){setStatus(stEl,'Nothing to save.','err');return;} const blob=new Blob([text],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); setStatus(stEl,'Saved '+name,'ok'); }
- $('algCopy').addEventListener('click',doCopy);
- $('algSave').addEventListener('click',()=>saveBlob($('algBlob').value,'msia_'+algVariant+'_ciphertext.json',status));
- $('algUpload').addEventListener('click',()=>$('algFile').click());
- $('algFile').addEventListener('change',function(ev){ const f=ev.target.files[0]; if(!f)return; const r=new FileReader();
-  r.onload=()=>{ try{ const obj=JSON.parse(r.result); $('algBlob').value=JSON.stringify(obj);
-    if(obj.variant){ algVariant=obj.variant; $('algVseg').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.v===obj.variant)); $('algVdesc').innerHTML=VDESC[obj.variant]||''; }
-    if(obj.ngen) setNgen(obj.ngen);
-    setStatus(status,'Loaded '+f.name+' \u2014 click Decrypt to recover.','ok'); }catch(e){ setStatus(status,'That file is not valid JSON.','err'); } };
-  r.readAsText(f); ev.target.value=''; });
- $('algEncBtn').addEventListener('click',doEnc);
- $('algDecBtn').addEventListener('click',doDec);
-
- /* ===== standalone DECRYPT console ===== */
- async function doDecConsole(){ const raw=$('algDIn').value.trim(); if(!raw){setStatus(dstatus,'Paste or upload a ciphertext first.','err');return;}
-  try{ const peek=JSON.parse(raw); if(peek&&peek.origLen&&peek.origLen>MSG_BYTE_CAP*4){ setStatus(dstatus,'This ciphertext declares '+peek.origLen+' bytes, beyond the demo limit. Decryption is blocked to keep the construction fast.','err'); return; } }catch(e){}
-  $('algDDecBtn').disabled=true; setStatus(dstatus,'Working\u2026','run'); const w=startWatch(dstatus,'Decryption');
-  try{ ensureJS(); const obj=JSON.parse(raw); const v=obj.variant; if(!v)throw new Error('missing "variant" field \u2014 is this an MSIA ciphertext?'); let pt;
-   if(algEngine==='pyodide'){ algPy.globals.set('_b',raw);
-    if(v==='sparse')pt=await algPy.runPythonAsync('alg_dec_sparse(_b)'); else if(v==='cca')pt=await algPy.runPythonAsync('alg_dec_cca(_b)'); else pt=await algPy.runPythonAsync('alg_dec_schottky(_b)');
-   } else { if(v==='sparse')pt=_aDecSparse(obj); else if(v==='cca')pt=await _aDecCCA(obj); else pt=await _aDecSchottky(obj); }
-   const ms=w.done(); $('algDOut').value=pt; showPanel('algDPanel','algDData','algDSpy','algDSpyCap','algDRecNote',obj);
-   setStatus(dstatus,'Decrypted \u00b7 '+v+(obj.ngen?(' \u00b7 '+obj.ngen+' gens'):'')+' \u00b7 recovered '+pt.length+' char(s) \u00b7 '+(algEngine==='pyodide'?'CPython':'JavaScript')+' \u00b7 '+ms+' ms.','ok');
-  }catch(e){ w.done(); setStatus(dstatus,'Decrypt failed: '+e.message,'err'); $('algDOut').value=''; } $('algDDecBtn').disabled=false; }
- $('algDDecBtn').addEventListener('click',doDecConsole);
- $('algDUpload').addEventListener('click',()=>$('algDFile').click());
- $('algDFile').addEventListener('change',function(ev){ const f=ev.target.files[0]; if(!f)return; const r=new FileReader();
-  r.onload=()=>{ try{ const obj=JSON.parse(r.result); $('algDIn').value=JSON.stringify(obj); setStatus(dstatus,'Loaded '+f.name+' \u2014 click Decrypt to recover.','ok'); }catch(e){ setStatus(dstatus,'That file is not valid JSON.','err'); } };
-  r.readAsText(f); ev.target.value=''; });
- $('algDClear').addEventListener('click',()=>{ $('algDIn').value=''; $('algDOut').value=''; $('algDPanel').classList.remove('show'); setStatus(dstatus,'','');});
-})();
-
-</script>
-<!-- ════════════════ END ALGEBRAIC CONSTRUCTIONS SECTION ════════════════ -->
 
 <div class="rs">
   <div class="rs-label">Logarchéon Research · Mathematical Background</div>
@@ -1129,8 +574,8 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
         <p>When A is the transfer matrix of a geodesic flow on ℍⁿ/Γ, the poles of ζ<sub>A</sub>(s) are the eigenvalues of the Laplacian — the Selberg trace formula is the analytic version of this identity.</p>
       </div>
     </div>
-    <p>The cryptographic insight is: <strong>this identity can be made one-way</strong> if the primitive elements (the ℓ<sub>i</sub>) are chosen from a mathematical structure whose inverse problem is computationally hard. Going from A to ζ<sub>A</sub> is fast — matrix exponentiation. Going from ζ<sub>A</sub> back to the primitive (ℓ<sub>i</sub>, c<sub>i</sub>) data requires solving a problem that the entire mathematical community has worked on for decades without a general efficient algorithm.</p>
-    <p>This insight is not new as a mathematical observation — the identity has been known since Bowen, Ruelle, and Artin–Mazur in the 1960s–70s. What is new is recognizing it as a <strong>cryptographic primitive</strong> and building a concrete keyed encryption scheme on top of it. The key selects which Kleinian group Γ to use; the primitive geodesic lengths ℓ<sub>i</sub> of Γ are the secret orbit data; the ciphertext is the characteristic polynomial of the companion matrix. Decryption recovers the ℓ<sub>i</sub> using the key. An attacker without the key must recover ℓ<sub>i</sub> from the ciphertext alone — which requires solving the length-spectrum inverse problem.</p>
+    <p>The cryptographic insight is: <strong>this identity can be made one-way</strong> if the primitive elements (the ℓ<sub>i</sub>) are chosen from a mathematical structure whose inverse problem is computationally hard. Going from A to ζ<sub>A</sub> is fast — matrix exponentiation.</p>
+    <p>This insight is not new as a mathematical observation — the identity has been known since Bowen, Ruelle, and Artin–Mazur in the 1960s–70s. What is new is recognizing it as a <strong>cryptographic primitive</strong> and building a concrete keyed encryption scheme on top of it. The key selects which Kleinian group Γ to use; the primitive geodesic lengths ℓ<sub>i</sub> of Γ are the secret orbit data; the ciphertext is the characteristic polynomial of the companion matrix. Decryption recovers the ℓ<sub>i</sub> using the key.</p>
     <div class="rs-callout"><strong>Why the origin matters.</strong> RSA came from basic modular arithmetic (Rivest, Shamir, Adleman 1977). Diffie-Hellman from discrete logarithms. ECC from the Weierstrass equation. In each case, the creative moment was recognizing that an existing mathematical structure has a natural one-way character. MSIA follows the same pattern — but the mathematical structure it draws on (the Selberg zeta function and hyperbolic geodesic flow) is substantially deeper than what underlies RSA or ECC.</div>
   </div>
 
@@ -1140,20 +585,20 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
     <p>MSIA rests on four mathematical domains, each contributing an essential component of the construction.</p>
 
     <h3>Pillar 1 — Modular Representation Theory</h3>
-    <p>Given a finite group G and a prime p, the modular representation theory of G over 𝔽<sub>p</sub> studies how modules decompose into indecomposable blocks. The key tool is the <strong>Brauer character</strong>, which tracks how ordinary complex characters reduce mod p. For MSIA, this machinery provides the algebraic ground in which the companion matrix A(p) lives: A lives in Mat<sub>n</sub>(𝔽<sub>p</sub>), and its characteristic polynomial det(I − zA) factors into irreducibles in 𝔽<sub>p</sub>[z] corresponding to the symbolic orbit data. The factorization pattern — which irreducibles appear, with what multiplicities — encodes the secret message. Recovering the message from the polynomial requires inverting this block decomposition, which is hard precisely because modular decomposition is non-canonical and the blocks can be obfuscated by conjugation.</p>
+    <p>Given a finite group G and a prime p, the modular representation theory of G over 𝔽<sub>p</sub> studies how modules decompose into indecomposable blocks. The key tool is the <strong>Brauer character</strong>, which tracks how ordinary complex characters reduce mod p. For MSIA, this machinery provides the algebraic ground in which the companion matrix A(p) lives: A lives in Mat<sub>n</sub>(𝔽<sub>p</sub>), and its characteristic polynomial det(I − zA) factors into irreducibles in 𝔽<sub>p</sub>[z] corresponding to the symbolic orbit data. The factorization pattern — which irreducibles appear, with what multiplicities — encodes the secret message.</p>
 
     <h3>Pillar 2 — Symbolic Dynamics and the Artin–Mazur Zeta Function</h3>
     <p>A <strong>subshift of finite type</strong> (SFT) is a dynamical system on a finite alphabet where transitions are governed by a 0–1 adjacency matrix A. Periodic orbits of the SFT correspond to words that can be traced through A indefinitely. The <strong>Artin–Mazur zeta function</strong> ζ<sub>A</sub>(z) = 1/det(I − zA) encodes the number of periodic orbits of each length. For MSIA, the symbolic dynamical system is the geodesic flow on ℍⁿ/Γ — the hyperbolic manifold associated to the Kleinian group Γ determined by the key. The "periodic orbits" of this flow are the closed geodesics; their lengths are the primitive lengths ℓ<sub>i</sub>. The Artin–Mazur zeta function becomes the Selberg zeta function in this setting, connecting symbolic dynamics to spectral geometry.</p>
 
     <h3>Pillar 3 — Schottky and Kleinian Groups</h3>
     <p>A <strong>Schottky group</strong> Γ is a free group of Möbius transformations generated by parabolic or hyperbolic elements, constructed by specifying 2g disjoint Jordan curves C<sub>1</sub>, C<sub>1</sub>′, …, C<sub>g</sub>, C<sub>g</sub>′ in S² and taking the generators to be the Möbius maps sending the exterior of C<sub>i</sub> to the interior of C<sub>i</sub>′. The resulting quotient ℍ³/Γ is a hyperbolic 3-manifold (or handlebody); its primitive closed geodesics have lengths ℓ<sub>i</sub> that are determined by the generator matrices — the conjugacy class lengths of the group elements.</p>
-    <p>For the key, the user supplies the 2×2 real matrices of these generators. The condition |trace| &gt; 2 ensures each generator is <strong>hyperbolic</strong> — it has two fixed points on the boundary S² = ∂ℍ³ and acts by a pure stretch along the geodesic connecting them. The geodesic length is ℓ = 2 · acosh(|tr(G)|/2). With g generators, the group has infinitely many closed geodesics but they are generated by the finite set of primitives, and the key selects exactly which group Γ is used. <strong>Mostow rigidity</strong> (dimension ≥ 3) guarantees that the group Γ is uniquely determined by its geometry up to isometry — an attacker cannot find a different group with the same length spectrum.</p>
+    <p>For the key, the user supplies the 2×2 real matrices of these generators. The condition |trace| &gt; 2 ensures each generator is <strong>hyperbolic</strong> — it has two fixed points on the boundary S² = ∂ℍ³ and acts by a pure stretch along the geodesic connecting them. The geodesic length is ℓ = 2 · acosh(|tr(G)|/2). With g generators, the group has infinitely many closed geodesics but they are generated by the finite set of primitives, and the key selects exactly which group Γ is used.</p>
 
     <h3>Pillar 4 — The Selberg Zeta Function and Its Zeros</h3>
     <p>The <strong>Selberg zeta function</strong> ζ<sub>Γ</sub>(s) is defined by the Euler product over primitive closed geodesics of ℍⁿ/Γ:</p>
     <div class="eq-display">ζ<sub>Γ</sub>(s) = Π<sub>γ primitive</sub> Π<sub>k=0</sub><sup>∞</sup> (1 − e<sup>−(s+k)ℓ(γ)</sup>)</div>
-    <p>Its zeros lie at the eigenvalues of the Laplacian on ℍⁿ/Γ — a fact proved by the <strong>Selberg trace formula</strong>, which relates the spectrum of the Laplacian to the geodesic length spectrum. This is the continuous analog of the matrix identity above. The Riemann Hypothesis analog for the Selberg zeta is <strong>proven</strong> (Selberg 1956 for n=2, Patterson-Sullivan and others for n&gt;2): all non-trivial zeros lie on the critical line Re(s) = (n−1)/2. This means the distribution of geodesic lengths is provably well-controlled — a stronger foundation than classical cryptography has for the distribution of rational primes, where the Riemann Hypothesis remains open.</p>
-    <p>The <strong>Prime Geodesic Theorem</strong> gives the density: #{γ primitive : ℓ(γ) ≤ L} ~ e<sup>(n−1)L</sup> / ((n−1)L) as L → ∞. This gives exact control over the number of available geodesics of each length, allowing precise calibration of key space — analogous to knowing exactly how many RSA primes exist below a given bound.</p>
+    <p>Its zeros lie at the eigenvalues of the Laplacian on ℍⁿ/Γ — a fact proved by the <strong>Selberg trace formula</strong>, which relates the spectrum of the Laplacian to the geodesic length spectrum. This is the continuous analog of the matrix identity above.</p>
+    <p>The <strong>Prime Geodesic Theorem</strong> gives the density: #{γ primitive : ℓ(γ) ≤ L} ~ e<sup>(n−1)L</sup> / ((n−1)L) as L → ∞.</p>
   </div>
 
   <!-- ═══ §3 THE CONSTRUCTION ═══ -->
@@ -1173,54 +618,27 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
     <p><strong>Step 2: Modular zeta construction.</strong> The symbolic pairs define a modular zeta function over 𝔽<sub>p</sub>:</p>
     <div class="eq-display">ζ<sub>p</sub>(z) = Π<sub>i</sub> (1 − z<sup>ℓ<sub>i</sub></sup>)<sup>−c<sub>i</sub></sup> ∈ 𝔽<sub>p</sub>(z)</div>
     <p>This is the algebraic / modular analog of the Selberg–Artin–Mazur zeta function, computed purely over the finite field 𝔽<sub>p</sub> = ℤ/Pℤ, requiring no analytic convergence.</p>
-    <p><strong>Step 3: Companion matrix.</strong> The companion matrix A(p) ∈ Mat<sub>n</sub>(𝔽<sub>p</sub>) is the matrix whose characteristic polynomial det(I − zA(p)) equals ζ<sub>p</sub>(z)<sup>−1</sup>. Its block-diagonal structure encodes the orbit data; Brauer character obfuscation conceals the decomposition from an attacker who sees only the matrix.</p>
-    <p><strong>Step 4: Ciphertext.</strong> The ciphertext is χ(z) = det(I − zA(p)) ∈ 𝔽<sub>p</sub>[z] — the characteristic polynomial of A(p) — together with an HMAC authentication tag. An attacker who intercepts χ(z) must factor it over 𝔽<sub>p</sub>[z] and match the factors to symbolic orbits without knowing the group Γ determined by the key.</p>
+    <p><strong>Step 3: Companion matrix.</strong> The companion matrix A(p) ∈ Mat<sub>n</sub>(𝔽<sub>p</sub>) is the matrix whose characteristic polynomial det(I − zA(p)) equals ζ<sub>p</sub>(z)<sup>−1</sup>. Its block-diagonal structure encodes the orbit data.</p>
+    <p><strong>Step 4: Ciphertext.</strong> The ciphertext is χ(z) = det(I − zA(p)) ∈ 𝔽<sub>p</sub>[z] — the characteristic polynomial of A(p) — together with an HMAC authentication tag.</p>
 
     <h3>Option A and Option B — The Design Fork</h3>
     <p>There are two fundamentally different ways to implement decryption, and they correspond to two different security postures:</p>
     <div class="rs-hardness-grid">
       <div class="rs-hard">
-        <div class="htag">Option A · Current implementation</div>
+        <div class="htag">Option A</div>
         <h4>Hashed / FO-KEM (SHA-512 security)</h4>
-        <p>The full geometric construction is implemented faithfully — the geodesic lengths ℓ<sub>i</sub> are derived from the key generators exactly as the scheme specifies. Because the formal hardness proofs (Lean 4 verification and external cryptanalysis) are not yet finished, the demo does not yet rely on the geometric inversion problem for its security guarantee; instead it feeds the ℓ<sub>i</sub> into SHA-512 to produce the actual cipher key K, with an HMAC tag for authentication. This provides a well-studied floor today, independent of how the geometric hardness ultimately resolves — subject to the caveat that SHA-512 is NSA-designed and NIST-standardized under the same institutional framework that produced Dual_EC_DRBG, the only NIST-standardized primitive for which a backdoor has been documented (disclosed 2013 via the Snowden files; see §7). No weakness in SHA-512 is publicly known; the floor is a conditional trust, not a mathematical proof of security. Decryption recomputes the ℓ<sub>i</sub> from the generators and re-derives K. Under Grover's algorithm, SHA-512's effective quantum security is 2<sup>128</sup> at High mode with g≥3 generators — the NIST quantum-safe bar.</p>
+        <p>The full geometric construction is implemented faithfully — the geodesic lengths ℓ<sub>i</sub> are derived from the key generators exactly as the scheme specifies. Because the formal hardness proofs (Lean 4 verification and external cryptanalysis) are not yet finished, Option A does not rely on the geometric inversion problem for its security guarantee; instead it feeds the ℓ<sub>i</sub> into SHA-512 to produce the actual cipher key K, with an HMAC tag for authentication. This provides a well-studied floor today, independent of how the geometric hardness ultimately resolves — subject to the caveat that SHA-512 is NSA-designed and NIST-standardized under the same institutional framework that produced Dual_EC_DRBG, the only NIST-standardized primitive for which a backdoor has been documented (disclosed 2013 via the Snowden files; see §7). No weakness in SHA-512 is publicly known; the floor is a conditional trust, not a mathematical proof of security. Decryption recomputes the ℓ<sub>i</sub> from the generators and re-derives K.</p>
       </div>
       <div class="rs-hard">
         <div class="htag">Option B · Research direction</div>
         <h4>Geometric trapdoor (spectral hardness)</h4>
-        <p>The characteristic polynomial χ(z) is treated as the genuine ciphertext, and decryption requires inverting the length-spectrum map — recovering the ℓ<sub>i</sub> from χ(z) without the key. This is the version where the geometry itself carries the security guarantee, resting on the inverse spectral problem for Kleinian groups, an open problem in arithmetic geometry. The geometric construction is already built (Option A uses the same lengths); what Option B requires, and what is <strong>not yet established</strong>, is the formal proof that recovering those lengths is hard. The pure-algebraic recovery path — companion blocks of x<sup>ℓ</sup>&minus;1, block-diagonal assembly, diagonal disguise, and Vandermonde solve from the power-trace vector — is <strong>demonstrated live in the Algebraic constructions section above</strong>, which runs the original design with no hash in the encryption path. Until the hardness proof and external cryptanalysis are complete, the everyday tool keeps the SHA-512 floor rather than relying on the geometric hardness alone.</p>
+        <p>The characteristic polynomial χ(z) is treated as the genuine ciphertext, and decryption requires inverting the length-spectrum map — recovering the ℓ<sub>i</sub> from χ(z) without the key. This is the version where the geometry itself carries the security guarantee. The geometric construction is already built (Option A uses the same lengths); what Option B requires, and what is <strong>not yet established</strong>, is the formal proof that recovering those lengths is hard.</p>
       </div>
     </div>
 
     <h3>The Decryption Path (Option A)</h3>
     <p>Decryption in Option A recomputes the geodesic lengths ℓ<sub>i</sub> from the generator matrices, re-derives the SHA-512 key K = SHA-512(ℓ<sub>1</sub>, …, ℓ<sub>t</sub>), and verifies the HMAC tag. If the key matches, the XOR keystream is regenerated and the plaintext is recovered. Wrong key → HMAC fails cleanly. The geometric structure — the matrix products, the acosh computation, the scaling and reduction mod P — is only a key-derivation mechanism; it does not appear in the ciphertext.</p>
-    <p>Option B's decryption path (not yet implemented) would require: (1) factoring χ(z) over 𝔽<sub>p</sub>[z], (2) matching the factors to primitive orbit lengths, and (3) inverting the length spectrum to recover Γ and the key. Step (3) is the hard step — it is open in the mathematical literature for dimension ≥ 3.</p>
-  </div>
-
-  <!-- ═══ §4 HARDNESS ANALYSIS ═══ -->
-  <div class="rs-section" id="rs-hardness">
-    <h2>§4 · Hardness Analysis</h2>
-    <p>The papers establish multiple independent hardness arguments for MSIA, targeting different complexity classes and attack models.</p>
-
-    <h3>NP-Hardness via 3-SAT Reduction</h3>
-    <p>The MSIA inversion problem — given a characteristic polynomial χ(z) ∈ 𝔽<sub>p</sub>[z], recover the symbolic orbit data (ℓ<sub>i</sub>, c<sub>i</sub>) that produced it — can be used to solve 3-SAT in polynomial time if an efficient inversion algorithm exists. The reduction encodes 3-SAT clauses into the symbolic orbit structure: satisfying assignments correspond to consistent orbit decompositions of χ(z), and the inversion algorithm would find one if it exists. Therefore <strong>efficient MSIA inversion implies P = NP</strong>. The same reduction shows that even approximate inversion (within polynomial error) remains NP-hard.</p>
-
-    <h3>#P-Hardness via Trace Counting</h3>
-    <p>A stronger result: computing the power-sum traces Tr(A<sup>m</sup>) from χ(z) alone is <strong>#P-hard</strong>. This is established by reduction from the problem of counting independent sets in a graph (a #P-complete problem). The companion matrix A encodes a graph-like structure in its block decomposition; recovering the trace sequence from the characteristic polynomial requires counting independent sets in this structure. #P-hardness is strictly stronger than NP-hardness — it says that even a probabilistic polynomial-time oracle for NP cannot solve the problem efficiently.</p>
-
-    <h3>The Schottky Conjugacy-Class Length Problem</h3>
-    <p>A third hardness source: given the set of geodesic lengths {ℓ(γ)} of a Schottky group Γ (its "length spectrum"), recover the conjugacy classes of the generators of Γ. This is the <strong>Schottky conjugacy-class length problem</strong>. It is a variant of the inverse spectral problem and is not known to be in any subexponential-time algorithm. The reduction from this problem to MSIA inversion shows that breaking MSIA is at least as hard as solving the conjugacy-class length problem.</p>
-
-    <h3>Quantum Resistance — Non-Abelian HSP for SO(n,1)</h3>
-    <p>Shor's algorithm and its generalizations work by solving the <strong>Hidden Subgroup Problem (HSP)</strong> on an abelian group via quantum Fourier sampling. RSA's vulnerability: factoring reduces to HSP over ℤ. ECC's vulnerability: discrete log reduces to HSP over ℤ/nℤ. MSIA's geodesic flow has <strong>SO(n,1)</strong> symmetry — the group of orientation-preserving isometries of ℍⁿ. For n ≥ 2, SO(n,1) is a simple non-abelian Lie group. The non-abelian HSP over SO(n,1) is not known to be solvable in polynomial time even on a quantum computer. There is no known quantum Fourier transform that exploits SO(n,1) structure, and the representation theory of non-compact simple Lie groups is not amenable to the sampling techniques used in Shor's algorithm.</p>
-
-    <h3>Mostow Rigidity as a Security Amplifier</h3>
-    <p><strong>Mostow's rigidity theorem</strong> (1968, extended by Prasad and others): if n ≥ 3 and Γ, Γ′ are lattices in SO(n,1) with isomorphic fundamental groups, then ℍⁿ/Γ ≅ ℍⁿ/Γ′ as Riemannian manifolds. In other words, for dimension ≥ 3, the geometry uniquely determines the group up to isometry. There are no non-isometric hyperbolic manifolds with the same volume, spectrum, or length spectrum (up to a conjecture by isospectral forms in higher dimensions, where even the Vignéras / Sunada construction produces distinct Γ).</p>
-    <p>For the MSIA inverse problem, Mostow rigidity means the inverse has a <strong>unique answer</strong>. An attacker is not searching for "any Γ that fits" but for the specific Γ that was used. This is harder than a problem with multiple valid inverses — the search space is the same but valid answers are isolated points, not large subsets.</p>
-
-    <h3>The Prime Geodesic Theorem as a Security Parameter</h3>
-    <p>The <strong>Prime Geodesic Theorem</strong> gives the precise asymptotic count of primitive geodesics of length ≤ L:</p>
-    <div class="eq-display">#{γ primitive : ℓ(γ) ≤ L} &nbsp;~&nbsp; e<sup>(n−1)L</sup> / ((n−1)L) &nbsp; as L → ∞</div>
-    <p>This exponential growth means the number of "cryptographic primes" (geodesics) available at a given length scale grows faster than polynomially. It also gives a precise handle on the key space — analogous to the prime counting function π(N) giving a handle on the RSA key space. Unlike π(N), the Prime Geodesic Theorem is a consequence of the proven Selberg zeta Riemann Hypothesis — the distribution of geodesics is provably well-controlled by a formula, not just conjectured to be so.</p>
+    <p>Option B's decryption path (not yet implemented) would require: (1) factoring χ(z) over 𝔽<sub>p</sub>[z], (2) matching the factors to primitive orbit lengths, and (3) inverting the length spectrum to recover Γ and the key.</p>
   </div>
 
   <!-- ═══ §5 CRYPTOGRAPHIC HIERARCHY ═══ -->
@@ -1229,41 +647,37 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
     <p>MSIA occupies a specific position in a hierarchy of cryptographic hardness assumptions, each corresponding to a different tier of mathematical depth. The table below places MSIA in context.</p>
 
     <table class="rs-hier-table">
-      <tr><th>tier</th><th>system / primitive</th><th>hardness basis</th><th>complexity floor †</th><th>quantum status</th><th></th></tr>
-      <tr class="prog-hl"><td>0</td><td><strong>Motivic zeta functions</strong></td><td>Recovering motive from ζ; Standard Conjectures open</td><td>unmeasurable</td><td>unknown</td><td class="h-new">● completely new</td></tr>
-      <tr class="prog-hl"><td>0–1</td><td><strong>Hyperbolic Neural Cryptosystem</strong></td><td>Bulk-to-boundary reconstruction (holography, quantum gravity) + O(n,1) continuous isometry key</td><td>2<sup>500+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr class="prog-hl"><td>1</td><td><strong>Automorphic L-functions</strong></td><td>Hecke eigenvalue inversion; full Langlands functoriality open</td><td>2<sup>300+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr class="msia-hl"><td>1</td><td><strong>MSIA — Selberg ζ<sub>Γ</sub>, Kleinian n≥3</strong> ← this demo</td><td>Length spectrum inversion; Arthur–Selberg; Prime Geodesic Theorem; Mostow rigidity</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr class="prog-hl"><td>1–2</td><td><strong>Artin L-functions / inverse Galois</strong></td><td>Recovering Galois rep ρ from L(ρ,s); inverse Galois problem</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● new as primitive</td></tr>
-      <tr class="prog-hl"><td>1–2</td><td><strong>Dessins d'Enfants / Belyi</strong></td><td>Absolute Galois action on dessins; anabelian geometry</td><td>2<sup>200+</sup></td><td>resistant</td><td class="h-new">● completely new</td></tr>
-      <tr><td>2</td><td><strong>Hasse-Weil ζ (varieties, dim ≥ 2)</strong></td><td>Torelli problem for abelian varieties</td><td>2<sup>150+</sup></td><td>subexponential</td><td class="h-new">● essentially new</td></tr>
-      <tr><td>2–3</td><td>CSIDH / SQIsign</td><td>Supersingular isogeny / class group action</td><td>2<sup>128</sup></td><td>subexponential</td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>3</td><td>ML-KEM / ML-DSA (NIST 2024)</td><td>Module-LWE</td><td>2<sup>160</sup></td><td>2<sup>130</sup></td><td class="h-std">current standard</td></tr>
-      <tr><td>4</td><td>McEliece</td><td>Syndrome decoding</td><td>2<sup>128</sup></td><td>2<sup>64</sup>+</td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>5</td><td>NTRU</td><td>NTRU lattice</td><td>2<sup>128</sup></td><td>2<sup>128</sup></td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>7</td><td>SLH-DSA / LMS</td><td>Hash one-way function</td><td>2<sup>128</sup></td><td>2<sup>128</sup> (Grover only)</td><td class="h-std">deployed PQC</td></tr>
-      <tr><td>8</td><td>RSA / ECC</td><td>Factoring / ECDLP</td><td>2<sup>112</sup></td><td>polynomial (Shor)</td><td class="h-bk">● broken by Shor</td></tr>
+      <tr><th>tier</th><th>system / primitive</th><th>hardness basis</th><th></th></tr>
+      <tr class="prog-hl"><td>0</td><td><strong>Motivic zeta functions</strong></td><td>Recovering motive from ζ; Standard Conjectures open</td><td class="h-new">● completely new</td></tr>
+      <tr class="prog-hl"><td>0–1</td><td><strong>Hyperbolic Neural Cryptosystem</strong></td><td>Bulk-to-boundary reconstruction (holography, quantum gravity) + O(n,1) continuous isometry key</td><td class="h-new">● completely new</td></tr>
+      <tr class="prog-hl"><td>1</td><td><strong>Automorphic L-functions</strong></td><td>Hecke eigenvalue inversion; full Langlands functoriality open</td><td class="h-new">● completely new</td></tr>
+      <tr class="prog-hl"><td>1–2</td><td><strong>Artin L-functions / inverse Galois</strong></td><td>Recovering Galois rep ρ from L(ρ,s); inverse Galois problem</td><td class="h-new">● new as primitive</td></tr>
+      <tr class="prog-hl"><td>1–2</td><td><strong>Dessins d'Enfants / Belyi</strong></td><td>Absolute Galois action on dessins; anabelian geometry</td><td class="h-new">● completely new</td></tr>
+      <tr><td>2</td><td><strong>Hasse-Weil ζ (varieties, dim ≥ 2)</strong></td><td>Torelli problem for abelian varieties</td><td class="h-new">● essentially new</td></tr>
+      <tr><td>2–3</td><td>CSIDH / SQIsign</td><td>Supersingular isogeny / class group action</td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>3</td><td>ML-KEM / ML-DSA (NIST 2024)</td><td>Module-LWE</td><td class="h-std">current standard</td></tr>
+      <tr><td>4</td><td>McEliece</td><td>Syndrome decoding</td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>5</td><td>NTRU</td><td>NTRU lattice</td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>7</td><td>SLH-DSA / LMS</td><td>Hash one-way function</td><td class="h-std">deployed PQC</td></tr>
+      <tr><td>8</td><td>RSA / ECC</td><td>Factoring / ECDLP</td><td class="h-bk">● broken by Shor</td></tr>
     </table>
-    <p style="font-size:.78rem;color:var(--faint);font-family:'DM Mono',monospace;margin:.4rem 0 .6rem"><span style="display:inline-block;width:.7rem;height:.7rem;background:rgba(127,201,154,0.3);border:1px solid rgba(127,201,154,0.5);border-radius:1px;margin-right:.35rem;vertical-align:middle"></span>green = this demo &nbsp;&nbsp;<span style="display:inline-block;width:.7rem;height:.7rem;background:rgba(201,168,76,0.2);border:1px solid var(--border-dim);border-radius:1px;margin-right:.35rem;vertical-align:middle"></span>gold = Logarchéon research programme</p>
-    <p class="rs-note" style="font-size:.78rem;color:var(--faint);font-family:'DM Mono',monospace;margin:.4rem 0 1.2rem;line-height:1.6">† <strong style="color:var(--muted)">Complexity floor</strong> — for deployed systems (Tiers 3–8): reflects cryptanalytic consensus on the minimum classical work to break the scheme. For research-stage entries (Tiers 0–2, marked ●): reflects the depth of the underlying open mathematical problem rather than a proven attack bound — no efficient classical attack is known, and in some cases no attack of any complexity has been formulated. Values above 2<sup>256</sup> exceed the SHA-512 key floor and indicate mathematical rather than computational barriers. "Unmeasurable" means the underlying theory (Standard Conjectures, quantum gravity) is not yet complete enough to define an attack space.</p>
-
+    <p style="font-size:.78rem;color:var(--faint);font-family:'DM Mono',monospace;margin:.4rem 0 .6rem"><span style="display:inline-block;width:.7rem;height:.7rem;background:rgba(201,168,76,0.2);border:1px solid var(--border-dim);border-radius:1px;margin-right:.35rem;vertical-align:middle"></span>gold = Logarchéon research programme</p>
     <h3>What Is Genuinely New</h3>
     <p>Everything from Tier 0 through Tier 2 in the table — except the Hasse-Weil entry for elliptic curves specifically (which underlies existing isogeny crypto) — is <strong>unoccupied territory in cryptography</strong>. No deployed system, no NIST candidate, and no serious prior academic proposal uses any of these as the explicit cryptographic primitive. The reason is structural: the mathematics is too deep for most cryptographers, and most mathematicians working in these areas have not been thinking about cryptographic applications. The people who understand the Arthur-Selberg trace formula are not typically the people building encryption schemes.</p>
     <p>The entries marked "completely new" have not appeared in any cryptographic proposal before MSIA and the Hyperbolic Neural Cryptosystem. The entries marked "new as primitive" have appeared peripherally in the mathematical literature in cryptographic contexts but have not been formalized as explicit hard problems for encryption. The Selberg zeta function has appeared in mathematics and physics for 70 years. It has never appeared as a cryptographic hardness assumption before this work.</p>
 
     <h3>The Langlands Unification Hypothesis</h3>
-    <p>The systems at levels 0–2 share a striking structural property: they are all connected to either the <strong>Langlands program</strong> (automorphic forms, L-functions, Galois representations) or <strong>Grothendieck's program</strong> (motives, dessins, anabelian geometry, étale cohomology). These are the two grand unification programs of 20th–21st century mathematics. It is not coincidental that the hardest cryptographic problems sit exactly at this boundary.</p>
+    <p>The systems at levels 0–2 share a striking structural property: they are all connected to either the <strong>Langlands program</strong> (automorphic forms, L-functions, Galois representations) or <strong>Grothendieck's program</strong> (motives, dessins, anabelian geometry, étale cohomology). These are the two grand unification programs of 20th–21st century mathematics.</p>
     <p>The Langlands correspondence conjectures that all reasonable L-functions — Selberg zeta, Artin L-functions, automorphic L-functions, Hasse-Weil zeta functions of varieties — are all instances of a single object: automorphic L-functions attached to representations of adele groups. If this is true (the evidence is overwhelming, though the full correspondence remains open), then the different systems at Tiers 0–2 in the table might not give <em>independent</em> hardness assumptions — they might all reduce to the same underlying hard problem through Langlands functoriality.</p>
-    <p>This is analogous to how RSA, DH, and ECDLP seemed like three independent hard problems but are all vulnerable to Shor because they share the same abelian group structure. If the Langlands unification holds, MSIA — properly generalized to the full automorphic level — would not be one instance among many but the right framework for the entire class of Langlands-based cryptographic hardness.</p>
+    <p>This is analogous to how RSA, DH, and ECDLP seemed like three independent hard problems but are all vulnerable to Shor because they share the same abelian group structure.</p>
   </div>
 
   <!-- ═══ §6 TWO TRACKS AND UNIFICATION ═══ -->
   <div class="rs-section" id="rs-tracks">
     <h2>§6 · Research Plan — Two Tracks and Their Unification</h2>
-    <p>The research program that MSIA belongs to has two complementary directions and a Track C unification. All entries in the gold-highlighted rows of the table above are either existing work or planned contributions in this program. The two tracks are not independent: they are connected at their deepest mathematical level through a structural equivalence first proved by Kapustin and Witten (2006).</p>
+    <p>The research program that MSIA belongs to has two complementary directions and a Track C unification. All entries in the gold-highlighted rows of the table above are either existing work or planned contributions in this program.</p>
 
-    <div class="eq-display" style="margin:.9rem 0 1.4rem">Langlands functoriality &nbsp;⟺&nbsp; S-duality (Kapustin-Witten 2006) &nbsp;⟺&nbsp; holographic duality</div>
-    <p>Track A approaches through the algebraic/arithmetic side; Track B through the geometric/physical side. Both are computational manifestations of the same underlying mathematical duality.</p>
+    <p>Track A approaches through the algebraic/arithmetic side; Track B through the geometric/physical side.</p>
 
     <!-- TRACK A -->
     <h3>Track A — Langlands-Based Post-Quantum Cryptography (algebraic / discrete)</h3>
@@ -1274,7 +688,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
       <div class="hier-arrow">↑</div>
       <div class="hier-node prog"><span class="hn-tag">A4</span><strong>Automorphic L-functions (full Langlands)</strong> — Hecke eigenvalue inversion across all reductive groups; functoriality conjecture as master primitive</div>
       <div class="hier-arrow">↑</div>
-      <div class="hier-node here"><span class="hn-tag" style="color:var(--ok)">A1 · existing work</span><strong>MSIA — Selberg ζ<sub>Γ</sub> / Kleinian groups in ℍⁿ, n≥3</strong> — length spectrum inversion; this demo</div>
+      <div class="hier-node here"><span class="hn-tag" style="color:var(--ok)">A1 · existing work</span><strong>MSIA — Selberg ζ<sub>Γ</sub> / Kleinian groups in ℍⁿ, n≥3</strong> — length spectrum inversion</div>
       <div class="hier-arrow">↑</div>
       <div class="hier-node prog"><span class="hn-tag">A2</span><strong>Artin L-functions / inverse Galois</strong> — Frobenius conjugacy classes over number fields; inverse Galois problem as trapdoor</div>
       <div class="hier-arrow">↑</div>
@@ -1357,7 +771,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
     <div class="track-c-grid">
       <div class="track-c-card">
         <h4>C1 — Unified Framework</h4>
-        <p>S-duality, Langlands, and holography as a unified post-quantum cryptographic framework. MSIA and the Hyperbolic Neural Cryptosystem as dual manifestations of the same mathematical hardness. The Kapustin-Witten duality as a formal reduction between Track A and Track B security proofs.</p>
+        <p>S-duality, Langlands, and holography as a unified post-quantum cryptographic framework. MSIA and the Hyperbolic Neural Cryptosystem as dual manifestations of the same mathematical hardness.</p>
         <div class="venue">Annals of Mathematics / JACM</div>
       </div>
       <div class="track-c-card">
@@ -1366,9 +780,6 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
         <div class="venue">Nature Physics / Comm. Math. Physics</div>
       </div>
     </div>
-
-    <h3>Scale of the Program</h3>
-    <p>This program is comparable to what lattice cryptography represented in 1996 before Ajtai's worst-case to average-case reduction — a mathematical structure with deep hardness properties that had not yet been translated into a cryptographic framework. Three differences favour this program: the mathematical depth is greater (the Langlands program and quantum gravity are harder than lattice geometry); the work is already further along (two working implementations, a provisional patent, formal hardness papers); and the timing is better (NIST has just standardized lattice systems and the field is actively seeking diversity of hardness assumptions).</p>
 
     <h3>Why Hardness is Rare — and Where This Construction Sits</h3>
     <p>The core identity det(I&nbsp;&minus;&nbsp;zA)<sup>&minus;1</sup> = exp(&Sigma; Tr(A<sup>m</sup>)z<sup>m</sup>/m) holds for any matrix over any commutative ring — formally, there are infinitely many zeta-function-based constructions. Genuine cryptographic hardness, however, appears only when the inverse problem is computationally deep. The table below shows why most zeta functions do not yield hard cryptosystems, and which ones do.</p>
@@ -1379,24 +790,11 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
         <tr><td>Riemann ζ(s)</td><td>Rational primes {2,3,5,…}</td><td>Factor integers / recover primes</td><td style="color:var(--err)">No — primes are explicitly constructible</td></tr>
         <tr><td>Ihara ζ(X) of a graph</td><td>Prime cycles in finite graph</td><td>Factor the Ihara zeta polynomial</td><td style="color:var(--muted)">Moderate — depends on graph structure</td></tr>
         <tr><td>Ruelle ζ for generic map</td><td>Periodic orbits of f</td><td>Recover f from its orbit count</td><td style="color:var(--muted)">Depends entirely on f</td></tr>
-        <tr class="pnow"><td><strong>Selberg ζ<sub>Γ</sub>(s) — MSIA</strong></td><td>Primitive closed geodesics of ℍⁿ/Γ</td><td>Recover length spectrum from Γ</td><td style="color:var(--ok)"><strong>Yes — inverse spectral problem is open</strong></td></tr>
-        <tr class="pnear"><td>Artin L-function of Galois rep ρ</td><td>Frobenius conjugacy classes</td><td>Recover ρ from L(ρ,s)</td><td style="color:var(--ok)">Yes — inverse Galois problem</td></tr>
-        <tr class="pnear"><td>Automorphic L-function</td><td>Hecke eigenvalues</td><td>Recover automorphic form from L-function</td><td style="color:var(--ok)">Yes — conjectured hard; Langlands core</td></tr>
-        <tr class="pfar"><td>Hasse-Weil ζ(V/𝔽<sub>q</sub>)</td><td>Points of variety over 𝔽<sub>q<sup>m</sup></sub></td><td>Recover variety from zeta</td><td style="color:var(--ok)">Yes — Torelli problem</td></tr>
         <tr class="pfar"><td>Motivic zeta functions</td><td>Motivic cohomology classes</td><td>Recover motive from ζ</td><td style="color:var(--ok)">Yes — deeply open</td></tr>
       </tbody>
     </table>
     </div>
-    <p>The hard cases are not arbitrary — they cluster around the same objects: automorphic forms, algebraic varieties over finite fields, Galois representations, and hyperbolic geometry. The Langlands program conjectures that all of these L-functions are instances of a single object (automorphic L-functions attached to representations of adèle groups), which would mean the different hard constructions may not yield <em>independent</em> hardness assumptions but rather different encodings of the same underlying problem. This is the direct analogue of how RSA, Diffie-Hellman, and ECDLP all seemed independent until Shor revealed they share abelian group structure. Whether that unification holds in the Langlands case remains an open conjecture — which is itself part of what makes this territory hard.</p>
-
-    <h3>Why the Kleinian / Geodesic Instantiation is Particularly Suited</h3>
-    <p>Among the hard instantiations in the table, the Selberg / Kleinian construction has four properties that distinguish it from the others as a cryptographic primitive.</p>
-    <ul>
-      <li><strong>Mostow rigidity (n≥3).</strong> For hyperbolic manifolds of dimension 3 or higher, the geometry uniquely determines the group Γ up to isometry. The inverse problem has a unique answer — the attacker is not searching for "any group that fits" but for the specific one. Uniqueness makes the problem harder, not easier.</li>
-      <li><strong>Prime Geodesic Theorem as a calibration tool.</strong> The precise asymptotic #{γ : ℓ(γ) ≤ L} ~ e<sup>hL</sup>/hL gives exact control over the density of primitive geodesics used as key material. This is the analogue of knowing exactly how many RSA primes exist below a bound — it lets security parameters be calibrated rigorously.</li>
-      <li><strong>No abelian Fourier structure.</strong> The geodesic flow on ℍⁿ/Γ has non-abelian symmetry for n≥2. For n≥3 the isometry group SO(n,1) is simple and non-abelian in a way that has no known Fourier sampling structure. Shor's algorithm has no obvious application.</li>
-      <li><strong>Selberg's analogue of RH is proven.</strong> The zeros of the Selberg zeta function ζ<sub>Γ</sub>(s) are the eigenvalues of the Laplacian on ℍⁿ/Γ. The Riemann Hypothesis analogue for ζ<sub>Γ</sub> is proved (Selberg 1956 for n=2; subsequently for n>2). The distribution of the "cryptographic primes" (geodesics) is provably well-controlled — a stronger foundation than classical cryptography has for rational primes, where RH is still open.</li>
-    </ul>
+    <p>The Langlands program conjectures that all of these L-functions are instances of a single object (automorphic L-functions attached to representations of adèle groups), which would mean the different hard constructions may not yield <em>independent</em> hardness assumptions but rather different encodings of the same underlying problem. This is the direct analogue of how RSA, Diffie-Hellman, and ECDLP all seemed independent until Shor revealed they share abelian group structure. Whether that unification holds in the Langlands case remains an open conjecture — which is itself part of what makes this territory hard.</p>
 
     <h3>Open Problems: Usable Identities Beyond Zeta Functions</h3>
     <p>Abstracting away the zeta / L-function structure entirely, the operative pattern is: a mathematical identity that translates between two representations, where the forward direction is efficient and the inverse direction connects to a deeply open problem. This pattern appears in several areas outside the Langlands hierarchy, constituting a broader landscape of potential post-quantum primitives.</p>
@@ -1406,7 +804,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
       <div class="rs-compute-card numeric">
         <div class="cc-tag">Topology</div>
         <h4>Knot invariants / Chern-Simons TQFT</h4>
-        <p>The Jones polynomial V(L;&thinsp;t) = Z(ℝ³, L) (Chern-Simons partition function on link L). Computing V from L is #P-hard in general. The inverse — recovering L from V(L;&thinsp;t) — is an open problem in low-dimensional topology. Quantum resistant: the relevant group structure (quantum groups at roots of unity) is non-abelian with no known Fourier sampling structure.</p>
+        <p>The Jones polynomial V(L;&thinsp;t) = Z(ℝ³, L) (Chern-Simons partition function on link L). Computing V from L is #P-hard in general. The inverse — recovering L from V(L;&thinsp;t) — is an open problem in low-dimensional topology.</p>
       </div>
 
       <div class="rs-compute-card numeric">
@@ -1430,7 +828,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
       <div class="rs-compute-card numeric">
         <div class="cc-tag">Analysis / Inverse Problems</div>
         <h4>Inverse scattering (3D)</h4>
-        <p>The 1D inverse scattering problem (given S-matrix, recover potential V(x)) is solved via the Marchenko equation. The 3D case remains open. Identity: V(x) → S-matrix via the Lippmann-Schwinger equation. Hard problem: recover V from S in 3 dimensions. Resistant to quantum attacks because the problem is analytic and spectral, not algebraic.</p>
+        <p>The 1D inverse scattering problem (given S-matrix, recover potential V(x)) is solved via the Marchenko equation. The 3D case remains open. Identity: V(x) → S-matrix via the Lippmann-Schwinger equation. Hard problem: recover V from S in 3 dimensions.</p>
       </div>
 
       <div class="rs-compute-card numeric">
@@ -1448,7 +846,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
       <div class="rs-compute-card numeric">
         <div class="cc-tag">Representation Theory</div>
         <h4>Tensor decomposition</h4>
-        <p>Computing tensor rank is NP-hard. Identity: a rank-r tensor T = &Sigma;<sub>i</sub> a<sub>i</sub> ⊗ b<sub>i</sub> ⊗ c<sub>i</sub>. Hard problem: given T, find its minimal decomposition. Resistant to known quantum attacks. The hardness is combinatorial rather than number-theoretic, distinguishing it from the Langlands cluster.</p>
+        <p>Computing tensor rank is NP-hard. Identity: a rank-r tensor T = &Sigma;<sub>i</sub> a<sub>i</sub> ⊗ b<sub>i</sub> ⊗ c<sub>i</sub>. Hard problem: given T, find its minimal decomposition. The hardness is combinatorial rather than number-theoretic, distinguishing it from the Langlands cluster.</p>
       </div>
 
     </div>
@@ -1460,7 +858,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
 
   <div class="rs-section" id="rs-policy">
     <h2>§7 · Why Backdoor-Free Encryption is Not a National-Security Liability</h2>
-    <p class="rs-intro">A recurring policy claim holds that strong, no-backdoor encryption of the kind demonstrated in the algebraic constructions presented here is a threat to national security, and that carriers, platforms, and even the underlying algorithms should be required by law to preserve an exceptional-access channel for lawful intercept. The empirical record points the other way. The mandated access channel — not the mathematics — has repeatedly proven to be the weakest structural point in the national security posture.</p>
+    <p class="rs-intro">A recurring policy claim holds that strong, no-backdoor encryption is a threat to national security, and that carriers, platforms, and even the underlying algorithms should be required by law to preserve an exceptional-access channel for lawful intercept. The empirical record points the other way. The mandated access channel — not the mathematics — has repeatedly proven to be the weakest structural point in the national security posture.</p>
 
     <h3>The Salt Typhoon precedent</h3>
     <p>The Salt Typhoon campaign, publicly disclosed in 2024 and attributed by U.S. agencies to PRC state-linked actors,<span class="fnref"><a href="#fn2">[2]</a></span> penetrated major U.S. telecommunications carriers and reached, among other systems, the very lawful-intercept infrastructure that carriers are legally required to maintain under CALEA.<span class="fnref"><a href="#fn1">[1]</a></span> The wiretap apparatus built so that the government could listen became the apparatus through which a foreign intelligence service could listen. Three features of the incident matter for the policy argument:</p>
@@ -1518,7 +916,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
     <p>The most significant error, for purposes of the §7 analysis, is that the quantum objection addresses the wrong threat. The argument in §7 is not primarily that adversaries will break RSA mathematically. It is that the backdoor mandate installs a pre-existing access path — in carrier infrastructure, in platforms, and potentially in hardware — that an adversary can reach without performing any cryptanalysis at all. Salt Typhoon did not break RSA. It reached the CALEA-mandated wiretap system inside carrier networks and read communications that were already in plaintext at the lawful-intercept collection point. The encryption was irrelevant to that operation; the mandate had routed around it. Arguing that quantum computers cannot yet break RSA is therefore not a response to the §7 analysis — it is an answer to a question §7 does not ask.</p>
 
     <h3>The state-actor threat model and harvest-now-decrypt-later</h3>
-    <p>For the specific threat model under analysis — PRC and Russian state programs with multi-decade planning horizons — the quantum computing timeline matters in a way the objection also misses, through the harvest-now-decrypt-later (HNDL) strategy. State intelligence services collect and archive encrypted communications at scale today with the explicit objective of decrypting them when quantum capability matures. This is not speculative: CISA, NSA, and NIST have all explicitly named HNDL as a reason for urgent migration to post-quantum cryptographic standards. NIST completed its post-quantum standardization process in 2024, publishing FIPS 203, 204, and 205, despite cryptographically relevant quantum computers not yet existing — because the U.S. government's own assessment is that the engineering trajectory warrants preparation now. For communications whose secrecy must persist fifteen or twenty years — diplomatic traffic, military planning, intelligence sources and methods, infrastructure configurations — the relevant question is not whether a quantum computer exists today but whether one will exist within the confidentiality window of data being encrypted today. A state actor whose planning horizon extends to 2040 cannot treat the current absence of fault-tolerant quantum hardware as a reason to discount the threat. NIST's own project, begun in 2016, reflects exactly this calculus: prepare now, because migrating critical infrastructure takes a decade and the cost of being wrong is irrecoverable. Both the TutaCrypt hybrid implementation noted in §7a and the MSIA algebraic construction presented here exist in part as direct responses to this concern — specifically because the MSIA hardness assumption (length spectrum inversion on a hyperbolic surface) is not vulnerable to Shor's algorithm in any known reduction, and its security does not depend on the continued engineering difficulty of building a quantum computer.</p>
+    <p>For the specific threat model under analysis — PRC and Russian state programs with multi-decade planning horizons — the quantum computing timeline matters in a way the objection also misses, through the harvest-now-decrypt-later (HNDL) strategy. State intelligence services collect and archive encrypted communications at scale today with the explicit objective of decrypting them when quantum capability matures. This is not speculative: CISA, NSA, and NIST have all explicitly named HNDL as a reason for urgent migration to post-quantum cryptographic standards. NIST completed its post-quantum standardization process in 2024, publishing FIPS 203, 204, and 205, despite cryptographically relevant quantum computers not yet existing — because the U.S. government's own assessment is that the engineering trajectory warrants preparation now. For communications whose secrecy must persist fifteen or twenty years — diplomatic traffic, military planning, intelligence sources and methods, infrastructure configurations — the relevant question is not whether a quantum computer exists today but whether one will exist within the confidentiality window of data being encrypted today. A state actor whose planning horizon extends to 2040 cannot treat the current absence of fault-tolerant quantum hardware as a reason to discount the threat. NIST's own project, begun in 2016, reflects exactly this calculus: prepare now, because migrating critical infrastructure takes a decade and the cost of being wrong is irrecoverable.</p>
 
     <h3>The “moving target” corollary — and why it reverses for backdoors</h3>
     <p>A related argument holds that RSA presents a moving target: even if a quantum attacker knew the mathematical method, key rotation would outpace the attack, continuously retiring the specific modulus being factored before factorisation completes. This argument has genuine partial validity against direct mathematical attacks on well-formed RSA instances. Each RSA key is a distinct hard problem — a specific large composite whose factors must be found — and rotating to a new key produces a new hard problem. Against a computationally bounded attacker working on one modulus at a time, key rotation is a real mitigation for communications whose secrecy window is short relative to the attack time.</p>
@@ -1727,7 +1125,7 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
     <h2>§11 · The Allied Dependence Problem — NATO and Europe Inside the Same Perimeter</h2>
     <p>The exposure described above is not confined to the United States, because the data of allied states largely is not confined to allied jurisdictions. The overwhelming majority of European cloud workloads — government, enterprise, and consumer — run on U.S. hyperscalers (commonly estimated at roughly seventy percent of the EU cloud market across AWS, Microsoft, and Google), and under the CLOUD Act those providers must produce data within their control regardless of whether it sits in a Frankfurt, Dublin, or Paris data center.<span class="fnref"><a href="#fn9">[9]</a></span> Jurisdiction follows the provider, not the geography. European "sovereign cloud" offerings operated by U.S.-headquartered firms remain, by the providers' own admissions before European legislatures, unable to guarantee immunity from U.S. legal process.</p>
     <p>The consequence is a double dependence. First, NATO and EU member states depend on the confidentiality of infrastructure that U.S. law requires to be interceptable and compellable — so every weakness in the U.S. lawful-access stack is automatically a weakness in theirs. When Salt Typhoon sat inside U.S. carrier intercept systems, the calls and records of allied diplomats, officers, and firms routing through or stored in that infrastructure were inside the same compromised perimeter. Second, the European judicial system has already ruled, twice, that this arrangement is structurally incompatible with its own fundamental-rights law (<em>Schrems I</em>, <em>Schrems II</em>) — and the political response each time has been a new adequacy instrument layered over the unchanged collection statutes rather than a change to the statutes themselves.<span class="fnref"><a href="#fn8">[8]</a></span></p>
-    <p>For allied governments, therefore, the backdoor-mandate logic fails twice over: they carry the vulnerability cost of the U.S. access architecture without holding the access, and their own emerging mandates (IPA, TOLA, Chat Control) add further doors into systems their adversaries also study. Client-side, no-escrow, no-exceptional-access encryption — where confidentiality derives from mathematics executed on the user's own device rather than from any provider's compliance posture — is the only layer of the stack that is indifferent to which jurisdiction's compelled-access law applies and to which adversary has penetrated which carrier. That is precisely the design that client-side, open-hardness constructions of this kind provide.</p>
+    <p>For allied governments, therefore, the backdoor-mandate logic fails twice over: they carry the vulnerability cost of the U.S. access architecture without holding the access, and their own emerging mandates (IPA, TOLA, Chat Control) add further doors into systems their adversaries also study. Client-side, no-escrow, no-exceptional-access encryption — where confidentiality derives from mathematics executed on the user's own device rather than from any provider's compliance posture — is the only layer of the stack that is indifferent to which jurisdiction's compelled-access law applies and to which adversary has penetrated which carrier.</p>
 
     <h3>Sources &amp; Footnotes</h3>
     <ul class="fnlist">
@@ -1748,446 +1146,198 @@ async function _aEncCCA(G1,G2,pt,chunk,scale){return await _aEncCCAG([G1,G2],pt,
 
 
 <footer><span class="mono">Logarchéon Inc. · Modular Symbolic Intelligence Architecture</span>
-The blob stores only ciphertext and an HMAC-SHA-512 tag — never the key — and records the generator count and precision so the receiver can match them. The geometric construction is implemented faithfully; pending the formal hardness proofs, the cipher key is derived through SHA-512 for a well-studied security floor. That floor is a conditional trust: SHA-512 is NSA-designed and NIST-standardized — the same provenance as Dual_EC_DRBG, the only NIST-standardized algorithm for which a backdoor was documented. No weakness in SHA-512 is known; but the 1994+ legal regime described in §7 cannot be excluded as a factor in its design. The Algebraic constructions section runs the original design with no hash in the path and no reliance on that institutional trust.
+A ciphertext carries a parameter header and (u, v) for each 256-bit block; it carries no key, no tag and no slot labels. No hash function is used at any step.
 <div class="engine" id="engineNote"></div></footer></div>
 <script>
-/* ===== verified MSIA JS core (g generators, both presets) ===== */
-const PRESETS={standard:{scale:10,P:131071n},high:{scale:1000000,P:(2n**61n-1n)}};
-function mul2(a,b){return [
- [a[0][0]*b[0][0]+a[0][1]*b[1][0], a[0][0]*b[0][1]+a[0][1]*b[1][1]],
- [a[1][0]*b[0][0]+a[1][1]*b[1][0], a[1][0]*b[0][1]+a[1][1]*b[1][1]]];}
-function matpow(M,n){let R=[[1,0],[0,1]],B=[M[0].slice(),M[1].slice()];
- while(n>0){if(n&1)R=mul2(R,B);B=mul2(B,B);n=Math.floor(n/2);}return R;}
-function lengthFrom(gens,idx,scale,P){
- let M=[[1,0],[0,1]];
- for(let k=0;k<gens.length;k++) M=mul2(M,matpow(gens[k],idx+1+k));
- let tr=Math.abs(M[0][0]+M[1][1])/2; if(tr<1.0000000000001)tr=1.0000000000001;
- const raw=Math.round(scale*2*Math.acosh(tr));
- let l=BigInt(raw)%P; if(l<0n)l+=P; return l===0n?1n:l;
-}
-function validate(gens){for(const G of gens) if(!isFinite(G[0][0]+G[1][1])||Math.abs(G[0][0]+G[1][1])<=2) return false; return true;}
-function chunkElls(gens,off,blen,scale,P){const seen=new Set(),e=[];
- for(let j=0;j<blen;j++){let l=lengthFrom(gens,off+j,scale,P);
-  while(seen.has(l.toString())){l=(l+1n)%P;if(l===0n)l=1n;}seen.add(l.toString());e.push(l);}return e;}
-function nbFor(P){return Math.ceil(P.toString(2).length/8);}
-function big2b(x,nb){const o=new Uint8Array(nb);let v=x;for(let i=nb-1;i>=0;i--){o[i]=Number(v&0xffn);v>>=8n;}return o;}
-function cat(a){let t=0;a.forEach(x=>t+=x.length);const o=new Uint8Array(t);let p=0;a.forEach(x=>{o.set(x,p);p+=x.length;});return o;}
-async function sha512(u){return new Uint8Array(await crypto.subtle.digest('SHA-512',u));}
-async function deriveKey(ells,P){const nb=nbFor(P);const h=cat(ells.map(e=>big2b(e,nb)));return (await sha512(cat([h,h]))).slice(0,32);}
-function xs(k,d){const o=new Uint8Array(d.length);for(let i=0;i<d.length;i++)o[i]=d[i]^k[i%k.length];return o;}
-async function hmac512(k,d){const ik=await crypto.subtle.importKey('raw',k,{name:'HMAC',hash:'SHA-512'},false,['sign']);return new Uint8Array(await crypto.subtle.sign('HMAC',ik,d));}
-const hex=u=>Array.from(u).map(b=>b.toString(16).padStart(2,'0')).join('');
-const unhex=h=>{const u=new Uint8Array(h.length/2);for(let i=0;i<u.length;i++)u[i]=parseInt(h.substr(i*2,2),16);return u;};
-function eq(a,b){if(a.length!==b.length)return false;let d=0;for(let i=0;i<a.length;i++)d|=a[i]^b[i];return d===0;}
-async function jsEncrypt(prec,gens,text,ch=8){
- if(!validate(gens))throw new Error('invalid key');
- const {scale,P}=PRESETS[prec];const data=new TextEncoder().encode(text);const C=[];let off=0;
- for(let ci=0;ci<Math.ceil(data.length/ch);ci++){const blk=data.slice(ci*ch,(ci+1)*ch);const el=chunkElls(gens,off,blk.length,scale,P);off+=blk.length;
-  const k=await deriveKey(el,P);const ct=xs(k,blk);C.push({ct:hex(ct),tag:hex(await hmac512(k,ct)),len:blk.length});}
- return JSON.stringify({prec,g:gens.length,c:C,n:data.length,ch});}
-async function jsDecrypt(gens,blob){
- if(!validate(gens))throw new Error('invalid key');
- const d=JSON.parse(blob);const {scale,P}=PRESETS[d.prec];
- if(d.g!==gens.length)throw new Error('generator count mismatch');
- const out=[];let off=0;
- for(const c of d.c){const el=chunkElls(gens,off,c.len,scale,P);off+=c.len;const k=await deriveKey(el,P);
-  const ct=unhex(c.ct);if(!eq(unhex(c.tag),await hmac512(k,ct)))throw new Error('WRONG KEY');
-  const pt=xs(k,ct);for(const b of pt)out.push(b);}
- return new TextDecoder('utf-8',{ignoreBOM:true}).decode(new Uint8Array(out.slice(0,d.n)));}
+/* MSIA-LWE browser core: hash-free Module-LWE encryption in Z_q[x]/(x^n+1), n = 256, q = 3329.
+   Randomness: crypto.getRandomValues only. No hash, XOF or random oracle anywhere.
+   The MSIA slot encoding is a public message format; it carries no secret. */
+const MSIALWE = (() => {
+  const N = 256, Q = 3329, MAX_MSG = 4096;
+  const rnd = (len) => { const b = new Uint8Array(len); for (let i = 0; i < len; i += 65536) crypto.getRandomValues(b.subarray(i, Math.min(len, i + 65536))); return b; };
+  const mod = (x) => ((x % Q) + Q) % Q;
 
-const SEC={'standard_2':{rb:61,cb:61,qb:31,ct:'21 min',qt:'8e-7 s',qs:false},'standard_3':{rb:92,cb:92,qb:46,ct:'7e4 yr',qt:'3e-2 s',qs:false},'standard_4':{rb:122,cb:122,qb:61,ct:'1e14 yr',qt:'21 min',qs:false},'standard_5':{rb:153,cb:153,qb:76,ct:'2e23 yr',qt:'2 yr',qs:false},'standard_6':{rb:183,cb:183,qb:92,ct:'3e32 yr',qt:'7e4 yr',qs:false},'high_2':{rb:194,cb:194,qb:97,ct:'4e35 yr',qt:'3e6 yr',qs:false},'high_3':{rb:291,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true},'high_4':{rb:388,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true},'high_5':{rb:485,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true},'high_6':{rb:582,cb:256,qb:128,ct:'2e54 yr',qt:'5e15 yr',qs:true}};
-const PY_CODE = String.raw`import math, hashlib, hmac, json
-P_PRESETS={'standard':(10,131071),'high':(10**6,2**61-1)}
-def mul2(a,b):
-    return [[a[0][0]*b[0][0]+a[0][1]*b[1][0], a[0][0]*b[0][1]+a[0][1]*b[1][1]],
-            [a[1][0]*b[0][0]+a[1][1]*b[1][0], a[1][0]*b[0][1]+a[1][1]*b[1][1]]]
-def matpow(M,n):
-    R=[[1.0,0.0],[0.0,1.0]];B=[r[:] for r in M]
-    while n:
-        if n&1:R=mul2(R,B)
-        B=mul2(B,B);n>>=1
-    return R
-def length_from(gens,idx,scale,P):
-    M=[[1.0,0.0],[0.0,1.0]]
-    for k in range(len(gens)):
-        M=mul2(M,matpow(gens[k], idx+1+k))
-    tr=abs(M[0][0]+M[1][1])/2.0
-    if tr<1.0000000000001: tr=1.0000000000001
-    return (int(round(scale*2*math.acosh(tr)))%P) or 1
-def chunk_ells(gens,off,blen,scale,P):
-    seen=set();e=[]
-    for j in range(blen):
-        l=length_from(gens,off+j,scale,P)
-        while l in seen:l=(l+1)%P or 1
-        seen.add(l);e.append(l)
-    return e
-def validate(gens):
-    for G in gens:
-        if abs(G[0][0]+G[1][1])<=2.0: return False
-    return True
-def derive_key(ells,P):
-    nb=(P.bit_length()+7)//8;buf=b''.join(int(x).to_bytes(nb,'big') for x in ells);return hashlib.sha512(buf+buf).digest()[:32]
-def xs(k,d):ks=(k*((len(d)//len(k))+1))[:len(d)];return bytes(a^b for a,b in zip(d,ks))
-def py_encrypt(prec,gens,text,ch=8):
-    if not validate(gens): raise ValueError("invalid key")
-    scale,P=P_PRESETS[prec];data=text.encode();C=[];off=0
-    for ci in range(math.ceil(len(data)/ch)):
-        blk=data[ci*ch:(ci+1)*ch];el=chunk_ells(gens,off,len(blk),scale,P);off+=len(blk)
-        k=derive_key(el,P);ct=xs(k,blk)
-        C.append({'ct':ct.hex(),'tag':hmac.new(k,ct,hashlib.sha512).digest().hex(),'len':len(blk)})
-    return json.dumps({'prec':prec,'g':len(gens),'c':C,'n':len(data),'ch':ch})
-def py_decrypt(gens,blob):
-    if not validate(gens): raise ValueError("invalid key")
-    d=json.loads(blob);scale,P=P_PRESETS[d['prec']]
-    if d['g']!=len(gens): raise ValueError("generator count mismatch")
-    out=bytearray();off=0
-    for c in d['c']:
-        el=chunk_ells(gens,off,c['len'],scale,P);off+=c['len'];k=derive_key(el,P)
-        ct=bytes.fromhex(c['ct'])
-        if not hmac.compare_digest(bytes.fromhex(c['tag']),hmac.new(k,ct,hashlib.sha512).digest()):raise ValueError("WRONG KEY")
-        out.extend(xs(k,ct))
-    return bytes(out[:d['n']]).decode('utf-8')
-`;
-
-/* ===== state ===== */
-let engine=null, pyodide=null, lastBlob=null;
-let g=3, prec='high', wrapMode='off';
-const FAST_MAX=64, FAITHFUL_MAX=24;
-
-const PRECDESC={
- standard:'<b>Standard:</b> good for trying things out. Easier to crack.',
- high:'<b>High (safer):</b> much harder to crack — recommended. Uses bigger numbers behind the scenes.'
-};
-function curMax(){return FAST_MAX;}
-
-function setG(n){g=n;
- document.querySelectorAll('#genSeg button').forEach(b=>b.classList.toggle('active',+b.dataset.g===n));
- buildGenPanels('e'); buildGenPanels('d'); refreshDesc(); updateSecBar(); onKeyEdit('e'); onKeyEdit('d');}
-function setPrec(p){prec=p;
- document.querySelectorAll('#precSeg button').forEach(b=>b.classList.toggle('active',b.dataset.p===p));
- refreshDesc(); updateSecBar();}
-function setWrap(w){wrapMode=w;
- document.querySelectorAll('#wrapSeg button').forEach(b=>b.classList.toggle('active',b.dataset.w===w));
- refreshDesc();}
-function refreshDesc(){document.getElementById('ctlDesc').innerHTML=PRECDESC[prec]+'<br><b>Strength '+g+':</b> higher is stronger. Each step adds 4 more key numbers ('+(4*g)+' boxes to fill in total).'+
- (wrapMode==='on'?'<br><b>Hide method on:</b> adds a second standard lock on top and makes the code look like plain random text, so no one can tell which tool made it. Your friend still needs the same key and settings.':'<br><b>Hide method off:</b> the code is in the normal format.');}
-
-function expFmt(str){
- // turn '2e54 yr' -> '2×10⁵⁴ yr', '8e-7 s' -> '8×10⁻⁷ s'; leave plain text ('21 min') untouched
- const sup={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
- return str.replace(/(\d+(?:\.\d+)?)e([+-]?\d+)/g,(m,mant,exp)=>{
-   const e=exp.replace('+','').split('').map(c=>sup[c]||c).join('');
-   return mant+'×10'+e;
- });
-}
-function updateSecBar(){
- const s=SEC[prec+'_'+g]; if(!s)return;
- const digits=Math.round(s.rb*Math.LN2/Math.LN10); // decimal digits in the number of keys
- document.getElementById('sc_keyspace').innerHTML='2<sup>'+s.rb+'</sup>';
- document.getElementById('sc_keyspace_s').textContent='about a '+digits+'-digit number of keys'+((s.rb>s.cb)?' (locked tight)':'');
- document.getElementById('sc_cls').innerHTML=expFmt(s.ct);
- document.getElementById('sc_q').innerHTML=expFmt(s.qt);
- document.getElementById('sc_q_s').textContent='even with a quantum computer';
- const v=document.getElementById('qverdict');
- if(s.qs){v.className='qverdict safe';v.innerHTML='✓ Strong enough to resist even future quantum computers.<span class="hint">Meets the 2¹²⁸ quantum-safe bar via the SHA-512 floor. That floor is a conditional trust — SHA-512 is NSA-designed and NIST-standardized; no weakness is known, but see §7 on institutional provenance.</span>';}
- else{v.className='qverdict unsafe';v.innerHTML='✗ Not strong enough against a future quantum computer at these settings.<span class="hint">Tip: choose Mode = High and Strength = 3 or more to reach the safe level.</span>';}
-}
-
-/* ===== dynamic generator key panels ===== */
-function buildGenPanels(p){
- const host=document.getElementById(p+'_gens'); host.innerHTML='';
- for(let i=0;i<g;i++){
-  const div=document.createElement('div'); div.className='genbox';
-  div.innerHTML='<div class="glabel">T'+(i+1)+' (matrix G'+(i+1)+')</div><div class="matrix">'+
-   ['00','01','10','11'].map(rc=>'<input id="'+p+'_g'+i+'_'+rc+'" inputmode="decimal" placeholder="'+
-     ({'00':'a','01':'b','10':'c','11':'d'}[rc])+'" oninput="onKeyEdit(\''+p+'\')">').join('')+'</div>';
-  host.appendChild(div);
- }
-}
-
-/* ===== strict number parser ===== */
-function parseNum(raw){
- if(typeof raw!=='string')return NaN; let s=raw.trim(); if(s==='')return NaN;
- s=s.replace(/\u2212/g,'-').replace(/[\u00a0\u2007\u202f]/g,'');
- if(/^[+-]?\d+,\d{1,2}$/.test(s)&&s.indexOf('.')===-1)s=s.replace(',','.');
- if(!/^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$/.test(s))return NaN;
- const v=Number(s); return Number.isFinite(v)?v:NaN;
-}
-function readGens(p){
- const gens=[]; let bad=0, empty=0;
- for(let i=0;i<g;i++){
-  const row=[];
-  for(const rc of ['00','01','10','11']){
-   const el=document.getElementById(p+'_g'+i+'_'+rc); const raw=el.value;
-   if(raw.trim()===''){empty++;el.classList.remove('cellbad');row.push(NaN);continue;}
-   const v=parseNum(raw);
-   if(Number.isNaN(v)){bad++;el.classList.add('cellbad');}else el.classList.remove('cellbad');
-   row.push(v);
+  function uniformPoly() {
+    const out = new Int32Array(N); let k = 0;
+    while (k < N) { const b = rnd(2 * N); for (let i = 0; i < 2 * N && k < N; i += 2) { const x = (b[i] | (b[i + 1] << 8)) & 0x0FFF; if (x < Q) out[k++] = x; } }
+    return out;
   }
-  gens.push([[row[0],row[1]],[row[2],row[3]]]);
- }
- return {gens,bad,empty};
-}
-function validGensOf(p){
- const {gens,bad,empty}=readGens(p);
- if(bad||empty)return null;
- return validate(gens)?gens:null;
-}
-function onKeyEdit(p){
- const ks=document.getElementById(p+'_keyStatus'); const {gens,bad,empty}=readGens(p);
- if(bad){ks.innerHTML='✗ '+bad+' box'+(bad>1?'es are':' is')+' not a valid number. Use plain digits like <b>2</b>, <b>-1.5</b>, <b>3.0</b>.';ks.className='keystatus bad';}
- else if(empty){ks.textContent='Fill all '+(4*g)+' numbers ('+empty+' empty).';ks.className='keystatus idle';}
- else if(!validate(gens)){
-   const bads=[]; gens.forEach((G,i)=>{if(Math.abs(G[0][0]+G[1][1])<=2)bads.push('T'+(i+1)+' (trace '+(G[0][0]+G[1][1]).toFixed(3)+')');});
-   ks.innerHTML='✗ Not hyperbolic — '+bads.join(', ')+' must have |trace| &gt; 2. Try other numbers.';ks.className='keystatus bad';
- } else {
-   ks.innerHTML='✓ Valid key — '+gens.map((G,i)=>'T'+(i+1)+' '+(G[0][0]+G[1][1]).toFixed(2)).join(', ')+'. All hyperbolic.';ks.className='keystatus good';
- }
- if(p==='e')updateCounter(); else updateDecBtn();
-}
-function loadPreset(p){
- // g generators: alternate two hyperbolic families with distinct params
- for(let i=0;i<g;i++){
-  const s=1.2+0.13*i; const kind=i%2;
-  const G = kind===0
-   ? [[Math.cosh(s)+Math.sinh(s),Math.sinh(s)],[Math.sinh(s),Math.cosh(s)-Math.sinh(s)]]
-   : [[Math.cosh(s),Math.sinh(s)],[Math.sinh(s),Math.cosh(s)]];
-  const set=(rc,val)=>document.getElementById(p+'_g'+i+'_'+rc).value=val;
-  set('00',G[0][0].toFixed(6));set('01',G[0][1].toFixed(6));set('10',G[1][0].toFixed(6));set('11',G[1][1].toFixed(6));
- }
- onKeyEdit(p);
-}
-
-/* ===== message counter ===== */
-function utf8len(s){return new TextEncoder().encode(s).length;}
-function updateCounter(){
- const s=document.getElementById('ptext').value;
- const nb=utf8len(s), nc=[...s].length, max=curMax(), over=nb>max;
- const cnt=document.getElementById('cnt'); cnt.textContent=nb; cnt.style.color=over?'var(--err)':'inherit';
- document.getElementById('cntMax').textContent=max;
- document.getElementById('cntChars').textContent=over?'· too long — shorten it':('· '+nc+' character'+(nc===1?'':'s'));
- const ok=validGensOf('e')&&engine!==null;
- document.getElementById('encBtn').disabled=!(ok&&nb>0&&!over);
-}
-function updateDecBtn(){document.getElementById('decBtn').disabled=!(validGensOf('d')&&engine!==null);}
-
-/* ===== engine boot ===== */
-function setEngineNote(){document.getElementById('engineNote').textContent=engine==='pyodide'?'Engine: Pyodide (CPython via WebAssembly).':'Engine: pure JavaScript (Web Crypto).';}
-async function boot(){
- const status=document.getElementById('status');
- if(!pyodideSupported()){engine='js';setEngineNote();status.innerHTML='Pure-JavaScript engine active (Pyodide skipped: this environment blocks WebAssembly workers — e.g. <code>file://</code> or a sandboxed preview frame). Serve over <code>http(s)://</code> with a real origin for the CPython engine.';status.className='ok';enableUI();return;}
- status.textContent='Loading Pyodide…';
- try{pyodide=await loadPyodideSafe();await pyodide.loadPackage([]);await pyodide.runPythonAsync(PY_CODE);engine='pyodide';setEngineNote();status.textContent='Ready — Pyodide engine loaded.';status.className='ok';}
- catch(e){engine='js';setEngineNote();status.textContent='Pyodide unavailable — using the fast JavaScript engine.';status.className='ok';}
- enableUI();
-}
-function pyodideSupported(){
- try{
-  if(location.protocol==='file:')return false;                       // no fetch of .wasm from disk
-  if(typeof WebAssembly==='undefined'||!WebAssembly.instantiate)return false;
-  if(window.origin==='null'||location.origin==='null')return false;  // sandboxed iframe: Pyodide's internal postMessage of a URL object throws DataCloneError here
-  if(window!==window.top){                                           // cross-origin parent frame: same failure mode
-   try{ void window.top.location.href; }catch(_){ return false; }
+  function cbdPoly(eta) {
+    const b = rnd(Math.ceil(2 * eta * N / 8)), out = new Int32Array(N);
+    const bit = (j) => (b[j >> 3] >> (7 - (j & 7))) & 1;
+    for (let i = 0; i < N; i++) { let a = 0, c = 0; for (let j = 0; j < eta; j++) { a += bit(2 * eta * i + j); c += bit(2 * eta * i + eta + j); } out[i] = a - c; }
+    return out;
   }
-  return true;
- }catch(_){ return false; }
-}
-function loadPyodideSafe(){return new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/pyodide/v0.27.3/full/pyodide.js';s.onload=()=>loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.3/full/'}).then(res,rej);s.onerror=()=>rej(new Error('loader'));document.head.appendChild(s);setTimeout(()=>rej(new Error('timeout')),25000);});}
-function enableUI(){['ptext','btext'].forEach(id=>document.getElementById(id).disabled=false);onKeyEdit('e');onKeyEdit('d');
- tutEnable(); renderKeyExamples('e'); renderKeyExamples('d');}
-
-/* ===== simplified tutorial (2 gens, standard, no wrap) ===== */
-let tutLastCode=null;
-function tutReadGens(){
- const rv=(pfx,i)=>parseNum(document.getElementById('tg'+i+'_'+pfx).value);
- const g0=['00','01','10','11'].map(rc=>rv(rc,0));
- const g1=['00','01','10','11'].map(rc=>rv(rc,1));
- const gens=[[[g0[0],g0[1]],[g0[2],g0[3]]],[[g1[0],g1[1]],[g1[2],g1[3]]]];
- return {gens, t1:g0[0]+g0[3], t2:g1[0]+g1[3],
-         bad:g0.some(Number.isNaN)||g1.some(Number.isNaN)};
-}
-function tutSetInput(i,G){
- const ids=['00','01','10','11'];const vals=[G[0][0],G[0][1],G[1][0],G[1][1]];
- ids.forEach((rc,k)=>{const el=document.getElementById('tg'+i+'_'+rc);if(el)el.value=vals[k];});
-}
-function tutFill(G1,G2){tutSetInput(0,G1);tutSetInput(1,G2);tutKey();}
-function tutDemo(){
- const s1=1.2,s2=1.5;
- tutFill([[Math.cosh(s1)+Math.sinh(s1),Math.sinh(s1)],[Math.sinh(s1),Math.cosh(s1)-Math.sinh(s1)]],
-         [[Math.cosh(s2),Math.sinh(s2)],[Math.sinh(s2),Math.cosh(s2)]]);
-}
-function trFmt(t,id){
- const el=document.getElementById(id);if(!el)return;
- const ok=Math.abs(t)>2;
- el.className='tut-trace '+(isNaN(t)?'idle':ok?'good':'bad');
- el.textContent=isNaN(t)?'trace (a+d) = ?':('trace (a+d) = '+t.toFixed(3)+' '+(ok?'✓ hyperbolic':'✗ need |trace| > 2'));
-}
-function tutKey(){
- const {gens,t1,t2,bad}=tutReadGens();
- trFmt(t1,'tut_t1');trFmt(t2,'tut_t2');
- const ks=document.getElementById('tut_ks');
- if(bad){ks.textContent='Fill all eight boxes.';ks.className='keystatus idle';}
- else if(!validate(gens)){ks.innerHTML='✗ Not valid — fix the matrix highlighted above (|trace| must be > 2 or < −2).';ks.className='keystatus bad';}
- else{ks.innerHTML='✓ Valid key — both generators are hyperbolic.';ks.className='keystatus good';}
- const ok=!bad&&validate(gens)&&engine!==null;
- ['tut_encBtn','tut_decBtn'].forEach(id=>{const el=document.getElementById(id);if(el)el.disabled=!ok;});
-}
-function tutCount(){
- const s=document.getElementById('tut_plain').value;
- const nb=utf8len(s),over=nb>64;
- const cnt=document.getElementById('tut_cnt');
- if(cnt){cnt.textContent=nb+' / 64'+(over?' · too long':'');cnt.style.color=over?'var(--err)':'var(--faint)';}
- const {bad}=tutReadGens();
- const btn=document.getElementById('tut_encBtn');
- if(btn)btn.disabled=bad||!validate(tutReadGens().gens)||engine===null||nb<1||over;
-}
-async function tutEncrypt(){
- const {gens,bad}=tutReadGens();if(bad||!validate(gens))return;
- const msg=document.getElementById('tut_plain').value;
- if(!msg.trim()||utf8len(msg)>64)return;
- const code=document.getElementById('tut_code');
- code.className='';code.textContent='Scrambling…';
- const copy=document.getElementById('tut_copyBtn');if(copy)copy.disabled=true;
- try{const b=engine==='pyodide'
-  ?(pyodide.globals.set('_p','standard'),pyodide.globals.set('_g',pyodide.toPy(gens)),pyodide.globals.set('_t',msg),await pyodide.runPythonAsync('py_encrypt(_p,_g.to_py(),_t)'))
-  :await jsEncrypt('standard',gens,msg);
-  tutLastCode=b;code.className='ok';code.textContent=b;if(copy)copy.disabled=false;
- }catch(e){code.className='err';code.textContent='Error: '+e.message;}
-}
-function tutCopy(){
- if(!tutLastCode)return;
- const el=document.getElementById('tut_cipher');if(el)el.value=tutLastCode;
- navigator.clipboard.writeText(tutLastCode).catch(()=>{});
-}
-async function tutDecrypt(){
- const {gens,bad}=tutReadGens();if(bad||!validate(gens))return;
- const raw=document.getElementById('tut_cipher').value;const out=document.getElementById('tut_result');
- if(!raw.trim()){out.className='err';out.textContent='Paste a scrambled code first.';return;}
- out.className='';out.textContent='Unscrambling…';
- try{const pt=engine==='pyodide'
-  ?(pyodide.globals.set('_g',pyodide.toPy(gens)),pyodide.globals.set('_b',raw.trim()),await pyodide.runPythonAsync('py_decrypt(_g.to_py(),_b)'))
-  :await jsDecrypt(gens,raw.trim());
-  out.className='ok';out.innerHTML='<span class="bigout"></span>';out.querySelector('.bigout').textContent=pt;
- }catch(e){out.className='err';out.textContent=(e.message||'').includes('WRONG')?'Wrong key — numbers don\u2019t match. Use the key that was used to encrypt.':'Error: '+e.message;}
-}
-function tutEnable(){
- ['tut_plain','tut_cipher'].forEach(id=>{const el=document.getElementById(id);if(el)el.disabled=false;});
- tutFill([[2,1],[1,1]],[[3,1],[1,1]]);
-}
-
-/* ===== key examples for full tool ===== */
-const KWORKS=[
- {name:'Easy integers',gens:[[[2,1],[1,1]],[[3,1],[1,1]]],note:'2 gens · T₁ trace 3, T₂ trace 4'},
- {name:'Decimals',gens:[[[2.5,0.5],[1,1]],[[1.5,1],[1,2.5]]],note:'2 gens · T₁ trace 3.5, T₂ trace 4'},
- {name:'Negative',gens:[[[-2.5,1],[0,-1]],[[3,0.5],[0,1]]],note:'2 gens · T₁ trace −3.5, |trace| > 2 ✓'},
- {name:'Three integers',gens:[[[2,1],[1,1]],[[3,1],[1,1]],[[4,1],[1,1]]],note:'3 gens · traces 3, 4, 5 — all > 2 ✓'},
- {name:'Three decimals',gens:[[[2.5,0.5],[1,1]],[[1.5,1],[1,2.5]],[[3,0.2],[0.4,1.2]]],note:'3 gens · traces 3.5, 4, 4.2 ✓'},
- {name:'Three w/ negative',gens:[[[-2.5,1],[0,-1]],[[3,0.5],[0,1]],[[2,1],[1,1.5]]],note:'3 gens · traces −3.5, 4, 3.5 ✓'},
-];
-const KFAILS=[
- {name:'Identity (trace 2)',gens:[[[1,0],[0,1]],[[3,1],[1,1]]],why:'T₁ trace = 2 — not > 2'},
- {name:'Rotation (trace 1)',gens:[[[0,1],[-1,1]],[[3,1],[1,1]]],why:'T₁ trace = 1 — elliptic, not hyperbolic'},
-];
-function fillKeyFor(p,gens){
- if(gens.length!==g)setG(gens.length); // rebuild panels for the right generator count
- for(let i=0;i<gens.length;i++){
-  const G=gens[i];
-  ['00','01','10','11'].forEach((rc,k)=>{const el=document.getElementById(p+'_g'+i+'_'+rc);if(el)el.value=[G[0][0],G[0][1],G[1][0],G[1][1]][k];});
- }
- onKeyEdit(p);
-}
-function renderKeyExamples(p){
- const host=document.getElementById(p+'_keyStatus');
- if(!host||document.getElementById(p+'_kex'))return;
- const exDiv=document.createElement('div');exDiv.className='kex';exDiv.id=p+'_kex';
- exDiv.innerHTML='<div class="kex-head">\u2713 Valid key examples</div><div class="kex-row" id="'+p+'_kexW"></div>'
-  +'<div class="kex-head bad">\u2717 Invalid keys \u2014 click to see why</div><div class="kex-row" id="'+p+'_kexF"></div>';
- host.insertAdjacentElement('afterend',exDiv);
- const addBtn=function(rowId,cls,name,note,gens){
-  const btn=document.createElement('button');btn.className='kex-btn '+cls;
-  btn.innerHTML='<span class="kn">'+name+'</span><span class="kt">'+note+'</span>';
-  btn.addEventListener('click',function(){fillKeyFor(p,gens);});
-  document.getElementById(rowId).appendChild(btn);
- };
- KWORKS.forEach(function(e){addBtn(p+'_kexW','ok',e.name,e.note,e.gens);});
- KFAILS.forEach(function(e){addBtn(p+'_kexF','fail',e.name,e.why,e.gens);});
-}
-
-/* ===== outer AES-GCM wrap (WebCrypto; runs regardless of inner engine) ===== */
-async function aesKeyFromGens(gens){
- const txt='MSIA-OUTER-v1|'+gens.map(G=>[G[0][0],G[0][1],G[1][0],G[1][1]].join(',')).join(';');
- const dig=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(txt));
- return crypto.subtle.importKey('raw',dig,{name:'AES-GCM'},false,['encrypt','decrypt']);
-}
-function b64enc(u){let s='';for(let i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s);}
-function b64dec(b){const s=atob(b);const u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u;}
-async function wrapBlob(gens,inner){
- const key=await aesKeyFromGens(gens);const iv=crypto.getRandomValues(new Uint8Array(12));
- const ct=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(inner)));
- const out=new Uint8Array(12+ct.length);out.set(iv,0);out.set(ct,12);return b64enc(out);
-}
-async function unwrapBlob(gens,b64){
- const key=await aesKeyFromGens(gens);const buf=b64dec(b64.trim());
- const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(0,12)},key,buf.slice(12));
- return new TextDecoder().decode(pt);
-}
-function looksWrapped(s){const t=s.trim();return t.length>0 && t[0]!=='{' && /^[A-Za-z0-9+/=\s]+$/.test(t);}
-
-/* ===== run ===== */
-async function runEncrypt(gens,text){
- if(engine==='pyodide'){pyodide.globals.set('_p',prec);pyodide.globals.set('_g',pyodide.toPy(gens));pyodide.globals.set('_t',text);
-  return await pyodide.runPythonAsync('py_encrypt(_p,_g.to_py(),_t)');}
- return await jsEncrypt(prec,gens,text);
-}
-async function runDecrypt(gens,blob){
- if(engine==='pyodide'){pyodide.globals.set('_g',pyodide.toPy(gens));pyodide.globals.set('_b',blob);
-  return await pyodide.runPythonAsync('py_decrypt(_g.to_py(),_b)');}
- return await jsDecrypt(gens,blob);
-}
-async function doEncrypt(){
- const gens=validGensOf('e');const text=document.getElementById('ptext').value;
- const out=document.getElementById('encOut'),timing=document.getElementById('encTiming');
- if(!gens){alert('Enter a valid key first.');return;}
- if(!text){alert('Type a message first.');return;}
- const nb=utf8len(text);if(nb>curMax()){alert('Message is '+nb+' bytes; limit is '+curMax()+'.');return;}
- out.className='';out.textContent='Scrambling…';timing.textContent='';
- document.getElementById('copyBtn').disabled=true;document.getElementById('dlBtn').disabled=true;document.getElementById('encBtn').disabled=true;
- const t0=performance.now();
- try{let blob=await runEncrypt(gens,text);
-  if(wrapMode==='on'){blob=await wrapBlob(gens,blob);}
-  lastBlob=blob;out.textContent=blob;out.className='ok';
-  timing.textContent='Done in '+((performance.now()-t0)/1000).toFixed(2)+'s · '+prec+' · g='+g+' · '+engine+' engine'+(wrapMode==='on'?' · AES-GCM wrapped (opaque)':' · key not in blob');
-  document.getElementById('copyBtn').disabled=false;document.getElementById('dlBtn').disabled=false;
- }catch(e){out.textContent='Error: '+e.message;out.className='err';}
- document.getElementById('encBtn').disabled=false;
-}
-function copyBlob(){if(!lastBlob)return;navigator.clipboard.writeText(lastBlob).then(()=>{const b=document.getElementById('copyBtn');const t=b.textContent;b.textContent='Copied ✓';setTimeout(()=>b.textContent=t,1400);});}
-function downloadBlob(){if(!lastBlob)return;const ext=wrapMode==='on'?'txt':'json';const blob=new Blob([lastBlob],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='msia_g'+g+'_'+prec+'.'+ext;a.click();}
-function loadFile(){const f=document.getElementById('blobFile').files[0];if(!f)return;const r=new FileReader();r.onload=e=>document.getElementById('btext').value=e.target.result;r.readAsText(f);}
-async function doDecrypt(){
- const gens=validGensOf('d');const raw=document.getElementById('btext').value;const out=document.getElementById('decOut');
- if(!gens){alert('Enter a valid key first.');return;}
- out.className='';if(!raw.trim()){out.textContent='Paste the scrambled code above.';out.className='err';return;}
- out.textContent='Unscrambling…';document.getElementById('decBtn').disabled=true;
- try{
-  let inner=raw;
-  if(looksWrapped(raw)){ // auto-detect opaque AES-GCM wrap and peel it
-   try{inner=await unwrapBlob(gens,raw);}
-   catch(we){throw new Error('WRAP FAIL');}
+  function pmul(a, b) {                       // negacyclic product, exact in doubles
+    const c = new Float64Array(2 * N);
+    for (let i = 0; i < N; i++) { const ai = a[i]; for (let j = 0; j < N; j++) c[i + j] += ai * b[j]; }
+    const r = new Int32Array(N); for (let i = 0; i < N; i++) r[i] = mod(c[i] - c[i + N]);
+    return r;
   }
-  const pt=await runDecrypt(gens,inner);
-  out.innerHTML='<span class="bigout"></span>';out.querySelector('.bigout').textContent=pt;out.className='ok';
- }
- catch(e){const em=e.message||'';let msg;
-  if(em.includes('WRAP FAIL'))msg='✗ Wrong key for the outer wrap — the opaque code didn\'t open with these numbers. Check the key, g, and that this is the wrapped output.';
-  else if(em.includes('WRONG KEY'))msg='✗ Wrong key — these numbers don\'t match the ones used to scramble it. Check with the sender.';
-  else if(em.includes('generator count'))msg='✗ Generator count mismatch — set g to the same value (2–6) the sender used.';
-  else msg='Error: '+em;
-  out.textContent=msg;out.className='err';}
- document.getElementById('decBtn').disabled=false;
-}
+  const padd = (...ps) => { const r = new Int32Array(N); for (const p of ps) for (let i = 0; i < N; i++) r[i] += p[i]; for (let i = 0; i < N; i++) r[i] = mod(r[i]); return r; };
+  const dot = (a, b) => padd(...a.map((x, i) => pmul(x, b[i])));
 
-/* init */
-buildGenPanels('e');buildGenPanels('d');setG(3);setPrec('high');setWrap('off');refreshDesc();updateSecBar();boot();
+  function keygen(k, eta) {
+    const A = [...Array(k)].map(() => [...Array(k)].map(uniformPoly));
+    const s = [...Array(k)].map(() => cbdPoly(eta)), e = [...Array(k)].map(() => cbdPoly(eta));
+    const t = A.map((row, i) => padd(...row.map((a, j) => pmul(a, s[j])), e[i]));
+    return { pk: { k, eta, A, t }, sk: { k, eta, s } };
+  }
+  function encryptBlock(pk, bits) {
+    const { k, eta, A, t } = pk;
+    const r = [...Array(k)].map(() => cbdPoly(eta)), e1 = [...Array(k)].map(() => cbdPoly(eta)), e2 = cbdPoly(eta);
+    const u = [...Array(k)].map((_, i) => padd(...r.map((rj, j) => pmul(A[j][i], rj)), e1[i]));
+    const m = new Int32Array(N); for (let i = 0; i < N; i++) m[i] = bits[i] ? (Q + 1) / 2 : 0;
+    return { u, v: padd(dot(t, r), e2, m) };
+  }
+  function decryptBlock(sk, c) {
+    const w = padd(c.v, dot(sk.s, c.u).map((x) => Q - x)), bits = new Uint8Array(N);
+    for (let i = 0; i < N; i++) bits[i] = (w[i] > (Q >> 2) && w[i] < ((3 * Q) >> 2)) ? 1 : 0;
+    return bits;
+  }
+
+  /* ---- public MSIA slot encoding: fixed rank-2 Fuchsian group, labels l_i = round(10 l(G1^(i+1) G2)) ---- */
+  const SLOT_A = 1.2, SLOT_B = 1.5, SLOT_SCALE = 10;
+  const SLOTS = (() => {
+    const ca = Math.cosh(SLOT_A), sa = Math.sinh(SLOT_A), eb = Math.exp(SLOT_B), ebi = Math.exp(-SLOT_B);
+    let m00 = ca, m01 = sa, m10 = sa, m11 = ca, logscale = 0; const out = [];
+    for (let i = 0; i < MAX_MSG; i++) {
+      const tr = m00 * eb + m11 * ebi, logtr = logscale + Math.log(Math.abs(tr) / 2);
+      const L = logtr < 20 ? 2 * Math.acosh(Math.exp(logtr)) : 2 * (logtr + Math.log(2));
+      out.push(Math.round(SLOT_SCALE * L));
+      const n00 = m00 * ca + m01 * sa, n01 = m00 * sa + m01 * ca, n10 = m10 * ca + m11 * sa, n11 = m10 * sa + m11 * ca;
+      const mx = Math.max(Math.abs(n00), Math.abs(n01), Math.abs(n10), Math.abs(n11));
+      m00 = n00 / mx; m01 = n01 / mx; m10 = n10 / mx; m11 = n11 / mx; logscale += Math.log(mx);
+    }
+    return out;
+  })();
+  const msiaEncode = (bytes) => Array.from(bytes, (c, i) => [SLOTS[i], c]);
+  function msiaDecode(slots) { slots.forEach(([l], i) => { if (l !== SLOTS[i]) throw new Error('slot length mismatch'); }); return Uint8Array.from(slots, (s) => s[1]); }
+  function slotsToBlocks(slots) {
+    const payload = new Uint8Array(2 + slots.length); payload[0] = slots.length >> 8; payload[1] = slots.length & 255;
+    slots.forEach(([, c], i) => { payload[2 + i] = c; });
+    const nb = Math.ceil(payload.length * 8 / N), blocks = [];
+    for (let b = 0; b < nb; b++) { const bits = new Uint8Array(N); for (let i = 0; i < N; i++) { const j = b * N + i; if ((j >> 3) < payload.length) bits[i] = (payload[j >> 3] >> (7 - (j & 7))) & 1; } blocks.push(bits); }
+    return blocks;
+  }
+  function blocksToSlots(blocks) {
+    const bytes = new Uint8Array(blocks.length * N / 8);
+    blocks.forEach((bits, b) => bits.forEach((x, i) => { const j = b * N + i; if (x) bytes[j >> 3] |= 1 << (7 - (j & 7)); }));
+    const L = (bytes[0] << 8) | bytes[1];
+    if (L > bytes.length - 2) throw new Error('length header out of range');
+    return Array.from({ length: L }, (_, i) => [SLOTS[i], bytes[2 + i]]);
+  }
+  function encrypt(pk, msgBytes) { if (msgBytes.length > MAX_MSG) throw new Error('message longer than ' + MAX_MSG + ' bytes'); return { k: pk.k, eta: pk.eta, blocks: slotsToBlocks(msiaEncode(msgBytes)).map((b) => encryptBlock(pk, b)) }; }
+  function decrypt(sk, ct) { if (ct.k !== sk.k || ct.eta !== sk.eta) throw new Error('parameter mismatch between key and ciphertext'); return msiaDecode(blocksToSlots(ct.blocks.map((c) => decryptBlock(sk, c)))); }
+
+  /* ---- wire format (identical to the Python prototype) ---- */
+  function pack(p) { const o = new Uint8Array(3 * N / 2); for (let i = 0, j = 0; i < N; i += 2, j += 3) { const x = p[i], y = p[i + 1]; o[j] = x & 255; o[j + 1] = (x >> 8) | ((y & 15) << 4); o[j + 2] = y >> 4; } return o; }
+  function unpack(b, off) { const p = new Int32Array(N); for (let i = 0, j = off; i < N; i += 2, j += 3) { p[i] = b[j] | ((b[j + 1] & 15) << 8); p[i + 1] = (b[j + 1] >> 4) | (b[j + 2] << 4); if (p[i] >= Q || p[i + 1] >= Q) throw new Error('coefficient out of range'); } return p; }
+  const PB = 3 * N / 2;
+  const concat = (parts) => { const L = parts.reduce((a, p) => a + p.length, 0), o = new Uint8Array(L); let k = 0; for (const p of parts) { o.set(p, k); k += p.length; } return o; };
+  const magic = (s) => Uint8Array.from(s, (c) => c.charCodeAt(0));
+  function head(b, m) { if (b.length < 6 || String.fromCharCode(...b.slice(0, 4)) !== m) throw new Error('not an MSIA-LWE ' + ({ MLp1: 'public key', MLs1: 'secret key', MLc1: 'ciphertext' })[m]); const k = b[4], eta = b[5]; if (k < 1 || k > 4 || eta < 1 || eta > 3) throw new Error('unsupported parameters'); return [k, eta]; }
+  const serPk = (pk) => concat([magic('MLp1'), Uint8Array.of(pk.k, pk.eta), ...pk.A.flat().map(pack), ...pk.t.map(pack)]);
+  const serSk = (sk) => concat([magic('MLs1'), Uint8Array.of(sk.k, sk.eta), ...sk.s.map((x) => pack(x.map(mod)))]);
+  function serCt(ct) { const h = concat([magic('MLc1'), Uint8Array.of(ct.k, ct.eta, ct.blocks.length >> 8, ct.blocks.length & 255)]); return concat([h, ...ct.blocks.flatMap((c) => [...c.u.map(pack), pack(c.v)])]); }
+  function dePk(b) { const [k, eta] = head(b, 'MLp1'); if (b.length !== 6 + (k * k + k) * PB) throw new Error('public key has the wrong length'); let o = 6; const A = [...Array(k)].map(() => [...Array(k)].map(() => { const p = unpack(b, o); o += PB; return p; })); const t = [...Array(k)].map(() => { const p = unpack(b, o); o += PB; return p; }); return { k, eta, A, t }; }
+  function deSk(b) { const [k, eta] = head(b, 'MLs1'); if (b.length !== 6 + k * PB) throw new Error('secret key has the wrong length'); return { k, eta, s: [...Array(k)].map((_, i) => unpack(b, 6 + i * PB).map((x) => (x > Q >> 1 ? x - Q : x))) }; }
+  function deCt(b) { const [k, eta] = head(b, 'MLc1'); const nb = (b[6] << 8) | b[7]; if (b.length !== 8 + nb * (k + 1) * PB) throw new Error('ciphertext has the wrong length'); let o = 8; const blocks = []; for (let i = 0; i < nb; i++) { const u = [...Array(k)].map(() => { const p = unpack(b, o); o += PB; return p; }); const v = unpack(b, o); o += PB; blocks.push({ u, v }); } return { k, eta, blocks }; }
+  const b64 = (u8) => { let s = ''; for (let i = 0; i < u8.length; i += 8192) s += String.fromCharCode(...u8.subarray(i, i + 8192)); return btoa(s); };
+  const unb64 = (s) => { const t = atob(s.replace(/\s+/g, '')); return Uint8Array.from(t, (c) => c.charCodeAt(0)); };
+
+  /* ---- reaction attack with a decryption oracle (shows the scheme is IND-CPA only) ---- */
+  function oracleKeyRecovery(pk, oracle) {
+    const { k, eta } = pk, h = Math.floor(Q / 16); let queries = 0; const s = [];
+    for (let j = 0; j < k; j++) {
+      const le = [...Array(2 * eta)].map((_, ti) => {               // le[ti][i] = [s_j[i] <= eta - 1 - ti]
+        const t = eta - 1 - ti, u = [...Array(k)].map(() => new Int32Array(N)); u[j][0] = h;
+        const c = mod(Math.floor(Q / 4) + h * t + Math.floor(h / 2)), v = new Int32Array(N).fill(c);
+        queries++; return oracle({ u, v });
+      });
+      const sj = new Int32Array(N);
+      for (let i = 0; i < N; i++) { let val = eta; for (let ti = 0; ti < 2 * eta; ti++) if (le[ti][i]) val = eta - 1 - ti; sj[i] = val; }
+      s.push(sj);
+    }
+    return { s, queries };
+  }
+
+  return { N, Q, MAX_MSG, SLOTS, keygen, encrypt, decrypt, encryptBlock, decryptBlock, msiaEncode, serPk, serSk, serCt, dePk, deSk, deCt, b64, unb64, oracleKeyRecovery, pmul };
+})();
+
+
+(() => {
+  const M = MSIALWE, $ = (id) => document.getElementById(id), enc = new TextEncoder(), dec = new TextDecoder('utf-8', { fatal: true });
+  let K = 3, ETA = 2, kp = null, lastCt = '';
+  const status = (msg, cls) => { const s = $('status'); s.textContent = msg; s.className = 'anchor-top ' + (cls || ''); };
+  const show = (id, text, cls) => { const p = $(id); p.textContent = text; p.className = cls || ''; };
+  const fmt = (b64, tag) => tag + b64;
+  const strip = (s, tag) => { s = s.trim(); if (!s.startsWith(tag)) throw new Error('expected text beginning with ' + tag); return M.unb64(s.slice(tag.length)); };
+  const copy = (text, btn) => { navigator.clipboard.writeText(text).then(() => { const o = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = o; }, 1200); }, () => {}); };
+  const save = (text, name) => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' })); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };
+
+  document.querySelectorAll('#mlParams .ml-param').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('#mlParams .ml-param').forEach((x) => x.classList.remove('active')); b.classList.add('active');
+    K = +b.dataset.k; ETA = +b.dataset.eta;
+  }));
+
+  $('mlGen').addEventListener('click', () => {
+    const t0 = performance.now(); kp = M.keygen(K, ETA); const ms = performance.now() - t0;
+    const pk = fmt(M.b64(M.serPk(kp.pk)), 'MLp1:'), sk = fmt(M.b64(M.serSk(kp.sk)), 'MLs1:');
+    show('mlPkOut', pk); show('mlSkOut', sk);
+    ['mlPkCopy', 'mlPkSave', 'mlSkCopy', 'mlSkSave'].forEach((id) => { $(id).disabled = false; });
+    $('mlGenTiming').textContent = `k = ${K}, η = ${ETA} · key generation ${ms.toFixed(1)} ms · public key ${M.serPk(kp.pk).length} bytes · secret key ${M.serSk(kp.sk).length} bytes`;
+    $('mlPkIn').value = pk; $('mlSkIn').value = sk;
+    show('mlAtkOut', 'Ready: key pair with k = ' + K + ', η = ' + ETA + '.');
+    status('Key pair generated.', 'ok');
+  });
+  $('mlPkCopy').addEventListener('click', (e) => copy($('mlPkOut').textContent, e.target));
+  $('mlSkCopy').addEventListener('click', (e) => copy($('mlSkOut').textContent, e.target));
+  $('mlPkSave').addEventListener('click', () => save($('mlPkOut').textContent, 'msia-lwe-public-key.txt'));
+  $('mlSkSave').addEventListener('click', () => save($('mlSkOut').textContent, 'msia-lwe-secret-key.txt'));
+  $('mlUsePk').addEventListener('click', () => { if (kp) $('mlPkIn').value = $('mlPkOut').textContent; else status('Generate a key pair first.', 'err'); });
+  $('mlUseSk').addEventListener('click', () => { if (kp) $('mlSkIn').value = $('mlSkOut').textContent; else status('Generate a key pair first.', 'err'); });
+  $('mlUseCt').addEventListener('click', () => { if (lastCt) $('mlCtIn').value = lastCt; else status('Encrypt a message first.', 'err'); });
+
+  const count = () => { $('mlCnt').textContent = enc.encode($('mlMsg').value).length; };
+  $('mlMsg').addEventListener('input', count); count();
+
+  $('mlEnc').addEventListener('click', () => {
+    try {
+      const pk = M.dePk(strip($('mlPkIn').value, 'MLp1:')), msg = enc.encode($('mlMsg').value);
+      const t0 = performance.now(), ct = M.encrypt(pk, msg), ms = performance.now() - t0;
+      lastCt = fmt(M.b64(M.serCt(ct)), 'MLc1:'); show('mlCtOut', lastCt);
+      $('mlCtCopy').disabled = false; $('mlCtSave').disabled = false;
+      const sl = M.msiaEncode(msg).slice(0, 8).map(([l, c]) => `(<b>${l}</b>, ${c})`).join(' ');
+      $('mlSlots').innerHTML = msg.length ? `MSIA slots (ℓ<sub>i</sub>, c<sub>i</sub>): ${sl}${msg.length > 8 ? ' …' : ''} · ${msg.length} slot${msg.length === 1 ? '' : 's'} → ${ct.blocks.length} block${ct.blocks.length === 1 ? '' : 's'}` : `Empty message → ${ct.blocks.length} block`;
+      $('mlEncTiming').textContent = `k = ${pk.k}, η = ${pk.eta} · encryption ${ms.toFixed(1)} ms · ciphertext ${M.serCt(ct).length} bytes`;
+      status('Message encrypted.', 'ok');
+    } catch (e) { show('mlCtOut', 'Error: ' + e.message, 'err'); status('Encryption failed: ' + e.message, 'err'); }
+  });
+  $('mlCtCopy').addEventListener('click', (e) => copy(lastCt, e.target));
+  $('mlCtSave').addEventListener('click', () => save(lastCt, 'msia-lwe-ciphertext.txt'));
+  $('mlFile').addEventListener('change', (ev) => { const f = ev.target.files[0]; if (!f) return; f.text().then((t) => { $('mlCtIn').value = t.trim(); status('Loaded ' + f.name + '.', 'ok'); }); ev.target.value = ''; });
+
+  $('mlDec').addEventListener('click', () => {
+    try {
+      const sk = M.deSk(strip($('mlSkIn').value, 'MLs1:')), ct = M.deCt(strip($('mlCtIn').value, 'MLc1:'));
+      let text;
+      try { text = dec.decode(M.decrypt(sk, ct)); } catch (e) { throw new Error('the output is not a valid message: the secret key does not match the public key used for encryption, or the ciphertext was altered'); }
+      $('mlDecOut').innerHTML = '<span class="bigout"></span>'; $('mlDecOut').querySelector('.bigout').textContent = text; $('mlDecOut').className = 'ok';
+      status('Message decrypted.', 'ok');
+    } catch (e) { show('mlDecOut', 'Error: ' + e.message, 'err'); status('Decryption failed.', 'err'); }
+  });
+
+  $('mlAtk').addEventListener('click', () => {
+    if (!kp) { show('mlAtkOut', 'Generate a key pair first.', 'err'); return; }
+    let calls = 0; const oracle = (c) => { calls++; return M.decryptBlock(kp.sk, c); };
+    const t0 = performance.now(), r = M.oracleKeyRecovery(kp.pk, oracle), ms = performance.now() - t0;
+    const exact = r.s.every((x, j) => x.every((v, i) => v === kp.sk.s[j][i]));
+    const head = r.s[0].slice(0, 16).join(', ');
+    show('mlAtkOut', `Oracle queries: ${calls} (2η·k = ${2 * kp.pk.eta * kp.pk.k})\nTime: ${ms.toFixed(1)} ms\nRecovered s₁[0..15]: ${head}, …\nRecovered key equals the secret key in all ${kp.pk.k * M.N} coefficients: ${exact ? 'yes' : 'no'}`, exact ? 'ok' : 'err');
+  });
+
+  status('Ready. Engine: JavaScript, randomness from crypto.getRandomValues; no hash function is used.', 'ok');
+})();
 
 </script></body></html>
