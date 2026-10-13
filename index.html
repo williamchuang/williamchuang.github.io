@@ -619,11 +619,11 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <div class="triad-name">CEAS</div>
         <div class="triad-fullname">Critical Entropy Attention Scaling</div>
         <p class="triad-desc">
-          A nonlocal collective coordination variable φ(t) that reduces effective
-          computation-graph diameter to sub-diameter scale, resolving the coordination bottleneck
+          A nonlocal collective coordination variable φ(t) that brings the number of
+          coordination rounds below the graph diameter, resolving the coordination bottleneck
           that limits locally bounded architectures at scale.
           Grounded in finite-size criticality and thermodynamic phase analysis.
-          Initializes via a single forward-pass measurement.
+          Initialises via a single forward-pass measurement.
         </p>
         <div class="triad-necessity">
           <strong>Design rationale:</strong> in locally bounded architectures, the number of
@@ -763,7 +763,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       Differential geometry did not improve Newtonian calculations;
       it made gauge invariance a question that could be asked.
       Group theory did not speed up classical mechanics;
-      it revealed that conservation laws and symmetries are the same thing.
+      it revealed that every continuous symmetry carries a conservation law.
       The tool creates the visibility.
     </p>
     <p style="font-size:0.88rem;color:rgba(245,240,232,0.55);line-height:1.75;margin:10px 0 0;border-left:2px solid var(--border);padding-left:0.9rem;">
@@ -875,7 +875,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     </div>
     <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">PLT as computational face</div>
-      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Programming language theory is not separate from the algebraic fields &mdash; it is their computational instantiation. Homotopy type theory: types are topological spaces.</p>
+      <p style="font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6;margin:0;">Programming language theory is not separate from the algebraic fields &mdash; it is their computational instantiation. Homotopy type theory: types are read as spaces, and equalities as paths.</p>
     </div>
     <div style="background:var(--navy-mid);border:1px solid var(--border-dim);padding:18px 20px;">
       <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">RMT as bridge field</div>
@@ -885,8 +885,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);padding:16px 22px;">
     <p style="font-size:0.92rem;color:rgba(245,240,232,0.8);line-height:1.7;margin:0;font-style:italic;">
-      &ldquo;Statistical mathematics tells you how well a system <strong style="color:var(--cream);font-style:normal;">approximates</strong>.
-      Algebraic mathematics tells you what a system can and cannot <strong style="color:var(--cream);font-style:normal;">represent</strong>.
+      &ldquo;Statistical mathematics tells how well a system <strong style="color:var(--cream);font-style:normal;">approximates</strong>.
+      Algebraic mathematics tells what a system can and cannot <strong style="color:var(--cream);font-style:normal;">represent</strong>.
       For building systems that approach ASI, the binding constraint is representational &mdash;
       what the architecture can structurally express &mdash; not approximation quality.&rdquo;
     </p>
@@ -912,7 +912,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4 through GPT-6, Claude, Gemini, Grok, DeepSeek, Qwen, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
   </p>
   <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
-    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.5).
+    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.8).
   </p>
 
   <!-- ── THREE-COLUMN HEADER ── -->
@@ -945,7 +945,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="ct-row">
     <div class="ct-label">Geometric representation</div>
     <div class="ct-ani">Euclidean inner product q<sup>&top;</sup>k as the fundamental primitive — coordinate-dependent by construction. Orbit consistency has to be learned from examples rather than holding by construction.</div>
-    <div class="ct-asi">GRAIL replaces the Euclidean dot product with a metric-invariant primitive I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). The root: Einstein's general covariance principle (1915) — <em>all physical observables must be written in tensors to be meaningful in physics.</em> Neural dot products q<sup>&top;</sup>k are coordinate-dependent and lose information under coordinate changes. With orbit canonicalisation, GRAIL&rsquo;s representation retains every observable that is invariant under the symmetry group &mdash; proved in Lean&nbsp;4 and checked numerically &mdash; regardless of which coordinate system the data arrives in.</div>
+    <div class="ct-asi">GRAIL replaces the Euclidean dot product with a metric-invariant primitive I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k). The root: Einstein's general covariance principle (1915) — <em>physical laws must be written in tensor form, so that they hold in every coordinate system.</em> Neural dot products q<sup>&top;</sup>k are coordinate-dependent and lose information under coordinate changes. With orbit canonicalisation, GRAIL&rsquo;s representation retains every observable that is invariant under the symmetry group &mdash; proved in Lean&nbsp;4 and checked numerically &mdash; regardless of which coordinate system the data arrives in.</div>
   </div>
 
   <div class="ct-row">
@@ -1010,7 +1010,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- ── KEY RESULT ── -->
   <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.5</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.8</span>
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
       <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
     </p>
@@ -1024,7 +1024,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- what is not ASI -->
   <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.5)</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.8)</span>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
       <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
         <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
@@ -1075,7 +1075,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">2009–10</div>
             <div class="tl-right">
               <div class="tl-event">General relativity study → GRAIL root insight</div>
-              <div class="tl-detail">All physical observables must be written in coordinate-independent form. Neural inner products q<sup>⊤</sup>k are coordinate-dependent and must be replaced by metric-invariant I(gq, gk) = I(q, k).</div>
+              <div class="tl-detail">Physical laws must be written in coordinate-independent form. Neural inner products q<sup>⊤</sup>k are coordinate-dependent and must be replaced by metric-invariant I(gq, gk) = I(q, k).</div>
             </div>
           </div>
           <div class="tl-item">
@@ -1089,14 +1089,14 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">Masters</div>
             <div class="tl-right">
               <div class="tl-event">Poincaré series thesis → infinite GRAIL candidates</div>
-              <div class="tl-detail">Averaging any kernel K(q,k) over a discrete group Γ produces a Γ-invariant inner product. Canonical construction of the complete GRAIL invariant family.</div>
+              <div class="tl-detail">Summing a kernel K(q,k) over the orbit of a discrete group Γ, where the series converges, produces a Γ-invariant kernel. Canonical construction of the GRAIL invariant family.</div>
             </div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2023–26</div>
             <div class="tl-right">
               <div class="tl-event">Formal integration → ASI seed architecture</div>
-              <div class="tl-detail">1,034-page lecture notes (v21.5), companion working paper (v1.4), reproducible test harness, 25 patent claims. Three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); U.S. Provisional 64/067,703 pending.</div>
+              <div class="tl-detail">1,161-page lecture notes (v21.8), companion working paper (v1.7), reproducible test harness, 25 patent claims. Three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); U.S. Provisional 64/067,703 pending.</div>
             </div>
           </div>
         </div>
@@ -1107,8 +1107,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <span class="stat-label">Root conception<br>predates transformers</span>
         </div>
         <div class="origin-stat">
-          <span class="stat-num">1,034</span>
-          <span class="stat-label">Pages of lecture<br>notes v21.5</span>
+          <span class="stat-num">1,161</span>
+          <span class="stat-label">Pages of lecture<br>notes v21.8</span>
         </div>
         <div class="origin-stat">
           <span class="stat-num">3</span>
@@ -1351,13 +1351,13 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <p class="security-lede">
       The seed architecture includes a λ-secure runtime for deployments requiring
       encrypted-in-use computation. Buyer-held keys. Policy-gated interfaces. No canonical
-      plaintext during execution. Operates on your hardware or within your cloud tenancy.
+      plaintext during execution. Operates on the buyer&rsquo;s hardware or within the buyer&rsquo;s cloud tenancy.
     </p>
     <div class="security-grid">
       <div class="sec-card">
         <h3>V1 — λ-native models</h3>
         <p>Geometry built into model architecture and training dynamics from the ground up.
-        Maximal integration. Principled semantics. Tighter control of canonicalization.
+        Maximal integration. Principled semantics. Tighter control of canonicalisation.
         For long-lived sovereign AI assets where architectural integrity is non-negotiable.</p>
       </div>
       <div class="sec-card">
@@ -1409,7 +1409,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <li>U.S. Intelligence Community (IC) agencies and Department of Defense (DoD) components requiring encrypted-in-use AI at operational scale</li>
           <li>NATO member-state defense and intelligence agencies operating under shared threat environments</li>
           <li>Coalition and allied-nation partners requiring sovereign AI execution without data exposure to third-party infrastructure</li>
-          <li>Defense and intelligence industrial base injecting hardened AI into mission-critical systems</li>
+          <li>Defense and intelligence industrial base integrating hardened AI into mission-critical systems</li>
           <li>Systemic finance and critical infrastructure with real-world failure modes</li>
         </ul>
       </div>
@@ -1424,11 +1424,11 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       </div>
       <div class="audience-card">
         <span class="audience-tier">Tier III · Sandbox</span>
-        <h3>Law, founders &amp; civil organizations</h3>
+        <h3>Law, founders &amp; civil organisations</h3>
         <ul>
           <li>Law firms that cannot upload privileged material to public AI APIs</li>
           <li>Privacy-first founders treating their data as the strategic moat</li>
-          <li>High-confidentiality civil, humanitarian, and intergovernmental organizations</li>
+          <li>High-confidentiality civil, humanitarian, and intergovernmental organisations</li>
         </ul>
       </div>
     </div>
@@ -1539,7 +1539,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
           <div style="border:1px solid var(--border-dim);background:rgba(0,0,0,0.1);padding:11px 13px;">
             <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Riemannian &Hopf;<sup>d</sup> vs Euclidean &#x211D;<sup>d</sup></div>
-            <p style="font-size:0.8rem;color:rgba(245,240,232,0.5);line-height:1.6;margin:0;">Hierarchical structure (object &rarr; part &rarr; subpart) requires exponentially many Euclidean dimensions without distortion. The same structure admits an injective map into &Hopf;<sup>d</sup> with constant distortion. LeCun&rsquo;s JEPA and DreamerV3 both suffer this silently. GRAIL uses the right geometry.</p>
+            <p style="font-size:0.8rem;color:rgba(245,240,232,0.5);line-height:1.6;margin:0;">Hierarchical structure (object &rarr; part &rarr; subpart) cannot be mapped into Euclidean space of any dimension without distortion, and the distortion grows with the size of the hierarchy. The same structure admits an injective map into &Hopf;<sup>2</sup> with distortion arbitrarily close to 1. LeCun&rsquo;s JEPA and DreamerV3 both suffer this silently. GRAIL uses the right geometry.</p>
           </div>
           <div style="border:1px solid var(--border-dim);background:rgba(0,0,0,0.1);padding:11px 13px;">
             <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">World model RSI</div>
@@ -1845,7 +1845,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Causal reversal</div>
       <p class="demo-why">A dataset where X appears to prevent Y in observed data, but causes Y under intervention. Correlation-only predictors give the wrong direction, and the open-source language model tested never recognised the cases that cannot be identified. The &Psi;-causal engine computes P(Y|do(X=x)) by SCM mutilation &mdash; correct whenever the effect is identifiable.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.5</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.8</div>
     </div>
 
     <div class="demo-card">
@@ -1853,7 +1853,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Action order matters</div>
       <p class="demo-why">&ldquo;Open drawer then grasp&rdquo; &ne; &ldquo;grasp then open drawer.&rdquo; Order-insensitive models treat these as the same, and the open-source language model tested chose the same order for every pair. The &Psi;-causal engine has [T<sub>a</sub>,&thinsp;T<sub>b</sub>] built in &mdash; the commutator is measurable and non-zero.</p>
-      <div class="demo-proof">Design principle &middot; lecture notes v21.5</div>
+      <div class="demo-proof">Design principle &middot; lecture notes v21.8</div>
     </div>
 
     <div class="demo-card">
@@ -1861,7 +1861,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Global coordination scaling</div>
       <p class="demo-why">On N-bit global parity, CEAS reduces coordination rounds via the rank-one collective variable &phi;(t). Crossover with local attention visible at a measurable scale threshold on a reproducible chart.</p>
-      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.5</div>
+      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.8</div>
     </div>
 
     <div class="demo-card">
@@ -1877,7 +1877,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Physical inverse design</div>
       <p class="demo-why">Given a target state, compute the action sequence that causes it. Learned inverse models pattern-match forward &mdash; they do not invert physical dynamics outside their training distribution. The &Psi;-causal engine solves this by construction.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.5</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.8</div>
     </div>
 
     <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
@@ -1963,7 +1963,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="gold-rule"></div>
   <span class="mono" style="display:block;margin-bottom:16px;">Self-evaluation &middot; 12 October 2026</span>
   <figure id="spine" style="margin:24px 0">
-<svg viewBox="0 62 760 404" role="img" aria-label="Five faces of one number-theoretic centre" style="width:100%;height:auto;display:block">
+<svg viewBox="0 62 760 404" role="img" aria-label="Six faces of one number-theoretic centre" style="width:100%;height:auto;display:block">
 <g fill="none" stroke="rgba(201,169,97,0.45)" stroke-width="1.2">
 <path d="M330 196V122H232"/><path d="M430 196V122H528"/><path d="M330 284V358H232"/><path d="M430 284V358H528"/>
 <path d="M232 240H256"/><path d="M504 240H528"/>
@@ -2033,10 +2033,10 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <tbody>
 <tr class="se-me"><td>Logarchéon current build</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0.574</td><td>0.5</td><td>·</td><td>1</td><td>0.167</td><td>·</td><td>0.167</td><td>·</td><td>53.4</td><td>33.6</td><td>53.4</td><td>5 (4†)</td></tr>
 <tr><td>OpenAI math model (unreleased)</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.472</td><td>·</td><td>·</td><td>1</td><td>28.9</td><td>28.9</td><td>0</td><td>L1</td></tr>
-<tr><td>Axiom Math (AxiomProver)</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.833</td><td>·</td><td>·</td><td>0.15</td><td>24.9</td><td>24.9</td><td>0</td><td>L1</td></tr>
+<tr><td>Axiom Math (AxiomProver)</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.833</td><td>·</td><td>·</td><td>0.151</td><td>24.9</td><td>24.9</td><td>0</td><td>L1</td></tr>
 <tr><td>AlphaProof</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.833</td><td>·</td><td>·</td><td>·</td><td>23.6</td><td>23.6</td><td>0</td><td>L1</td></tr>
 <tr><td>Hyperagents</td><td>1</td><td>·</td><td>·</td><td>1</td><td>0.332</td><td>0.5</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>23.6</td><td>18.1</td><td>0</td><td>L1</td></tr>
-<tr><td>Harmonic Aristotle</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.667</td><td>·</td><td>·</td><td>0.15</td><td>23.5</td><td>23.5</td><td>0</td><td>L1</td></tr>
+<tr><td>Harmonic Aristotle</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.667</td><td>·</td><td>·</td><td>0.151</td><td>23.5</td><td>23.5</td><td>0</td><td>L1</td></tr>
 <tr><td>ByteDance Seed 2.0 / Prover</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.667</td><td>·</td><td>·</td><td>·</td><td>22.2</td><td>22.2</td><td>0</td><td>L1</td></tr>
 <tr><td>Equivariant world model (Wang)</td><td>1</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8.3</td><td>0</td><td>L2</td></tr>
 <tr><td>Darwin Gödel Machine</td><td>1</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8.3</td><td>0</td><td>L1</td></tr>
@@ -2054,7 +2054,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 <tr class="se-cal"><td>Calibration: Euclidean transformer inside the build</td><td>1</td><td>—</td><td>0.300</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
     </tbody>
   </table></div>
-  <p class="se-note">&ldquo;&middot;&rdquo; unmeasured (counts as 0); &ldquo;&mdash;&rdquo; not applicable. &dagger; Level 4 applies if U is read against the loop&rsquo;s own earlier miss, which rises with wear, instead of against the frozen controller. Discovery values: OpenAI math model, 300 of 719 results with Lean formalizations (openai/math, 7 October 2026); AlphaEvolve, improvements on about 20% of more than 50 open problems (DeepMind, May 2025); Aristotle, Erd&#337;s problem #728 with a Lean proof, jointly with GPT-5.2 Pro (arXiv 2601.07421); AxiomProver, Fel&rsquo;s conjecture with a public Lean proof (Axiom, February 2026).</p>
+  <p class="se-note">&ldquo;&middot;&rdquo; unmeasured (counts as 0); &ldquo;&mdash;&rdquo; not applicable. &dagger; Level 4 applies if U is read against the loop&rsquo;s own earlier miss, which rises with wear, instead of against the frozen controller. Discovery values: OpenAI math model, 300 of 719 results with Lean formalisations (openai/math, 7 October 2026); AlphaEvolve, improvements on about 20% of more than 50 open problems (DeepMind, May 2025); Aristotle, Erd&#337;s problem #728 with a Lean proof, jointly with GPT-5.2 Pro (arXiv 2601.07421); AxiomProver, Fel&rsquo;s conjecture with a public Lean proof (Axiom, February 2026).</p>
 
   <h3 class="se-h3">2 &middot; Gates and the discovery track</h3>
   <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
@@ -2129,7 +2129,7 @@ M12ᴾ · provenance-weighted
 <tr><td>8=</td><td>Sakana AI Scientist</td><td>Self-improvement loops</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
     </tbody>
   </table></div>
-  <p class="se-note">Sorted by M12; tied scores share a rank. #&#7486; is the rank on the provenance-weighted reading. Pareto layer 1 holds the 4 developments that no other development matches or exceeds on all twelve quantities. Seed is the third reading: M12 scaled by the pillar core, nonzero only where coordination, causation and invariance are all measured.</p>
+  <p class="se-note">Sorted by M12; tied scores share a rank. #&#7486; is the rank on the provenance-weighted reading. Pareto layer 1 holds the 4 developments that no other development matches or exceeds on all twelve quantities while exceeding on at least one. Seed is the third reading: M12 scaled by the pillar core, nonzero only where coordination, causation and invariance are all measured.</p>
 
   <h3 class="se-h3">5 &middot; Where the main developers stand</h3>
   <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
@@ -2159,7 +2159,7 @@ M12ᴾ · provenance-weighted
     <div class="se-wrap"><table>
       <thead><tr><th>#</th><th>Development</th><th>Group</th><th>Level</th><th>V</th><th>X</th><th>N</th><th>D</th><th>M12</th><th>#&#7486;</th><th>M12&#7486;</th><th>Seed</th><th>Pareto layer</th></tr></thead>
       <tbody>
-<tr class="se-me"><td>1</td><td>Logarchéon current build (CEAS–Ψ–GRAIL)</td><td>Logarchéon</td><td>L5 own rule</td><td>0.167</td><td>·</td><td>0.167</td><td>·</td><td>53.4</td><td>1</td><td>33.6</td><td>53.4</td><td>1</td></tr>
+<tr class="se-me"><td>1</td><td>Logarchéon current build (CEAS–Ψ–GRAIL)</td><td>Logarchéon</td><td>L5 (4&dagger;)</td><td>0.167</td><td>·</td><td>0.167</td><td>·</td><td>53.4</td><td>1</td><td>33.6</td><td>53.4</td><td>1</td></tr>
 <tr><td>2</td><td>OpenAI math model (unreleased)</td><td>Science, proof &amp; geometry</td><td>L1</td><td>0.472</td><td>·</td><td>·</td><td>1</td><td>28.9</td><td>2</td><td>28.9</td><td>0</td><td>1</td></tr>
 <tr><td>3</td><td>Axiom Math (AxiomProver)</td><td>Science, proof &amp; geometry</td><td>L1</td><td>0.833</td><td>·</td><td>·</td><td>0.151</td><td>24.9</td><td>3</td><td>24.9</td><td>0</td><td>1</td></tr>
 <tr><td>4=</td><td>AlphaProof</td><td>Science, proof &amp; geometry</td><td>L1</td><td>0.833</td><td>·</td><td>·</td><td>·</td><td>23.6</td><td>4</td><td>23.6</td><td>0</td><td>2</td></tr>
@@ -2296,7 +2296,7 @@ M12ᴾ · provenance-weighted
 <section id="theory-yield" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
 <div class="container">
   <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.5 &middot; 1,034 pages</span>
+  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.8 &middot; 1,161 pages</span>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
     From theory to implementation
   </h2>
@@ -2392,15 +2392,15 @@ M12ᴾ · provenance-weighted
       <span class="mono" style="display:block;margin-bottom:16px;">Next steps</span>
       <h2>Start a quiet conversation.</h2>
       <p class="contact-lede">
-        If you work in national security, defense, or intelligence &mdash; U.S., NATO, or coalition &mdash; research, or
-        high-assurance compute — or if you want to evaluate the ASI seed architecture
-        under NDA — the starting point is simple.
+        For organisations in national security, defense, or intelligence &mdash; U.S., NATO, or coalition &mdash; research, or
+        high-assurance compute, and for reviewers evaluating the ASI seed architecture
+        under NDA, the starting point is simple.
       </p>
       <div class="contact-box">
         <h3>Request a technical brief</h3>
         <p>
-          A 30–45 minute briefing on your mission and constraints, followed by a
-          scoped proof-of-concept on your hardware or within your cloud tenancy.
+          A 30–45 minute briefing on the mission and its constraints, followed by a
+          scoped proof-of-concept on the organisation&rsquo;s hardware or within its cloud tenancy.
           Claims are bounded by written scope and acceptance criteria.
           No unbounded promises.
         </p>
