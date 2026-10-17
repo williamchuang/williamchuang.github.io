@@ -2139,6 +2139,24 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <span class="se-chip">Level 5 (4&dagger;) &middot; gate A in progress</span>
   </div>
 
+  <h3 class="se-h3">Attention cost at scale (computed)</h3>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:12px;">Replacing dot-product attention scores with GRAIL&rsquo;s hyperbolic scores changes total training compute by a factor of 1.003&ndash;1.14 at GPT-1&rsquo;s size (117 million parameters), 1.001&ndash;1.04 at GPT-3&rsquo;s (175 billion), and 1.002&ndash;1.11 for a dense model of about 400 billion parameters (128 layers, width 16,384, context 8,192). The range depends on how many group words each score sums, from one to five, and on the cost of the distance function. These figures are computed from layer shapes and operation counts, not measured on models of those sizes.</p>
+  <p class="se-note">Lorentz-model heads (one hyperbolic distance per head, in &#8461;<sup>d<sub>k</sub></sup>). Training-compute multiplier against dot-product attention; W is the number of group words summed per score, and c the cost of the distance function per query&ndash;key pair, in floating-point-operation equivalents.</p>
+  <div class="se-wrap"><table>
+    <tr><th>Model</th><th>Parameters</th><th>Attention share (dot product)</th><th style="text-transform:none;">W = 1, c = 10</th><th style="text-transform:none;">W = 1, c = 40</th><th style="text-transform:none;">W = 5, c = 10</th><th style="text-transform:none;">W = 5, c = 40</th></tr>
+    <tr><td>GPT-1</td><td>117M</td><td>3.9%</td><td>1.003</td><td>1.012</td><td>1.093</td><td>1.138</td></tr>
+    <tr><td>GPT-3</td><td>175B</td><td>1.4%</td><td>1.001</td><td>1.002</td><td>1.030</td><td>1.038</td></tr>
+    <tr><td style="white-space:normal;">Dense model (L = 128, d = 16,384, context 8,192)</td><td>412B</td><td>4.0%</td><td>1.002</td><td>1.006</td><td>1.088</td><td>1.111</td></tr>
+  </table></div>
+  <p class="se-note">Multi-channel &#8461;<sup>2</sup> heads (several two-dimensional distances per head), for comparison:</p>
+  <div class="se-wrap"><table>
+    <tr><th>Model</th><th>W = 1</th><th>W = 5</th></tr>
+    <tr><td>GPT-1</td><td>1.23</td><td>2.24</td></tr>
+    <tr><td>GPT-3</td><td>1.08</td><td>1.44</td></tr>
+    <tr><td style="white-space:normal;">Dense model (L = 128, d = 16,384, context 8,192)</td><td>1.24</td><td>2.28</td></tr>
+  </table></div>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:24px;">On compute cost, the architecture can work at large scale: with Lorentz-model heads, the hyperbolic scores add between 0.1 and 14 percent to training compute at the three sizes computed, and the addition does not grow with model size. The multi-channel form costs up to 2.3 times as much and suits small models.</p>
+
   <h3 class="se-h3">Independent verification &middot; status</h3>
   <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
   <div class="se-legend" style="grid-template-columns:1fr;">
