@@ -912,7 +912,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4 through GPT-6, Claude, Gemini, Grok, DeepSeek, Qwen, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
   </p>
   <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
-    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.9).
+    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.15).
   </p>
 
   <!-- ── THREE-COLUMN HEADER ── -->
@@ -1010,7 +1010,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- ── KEY RESULT ── -->
   <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.9</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.15</span>
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
       <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
     </p>
@@ -1024,7 +1024,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- what is not ASI -->
   <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.9)</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.15)</span>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
       <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
         <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
@@ -1096,7 +1096,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">2023–26</div>
             <div class="tl-right">
               <div class="tl-event">Formal integration → ASI seed architecture</div>
-              <div class="tl-detail">1,239-page lecture notes (v21.10), a companion working paper (v1.9) written to the Euclidean standard, in which every claim is proved, cited, or stated as a hypothesis with a falsifier, reproducible test harness, 55 claims in three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); U.S. Provisional 64/067,703 pending.</div>
+              <div class="tl-detail">1,273-page lecture notes (v21.15), a companion working paper (v1.14) written to the Euclidean standard, in which every claim is proved, cited, or stated as a hypothesis with a falsifier, reproducible test harness, 55 claims in three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); U.S. Provisional 64/067,703 pending.</div>
             </div>
           </div>
         </div>
@@ -1107,8 +1107,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <span class="stat-label">Root conception<br>predates transformers</span>
         </div>
         <div class="origin-stat">
-          <span class="stat-num">1,229</span>
-          <span class="stat-label">Pages of lecture<br>notes v21.9</span>
+          <span class="stat-num">1,273</span>
+          <span class="stat-label">Pages of lecture<br>notes v21.15</span>
         </div>
         <div class="origin-stat">
           <span class="stat-num">3</span>
@@ -1870,7 +1870,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Causal reversal</div>
       <p class="demo-why">A dataset where X appears to prevent Y in observed data, but causes Y under intervention. Correlation-only predictors give the wrong direction, and the open-source language model tested never recognised the cases that cannot be identified. The &Psi;-causal engine computes P(Y|do(X=x)) by SCM mutilation &mdash; correct whenever the effect is identifiable.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.9</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.15</div>
     </div>
 
     <div class="demo-card">
@@ -1878,7 +1878,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Action order matters</div>
       <p class="demo-why">&ldquo;Open drawer then grasp&rdquo; &ne; &ldquo;grasp then open drawer.&rdquo; Order-insensitive models treat these as the same, and the open-source language model tested chose the same order for every pair. The &Psi;-causal engine has [T<sub>a</sub>,&thinsp;T<sub>b</sub>] built in &mdash; the commutator is measurable and non-zero.</p>
-      <div class="demo-proof">Design principle &middot; lecture notes v21.9</div>
+      <div class="demo-proof">Design principle &middot; lecture notes v21.15</div>
     </div>
 
     <div class="demo-card">
@@ -1886,7 +1886,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Global coordination scaling</div>
       <p class="demo-why">On N-bit global parity, CEAS reduces coordination rounds via the rank-one collective variable &phi;(t). Crossover with local attention visible at a measurable scale threshold on a reproducible chart.</p>
-      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.9</div>
+      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.15</div>
     </div>
 
     <div class="demo-card">
@@ -1902,7 +1902,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Physical inverse design</div>
       <p class="demo-why">Given a target state, compute the action sequence that causes it. Learned inverse models pattern-match forward &mdash; they do not invert physical dynamics outside their training distribution. The &Psi;-causal engine solves this by construction.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.9</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.15</div>
     </div>
 
     <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
@@ -2156,6 +2156,24 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <tr><td style="white-space:normal;">Dense model (L = 128, d = 16,384, context 8,192)</td><td>1.24</td><td>2.28</td></tr>
   </table></div>
   <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:24px;">On compute cost, the architecture can work at large scale: with Lorentz-model heads, the hyperbolic scores add between 0.1 and 14 percent to training compute at the three sizes computed, and the addition does not grow with model size. The multi-channel diagnostic mode, which costs up to 2.3 times as much while it runs, is used only for troubleshooting.</p>
+
+  <h3 class="se-h3">Frontier-scale models on a single node, with the seed&rsquo;s safeguards intact (computed)</h3>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:12px;">Running and testing a model of GPT-3 scale or larger usually takes a rack of GPUs. Compressing the model&rsquo;s stored numbers brings this down to a few GPUs. Compression alone is now widely available; Logarch&eacute;on&rsquo;s contribution is to compress without giving up what the seed architecture adds:</p>
+  <ul style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin:0 0 12px 1.2em;">
+    <li><strong>Exact twins survive compression.</strong> The function-identical twin copies used for provenance and protected deployment stay exact after compression. This is proved, not estimated. Ordinary compression breaks it.</li>
+    <li><strong>Every compression step is checked and reversible.</strong> A step is kept only if the model&rsquo;s measured accuracy and its causal answers are unchanged, and any step can be undone exactly.</li>
+    <li><strong>CEAS-trained models are predicted to be cheaper to store.</strong> Holding attention at its critical operating point leaves no idle parameters for compression to remove, and the theory predicts 1.4&ndash;2.5 times lower storage cost in the attention&rsquo;s query and key weights than standard training. This prediction is being tested.</li>
+  </ul>
+  <div class="se-wrap"><table>
+    <tr><th>Model size (parameters)</th><th>GPUs needed, no compression</th><th>GPUs needed, common 4-bit compression</th><th>GPUs needed, best published 2-bit compression</th><th>GPUs needed, Logarch&eacute;on (estimate)</th></tr>
+    <tr><td style="white-space:normal;">117 million (GPT-1 scale)</td><td style="white-space:normal;">none: a laptop is enough</td><td>none</td><td>none</td><td>none</td></tr>
+    <tr><td style="white-space:normal;">1.5 billion (GPT-2 scale)</td><td style="white-space:normal;">none: a laptop is enough</td><td style="white-space:normal;">none: a phone is enough</td><td style="white-space:normal;">none: a phone is enough</td><td style="white-space:normal;">none: a phone is enough</td></tr>
+    <tr><td style="white-space:normal;">175 billion (GPT-3 scale)</td><td>5</td><td>2</td><td>1</td><td>1&ndash;2</td></tr>
+    <tr><td>2 trillion</td><td>58</td><td>16</td><td>8&ndash;9</td><td>5&ndash;10</td></tr>
+    <tr><td>5&ndash;10 trillion</td><td>143&ndash;286</td><td>38&ndash;76</td><td>21&ndash;40</td><td>21&ndash;59</td></tr>
+  </table></div>
+  <p class="se-note">Each GPU is a current data-centre GPU with 80 GB of memory. &ldquo;GPT-1/2/3 scale&rdquo; refers only to the published parameter counts of those models, used as reference sizes; no row describes a particular company&rsquo;s model. Figures are computed, not measured at these sizes, and exclude the memory for long contexts. For the largest models, the GPU count is set mainly by how much information a heavily trained model holds, which no method can compress away.</p>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:24px;"><strong>Next milestones.</strong> The seed architecture has been built and tested at research scale; compression is what takes it to large models. Each step is tested in order: models of up to 1.5 billion parameters first, then open models of 14 billion, 70 billion and about 235 billion parameters, the last on a single GPU, with CEAS temperature control, the twin checks and the causal checks applied to each. Results will be posted here as they are measured.</p>
 
   <h3 class="se-h3">Independent verification &middot; status</h3>
   <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
@@ -2450,7 +2468,7 @@ M12ᴾ · provenance-weighted
 <section id="theory-yield" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
 <div class="container">
   <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.9 &middot; 1,229 pages</span>
+  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.15 &middot; 1,273 pages</span>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
     From theory to implementation
   </h2>
