@@ -529,7 +529,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       </div>
       <div style="background:rgba(8,18,38,0.52);border:1px solid var(--border-dim);border-top:2px solid var(--gold-light);border-radius:3px;padding:0.7rem 0.75rem;">
         <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.35rem;">Flag measurement</div>
-        <div style="font-size:0.78rem;color:var(--body);line-height:1.55;">Institutional symbolism, full-size exterior flags, and all physical flag pieces are counted separately.</div>
+        <div style="font-size:0.78rem;color:var(--body);line-height:1.55;">Institutional symbolism, standard-size exterior flags, and all physical flag pieces are counted separately.</div>
       </div>
       <div style="background:rgba(8,18,38,0.52);border:1px solid var(--border-dim);border-top:2px solid var(--muted);border-radius:3px;padding:0.7rem 0.75rem;">
         <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:0.35rem;">University extension</div>
@@ -549,49 +549,113 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
   <div id="lifu-sud" class="paper-card">
     <h3>Focused Ultrasound Neuromodulation for Substance Use Disorder</h3>
     <div class="paper-meta">
-      <span>Working Paper &middot; 2025</span>
+      <span>Working Paper &middot; Version 3.0 &middot; October 2026</span>
       <span>William Chuang &middot; Logarch&eacute;on Inc.</span>
-      <span>Neuroscience &middot; Public Health Policy</span>
+      <span>Neuroscience &middot; Medical Acoustics &middot; Public Health</span>
     </div>
     <div class="paper-abstract">
-      <p>A unified mathematical framework for low-intensity focused ultrasound (LIFU)
-      neuromodulation targeting the nucleus accumbens (NAc) in substance use disorder,
-      coupled to the &lambda;-Stack as a real-time safety and control architecture.
-      Situated against the current U.S. burden of disease: 48.4 million past-year SUD
-      in 2024 (SAMHSA); 79,384 drug overdose deaths including 54,045 opioid-involved (CDC 2024).</p>
-      <p>The paper treats the first published clinical signal (Rezai et&nbsp;al., 2025:
-      91% mean craving reduction over 90 days, n=8, open-label) with appropriate
-      discipline&mdash;as a mechanistically coherent preliminary signal warranting
-      controlled confirmation, not as established efficacy.
-      Core contribution: a mathematics-first safety, observability, and control architecture
-      for NAc-targeted LIFU, with formal adverse-event analysis and transparent parameter reporting.</p>
+      <p>This paper asks what can be stated with certainty about the safety of low-intensity
+      focused ultrasound (LIFU) aimed at the nucleus accumbens for substance use disorder.
+      Each conclusion is derived step by step from stated physical laws and stated input values,
+      so a reader can see exactly which assumption a result depends on. Every calculation is
+      also checked by computer in the Lean&nbsp;4 proof assistant: 38 checked results, none taken
+      on trust.</p>
+      <p><strong>Why it matters.</strong> In 2025, 44.6 million people aged 12 or older in the
+      United States had a substance use disorder (SAMHSA). An estimated 69,973 died of drug
+      overdoses, 44,564 of those deaths involving opioids (CDC, provisional).</p>
+      <p><strong>Where the evidence stands.</strong> The first open-label study (Rezai et&nbsp;al.,
+      2025) gave eight participants one 20-minute session at 220&nbsp;kHz. It reported a mean 91%
+      drop in cue-induced opioid craving at 90 days; 7 of 8 were abstinent at 30 days and 5 of 8
+      through 90 days. Without a control group this is an early signal, not proof of benefit; a
+      randomized, placebo-controlled trial is registered. In October 2025 a participant in the same
+      program suffered micro-hemorrhages and swelling within and beyond the target, with loss of
+      consciousness. The complete treatment settings were published afterwards.</p>
+      <p><strong>Findings.</strong></p>
+      <ol style="margin:0 0 0.6rem 1.2rem;padding:0;">
+        <li style="margin-bottom:0.45rem;"><strong>Two of the usual safety limits are redundant.</strong>
+        At the limits used here, keeping the mechanical index at or below 0.30 automatically keeps the
+        cavitation-risk ratio below its limit, at every frequency. At 220&nbsp;kHz this caps the
+        pressure at the target at about 0.141&nbsp;MPa; 0.15&nbsp;MPa already exceeds it.</li>
+        <li style="margin-bottom:0.45rem;"><strong>Heat and thermal dose.</strong> If tissue warms by no
+        more than 1&nbsp;&deg;C, the thermal dose stays under 0.10 CEM43-minutes for any session up to
+        102.4 minutes, so a temperature ceiling is enough to control dose. Twenty minutes at normal
+        tissue temperature (37&nbsp;&deg;C) alone accrues about 0.005 minutes.</li>
+        <li style="margin-bottom:0.45rem;"><strong>The safe duty cycle depends on tissue absorption.</strong>
+        The highest duty cycle that keeps warming under 1&nbsp;&deg;C over 20 minutes is about 0.256
+        divided by the absorption coefficient (in Np/m): roughly 3% if absorption is 8&nbsp;Np/m, 13% if
+        it is 2&nbsp;Np/m. Blood flow only lowers the temperature, so these figures err on the safe
+        side. Any thermal claim therefore requires the absorption value used.</li>
+        <li style="margin-bottom:0.45rem;"><strong>The skull transmits unevenly across frequencies.</strong>
+        Transmission through bone peaks when the skull is a whole number of half-wavelengths thick. At
+        220&nbsp;kHz the first such thickness is about 5&ndash;8&nbsp;mm, depending on the speed of sound in
+        bone. A skull correction measured at one frequency cannot simply be rescaled to another. This
+        supports the argument, made in the published correspondence after the injury, that low
+        frequencies narrow the safety margin; it does not show that this caused the injury.</li>
+        <li style="margin-bottom:0.45rem;"><strong>How much a transducer concentrates pressure.</strong>
+        For a bowl-shaped transducer the concentration factor lies between the textbook small-bowl
+        estimate and twice that estimate. A hemisphere reaches the factor of two, about 135 at
+        220&nbsp;kHz for a 15&nbsp;cm radius before any skull loss.</li>
+        <li style="margin-bottom:0.45rem;"><strong>Pressure estimates need a stated error bound.</strong>
+        A percentage error in estimating the pressure at the target carries straight through to the
+        mechanical index; the transducer&rsquo;s concentration factor does not magnify it. If a report
+        gives a pressure estimate with no error bound, the data cannot show whether the limit was met:
+        the same report fits both a safe and an unsafe exposure. With a stated error bound, the check
+        reduces to one comparison: reported pressure &times; (1&nbsp;+&nbsp;error) must not exceed the
+        limit.</li>
+        <li style="margin-bottom:0.45rem;"><strong>Distortion of the sound wave is small within these
+        limits.</strong> At pressures inside the mechanical-index limit, the wave distorts very little
+        over a 20&nbsp;cm path; higher harmonics stay below about 5% of the main frequency. Extra heating
+        from harmonics is therefore negligible here, unlike at the much higher pressures the ITRUSST
+        consensus permits.</li>
+        <li style="margin-bottom:0.45rem;"><strong>What a report must disclose.</strong> Five items let any
+        reader check every safety limit: the estimated pressure at the target and away from it, with its
+        error bound; the frequency; the duty cycle and pulse timing; the total sonication time; and
+        either a measured temperature record or the tissue properties used to estimate heating. Leaving
+        out the error bound alone makes the pressure check impossible.</li>
+        <li style="margin-bottom:0.45rem;"><strong>The brain-circuit model stops short of recovery.</strong>
+        The neuron and circuit models keep firing rates within physical bounds and fix when synapses
+        strengthen or weaken. No step connects ultrasound exposure to reduced craving or recovery. That
+        link is stated as a hypothesis for the controlled trials to test.</li>
+      </ol>
+      <p><strong>Where the missing error bound could come from.</strong> Because the pressure
+      at the target is estimated rather than measured, the bound has to come from a model.
+      Neural networks now reproduce the skull calculations of wave-equation solvers about a
+      thousand times faster, but speed alone supplies no bound: a network trained on solver
+      output reproduces the solver, including its errors. Conformal prediction closes that gap.
+      Given a set of skulls with measured pressures, it returns a range whose stated coverage
+      holds without assuming the model is right, and the width of that range is the error bound
+      the check needs. Three conditions limit it: the calibration skulls must resemble the
+      person treated, the guarantee holds across a population rather than for any one
+      individual, and published calibration sets contain only about a dozen skulls.</p>
     </div>
     <div class="paper-links">
-      <a href="https://drive.google.com/file/d/1i8ko9kqyYgbJBrLRMzPkifVDUGGA_PBD/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>Full Manuscript Draft</a>
+      <a href="https://drive.google.com/file/d/1Jdn8sHCT-akYS2FOzLE5oe-f7mJPOc8v/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>Complete Manuscript (v3.0)</a>
     </div>
     <div class="paper-links" style="margin-top:0.5rem;">
-      <a href="https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-report.pdf" class="link-btn" style="font-size:0.65rem;" target="_blank">SAMHSA 2024 NSDUH</a>
+      <a href="https://www.samhsa.gov/data/report/2025-nsduh-annual-national-report" class="link-btn" style="font-size:0.65rem;" target="_blank">SAMHSA 2025 NSDUH</a>
+      <a href="https://www.cdc.gov/nchs/pressroom/releases/20260513.html" class="link-btn" style="font-size:0.65rem;" target="_blank">CDC 2025 Provisional Overdose Data</a>
       <a href="https://doi.org/10.1016/j.biopsych.2025.01.001" class="link-btn" style="font-size:0.65rem;" target="_blank">Rezai et al. 2025 (DOI)</a>
-      <a href="https://www.cdc.gov/nchs/products/databriefs/db549.htm" class="link-btn" style="font-size:0.65rem;" target="_blank">CDC Overdose Data Brief</a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12644226/" class="link-btn" style="font-size:0.65rem;" target="_blank">ITRUSST Safety Consensus</a>
     </div>
   </div>
 
   <!-- LIFU Safety Parameter Explorer -->
   <div id="fus-checker" style="background:var(--navy-mid);border:1px solid var(--border);border-left:4px solid var(--gold-dim);border-radius:0 6px 6px 0;padding:1.4rem 1.6rem;margin:1.2rem 0;">
     <h3 style="margin-top:0;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold-light);margin-bottom:0.2rem;">LIFU Safety Parameter Explorer</h3>
-    <p style="font-size:0.82rem;color:var(--muted);margin:0 0 1rem;font-family:'DM Mono',monospace;letter-spacing:0.05em;">Interactive — adjust parameters; safety constraints update in real time</p>
+    <p style="font-size:0.82rem;color:var(--muted);margin:0 0 0.7rem;font-family:'DM Mono',monospace;letter-spacing:0.05em;">Interactive — test one treatment protocol against the safety limits used in the paper</p>
+    <p style="font-size:0.88rem;color:var(--body);line-height:1.65;margin:0 0 1rem;max-width:72ch;">Set the pressure, frequency, duty cycle, session length, tissue absorption and the error bound on the pressure estimate. The explorer checks four limits &mdash; mechanical index, cavitation risk, thermal dose and temperature rise &mdash; using the worst-case pressure the error bound allows. It applies the same formulas as the paper, which shows each one to be correct given its stated physical laws. The limits here are deliberately stricter than the international ITRUSST consensus levels (mechanical index up to 1.9; warming up to 2&nbsp;&deg;C). The tissue absorption value is an assumed input. The explorer is a teaching and checking tool, not a clinical device.</p>
 
     <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
-      <button onclick="fusPreset('safe')"   style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Conservative</button>
-      <button onclick="fusPreset('ae2025')" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Rezai 2025 ± skull error</button>
-      <button onclick="fusPreset('cw90w')"  style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border-dim);background:var(--navy-light);color:var(--faint);border-radius:3px;cursor:pointer;">Preset: High-pressure (violation)</button>
+      <button onclick="fusPreset('safe')"   style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Within limits</button>
+      <button onclick="fusPreset('uncertain')" style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border);background:var(--navy-light);color:var(--body);border-radius:3px;cursor:pointer;">Preset: Uncertain estimate (&plusmn;20% error)</button>
+      <button onclick="fusPreset('high')"  style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;padding:0.3rem 0.75rem;border:1px solid var(--border-dim);background:var(--navy-light);color:var(--faint);border-radius:3px;cursor:pointer;">Preset: High pressure (outside limits)</button>
     </div>
 
     <div style="display:grid;gap:0.6rem;margin-bottom:1rem;">
       <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
-        <label style="font-size:0.85rem;color:var(--body);">P<sub>neg</sub> (MPa)</label>
-        <input type="range" id="fus-s-p" min="0.05" max="1.20" step="0.01" value="0.15" oninput="fusUpdate()" style="accent-color:var(--gold);">
-        <span id="fus-v-p" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">0.15</span>
+        <label style="font-size:0.85rem;color:var(--body);">Estimated pressure at target (MPa)</label>
+        <input type="range" id="fus-s-p" min="0.05" max="1.20" step="0.01" value="0.14" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-p" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">0.14</span>
       </div>
       <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
         <label style="font-size:0.85rem;color:var(--body);">Frequency (MHz)</label>
@@ -604,37 +668,42 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         <span id="fus-v-dc" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">2</span>
       </div>
       <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
-        <label style="font-size:0.85rem;color:var(--body);">Sonication time (min)</label>
+        <label style="font-size:0.85rem;color:var(--body);">Session length (min)</label>
         <input type="range" id="fus-s-t" min="1" max="60" step="1" value="20" oninput="fusUpdate()" style="accent-color:var(--gold);">
         <span id="fus-v-t" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">20</span>
       </div>
       <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
-        <label style="font-size:0.85rem;color:var(--body);">Skull thickness error (%)</label>
-        <input type="range" id="fus-s-dh" min="0" max="60" step="1" value="0" oninput="fusUpdate()" style="accent-color:var(--gold);">
-        <span id="fus-v-dh" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">0</span>
+        <label style="font-size:0.85rem;color:var(--body);">Tissue absorption (Np/m, assumed)</label>
+        <input type="range" id="fus-s-a" min="0.5" max="20" step="0.5" value="8" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-a" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">8.0</span>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:10px;">
+        <label style="font-size:0.85rem;color:var(--body);">Error bound on pressure estimate (%)</label>
+        <input type="range" id="fus-s-eta" min="0" max="50" step="1" value="0" oninput="fusUpdate()" style="accent-color:var(--gold);">
+        <span id="fus-v-eta" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--gold);text-align:right;">0</span>
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-bottom:1rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.5rem;margin-bottom:1rem;">
       <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">MI</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">Mechanical index</div>
         <div id="fus-m-mi" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
-        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 0.30</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">limit 0.30</div>
       </div>
       <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">Φ_cav</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">Cavitation-risk ratio</div>
         <div id="fus-m-phi" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
-        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 0.70</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">limit 0.70</div>
       </div>
       <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">CEM₄₃</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">Thermal dose CEM₄₃</div>
         <div id="fus-m-cem" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
-        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 0.10 min</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">limit 0.10 min</div>
       </div>
       <div style="background:var(--navy-light);border:1px solid var(--border-dim);padding:0.6rem 0.8rem;border-radius:4px;text-align:center;">
-        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">ΔT (°C)</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:0.25rem;">Temperature rise</div>
         <div id="fus-m-dt" style="font-family:'DM Mono',monospace;font-size:1rem;font-weight:600;">—</div>
-        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">lim 1.0 °C</div>
+        <div style="font-size:0.68rem;color:var(--faint);margin-top:0.1rem;">worst case, no blood cooling &middot; limit 1.0 &deg;C</div>
       </div>
     </div>
 
@@ -645,25 +714,24 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 
   <script>
   (function(){
-    var G=12,RHO=1050,C0=1540,CP=3600,KTH=0.5,AT=8;
+    // Formulas of Version 3.0 (Props. 3.13, 3.14, 3.20, 3.22, 3.25, 3.30).
+    var RHO=1050,C0=1540,CP=3600,KAPPA=0.7;
     var MI_L=0.30,CEM_L=0.10,PHI_L=0.70,DT_L=1.0;
 
-    function phys(P,f,dc,t,dh){
-      var Pact=P*(1+G*dh/100);
-      var mi=Pact/Math.sqrt(f);
-      var pic=0.45*Math.sqrt(f);
-      var phi=Pact/pic;
-      var I=Math.pow(Pact*1e6,2)/(2*RHO*C0);
-      var Qus=AT*I*2;
-      var tau=RHO*CP/(KTH*2.5e6);
-      var dT=Math.min(Qus*(dc/100)*tau/(RHO*CP),20);
-      var T_tis=37+dT;
-      var R=T_tis>=43?0.5:0.25;
-      var cem=t*Math.pow(R,43-T_tis);
-      var dc_opt=CEM_L*RHO*CP*0.5/Math.max(Qus*t*60,1e-12);
-      var p_opt=PHI_L*pic;
-      return{Pact:Pact,mi:mi,phi:phi,dT:dT,cem:cem,pic:pic,
-             dc_opt:Math.min(dc_opt,0.10),p_opt:p_opt};
+    function phys(P,f,dc,t,alpha,eta){
+      var s=Math.sqrt(f);
+      var Pw=P*(1+eta/100);                         // worst-case pressure allowed by the error bound
+      var mi=Pw/s;                                  // mechanical index
+      var phi=Pw/(KAPPA*s);                         // cavitation-risk ratio (Apfel–Holland constant)
+      var Q=alpha*Math.pow(Pw*1e6,2)/(RHO*C0);      // heating rate, W/m^3
+      var dT=(dc/100)*Q*t*60/(RHO*CP);              // adiabatic temperature rise, °C
+      var T=37+dT;
+      var R=T>=43?0.5:0.25;
+      var cem=t*Math.pow(R,43-T);                   // dose if held at peak temperature
+      var pmax=MI_L*s;                              // highest allowed pressure
+      var pcert=pmax/(1+eta/100);                   // highest reported pressure with this error bound
+      var dmax=Q>0?Math.min(1,RHO*CP*DT_L/(Q*t*60)):1;
+      return{Pw:Pw,mi:mi,phi:phi,dT:dT,cem:cem,pmax:pmax,pcert:pcert,dmax:dmax};
     }
 
     function col(v,lim){
@@ -672,57 +740,62 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       if(r<1.0)return'#e2c97e';
       return'#e07070';
     }
+    function fmt(v,dec){ if(v>1e4)return'> 10⁴'; return v.toFixed(dec); }
 
     window.fusUpdate=function(){
       var P=parseFloat(document.getElementById('fus-s-p').value);
       var f=parseFloat(document.getElementById('fus-s-f').value);
       var dc=parseFloat(document.getElementById('fus-s-dc').value);
       var t=parseFloat(document.getElementById('fus-s-t').value);
-      var dh=parseFloat(document.getElementById('fus-s-dh').value);
+      var a=parseFloat(document.getElementById('fus-s-a').value);
+      var eta=parseFloat(document.getElementById('fus-s-eta').value);
 
       document.getElementById('fus-v-p').textContent=P.toFixed(2);
       document.getElementById('fus-v-f').textContent=f.toFixed(2);
       document.getElementById('fus-v-dc').textContent=Math.round(dc);
       document.getElementById('fus-v-t').textContent=Math.round(t);
-      var dhEl=document.getElementById('fus-v-dh');
-      dhEl.textContent=Math.round(dh);
-      dhEl.style.color=dh>0?'#e07070':'var(--gold)';
+      document.getElementById('fus-v-a').textContent=a.toFixed(1);
+      var etaEl=document.getElementById('fus-v-eta');
+      etaEl.textContent=Math.round(eta);
+      etaEl.style.color=eta>0?'#e2c97e':'var(--gold)';
 
-      var d=phys(P,f,dc,t,dh);
+      var d=phys(P,f,dc,t,a,eta);
 
       function setM(id,v,lim,dec){
         var el=document.getElementById(id);
-        el.textContent=v.toFixed(dec);
+        el.textContent=fmt(v,dec);
         el.style.color=col(v,lim);
       }
       setM('fus-m-mi', d.mi, MI_L,3);
       setM('fus-m-phi',d.phi,PHI_L,3);
       setM('fus-m-cem',d.cem,CEM_L,4);
       setM('fus-m-dt', d.dT, DT_L,2);
+      if(d.dT>20){ document.getElementById('fus-m-dt').textContent='> 20'; }
+      if(d.cem>1e4){ document.getElementById('fus-m-cem').textContent='> 10⁴'; }
 
-      var C1=d.mi<=MI_L,C2=d.cem<=CEM_L,C3=d.phi<=PHI_L,C4=d.dT<=DT_L;
-      var all=C1&&C2&&C3&&C4;
+      var C1=d.mi<=MI_L,C2=d.cem<=CEM_L,C3=d.phi<=PHI_L,C5=d.dT<=DT_L;
+      var all=C1&&C2&&C3&&C5;
 
       function badge(ok,v,lim,label){
         var color=ok?'#4cc9b0':'#e07070';
         var icon=ok?'✓':'✗';
         return'<div style="color:'+color+'">'+icon+' '+label
-              +' &nbsp;<span style="color:var(--muted)">value = '+v.toFixed(4)+', limit = '+lim+'</span></div>';
+              +' &nbsp;<span style="color:var(--muted)">value = '+fmt(v,4)+', limit = '+lim+'</span></div>';
       }
       document.getElementById('fus-constraint-list').innerHTML=
-        badge(C1,d.mi, MI_L, 'C₁  Mechanical Index (CNS limit 0.30)')+
-        badge(C2,d.cem,CEM_L,'C₂  CEM₄₃ thermal dose (limit 0.10 min)')+
-        badge(C3,d.phi,PHI_L,'C₃  Φ_cav cavitation risk (limit 0.70)')+
-        badge(C4,d.dT, DT_L, 'C₄  Est. ΔT temperature rise (limit 1.0 °C)');
+        badge(C1,d.mi, MI_L, 'Mechanical index')+
+        badge(C2,d.cem,CEM_L,'Thermal dose (CEM₄₃, min)')+
+        badge(C3,d.phi,PHI_L,'Cavitation-risk ratio')+
+        badge(C5,d.dT, DT_L, 'Temperature rise (°C)');
 
       var btn=document.getElementById('fus-fire-btn');
       if(all){
-        btn.textContent='✓  All constraints satisfied — SAFE TO FIRE';
+        btn.textContent='✓  Within the paper’s limits';
         btn.style.background='rgba(76,201,176,0.15)';
         btn.style.border='1px solid #4cc9b0';
         btn.style.color='#4cc9b0';
       } else {
-        btn.textContent='✗  Constraint violation — ABORT SONICATION';
+        btn.textContent='✗  Outside the paper’s limits';
         btn.style.background='rgba(224,112,112,0.15)';
         btn.style.border='1px solid #e07070';
         btn.style.color='#e07070';
@@ -730,27 +803,25 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
 
       var ob=document.getElementById('fus-optimal-box');
       ob.style.display='block';
-      var sigma_qk=0.3,N_eff=8;
-      var bs=Math.sqrt(2*Math.log(Math.max(N_eff,2)))/Math.max(sigma_qk,1e-9);
-      var tg=bs*sigma_qk*Math.sqrt(2*Math.log(N_eff));
-      ob.innerHTML='<strong style="color:var(--gold-light)">λ-Stack optimal recommendations (Eq. 20–21):</strong><br>'
-        +'Actual P<sub>neg</sub> after skull error: <strong>'+d.Pact.toFixed(3)+' MPa</strong>'
-        +' (reported: '+P.toFixed(3)+' MPa, amplified by G·ΔH = '+(G*dh/100).toFixed(2)+'×)<br>'
-        +'Recommended DC*: <strong>'+(d.dc_opt*100).toFixed(2)+'%</strong>'
-        +' &nbsp;·&nbsp; Recommended P<sub>neg</sub>*: <strong>'+d.p_opt.toFixed(3)+' MPa</strong>'
-        +' (0.70 × P<sub>Intelligence Community (IC)</sub>('+f.toFixed(2)+' MHz))<br>'
-        +'CEAS β★ initializer: <strong>'+bs.toFixed(3)+'</strong>'
-        +' &nbsp;·&nbsp; T<sub>gate</sub>: <strong>'+tg.toFixed(3)+'</strong>';
+      var certified=P<=d.pcert+1e-12;
+      ob.innerHTML='<strong style="color:var(--gold-light)">What the numbers mean</strong><br>'
+        +'Highest allowed pressure at '+f.toFixed(2)+' MHz: <strong>'+d.pmax.toFixed(3)+' MPa</strong><br>'
+        +'With a '+Math.round(eta)+'% error bound, the reported pressure must stay at or below <strong>'+d.pcert.toFixed(3)+' MPa</strong>; '
+        +'the current setting '+(certified?'<strong style="color:#4cc9b0">is within it</strong>':'<strong style="color:#e07070">is not within it</strong>')+'.<br>'
+        +'The cavitation limit is met automatically whenever the mechanical-index limit is met.<br>'
+        +'Highest duty cycle that keeps warming under 1 °C for this session: <strong>'+(d.dmax*100).toFixed(1)+'%</strong><br>'
+        +'Thermal dose if tissue stays at its peak temperature for the whole session: <strong>'+fmt(d.cem,4)+' min</strong>';
     };
 
     window.fusPreset=function(name){
-      var p={safe:[0.15,0.22,2,20,0],ae2025:[0.15,0.22,2,20,40],cw90w:[0.80,0.22,50,20,0]};
+      var p={safe:[0.14,0.22,2,20,8,0],uncertain:[0.14,0.22,2,20,8,20],high:[0.80,0.22,50,20,8,0]};
       var v=p[name];
       document.getElementById('fus-s-p').value=v[0];
       document.getElementById('fus-s-f').value=v[1];
       document.getElementById('fus-s-dc').value=v[2];
       document.getElementById('fus-s-t').value=v[3];
-      document.getElementById('fus-s-dh').value=v[4];
+      document.getElementById('fus-s-a').value=v[4];
+      document.getElementById('fus-s-eta').value=v[5];
       fusUpdate();
     };
 
@@ -892,7 +963,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       </p>
       <p>
         The revised edition formalizes the bottom-up-to-top-down connection on declared path
-        spaces. Exact local closure exists only when the full extended generator factors
+        spaces. Exact local closure exists only when the complete extended generator factors
         through the strength projection on every admissible microstate fiber. When that
         factorization fails, the projected object is not silently treated as a closed ordinary
         differential equation: it becomes a differential inclusion or a distributional,
@@ -1285,8 +1356,8 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         = <em>Chu</em> + <em>ang</em> = 朱王 (Ming King).
       </p>
       <p>
-        The study reconstructs the full argument in eight sections: the cruciform geometry
-        embedded in the character 華 and its convergence with the Jerusalem Cross
+        The study reconstructs the complete argument in eight sections: the cruciform geometry
+        injected into the character 華 and its convergence with the Jerusalem Cross
         (Pike, <em>Morals and Dogma</em>, Ch.&thinsp;30); the 635&nbsp;AD arrival of the
         Syriac Church of the East and the 781&nbsp;AD Nestorian Stele; the Kaifeng Jewish
         community as a parallel Silk Road remnant (Levi, Judah, Benjamin &mdash; the three
@@ -1577,7 +1648,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       Extends to Langlands correspondence and Lorentz adaptations.
     </div>
     <div class="paper-links">
-      <a href="/files/Critical Scaling in Hyperbolic Attention Mechanisms.pdf" class="link-btn" target="_blank"><span class="lbl">PDF</span>Full Paper</a>
+      <a href="/files/Critical Scaling in Hyperbolic Attention Mechanisms.pdf" class="link-btn" target="_blank"><span class="lbl">PDF</span>Complete Paper</a>
     </div>
   </div>
 
@@ -1616,7 +1687,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         AES-GCM outer wrap adds indistinguishability. Runs entirely in the browser via
         Python/WebAssembly (Pyodide) with a pure-JavaScript fallback using Web Crypto; works
         air-gapped once loaded. Cross-engine verified across all generator counts, both precision
-        modes, and full Unicode (every script, emoji, and symbol round-trips). Alongside the
+        modes, and complete Unicode (every script, emoji, and symbol round-trips). Alongside the
         hashed everyday tool, the working demo also implements the <strong>pure-algebraic
         construction</strong> directly &mdash; companion blocks of x<sup>ℓ</sup>&minus;1, block-diagonal
         assembly, diagonal-similarity disguise, and message recovery by solving the Vandermonde
@@ -1626,7 +1697,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <p>
         MSIA sits at the Selberg / automorphic level of a Langlands-based cryptographic
         hierarchy &mdash; above current NIST post-quantum standards (Module-LWE, ML-KEM)
-        and below the full automorphic L-function level. The construction originated in the
+        and below the complete automorphic L-function level. The construction originated in the
         matrix identity det(I &minus; zA)<sup>&minus;1</sup> = exp(&Sigma; Tr(A<sup>m</sup>)
         z<sup>m</sup> / m), which translates simultaneously between symbolic dynamics, linear
         algebra, and spectral geometry. It anchors a two-track research program: an
@@ -1830,7 +1901,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <div class="paper-abstract">
       <p>
-        Ford&rsquo;s body of work is used to study how arithmetic, geometry, analysis,
+        Ford&rsquo;s corpus is used to study how arithmetic, geometry, analysis,
         computation, and exposition become operational. The corpus ranges across
         automorphic functions, Ford circles, rational approximation, complex-integer
         approximation, differential equations, applied military computation, calculus
@@ -1919,10 +1990,10 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <p>
         Thirty-three strategies are arranged into six systems: observation and
         experiment; painting and perception; mechanics and engineering; geometry and
-        proportion; nature, body, and systems; and manuscript, patronage, and
+        proportion; nature, anatomy, and systems; and manuscript, patronage, and
         transmission. The governing move is Leonardo-style diagrammatic transfer:
         observe, draw, vary, section, mechanize, and recombine until art, science,
-        craft, body, water, machine, and codex become one reusable research
+        craft, anatomy, water, machine, and codex become one reusable research
         laboratory.
       </p>
     </div>
@@ -2166,7 +2237,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         300-case table drawn from research papers, textbooks, book chapters, expository
         works, and public critical dossiers, plus overlapping prevalence rankings and
         worked demonstrations. It is framed as a bibliographic reconstruction rather than
-        a full-text edition: the source spine supplies titles and domains, while the
+        a complete-text edition: the source spine supplies titles and domains, while the
         thesis summaries and strategy paths are interpretive.
       </p>
     </div>
@@ -2246,7 +2317,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         The interactive reference contains thirty-three reconstructed strategies, a
         300-case corpus built from collected papers, books, lectures, and chapter-level
         units, plus overlapping prevalence rankings and worked demonstrations. It is
-        designed as a bibliographic reconstruction rather than a full-text edition:
+        designed as a bibliographic reconstruction rather than a complete-text edition:
         public titles and mathematical domains provide the source spine, while the
         thesis summaries and strategy paths are interpretive.
       </p>
@@ -2359,7 +2430,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     </div>
     <div class="paper-abstract">
       <p>
-        Knuth&rsquo;s work is presented as a full-stack algorithmic authorship system:
+        Knuth&rsquo;s work is presented as an end-to-end algorithmic authorship system:
         choose a representation, make the machine model explicit, trace concrete
         instances, extract invariants, compute exact and asymptotic costs, and then
         bind proof, program, typography, exercises, bibliography, and errata into one
@@ -2801,7 +2872,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       </p>
       <p>
         Pollicott&ndash;Sharp (2012), extending Sambarino, lift the classical Prime Geodesic Theorem
-        from PSL(2,&Ropf;) representations to the full Hitchin component Rep(&pi;<sub>1</sub>(<em>S</em>),
+        from PSL(2,&Ropf;) representations to the complete Hitchin component Rep(&pi;<sub>1</sub>(<em>S</em>),
         PSL(<em>n</em>,&Ropf;)), using the Anosov property of Hitchin representations (Labourie)
         and thermodynamic formalism. This is a concrete instance of the geometric Langlands
         programme: the Hitchin component parametrises opers on the surface, and the spectral
@@ -2900,7 +2971,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
       <li><a href="https://drive.google.com/file/d/1D2Lw4hc6Y-SvIlAQ2E-v6uHOsurpYtJ3/view?usp=sharing" target="_blank">Modular Representations and Algorithmic Approaches: From First Principles to Advanced Theory</a></li>
       <li><a href="https://drive.google.com/file/d/19UE8SMSQQd7TUmJ8-pV_LnwoCz737wdJ/view?usp=sharing" target="_blank">Semisimple Algebras, Minimal Ideals, and Centralizer Duality</a></li>
       <li><a href="https://drive.google.com/file/d/1EgrUUSsoMvbeGFbxrDnfAdefAsOarAaM/view?usp=sharing" target="_blank">Rickard Equivalences and Brou&eacute;&rsquo;s Conjecture</a></li>
-      <li><a href="https://docs.google.com/document/d/1UqxEAHO93AGB13EOHgEJoYHHnU_dUp79-9piHkk_5Ww/" class="link-btn" style="font-size:0.68rem;margin-top:0.3rem;" target="_blank">Full list &rarr; What I Learned Today</a></li>
+      <li><a href="https://docs.google.com/document/d/1UqxEAHO93AGB13EOHgEJoYHHnU_dUp79-9piHkk_5Ww/" class="link-btn" style="font-size:0.68rem;margin-top:0.3rem;" target="_blank">Complete list &rarr; What I Learned Today</a></li>
     </ul>
   </div>
 </section>
@@ -2936,7 +3007,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         diagram, ratio, experiment, letter, dialogue, or public demonstration. The
         page follows this method through hydrostatics, centers of gravity, the
         geometrical and military compass, telescopic lunar and Jovian observations,
-        sunspots, floating-body controversies, the comet dispute, world-system
+        sunspots, floating-object controversies, the comet dispute, world-system
         comparison, relativity of motion, projectile trajectories, strength of
         materials, and the late synthesis of the <em>Two New Sciences</em>.
       </p>
@@ -3096,7 +3167,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         through canonical, spectral, kinetic, or continuum structure.
       </p>
       <p>
-        Volume I <em>Mechanics</em> is represented at full section resolution: all
+        Volume I <em>Mechanics</em> is represented at complete section resolution: all
         fifty-two numbered sections are included because they form the variational,
         Hamiltonian, action-angle, and effective-potential spine of the course. The
         remaining cases range across fields, relativistic theory, quantum mechanics,
@@ -3174,7 +3245,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         laws, or alternative field-theoretic languages from that foundation. The page
         follows this method through nuclear scattering, wartime electrodynamics,
         renormalized QED, anomalous magnetic moments, Ward identities, proper-time
-        methods, angular momentum, gauge fields, source theory, many-body response,
+        methods, angular momentum, gauge fields, source theory, many-particle response,
         gravity, and later foundational lectures.
       </p>
       <p>
@@ -3406,10 +3477,10 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <h2 class="section-title">Quantitative Finance</h2>
   </div>
   <p style="color:var(--body);max-width:68ch;margin-bottom:1.5rem;line-height:1.75;">
-    The full &Psi;&ndash;Orbitfold Finance series (Sets I&ndash;IV, 14 papers) develops
+    The complete &Psi;&ndash;Orbitfold Finance series (Sets I&ndash;IV, 14 papers) develops
     operator-theoretic foundations for markets: conditional-expectation projectors,
     Koopman/Perron&ndash;Frobenius operators, Dunford cycle/transient splits, and spectral
-    pricing. Documented in full on the <a href="/Research/psi#finance">&Psi;-Operator page</a>.
+    pricing. Documented completely on the <a href="/Research/psi#finance">&Psi;-Operator page</a>.
     Selected highlights below.
   </p>
 
@@ -3419,12 +3490,12 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <div class="paper-abstract">
       Replaces SDE/PDE-first pipelines with a finite-machine operator view:
       learn a closed-loop decode &Psi;, lift to T=&Pi;<sub>V</sub>&Psi;&Pi;<sub>V</sub>,
-      split T=D+N, embed to returns, and do pricing/neutrality as orthogonal projections.
+      split T=D+N, inject to returns, and do pricing/neutrality as orthogonal projections.
       Black&ndash;Scholes appears as semigroup spectral pricing; risk-neutral change is
       a positive conjugation that preserves certified cycles.
     </div>
     <div class="paper-links">
-      <a href="https://drive.google.com/file/d/1N4EzjNSBK9U2kiHH5qKsYz3RqRtDHIGG/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>Full Paper (v3)</a>
+      <a href="https://drive.google.com/file/d/1N4EzjNSBK9U2kiHH5qKsYz3RqRtDHIGG/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>Complete Paper (v3)</a>
       <a href="https://drive.google.com/file/d/1uCx3QMbGi2yrZINSnw4hBy61xejB3Ubz/view?usp=sharing" class="link-btn" target="_blank"><span class="lbl">PDF</span>Companion Note</a>
     </div>
   </div>
@@ -3490,7 +3561,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
         distinguishes technical competence, moral knowledge, practical-reason analysis, conscience,
         responsibility, and moral authority; argues that stronger AI increases the human duty to ask
         deeper and better questions; and situates any genuinely Catholic moral-reasoning system within
-        the Church&rsquo;s full intellectual inheritance, including Scripture, the Church&rsquo;s Jewish roots,
+        the Church&rsquo;s complete intellectual inheritance, including Scripture, the Church&rsquo;s Jewish roots,
         the Fathers, St. Thomas, natural law, the virtues, canon law, Catholic social teaching, and the
         global life of the Church. A complete Traditional Mandarin edition appears on the same page.
       </p>
@@ -3648,7 +3719,7 @@ footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-famil
     <div class="paper-abstract">
       A daily and weekly rhythm of prayer for a lay person inspired by Ignatian
       spirituality (especially the Examen and Suscipe) and the monastic balance of the
-      Cistercian tradition. Includes a full weekday horarium, busy-day minimum,
+      Cistercian tradition. Includes a complete weekday horarium, busy-day minimum,
       weekly Principle and Foundation practice, and a sacramental rhythm (~20 days).
       Times are recommendations, not rigid prescriptions.
     </div>
