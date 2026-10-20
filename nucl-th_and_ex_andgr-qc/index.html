@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Logarchéon and Nuclear Physics · Logarchéon</title>
+<meta name="description" content="Logarchéon and nuclear physics: where the designs map onto nuclear and fusion physics, what does not carry over, national security within open science, and funding routes."/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0e1f3a; --navy-light:#162d52; --navy-rim:#1e3a64;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#a07d3a;
+  --gold-pale:rgba(201,168,76,0.14); --gold-glow:rgba(201,168,76,0.07);
+  --cream:#f5f0e8; --body:#e8e2d8; --muted:#c8c0b0; --faint:#8a8070;
+  --border:rgba(201,168,76,0.25); --border-dim:rgba(201,168,76,0.11);
+  --section-gap:4rem;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Libre Baskerville",Georgia,serif;
+  background:var(--navy); color:var(--cream);
+  line-height:1.75; overflow-x:hidden;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 0%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 600px 800px at 88% 25%,rgba(201,168,76,0.04) 0%,transparent 55%);
+}
+body::after {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.wrap { position:relative; z-index:1; }
+
+/* Typography */
+h1,h2,h3,h4 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; color:var(--cream); line-height:1.2; letter-spacing:-0.01em; }
+a { color:var(--gold); text-decoration:none; }
+a:hover { color:var(--gold-light); text-decoration:underline; }
+p { margin-bottom:1rem; color:var(--body); }
+p:last-child { margin-bottom:0; }
+.mono { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
+
+/* Nav */
+nav.site-nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(10,22,40,0.97); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-dim); padding:0 28px;
+}
+.nav-inner { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:54px; }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.25rem; font-weight:500; color:var(--gold-light); letter-spacing:0.02em; }
+.nav-links { display:flex; gap:1.8rem; list-style:none; }
+.nav-links a { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+.nav-links a:hover,.nav-links a.active { color:var(--gold); text-decoration:none; }
+
+/* Page layout */
+.page-wrap { max-width:1060px; margin:0 auto; padding:0 28px 6rem; }
+
+/* Hero */
+.hero {
+  padding:4rem 0 3rem;
+  border-bottom:1px solid var(--border-dim);
+  margin-bottom:3.5rem;
+}
+.hero .breadcrumb { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:1.4rem; display:flex; align-items:center; gap:0.6rem; }
+.hero-grid { display:grid; grid-template-columns:1fr; gap:2rem; align-items:start; }
+.hero-left h1 { font-size:clamp(2.4rem,4.5vw,4rem); font-weight:300; margin-bottom:0.6rem; }
+.hero-left h1 em { font-style:italic; color:var(--gold-light); }
+.hero-left .title-line { font-family:"DM Mono",monospace; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:1.4rem; }
+.hero-left .lead { font-size:1.05rem; line-height:1.8; color:var(--body); }
+.hero-badges { display:flex; flex-wrap:wrap; gap:0.55rem; margin-top:1.6rem; }
+.badge {
+  font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase;
+  color:var(--gold); border:1px solid var(--border); padding:0.3rem 0.7rem; border-radius:2px;
+  background:var(--gold-pale);
+}
+.hero-right { padding-top:0.5rem; }
+.identity-card {
+  background:rgba(14,31,58,0.75); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.5rem;
+}
+.identity-card h4 { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:0.9rem; }
+.identity-card ul { list-style:none; display:grid; gap:0.5rem; }
+.identity-card li { color:var(--body); font-size:0.88rem; line-height:1.5; padding-left:1.1rem; position:relative; }
+.identity-card li::before { content:"—"; position:absolute; left:0; color:var(--gold-dim); font-family:"DM Mono",monospace; font-size:0.7rem; }
+
+/* Section */
+.section { margin-bottom:var(--section-gap); }
+.section-header { display:flex; align-items:baseline; gap:1.2rem; border-bottom:1px solid var(--border-dim); padding-bottom:0.9rem; margin-bottom:2rem; }
+.section-num { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.7rem; font-weight:400; color:var(--gold-light); }
+
+/* Prose blocks */
+.prose { width:100%; }
+.prose p { color:var(--body); }
+.prose p + p { margin-top:0.9rem; }
+.prose strong { color:var(--cream); }
+
+/* Single-column prose */
+.prose-grid { display:grid; grid-template-columns:1fr; gap:2rem; }
+
+/* Research programme card */
+.programme-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.4rem 1.6rem; margin-bottom:1.2rem;
+  border-left:3px solid var(--gold-dim);
+  transition:border-color 0.2s;
+}
+.programme-card:hover { border-left-color:var(--gold); }
+.programme-card h3 { font-size:1.05rem; color:var(--cream); margin-bottom:0.35rem; }
+.programme-card .card-meta { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.7rem; display:flex; flex-direction:column; gap:0.28rem; }
+.programme-card .card-meta span { line-height:1.5; }
+.programme-card p { color:var(--body); font-size:0.9rem; line-height:1.7; margin-bottom:0; }
+.programme-card p + p { margin-top:0.7rem; }
+.cite-chip { font-family:"DM Mono",monospace; font-size:0.68rem; color:var(--gold); white-space:normal; word-break:break-word; }
+.programme-card figure { margin:1rem 0; text-align:center; }
+.programme-card figcaption { font-family:"DM Mono",monospace; font-size:0.65rem; color:var(--faint); line-height:1.6; margin-top:0.5rem; text-align:left; }
+
+/* Collaborator card */
+.collab-card {
+  background:rgba(14,31,58,0.7); border:1px solid var(--border);
+  border-radius:4px; padding:1.6rem 1.8rem; margin-bottom:1.5rem;
+}
+.collab-card h3 { font-size:1.2rem; color:var(--cream); margin-bottom:0.25rem; }
+.collab-card .collab-title { font-size:0.9rem; color:var(--gold-light); margin-bottom:1rem; font-style:italic; }
+.collab-card p { color:var(--body); font-size:0.92rem; line-height:1.72; margin-bottom:0.75rem; }
+.collab-card p:last-child { margin-bottom:0; }
+.collab-credentials { list-style:none; display:grid; gap:0.4rem; margin-top:0.8rem; }
+.collab-credentials li { color:var(--body); font-size:0.88rem; padding-left:1.1rem; position:relative; }
+.collab-credentials li::before { content:"✓"; position:absolute; left:0; color:var(--gold); font-size:0.7rem; }
+
+/* Tech identity cards */
+.tech-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1.2rem; }
+.tech-card {
+  background:rgba(14,31,58,0.6); border:1px solid var(--border-dim);
+  border-radius:4px; padding:1.1rem 1.3rem;
+}
+.tech-card h4 { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+.tech-card p { color:var(--muted); font-size:0.84rem; line-height:1.6; margin-bottom:0; }
+
+/* Manifesto pull-quote */
+.pull-quote {
+  border-left:3px solid var(--gold-dim); padding:1.1rem 1.4rem;
+  margin:1.5rem 0; background:rgba(14,31,58,0.5); border-radius:0 4px 4px 0;
+  font-style:italic; color:var(--body); font-size:0.97rem; line-height:1.75;
+}
+.pull-quote cite { display:block; font-style:normal; margin-top:0.5rem; font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); }
+
+/* Faith section */
+.cross { color:var(--gold-dim); font-size:1rem; margin:0 0.3rem; }
+.patron-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1rem; }
+.patron-card { background:rgba(14,31,58,0.5); border:1px solid var(--border-dim); border-radius:4px; padding:1rem 1.2rem; }
+.patron-card h4 { font-size:0.97rem; color:var(--cream); margin-bottom:0.3rem; }
+.patron-card p { color:var(--muted); font-size:0.83rem; line-height:1.6; margin-bottom:0; }
+.daily-prayer { background:rgba(14,31,58,0.7); border:1px solid var(--border-dim); border-radius:4px; padding:1.4rem 1.6rem; margin-top:1.4rem; font-size:0.9rem; color:var(--body); line-height:1.8; font-style:italic; }
+.daily-prayer .prayer-source { font-family:"DM Mono",monospace; font-size:0.63rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin-top:0.8rem; display:block; font-style:normal; }
+
+/* Contact */
+.contact-grid { display:grid; grid-template-columns:1fr; gap:0.8rem; margin-top:1rem; }
+.contact-item { font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; }
+.contact-item .label { color:var(--faint); text-transform:uppercase; letter-spacing:0.1em; font-size:0.62rem; display:block; margin-bottom:0.2rem; }
+.contact-item a,.contact-item span { color:var(--body); }
+.contact-item a:hover { color:var(--gold-light); }
+
+/* Footer */
+footer { border-top:1px solid var(--border-dim); padding:2.4rem 28px; font-family:"DM Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--faint); text-align:center; }
+
+/* Responsive — single-column layout is now the baseline; these are kept for any future additions */
+@media(max-width:820px) {
+  .research-table th:nth-child(4),
+  .research-table td:nth-child(4) { display:none; }
+}
+
+/* Research table */
+.research-table-wrap { overflow-x:auto; margin-top:1.6rem; }
+.research-table { width:100%; border-collapse:collapse; font-size:0.84rem; }
+.research-table th {
+  font-family:"DM Mono",monospace; font-size:0.62rem; letter-spacing:0.09em;
+  text-transform:uppercase; color:var(--gold-dim); font-weight:400;
+  padding:0.6rem 0.9rem; border-bottom:1px solid var(--border-dim);
+  text-align:left; white-space:normal;
+}
+.research-table td {
+  padding:0.75rem 0.9rem; border-bottom:1px solid var(--border-dim);
+  color:var(--body); vertical-align:top; line-height:1.65;
+}
+.research-table tr:last-child td { border-bottom:none; }
+.research-table tr:hover td { background:rgba(201,168,76,0.04); }
+.research-table td:first-child { color:var(--cream); font-size:0.86rem; }
+.research-table td .zh { display:block; font-size:0.75rem; color:var(--faint); margin-top:0.15rem; }
+.research-table td .size-num { font-family:"DM Mono",monospace; font-size:0.95rem; color:var(--gold); }
+.research-table td .size-sub { display:block; font-size:0.68rem; color:var(--faint); font-family:"DM Mono",monospace; letter-spacing:0.05em; }
+.rt-tag {
+  display:inline-block; font-family:"DM Mono",monospace; font-size:0.6rem;
+  letter-spacing:0.06em; text-transform:uppercase; padding:0.18rem 0.5rem;
+  border:1px solid var(--border-dim); border-radius:2px; color:var(--gold-dim);
+  margin:0.25rem 0.2rem 0 0; background:var(--gold-glow);
+}
+
+/* Assessment bar */
+.assess-block { margin-top:1.6rem; border-top:1px solid var(--border-dim); padding-top:1.4rem; }
+.assess-label-row {
+  display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;
+}
+.assess-text { font-family:"DM Mono",monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+.assess-bar-wrap { flex:1; min-width:120px; max-width:260px; height:4px; background:rgba(201,168,76,0.13); border-radius:2px; }
+.assess-bar-fill { height:100%; width:62%; background:var(--gold); border-radius:2px; }
+.assess-pct { font-family:"DM Mono",monospace; font-size:1rem; color:var(--gold-light); letter-spacing:0.04em; }
+.assess-icd { font-family:"DM Mono",monospace; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-dim); }
+
+
+
+.gen-hero{padding:3rem 0 2rem;border-bottom:1px solid var(--border-dim)}
+.masthead{display:flex;flex-wrap:wrap;gap:0.4rem 1.2rem;font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:1.1rem}
+.gen-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.15;color:var(--cream);margin-bottom:1rem}
+.gen-title em{color:var(--gold-light);font-size:0.62em;display:block;margin-top:0.4rem}
+.gen-lede{font-size:1rem;color:var(--muted);max-width:72ch;line-height:1.8}
+.gen-byline{font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;color:var(--faint);margin-top:1.1rem}
+section.front p{margin-bottom:0.9rem}
+.lead-in{font-weight:700;color:var(--cream)}
+ul.plan{list-style:none;margin:0 0 1rem;padding:0}
+ul.plan li{margin-bottom:0.45rem;padding-left:1rem;position:relative}
+ul.plan li::before{content:"—";position:absolute;left:0;color:var(--gold-dim)}
+ul.plan b{font-weight:400}
+.purpose{border-left:2px solid var(--gold-dim);padding:0.2rem 0 0.2rem 0.9rem;color:var(--muted);font-style:italic;margin:0 0 1.4rem}
+.purpose b,.takeaway b{font-style:normal;font-family:'DM Mono',monospace;font-weight:400;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold)}
+.takeaway{background:var(--gold-glow);border:1px solid var(--border);padding:0.85rem 1.1rem;margin:1.6rem 0 1rem}
+.elem{background:var(--navy-mid);border:1px solid var(--border-dim);border-left:3px solid var(--gold-dim);padding:0.8rem 1.1rem;margin:0 0 0.6rem}
+.elem .tag{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.25rem}
+.elem p{margin:0!important;font-size:0.9rem}
+.ladder{background:rgba(8,16,32,0.9);border:1px solid var(--border-dim);padding:1rem 1.2rem;margin:0 0 1.4rem}
+.ladder .tag,.fail .tag{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:0.5rem}
+.ladder ol{padding-left:1.3rem;font-size:0.88rem;color:var(--muted)}
+.ladder li{margin-bottom:0.35rem}
+.ladder li b{color:var(--cream);font-weight:400}
+.fail{border:1px solid rgba(192,57,43,0.35);border-left:3px solid #b2493a;background:rgba(40,14,14,0.25);padding:0.85rem 1.1rem;margin:1.2rem 0 1rem;font-size:0.88rem}
+.fail .tag{color:#d88a7c}
+.fail p{margin:0}
+table.grades{width:100%;border-collapse:collapse;font-size:0.85rem;margin:0.4rem 0 1rem}
+table.grades th{font-family:'DM Mono',monospace;font-weight:400;font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold-dim);text-align:left;padding:0.4rem 0.6rem;border-bottom:1px solid var(--border)}
+table.grades td{padding:0.45rem 0.6rem;border-bottom:1px solid var(--border-dim);vertical-align:top}
+.gen-h4{font-family:'DM Mono',monospace;font-weight:400;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin:1.2rem 0 0.4rem}
+.refs{list-style:none;padding:0;margin:0 0 1.2rem;columns:2 320px;column-gap:2rem}
+.refs li{font-size:0.8rem;line-height:1.55;margin-bottom:0.35rem;break-inside:avoid;padding-left:0.9rem;position:relative}
+.refs li::before{content:"—";position:absolute;left:0;color:var(--gold-dim)}
+.page-wrap img,.page-wrap svg,.page-wrap table{max-width:100%}
+.gen-scroll{overflow-x:auto}
+.prose-grid{grid-template-columns:minmax(0,1fr)!important}
+.prose,.programme-card,.card-meta,.page-wrap p,.page-wrap h3{overflow-wrap:anywhere;min-width:0}
+.gen-scroll{max-width:100%}
+.page-wrap table{display:block;overflow-x:auto}
+@media(max-width:640px){.nav-inner{flex-wrap:wrap;gap:0.6rem}.nav-links{flex-wrap:wrap;gap:0.8rem}}
+
+</style>
+</head>
+
+<body>
+<div class="wrap">
+<nav class="site-nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">Logarchéon</a>
+<ul class="nav-links">
+<li><a href="/About">About</a></li>
+<li><a href="/Research">Research</a></li>
+<li><a href="#funding">Funding</a></li>
+<li><a href="#references">Sources</a></li>
+</ul>
+</div>
+</nav>
+<div class="page-wrap">
+<header class="hero gen-hero">
+<div class="masthead"><span>Nuclear &amp; Fusion Physics</span><span>Research Analysis</span><span>Working Draft · 20 Oct 2026</span></div>
+<h1 class="gen-title">Logarchéon and Nuclear Physics: Evaluation and Funding Routes</h1>
+<p class="gen-lede">Logarchéon's AI designs draw on statistical physics, hyperbolic geometry and causal inference, the same mathematics used in nuclear physics, fusion and gravitation. Some of the links are exact identities; others are analogies that still require testing. Each link is graded, followed by the national-security frame and the funding routes.</p>
+<p class="gen-byline">William Huanshan Chuang (莊桓山) · Logarchéon Inc.</p>
+</header>
+
+<section class="section front" id="terms">
+<div class="section-header"><h2 class="section-title">Terms</h2></div>
+<ul class="plan"><li><strong>Critical-entropy attention (CEAS):</strong> sets the "temperature" of each attention unit so its output stays near a phase transition, where it is most sensitive.</li><li><strong>Ψ causal engine:</strong> answers cause-and-effect questions from data, and states when the data cannot decide (abstention).</li><li><strong>GRAIL and MIA:</strong> attention computed from distances in hyperbolic space, so results are unchanged under that space's symmetries, including Lorentz boosts.</li><li><strong>Two-phase scheme:</strong> methods learned on small models are applied to a large model by changing only a small set of control parameters.</li><li><strong>Twin map; DL ≠ LD:</strong> a change of parameters that leaves a model's results unchanged; training does not commute with it ("DL ≠ LD"), so applying it changes how training proceeds.</li><li><strong>Trace store; gate:</strong> a store that cross-checks spectra through trace identities, and a statistical test that accepts a change only when its benefit is bounded with stated confidence.</li></ul>
+</section>
+<section class="section front" id="scope">
+<div class="section-header"><h2 class="section-title">Standard of evidence</h2></div>
+<p>A link is listed only when a Logarchéon mechanism has a named counterpart in physics. Results proved or measured in Logarchéon's tests count for more than analogies. The work stays within open, unclassified science: nuclear structure and reactions, nuclear data, emulators, collision data and nonproliferation analytics.</p>
+</section>
+<section class="section front" id="findings">
+<div class="section-header"><h2 class="section-title">Summary of findings</h2></div>
+<p>The overlap with nuclear physics is real but narrower than "almost everything". Several of these tools came from nuclear physics originally: random-matrix theory, for example, was first used for nuclear energy levels. The most promising contributions are those already proved or measured:</p><ol style="padding-left:1.4rem;margin:0 0 1rem;color:var(--body)"><li style="margin-bottom:0.45rem"><strong>DL ≠ LD.</strong> Symmetry-generated transformations and preconditioning, with a proved bound on error amplification.</li><li style="margin-bottom:0.45rem"><strong>Certified trace checks.</strong> The trace store as a check of semiclassical shell structure.</li><li style="margin-bottom:0.45rem"><strong>Identification with abstention.</strong> The causal engine for nuclear data evaluation.</li><li style="margin-bottom:0.45rem"><strong>Gated, traceable updates.</strong> The gate and hash chain as verification and provenance.</li><li style="margin-bottom:0.45rem"><strong>Exact Lorentz invariance.</strong> GRAIL/MIA for collision data.</li><li style="margin-bottom:0.45rem"><strong>Compression.</strong> Large models on one processor, on site.</li></ol>
+</section>
+<section class="section front" id="mapping">
+<div class="section-header"><h2 class="section-title">Where the designs map onto nuclear physics</h2></div>
+<p>Rows are ordered by how likely each is to be a contribution rather than a re-use.</p><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Logarchéon piece</th><th>Nuclear counterpart</th><th>Status</th></tr></thead><tbody><tr><td>DL ≠ LD: twin jumps, commutator η(L − L<sup>−⊤</sup>)∇ℓ, boost test e<sup>φ</sup></td><td>Transforming the Hamiltonian before an approximate solve (similarity renormalisation group, in-medium, transcorrelated, Lee–Suzuki); bosonic Bogoliubov transformations; preconditioning of variational wavefunctions; covariant fission-path searches</td><td>Most promising. New: a proved bound on error growth for non-unitary transformations, and a method for choosing the transformation</td></tr><tr><td>Trace store, Selberg trace formula, heat traces Σe<sup>−tλ</sup></td><td>Periodic-orbit theory of shell structure (Gutzwiller, Balian–Bloch, Strutinsky); the heat trace is the nuclear partition function and gives the level density</td><td>Strong. A certified check of semiclassical shell corrections against exact spectra</td></tr><tr><td>Ψ: identification with abstention; inverse design with infeasibility certificates</td><td>Nuclear data evaluation, including optical-model ambiguities; attribution</td><td>Directly applicable</td></tr><tr><td>Gate, hash chain, Lean certificates</td><td>Verification, validation and provenance of evaluated data libraries</td><td>Addresses the verification and traceability that evaluated-data programs require</td></tr><tr><td>GRAIL/MIA: Lorentz group, hyperboloid</td><td>Relativistic kinematics: rapidity is hyperbolic distance, the mass shell is H³; Electron-Ion Collider and heavy-ion data</td><td>Applicable. Existing Lorentz-equivariant networks (LorentzNet, PELICAN) set the benchmark to meet</td></tr><tr><td>Two phases: small → frozen large through a control set</td><td>Emulators (eigenvector continuation, reduced basis); the light-to-heavy-nuclei gap</td><td>Untested; a direct test is defined</td></tr><tr><td>CEAS: Gibbs rows, freezing point, finite-size criticality, Lee–Yang zeros</td><td>Phase transitions in finite nuclei (pairing, shape, liquid–gas)</td><td>The mathematics applies. The model prediction it rests on matched only 1–2 of 12 trained attention units, so any nuclear claim must be tested on nuclear data</td></tr><tr><td>Spectral face: GOE/Poisson spacing ratios 0.531 and 0.386, Marchenko–Pastur, BBP</td><td>Random matrix theory, which began with nuclear resonances</td><td>Incremental: automated, statistically gated analysis of level data</td></tr><tr><td>Compression: 32B model on one T4</td><td>On-site analysis where data cannot leave</td><td>Runs a 32-billion-parameter model on one standard GPU (T4), for analysis where data cannot leave the site</td></tr></tbody></table></div>
+</section>
+<section class="section front" id="dl-ld">
+<div class="section-header"><h2 class="section-title">DL ≠ LD: tunnelling in the Logarchéon sense</h2></div>
+<p>In Logarchéon, tunnelling is the twin jump and its non-commutation with training. Let D be a gradient step and L a twin map, an invertible map with ℓ(Lθ) = ℓ(θ). The following identity is proved:</p><p class="takeaway" style="text-align:center;font-family:'DM Mono',monospace">D(Lθ) − L·D(θ) = η (L − L<sup>−⊤</sup>) ∇ℓ(θ)</p><p>The commutator vanishes exactly when L is orthogonal; for a Lorentz boost of rapidity φ its size is 2 sinh φ. A twin jump reaches a point of equal loss at no cost, and training continues from there under the preconditioner (LᵀL)⁻¹. Mapped back, a boost amplifies error by at most e<sup>φ</sup>.</p><p>Three nuclear counterparts:</p><ol style="padding-left:1.4rem;margin:0 0 1rem;color:var(--body)"><li style="margin-bottom:0.45rem"><strong>Transforming before an approximate solve.</strong> Ab initio theory applies transformations that keep exact energies but speed the truncated calculation. Unitary ones are the orthogonal case; non-unitary ones are the boosts, and the e<sup>φ</sup> bound is a guarantee they lack. Bosonic Bogoliubov transformations have the boost's form, u = cosh r, v = sinh r.</li><li style="margin-bottom:0.45rem"><strong>Variational wavefunctions for light nuclei.</strong> Neural-network wavefunctions need a good preconditioner (stochastic reconfiguration). A twin jump is a preconditioner change obtained from a symmetry.</li><li style="margin-bottom:0.45rem"><strong>Fission paths.</strong> The action S = ∫√(2M(q)(V − E)) ds does not depend on the shape coordinates, but gradient-based path searches do unless they use the inertia tensor M as metric. The covariant transport rule is that requirement; M plays the role of LᵀL.</li></ol><p><b class="lead-in">Status.</b> The commutator is classical: it changes how descent moves, not barrier penetration with amplitude e<sup>−S</sup>. On small character models, twin jumps changed the final loss by under 0.001. The claim to test is symmetry-generated preconditioning or transformation with a proved bound.</p>
+</section>
+<section class="section front" id="k9">
+<div class="section-header"><h2 class="section-title">K9 faces when the model learns nuclear physics</h2></div>
+<p>K9 is the network of Logarchéon's nine coupled components. When the tokens are nucleons, levels or reactions instead of words, most faces take a physical meaning. Langlands stays abstract.</p><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Face</th><th>Meaning for nuclear data</th></tr></thead><tbody><tr><td>Spectral</td><td>Model spectra compared with measured level statistics</td></tr><tr><td>Number theory / Symbolic</td><td>Counting shell-model configurations; level density through the trace store</td></tr><tr><td>CEAS</td><td>Temperature of the nuclear ensemble</td></tr><tr><td>MIA/GRAIL</td><td>Exact Lorentz invariance for collision data; twins as transformations that keep observables and speed the approximate solve (DL ≠ LD)</td></tr><tr><td>Ψ</td><td>Evaluation of reaction and structure models; attribution</td></tr><tr><td>RSI with the gate</td><td>Model refinement accepted only on statistical evidence; a twin jump is one proposed move</td></tr><tr><td>Arithmetic</td><td>Provenance of the data library (hash chain, fingerprints)</td></tr><tr><td>Language</td><td>Programs of moves reused from light to heavy nuclei (the two phases)</td></tr><tr><td>Langlands</td><td>No application to nuclear data identified. Geometric Langlands is linked to quantum field theory through electric–magnetic duality in N = 4 super Yang–Mills (Kapustin–Witten), a model theory, not QCD.</td></tr></tbody></table></div>
+</section>
+<section class="section front" id="fusion">
+<div class="section-header"><h2 class="section-title">Fusion</h2></div>
+<p>Magnetic-confinement fusion gives two exact links, not analogies: Greene's residue and the poloidal-angle twin.</p><p>Inertial-confinement fusion overlaps with stockpile stewardship, so work stays on magnetic confinement and open fusion-energy data.</p><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Logarchéon piece</th><th>Fusion counterpart</th><th>Status</th></tr></thead><tbody><tr><td>SL(2,ℝ) classification by trace; trace store counting periodic points</td><td>The field-line map of a torus is area-preserving; its linearisation at a periodic field line lies in SL(2,ℝ). Greene's residue R = (2 − Tr M)/4 tells an island O-point (0 &lt; R &lt; 1) from an X-point (R &lt; 0), and is used to control islands in stellarator design</td><td>Exact identity. The trace store's periodic-point count is the count of periodic field lines</td></tr><tr><td>DL ≠ LD: twin maps</td><td>Changing the poloidal angle of the Fourier series of a flux surface leaves the surface and the loss unchanged, yet gradient optimisers (DESC, SIMSOPT) converge differently</td><td>Exact twin. Choosing the angle by an orbit-optimal twin through the gate is new and testable</td></tr><tr><td>Ψ: identification with abstention</td><td>Equilibrium reconstruction from external magnetic sensors is non-unique: different internal profiles fit the same data</td><td>Directly applicable: a certified "not identifiable" answer</td></tr><tr><td>Two phases: small → large through a control set</td><td>Disruption predictors trained on small tokamaks transfer poorly to ITER or SPARC</td><td>Strong and testable</td></tr><tr><td>Gate, control-barrier functions</td><td>Learned plasma controllers (run on TCV); updates must be safe</td><td>Addresses the safety requirement for controller updates</td></tr><tr><td>BBP spikes over the Marchenko–Pastur edge</td><td>Coherent MHD and Alfvén modes above noise in magnetic-sensor arrays</td><td>Moderate</td></tr><tr><td>CEAS near criticality</td><td>Profiles held near a critical gradient, with avalanches</td><td>Analogy until tested</td></tr><tr><td>Hyperboloid geometry</td><td>Relativistic runaway electrons during disruptions</td><td>Moderate</td></tr><tr><td>Ψ on nuclear data</td><td>Neutron cross sections and activation of fusion materials</td><td>Fits the joint fusion/nuclear-data call</td></tr><tr><td>Langlands and Hecke operators</td><td>Field-period symmetry is a finite cyclic group, already averaged exactly</td><td>No match</td></tr></tbody></table></div><p><b class="lead-in">First tests.</b> (1) The poloidal-angle twin in an open-source stellarator optimiser: one laptop or free GPU. (2) Greene's residue through the trace store on a computed field-line map: almost pure computation.</p><p><b class="lead-in">Funding.</b> Fusion Energy Sciences lists "AI/ML for fusion and plasma science" in the Office of Science open call (FY26 window closed 30 September 2026; successor not yet confirmed). Fusion-materials data were the main topic of the nuclear-data interagency call. INFUSE vouchers go to fusion companies, so they need a fusion-company partner.</p>
+</section>
+<section class="section front" id="gravitation">
+<div class="section-header"><h2 class="section-title">Gravitation (gr-qc)</h2></div>
+<p>Gravity in 2+1 dimensions (AdS₃, whose Euclidean form is hyperbolic 3-space) gives exact links, including the Hecke side that has no nuclear use. Logarchéon works with the Lorentz group O(n−1,1) in any dimension, so the image-sum and trace-formula links extend to higher-dimensional AdS quotients and to 3+1 cosmology; the Hecke links are specific to AdS₃.</p><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Logarchéon piece</th><th>Gravitation counterpart</th><th>Status</th></tr></thead><tbody><tr><td>GRAIL orbit sum Σ_γ e<sup>−βd(q,γk)</sup>; ping-pong admission of Schottky generators</td><td>BTZ black holes and multi-boundary wormholes are quotients of hyperbolic space by discrete (Schottky) groups (Brill; Krasnov). Fields on them are sums over images, G(x, y) = Σ_γ G₀(x, γy)</td><td>Exact identity: the kernel is an image-sum propagator on the quotient</td></tr><tr><td>Selberg trace formula and zeta; resonances by the noisy Ulam method</td><td>BTZ quasinormal modes are zeros of a Selberg zeta function (Perry–Williams)</td><td>Exact. Logarchéon's trace and resonance pipeline applies to black-hole spectra</td></tr><tr><td>Patterson–Sullivan critical exponent δ (measured 0.32127 for a rank-3 Schottky group)</td><td>δ controls convergence of the image sums and which handlebody geometry dominates</td><td>Exact</td></tr><tr><td>Hecke operators; Poincaré series over SL(2,ℤ)</td><td>Pure-gravity partition function in AdS₃ as a sum over SL(2,ℤ) images (Maloney–Witten); symmetric-orbifold partition functions of the D1–D5 system generated by Hecke operators (Dijkgraaf–Moore–Verlinde–Verlinde)</td><td>Exact: Langlands-side tools with a gravity meaning</td></tr><tr><td>Ψ: identification with abstention</td><td>Gravitational-wave parameter inference, with known degeneracies such as distance and inclination</td><td>Moderate to strong</td></tr><tr><td>Two phases</td><td>Waveform surrogates trained on numerical-relativity runs and extended to new mass ratios</td><td>Moderate</td></tr><tr><td>DL ≠ LD</td><td>Gauge choice in numerical relativity: physics is gauge-independent, discretised evolution is not</td><td>Analogy: the gauge freedom there is infinite-dimensional</td></tr><tr><td>CEAS, spectral face</td><td>Black-hole chaos: random-matrix spacing statistics and the JT-gravity matrix model (Saad–Shenker–Stanford)</td><td>Moderate</td></tr></tbody></table></div><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Logarchéon piece in general dimension</th><th>Counterpart beyond 2+1</th><th>Status</th></tr></thead><tbody><tr><td>Orbit sums over discrete groups of O(n−1,1)</td><td>Black holes in AdS of any dimension made by identifying points under a discrete group (<a href="https://arxiv.org/abs/gr-qc/9604005" rel="noopener" target="_blank">Aminneborg et al.</a>); their Euclidean forms are quotients of hyperbolic space</td><td>Image sums extend exactly; a quasinormal-mode–zeta identity beyond 2+1 is an open question</td></tr><tr><td>Trace store and Selberg trace formula on quotients of hyperbolic 3-space</td><td>3+1 cosmology with compact hyperbolic spatial sections: Laplace eigenmodes and CMB fluctuations (<a href="https://arxiv.org/abs/astro-ph/9903032" rel="noopener" target="_blank">Aurich, Lustig, Steiner</a>; <a href="https://arxiv.org/pdf/astro-ph/9810034" rel="noopener" target="_blank">eigenmode computation</a>)</td><td>Exact mathematics in 3+1</td></tr></tbody></table></div><p><b class="lead-in">Not carried.</b> The wormhole-nucleation conjecture, Lee–Yang wormholes and the gravitational-wave "sensing" proposals, which remain speculative and, by sensitivity estimates, in places undetectable; and Coleman–De Luccia or Hawking–Page tunnelling, which Logarchéon does not compute.</p><p><b class="lead-in">Venue and first test.</b> AdS₃ work goes to hep-th cross-listed to gr-qc; gravitational-wave inference to gr-qc. First test: BTZ quasinormal modes through the Selberg and resonance pipeline, compared with the known closed form.</p>
+</section>
+<section class="section front" id="security">
+<div class="section-header"><h2 class="section-title">National security within open science</h2></div>
+<p>The national-security value lies in open lanes that do not need a clearance:</p><ul class="plan"><li>uncertainty quantification of nuclear data, on which reactors and national programmes depend (the nuclear-data working group is interagency);</li><li>nonproliferation detection analytics and safeguards;</li><li>nuclear forensics attribution, where identification with abstention fits;</li><li>trustworthy, verified AI: gated, traceable updates.</li></ul><p><b class="lead-in">Boundary.</b> Open nuclear-structure and reaction data are unrestricted. Technical assistance on reactors or enrichment can fall under 10 CFR 810 and export controls; weapons-related work is classified. Work stays on open data, and a national-laboratory partner advises on any boundary.</p>
+</section>
+<section class="section front" id="funding">
+<div class="section-header"><h2 class="section-title">Funding routes checked 20 October 2026</h2></div>
+<p>The best near-term fit is a DOE SBIR or STTR Phase I proposal, with a national laboratory as partner.</p><div class="research-table-wrap"><table class="research-table"><thead><tr><th>Route</th><th>Size</th><th>Eligibility for Logarchéon</th><th>Timing</th><th>Fit</th></tr></thead><tbody><tr><td><a href="https://science.osti.gov/-/media/np/pdf/sbir-sttr/2025/7-29/M-Shinn-FY25-SBIR-Presentation-FINAL-no-backups.pdf" rel="noopener" target="_blank">DOE Office of Science SBIR/STTR</a></td><td>Phase I $200k guideline, $250k max</td><td>Small business: yes</td><td>Normal year: proposals early December</td><td>NP topics are now electronics, accelerators, instrumentation; the software/data topic was dropped in FY26 (overlap with ASCR), so AI work fits ASCR or Genesis topics</td></tr><tr><td><a href="https://grantedai.com/blog/doe-genesis-mission-sbir-sttr-phase-i-fy26-40-awards-four-topic-areas-biotech-quantum-materials-autonomous-labs-147-million-phase-ii-strategy-2026" rel="noopener" target="_blank">Genesis Mission SBIR/STTR</a></td><td>About 40 Phase I awards</td><td>Small business: yes</td><td>Opened 22 July 2026; a broader Phase I opportunity was expected in the fall</td><td>Four AI-for-science topics; watch for the broader release</td></tr><tr><td><a href="https://www.insidegovernmentcontracts.com/2026/03/doe-announces-a-new-funding-opportunity-under-the-genesis-mission/" rel="noopener" target="_blank">Genesis Mission main call</a></td><td>About $294M total</td><td>Teams of two of: national lab, industry, university; for-profit cost share 20%</td><td>Deadline 28 April 2026 passed; a new FY27 round planned</td><td>21 challenges, including nuclear energy faster, safer, cheaper</td></tr><tr><td><a href="https://science.osti.gov/hep/-/media/grants/pdf/foas/2026/DE-FOA-0003600-000001.pdf" rel="noopener" target="_blank">Office of Science open call</a></td><td>$5k–$5M per award</td><td>For-profit allowed with a 200-word basic-science appendix</td><td>FY26 window closed 30 September 2026; successor not yet confirmed</td><td>Nuclear Physics lists an AI/ML topic</td></tr><tr><td><a href="https://www.energy.gov/node/4846103" rel="noopener" target="_blank">NP AI/ML call</a></td><td>$22M total (2024–25)</td><td>See the call</td><td>Past; watch for a repeat</td><td>Accelerators, detectors, NP computations</td></tr><tr><td><a href="https://sc-drcds.osti.gov/-/media/grants/pdf/foas/2025/DE-FOA-0003498.pdf" rel="noopener" target="_blank">Nuclear-data interagency call</a></td><td>$100k–$1M</td><td>All applicant types; basic research</td><td>2025 cycle past; watch for a repeat</td><td>Uncertainty quantification emphasised</td></tr></tbody></table></div><p><b class="lead-in">Partner.</b> An STTR research partner can be a federally funded research and development centre such as a national laboratory, not only a university.</p>
+</section>
+<section class="section front" id="plan">
+<div class="section-header"><h2 class="section-title">First experiments</h2></div>
+<p>Each experiment is preregistered, uses public data and is compared with published baselines.</p><ol style="padding-left:1.4rem;margin:0 0 1rem;color:var(--body)"><li style="margin-bottom:0.45rem"><strong>Twin jump in variational training of a light nucleus</strong> (for example ⁴He with a neural-network wavefunction). One GPU. Tests DL ≠ LD directly; the strongest preliminary result for a proposal.</li><li style="margin-bottom:0.45rem"><strong>Ψ abstention on optical-model fits</strong> to public cross sections (EXFOR).</li><li style="margin-bottom:0.45rem"><strong>Trace-formula check of shell corrections</strong> against exact spectra.</li><li style="margin-bottom:0.45rem"><strong>Spacing statistics on evaluated level schemes</strong> (ENSDF), with the gate deciding flags.</li><li style="margin-bottom:0.45rem"><strong>Lorentz-exact classifier</strong> on simulated Electron-Ion Collider events, against LorentzNet and PELICAN.</li></ol><p>Results will be posted on arXiv (nucl-th, gr-qc) with code, and used as preliminary results for a DOE Phase I proposal with a national-laboratory co-investigator.</p>
+</section>
+<section class="section" id="references">
+<div class="section-header"><h2 class="section-title">Sources</h2></div>
+<ul class="refs"><li><a href="https://www.insidegovernmentcontracts.com/2026/03/doe-announces-a-new-funding-opportunity-under-the-genesis-mission/" rel="noopener" target="_blank">Genesis Mission funding opportunity (Covington)</a></li><li><a href="https://grantedai.com/blog/doe-genesis-mission-sbir-sttr-phase-i-fy26-40-awards-four-topic-areas-biotech-quantum-materials-autonomous-labs-147-million-phase-ii-strategy-2026" rel="noopener" target="_blank">Genesis Mission SBIR/STTR Phase I, July 2026</a></li><li><a href="https://science.osti.gov/-/media/np/pdf/sbir-sttr/2025/7-29/M-Shinn-FY25-SBIR-Presentation-FINAL-no-backups.pdf" rel="noopener" target="_blank">DOE Nuclear Physics SBIR/STTR program presentation, FY25</a></li><li><a href="https://science.osti.gov/hep/-/media/grants/pdf/foas/2026/DE-FOA-0003600-000001.pdf" rel="noopener" target="_blank">Office of Science FY2026 open solicitation DE-FOA-0003600</a></li><li><a href="https://www.energy.gov/node/4846103" rel="noopener" target="_blank">AI/ML applied to nuclear science and technology (DOE)</a></li><li><a href="https://sc-drcds.osti.gov/-/media/grants/pdf/foas/2025/DE-FOA-0003498.pdf" rel="noopener" target="_blank">Nuclear-data interagency call DE-FOA-0003498</a></li><li><a href="https://arxiv.org/abs/2508.08370" rel="noopener" target="_blank">The DNA of nuclear models: how AI predicts nuclear masses</a></li><li><a href="https://arxiv.org/pdf/2201.08187" rel="noopener" target="_blank">LorentzNet: Lorentz-equivariant network for jet tagging</a></li><li><a href="https://arxiv.org/pdf/2203.05528" rel="noopener" target="_blank">Model reduction methods for nuclear emulators</a></li><li><a href="https://ar5iv.labs.arxiv.org/html/1401.7443" rel="noopener" target="_blank">Open problems in applying random-matrix theory to nuclear reactions</a></li></ul>
+</section>
+</div>
+<footer style="padding:2.2rem 0 3rem;font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.04em;color:var(--faint);text-align:center;line-height:1.8;">
+© <span id="yr"></span> William Huanshan Chuang · Logarchéon Inc. All rights reserved.<br/>
+Personal research. Views are the author's own and do not represent any religious order, institution, or government.
+</footer>
+</div>
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</body>
+</html>
