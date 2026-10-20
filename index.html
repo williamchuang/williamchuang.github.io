@@ -2179,6 +2179,16 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <p class="se-note">Each GPU is a current data-centre GPU with 80 GB of memory. &ldquo;GPT-1/2/3 scale&rdquo; refers only to the published parameter counts of those models, used as reference sizes; no row describes a particular company&rsquo;s model. Figures are computed, not measured at these sizes, and exclude the memory for long contexts. For the largest models, the GPU count is set mainly by how much information a heavily trained model holds, which no method can compress away.</p>
   <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:24px;"><strong>Next milestones.</strong> The seed architecture has been built and tested at research scale; compression is what takes it to large models. Each step is tested in order: models of up to 1.5 billion parameters first, then open models of 14 billion, 70 billion and about 235 billion parameters, the last on a single GPU, with CEAS temperature control, the twin checks and the causal checks applied to each. Results will be posted here as they are measured.</p>
 
+  <h3 class="se-h3">Applied to an open 32-billion-parameter model (measured)</h3>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:12px;">The same controls were applied to an open-weight language model of 32.8 billion parameters. Each change was accepted only when a statistical bound passed on held-out text. Perplexity measures prediction error; lower is better.</p>
+  <div class="se-wrap"><table class="se-q">
+    <tr><th>What was done</th><th>Result</th></tr>
+    <tr><td>Compressed to 2.6 bits per weight</td><td style="white-space:normal;">Held in 11.8 GB of memory; perplexity rises from 10.11 to 12.69</td></tr>
+    <tr><td>CEAS temperature program, accepted by the gate</td><td style="white-space:normal;">Recovers about 5% of the loss from compression (12.69 &rarr; 12.55), without changing the stored weights</td></tr>
+    <tr><td>Fact update through a small adapter (0.1% of parameters)</td><td style="white-space:normal;">The corrected answer is preferred on 5 of 5 unseen questions (2 of 5 before). No measurable harm on unrelated web text (+0.005 nats per token; 95% bound 0.022) or on 200 general-knowledge questions (69.0% &rarr; 71.0%)</td></tr>
+    <tr><td>MIA lift of all 4,096 attention heads to hyperbolic geometry</td><td style="white-space:normal;">At moderate curvature, perplexity changes by 0.6% or less with no retraining (16.84 &rarr; 16.79&ndash;16.95)</td></tr>
+  </table></div>
+
   <h3 class="se-h3">Independent verification &middot; status</h3>
   <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
   <div class="se-legend" style="grid-template-columns:1fr;">
