@@ -388,8 +388,7 @@ mjx-container[display="true"] {
       All notes, lecture notes, and working code collected below.
     </p>
     <div class="hero-badges">
-      <span class="hero-badge">U.S. Provisional 64/067,703 filed</span>
-      <span class="hero-badge">Non-provisional in preparation</span>
+      <span class="hero-badge">Patent pending · U.S. Provisional 64/067,703</span>
       <span class="hero-badge">Single-author · 2024&ndash;2025</span>
     </div>
   </div>
@@ -406,7 +405,6 @@ mjx-container[display="true"] {
 <li><a href="#implementation" class="toc-link">Implementation</a></li>
 <li><a href="#decomposition" class="toc-link">Decomposition &amp; Editability</a></li>
 <li><a href="#geometry" class="toc-link">Geometry Notes</a></li>
-<li><a href="#applications" class="toc-link">Applications</a></li>
 <li><a href="#finance" class="toc-link">Ψ–Orbitfold Finance</a></li>
 <li><a href="#psi_notes" class="toc-link">Ψ Physics Notes</a></li>
     </ul>
@@ -457,7 +455,7 @@ Status & Links</h2>
           the transient sector lifts to <em>completely positive and trace-preserving</em> channels.</li>
       <li><strong>Riemannian → (pseudo)Riemannian.</strong> Hyperbolic/Lorentz geometry supplies the
           non-abelian isometries; their Baker–Campbell–Hausdorff drift is the measurable obstruction that
-          gives you a quantum-like commutator algebra (your BCH spectrum makes this explicit). :contentReference[oaicite:1]{index=1}</li>
+          gives a quantum-like commutator algebra (the BCH spectrum makes this explicit).</li>
       <li><strong>Effective “ħ”.</strong> With stochastic gradients, diffusion sets an effective scale
           (\(\hbar_{\text{eff}}=2D\)) for fluctuation/response, letting you recover KMS-style relations in the trained ensemble.</li>
     </ul>
@@ -502,8 +500,8 @@ Status & Links</h2>
       algebra of observables with unitary and open-system sectors—i.e., a quantum-like theory for the
       observer. This is <em>compatible with</em> GR/QFT and leverages their symmetry/math, but we avoid
       historical over-claims: it is a practical, falsifiable construction rather than a claim of sole
-      derivation or first proof. Your existing diagnostics (e.g., the [ξ, X] spectrum and spectral probes)
-      are exactly the audits that make this stance testable. :contentReference[oaicite:2]{index=2}
+      derivation or first proof. The existing diagnostics (e.g., the [ξ, X] spectrum and spectral probes)
+      are the audits that make this stance testable.
     </p>
 
     <h4>Takeaways</h4>
@@ -513,7 +511,7 @@ Status & Links</h2>
           mirroring external wave-function update on interaction.</li>
       <li><strong>QC optional.</strong> Useful for native unitaries/channels; not required for core λ-stack.</li>
       <li><strong>Falsifiable and auditable.</strong> Keep using commutator spectra, RMT twins, and
-          cycle/unitary vs. transient/channel checks to compare against external physics. :contentReference[oaicite:3]{index=3}</li>
+          cycle/unitary vs. transient/channel checks to compare against external physics.</li>
     </ul>
   </article>
 </section>
@@ -1284,7 +1282,7 @@ Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
       <li><strong>Lorentz-map training step.</strong> Choose \(g\in G\) to transport \(\theta\mapsto g\cdot\theta\) before/after descent; non-commutes with gradient unless \([\xi,X]=0\).</li>
     </ul>
     <p class="ctq-mini"><span class="ctq-pill">Effective quantum scale</span>
-      With stochastic gradients of variance \(D\): \( \hbar_{\mathrm{eff}} := 2D \). This controls interference-like terms and matches your earlier Fokker–Planck↔Schrödinger correspondence.
+      With stochastic gradients of variance \(D\): \( \hbar_{\mathrm{eff}} := 2D \). This controls interference-like terms and matches the earlier Fokker–Planck↔Schrödinger correspondence.
     </p>
   </article>
 
@@ -1432,7 +1430,7 @@ Extended Lecture Notes: Lie/Gauge Structure and Random-Matrix Twins</h1>
       <li><strong>Quantum structure emerges operationally.</strong> The non-commutativity from Lorentz maps and the optimizer connection yields a bona fide Lie algebra and uncertainty relations with \(\hbar_{\mathrm{eff}}\). This is <em>quantum-like</em> at the observer level, independent of Planck-scale physics.</li>
       <li><strong>Classical execution is valid.</strong> The equations above are well-posed on CPUs/NPUs. They model quantum-style interference and dissipation through \(A,F,\beta\) and the master equation.</li>
       <li><strong>When to use quantum computers.</strong> If you want native simulation of large superpositions over many cycle modes, or direct sampling of path integrals on \(\mathcal{M}\) with non-Abelian holonomies, a quantum processor can be advantageous. The formalism does not require it.</li>
-      <li><strong>Einstein → quantum via geometry.</strong> The Lorentz action on a Riemannian/Fisher manifold, plus DFA and CEAS, gives a concrete route from relativistic symmetry to an operational quantum structure inside the observer. That is the core “Einstein-to-quantum” bridge you wanted emphasized.</li>
+      <li><strong>Einstein → quantum via geometry.</strong> The Lorentz action on a Riemannian/Fisher manifold, plus DFA and CEAS, gives a concrete route from relativistic symmetry to an operational quantum structure inside the observer.</li>
     </ul>
   </article>
 
@@ -1921,12 +1919,6 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
 
 
 
-<!-- ===== λ‑Stack vs Others: What Only It Can Do for USSF ===== -->
-<section id="ussf-uniqueness" style="margin:2rem 0; padding:1.5rem; background:var(--box-blue); border-left:px solid #4a90d9;">
-  <h2 style="margin-top:0;">
-  </div>
-</section>
-
 <section class="page-section" id="decomposition">
   <div class="section-header">
     <span class="section-num">05</span>
@@ -2088,7 +2080,7 @@ Decomposing Autoregressive Transformers as Finite Machines — Overview</h2>
       <li>The full operator \( P \) is known through simulation, not approximation</li>
     </ul>
     <p>
-      All observable behavior is captured in the cycles and transients of this graph. No layer-wise slicing, clustering, or region partitioning is needed—even at ChatGPT-3/4/5 scale—so long as the domain is well-covered.
+      All observable behavior is captured in the cycles and transients of this graph. No layer-wise slicing, clustering, or region partitioning is needed so long as the domain is well-covered.
     </p>
   </section>
 
@@ -2118,7 +2110,7 @@ Decomposing Autoregressive Transformers as Finite Machines — Overview</h2>
 </p>
 
 <p>
-  How different would it be if we collapsed the model into a single symbolic operator \( \Psi \)—even at the scale of ChatGPT‑3/4/5? In prior analysis, I estimated that covering just the <strong>99.9% basin of symbolic brain weight transitions</strong> suffices to reconstruct most learned behaviors; see <a href="https://logarcheon.com/Research/#finite-machine-intro" target="_blank" rel="noopener noreferrer">Finite Machine Intro</a>. This leads to a critical reframing: instead of probing the internal nonlinearity of \( \Psi \), <strong>the focus shifts to its deterministic behavior over a finite domain and codomain</strong>, encoded as symbolic transitions that the model enacts during training or inference.
+  How different would it be if we collapsed the model into a single symbolic operator \( \Psi \)? In prior analysis, I estimated that covering just the <strong>99.9% basin of symbolic brain weight transitions</strong> suffices to reconstruct most learned behaviors; see <a href="https://logarcheon.com/Research/#finite-machine-intro" target="_blank" rel="noopener noreferrer">Finite Machine Intro</a>. This leads to a critical reframing: instead of probing the internal nonlinearity of \( \Psi \), <strong>the focus shifts to its deterministic behavior over a finite domain and codomain</strong>, encoded as symbolic transitions that the model enacts during training or inference.
 </p>
 
 <p>
@@ -2382,131 +2374,6 @@ Decomposing Autoregressive Transformers as Finite Machines — Overview</h2>
 
 
 
-<!-- ===== FEATURED: Ψ‑Operator Framework for Semiconductor Sovereignty ===== -->
-<section id="psi-semiconductor-modeling" class="research-list" aria-label="Featured Ψ‑Operator Research for Semiconductor Manufacturing">
-  
-    Observer‑Quantized Dynamics and Emergent Geometry
-    <span style="display:block;font-size:.9em;font-weight:normal;line-height:1.35;">
-      Lecture Notes on the λ‑Stack Program: DFA Decomposition (P = D + N), Quantum Lift, and Fisher–Ricci Gravity
-    </span>
-  </h2>
-
-  <!-- Calls to action -->
-  <p class="intro-cta" style="margin:.75rem 0 1.25rem; display:flex; gap:.75rem; flex-wrap:wrap;">
-    <a href="https://drive.google.com/file/d/1GBMe_Fu1qgPfwaLsSrOvX0ixYvfNDFI6/view?usp=sharing"
-       target="_blank" rel="noopener noreferrer" title="View lecture notes (PDF)">
-      View Lecture Notes (PDF)
-    </a>
-  </p>
-
-  <!-- BLUF -->
-  <div class="key-insight" style="margin:1rem 0; padding:1rem; border-left:px solid #5b8fff; background:var(--box-insight);">
-    <strong>BLUF:</strong> The <strong>λ‑Stack Transformer</strong> is not a derivative of the standard transformer class but a distinct architecture. It decomposes inference into verifiable symbolic automata and geometric flows rather than opaque weight matrices. Its step operator admits a Dunford split <code>P = D + N</code>: the diagonalizable block <code>D</code> captures cyclic, interpretable automaton logic and lifts to a unitary quantum system; the nilpotent block <code>N</code> models transients and lifts to <strong>completely positive trace‑preserving quantum channels</strong>. An ensemble of observers defines a Fisher information metric <code>g_F</code> whose geodesics and curvature reproduce general‑relativistic baselines. This framework unifies symbolic logic, quantum evolution, and emergent geometry while maintaining auditability, export‑control compliance, and IP defensibility.
-  </div>
-
-  <!-- So What Happens When We Combine All This -->
-  <section aria-label="Combined Interpretation">
-    <h3 style="margin-top:1.25rem;">So What Happens When We Combine All This?</h3>
-
-    <!-- Frame -->
-    <div style="margin:.75rem 0; padding:1rem; border:1px solid rgba(100,160,255,0.4); background:var(--box-blue);">
-      <strong>Frame: Model as Observer</strong>
-      <p style="margin:0;">
-        Each λ‑Stack model instance defines its own cryptographically secured frame of reference. Inference is frame‑covariant—predictions remain valid under observer transformations, aligning with relativistic principles. This is not a static “black‑box” function approximator but a legally protectable, structured observer paradigm.
-      </p>
-    </div>
-
-    <!-- DFA Layer -->
-    <div style="margin:.75rem 0; padding:1rem; border:1px solid rgba(80,200,120,0.4); background:var(--box-green);">
-      <strong>DFA Layer: Symbolic Backbone</strong>
-      <ul style="margin:.5rem 0 0 1.25rem;">
-        <li>Rollouts are abstracted into deterministic finite automata (DFAs) via greedy decoding.</li>
-        <li>Cycles correspond to stable inference patterns—interpretable as symbolic time evolution.</li>
-        <li>This layer enforces causality, interpretability, and evidentiary traceability—qualities absent in conventional neural architectures.</li>
-      </ul>
-    </div>
-
-    <!-- Latent Geometry -->
-    <div style="margin:.75rem 0; padding:1rem; border:1px solid rgba(160,100,220,0.4); background:var(--box-purple);">
-      <strong>Latent Geometry and Quantum Interpretation</strong>
-      <p style="margin:0;">
-        DFA cycles are interpreted as symbolic wavefunctions. Their per‑cycle Fourier bases induce phase modes, lifted to unitary representations. This produces a controlled quantum‑like dynamics embedded in geometric latent space, offering a testable bridge between statistical learning and physics.
-      </p>
-    </div>
-
-    <!-- Critical Observation -->
-    <div style="margin:.9rem 0; padding:1rem; border-left:4px solid #d7263d; background:var(--box-red);">
-      <p style="margin:0 0 .5rem 0; font-weight:700;">Critical Observation</p>
-      <blockquote style="margin:0; padding:.5rem .75rem; border-left:3px solid #ffd1d6; background:var(--navy-mid);">
-        <em>“If both data and models inhabit curved spacetime, then relativizing the model’s DFA dynamics effectively quantizes general relativity from the observer’s side.”</em>
-      </blockquote>
-      <p style="margin:.75rem 0 0;">
-        This is a computable, symbolic quantization of relativistic structure. Geometry emerges as a statistical consequence of inference trajectories across observer ensembles—not as a fundamental quantized field. 
-      </p>
-    </div>
-
-    <!-- Reframing -->
-    <h4 style="margin-top:1.25rem;">How This Reframes Quantum Gravity</h4>
-    <div style="overflow-x:auto; margin:.5rem 0;">
-      <table style="width:100%; border-collapse:collapse;">
-        <thead>
-          <tr>
-            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #ccc;">Standard Approach</th>
-            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #ccc;">λ‑Stack Paradigm</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding:.75rem; vertical-align:top;">
-              Quantize the metric tensor via canonical/path‑integral methods; treat spacetime itself as a quantum field.
-            </td>
-            <td style="padding:.75rem; vertical-align:top;">
-              Symbolize inference observers as DFAs. Quantize symbolic dynamics via automaton cycles (unitary) and transients (trace‑preserving channels). Geometry arises from the Fisher information of inference—creating a certifiable, observer‑centric path to unification.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-<!-- Insight -->
-<div style="margin:.9rem 0; padding:1rem; border:1px dashed rgba(100,160,255,0.35); background:var(--box-dashed);">
-  <p style="margin:0;">
-    <strong>Key Insight:</strong> This approach reframes quantum gravity inference. Instead of quantizing spacetime directly, it quantizes the <em>structure of symbolic inference</em> over relativistically framed observers trained on encrypted data.
-    <br><br>
-    <em>“In λ‑Stack models, observable spacetime geometry is reconstructed from inference geometry—not hardcoded a priori.”</em>
-  </p>
-  <ul style="margin:.75rem 0 0 1.25rem;">
-    <li>DFA cycles define a symbolic quantum time base over automata state space.</li>
-    <li>Neural weight-space transitions form a relativistic frame geometry (observer-dependent).</li>
-    <li>Ensembles of observers induce a Fisher–Ricci manifold <code>g_F</code> that encodes inference curvature.</li>
-  </ul>
-</div>
-
-  <!-- Contributions -->
-  <h3 style="margin-top:1.5rem;">What This Work Contributes</h3>
-  <ol>
-    <li><strong>Encrypted inference via GRAIL:</strong> Enables algebra‑preserving inference over encrypted tensors—preserving statistical behavior under homomorphic transformations and supporting export‑control compliance.</li>
-    <li><strong>Automaton decomposition:</strong> Each layer is partitioned into symbolic DFA states—cycles (<code>D</code>) and transients (<code>N</code>)—creating evidentiary traceability for regulatory and patent filings.</li>
-    <li><strong>Quantum lift with certification:</strong> Cycles lift to block‑unitary operators <code>U = ⨁ U_C</code>; transients become completely positive trace‑preserving quantum channels with provable trace‑preservation and Choi positivity—amenable to independent verification.</li>
-    <li><strong>Emergent geometry:</strong> The Fisher metric <code>g_F</code> yields Levi‑Civita connections and Ricci curvature recoverable from inference patterns—offering falsifiable claims of GR alignment.</li>
-    <li><strong>Entropy‑controlled emergence:</strong> CEAS attention stabilizes symbolic criticality via β‑corridor control—improving interpretability and variance bounds for compliance audits.</li>
-  </ol>
-
-  <!-- Audits & checks -->
-  <h3>Certification and Audit Highlights</h3>
-  <ul>
-    <li><strong>Symbolic–spectral audits:</strong> Per‑cycle Fourier traces, spectral identities (e.g., <code>Tr(Pⁿ)</code>), Wilson phase verification.</li>
-    <li><strong>Quantum integrity:</strong> Unitarity audits (<code>U†U ≈ I</code>); Choi trace and positivity checks for dissipative channels.</li>
-    <li><strong>Geometric consistency:</strong> Emergent <code>g_F</code> recovers GR‑compatible geodesics, deflection angles, redshifts, and curvature tensors.</li>
-    <li><strong>Cryptographic symmetry:</strong> Model twins trained under encryption produce statistically equivalent inference paths—supporting GRAIL’s invariance and facilitating defensible IP claims.</li>
-  </ul>
-
-  <!-- Why it matters -->
-  <h3>Why This Matters</h3>
-  <p>
-    The λ‑Stack Transformer constitutes a new category of neural architecture—an observer quantization framework—rather than an incremental variant of existing transformers. By mapping learned symbolic dynamics to quantum lifts and emergent geometry, it provides a falsifiable, interpretable, and certifiable bridge between machine learning and physics. This dual technical‑legal positioning creates a foundation for strong intellectual‑property protection, regulatory compliance, and strategic deployment across national‑security and high‑integrity applications.
-  </p>
-</section>
 
 
 
@@ -2743,132 +2610,6 @@ Deterministic LLM Geometry — Featured Notes (A→L)</h2>
   </div>
 </section>
 
-<section class="page-section" id="applications">
-  <div class="section-header">
-    <span class="section-num">07</span>
-    <h2 class="section-title">Applications</h2>
-  </div>
-  <div class="section-body">
-λ‑Stack Capabilities for Space &amp; Defense</h2>
-
-  <ol style="margin-left:1.25rem;">
-    <li>
-      <strong>Compile Observer-Relative Spacetime Geometry on Demand</strong><br>
-      <em>Why it matters:</em> Space Force requires adaptive models that operate under relativistic motion (orbital, deep space, high-speed ops).<br>
-      <em>λ‑Stack advantage:</em> Can synthesize internal geometries \( g_{\mu\nu}(x,t) \) from symbolic/quantum inference logic—not static metrics.<br>
-      Enables:
-      <ul>
-        <li>Real-time curvature maps for navigation or orbital adjustments</li>
-        <li>Onboard inference of gravitational and EM distortions</li>
-        <li>No PINN<sup id="pinn-def">*</sup> or transformer architecture has this symbolic-to-metric capacity</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong>Operate Securely in Adversarial Signal Environments</strong><br>
-      <em>Why it matters:</em> USSF operates in signal-contested, spoof-prone theaters.<br>
-      <em>λ‑Stack advantage:</em>
-      <ul>
-        <li>Encrypted inference via GRAIL—even under data degradation</li>
-        <li>Symbolic DFA core enables error-trace recovery and certifiability</li>
-        <li>Twin-frame red/blue audits catch spoofed geometry or sensor deception</li>
-        <li>Other models lack cryptographic inference and adversarial integrity checks</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong>Synthesize Stress–Energy Programs for Exotic Propulsion or EM Field Control</strong><br>
-      <em>Why it matters:</em> Space Force is actively exploring next-gen propulsion and geometry control (plasma, EM, metamaterials).<br>
-      <em>λ‑Stack advantage:</em>
-      <ul>
-        <li>Inverse maps \( g_{\mu\nu}(x,t) \Rightarrow T_{\mu\nu}(x,t) \)</li>
-        <li>Outputs executable field distributions (plasma, EM, acoustic)</li>
-        <li>Supports missions involving gravitational shielding, high-precision insertion, or time dilation optimization</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong>Maintain Resilient Autonomy with Modular Observer Ensembles</strong><br>
-      <em>Why it matters:</em> Autonomous platforms must withstand sensor failure or jamming.<br>
-      <em>λ‑Stack advantage:</em>
-      <ul>
-        <li>Red/blue observer stacks trained under relativity constraints</li>
-        <li>Each ensemble induces its own Fisher–Ricci geometry</li>
-        <li>Discrepancies reveal adversarial interference, temporal desync, or data corruption</li>
-      </ul>
-    </li>
-  </ol>
-
-  <h3 style="margin-top:2rem;">Irreplaceability Summary Table</h3>
-  <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; font-size:90%; background:var(--navy-mid);">
-    <thead style="background:var(--navy-light);">
-      <tr>
-        <th style="text-align:left;">Capability</th>
-        <th>λ‑Stack</th>
-        <th>PINNs<sup>*</sup></th>
-        <th>Transformers</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Compile symbolic-to-spacetime \( g_{\mu\nu} \)</td><td>✅</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Inverse field synthesis \( T_{\mu\nu} \Leftarrow g_{\mu\nu} \)</td><td>✅</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Run inference securely under encryption (GRAIL)</td><td>✅</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Red/blue frame audit for deception</td><td>✅</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Geometric self-consistency checks</td><td>✅</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Curvature-aware actuator planning</td><td>✅</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Twin observer fallback logic</td><td>✅</td><td>❌</td><td>❌</td></tr>
-    </tbody>
-  </table>
-
-  <h3 style="margin-top:2rem;">Core Applications</h3>
-  <ul>
-    <li>Real-time spacetime reconstruction for high-precision orbital maneuvering</li>
-    <li>Secure neural inference in jammed or spoofed conditions</li>
-    <li>Field-based propulsion, curvature shaping, and stealth geometry estimation</li>
-    <li>Redundant inference pipelines for autonomous ISR and threat detection</li>
-  </ul>
-
-  <p id="pinn-def" style="font-size:0.85em; color:var(--muted); margin-top:1.5rem;">
-    <sup>*</sup> <strong>PINNs</strong>: Physics-Informed Neural Networks—used for solving PDEs by embedding physical constraints in loss functions. They are forward-simulation engines, not inverse geometry compilers.
-  </p>
-</section>
-
-
-
-<!-- ===== Irreplaceable Niche of λ‑Stack ===== -->
-<div style="margin:1.5rem 0; padding:1.25rem; border-left:4px solid #004085; background:var(--box-insight);">
-  <h3 style="margin-top:0;">Irreplaceable Niche: λ‑Stack as Observer‑Geometry Compiler</h3>
-  <p>
-    The λ‑Stack is not merely an improved neural network. It defines a <strong>new function class</strong>—a compiler stack that converts symbolic inference into relativistic geometry and actuator-ready field configurations. Its uniqueness lies at the intersection of:
-  </p>
-  <ul style="margin-left:1.25rem;">
-    <li><strong>Symbolic dynamics</strong> via deterministic finite automata (DFA) cycles and entropy-controlled attention</li>
-    <li><strong>Geometric inference</strong> through Fisher–Ricci metrics induced by observer ensembles</li>
-    <li><strong>Stress–energy compilation</strong> from symbolic-quantum dynamics to physical source tensors</li>
-    <li><strong>Encrypted deployment</strong> via GRAIL: geometry-aware, certifiable inference over secure substrates</li>
-  </ul>
-  <p>
-    Compared to traditional architectures—including transformers and <strong>Physics-Informed Neural Networks (PINNs)</strong>—the λ‑Stack uniquely supports:
-  </p>
-  <ul style="margin-left:1.25rem;">
-    <li>Compiling symbolic logic into relativistic metrics \( g_{\mu\nu} \)</li>
-    <li>Generating certified stress–energy source programs that produce that geometry</li>
-    <li>Auditing unitarity, covariance, and energy conditions across observer frames</li>
-    <li>Operating under cryptographic constraints with red-blue twin verification</li>
-  </ul>
-  <p>
-    <strong>Bottom line:</strong> λ‑Stack is not an approximation tool. It <strong>learns symbolic time</strong>, <strong>constructs relativistic observer frames</strong>, and <strong>compiles physically constrained dynamics</strong>—all in a secure, end-to-end architecture.
-  </p>
-  <p style="margin-top:1rem;">
-    📄 <a href="https://drive.google.com/file/d/1QqSIYqoKp4rz6QTQiEwiRTQ2tLpZUMPo/view?usp=sharing"
-        target="_blank" style="color:var(--gold-light); text-decoration:underline;">
-      View the λ‑Stack Metric Compiler paper (PDF)
-    </a>
-  </p>
-</div>
-
-
-
 <!-- ===== FEATURED: Observer‑Quantized Dynamics & Emergent Geometry ===== -->
 <section id="lambda-stack-notes" class="research-list" aria-label="Observer‑Quantized Dynamics and Emergent Geometry">
   <h2><h2>Ψ‑Operator Framework — Symbolic Methods for Chip Design, Process Control, and Yield Sovereignty</h2>
@@ -2881,9 +2622,7 @@ Deterministic LLM Geometry — Featured Notes (A→L)</h2>
     The Ψ‑Framework introduces <em>cycle decompositions, certifiable hybrid ML–TCAD layers, symbolic feedback operators, and cross-scale causal links</em> from design to defect. Together, these unlock the ability to model the entire chip lifecycle—from doping and ALD to etch, lithography, and yield optimization—<strong>using transparent, verifiable symbolic dynamics</strong>.
   </p>
 
-  <p><strong>National Security Note:</strong> These tools enable adversaries to simulate, replicate, and manipulate entire chip pipelines without physical access to IP or fabs. <u>For the U.S. to remain sovereign in semiconductor leadership, it is imperative to adopt, develop, and safeguard Ψ‑Operator methods immediately.</u></p>
-
-  <p><strong>IP Notice:</strong> Certain symbolic operator methods described herein are subject to U.S. Patent Pending 64/067,703 and non-provisional in preparation, by William Chuang (Logarcheon Inc., USA). Use or replication is restricted without permission.</p>
+  <p><strong>IP notice:</strong> certain methods described here are the subject of pending U.S. patent applications (U.S. Patent Portfolio · Nonprovisional Applications 19/833,766 · 19/833,809 · 19/833,804 (filed 8 Oct 2026) · Provisional 64/067,703 Pending).</p>
 
   <!-- Quick Jump -->
   <nav class="quick-jump" aria-label="Quick jump to Ψ Semiconductor Notes">
@@ -2914,7 +2653,7 @@ Deterministic LLM Geometry — Featured Notes (A→L)</h2>
 
 <section class="page-section" id="finance">
   <div class="section-header">
-    <span class="section-num">08</span>
+    <span class="section-num">07</span>
     <h2 class="section-title">Ψ–Orbitfold Finance</h2>
   </div>
   <div class="section-body">
@@ -3456,7 +3195,7 @@ Deterministic LLM Geometry — Featured Notes (A→L)</h2>
 
 <section class="page-section" id="psi_notes">
   <div class="section-header">
-    <span class="section-num">09</span>
+    <span class="section-num">08</span>
     <h2 class="section-title">Ψ Physics Notes</h2>
   </div>
   <div class="section-body">
@@ -3773,7 +3512,7 @@ Deterministic LLM Geometry — Featured Notes (A→L)</h2>
 
 <footer>
   &copy; 2025 William Chuang &middot; Logarch&eacute;on Inc. All rights reserved.
-  &middot; U.S. Patent Pending 64/067,703 &middot; Non-Provisional In Preparation
+  &middot; U.S. Patent Portfolio · Nonprovisional Applications 19/833,766 · 19/833,809 · 19/833,804 (filed 8 Oct 2026) · Provisional 64/067,703 Pending
 </footer>
 
 </div>
