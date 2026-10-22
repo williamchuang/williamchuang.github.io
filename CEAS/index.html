@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>CEAS — Critical Entropy Attention System · Logarchéon</title>
-<meta name="description" content="CEAS keeps attention entropy in a critical corridor via a physics-grounded β thermostat. Provably reduces training cost, provably improves convergence. Patent 63/813,617."/>
+<meta name="description" content="CEAS keeps attention entropy in a critical corridor via a physics-grounded β thermostat. Patent pending · U.S. Provisional 64/067,703."/>
 <link rel="canonical" href="https://logarcheon.com/CEAS"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -226,8 +226,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
       CEAS replaces the fixed attention temperature&nbsp;&beta;&thinsp;=&thinsp;1/&radic;d<sub>k</sub>
       with a physics-grounded thermostat that keeps attention entropy inside a
       <em>critical corridor</em> throughout training.
-      The result is steadier convergence, fewer wasted updates, and
-      compounding compute savings that grow with model scale.
+      The design goal is steadier convergence and fewer wasted updates.
     </p>
     <div class="hero-eq">
       dH/d&beta; = &minus;&beta;&thinsp;&middot;&thinsp;Var<sub>p</sub>[s]
@@ -235,9 +234,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
       the entropy&ndash;temperature identity that underlies the entire controller
     </div>
     <div class="hero-badges">
-      <span class="hero-badge">U.S. Patent 63/813,617 (CEAS primary)</span>
-      <span class="hero-badge">64/067,703 (Physical ASI / GRAIL)</span>
-      <span class="hero-badge">Provisional stage &middot; In development</span>
+      <span class="hero-badge">Patent pending &middot; U.S. Provisional 64/067,703</span>
     </div>
   </div>
 </div>
@@ -249,7 +246,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
       <li><a href="#foundations" class="toc-link">Foundations</a></li>
 <li><a href="#controller" class="toc-link">The Controller</a></li>
 <li><a href="#advanced" class="toc-link">Advanced Control</a></li>
-<li><a href="#hardware" class="toc-link">Hardware Substrate</a></li>
+<li><a href="#hardware" class="toc-link">&beta; Scaling Dynamics</a></li>
 <li><a href="#related" class="toc-link">Related Work</a></li>
 <li><a href="#origin" class="toc-link">Research Origin</a></li>
 <li><a href="#bibliography" class="toc-link">Bibliography</a></li>
@@ -298,7 +295,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
   <h4>Critical-region operation</h4>
   <p>
     The controller centers operation near the model’s pseudo-critical regime where information per update is maximized.
-    A low-order (Landau-style) expansion is accurate enough here to steer β; as models scale up, the critical signatures and gains become more apparent.
+    A low-order (Landau-style) expansion is accurate enough here to steer β.
   </p>
 
   <h4>Objective alignment</h4>
@@ -311,13 +308,13 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
 
 <section class="blurb" id="operational-control">
 <ul>
-    <li><strong>Single, physics-grounded control knob:</strong> β is set by data dispersion and competition, not just embedding dimension.</li>
+    <li><strong>Single, physics-grounded control knob:</strong> β is set by data dispersion and competition, not just head dimension.</li>
     <li><strong>Compute discipline:</strong> Keeping entropy in a critical band reduces noisy updates and improves convergence stability.</li>
-    <li><strong>Production ready:</strong> Minimal code changes; complements standard optimizers and schedulers.</li>
+    <li><strong>Research prototype:</strong> Minimal code changes; complements standard optimizers and schedulers.</li>
   </ul>
 
   <p style="margin-top:1rem;color:var(--body);font-size:.95rem;">
-    <em>Note:</em> CEAS is under active development. Patent pending.
+    <em>Measured:</em> on a 32-billion-parameter model (Qwen3-32B, compressed to 2.6 bits per weight), tuning only the per-head temperatures recovered about 5% of the loss caused by compression (perplexity 12.69 → 12.55). In small-model tests, CEAS savings at convergence were zero. CEAS is under active development.
   </p>
 </section>
 
@@ -377,7 +374,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     <strong>Freeze / gating condition:</strong>
     treat a head as decisively non-uniform once
     \[
-      \beta\,\sigma_{qk}\,\sqrt{2\,\ln N_{\mathrm{eff}}}\;\gtrsim\;1.
+      \beta\,\sigma_{qk}\,\big/\sqrt{2\,\ln N_{\mathrm{eff}}}\;\gtrsim\;1.
     \]
     Below this boundary, keep exploration; above it, permit pruning or confidence-weighted updates.
   </aside>
@@ -460,7 +457,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     <section aria-labelledby="gating" class="mb-8">
       <h5 id="gating" class="text-lg font-semibold text-slate-900 mb-2">C) Selective early gating, relaxed later</h5>
       <p class="text-slate-700">
-        Gate by a dimensionless temperature-gap score \( T = \beta\,\sigma_{qk}\,\sqrt{2\ln N_{\mathrm{eff}}} \).
+        Gate by a dimensionless temperature-gap score \( T = \beta\,\sigma_{qk}\,/\sqrt{2\ln N_{\mathrm{eff}}} \).
       </p>
       <p class="mt-2 font-medium text-slate-900">Threshold schedule:</p>
       <div class="mt-2 rounded-lg bg-slate-50 border border-slate-200 p-3 text-slate-800">
@@ -536,7 +533,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
 
     <!-- Projected Savings Table -->
     <section aria-labelledby="projected-savings" class="mb-10">
-      <h5 id="projected-savings" class="text-lg font-semibold text-slate-900 mb-3">Projected Savings (typical runs)</h5>
+      <h5 id="projected-savings" class="text-lg font-semibold text-slate-900 mb-3">Projected Savings (computed, not measured)</h5>
       <div class="overflow-x-auto rounded-lg border border-slate-200">
         <table class="w-full text-left text-sm">
           <thead class="bg-slate-50 text-slate-700">
@@ -554,7 +551,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
               <td class="px-3 py-2 text-right">2.4–3.2</td>
               <td class="px-3 py-2 text-right">0.45–0.55</td>
               <td class="px-3 py-2 text-right">0.22–0.30</td>
-              <td class="px-3 py-2 text-right font-semibold">35–52% (≥30% floor; ~45% common)</td>
+              <td class="px-3 py-2 text-right font-semibold">35–52%</td>
             </tr>
             <tr>
               <td class="px-3 py-2 font-semibold">14.4M</td>
@@ -563,34 +560,11 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
               <td class="px-3 py-2 text-right">0.18–0.26</td>
               <td class="px-3 py-2 text-right font-semibold">26–40%</td>
             </tr>
-            <tr>
-              <td class="px-3 py-2 font-semibold">GPT-3</td>
-              <td class="px-3 py-2 text-right">1.5–2.0</td>
-              <td class="px-3 py-2 text-right">0.28–0.40</td>
-              <td class="px-3 py-2 text-right">0.15–0.22</td>
-              <td class="px-3 py-2 text-right font-semibold">28–38%</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-2 font-semibold">GPT-4</td>
-              <td class="px-3 py-2 text-right">1.4–1.8</td>
-              <td class="px-3 py-2 text-right">0.25–0.35</td>
-              <td class="px-3 py-2 text-right">0.12–0.20</td>
-              <td class="px-3 py-2 text-right font-semibold">24–34%</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-2 font-semibold">GPT-5</td>
-              <td class="px-3 py-2 text-right">1.3–1.6</td>
-              <td class="px-3 py-2 text-right">0.22–0.32</td>
-              <td class="px-3 py-2 text-right">0.10–0.18</td>
-              <td class="px-3 py-2 text-right font-semibold">20–30%</td>
-            </tr>
           </tbody>
         </table>
       </div>
       <p class="mt-2 text-sm text-slate-600">
-        Larger models start closer to the corridor under the textbook \(1/\sqrt{d_k}\), so warm-up speedup \(s\)
-        is smaller. However, steady-state gating (\(\bar{\chi}_{\rm steady}>0\)) provides persistent, scale-agnostic
-        savings. The gap margin \(u_{\min}\) keeps \(\tau\) finite as pseudo-critical behavior strengthens with scale.
+Computed from the closed-form approximation above, not measured. In small-model tests, measured savings at convergence were zero.
       </p>
     </section>
 
@@ -615,8 +589,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
       <p class="text-slate-900 font-semibold">Plain-English recap:</p>
       <p class="mt-1 text-slate-700">
         Start with the textbook scale, then push \(\beta\) into a healthy entropy band quickly (but not so close to the critical point that updates slow down).
-        While training, keep only the tokens and heads that carry information. The result is faster warm-up and fewer wasted updates—typically
-        double-digit end-to-end savings even at very large scales.
+        While training, keep only the tokens and heads that carry information. The intended result is faster warm-up and fewer wasted updates.
       </p>
     </aside>
   </div>
@@ -694,7 +667,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
 
   <header>
 <hr style="border:none;border-top:1px solid var(--border-dim);margin:2.5rem 0;">
-<p class="lede">Extending the same entropy/critical‑control lens beyond the attention temperature β—to learning rate, batch size, regularization, smoothing/dropout, and gating—compounds the gains. The result is a defensible path to <strong>≥50% end‑to‑end training savings</strong> at LLM scale while meeting the same validation target.</p>
+<p class="lede">Extending the same entropy/critical‑control lens beyond the attention temperature β—to learning rate, batch size, regularization, smoothing/dropout, and gating—is proposed below. The savings figures in this section are computed, not measured.</p>
   </header>
 
   <h4>2) Multi‑knob controller</h4>
@@ -733,7 +706,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     </li>
     <li>
       <h5>Token/head gating (work pruning)</h5>
-      <p class="kbits"><em>Observable:</em> temperature‑gap score \(T=\beta\,\sigma_{qk}\sqrt{2\ln N_{\rm eff}}\).</p>
+      <p class="kbits"><em>Observable:</em> temperature‑gap score \(T=\beta\,\sigma_{qk}/\sqrt{2\ln N_{\rm eff}}\).</p>
       <p class="kbits"><em>Target:</em> schedule \(T_{\text{gate}}(t)\) high early, relaxing later.</p>
       <p class="kbits"><em>Rule:</em> keep tokens with \(T\ge T_{\text{gate}}\) or top‑\(q\) per head; freeze heads on persistently low entropy.</p>
     </li>
@@ -746,12 +719,12 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
 
   <h4>3) Why the gains compound</h4>
   <ul>
-    <li><strong>Multiplicative warm‑up reduction.</strong> Typical factors when each knob is steered to an information‑optimal band: \(s_{\rm warm}^{(\beta)}\sim 1.5\! -\! 1.8,\; s_{\rm warm}^{(\eta)}\sim 1.2\! -\! 1.4,\; s_{\rm warm}^{(B)}\sim 1.1\! -\! 1.2,\; s_{\rm warm}^{(\text{reg})}\sim 1.05\! -\! 1.15\). Product \(s_{\rm warm}\approx 2.2\! -\! 3.0\) is common.</li>
-    <li><strong>Steady‑state keeps paying.</strong> Even when textbook \(1/\sqrt{d_k}\) lands closer to the corridor at huge scale, non‑zero \(\bar\chi_{\rm steady}\) (gating) and tempered \(\eta,B\) reduce steps by another 15–35%.</li>
+    <li><strong>Multiplicative warm‑up reduction.</strong> Assumed factors when each knob is steered to an information‑optimal band: \(s_{\rm warm}^{(\beta)}\sim 1.5\! -\! 1.8,\; s_{\rm warm}^{(\eta)}\sim 1.2\! -\! 1.4,\; s_{\rm warm}^{(B)}\sim 1.1\! -\! 1.2,\; s_{\rm warm}^{(\text{reg})}\sim 1.05\! -\! 1.15\). Product \(s_{\rm warm}\approx 2.2\! -\! 3.0\).</li>
+    <li><strong>Steady‑state keeps paying.</strong> Even when textbook \(1/\sqrt{d_k}\) lands closer to the corridor at huge scale, non‑zero \(\bar\chi_{\rm steady}\) (gating) and tempered \(\eta,B\) are assumed to reduce steps by another 15–35%.</li>
     <li><strong>Critical behavior helps—if the margin is enforced.</strong> Larger models sit nearer to pseudo‑criticality (better coupling), so smaller β changes propagate farther; the explicit \(u_{\min}\) gap prevents \(\tau\) blowups.</li>
   </ul>
 
-  <h4>4) What to expect (projected ranges)</h4>
+  <h4>4) Projected ranges (computed, not measured)</h4>
   <div class="twrap" role="region" aria-label="Projected savings table">
     <table>
       <thead>
@@ -781,34 +754,10 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
           <td data-th="Steady speedup s_steady" class="text-right">1.20–1.30</td>
           <td data-th="Projected" class="text-right"><strong>38–52%</strong></td>
         </tr>
-        <tr>
-          <td data-th="Scale">GPT‑3</td>
-          <td data-th="Warm‑up speedup s_warm" class="text-right">1.9–2.5</td>
-          <td data-th="χ̄_warm" class="text-right">0.30–0.42</td>
-          <td data-th="χ̄_steady" class="text-right">0.18–0.24</td>
-          <td data-th="Steady speedup s_steady" class="text-right">1.20–1.30</td>
-          <td data-th="Projected" class="text-right"><strong>35–50%</strong></td>
-        </tr>
-        <tr>
-          <td data-th="Scale">GPT‑4</td>
-          <td data-th="Warm‑up speedup s_warm" class="text-right">1.8–2.4</td>
-          <td data-th="χ̄_warm" class="text-right">0.28–0.38</td>
-          <td data-th="χ̄_steady" class="text-right">0.16–0.22</td>
-          <td data-th="Steady speedup s_steady" class="text-right">1.18–1.28</td>
-          <td data-th="Projected" class="text-right"><strong>32–48%</strong></td>
-        </tr>
-        <tr>
-          <td data-th="Scale">GPT‑5</td>
-          <td data-th="Warm‑up speedup s_warm" class="text-right">1.7–2.2</td>
-          <td data-th="χ̄_warm" class="text-right">0.25–0.35</td>
-          <td data-th="χ̄_steady" class="text-right">0.15–0.20</td>
-          <td data-th="Steady speedup s_steady" class="text-right">1.15–1.25</td>
-          <td data-th="Projected" class="text-right"><strong>30–45%</strong></td>
-        </tr>
       </tbody>
     </table>
   </div>
-  <p class="note">Projections are end‑to‑end token‑update savings to the same validation target, under a bounded‑\(\tau\) regime.</p>
+  <p class="note">Computed, not measured. Projections are end‑to‑end token‑update savings to the same validation target, under a bounded‑\(\tau\) regime.</p>
 
   <h4>5) Minimal drop‑in updates (beyond β)</h4>
   <ul>
@@ -820,7 +769,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
   </ul>
 
   <aside class="callout bottomline" role="note" aria-label="Bottom line">
-    <strong>Bottom line:</strong> β alone already delivers substantial gains. Bringing learning rate, batch size, smoothing/regularization, and principled gating under the same entropy/critical controller pushes the compound step‑reduction and pruning high enough to cross the ≥50% line—while staying a controlled distance from the pseudo‑critical point.
+    <strong>Bottom line:</strong> the multi‑knob controller is a proposal; its savings figures are computed, not measured.
   </aside>
   
   <h4>6) MaxEnt add‑on: architecture & initialization</h4>
@@ -829,7 +778,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
   <ol class="knobs">
     <li>
       <h5>(A) Initialization scales (per layer)</h5>
-      <p class="kbits">Choose weight std. <span class="kbd">σ<sub>w</sub></span> so the temperature <span class="kbd">T = β·σ<sub>qk</sub>·√(2·ln N<sub>eff</sub>)</span> starts near a target band <span class="kbd">T*</span> at step 0, while keeping variance propagation and kurtosis within bounds. This places layers closer to the entropy corridor from the first updates.</p>
+      <p class="kbits">Choose weight std. <span class="kbd">σ<sub>w</sub></span> so the temperature <span class="kbd">T = β·σ<sub>qk</sub>/√(2·ln N<sub>eff</sub>)</span> starts near a target band <span class="kbd">T*</span> at step 0, while keeping variance propagation and kurtosis within bounds. This places layers closer to the entropy corridor from the first updates.</p>
     </li>
     <li>
       <h5>(B) Matrix sizes & heads</h5>
@@ -845,7 +794,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     </li>
   </ol>
 
-  <h4>7) Updated projections with MaxEnt (structural)</h4>
+  <h4>7) Updated projections with MaxEnt (computed, not measured)</h4>
   <div class="twrap" role="region" aria-label="Updated savings with MaxEnt">
     <table>
       <thead>
@@ -866,25 +815,10 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
           <td data-th="From MaxEnt" class="text-right"><strong>+5–9 pp</strong></td>
           <td data-th="Total" class="text-right"><strong>43–61%</strong></td>
         </tr>
-        <tr>
-          <td data-th="Scale">GPT‑3</td>
-          <td data-th="From MaxEnt" class="text-right"><strong>+4–8 pp</strong></td>
-          <td data-th="Total" class="text-right"><strong>39–58%</strong></td>
-        </tr>
-        <tr>
-          <td data-th="Scale">GPT‑4</td>
-          <td data-th="From MaxEnt" class="text-right"><strong>+3–7 pp</strong></td>
-          <td data-th="Total" class="text-right"><strong>35–54%</strong></td>
-        </tr>
-        <tr>
-          <td data-th="Scale">GPT‑5</td>
-          <td data-th="From MaxEnt" class="text-right"><strong>+3–6 pp</strong></td>
-          <td data-th="Total" class="text-right"><strong>33–51%</strong></td>
-        </tr>
       </tbody>
     </table>
   </div>
-  <p class="note">pp = percentage points. Assumes: (i) small discrete architecture catalog aligned to hardware tiles, (ii) one‑shot MaxEnt pre‑selection before training (or very infrequent), and (iii) CEAS multi‑knob control active during training. Realized gains depend on dataloader throughput and compile/graph amortization.</p>
+  <p class="note">Computed, not measured. pp = percentage points. Assumes: (i) small discrete architecture catalog aligned to hardware tiles, (ii) one‑shot MaxEnt pre‑selection before training (or very infrequent), and (iii) CEAS multi‑knob control active during training. Realized gains depend on dataloader throughput and compile/graph amortization.</p>
 
 </section>
 
@@ -902,12 +836,12 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
 <section class="page-section" id="hardware">
   <div class="section-header">
     <span class="section-num">04</span>
-    <h2 class="section-title">Hardware Substrate</h2>
+    <h2 class="section-title">&beta; Scaling Dynamics</h2>
   </div>
   <div class="section-body">
 
 <p>
-    Imagine your model as an ancient stone structure that you want to preserve. You wish to relocate it to a more optimal position — not instantly, but gradually, using physical means.
+    Picture a model as an ancient stone structure to be preserved and relocated to a more optimal position — not instantly, but gradually, using physical means.
   </p>
 
   <p>
@@ -915,7 +849,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
   </p>
 
   <p>
-    The <strong>β range I theoretically predict</strong> offers a corridor pointing to where the model will eventually be optimized toward — a <strong>future coordinate</strong> the system is gradually shifting toward through backpropagation. This prediction, although less precise initially, gives you insight into the <em>destination</em> of the learning journey.
+    The <strong>β range I theoretically predict</strong> offers a corridor pointing to where the model will eventually be optimized toward — a <strong>future coordinate</strong> the system is gradually shifting toward through backpropagation. This prediction, although less precise initially, gives insight into the <em>destination</em> of the learning journey.
   </p>
 
   <p>
@@ -997,255 +931,13 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
 </table>
 
 
-<!-- ===== Estimated Cost & Compute Savings: GPT-Scale Models ===== -->
-<section id="budget-savings-analysis" class="research-list" aria-label="Cost and GPU Impact: Scaling Benefits of β Prediction">
-<p>
-    Based on observed behavior across model scales, the β‑range prediction method allows token savings by a factor of <strong>𝓛</strong>. 
-    We assume <strong>effective training throughput = 200 TFLOP/s per GPU</strong> and model-specific baseline token budgets:
-  </p>
-
-  <ul>
-    <li><strong>GPT‑1 (117M)</strong>: ~1B tokens (BooksCorpus-scale)</li>
-    <li><strong>GPT‑2 (1.5B)</strong>: ~10B tokens (WebText-scale)</li>
-    <li><strong>GPT‑3 (175B)</strong>: 300B tokens (documented)</li>
-    <li><strong>GPT‑4-class</strong>: 5T tokens (illustrative dense‑equivalent)</li>
-    <li><strong>GPT‑5-class</strong>: 10T tokens (illustrative)</li>
-  </ul>
-
-  <p><strong>Key Cost Examples (Cloud Rate: $5 / GPU-hour)</strong>:</p>
-
-  <table class="data-table" style="width:100%; border-collapse: collapse; margin-bottom: 1.5rem;">
-    <thead>
-      <tr style="background:var(--box-blue);">
-        <th style="padding:6px;">Model</th>
-        <th style="padding:6px;">Tokens</th>
-        <th style="padding:6px;">Baseline GPU‑Hours</th>
-        <th style="padding:6px;">Baseline Cost</th>
-        <th style="padding:6px;">𝓛 = 2</th>
-        <th style="padding:6px;">𝓛 = 5</th>
-        <th style="padding:6px;">𝓛 = 10</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding:6px;">GPT‑1</td>
-        <td style="padding:6px;">1B</td>
-        <td style="padding:6px;">1,458</td>
-        <td style="padding:6px;">$7.3K</td>
-        <td style="padding:6px;">$3.65K</td>
-        <td style="padding:6px;">$1.46K</td>
-        <td style="padding:6px;">$730</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">GPT‑2</td>
-        <td style="padding:6px;">10B</td>
-        <td style="padding:6px;">12,500</td>
-        <td style="padding:6px;">$62.5K</td>
-        <td style="padding:6px;">$31.25K</td>
-        <td style="padding:6px;">$12.5K</td>
-        <td style="padding:6px;">$6.25K</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">GPT‑3</td>
-        <td style="padding:6px;">300B</td>
-        <td style="padding:6px;">437,500</td>
-        <td style="padding:6px;">$2.19M</td>
-        <td style="padding:6px;">$1.09M</td>
-        <td style="padding:6px;">$0.44M</td>
-        <td style="padding:6px;">$0.22M</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">GPT‑4‑class</td>
-        <td style="padding:6px;">5T</td>
-        <td style="padding:6px;">9.17M</td>
-        <td style="padding:6px;">$45.8M</td>
-        <td style="padding:6px;">$22.9M</td>
-        <td style="padding:6px;">$9.17M</td>
-        <td style="padding:6px;">$4.58M</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">GPT‑5‑class</td>
-        <td style="padding:6px;">10T</td>
-        <td style="padding:6px;">83.3M</td>
-        <td style="padding:6px;">$416.7M</td>
-        <td style="padding:6px;">$208.3M</td>
-        <td style="padding:6px;">$83.3M</td>
-        <td style="padding:6px;">$41.7M</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p><strong>Lower cost example:</strong> On GCP Spot H100s at <code>$2.253/GPU-hour</code>, savings are proportionally lower, but the same multipliers apply.</p>
-
-  <hr>
-
-  <h4 style="margin-top:1.5rem;">Wall-Clock Equivalence: GPU Count to Match Training Time</h4>
-
-  <p>Assume a baseline GPU count <code>G<sub>base</sub></code>. With token compression by <strong>𝓛</strong>, you can maintain same wall-clock time using:</p>
-
-  <p style="font-family:monospace;">G<sub>same‑time</sub> ≈ ceil[max(G<sub>min</sub>, G<sub>base</sub> / 𝓛)]</p>
-
-  <p>Example GPU scaling (memory floor constraints applied):</p>
-
-  <ul>
-    <li><strong>GPT‑3:</strong> 512 GPUs → 
-      𝓛 = 5 → 128 GPUs (min 48) <br>
-      𝓛 = 10 → 64 GPUs (min 48)
-    </li>
-    <li><strong>GPT‑4-class:</strong> 1024 GPUs →
-      𝓛 = 5 → 205 GPUs (min 60) <br>
-      𝓛 = 10 → 103 GPUs (min 60)
-    </li>
-    <li><strong>GPT‑5-class:</strong> 4096 GPUs →
-      𝓛 = 5 → 819 GPUs (min 273) <br>
-      𝓛 = 10 → 410 GPUs (min 273)
-    </li>
-  </ul>
-
-  <p>If GPU count stays constant, wall-clock time shrinks by ~𝓛.</p>
-
-  <hr>
-
-  <p><em>Note:</em> The token savings factor 𝓛 arises empirically from the β-scaling method, observed across small, medium, and large models. These savings reflect reduced entropy, faster early learning, and more precise attention dynamics induced by preemptive β tuning.</p>
-</section>
 
 
 
 
 
-<!-- ===== CEAS–Ising NPU Architecture — Strategic Disclosure Summary ===== -->
-<section id="ceas-npu-summary" class="research-list" aria-label="CEAS–Ising NPU vs Classical GPU">
-<hr style="border:none;border-top:1px solid var(--border-dim);margin:2.5rem 0;">
-<div class="key-insight" style="margin-top:1rem; padding:1rem; border-left:4px solid #5b9fff; background:var(--box-insight);">
-  <strong>BLUF:</strong>
-  At <em>thermodynamic criticality</em>, model-wide coordination emerges without centralized compute,
-  enabling dense model logic to manifest with <strong>sublinear hardware growth</strong>.
-  This represents a shift toward a <strong>De‑CPU (decentralized processing unit)</strong> paradigm,
-  where spin-based or CEAS‑like NPUs eliminate the need for global synchronization.
-  Memory bottlenecks — inherent in CPU/GPU-based token-step architectures — are also <strong>dramatically reduced</strong>,
-  as the energy landscape evolves in-place without repetitive DRAM fetches or backpropagation checkpoints.
-</div>
 
-
-  <p>
-    As computation moves beyond the deterministic confines of clocked digital circuits, the CEAS–Ising NPU represents a paradigmatic shift in how intelligence may be physically instantiated. Rather than emulating biological intelligence atop layered abstractions of silicon, this architecture inverts the stack: exploiting natural dynamics—analog, asynchronous, and energy-minimizing—as the primitive substrate for learning, reasoning, and structural memory.
-  </p>
-
-  <p>
-    This disclosure marks a strategic pre‑publication aligned with the protection and ongoing development of a U.S. provisional patent filing. It is released under a deliberate IP positioning protocol and should be interpreted as a limited, non‑enabling public summary consistent with <strong>37 CFR §1.211–1.213</strong> (provisional treatment), <strong>Festo doctrine carveouts</strong>, and standard publication-to-filing interval guidance.
-  </p>
-
-  <h4>Systemic Discontinuity: A Summary Comparison</h4>
-
-  <p>
-    Below is a formal comparative matrix designed to illustrate the architectural discontinuity between traditional GPU-based AI systems and CEAS–Ising-based computation. This is not a performance table—it is a structural redefinition:
-  </p>
-
-  <table style="width:100%; border-collapse:collapse; margin-bottom:1rem;">
-    <thead>
-      <tr>
-        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">Feature</th>
-        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">Classical GPU Systems</th>
-        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">CEAS–Ising NPUs</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding:6px;">Core Paradigm</td>
-        <td style="padding:6px;">Digital logic; synchronized instruction streams</td>
-        <td style="padding:6px;">Analog Ising fields; asynchronous dynamical evolution</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Control Model</td>
-        <td style="padding:6px;">Global clocking and instruction scheduling</td>
-        <td style="padding:6px;">Self-organizing spin dynamics and local descent</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Gradient-Based Training</td>
-        <td style="padding:6px;">Required (e.g., backpropagation, optimizers)</td>
-        <td style="padding:6px;">Unnecessary; learning via physical energy relaxation</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Parallelization Unit</td>
-        <td style="padding:6px;">Streaming multiprocessor (SIMD / warp)</td>
-        <td style="padding:6px;">Lattice node or spin agent in CEAS flow</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Model Memory</td>
-        <td style="padding:6px;">DRAM + flash (weight matrices)</td>
-        <td style="padding:6px;">State wells & attractors in energy landscape</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Power Per Device</td>
-        <td style="padding:6px;">350–700W</td>
-        <td style="padding:6px;">~5W (passive analog elements)</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Tokens and Attention</td>
-        <td style="padding:6px;">O(n²) context attention</td>
-        <td style="padding:6px;">Global phase-locked coordination</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Hardware Instruction Set</td>
-        <td style="padding:6px;">CUDA / x86 primitives</td>
-        <td style="padding:6px;">Physics-based metastable transitions</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h4>Functional Equivalence Mapping</h4>
-  <p>This table expresses how conventional transformer components map to CEAS–Ising physical structures, enabling cross‑domain interpretability and cross‑licensing clarity.</p>
-
-  <table style="width:100%; border-collapse:collapse;">
-    <thead>
-      <tr>
-        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">Transformer Component</th>
-        <th style="text-align:left; padding:6px; border-bottom:1px solid var(--border);">CEAS–Ising Realization</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding:6px;">Token Embedding</td>
-        <td style="padding:6px;">Spin initialization vector / lattice field</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Positional Encoding</td>
-        <td style="padding:6px;">Möbius‑based spatial flow coordinates</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Self-Attention</td>
-        <td style="padding:6px;">Field synchronization via energy coupling</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">LayerNorm / LN</td>
-        <td style="padding:6px;">Thermodynamic potential adjustment</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">Backpropagation</td>
-        <td style="padding:6px;">Physical annealing / spin-flip descent</td>
-      </tr>
-      <tr>
-        <td style="padding:6px;">FFN / MLP Layers</td>
-        <td style="padding:6px;">Energy function shaping via CEAS–Ising coupling</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h4>Strategic Framing and Intellectual Property Notice</h4>
-  <p>
-    This page constitutes a non-enabling disclosure intended for policy and technological community awareness, not full reproduction. The underlying design—including CEAS memory architecture, β-flow coupling, and metastable symbolic operators—is subject to an active U.S. <strong>provisional patent filing</strong> and may enter the <strong>dual-use (EAR/ITAR) classification domain</strong>. Discussions regarding technology transfer, licensing, joint venture structuring, or classified adaptation will require:
-  </p>
-
-  <ul>
-    <li>A fully executed mutual <strong>NDA</strong></li>
-    <li>Institutional or agency-level vetting</li>
-    <li>Security and export-control compliance review (ITAR/EAR §774 / ECCN 3E001)</li>
-  </ul>
-
-  <p>
-    This disclosure is intentionally positioned at the interface of <strong>strategic communications</strong> and <strong>technical policy awareness</strong>, aimed at think tanks, research funding bodies, sovereign technology task forces, and national laboratories. Interpretive alignment with ongoing U.S. doctrine on <em>Microelectronics Leadership</em> and <em>Post‑Silicon Computational Sovereignty</em> is strongly implied.
-  </p>
-</section>
+<p>Public material here is a non-enabling summary. Patent status: U.S. Patent Portfolio &middot; Nonprovisional Applications 19/833,766 &middot; 19/833,809 &middot; 19/833,804 (filed 8 Oct 2026) &middot; Provisional 64/067,703 Pending.</p>
 
 
 
@@ -1271,10 +963,9 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     <li>An exact formula for \( \beta_c \sim \exp(C(\kappa)\,\delta\,r_{\mathrm{eff}})/\lambda_{\max}(\mathcal{T}) \)</li>
     <li>Spectral density derivations based on fractal boundaries</li>
     <li>Dynamic attention scaling protocols minimizing energy dissipation</li>
-    <li>Extended discussions on quantum security, Langlands correspondence, and Lorentz adaptations</li>
   </ul>
   <p>
-    <strong>Download the full paper:</strong>
+    <strong>Download the paper:</strong>
     <a href="/files/Critical Scaling in Hyperbolic Attention Mechanisms.pdf" target="_blank">
       Critical Scaling in Hyperbolic Attention Mechanisms (PDF)
     </a>
@@ -1315,7 +1006,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
   <h5>Early Encounters with the Ising Model</h5>
   <ul>
    <li>
-  In 2008, I implemented my first Ising model code in a computational physics course using Fortran 99, taught by Dr. Chi-Ning Chen at NDHU. This experience introduced me to computational techniques in statistical physics and laid the foundation for my later studies of the model.
+  In 2008, I implemented my first Ising model code in a computational physics course using Fortran, taught by Dr. Chi-Ning Chen at NDHU. This experience introduced me to computational techniques in statistical physics and laid the foundation for my later studies of the model.
 </li>
 <li>
   Around the same time, I also conducted an experiment as part of my second-year physics mandatory course at NDHU, which demonstrated the phenomenon of critical opalescence. The experiment, using a freon substance with a critical temperature of about 80°C, involved observing the liquid-vapor interface at the critical point. The system became milky, with liquid droplets and vapor bubbles scattering light as they reached a critical equilibrium. 
@@ -1334,7 +1025,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     <li>
       Reflecting on this work, I find Charles M. Newman's 2016 minicourse to be a particularly articulate exploration of the interplay between analytic number theory and statistical mechanics. While my presentation predated this minicourse, his insights provide a valuable modern perspective on these connections. The abstract of his lectures can be found 
       <a href="https://math.ecnu.edu.cn/gg/Math_Minicourse_by_Prof_Newman_20160223_to_20160322.pdf" target="_blank">here</a>, 
-      and the full lectures are available on YouTube:<br>
+      and the complete lectures are available on YouTube:<br>
       <ul>
         <li><a href="https://www.youtube.com/watch?v=H64g1N6sW0w" target="_blank">Lecture 1</a></li>
         <li><a href="https://www.youtube.com/watch?v=lF1bJj9pUjI" target="_blank">Lecture 2</a></li>
@@ -1362,7 +1053,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 
 </li>
     <li>
-      Additionally, after reviewing the online lectures of Chuck Newman, as recommended by Prof. Sunder Sethuraman, I worte three notes that further explore these connections in detail:
+      Additionally, after reviewing the online lectures of Chuck Newman, as recommended by Prof. Sunder Sethuraman, I wrote three notes that further explore these connections in detail:
 <ul>
         <li><a href="/files/Introduction to Chuck Newman's Work on Statistical Mechanics and the Riemann Hypothesis.pdf" target="_blank">Note 1: Introduction to Chuck Newman's Work on Statistical Mechanics and the Riemann Hypothesis</a></li>
         <li><a href="/files/Recognizing Self-Attention as a Stack of Ising Models- A Theoretical Perspective.pdf" target="_blank">Note 2: Recognizing Self-Attention as a Stack of Ising Models- A Theoretical Perspective</a></li>
@@ -1406,43 +1097,6 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
           </ul>
         </div>
 
-<div class="timeline-item">
-  <h5>October 30, 2024</h5>
-  <ul>
-    <li><strong>Export Office Rejection</strong>:
-      <ul>
-        <li>Contacted the Export Control Office at the University of Arizona to ensure compliance with dual-use regulations.</li>
-        <li>Despite explaining the potential dual-use nature of my work, the export office declined to classify it as significant or requiring clearance.</li>
-        <li><strong>Their Response</strong>: "We do not need to clear your work on any of the projects you have described."</li>
-        <li><strong>Impact</strong>: This rejection reflected a lack of institutional recognition of the potential importance of my work for U.S. competitiveness and national security.</li>
-        <!-- Images Section -->
-<li class="images-section">
-  <div class="image-container">
-    <figure>
-      <img src="/files/export_office.png"
-           alt="Description of Transformer-Based LLM Training Efficiency"
-           class="timeline-image"
-           style="width:50%;height:auto;display:block;">
-      <figcaption>Portion of the description I wrote.</figcaption>
-    </figure>
-  </div>
-
-  <div class="image-container">
-    <figure>
-      <img src="/files/export_office-reply.png"
-           alt="Export Office Reply"
-           class="timeline-image"
-           style="width:50%;height:auto;display:block;">
-      <figcaption>Last email I received from the Export Control Office.</figcaption>
-    </figure>
-  </div>
-</li>
-
-
-      </ul>
-    </li>
-  </ul>
-</div>
 
         <div class="timeline-item">
           <h5>December 2024</h5>
@@ -1452,9 +1106,9 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
         </div>
 
         <div class="timeline-item">
-          <h5>January 2025</h5>
+          <h5>October 2026</h5>
           <ul>
-            <li>Preparing further refinements to the paper, incorporating additional experimental results and practical implications to submit to alternative venues.</li>
+            <li>Tested per-head temperature tuning on Qwen3-32B compressed to 2.6 bits per weight: about 5% of the compression loss recovered (perplexity 12.69 → 12.55).</li>
           </ul>
         </div>
       </div>
@@ -1466,14 +1120,12 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
           <strong>Dynamic Scaling Factor Optimization</strong>:
           <ul>
             <li>Proposed a dynamic adjustment to the traditional scaling factor (\(\beta = \frac{1}{\sqrt{d_k}}\)) used in transformers.</li>
-            <li>Demonstrated that a dynamically optimized \(\beta\) significantly improves test accuracy across various datasets and model configurations.</li>
-            <li>Published moderate results showing substantial improvements over traditional methods without overstating claims.</li>
+            <li>Reported test-accuracy gains from a dynamically optimized \(\beta\) in small-model experiments.</li>
           </ul>
         </li>
         <li>
           <strong>Experimental Results</strong>:
           <ul>
-            <li>The results showcase consistent improvements in accuracy when using the dynamic scaling factor compared to the traditional fixed method.</li>
             <li>Key findings include accuracy improvements across varying categories, sequence lengths, and training set sizes.</li>
           </ul>
         </li>
@@ -1508,7 +1160,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
       Approximate analysis plays a tremendous role in theoretical physics. First, every “exact” law is in reality approximate, because in the vast majority of cases, that approximation offers sufficient accuracy. Second, theoretical physics does not strictly demand absolute accuracy in physical laws. If one defines the scope of a given phenomenon in advance, it suffices for the outcome to meet the required degree of precision. That is why we can still use Newtonian mechanics for analyzing the trajectory of artillery shells, despite knowing it is not absolutely accurate, simply because it is sufficiently precise in that domain, and we turn to relativity only when necessary for higher accuracy.
     </p>
     <p>
-      For this reason, in theoretical physics, there coexist certain theories (often referred to as “classical theories”) that have been shown to be less accurate alongside those that are more exact. They remain useful because, within certain specific ranges of phenomena, they retain their applicability. Any logically complete theory, once verified as valid within a certain accuracy range, does not lose its value. Indeed, partial or approximate results, derived in particular cases, remain embedded in any subsequent, more precise theory. Plainly, this category also includes those still under development or not yet fully coherent; they, too, have significance in the progression of theoretical physics.
+      For this reason, in theoretical physics, there coexist certain theories (often referred to as “classical theories”) that have been shown to be less accurate alongside those that are more exact. They remain useful because, within certain specific ranges of phenomena, they retain their applicability. Any logically complete theory, once verified as valid within a certain accuracy range, does not lose its value. Indeed, partial or approximate results, derived in particular cases, remain contained in any subsequent, more precise theory. Plainly, this category also includes those still under development or not yet completely coherent; they, too, have significance in the progression of theoretical physics.
     </p>
     <p>
       Thus, we see that a key process in general physical theory lies in deducing more specific laws from the most general principles, without neglecting the central role of careful consideration of the most important factors. Overlooking those primary factors while relying solely on coarse simplifications can lead to ignoring the true scale or magnitude of the phenomena. In reality, the forms of phenomena themselves are often approximate, and the functional relationships among the physical quantities that describe them are similarly approximations. When studied at higher levels of precision, these relationships may reveal deeper meanings.
@@ -1653,7 +1305,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 <footer>
   &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc.
   All rights reserved. &middot;
-  Patent Applications: 63/813,617 (CEAS) &middot; 64/067,703 (Physical ASI/GRAIL) &middot; Provisional stage.
+  U.S. Patent Portfolio &middot; Nonprovisional Applications 19/833,766 &middot; 19/833,809 &middot; 19/833,804 (filed 8 Oct 2026) &middot; Provisional 64/067,703 Pending.
 </footer>
 
 </div>

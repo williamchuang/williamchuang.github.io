@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>GRAIL — Geometric Representation Algebra for Intelligent Learning · Logarchéon</title>
-<meta name="description" content="GRAIL encodes neural computation over curved manifolds. Geometric error correction, cryptographic twin models, automorphic attention, and observer-centric quantum gravity."/>
+<meta name="description" content="GRAIL encodes neural computation over curved manifolds. Group-invariant attention, function-identical twin models, and automorphic kernels. Patent pending · U.S. Provisional 64/067,703."/>
 <link rel="canonical" href="https://logarcheon.com/GRAIL"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -213,19 +213,16 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <h1>Geometric Representation<br><em>Algebra for Intelligent Learning</em></h1>
     <p class="hero-desc">
       GRAIL replaces Euclidean inner products with group-invariant metric primitives on curved manifolds,
-      giving neural architectures geometric error correction, cryptographic twin models,
-      and a principled route to observer-centric quantum gravity.
+      giving neural architectures group-invariant attention and function-identical twin models.
       The fundamental invariance: I(g&thinsp;&middot;&thinsp;q,&thinsp;g&thinsp;&middot;&thinsp;k) = I(q,k) for all g in the isometry group G.
     </p>
     <div class="hero-eq">
       d<sub>M</sub>(&phi;q, &phi;k) = d<sub>M</sub>(q, k)&nbsp;&nbsp;&forall;&thinsp;&phi; &isin; G
       &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
-      the invariance from which geometry, security, and physics all follow
+      the invariance on which GRAIL is built
     </div>
     <div class="hero-badges">
-      <span class="hero-badge">U.S. Patent 64/067,703 (Physical ASI/GRAIL)</span>
-      <span class="hero-badge">63/773,441 (Hyperbolic Framework)</span>
-      <span class="hero-badge">Provisional stage &middot; In development</span>
+      <span class="hero-badge">Patent pending &middot; U.S. Provisional 64/067,703</span>
     </div>
   </div>
 </div>
@@ -234,11 +231,10 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <div class="toc-label">Sections</div>
     <ul class="toc-list">
       <li><a href="#foundations" class="toc-link">Foundations</a></li>
-<li><a href="#security" class="toc-link">Security &amp; Twins</a></li>
+<li><a href="#security" class="toc-link">Twin Models</a></li>
 <li><a href="#ctq" class="toc-link">CTQ Langlands</a></li>
 <li><a href="#implementation" class="toc-link">Implementation</a></li>
 <li><a href="#theory" class="toc-link">Theory</a></li>
-<li><a href="#applications" class="toc-link">Applications</a></li>
 <li><a href="#reference" class="toc-link">Origin &amp; Reference</a></li>
     </ul>
   </aside>
@@ -251,8 +247,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
   </div>
   <div class="section-body">
 <p class="note">
-    This research originated one year ago and remains under active development toward more advanced progress.
-    Patent applications: 64/067,703 (Physical ASI Seed/GRAIL) &middot; 63/773,441 (Hyperbolic Framework). Provisional stage.
+    GRAIL remains under active development. Patent pending &middot; U.S. Provisional 64/067,703.
   </p>
 
   <h3>What is GRAIL?</h3>
@@ -266,7 +261,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
   <ul>
     <li><strong>Gradient–symmetry interplay.</strong> In general geometries, group actions need not commute with gradient descent; this reshapes optimization paths and landscapes.</li>
     <li><strong>When commutativity returns.</strong> Under isometric symmetries on Riemannian manifolds with invariant loss, gradient flow is equivariant and commutes with those symmetries.</li>
-    <li><strong>Secure-by-geometry.</strong> Time-varying Lorentz/Möbius actions on parameters and data enable real-time, non-malleable encryption aligned with model inference.</li>
+    <li><strong>Twin models.</strong> Lorentz/Möbius actions applied to both parameters and data give function-identical twins; their use for protection in use is a research target.</li>
     <li><strong>Autoencoders as dynamical systems.</strong> Fixed points, orbits, and hyperbolic distances structure compression, transfer, and reconstruction guarantees.</li>
   </ul>
 
@@ -283,9 +278,8 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
   <h3>Why this matters</h3>
   <p>
-    By treating learning as geometry, GRAIL unifies optimization, symmetry, and cryptography:
-    it yields principled invariances when desired and controlled non-commutativity when beneficial,
-    with direct routes to secure, real-time, model-aligned encryption.
+    By treating learning as geometry, GRAIL connects optimization and symmetry:
+    it yields principled invariances when desired and controlled non-commutativity when beneficial.
   </p>
 
   <p>
@@ -305,199 +299,36 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 <section class="page-section" id="security">
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title">Security &amp; Twin Models</h2>
+    <h2 class="section-title">Twin Models</h2>
   </div>
   <div class="section-body">
-<div style="margin-top:1.25rem; padding:1rem; border-left:3px solid #5b9fff; background:var(--box-blue);">
-  <strong>BLUF:</strong> GRAIL runs at full native speed and <strong>requires no CPU or cloud trust</strong>—a decisive advantage over all known encrypted ML methods. Unlike systems that must decrypt or emulate over ciphertext, GRAIL directly parses encrypted inputs and parameters through model layers with <em>no runtime slowdown</em>.<br><br>
-
-  <strong>Deployment Note:</strong> As with any cryptographic protocol, security assumes that model training and encryption occur on secure or air-gapped devices, <em>prior</em> to inference-time execution. Once encrypted, models and inputs remain opaque to untrusted CPUs throughout usage.
-</div>
-
-
-
-
-
-
-  <p><strong>Tagline:</strong> <em>With GRAIL, you don’t need to trust the CPU.</em></p>
-
-  <p><strong>Why?</strong></p>
-  <ul>
-    <li><strong>No plaintext in the ALU:</strong> Compute happens over <em>algebraically encrypted representations</em>. The processor only sees obfuscated tensors—not the true data.</li>
-    <li><strong>Keys stay off-device:</strong> Decryption schedules live outside the untrusted machine. Optional re-keying during runtime keeps states fresh and non-malleable.</li>
-    <li><strong>Zero vendor trust required:</strong> Unlike TEEs (e.g., Intel SGX or AMD SEV), GRAIL doesn’t rely on opaque microcode or vendor firmware.</li>
-    <li><strong>Default behavior:</strong> GRAIL does this <em>by design</em>. No special mode, no overhead. It's not a patch—it's the architecture.</li>
-    <li><strong>Future-aligned:</strong> As computing shifts to NPU-native and neural models replace OS kernels, GRAIL’s <strong>geometry-native encryption</strong> will be essential.</li>
-    <li><strong>Performance:</strong> GRAIL runs at <strong>native speed</strong>. Compared to FHE or MPC? It’s not just “3× faster”—it’s <strong>1,000× to 10,000× faster</strong>.</li>
-  </ul>
-
-<blockquote style="background:var(--box-blue); border-left:3px solid #5b9fff; padding:1rem; margin:2rem 0;">
-  <strong>Bottom line:</strong> GRAIL runs at <u>normal speed</u> without trusting the CPU.<br>
-  Compared to FHE/MPC, it’s not “3× faster”—it’s <strong>thousands to ten-thousands× faster</strong>.<br>
-  Compared to plaintext? <strong>= equal speed</strong>, even with frequent or per-step key rotation.
-</blockquote><p>These embedded coprocessors are well-documented and raise legitimate concerns for users requiring full CPU-level privacy:</p>
-  <ul>
-    <li><strong>Intel:</strong> <a href="https://en.wikipedia.org/wiki/Intel_Management_Engine?utm_source=chatgpt.com" target="_blank"><strong>Intel Management Engine (ME)</strong></a> — now part of the <strong>Converged Security & Management Engine (CSME)</strong>.</li>
-    <li><strong>AMD:</strong> <a href="https://en.wikipedia.org/wiki/AMD_Platform_Security_Processor?utm_source=chatgpt.com" target="_blank"><strong>Platform Security Processor (PSP)</strong></a> — aka AMD Secure Processor.</li>
-  </ul>
-  <p><em>These are low-level vendor-controlled systems with privileged access—potential vectors for surveillance or remote compromise. GRAIL avoids relying on them entirely.</em></p>
-
-  <h4>Comparison of Methods for Secure Computation Without CPU Trust</h4>
-  <div style="overflow-x:auto;">
-    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%; font-size:0.95rem;">
-      <thead style="background:#007BFF; color:white;">
-        <tr>
-          <th>Method</th>
-          <th>What's Protected “In Use”</th>
-          <th>Trust & Leakage</th>
-          <th>Speed (Relative to FHE = 1×)</th>
-          <th>ML Fit Today</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>FHE</strong> (CKKS, TFHE)</td>
-          <td>Data & model stay encrypted; ops over ciphertexts</td>
-          <td>No trust in hardware; leaks access patterns unless ORAM used</td>
-          <td><strong>1× (baseline)</strong><br>e.g. 8.58s vs. milliseconds</td>
-          <td>Mature libraries; still slow for real-time ML</td>
-        </tr>
-        <tr>
-          <td><strong>MPC / Secret Sharing</strong></td>
-          <td>Data split across multiple parties</td>
-          <td>Requires ≥2 honest parties; high communication</td>
-          <td><strong>10–100×</strong> faster than FHE</td>
-          <td>Efficient for matmul-heavy models; WAN hurts</td>
-        </tr>
-        <tr>
-          <td><strong>ORAM / Garbled Circuits</strong></td>
-          <td>Data and access patterns obfuscated</td>
-          <td>High bandwidth; full privacy if padded</td>
-          <td><strong>10–100×</strong> faster than FHE</td>
-          <td>Best for binarized networks or lookup-style tasks</td>
-        </tr>
-        <tr>
-          <td><strong>ZK / zkML</strong></td>
-          <td>Verifiable execution; not encrypted in-use</td>
-          <td>Trusted setup; slow proof generation</td>
-          <td><strong>2–10×</strong> faster than FHE (verify-only)</td>
-          <td>Great for proofs, not for privacy</td>
-        </tr>
-        <tr>
-          <td><strong>TEE</strong> (Intel SGX, AMD SEV)</td>
-          <td>Plaintext inside enclave; encrypted RAM</td>
-          <td>Requires trusting vendor firmware; vulnerable to side channels</td>
-          <td><strong>500–1,000×</strong> faster than FHE</td>
-          <td>Widely deployed; not trustless</td>
-        </tr>
-        <tr style="background:var(--box-blue);">
-          <td><strong>GRAIL</strong> (this work)</td>
-          <td>Parameters, activations, and latents are algebraically encrypted via geometry/operator representations</td>
-          <td>No hardware trust; strong semantic protection using group theory, symbolic entropy, and automorphic logic</td>
-          <td>
-            <strong>≈1×</strong> (compared to plaintext)<br>
-            <strong>1,000×–10,000×</strong> faster than FHE<br>
-            <em>By default. No extra encryption step needed.</em>
-          </td>
-          <td><strong>Optimal</strong> for real-time, encrypted ML inference and training</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-
-
-
-<!-- Additional Emphasis -->
-<div style="margin-top:1.5rem; padding:1rem; border-left:4px solid #6f42c1; background:var(--box-blue);">
-<p>
-  <strong>Note:</strong> The comparison with FHE or MPC is just <strong>one small corner</strong> of GRAIL's capabilities. GRAIL is not merely an encryption layer—it is a <strong>superset architecture</strong> that unifies cryptographic, geometric, symbolic, and post-quantum computation into a single coherent neural framework.
-</p>
-</div>
+<p><strong>Scope.</strong> GRAIL twins are function-identical reparametrisations: distinct internal weights, identical outputs on all inputs. They are not encryption in the FHE sense. Use of twins for protection in use is a research target; no security analysis or speed benchmark against FHE, MPC or TEE is published. Measured overhead of hyperbolic attention is given in §04.</p>
 
 <!-- ===== USE CASE: GRAIL CRYPTOGRAPHIC TWINS ===== -->
-<section id="grail-cryptographic-twins" aria-label="GRAIL: Cryptographically Equivalent Twin Models">
+<section id="grail-cryptographic-twins" aria-label="GRAIL: Function-Identical Twin Models">
   <div style="margin-top:1.5rem; padding:1rem; border-left:3px solid #5b9fff; background:var(--box-blue); border-radius:6px;">
 
     <h5 style="margin:0 0 .5rem; font-size:1.15rem; color:var(--body);">
-      Use Case: Generating Cryptographically Equivalent Twin Models
+      Use Case: Generating Function-Identical Twin Models
     </h5>
 
     <p style="margin:.5rem 0 1rem;">
       One of GRAIL’s most powerful properties is its ability to produce an
-      <em>infinite family of algebraically encrypted twin models</em>—each with
+      <em>infinite family of twin models</em>—each with
       <strong>distinct internal weights</strong> but <strong>identical outputs</strong> on all inputs.
     </p>
 
     <p style="margin:0 0 .75rem;">
-      These variants are not merely obfuscated—they are <em>provably invariant</em> under GRAIL’s encryption basis. This makes them ideal for:
+      These variants are function-identical by construction. A candidate use (a target, not demonstrated):
     </p>
     <ul style="margin:0 0 1rem 1.25rem; padding-left:1rem;">
       <li>Deploying unique model instances per user, device, or session</li>
-      <li>Preventing parameter extraction via model inversion or distillation</li>
-      <li>Enabling secure multi-party or decentralized inference without key sharing</li>
-      <li>Thwarting fingerprinting attacks, even when outputs are observable</li>
     </ul>
 
-    <!-- Nested insight panel -->
-    <div style="margin-top:1.25rem; padding:1.1rem; background:var(--box-blue); border-left:5px solid #ffc107; border-radius:6px; font-size:1rem; line-height:1.6;">
-      <strong style="color:#8a6d3b; font-size:1.05rem;">Expanded Insight</strong>
-
-      <p style="margin:.5rem 0 0;">
-        <strong>GRAIL enables the construction of an infinite ensemble of cryptographically equivalent models</strong>,
-        each defined on a <em>reparametrized weight manifold</em> with its own internal energy geometry. These are not mere latent-space
-        reparameterizations, but fully distinct <strong>semantic universes</strong>: models whose internal geometries—curvature, attractors,
-        and critical points—are reshaped while preserving identical outputs through deep algebraic and cryptographic invariants.
-      </p>
-
-      <p style="margin:1rem 0 0;">
-        Each model-world within the ensemble possesses a self-consistent energy topology defined by transformed weights.
-        Local geometry shifts; global semantics remain intact.
-      </p>
-
-      <p style="margin:1rem 0 0;">
-        These transformations are <strong>not analogous to relativistic frame changes—they are mathematically equivalent</strong>.
-        The cryptographic operator acts as a coordinate transformation on a curved manifold, reorienting the model’s internal frame of
-        reference <em>within a physically structured weight space</em>. Here, the model functions as an observer, and the input acts as
-        an observable tensor. Both are preserved under frame transformation, satisfying covariance and consistency conditions from
-        general relativity.
-      </p>
-
-      <p style="margin:1rem 0 0;">
-        This framework embeds machine learning models into the <strong>formal tensorial language of relativistic physics</strong>.
-        The system preserves inference under arbitrary frame changes, just as physical laws remain invariant across observers in curved spacetime.
-      </p>
-
-      <p style="margin:1rem 0 0;">
-        GRAIL thus offers a principled unification: <strong>neural architectures are recast as relativistic observers</strong>
-        within cryptographically secured geometries. This is not a metaphor, but a rigorous embedding of learning dynamics into the
-        same mathematical categories that underwrite general relativity.
-      </p>
-
-      <p style="margin:1rem 0 0;">
-        Each transformed instance becomes a distinct observer-world within an ensemble of
-        <strong>metric-preserving, cryptographic manifolds</strong>—all yielding invariant inference yet internally reconfigured.
-        This enables deployment across adversarial, decentralized, or multi-party environments without semantic leakage or degradation.
-      </p>
-
-      <ul style="margin:1rem 0 0 1.25rem; padding-left:1rem;">
-        <li>Inference remains invariant in encrypted and plaintext modes</li>
-        <li>Transformations follow exact tensorial rules of frame covariance</li>
-        <li>Supports <strong>geometric ensembling</strong>, <strong>multi-key model sharding</strong>, and <strong>zero-leakage inference</strong></li>
-      </ul>
-
-      <p style="margin:1rem 0 0;">
-        These cryptographic twins arise from symmetry-preserving flows on encrypted model manifolds, where
-        <strong>algebraic group actions</strong> preserve semantics while reshaping structure—analogous to Lorentz or diffeomorphic
-        transformations in general relativity.
-      </p>
-    </div>
-    <!-- /Nested insight panel -->
 
     <p style="margin:1rem 0 0; font-size:1.03rem;">
       <strong style="color:var(--body);">Outcome:</strong>
-      A single model becomes a generator of <strong>functionally identical, geometrically distinct, and physically invariant cryptographic twins</strong>,
-      enabling secure inference in a relativistically consistent cryptographic landscape.
+      A single model becomes a generator of <strong>functionally identical, geometrically distinct twins</strong>.
     </p>
 
   </div> <!-- /blue shaded container -->
@@ -517,7 +348,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <h2 class="section-title">Critical-Tri-Quantized Langlands</h2>
   </div>
   <div class="section-body">
-<p class="ctq-sub">A learning–theoretic route to emergent quantum gravity: geometry (automorphic), information (Galois/DFA), and thermodynamics (Selberg–Huber) fused by a critical-entropy thermostat.</p>
+<p class="ctq-sub">Geometry (automorphic), information (Galois/DFA), and thermodynamics (Selberg–Huber) coupled by a critical-entropy thermostat.</p>
     <div class="ctq-badges">
       <span class="ctq-badge">Automorphic kernels</span>
       <span class="ctq-badge">Hyperbolic attention \( \mathbb H^2 \) (current)</span>
@@ -672,18 +503,13 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     <li><strong>DFA compliance:</strong> the comparison \( \widehat{\mathrm{Head}}_\beta\!\Rightarrow\!\mathsf T_{\mathrm{DFA}}\widehat{\mathrm{Head}}_\beta \) is natural in \(V\); stable heads land in the invariant image.</li>
   </ul>
 
-  <h5 class="ctq-mini">Physics link (CTQ gravity)</h5>
-  <ul class="ctq-list">
-    <li><strong>Observer–probe principle:</strong> the measured BCH spectrum and \( \lambda_{\mathrm{eff}}(t) \) are functions of a small probe set \( \mathcal G \).</li>
-    <li><strong>Gauge invariance:</strong> functorial invariants (Hecke spectra, heat trace, BCH functionals) match GR’s “physics = invariants” ethos.</li>
-  </ul>
 </article>
 
 <!-- Twin verification (cryptographic twins via Yoneda) -->
 <article class="ctq-card" id="twin-check">
-  <h4>Twin verification via Yoneda (cryptographic twins)</h4>
+  <h4>Twin verification via Yoneda (function-identical twins)</h4>
   <p class="ctq-mini">
-    Two heads \( \widehat{\mathrm{Head}}_\beta \) and \( \widehat{\mathrm{Head}}'_\beta \) are <em>cryptographic twins</em> if there is a unitary monoidal natural isomorphism
+    Two heads \( \widehat{\mathrm{Head}}_\beta \) and \( \widehat{\mathrm{Head}}'_\beta \) are <em>twins</em> if there is a unitary monoidal natural isomorphism
     \( \eta:\widehat{\mathrm{Head}}_\beta \Rightarrow \widehat{\mathrm{Head}}'_\beta \)
     that intertwines all Hecke maps and respects the DFA comparison.
   </p>
@@ -735,7 +561,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
     \]
     and conjugating the truncation \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
     Because hyperbolic distance is isometry-invariant, the forward map is preserved exactly; this yields
-    <span class="ctq-pill">cryptographic twins</span> of a trained model.
+    <span class="ctq-pill">function-identical twins</span> of a trained model.
   </p>
 
   <div class="ctq-callout">
@@ -781,7 +607,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
       \[
         K_{\beta}(q,k)=\sum_{\gamma\in\Gamma_{\rm trunc}}\exp\!\big(-\beta\, d_{\mathbb H}(q,\gamma k)\big)
       \]
-      To make <em>cryptographic twins</em> (identical outputs), push all geometric weights by the same isometry:
+      To make <em>twins</em> (identical outputs), push all geometric weights by the same isometry:
       \[
         \{q_i,k_j\}\mapsto\{\varphi q_i,\varphi k_j\}
       \]
@@ -858,7 +684,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
         <td>
           <em>Early public pointer (Apr&nbsp;8,&nbsp;2023):</em> The README of the <code>well-distributed-schottky-groups</code> repository (Schottky subgroups of PSL(2,&nbsp;R) for a hyperbolic-geometry master’s thesis) notes that the implementation “could also work as a cipher device for non-linear encryption,” explicitly suggesting Schottky/Möbius/Lorentz maps as a non-linear cipher and as a bridge to statistical-mechanics style ensembles.<br>
           <em>First explicit orbit-transport commit (Oct&nbsp;8,&nbsp;2023):</em> A separate personal repository generalizes these ideas into a <strong>metric-invariant architecture</strong> for transporting trained neural models along known group orbits.<br>
-          <em>Contribution:</em> Bypasses the NP-hardness of orbit identification by avoiding post-hoc discovery altogether and instead applying explicit geometric operators to re-embed models across different manifolds while preserving function, dot-product structure, and symmetry. Develops a constructive, geometric, metric-invariant framework that jointly moves weights and data via conjugation by automorphic operators (Schottky / Langlands–Maass / Poincaré-series style), yielding function-identical “twins” and enabling orbit-jump optimization without solving the hard inverse problem of extracting implicit invariants.<br>
+          <em>Contribution:</em> Bypasses the NP-hardness of orbit identification by avoiding post-hoc discovery altogether and instead applying explicit geometric operators to map models across different manifolds while preserving function, dot-product structure, and symmetry. Develops a constructive, geometric, metric-invariant framework that jointly moves weights and data via conjugation by automorphic operators (Schottky / Langlands–Maass / Poincaré-series style), yielding function-identical “twins” and enabling orbit-jump optimization without solving the hard inverse problem of extracting implicit invariants.<br>
           <em>Note:</em> Independent research, not conducted under a university.
         </td>
       </tr>
@@ -877,7 +703,7 @@ details{color:var(--body);} summary{color:var(--gold-light);cursor:pointer;} sum
 
   <div class="ctq-callout">
     <strong>One-liner summary.</strong><br>
-    Extracting hidden symmetries in neural networks is NP-hard (Ensign et al., 2017). This method bypasses the hardness by constructing a forward-preserving orbit action on weights and data, and then leveraging non-commutativity with optimizers to accelerate training.
+    Extracting hidden symmetries in neural networks is NP-hard (Ensign et al., 2017). This method bypasses the hardness by constructing a forward-preserving orbit action on weights and data.
   </div>
 
   <div class="ctq-note" role="note" aria-label="Exact twins note">
@@ -1039,8 +865,7 @@ for step in training:
   <h4>Novelty &amp; claim (to the best of current knowledge)</h4>
   <div class="ctq-callout">
     <strong>Claim.</strong>
-    This framework provides, to the best of current knowledge, the first repeatedly tested method that
-    <em>bypasses</em> the NP-hard problem of post-hoc symmetry extraction for neural networks by:
+    Given a known symmetry group, this framework <em>bypasses</em> the NP-hard problem of post-hoc symmetry extraction for neural networks by:
     (i) applying a single isometry \( \varphi\in\mathrm{Isom}(\mathbb H^d) \) to <em>both</em> model geometry and data,
     (ii) keeping a <em>one-sided</em> automorphic kernel \( K_\beta(q,k)=\sum_{\gamma\in\Gamma_{\rm trunc}}\exp(-\beta\,d_{\mathbb H}(q,\gamma k)) \),
     and (iii) <em>conjugating</em> the truncation \( \Gamma_{\rm trunc}\leftarrow \varphi\,\Gamma_{\rm trunc}\,\varphi^{-1} \).
@@ -1076,7 +901,6 @@ for step in training:
     </span>
   </div>
 
-<article class="ctq-note" role="note" aria-label="Beyond scalar computation"> <strong>Beyond scalar computation.</strong> The diagonal-isometry framework extends beyond neural architectures. Any computational system—classical or Turing-complete—can be embedded in a curved manifold \( (M, g) \) by replacing scalar multiplications with invariant functions \(F(I(q,k))\), where \(I\) is preserved by a known group action \(g\). Model instructions, register values, memory contents, and data inputs are all treated as vector points \(p_i \in M\), and transported together via diagonal group action: \[ (p_i;x) \mapsto (g\,p_i;\,g\,x) \] This yields functionally identical machines or programs under geometric transport. Thus, even legacy OS architectures or classical machines can be upgraded to curvature-aware, symmetry-transportable systems before the rise of AI-native substrates. </article>
 
 
   <h5 class="ctq-mini">What is—and isn’t—being claimed</h5>
@@ -1084,11 +908,10 @@ for step in training:
     <li><strong>Bypass, not contradiction.</strong> The classical NP-hardness (post-hoc discovery of hidden invariances) is not contradicted. The framework <em>assumes a known symmetry group</em> and provides a constructive <em>transport</em> along its orbits.</li>
     <li><strong>In-loop optimization, not just transport.</strong> Beyond producing exact twins, the framework includes an
       <em>orbit-jump controller</em> that uses Langlands-triad diagnostics (automorphic&nbsp;↔&nbsp;Galois/DFA&nbsp;↔&nbsp;thermodynamic/Selberg–Huber)
-      to select loss-decreasing Lorentz/Möbius moves \( \varphi \) <em>during</em> training. These non-SGD steps exploit real-world
-      non-commutativity to reduce loss between gradient updates.</li>
+      to select Lorentz/Möbius moves \( \varphi \) <em>during</em> training. Loss reduction from these non-SGD steps is a research target.</li>
     <li><strong>Scope (automorphic specialization).</strong> Works with the one-sided Poincaré/automorphic kernel on \( \Gamma \backslash \mathbb H^d \), acts diagonally on (weights, data), and preserves exactness via conjugation of \( \Gamma_{\rm trunc} \).</li>
     <li><strong>Scope (metric/invariant twinhood).</strong> For metric-only or invariant-only constructions using \(d_M\) or a scalar invariant \(I\), automorphy is optional; exact twinhood holds whenever logits depend only on the preserved invariant and the same group action is applied to both model geometry and data.</li>
-    <li><strong>Evidence.</strong> Empirically validated across repeated experiments; forward equality follows from invariance of the chosen scalar (distance or other \(I\)) and, in the automorphic case, from the relabeling \( \gamma\mapsto \varphi\gamma\varphi^{-1} \).</li>
+    <li><strong>Evidence.</strong> Forward equality follows from invariance of the chosen scalar (distance or other \(I\)) and, in the automorphic case, from the relabeling \( \gamma\mapsto \varphi\gamma\varphi^{-1} \).</li>
   </ul>
 
   <h5 class="ctq-mini">Suggested formal naming</h5>
@@ -1110,52 +933,6 @@ for step in training:
 
 
 
-<article class="ctq-card" id="independence">
-  <h4>Independence & research context</h4>
-  <p class="ctq-mini">
-    This project is an independent effort developed outside a university setting. The work spans physics,
-    mathematics, statistics, and AI/CS, and proceeded independently because prior academic roles did not
-    provide the mandate or latitude to propose and build new frameworks at this scope.
-  </p>
-
-  <div class="ctq-callout">
-    <strong>Why independent.</strong>
-    <ul class="ctq-list">
-      <li><strong>Novelty constraints.</strong> Student positions emphasized surveys and expository writing;
-        proposing original architectures or cross-domain frameworks was often discouraged or deemed out of remit.</li>
-      <li><strong>Advisor-familiarity bounds.</strong> Work was expected to remain within areas already familiar
-        to advisors; deep interdisciplinary directions (physics ↔ math ↔ statistics ↔ AI/CS) were effectively
-        outside the operating envelope.</li>
-      <li><strong>Framework-level research.</strong> Program structures prioritized incremental contributions
-        over paradigm-level design. Building a replacement or generalization of existing frameworks required
-        independence to maintain scope and pace.</li>
-    </ul>
-  </div>
-
-  <div class="ctq-note" role="note" aria-label="Standards & focus">
-    <strong>Standards &amp; focus.</strong>
-    The project does not lower the bar to fit legacy incentives. Time and attention are allocated to efforts that
-    meet a high standard: technical novelty anchored in first principles, falsifiable predictions,
-    cross-validated experiments, and public artifacts (code, logs, diagnostics) that enable external replication.
-    Engagement is prioritized where these standards can be upheld without dilution.
-  </div>
-
-  <h5 class="ctq-mini">Provenance &amp; transparency</h5>
-  <ul class="ctq-list">
-    <li><strong>Public record:</strong> first public GitHub commit for this line of work on
-      <em>Oct 8, 2023</em> (see project repository).</li>
-    <li><strong>Self-funded, independent:</strong> no institutional sponsorship; artifacts and diagnostics are
-      released to enable external replication.</li>
-    <li><strong>Positioning:</strong> statements here reflect personal experience; technical claims are grounded
-      in the reproducible codebase and empirical logs accompanying the work.</li>
-  </ul>
-
-  <div class="ctq-callout">
-    <strong>Collaboration stance.</strong>
-    Collaboration and institutional partnerships are welcome when they preserve the ability to pursue
-    interdisciplinary research at full fidelity and to publish complete, verifiable results without constraint.
-  </div>
-</article>
 
 
 
@@ -1315,7 +1092,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
   <ol>
     <li>
       <strong>Probe bank.</strong>
-      Log spectral probes on your background:
+      Log spectral probes on the background:
       \(E(t_m)=\|e^{-t_m\Delta}h\|_2^2\) for Riemannian \(X\),
       or the causal analogue for Lorentzian \(X\),
       \(m=1,\dots,M\).
@@ -1427,7 +1204,7 @@ with \(\Box\) the d’Alembertian and kernel \(k_\phi\) supported in the future 
   <ul>
     <li><strong>GRAIL without CEAS ≈ vanilla + a small constant factor</strong> (single-digit to ~20% in typical regimes).</li>
     <li>As \(S\) and \(d\) grow, attention’s \(O(BHS^2d)\) cost overwhelms the manifold’s \(O(BSd)\) extras.</li>
-    <li>If you do see larger slowdowns, it’s usually a toy-scale artifact or unfused log/exp calls.</li>
+    <li>Larger slowdowns usually indicate a toy-scale artifact or unfused log/exp calls.</li>
   </ul>
 </section>
 
@@ -1608,7 +1385,6 @@ Final test accuracy: 1.000
   <div class="tcbox tc-blue">
     <div class="tcbox-title"><span class="tcbox-num">1</span><span>Core Idea</span></div>
     <div class="tcbox-body">
-      <p>Quantize the <em>observer</em>, not the metric. Geometry emerges from inference.</p>
       <div class="tcbox-sublabel">BCH drift (operational)</div>
       \[
         e^{\varepsilon \xi} e^{-\eta X} e^{-\varepsilon \xi} e^{\eta X}
@@ -1647,20 +1423,6 @@ Final test accuracy: 1.000
     </div>
   </div>
 
-  <div class="tcbox tc-muted">
-    <div class="tcbox-title"><span class="tcbox-num">4</span><span>Observer-Centric Quantum Gravity — Stance</span></div>
-    <div class="tcbox-body">
-      <ul>
-        <li>Do not quantize the metric tensor; instead, quantize symbolic inference (DFA + codebook dynamics).</li>
-        <li>Reconstruct observable geometry from the Fisher information \(g_F\) over trained observer ensembles.</li>
-        <li>Continuous symmetries act as group flows; incompatibilities surface as measurable commutators.</li>
-      </ul>
-      <div style="margin-top:.8rem;">
-        <span class="tc-pill">No contradiction with QM/QFT/GR</span>
-        <span class="tc-pill">Falsifiable: latent geometry &amp; audits</span>
-      </div>
-    </div>
-  </div>
 
   <h3 style="margin-top:2rem;">At-a-Glance Equations</h3>
   <div class="tcbox tc-blue">
@@ -1703,10 +1465,10 @@ Final test accuracy: 1.000
 
   <h3 style="margin-top:2rem;">Status & Links</h3>
   <p style="color:var(--body);">
-    This introduction summarizes the current direction. The program was first written in 2024 and continues to evolve in 2025.
+    This introduction summarizes the current direction. The program was first written in 2024.
     Notes (PDF):
     <a href="https://drive.google.com/file/d/1ankMJFfklQF_56GtxF_lYQ_INrEzqzUt/view?usp=sharing" target="_blank" rel="noopener">
-      GRAIL × DFA as Dual Quantization: Toward an Observer-Centric Quantum Gravity
+      GRAIL × DFA as Dual Quantization
     </a>.
   </p>
 </section>
@@ -1729,16 +1491,16 @@ Final test accuracy: 1.000
     #grail-intro code { background:var(--box-blue); padding:.15rem .35rem; border-radius:.25rem; }
     #grail-intro .note { font-size:.9rem; color:#4b5563; }
   </style><hr style="border:none;border-top:1px solid var(--border-dim);margin:2rem 0"><p style="font-size:1.05rem;color:var(--body);margin:.6rem 0 1.1rem;">
-    This installment deepens the <em>observer-centric</em> program. It couples
+    This installment couples
     <strong>GRAIL’s optimization-as-geometry</strong> (optimizer as a connection \(A\), curvature \(\Omega=dA{+}A\wedge A\))
     and <strong>DFA quantization</strong> (projectors \(\Pi_q\), cycle unitaries \(U_C\), transient CPTP maps)
-    with a full <strong>random-matrix theory (RMT)</strong> toolkit for analyzing infinite families of
+    with a <strong>random-matrix theory (RMT)</strong> toolkit for analyzing infinite families of
     <em>twin models</em> related by GRAIL symmetries. The aim is a teachable, auditable path from Lie brackets to
-    spectral certification—without contradicting QM/QFT/GR when interpreted as a meta-theory of inference.
+    spectral certification.
   </p>
 
   <p style="color:var(--body);font-size:.95rem;margin-top:.25rem;">
-    Full PDF:
+    PDF:
     <a href="https://drive.google.com/file/d/1kQMZDSQKCOqd_ag6tz1Xjs3hFjTIVKm8/view?usp=sharing" target="_blank" rel="noopener">
       Extended Lecture Notes (Lie/Gauge + RMT Twins)
     </a>.
@@ -1820,9 +1582,6 @@ Final test accuracy: 1.000
     <li><strong>Appendices</strong>: pseudocode, proof sketches, audits, effective-\(\hbar\).</li>
   </ul>
 
-  <p style="color:var(--body);font-size:.95rem;margin-top:1rem;">
-    This remains an inference-level theory: spacetime is not quantized here; geometry emerges from Fisher structure over observer ensembles.
-  </p>
 </section>
 
 
@@ -1836,149 +1595,6 @@ Final test accuracy: 1.000
   </div>
 </section>
 
-<section class="page-section" id="applications">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <h2 class="section-title">Applications</h2>
-  </div>
-  <div class="section-body">
-<h3>The Core Question</h3>
-  <p><strong>Why can’t standard transformers or physics-informed neural networks (PINNs)<sup id="footnote-pinn">[1]</sup> learn the inverse map</strong> \( g_{\mu\nu}(x,t) \to T_{\mu\nu}(x,t) \) <strong>from a goal state?</strong></p>
-
-  <h4>Summary Answer</h4>
-  <p>
-    Because standard transformers and PINNs are built to solve <em>forward problems</em>—they simulate what happens given a source (e.g., \( T_{\mu\nu} \)), not how to construct a source to achieve a desired effect (e.g., \( g_{\mu\nu} \)).
-  </p>
-  <p>This inverse process is:</p>
-  <ul>
-    <li><strong>Ill-posed</strong>: many \( T_{\mu\nu} \) can lead to the same \( g_{\mu\nu} \)</li>
-    <li><strong>Structurally unstable</strong>: small changes in \( g \) can require large changes in \( T \)</li>
-    <li><strong>Physically constrained</strong>: you must preserve energy conditions, causality, etc.</li>
-  </ul>
-  <p>
-    <strong>Only a framework like λ‑stack, which is:</strong>
-  </p>
-  <ul>
-    <li><strong>Symbolic</strong></li>
-    <li><strong>Entropy-aware</strong></li>
-    <li><strong>Operator-theoretic</strong></li>
-    <li><strong>Geometry-native</strong></li>
-  </ul>
-  <p>
-    …can trace these conditions backwards in a constrained, interpretable, and physically-valid way.
-  </p>
-
-  <h4>Why Standard Transformers Can’t Do It</h4>
-  <ul>
-    <li>
-      <strong>1. No Operator Inversion</strong>
-      <p>
-        Transformers are forward-only pattern extractors: they learn \( f: x \to y \) from lots of examples but don’t represent physical operators you can invert.
-      </p>
-      <p>
-        In contrast, λ‑stack uses operator decomposition (Dunford/Jordan) and spectral logic flows to invert mappings structurally, not just statistically.
-      </p>
-    </li>
-    <li>
-      <strong>2. No Physical Constraints</strong>
-      <p>
-        Transformers don’t obey Einstein field equations, energy conservation, causality bounds, or geometric consistency. They’ll happily generate physically impossible \( T_{\mu\nu} \) just to match a training distribution.
-      </p>
-      <p>
-        λ‑stack filters output modes using DFA-derived symbolic automata, making only physically traceable pulses possible.
-      </p>
-    </li>
-    <li>
-      <strong>3. No Goal-Conditioned Feedback</strong>
-      <p>
-        Transformers don’t accept desired outcomes (like "I want this geodesic") and produce a source field. Their attention is soft, forward, and oblivious to teleological targets.
-      </p>
-      <p>
-        λ‑stack includes goal-aware \( \beta \)-dynamics, using CEAS to adjust internal pressure to shape toward the desired geometry—like steering an energy wave.
-      </p>
-    </li>
-  </ul>
-
-  <h4>Why Physics-Informed Neural Networks (PINNs) Also Can’t Do It</h4>
-  <ul>
-    <li>
-      <strong>1. Forward PDE Solvers</strong>
-      <p>
-        PINNs are built to solve differential equations by minimizing residuals: given initial/boundary conditions, they evolve the solution forward. They do not learn the inverse of the PDE operator.
-      </p>
-      <p>
-        Inverting the Einstein equation \( G_{\mu\nu} = 8\pi T_{\mu\nu} \) is fundamentally hard:
-      </p>
-      <ul>
-        <li>You need a target geometry</li>
-        <li>You must construct a field that produces that geometry</li>
-        <li>It must be causally valid, energy-bounded, and local</li>
-      </ul>
-      <p>
-        PINNs don't have:
-      </p>
-      <ul>
-        <li>Symbolic inverse traceability</li>
-        <li>Cycle filters or nilpotent mode suppressors</li>
-        <li>Goal-conditioning via entropy feedback</li>
-      </ul>
-      <p>
-        They simulate—but they don’t compile.
-      </p>
-    </li>
-  </ul>
-
-  <h4>Inversion ≠ Regression</h4>
-  <p>
-    Yes, you could try to train a standard neural net or PINN to approximate the inverse map:
-    \[ g_{\mu\nu}(x,t) \mapsto T_{\mu\nu}(x,t) \]
-  </p>
-  <p>
-    But:
-  </p>
-  <ul>
-    <li>The space of valid \( T_{\mu\nu} \) is highly nonlinear, degenerate, and physically constrained</li>
-    <li>Without built-in symbolic control, the network will cheat—overfit or output unphysical values</li>
-    <li>You can’t know what modes it's using (no traceability)</li>
-    <li>You can’t modify or verify the field logic without retraining</li>
-  </ul>
-  <p>
-    <strong>Only λ‑stack supports invertible symbolic flows with mode decomposition and real-world interpretability.</strong>
-  </p>
-
-  <h4>λ‑Stack Uniqueness</h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Standard Transformers</th>
-        <th>PINNs</th>
-        <th>λ‑Stack</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Handles inverse map \( g \to T \)</td><td>❌</td><td>❌</td><td>✅</td></tr>
-      <tr><td>Symbolic decomposition of logic</td><td>❌</td><td>❌</td><td>✅</td></tr>
-      <tr><td>Thermodynamic attention control</td><td>❌</td><td>❌</td><td>✅</td></tr>
-      <tr><td>Physically-valid output filtering</td><td>❌</td><td>⚠️</td><td>✅</td></tr>
-      <tr><td>Interpretable mode trace</td><td>❌</td><td>❌</td><td>✅</td></tr>
-      <tr><td>Encrypted simulation across agents</td><td>❌</td><td>❌</td><td>✅</td></tr>
-    </tbody>
-  </table>
-
-  <h4>Final Takeaway</h4>
-  <p>
-    <strong>Standard transformers learn forward patterns.</strong><br>
-    <strong>PINNs solve forward physics problems.</strong><br>
-    <strong>λ‑Stack learns inverse logic flows in curved, symbolic spaces—constrained by thermodynamic and algebraic laws.</strong>
-  </p>
-
-  <footer>
-    <p id="footnote-pinn">
-      <sup>[1]</sup> <strong>PINNs</strong> (Physics-Informed Neural Networks) are a class of deep learning models designed to solve partial differential equations by embedding physical laws (e.g., conservation, boundary conditions) directly into the loss function.
-    </p>
-  </footer>
-</section>
 
 
 
@@ -1993,35 +1609,10 @@ Final test accuracy: 1.000
 
 <section class="page-section" id="reference">
   <div class="section-header">
-    <span class="section-num">07</span>
+    <span class="section-num">06</span>
     <h2 class="section-title">Origin &amp; Reference</h2>
   </div>
   <div class="section-body">
-<h4>Personal Path and Strategic Motivation</h4>
-  <p class="ctq-mini">
-    According to verified library records, independent study in special and general relativity began as early as third grade (K–3), forming the earliest seed of a long-term intellectual mission.
-    Since approximately 2003–2004, the pursuit of quantum gravity has been the principal objective—navigated through autodidactic rigor and sustained despite prolonged side tracks undertaken to secure necessary financial and logistical stability.
-  </p>
-
-  <div class="ctq-callout">
-    <strong>Formative Influences</strong>
-    <ul class="ctq-list">
-      <li>
-        Initiated direction through a translated edition of Lee Smolin’s <em>Three Roads to Quantum Gravity</em>, translated by
-        <a class="ctq-link" href="https://en.wikipedia.org/wiki/Hong-Yee_Chiu" target="_blank" rel="noopener">Dr. Hong-Yee Chiu</a>—
-        a NASA astrophysicist and
-        <a class="ctq-link" href="https://en.wikipedia.org/wiki/List_of_Cosmos_Club_members" target="_blank" rel="noopener">Cosmos Club member</a>
-        whose career spanned elite scientific, national, and diplomatic circles.
-      </li>
-      <li>
-        During undergraduate physics coursework, posed an early question that anticipated later developments in CEAS: 
-        why physical laws were written in perfectly clean formulaic form with no perturbation—e.g., why Coulomb’s inverse-square law lacked an &epsilon;-term. 
-        When presented to Professor Chia-Liang Cheng, this line of inquiry foreshadowed the entropy-based variational structure at the heart of CEAS. 
-        The intuitive notion of embedding controlled deviation directly into physical law (e.g., modifying Maxwell to Proca via &epsilon;) ultimately inspired the core
-        idea of scalable entropy adjustment in high-dimensional learning systems.
-      </li>
-    </ul>
-  </div>
 </article>
 
 
@@ -2067,7 +1658,7 @@ Final test accuracy: 1.000
 </div>
 <footer>
   &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc. All rights reserved.
-  &middot; Patent Applications: 64/067,703 &middot; 63/773,441 &middot; 63/881,657 &middot; Provisional stage.
+  &middot; U.S. Patent Portfolio &middot; Nonprovisional Applications 19/833,766 &middot; 19/833,809 &middot; 19/833,804 (filed 8 Oct 2026) &middot; Provisional 64/067,703 Pending.
 </footer>
 </div>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
