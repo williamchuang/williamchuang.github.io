@@ -605,6 +605,42 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </div>
 </section>
 
+<!-- MEASURED AGAINST STANDARD MODELS -->
+<section class="measured" id="measured">
+  <style>
+  .measured { padding:56px 0 8px; }
+  .measured-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:16px; }
+  .measured-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
+  .measured-card { border:1px solid var(--gold); background:linear-gradient(var(--gold-glow),var(--gold-glow)),var(--navy-mid); padding:22px 22px 20px; }
+  .measured-card h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.15rem; color:var(--gold-light); line-height:1.3; margin:0 0 10px; }
+  .measured-card p { font-size:0.82rem; color:var(--gold-light); line-height:1.65; margin:0; }
+  .measured-card.gold { border-color:var(--gold); background:linear-gradient(var(--gold-glow),var(--gold-glow)),var(--navy-mid); }
+  .measured-card.gold h3, .measured-card.gold p { color:var(--gold-light); }
+  @media(max-width:860px){ .measured-grid{ grid-template-columns:1fr; } }
+  </style>
+  <div class="container">
+    <div class="measured-label">Measured against standard models &middot; research scale and a 32-billion-parameter model &middot; pre-registered criteria</div>
+    <div class="measured-grid">
+      <div class="measured-card">
+        <h3>Forty times less data, exact generalisation</h3>
+        <p>Trained on 300 examples, GRAIL classified symmetry-transformed inputs never seen in training with accuracy 1.000. A standard transformer trained on 12,000 examples scored 0.237.</p>
+      </div>
+      <div class="measured-card">
+        <h3>Inverse design inside and outside the training data</h3>
+        <p>Given a target state, the &Psi;-causal engine found an action sequence for every target, 100 of 100 inside the training distribution and 100 of 100 outside it, each checked by independent simulation. The standard approach, a learned inverse model, managed 36 of 100 inside and none outside. For 100 impossible targets, the engine returned 100 verified certificates of impossibility.</p>
+      </div>
+      <div class="measured-card">
+        <h3>Global coordination where local attention stalls</h3>
+        <p>On N-bit parity, a task that local architectures can solve only in a number of rounds that grows with its size, the CEAS collective variable held accuracy at 0.98 up to 24 bits, where a local-attention model fell to 0.524, near chance. It needed 107&ndash;221 training steps per stage against 1,047&ndash;1,544.</p>
+      </div>
+      <div class="measured-card">
+        <h3>A frontier-class open model on one GPU</h3>
+        <p>Logarch&eacute;on&rsquo;s compression holds an open-weight language model of 32.8 billion parameters at 2.6 bits per weight in 11.8 GB, on a single 16 GB GPU, and the seed&rsquo;s designs are tested on it: CEAS temperature control, the MIA lift, gated fact updates, and an update rebuilt from 1.56% of its size that passed the safety gate with no retraining. In full precision this model scores 72.9 on the 2025 AIME mathematics examination, against 74.8 for OpenAI&rsquo;s o3-mini (medium).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TRIAD -->
 <section class="triad" id="architecture">
   <div class="container">
@@ -1889,12 +1925,12 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.16</div>
     </div>
 
-    <div class="demo-card" style="border-color:var(--gold);background:linear-gradient(var(--gold-glow),var(--gold-glow)),var(--navy-mid);">
-      <span class="demo-letter" style="color:var(--gold);">D</span>
-      <span class="demo-when" style="color:var(--gold);">Complete &middot; research scale</span>
-      <div class="demo-title" style="color:var(--gold-light);">Symmetry generalisation</div>
-      <p class="demo-why" style="color:var(--gold-light);">Train on a set of group elements; test on elements never seen in training. Trained on 300 examples, GRAIL classified the unseen elements with accuracy 1.000. A standard transformer trained on 12,000 examples, forty times as many, scored 0.237, against a chance level of 0.167. Across two symmetry groups (the continuous group SL<sub>2</sub>(&#8477;) and the modular group) and three seeds, GRAIL&rsquo;s accuracy on unseen elements equalled its accuracy on seen ones (0.96&ndash;1.000), while the transformer&rsquo;s fell to 0.23&ndash;0.38. The invariance holds by construction, to within 10<sup>&minus;13</sup>.</p>
-      <div class="demo-proof" style="color:var(--gold);">Pre-registered criteria &middot; three seeds &middot; research scale</div>
+    <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
+      <span class="demo-letter" style="color:rgba(201,168,76,0.55);">G</span>
+      <span class="demo-when">Complete &middot; research scale</span>
+      <div class="demo-title">Self-improving control</div>
+      <p class="demo-why">A controller that keeps its own physics current. As the machine it drives wears and drifts, the closed loop revises its causal model of the dynamics, admits only the terms that predict what happens next and drops the rest, and the &Psi;-causal engine plans every action through the revised model. A model fitted once and frozen falls behind; the self-improving loop does not.</p>
+      <div class="demo-proof">Pre-registered &middot; hidden benchmark committed in advance</div>
     </div>
 
     <div class="demo-card">
@@ -1913,12 +1949,12 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <div class="demo-proof">Gated closed loop &middot; pre-registered cycle count</div>
     </div>
 
-    <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
-      <span class="demo-letter" style="color:rgba(201,168,76,0.55);">G</span>
-      <span class="demo-when">Complete &middot; research scale</span>
-      <div class="demo-title">Self-improving control</div>
-      <p class="demo-why">A controller that keeps its own physics current. As the machine it drives wears and drifts, the closed loop revises its causal model of the dynamics, admits only the terms that predict what happens next and drops the rest, and the &Psi;-causal engine plans every action through the revised model. A model fitted once and frozen falls behind; the self-improving loop does not.</p>
-      <div class="demo-proof">Pre-registered &middot; hidden benchmark committed in advance</div>
+    <div class="demo-card" style="border-color:var(--gold);background:linear-gradient(var(--gold-glow),var(--gold-glow)),var(--navy-mid);">
+      <span class="demo-letter" style="color:var(--gold);">D</span>
+      <span class="demo-when" style="color:var(--gold);">Complete &middot; research scale</span>
+      <div class="demo-title" style="color:var(--gold-light);">Symmetry generalisation</div>
+      <p class="demo-why" style="color:var(--gold-light);">Train on a set of group elements; test on elements never seen in training. Trained on 300 examples, GRAIL classified the unseen elements with accuracy 1.000. A standard transformer trained on 12,000 examples, forty times as many, scored 0.237, against a chance level of 0.167. Across two symmetry groups (the continuous group SL<sub>2</sub>(&#8477;) and the modular group) and three seeds, GRAIL&rsquo;s accuracy on unseen elements equalled its accuracy on seen ones (0.96&ndash;1.000), while the transformer&rsquo;s fell to 0.23&ndash;0.38. The invariance holds by construction, to within 10<sup>&minus;13</sup>.</p>
+      <div class="demo-proof" style="color:var(--gold);">Pre-registered criteria &middot; three seeds &middot; research scale</div>
     </div>
 
   </div>
@@ -2214,6 +2250,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <tr><td>CEAS temperature program, accepted by the gate</td><td style="white-space:normal;">Recovers about 5% of the loss from compression (12.69 &rarr; 12.55), without changing the stored weights</td></tr>
     <tr><td>Fact update through a small adapter (0.1% of parameters)</td><td style="white-space:normal;">The corrected answer is preferred on 5 of 5 unseen questions (2 of 5 before). No measurable harm on unrelated web text (+0.005 nats per token; 95% bound 0.022) or on 200 general-knowledge questions (69.0% &rarr; 71.0%)</td></tr>
     <tr><td>MIA lift of all 4,096 attention heads to hyperbolic geometry</td><td style="white-space:normal;">At moderate curvature, perplexity changes by 0.65% or less with no retraining (16.84 &rarr; 16.79&ndash;16.95)</td></tr>
+    <tr><td>Update rebuilt from a short description</td><td style="white-space:normal;">An accepted fact update, broken into its components and rebuilt from 1.56% of its stored size, passed the safety gate with no retraining and kept 76% of its effect</td></tr>
   </table></div>
 
   <h3 class="se-h3">Independent verification &middot; status</h3>
