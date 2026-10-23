@@ -1893,8 +1893,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-letter">D</span>
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Symmetry generalisation</div>
-      <p class="demo-why">Train on a set of group elements; test on unseen elements from the same group. GRAIL: zero error gap. Euclidean transformer: degrades. I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k) holds by construction, not by approximation.</p>
-      <div class="demo-proof">&epsilon;<sub>twin</sub> &le; 10<sup>&minus;6</sup> &middot; GRAIL invariant kernel</div>
+      <p class="demo-why">Train on a set of group elements; test on elements never seen in training. Trained on 300 examples, GRAIL classified the unseen elements with accuracy 1.000. A standard transformer trained on 12,000 examples, forty times as many, scored 0.237, against a chance level of 0.167. Across two symmetry groups (the continuous group SL<sub>2</sub>(&#8477;) and the modular group) and three seeds, GRAIL&rsquo;s accuracy on unseen elements equalled its accuracy on seen ones (0.96&ndash;1.000), while the transformer&rsquo;s fell to 0.23&ndash;0.38. The invariance holds by construction, to within 10<sup>&minus;13</sup>.</p>
+      <div class="demo-proof">Pre-registered criteria &middot; three seeds &middot; research scale</div>
     </div>
 
     <div class="demo-card">
@@ -1921,6 +1921,27 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <div class="demo-proof">Pre-registered &middot; hidden benchmark committed in advance</div>
     </div>
 
+  </div>
+
+  <!-- DATA AND SYMMETRY GROUPS -->
+  <style>
+  .sym-wrap { overflow-x:auto; margin-bottom:28px; }
+  .sym-table { width:100%; min-width:640px; border-collapse:collapse; background:var(--navy-mid); border:1px solid var(--border-dim); }
+  .sym-table th { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); text-align:left; padding:12px 14px; border-bottom:1px solid var(--border-dim); vertical-align:bottom; }
+  .sym-table td { font-size:0.8rem; color:rgba(245,240,232,0.6); line-height:1.55; padding:12px 14px; border-bottom:1px solid var(--border-dim); vertical-align:top; }
+  .sym-table td:first-child { color:var(--cream); }
+  .sym-table tr:last-child td { border-bottom:none; }
+  </style>
+  <div class="sym-wrap">
+    <table class="sym-table" aria-label="Data, the symmetry group that governs it, and its fit with GRAIL">
+      <tr><th>Data</th><th>Group that governs it</th><th>Fit with GRAIL</th><th>Strongest existing alternative</th></tr>
+      <tr><td>Particle physics, relativistic data</td><td>Lorentz group. Relativistic velocity space is hyperbolic, and four-momenta lie on the mass hyperboloid</td><td>Direct: the Lorentz model of hyperbolic space</td><td>Lorentz-equivariant networks (LorentzNet)</td></tr>
+      <tr><td>Audio, time series, signals</td><td>Shifts and dilations (tempo, scale). The time&ndash;scale plane of a wavelet transform is the upper half-plane, where these act as hyperbolic isometries</td><td>Direct: the affine subgroup of SL<sub>2</sub>(&#8477;)</td><td>Wavelet and scale-equivariant networks, mostly approximate</td></tr>
+      <tr><td>Crystal and 2D-lattice shapes</td><td>The modular group. The space of 2D lattice shapes is the upper half-plane modulo PSL<sub>2</sub>(&#8484;)</td><td>Direct: the automorphic kernel&rsquo;s own group</td><td>Few direct competitors</td></tr>
+      <tr><td>Biology: phylogenies, taxonomies, cell lineages</td><td>Tree structure</td><td>Natural: hyperbolic space and free or Schottky groups</td><td>Hyperbolic representations of trees, with no exact invariance</td></tr>
+      <tr><td>Molecules, proteins, 3D physics</td><td>E(3), Euclidean</td><td>Through MIA, which allows any metric. GRAIL&rsquo;s hyperbolic edge does not apply here</td><td>Mature: e3nn, invariant point attention as in AlphaFold</td></tr>
+      <tr><td>Images and video</td><td>Translation, rotation, scale</td><td>Partly: scale and shift can be hyperbolic</td><td>CNNs and equivariant vision models</td></tr>
+    </table>
   </div>
 
   <!-- CERT LADDER -->
@@ -2144,8 +2165,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </p>
   <div class="se-chips">
     <span class="se-chip">Pareto front &middot; 1 of 4 non-dominated</span>
-    <span class="se-chip">M12 &middot; 53.4</span>
-    <span class="se-chip">Provenance-weighted &middot; 33.6</span>
+    <span class="se-chip">M12 &middot; 1st of 60 &middot; 53.4</span>
+    <span class="se-chip">Provenance-weighted &middot; 1st of 60 &middot; 33.6</span>
     <span class="se-chip">Level 5 (4&dagger;) &middot; gate A in progress</span>
   </div>
 
@@ -2224,11 +2245,29 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <thead><tr><th>System</th><th>C</th><th>Ψ</th><th>G</th><th>R</th><th>U</th><th>H</th><th>B</th><th>S</th><th>V</th><th>X</th><th>N</th><th>D</th><th>M12</th><th>M12&#7486;</th><th>Seed</th><th>Level</th></tr></thead>
     <tbody>
 <tr class="se-me"><td>Logarchéon current build</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0.574</td><td>0.5</td><td>·</td><td>1</td><td>0.167</td><td>·</td><td>0.167</td><td>·</td><td>53.4</td><td>33.6</td><td>53.4</td><td>5 (4†)</td></tr>
+<tr><td>OpenAI math model (unreleased)</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.472</td><td>·</td><td>·</td><td>1</td><td>28.9</td><td>28.9</td><td>0</td><td>L1</td></tr>
+<tr><td>Axiom Math (AxiomProver)</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.833</td><td>·</td><td>·</td><td>0.151</td><td>24.9</td><td>24.9</td><td>0</td><td>L1</td></tr>
+<tr><td>AlphaProof</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.833</td><td>·</td><td>·</td><td>·</td><td>23.6</td><td>23.6</td><td>0</td><td>L1</td></tr>
+<tr><td>Hyperagents</td><td>1</td><td>·</td><td>·</td><td>1</td><td>0.332</td><td>0.5</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>23.6</td><td>18.1</td><td>0</td><td>L1</td></tr>
+<tr><td>Harmonic Aristotle</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.667</td><td>·</td><td>·</td><td>0.151</td><td>23.5</td><td>23.5</td><td>0</td><td>L1</td></tr>
+<tr><td>ByteDance Seed 2.0 / Prover</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>0.667</td><td>·</td><td>·</td><td>·</td><td>22.2</td><td>22.2</td><td>0</td><td>L1</td></tr>
+<tr><td>Equivariant world model (Wang)</td><td>1</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8.3</td><td>0</td><td>L2</td></tr>
+<tr><td>Darwin Gödel Machine</td><td>1</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8.3</td><td>0</td><td>L1</td></tr>
+<tr><td>Anthropic Opus 5/5.5, Mythos, Co-Scientist, GLM-5.3, GPT-6 Astra, Grok 4.6, Kimi K3, Qwen3.8-Max, Sakana AI Scientist</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>16.7</td><td>0</td><td>—</td></tr>
+<tr><td>HCP-DCNet</td><td>1</td><td>·</td><td>·</td><td>0.95</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.2</td><td>8.3</td><td>0</td><td>L1</td></tr>
+<tr><td>AlphaEvolve</td><td>1</td><td>0.238</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0.521</td><td>14.7</td><td>12.7</td><td>0</td><td>L1</td></tr>
+<tr><td>Equivariant sci-ML</td><td>0.667</td><td>·</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>13.9</td><td>5.6</td><td>0</td><td>L2</td></tr>
+<tr><td>DeepSeek V4-Pro, Huxley-Gödel Machine</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>0.5</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>12.5</td><td>12.5</td><td>0</td><td>—</td></tr>
+<tr><td>Self-improving EFMs</td><td>1</td><td>·</td><td>·</td><td>·</td><td>0.3</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>10.8</td><td>8.3</td><td>0</td><td>L1</td></tr>
+<tr><td>Physical Intelligence π0.5/π*0.6</td><td>1</td><td>·</td><td>·</td><td>·</td><td>0.25</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>10.4</td><td>8.3</td><td>0</td><td>L1</td></tr>
+<tr><td>C-JEPA</td><td>1</td><td>0.22</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>10.2</td><td>8.3</td><td>0</td><td>L1</td></tr>
+<tr><td>H-JEPA (AMI)</td><td>1</td><td>0.18</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>9.8</td><td>8.3</td><td>0</td><td>L2</td></tr>
+<tr><td>Absolute Zero Reasoner, AgiBot GO-2, AlphaFold 3, Amazon Nova 2, Apertus 1.5, CSML, CausalVAE world-model plug-in, Cohere + Aleph Alpha, DoWhy / y0 / Ananke, ERNIE 5.1, Figure / Skild, Gemini 3.5–3.8 / 4 Argon, Gemini Robotics 2, Genie 3, Hyperbolic nets incl. HELM, Inkling, Intern-S2, Isomorphic Labs, Korea sovereign FMs, Meta Muse Spark, Microsoft MAI, MiniMax M2.7/M3, Mistral AI, NVIDIA Cosmos / GR00T, Online causal-rule repair (Bristol), OpenAI research intern, SEA-LION v4, Sarvam-105B, Sber / Yandex, Tencent Hunyuan, UAE K2 Think / Falcon H1R, Unitree, V-JEPA 2-AC, Wayve</td><td>1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>8.3</td><td>0</td><td>—</td></tr>
 <tr class="se-cal"><td>Calibration: GPT-4 on CLadder</td><td>1</td><td>0.117</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>9.3</td><td>8.3</td><td>0</td><td>—</td></tr>
 <tr class="se-cal"><td>Calibration: Euclidean transformer inside the build</td><td>1</td><td>—</td><td>0.300</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
     </tbody>
   </table></div>
-  <p class="se-note">&ldquo;&middot;&rdquo; unmeasured (counts as 0); &ldquo;&mdash;&rdquo; not applicable. &dagger; Level 4 applies if U is read against the loop&rsquo;s own earlier miss, which rises with wear, instead of against the frozen controller. Pareto layer 1 holds the 4 developments that no other development matches or exceeds on all twelve quantities while exceeding on at least one.</p>
+  <p class="se-note">&ldquo;&middot;&rdquo; unmeasured (counts as 0); &ldquo;&mdash;&rdquo; not applicable. &dagger; Level 4 applies if U is read against the loop&rsquo;s own earlier miss, which rises with wear, instead of against the frozen controller. Discovery values: OpenAI math model, 300 of 719 results with Lean formalisations (openai/math, 7 October 2026); AlphaEvolve, improvements on about 20% of more than 50 open problems (DeepMind, May 2025); Aristotle, Erd&#337;s problem #728 with a Lean proof, jointly with GPT-5.2 Pro (arXiv 2601.07421); AxiomProver, Fel&rsquo;s conjecture with a public Lean proof (Axiom, February 2026).</p>
 
   <h3 class="se-h3">2 &middot; Gates and the discovery track</h3>
   <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
@@ -2241,6 +2280,162 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </div>
   <p class="se-note">Current build: Level 5 (4&dagger;) &middot; gate A in progress &middot; gates B and C not started &middot; D0.</p>
 
+  <h3 class="se-h3">3 &middot; The index line</h3>
+  <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
+  <pre>M12 · mean of twelve measured quantities
+0         20        40        60        80       100
+|---------|---------|---------|---------|---------|
+    ^8.3 34 systems
+     ^9.8 H-JEPA
+     ^10.2 C-JEPA
+     ^10.4 Physical Intelligence π0.5/π*0.6
+     ^10.8 Self-improving EFMs
+      ^12.5 DeepSeek V4-Pro, Huxley-Gödel Machine
+       ^13.9 Equivariant sci-ML
+       ^14.7 AlphaEvolve
+        ^16.2 HCP-DCNet
+        ^16.7 10 systems
+           ^22.2 ByteDance Seed 2.0 / Prover
+            ^23.5 Harmonic Aristotle
+            ^23.6 AlphaProof, Hyperagents
+            ^24.9 Axiom Math
+              ^28.9 OpenAI math model
+                           ^53.4 Logarchéon current build
+
+M12ᴾ · provenance-weighted
+0         20        40        60        80       100
+|---------|---------|---------|---------|---------|
+   ^5.6 Equivariant sci-ML
+    ^8.3 41 systems
+      ^12.5 DeepSeek V4-Pro, Huxley-Gödel Machine
+      ^12.7 AlphaEvolve
+        ^16.7 8 systems
+         ^18.1 Hyperagents
+           ^22.2 ByteDance Seed 2.0 / Prover
+            ^23.5 Harmonic Aristotle
+            ^23.6 AlphaProof
+            ^24.9 Axiom Math
+              ^28.9 OpenAI math model
+                 ^33.6 Logarchéon current build</pre>
+
+  <h3 class="se-h3">4 &middot; The leaders</h3>
+  <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
+  <div class="se-wrap"><table>
+    <thead><tr><th>#</th><th>Development</th><th>Group</th><th>M12</th><th>#&#7486;</th><th>M12&#7486;</th><th>Seed</th><th>Pareto layer</th></tr></thead>
+    <tbody>
+<tr class="se-me"><td>1</td><td>Logarchéon current build (CEAS–Ψ–GRAIL)</td><td>Logarchéon</td><td>53.4</td><td>1</td><td>33.6</td><td>53.4</td><td>1</td></tr>
+<tr><td>2</td><td>OpenAI math model (unreleased)</td><td>Science, proof &amp; geometry</td><td>28.9</td><td>2</td><td>28.9</td><td>0</td><td>1</td></tr>
+<tr><td>3</td><td>Axiom Math (AxiomProver)</td><td>Science, proof &amp; geometry</td><td>24.9</td><td>3</td><td>24.9</td><td>0</td><td>1</td></tr>
+<tr><td>4=</td><td>AlphaProof</td><td>Science, proof &amp; geometry</td><td>23.6</td><td>4</td><td>23.6</td><td>0</td><td>2</td></tr>
+<tr><td>4=</td><td>Hyperagents</td><td>Self-improvement loops</td><td>23.6</td><td>7</td><td>18.1</td><td>0</td><td>2</td></tr>
+<tr><td>6</td><td>Harmonic Aristotle</td><td>Science, proof &amp; geometry</td><td>23.5</td><td>5</td><td>23.5</td><td>0</td><td>2</td></tr>
+<tr><td>7</td><td>ByteDance Seed 2.0 / Prover</td><td>Chinese models</td><td>22.2</td><td>6</td><td>22.2</td><td>0</td><td>3</td></tr>
+<tr><td>8=</td><td>Equivariant world model (Wang)</td><td>World models &amp; robotics</td><td>16.7</td><td>19=</td><td>8.3</td><td>0</td><td>2</td></tr>
+<tr><td>8=</td><td>Darwin Gödel Machine</td><td>Self-improvement loops</td><td>16.7</td><td>19=</td><td>8.3</td><td>0</td><td>3</td></tr>
+<tr><td>8=</td><td>Anthropic Opus 5/5.5, Mythos</td><td>US frontier models</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Co-Scientist</td><td>Self-improvement loops</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>GLM-5.3</td><td>Chinese models</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>GPT-6 Astra</td><td>US frontier models</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Grok 4.6</td><td>US frontier models</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Kimi K3</td><td>Chinese models</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Qwen3.8-Max</td><td>Chinese models</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Sakana AI Scientist</td><td>Self-improvement loops</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+    </tbody>
+  </table></div>
+  <p class="se-note">Sorted by M12; tied scores share a rank. #&#7486; is the rank on the provenance-weighted reading. Pareto layer 1 holds the 4 developments that no other development matches or exceeds on all twelve quantities while exceeding on at least one. Seed is the third reading: M12 scaled by the pillar core, nonzero only where coordination, causation and invariance are all measured.</p>
+
+  <h3 class="se-h3">5 &middot; Where the main developers stand</h3>
+  <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
+  <div class="se-wrap"><table class="se-q">
+    <thead><tr><th>Developer</th><th>Developments, M12 and rank of 60</th></tr></thead>
+    <tbody>
+<tr><td>OpenAI</td><td>OpenAI math model (unreleased) 28.9 (#2); GPT-6 Astra 16.7 (#8=); OpenAI research intern 8.3 (#27=)</td></tr>
+<tr><td>Google DeepMind</td><td>AlphaProof 23.6 (#4=); AlphaEvolve 14.7 (#19); Gemini 3.5–3.8 / 4 Argon 8.3 (#27=); Gemini Robotics 2 8.3 (#27=); Genie 3 8.3 (#27=); AlphaFold 3 8.3 (#27=)</td></tr>
+<tr><td>Anthropic</td><td>Anthropic Opus 5/5.5, Mythos 16.7 (#8=)</td></tr>
+<tr><td>xAI</td><td>Grok 4.6 16.7 (#8=)</td></tr>
+<tr><td>Meta and AMI Labs</td><td>H-JEPA (AMI) 9.8 (#26); V-JEPA 2-AC 8.3 (#27=); Meta Muse Spark 8.3 (#27=)</td></tr>
+<tr><td>Microsoft, Amazon, NVIDIA</td><td>Microsoft MAI 8.3 (#27=); Amazon Nova 2 8.3 (#27=); NVIDIA Cosmos / GR00T 8.3 (#27=)</td></tr>
+<tr><td>Harmonic</td><td>Harmonic Aristotle 23.5 (#6)</td></tr>
+<tr><td>Axiom Math</td><td>Axiom Math (AxiomProver) 24.9 (#3)</td></tr>
+<tr><td>ByteDance</td><td>ByteDance Seed 2.0 / Prover 22.2 (#7)</td></tr>
+<tr><td>Moonshot, Alibaba, Zhipu</td><td>Kimi K3 16.7 (#8=); Qwen3.8-Max 16.7 (#8=); GLM-5.3 16.7 (#8=)</td></tr>
+<tr><td>DeepSeek</td><td>DeepSeek V4-Pro 12.5 (#21=)</td></tr>
+<tr><td>Shanghai AI Lab, MiniMax, Baidu, Tencent</td><td>Intern-S2 8.3 (#27=); MiniMax M2.7/M3 8.3 (#27=); ERNIE 5.1 8.3 (#27=); Tencent Hunyuan 8.3 (#27=)</td></tr>
+<tr><td>Chinese robotics</td><td>AgiBot GO-2 8.3 (#27=); Unitree 8.3 (#27=)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="se-h3">6 &middot; All 60 developments</h3>
+  <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
+  <details>
+    <summary>Show all 60 developments</summary>
+    <div class="se-wrap"><table>
+      <thead><tr><th>#</th><th>Development</th><th>Group</th><th>Level</th><th>V</th><th>X</th><th>N</th><th>D</th><th>M12</th><th>#&#7486;</th><th>M12&#7486;</th><th>Seed</th><th>Pareto layer</th></tr></thead>
+      <tbody>
+<tr class="se-me"><td>1</td><td>Logarchéon current build (CEAS–Ψ–GRAIL)</td><td>Logarchéon</td><td>L5 (4&dagger;)</td><td>0.167</td><td>·</td><td>0.167</td><td>·</td><td>53.4</td><td>1</td><td>33.6</td><td>53.4</td><td>1</td></tr>
+<tr><td>2</td><td>OpenAI math model (unreleased)</td><td>Science, proof &amp; geometry</td><td>L1</td><td>0.472</td><td>·</td><td>·</td><td>1</td><td>28.9</td><td>2</td><td>28.9</td><td>0</td><td>1</td></tr>
+<tr><td>3</td><td>Axiom Math (AxiomProver)</td><td>Science, proof &amp; geometry</td><td>L1</td><td>0.833</td><td>·</td><td>·</td><td>0.151</td><td>24.9</td><td>3</td><td>24.9</td><td>0</td><td>1</td></tr>
+<tr><td>4=</td><td>AlphaProof</td><td>Science, proof &amp; geometry</td><td>L1</td><td>0.833</td><td>·</td><td>·</td><td>·</td><td>23.6</td><td>4</td><td>23.6</td><td>0</td><td>2</td></tr>
+<tr><td>4=</td><td>Hyperagents</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>23.6</td><td>7</td><td>18.1</td><td>0</td><td>2</td></tr>
+<tr><td>6</td><td>Harmonic Aristotle</td><td>Science, proof &amp; geometry</td><td>L1</td><td>0.667</td><td>·</td><td>·</td><td>0.151</td><td>23.5</td><td>5</td><td>23.5</td><td>0</td><td>2</td></tr>
+<tr><td>7</td><td>ByteDance Seed 2.0 / Prover</td><td>Chinese models</td><td>L1</td><td>0.667</td><td>·</td><td>·</td><td>·</td><td>22.2</td><td>6</td><td>22.2</td><td>0</td><td>3</td></tr>
+<tr><td>8=</td><td>Equivariant world model (Wang)</td><td>World models &amp; robotics</td><td>L2</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>19=</td><td>8.3</td><td>0</td><td>2</td></tr>
+<tr><td>8=</td><td>Darwin Gödel Machine</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>19=</td><td>8.3</td><td>0</td><td>3</td></tr>
+<tr><td>8=</td><td>Anthropic Opus 5/5.5, Mythos</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Co-Scientist</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>GLM-5.3</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>GPT-6 Astra</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Grok 4.6</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Kimi K3</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Qwen3.8-Max</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>8=</td><td>Sakana AI Scientist</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.7</td><td>8=</td><td>16.7</td><td>0</td><td>4</td></tr>
+<tr><td>18</td><td>HCP-DCNet</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>16.2</td><td>19=</td><td>8.3</td><td>0</td><td>4</td></tr>
+<tr><td>19</td><td>AlphaEvolve</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>0.521</td><td>14.7</td><td>16</td><td>12.7</td><td>0</td><td>1</td></tr>
+<tr><td>20</td><td>Equivariant sci-ML</td><td>Science, proof &amp; geometry</td><td>L2</td><td>·</td><td>·</td><td>·</td><td>·</td><td>13.9</td><td>60</td><td>5.6</td><td>0</td><td>3</td></tr>
+<tr><td>21=</td><td>DeepSeek V4-Pro</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>12.5</td><td>17=</td><td>12.5</td><td>0</td><td>5</td></tr>
+<tr><td>21=</td><td>Huxley-Gödel Machine</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>12.5</td><td>17=</td><td>12.5</td><td>0</td><td>5</td></tr>
+<tr><td>23</td><td>Self-improving EFMs</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>10.8</td><td>19=</td><td>8.3</td><td>0</td><td>3</td></tr>
+<tr><td>24</td><td>Physical Intelligence π0.5/π*0.6</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>10.4</td><td>19=</td><td>8.3</td><td>0</td><td>4</td></tr>
+<tr><td>25</td><td>C-JEPA</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>10.2</td><td>19=</td><td>8.3</td><td>0</td><td>2</td></tr>
+<tr><td>26</td><td>H-JEPA (AMI)</td><td>World models &amp; robotics</td><td>L2</td><td>·</td><td>·</td><td>·</td><td>·</td><td>9.8</td><td>19=</td><td>8.3</td><td>0</td><td>3</td></tr>
+<tr><td>27=</td><td>Absolute Zero Reasoner</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>AgiBot GO-2</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>AlphaFold 3</td><td>Science, proof &amp; geometry</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Amazon Nova 2</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Apertus 1.5</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>CSML</td><td>Science, proof &amp; geometry</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>CausalVAE world-model plug-in</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Cohere + Aleph Alpha</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>DoWhy / y0 / Ananke</td><td>Science, proof &amp; geometry</td><td>L2</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>ERNIE 5.1</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Figure / Skild</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Gemini 3.5–3.8 / 4 Argon</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Gemini Robotics 2</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Genie 3</td><td>World models &amp; robotics</td><td>n/a</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Hyperbolic nets incl. HELM</td><td>Science, proof &amp; geometry</td><td>L2</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Inkling</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Intern-S2</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Isomorphic Labs</td><td>Science, proof &amp; geometry</td><td>L1–L2</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Korea sovereign FMs</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Meta Muse Spark</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Microsoft MAI</td><td>US frontier models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>MiniMax M2.7/M3</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Mistral AI</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>NVIDIA Cosmos / GR00T</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Online causal-rule repair (Bristol)</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>OpenAI research intern</td><td>Self-improvement loops</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>SEA-LION v4</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Sarvam-105B</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Sber / Yandex</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Tencent Hunyuan</td><td>Chinese models</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>UAE K2 Think / Falcon H1R</td><td>Rest of world</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Unitree</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>V-JEPA 2-AC</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+<tr><td>27=</td><td>Wayve</td><td>World models &amp; robotics</td><td>L1</td><td>·</td><td>·</td><td>·</td><td>·</td><td>8.3</td><td>19=</td><td>8.3</td><td>0</td><td>6</td></tr>
+      </tbody>
+    </table></div>
+    <p class="se-note">Sorted by M12; tied scores share a rank. Developments absent from the quantified table receive the floor value C = 1.</p>
+  </details>
 </div>
 </section>
 <!-- ═══ SELF-EVALUATION · 12 October 2026 · END ═══ -->
