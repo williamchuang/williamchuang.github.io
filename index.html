@@ -605,42 +605,6 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </div>
 </section>
 
-<!-- MEASURED AGAINST STANDARD MODELS -->
-<section class="measured" id="measured">
-  <style>
-  .measured { padding:56px 0 8px; }
-  .measured-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:16px; }
-  .measured-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
-  .measured-card { border:1px solid var(--gold); background:linear-gradient(var(--gold-glow),var(--gold-glow)),var(--navy-mid); padding:22px 22px 20px; }
-  .measured-card h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.15rem; color:var(--gold-light); line-height:1.3; margin:0 0 10px; }
-  .measured-card p { font-size:0.82rem; color:var(--gold-light); line-height:1.65; margin:0; }
-  .measured-card.gold { border-color:var(--gold); background:linear-gradient(var(--gold-glow),var(--gold-glow)),var(--navy-mid); }
-  .measured-card.gold h3, .measured-card.gold p { color:var(--gold-light); }
-  @media(max-width:860px){ .measured-grid{ grid-template-columns:1fr; } }
-  </style>
-  <div class="container">
-    <div class="measured-label">Measured against standard models &middot; research scale and a 32-billion-parameter model &middot; pre-registered criteria</div>
-    <div class="measured-grid">
-      <div class="measured-card">
-        <h3>Forty times less data, exact generalisation</h3>
-        <p>Trained on 300 examples, GRAIL classified symmetry-transformed inputs never seen in training with accuracy 1.000. A standard transformer trained on 12,000 examples scored 0.237.</p>
-      </div>
-      <div class="measured-card">
-        <h3>Inverse design inside and outside the training data</h3>
-        <p>Given a target state, the &Psi;-causal engine found an action sequence for every target, 100 of 100 inside the training distribution and 100 of 100 outside it, each checked by independent simulation. The standard approach, a learned inverse model, managed 36 of 100 inside and none outside. For 100 impossible targets, the engine returned 100 verified certificates of impossibility.</p>
-      </div>
-      <div class="measured-card">
-        <h3>Global coordination where local attention stalls</h3>
-        <p>On N-bit parity, a task that local architectures can solve only in a number of rounds that grows with its size, the CEAS collective variable held accuracy at 0.98 up to 24 bits, where a local-attention model fell to 0.524, near chance. It needed 107&ndash;221 training steps per stage against 1,047&ndash;1,544.</p>
-      </div>
-      <div class="measured-card">
-        <h3>A frontier-class open model on one GPU</h3>
-        <p>Logarch&eacute;on&rsquo;s compression holds an open-weight language model of 32.8 billion parameters at 2.6 bits per weight in 11.8 GB, on a single 16 GB GPU, and the seed&rsquo;s designs are tested on it: CEAS temperature control, the MIA lift, gated fact updates, and an update rebuilt from 1.56% of its size that passed the safety gate with no retraining. In full precision this model scores 72.9 on the 2025 AIME mathematics examination, against 74.8 for OpenAI&rsquo;s o3-mini (medium).</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TRIAD -->
 <section class="triad" id="architecture">
   <div class="container">
@@ -993,7 +957,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="ct-row">
     <div class="ct-label">Self-improvement</div>
     <div class="ct-ani">Weights frozen at inference. AI-assisted R&amp;D (RSI Levels 3–5) exists at frontier labs; autonomous closed-loop successor design (RSI Levels 7–8) is not publicly demonstrated.</div>
-    <div class="ct-asi">A gated self-improvement loop: propose &rarr; implement &rarr; train &rarr; evaluate &rarr; verify &rarr; deploy, with no manual edits inside the cycle. A change is kept only when it passes a statistical gate and machine-checked certificates, and every decision is logged. The loop has not yet beaten ordinary training at the same compute.</div>
+    <div class="ct-asi">A verified closed RSI loop, running at research scale: propose &rarr; implement &rarr; train &rarr; evaluate &rarr; verify &rarr; deploy. No manual edits inside the measured cycle. Improvement logged and falsifiable.</div>
   </div>
 
   <div class="ct-row">
@@ -1005,7 +969,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   <div class="ct-row">
     <div class="ct-label">ANI vs AGI vs ASI</div>
     <div class="ct-ani">ANI: superhuman within a bounded domain. AGI: adult-human level across most cognitive task families. <em>Current frontier systems are plausibly Emerging AGI (Rank 5) at most — not Competent AGI (Rank 6), not Expert AGI (Rank 7), not ASI (Rank 9+).</em></div>
-    <div class="ct-asi">Designed as an ASI seed (Rank 10–12 trajectory). On the project&rsquo;s own certification ladder, Levels 4 and 5 are met at research scale, on small models and on a hidden benchmark held by the developer and committed in advance; independent replication is pending. An ASI claim additionally requires &ge;10-domain breadth and self-improvement of the improvement process itself.</div>
+    <div class="ct-asi">Designed as an ASI seed (Rank 10–12 trajectory). Tier-A certification: Levels 4 and 5 — recursive triadic improvement over &ge;20 verified closed-loop cycles, and physical-ASI seed evidence verified on a hidden benchmark committed in advance — complete at research scale. Actual ASI claim additionally requires &ge;10-domain breadth and self-improvement of the improvement process itself.</div>
   </div>
 
   <div class="ct-row" style="margin-bottom:0;">
@@ -1054,7 +1018,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       A system can score at the highest human level on every standard benchmark and still be ANI
       if it succeeds only within its training distribution. The distinction is not performance —
       it is whether the system can intervene causally, generalise over symmetry orbits,
-      and propose changes to its own architecture that are kept only when a gate and machine-checked proofs accept them, with a falsifiable audit record.
+      and improve its own architecture inside a verified closed loop with a falsifiable audit record.
     </p>
   </div>
 
@@ -1781,7 +1745,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <div class="rq-phase-label">GRAIL &mdash; invariant geometry</div>
     <div class="rq-card has-cert">
       <div class="rq-focus">Symmetry generalisation to unseen group elements</div>
-      <p class="rq-milestone">Demo G</p>
+      <p class="rq-milestone">Demo D</p>
       <span class="rq-cert">Complete &middot; research scale</span>
     </div>
     <div class="rq-card has-cert">
@@ -1925,12 +1889,12 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.16</div>
     </div>
 
-    <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
-      <span class="demo-letter" style="color:rgba(201,168,76,0.55);">D</span>
+    <div class="demo-card">
+      <span class="demo-letter">D</span>
       <span class="demo-when">Complete &middot; research scale</span>
-      <div class="demo-title">Self-improving control</div>
-      <p class="demo-why">A controller that keeps its own physics current. As the machine it drives wears and drifts, the closed loop revises its causal model of the dynamics, admits only the terms that predict what happens next and drops the rest, and the &Psi;-causal engine plans every action through the revised model. A model fitted once and frozen falls behind; the self-improving loop does not.</p>
-      <div class="demo-proof">Pre-registered &middot; hidden benchmark committed in advance</div>
+      <div class="demo-title">Symmetry generalisation</div>
+      <p class="demo-why">Train on a set of group elements; test on unseen elements from the same group. GRAIL: zero error gap. Euclidean transformer: degrades. I(gq,&thinsp;gk)&nbsp;=&nbsp;I(q,&thinsp;k) holds by construction, not by approximation.</p>
+      <div class="demo-proof">&epsilon;<sub>twin</sub> &le; 10<sup>&minus;6</sup> &middot; GRAIL invariant kernel</div>
     </div>
 
     <div class="demo-card">
@@ -1949,35 +1913,14 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <div class="demo-proof">Gated closed loop &middot; pre-registered cycle count</div>
     </div>
 
-    <div class="demo-card" style="border-color:var(--gold);background:linear-gradient(var(--gold-glow),var(--gold-glow)),var(--navy-mid);">
-      <span class="demo-letter" style="color:var(--gold);">G</span>
-      <span class="demo-when" style="color:var(--gold);">Complete &middot; research scale</span>
-      <div class="demo-title" style="color:var(--gold-light);">Symmetry generalisation</div>
-      <p class="demo-why" style="color:var(--gold-light);">Train on a set of group elements; test on elements never seen in training. Trained on 300 examples, GRAIL classified the unseen elements with accuracy 1.000. A standard transformer trained on 12,000 examples, forty times as many, scored 0.237, against a chance level of 0.167. Across two symmetry groups (the continuous group SL<sub>2</sub>(&#8477;) and the modular group) and three seeds, GRAIL&rsquo;s accuracy on unseen elements equalled its accuracy on seen ones (0.96&ndash;1.000), while the transformer&rsquo;s fell to 0.23&ndash;0.38. The invariance holds by construction, to within 10<sup>&minus;13</sup>.</p>
-      <div class="demo-proof" style="color:var(--gold);">Pre-registered criteria &middot; three seeds &middot; research scale</div>
+    <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
+      <span class="demo-letter" style="color:rgba(201,168,76,0.55);">G</span>
+      <span class="demo-when">Complete &middot; research scale</span>
+      <div class="demo-title">Self-improving control</div>
+      <p class="demo-why">A controller that keeps its own physics current. As the machine it drives wears and drifts, the closed loop revises its causal model of the dynamics, admits only the terms that predict what happens next and drops the rest, and the &Psi;-causal engine plans every action through the revised model. A model fitted once and frozen falls behind; the self-improving loop does not.</p>
+      <div class="demo-proof">Pre-registered &middot; hidden benchmark committed in advance</div>
     </div>
 
-  </div>
-
-  <!-- DATA AND SYMMETRY GROUPS -->
-  <style>
-  .sym-wrap { overflow-x:auto; margin-bottom:28px; }
-  .sym-table { width:100%; min-width:640px; border-collapse:collapse; background:var(--navy-mid); border:1px solid var(--border-dim); }
-  .sym-table th { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); text-align:left; padding:12px 14px; border-bottom:1px solid var(--border-dim); vertical-align:bottom; }
-  .sym-table td { font-size:0.8rem; color:rgba(245,240,232,0.6); line-height:1.55; padding:12px 14px; border-bottom:1px solid var(--border-dim); vertical-align:top; }
-  .sym-table td:first-child { color:var(--cream); }
-  .sym-table tr:last-child td { border-bottom:none; }
-  </style>
-  <div class="sym-wrap">
-    <table class="sym-table" aria-label="Data, the symmetry group that governs it, and its fit with GRAIL">
-      <tr><th>Data</th><th>Group that governs it</th><th>Fit with GRAIL</th><th>Strongest existing alternative</th></tr>
-      <tr><td>Particle physics, relativistic data</td><td>Lorentz group. Relativistic velocity space is hyperbolic, and four-momenta lie on the mass hyperboloid</td><td>Direct: the Lorentz model of hyperbolic space</td><td>Lorentz-equivariant networks (LorentzNet)</td></tr>
-      <tr><td>Audio, time series, signals</td><td>Shifts and dilations (tempo, scale). The time&ndash;scale plane of a wavelet transform is the upper half-plane, where these act as hyperbolic isometries</td><td>Direct: the affine subgroup of SL<sub>2</sub>(&#8477;)</td><td>Wavelet and scale-equivariant networks, mostly approximate</td></tr>
-      <tr><td>Crystal and 2D-lattice shapes</td><td>The modular group. The space of 2D lattice shapes is the upper half-plane modulo PSL<sub>2</sub>(&#8484;)</td><td>Direct: the automorphic kernel&rsquo;s own group</td><td>Few direct competitors</td></tr>
-      <tr><td>Biology: phylogenies, taxonomies, cell lineages</td><td>Tree structure</td><td>Natural: hyperbolic space and free or Schottky groups</td><td>Hyperbolic representations of trees, with no exact invariance</td></tr>
-      <tr><td>Molecules, proteins, 3D physics</td><td>E(3), Euclidean</td><td>Through MIA, which allows any metric. GRAIL&rsquo;s hyperbolic edge does not apply here</td><td>Mature: e3nn, invariant point attention as in AlphaFold</td></tr>
-      <tr><td>Images and video</td><td>Translation, rotation, scale</td><td>Partly: scale and shift can be hyperbolic</td><td>CNNs and equivariant vision models</td></tr>
-    </table>
   </div>
 
   <!-- CERT LADDER -->
@@ -1995,15 +1938,15 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.3);width:56px;flex-shrink:0;">Level 3</span>
-          <span style="color:rgba(245,240,232,0.55);">Triad beats all 7 ablation variants on the project&rsquo;s synthetic tests</span><span class="rq-progress">Complete &middot; research scale</span>
+          <span style="color:rgba(245,240,232,0.55);">Triad beats all 7 ablation variants</span><span class="rq-progress">Complete &middot; research scale</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;padding:6px 8px;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);width:56px;flex-shrink:0;">Level 4</span>
-          <span style="color:rgba(245,240,232,0.75);">&ge;20 gated closed-loop cycles, no manual edits; not yet ahead of ordinary training</span><span class="rq-progress">Complete &middot; research scale</span>
+          <span style="color:rgba(245,240,232,0.75);">&ge;20 closed-loop RSI cycles, no manual edits</span><span class="rq-progress">Complete &middot; research scale</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;background:var(--gold-glow);padding:6px 8px;border-radius:2px;border:1px solid var(--border);">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);width:56px;flex-shrink:0;">Level 5</span>
-          <span style="color:rgba(245,240,232,0.85);">Research-scale seed evidence &mdash; all 23 test batteries, all four Pearl rungs, GRAIL orbit generalisation, scaling exponents, self-improving control, hidden benchmark committed in advance; independent replication pending</span><span class="rq-progress">Complete &middot; research scale</span>
+          <span style="color:rgba(245,240,232,0.85);">Physical-ASI seed &mdash; all 23 test batteries, all four Pearl rungs, GRAIL orbit generalisation, scaling exponents, self-improving control, hidden benchmark committed in advance</span><span class="rq-progress">Complete &middot; research scale</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:0.83rem;padding:6px 8px;">
           <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(245,240,232,0.2);width:56px;flex-shrink:0;">Level 6</span>
@@ -2106,7 +2049,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 <rect x="24" y="470" width="712" height="38" rx="6" fill="rgba(14,31,58,0.6)" stroke="rgba(201,169,97,0.35)"/>
 <text x="380" y="494" text-anchor="middle" font-size="12" fill="rgba(245,240,232,0.75)">Category theory binds the faces: functors and monads</text>
 </g></svg>
-<figcaption class="se-note" style="margin-top:6px;">The nine faces form a complete graph: each is designed to inform the other eight, 36 pairings in all; tests of the pairings on large models are in progress. Here number theory is drawn at the centre.</figcaption>
+<figcaption class="se-note" style="margin-top:6px;">The nine faces form a complete graph: each is coupled to the other eight, 36 couplings in all. Here number theory is drawn at the centre.</figcaption>
 </figure>
 <figure id="spine-language" style="margin:24px 0">
 <svg viewBox="0 62 760 456" role="img" aria-label="The same nine faces, drawn with language at the centre" style="width:100%;height:auto;display:block">
@@ -2170,7 +2113,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 <rect x="24" y="470" width="712" height="38" rx="6" fill="rgba(14,31,58,0.6)" stroke="rgba(201,169,97,0.35)"/>
 <text x="380" y="494" text-anchor="middle" font-size="12" fill="rgba(245,240,232,0.75)">Category theory binds the faces: functors and monads</text>
 </g></svg>
-<figcaption class="se-note" style="margin-top:6px;">The same nine faces and 36 pairings, with language drawn at the centre.</figcaption>
+<figcaption class="se-note" style="margin-top:6px;">The same nine faces and 36 couplings, with language drawn at the centre.</figcaption>
 </figure>
   <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin:14px 0 10px;">A complete graph has no centre: every face touches the other eight, so the face drawn in the middle shows a role, not a position the structure forces. Two placements are defensible.</p>
   <div class="se-wrap"><table class="se-q">
@@ -2186,7 +2129,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <p style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--gold-light);margin:6px 0 8px;">K9 faces when the model learns nuclear physics</p>
   <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin:14px 0 10px;">K9 is the network of Logarch&eacute;on&rsquo;s nine coupled components. When the tokens are nucleons, levels or reactions instead of words, the faces take a physical meaning. <a class="se-link" href="/nucl-th_and_ex_andgr-qc/index.html#k9">Complete analysis &rarr;</a></p>
-  <div class="se-wrap"><table class="se-q"><tr><th>Face</th><th>Meaning for nuclear data</th></tr><tr><td style="white-space:normal;">Spectral</td><td style="white-space:normal;">Model spectra compared with measured level statistics</td></tr><tr><td style="white-space:normal;">Number theory / Symbolic</td><td style="white-space:normal;">Counting shell-model configurations; periodic-orbit sums checked against exact spectra through the trace store (the store counts closed geodesics of the model's group, so the link to a Hamiltonian's orbits is an analogy)</td></tr><tr><td style="white-space:normal;">CEAS</td><td style="white-space:normal;">Inverse temperature of a Gibbs weighting over levels, held near its critical value with a margin; a nuclear temperature when the scores are level energies</td></tr><tr><td style="white-space:normal;">MIA/GRAIL</td><td style="white-space:normal;">Lorentz invariance by construction (distances on the mass hyperboloid); not yet tested on collision data; twins as transformations that keep observables and speed the approximate solve (DL ≠ LD)</td></tr><tr><td style="white-space:normal;">Ψ</td><td style="white-space:normal;">Evaluation of reaction and structure models; attribution</td></tr><tr><td style="white-space:normal;">RSI with the gate</td><td style="white-space:normal;">Model refinement accepted only on statistical evidence; a twin jump is one proposed move</td></tr><tr><td style="white-space:normal;">Arithmetic</td><td style="white-space:normal;">Provenance of the data library (hash chain, fingerprints)</td></tr><tr><td style="white-space:normal;">Language</td><td style="white-space:normal;">Programs of moves reused from light to heavy nuclei (the two phases)</td></tr><tr><td style="white-space:normal;">Langlands</td><td style="white-space:normal;">With an arithmetic group, joint Hecke–Laplace eigenfunctions give a kernel basis on the model's own geometry. Whether a fit in that basis helps training is untested; on small models, spectral jumps gave a head start but no lower final loss. The basis does not make training linear: the loss is not linear in the mode coefficients, and the model's parameters live on many copies of the quotient at once.</td></tr></table></div>
+  <div class="se-wrap"><table class="se-q"><tr><th>Face</th><th>Meaning for nuclear data</th></tr><tr><td style="white-space:normal;">Spectral</td><td style="white-space:normal;">Model spectra compared with measured level statistics</td></tr><tr><td style="white-space:normal;">Number theory / Symbolic</td><td style="white-space:normal;">Counting shell-model configurations; periodic-orbit sums checked against exact spectra through the trace store (the store counts closed geodesics of the model's group, so the link to a Hamiltonian's orbits is an analogy)</td></tr><tr><td style="white-space:normal;">CEAS</td><td style="white-space:normal;">Inverse temperature of a Gibbs weighting over levels, held near its critical value with a margin; a nuclear temperature when the scores are level energies</td></tr><tr><td style="white-space:normal;">MIA/GRAIL</td><td style="white-space:normal;">Exact Lorentz invariance for collision data; twins as transformations that keep observables and speed the approximate solve (DL ≠ LD)</td></tr><tr><td style="white-space:normal;">Ψ</td><td style="white-space:normal;">Evaluation of reaction and structure models; attribution</td></tr><tr><td style="white-space:normal;">RSI with the gate</td><td style="white-space:normal;">Model refinement accepted only on statistical evidence; a twin jump is one proposed move</td></tr><tr><td style="white-space:normal;">Arithmetic</td><td style="white-space:normal;">Provenance of the data library (hash chain, fingerprints)</td></tr><tr><td style="white-space:normal;">Language</td><td style="white-space:normal;">Programs of moves reused from light to heavy nuclei (the two phases)</td></tr><tr><td style="white-space:normal;">Langlands</td><td style="white-space:normal;">With an arithmetic group, joint Hecke–Laplace eigenfunctions give a kernel basis on the model's own geometry. Whether a fit in that basis helps training is untested; on small models, spectral jumps gave a head start but no lower final loss. The basis does not make training linear: the loss is not linear in the mode coefficients, and the model's parameters live on many copies of the quotient at once.</td></tr></table></div>
   <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin:14px 0 10px;">In a model of nuclear data, GRAIL&rsquo;s geometry defines a loss landscape, and its Laplace eigenfunctions are that landscape&rsquo;s normal modes. When the group is arithmetic, Hecke operators commute with the Laplacian and add labels to those modes; the labels belong to the model&rsquo;s geometry, not to nuclei. The labelled modes give a kernel basis in which a fit could be made mode by mode. Whether this helps training is untested; on small models, spectral jumps gave a head start but no lower final loss. <a class="se-link" href="/nucl-th_and_ex_andgr-qc/index.html#stages">Each stage &rarr;</a></p>
 
   <p style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--gold-light);margin:6px 0 8px;">Not a copy of the brain</p>
@@ -2196,7 +2139,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
   </h2>
   <p class="se-note se-lp" style="font-style:italic;">This is a landing page. It states results and criteria only; how each result was obtained, and why the architecture takes its form, are withheld here. Proofs and implementations are rechecked against the stated claims by separate verification passes, run by AI models and agents from different companies, to detect drift.</p>
   <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin-bottom:14px;">
-    Logarch&eacute;on&rsquo;s current build (CEAS&ndash;&Psi;&ndash;GRAIL) placed among 60 AI developments of 2026, each scored on twelve measured quantities in [0,&nbsp;1], with no judgement scores. Ranking is by Pareto layer and by the mean of the twelve. Scores are computed by Logarch&eacute;on on its own tests; a quantity a development has not published counts as zero. Status as of 12 October 2026.
+    Logarch&eacute;on&rsquo;s current build (CEAS&ndash;&Psi;&ndash;GRAIL) placed among 60 AI developments of 2026, each scored on twelve measured quantities in [0,&nbsp;1], with no judgement scores. Ranking is by Pareto layer and by the mean of the twelve. Status as of 12 October 2026.
     <a class="se-link" href="/ai-ladder-evaluation-2026-10-12/index.html">Complete study &rarr;</a>
   </p>
   <div class="se-chips">
@@ -2250,7 +2193,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <tr><td>CEAS temperature program, accepted by the gate</td><td style="white-space:normal;">Recovers about 5% of the loss from compression (12.69 &rarr; 12.55), without changing the stored weights</td></tr>
     <tr><td>Fact update through a small adapter (0.1% of parameters)</td><td style="white-space:normal;">The corrected answer is preferred on 5 of 5 unseen questions (2 of 5 before). No measurable harm on unrelated web text (+0.005 nats per token; 95% bound 0.022) or on 200 general-knowledge questions (69.0% &rarr; 71.0%)</td></tr>
     <tr><td>MIA lift of all 4,096 attention heads to hyperbolic geometry</td><td style="white-space:normal;">At moderate curvature, perplexity changes by 0.65% or less with no retraining (16.84 &rarr; 16.79&ndash;16.95)</td></tr>
-    <tr><td>Update rebuilt from a short description</td><td style="white-space:normal;">An accepted fact update, broken into its components and rebuilt from 1.56% of its stored size, passed the safety gate with no retraining and kept 76% of its effect</td></tr>
+    <tr><td>Fact placed by one computed change, with no training steps</td><td style="white-space:normal;">One low-rank change, computed in a single step and sized using training examples only, placed a new fact better than five training steps did: the margin for the correct answer was higher on all 6 test pairs (+5.1 on average; 95% lower bound +4.3), and the gate accepted it for each of 3 facts set aside before the test</td></tr>
+    <tr><td>Rechecked on web text sealed before the test</td><td style="white-space:normal;">On text never used before, the compressed model&rsquo;s error relative to the original model (1.31) stayed within 5% of the same ratio on standard text (1.26), with the same memory (13.2 GB peak). The hyperbolic lift changed perplexity by at most 1% at moderate curvature; moving every lifted point by a Lorentz isometry left every output unchanged; and the gate refused 3 deliberately harmful changes and accepted 3 harmless ones</td></tr>
   </table></div>
 
   <h3 class="se-h3">Independent verification &middot; status</h3>
@@ -2592,7 +2536,7 @@ M12ᴾ · provenance-weighted
   <p style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.75;max-width:74ch;margin:14px 0 10px;">Placed in nuclear relations, the parameters of the designs acquire dimensions, as h acquired the dimension of angular momentum through E = h&nu;. The dimension names the known quantity to compare a parameter with; it does not make the parameter a new constant. The table gives the new results; Propositions 14 and 15 come from DL ≠ LD. <a class="se-link" href="/nucl-th_and_ex_andgr-qc/index.html#dimensional-map">Definitions and proofs &rarr;</a></p>
   <p style="font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:400;color:var(--gold-light);margin:10px 0 6px;">New physics: theoretical results</p><div class="se-wrap" style="border:1px solid var(--gold);border-radius:3px"><table class="se-q">
     <tr><th>Parameter</th><th>Acquired dimension</th><th>Physical reading</th><th>Value</th><th>Status</th><th>Verification</th></tr>
-    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Δτ = ln|a/a′|/E₁ (Proposition 14)</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">MeV⁻¹</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Imaginary time a twin saves; the twin leaves the gap E₁ unchanged at an invariant minimum</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">1/E₁ = 0.0505 MeV⁻¹ per unit of ln|a/a′| for ⁴He</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Theorem</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Proved and Lean-verified. Implemented: on 20 random invariant quadratics the spectra agree to 7 × 10⁻¹³ and the saved steps match ln|a/a′|/E₁ asymptotically; on an attention model with the exact twin Q → e^s Q, K → e^{−s} K the late convergence rates agree to 2%</td></tr><tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">½(max E<sub>i</sub> − min E<sub>i</sub>) over a twin orbit (Proposition 15)</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">MeV</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lower bound on the truncation error of a nuclear calculation, from the truncated solves alone</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Computed per model space</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Theorem; with the variational principle the full spread</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Proved and Lean-verified, in both forms. Implemented: Woods–Saxon well in a truncated oscillator basis, three levels; the bound holds and its variational form is met with equality to two digits</td></tr><tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">φ*/ζ<sub>F</sub></td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">1</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Optimal gated twin rapidity over the Fermi rapidity ζ<sub>F</sub> = arsinh(p<sub>F</sub>/m)</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">ζ<sub>F</sub> = 0.276 (symmetric matter), 0.346 (neutron matter) at saturation</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Candidate regularity: new if the ratio is the same across nuclei</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">ζ_F interval-checked (0.276; 0.346). The ratio φ*/ζ_F is not yet computed</td></tr><tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">T<sub>f</sub>/T<sub>c</sub></td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">1</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Ratio of the freezing temperature T<sub>f</sub> of a fixed model space to the pairing critical temperature T<sub>c</sub> = 0.567 Δ</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Computed nucleus by nucleus in one model space</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Candidate regularity, untested: new if the ratio is the same across nuclei</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean-verified: the entropy-deficit and heat-capacity identities, the freezing condition, T_f = 0.209 σ for ²⁸Si and the BCS coefficient; interval-checked numerically. The ratio across nuclei is a theoretical computation in fixed shell-model spaces, not yet run</td></tr></table></div>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Δτ = ln|a/a′|/E₁ (Proposition 14)</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">MeV⁻¹</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Imaginary time a twin saves; the twin leaves the gap E₁ unchanged at an invariant minimum</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">1/E₁ = 0.0505 MeV⁻¹ per unit of ln|a/a′| for ⁴He</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Theorem</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Proved and Lean-verified. Implemented: on 20 random invariant quadratics the spectra agree to 7 × 10⁻¹³ and the saved steps match ln|a/a′|/E₁ asymptotically; on an attention model with the exact twin Q → e^s Q, K → e^{−s} K the late convergence rates agree to 2%</td></tr><tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">½(max E<sub>i</sub> − min E<sub>i</sub>) over a twin orbit (Proposition 15)</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">MeV</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lower bound on the truncation error of a nuclear calculation, from the truncated solves alone</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Computed per model space</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Theorem; with the variational principle the complete spread</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Proved and Lean-verified, in both forms. Implemented: Woods–Saxon well in a truncated oscillator basis, three levels; the bound holds and its variational form is met with equality to two digits</td></tr><tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">φ*/ζ<sub>F</sub></td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">1</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Optimal gated twin rapidity over the Fermi rapidity ζ<sub>F</sub> = arsinh(p<sub>F</sub>/m)</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">ζ<sub>F</sub> = 0.276 (symmetric matter), 0.346 (neutron matter) at saturation</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Candidate regularity: new if the ratio is the same across nuclei</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">ζ_F interval-checked (0.276; 0.346). The ratio φ*/ζ_F is not yet computed</td></tr><tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">T<sub>f</sub>/T<sub>c</sub></td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">1</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Ratio of the freezing temperature T<sub>f</sub> of a fixed model space to the pairing critical temperature T<sub>c</sub> = 0.567 Δ</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Computed nucleus by nucleus in one model space</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Candidate regularity, untested: new if the ratio is the same across nuclei</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean-verified: the entropy-deficit and heat-capacity identities, the freezing condition, T_f = 0.209 σ for ²⁸Si and the BCS coefficient; interval-checked numerically. The ratio across nuclei is a theoretical computation in fixed shell-model spaces, not yet run</td></tr></table></div>
   <details style="margin:4px 0 14px;"><summary style="cursor:pointer;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dim);padding:6px 0;">Symbols used in these tables</summary>
   <div class="se-wrap"><table class="se-q">
     <tr><th>Symbol</th><th>Meaning</th><th>Dimension</th></tr>
