@@ -912,7 +912,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4 through GPT-6, Claude, Gemini, Grok, DeepSeek, Qwen, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
   </p>
   <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
-    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.39).
+    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.46).
   </p>
 
   <!-- ── THREE-COLUMN HEADER ── -->
@@ -1010,7 +1010,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- ── KEY RESULT ── -->
   <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.39</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.46</span>
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
       <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
     </p>
@@ -1024,7 +1024,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- what is not ASI -->
   <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.39)</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.46)</span>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
       <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
         <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
@@ -1096,7 +1096,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">2023–26</div>
             <div class="tl-right">
               <div class="tl-event">Formal integration → ASI seed architecture</div>
-              <div class="tl-detail">1,336-page lecture notes (v21.39), a companion working paper (v1.27) written to the Euclidean standard, in which every claim is proved, cited, or stated as a hypothesis with a falsifier, reproducible test harness, 55 claims in three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); and 20 claims in a fourth, the seed application claiming priority to U.S. Provisional 64/067,703, filed October 2026.</div>
+              <div class="tl-detail">1,365-page lecture notes (v21.46), a companion working paper (v1.34) written to the Euclidean standard, in which every claim is proved, cited, or stated as a hypothesis with a falsifier, reproducible test harness, 55 claims in three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); and 20 claims in a fourth, the seed application claiming priority to U.S. Provisional 64/067,703, filed October 2026.</div>
             </div>
           </div>
         </div>
@@ -1107,8 +1107,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <span class="stat-label">Root conception<br>predates transformers</span>
         </div>
         <div class="origin-stat">
-          <span class="stat-num">1,336</span>
-          <span class="stat-label">Pages of lecture<br>notes v21.39</span>
+          <span class="stat-num">1,365</span>
+          <span class="stat-label">Pages of lecture<br>notes v21.46</span>
         </div>
         <div class="origin-stat">
           <span class="stat-num">3</span>
@@ -1870,7 +1870,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Causal reversal</div>
       <p class="demo-why">A dataset where X appears to prevent Y in observed data, but causes Y under intervention. Correlation-only predictors give the wrong direction, and the open-source language model tested never recognised the cases that cannot be identified. The &Psi;-causal engine computes P(Y|do(X=x)) by SCM mutilation &mdash; correct whenever the effect is identifiable.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.39</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.46</div>
     </div>
 
     <div class="demo-card">
@@ -1878,7 +1878,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Action order matters</div>
       <p class="demo-why">&ldquo;Open drawer then grasp&rdquo; &ne; &ldquo;grasp then open drawer.&rdquo; Order-insensitive models treat these as the same, and the open-source language model tested chose the same order for every pair. The &Psi;-causal engine has [T<sub>a</sub>,&thinsp;T<sub>b</sub>] built in &mdash; the commutator is measurable and non-zero.</p>
-      <div class="demo-proof">Design principle &middot; lecture notes v21.39</div>
+      <div class="demo-proof">Design principle &middot; lecture notes v21.46</div>
     </div>
 
     <div class="demo-card">
@@ -1886,7 +1886,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Global coordination scaling</div>
       <p class="demo-why">On N-bit global parity, CEAS reduces coordination rounds via the rank-one collective variable &phi;(t). Crossover with local attention visible at a measurable scale threshold on a reproducible chart.</p>
-      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.39</div>
+      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.46</div>
     </div>
 
     <div class="demo-card">
@@ -1902,7 +1902,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Physical inverse design</div>
       <p class="demo-why">Given a target state, compute the action sequence that causes it. Learned inverse models pattern-match forward &mdash; they do not invert physical dynamics outside their training distribution. The &Psi;-causal engine solves this by construction.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.39</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.46</div>
     </div>
 
     <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
@@ -2499,15 +2499,18 @@ M12ᴾ · provenance-weighted
     The other sixty developments ranked above grow or improve in seven ways. Frontier models, from the United States, China and elsewhere, are retrained or post-trained as one whole network. Provers (the OpenAI math model, AxiomProver, AlphaProof, Aristotle, Seed Prover) and the Absolute Zero Reasoner train a single model against a proof checker or a code executor. AlphaEvolve searches over programs scored by an evaluator. Agents (Hyperagents, the Darwin and Huxley&ndash;G&ouml;del machines, Co-Scientist, the AI Scientist, the OpenAI research intern) rewrite their own code or research procedure and judge the result on benchmarks. Nested Learning (Hope) updates its own memory at several rates while it runs. Other loops in the ranking repair rules or parameters in place (HCP-DCNet, online causal-rule repair), and self-improving embodied models retrain on the data they collect. World models and scientific models (the JEPA family, Genie, Cosmos, AlphaFold, the equivariant, hyperbolic and causal toolkits) learn by prediction or fitting and do not modify themselves. In their published descriptions, none of these certifies, change by change, that the rest of the system was left as it was.
   </p>
   <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;max-width:74ch;margin-bottom:14px;">
-    Logarch&eacute;on has developed an original method, distinct from all seven, that organises a model into separately upgradable modules, each improved, checked and, if needed, rolled back on its own. The method is withheld; its results can be stated.
+    Logarch&eacute;on has developed an original method, distinct from all seven. Every other route stakes the whole system on each change: an update aimed at one skill can quietly damage another, and the damage is found, if at all, only by testing everything again. Logarch&eacute;on&rsquo;s method organises a model into separately upgradable modules, so that each improvement is confined to one module, checked against the skill it targets, recorded, and exactly reversible. In the architecture&rsquo;s own model class this is proved; for open models it is checked change by change. Improvements therefore build on one another instead of trading off; the growth needed for each new skill is known and costed before any training; and every change leaves the auditable record that high-assurance users need. The method starts from existing open models instead of costly new training, and it rests on machine-checked mathematics, not on benchmark scores alone.
   </p>
   <ul style="list-style:none;padding:0;margin:0 0 14px;max-width:74ch;color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.75;">
-    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">A complete theory, machine-checked.</b> 107 results on modular, self-upgrading architectures, each verified in Lean&nbsp;4.</li>
+    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">A complete theory, machine-checked.</b> 166 results on modular, self-upgrading architectures, each verified in Lean&nbsp;4.</li>
     <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">One skill, one module.</b> In the architecture&rsquo;s own model class it is proved that a module can be retrained or replaced while every other skill stays exactly as it was, so each change needs to be checked only against the skill it targets.</li>
     <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">Trained models joined without retraining.</b> Two frozen models can be combined by one added control level, whose cost is known in advance and proved to be the least possible.</li>
     <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">A known price for each new skill.</b> How much the architecture must grow to hold each added skill is stated by theorem before any training.</li>
     <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">Stable at any depth.</b> A proved control condition keeps deeper hierarchies of the architecture stable, removing the instability that has limited them.</li>
   </ul>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;max-width:74ch;margin-bottom:14px;">
+    <b style="color:var(--gold-light);font-weight:700;">Models as building blocks.</b> In the architecture&rsquo;s own model class, trained models combine the way numbers do. A model&rsquo;s output can be scaled or negated at no added depth. Two models can be added or joined at the cost of one control level, and multiplied at the cost of two. Joining is associative and has a unit, so any number of models give the same result in any grouping. Modules can be added, replaced, removed or moved without retraining the rest. Each operation is machine-checked in Lean&nbsp;4. Together they form an algebra of models, so a large system can be built up, upgraded or taken apart one module at a time.
+  </p>
   <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;max-width:74ch;margin-bottom:14px;">
     <b style="color:var(--gold-light);font-weight:700;">Applied to open models (computed).</b> Organising a 32-billion-parameter open model into checked, upgradable modules: about 350 GPU-hours on entry-level hardware, roughly one week on two entry-level GPUs.
   </p>
@@ -2517,10 +2520,58 @@ M12ᴾ · provenance-weighted
 </div>
 </section>
 
+<section id="model-mathematics" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
+<div class="container">
+  <style>
+  #model-mathematics .se-wrap { overflow-x:auto; border:1px solid var(--gold); border-radius:3px; margin:8px 0 10px; }
+  #model-mathematics table { border-collapse:collapse; width:100%; font-family:'DM Mono',monospace; font-size:0.72rem; color:rgba(245,240,232,0.78); }
+  #model-mathematics th { text-align:left; font-weight:400; font-size:0.6rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim); padding:9px 10px; border-bottom:1px solid var(--border); white-space:nowrap; background:rgba(14,31,58,0.6); }
+  #model-mathematics td { padding:7px 10px; border-bottom:1px solid var(--border-dim); vertical-align:top; white-space:normal; min-width:150px; }
+  #model-mathematics td:nth-child(2) { min-width:320px; }
+  </style>
+  <div class="gold-rule"></div>
+  <span class="mono" style="display:block;margin-bottom:16px;">Mathematics &middot; 1 November 2026</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
+    A mathematics of trained models
+  </h2>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;max-width:74ch;margin-bottom:14px;">
+    Trained models can be treated as mathematical objects in their own right: combined, compared, classified and counted. Each result below is machine-checked in Lean&nbsp;4, unless marked as computed.
+  </p>
+  <ul style="list-style:none;padding:0;margin:0 0 18px;color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.75;max-width:74ch;">
+    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">An algebra of models.</b> Models can be scaled, negated, added, multiplied and joined. Each operation has a proved cost in depth, joining is associative and has a unit, and the outputs that models can hold form a commutative ring.</li>
+    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">Disentangling at linear cost.</b> Measuring how two units of a model interact takes four passes, whatever the number of paths between them. Mapping a large model therefore costs in proportion to its units, not to the number of its paths.</li>
+    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">A complete classification of model equivalences.</b> Every way of identifying two models falls into one of seven classes, and classes acquire primes in only three ways. Twenty-two routes from models to primes and zeta functions are catalogued, with the status of the Riemann hypothesis on each.</li>
+    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">One carrier for zeta functions.</b> The weighted graph of a model carries every Euler product, Riemann&rsquo;s included. Through five generalisations it also carries the Hasse&ndash;Weil, Ihara, Ruelle and Selberg zeta functions. Wherever an operator exists, the Riemann hypothesis becomes a bound on that operator&rsquo;s spectrum.</li>
+    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">New curves from model dynamics (computed).</b> Feeding a layer its own output defines curves of states that repeat. For a two-dimensional family these curves are irreducible, of genus 3 and 31 at the first two periods, with Galois groups as large as the dynamics allows. A stated conjecture extends this to every period.</li>
+  </ul>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:400;color:var(--gold-light);margin:10px 0 6px;">New mathematics: theorems and constructions</p>
+  <div class="se-wrap"><table>
+    <tr><th>Result</th><th>Statement</th><th>Status</th><th>Verification</th></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Operations on models</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">In the class of polynomial models that return task-indexed families exactly under admissible task codes: if F is returned at depth n<sub>1</sub> &ge; 1 and G at depth n<sub>2</sub> &ge; 1, with N = max(n<sub>1</sub>, n<sub>2</sub>), then cF and &minus;F (c &isin; &#8474;) are returned at depth n<sub>1</sub>; F + G and the join F &or;<sub>r</sub> G under any routing r at depth N + 1; FG at depth N + 2; and a family returned at depth n is returned at every depth n&prime; &ge; n. Each result is realised from the two frozen models without changing their parameters.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Laws of joining</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">For any assignment of tasks to three models, the groupings (F &or; G) &or; H and F &or; (G &or; H) are equal, and routing every task to F returns F. On the machines themselves the laws hold up to relabelling of coordinates.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">The ring of models</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">The families returned by some model form a commutative &#8474;-subalgebra of &#8474;[x]<sup>&#8469;</sup>, closed under every join. Depth is a cost function, not a grading. Complementary routings give zero divisors, so there is no general division. On machines the structure is a bimonoidal (rig) category, whose quotient by equality of outputs is this ring.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Path sums and dropout</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">For layers M<sub>k</sub> and node masks m<sub>k</sub>: (&prod;<sub>k</sub> diag(m<sub>k</sub>) M<sub>k</sub>)<sub>ij</sub> = &sum; over paths p from i to j of &prod;<sub>k</sub> m<sub>k</sub>(p<sub>k</sub>) M<sub>k</sub>(p<sub>k</sub>, p<sub>k+1</sub>). Dropping a unit removes exactly the paths through it, so one pass measures all of them. For two units u, u&prime;: f &minus; f<sub>&minus;u</sub> &minus; f<sub>&minus;u&prime;</sub> + f<sub>&minus;uu&prime;</sub> equals the sum over the paths through both, so four passes measure their interaction whatever the number of paths. Single-unit sweeps take L&middot;w passes against w<sup>L&minus;1</sup> paths.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New application of a classical identity</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Isolation of modules</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">If the layers are block-diagonal over modules, units in different modules have zero interaction. If modules share a trunk of t layers and their branches above it are closed, units in different branches have zero interaction, and each trunk unit interacts with every branch exactly through the paths that pass through it.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Classification of equivalences</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Every equivalence relation on models is the kernel of an invariant of (architecture, parameters, history); sorting by the components an invariant depends on gives seven classes. Classes acquire primes in exactly three ways: a product with unique factorisation, closed orbits, or no Euler product at all. An Euler product exists if and only if the class counts by norm equal the counts of multisets of primes.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Proved</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Twenty-two routes to zeta functions</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Each route pairs an invariant with a mechanism. Examples: code words under concatenation have the Lyndon code words as primes, &zeta; = 1/(1 &minus; qu) and prime count (1/n)&sum;<sub>d|n</sub> &mu;(d) q<sup>n/d</sup>, where the hypothesis holds; lattice codebooks give Epstein&rsquo;s zeta function, open for &#8484;<sup>2</sup> and false for lattices of class number greater than one; dropout configurations have zeros on the unit circle under symmetric couplings bounded by one (Lee&ndash;Yang); module&ndash;weight attachment matchings have real zeros in |x| &le; 2&radic;(&Delta; &minus; 1) (Heilmann&ndash;Lieb); spanning trees of the module tree are real stable (Choe&ndash;Oxley&ndash;Sokal&ndash;Wagner); commuting edits have generating function 1/I(G, &minus;u) (Cartier&ndash;Foata) with real zeros for claw-free conflict graphs (Chudnovsky&ndash;Seymour); first-layer activation regions have characteristic polynomials with positive-integer roots when supersolvable (Stanley); closed walks of a shared layer satisfy the hypothesis exactly when they meet the Ramanujan condition, and their zeta function factors over block-diagonal modules, the order of the leading pole being the number of modules at the spectral radius.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New catalogue</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Applied</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">One carrier for zeta functions</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">The cycle zeta function &prod;<sub>P</sub>(1 &minus; w(P))<sup>&minus;1</sup> of a weighted graph, over its prime cycles, carries every Euler product: disjoint loops of weight N(x)<sup>&minus;s</sup> give the Riemann, Dedekind and Serre zeta functions; a bouquet of q loops gives &#120125;<sub>q</sub>[t]; the functional graph of Frobenius gives Hasse&ndash;Weil. Through countable, graded, matrix-valued, path-dependent and continuous generalisations it also carries the Ihara, graph L-, Ruelle and Selberg zeta functions. For a finite graph the hypothesis is equivalent to a bound on the non-leading eigenvalues, which gives a square-root error in prime counts.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New unification</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4 (core); applied</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Riemann&rsquo;s zeta inside the framework</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">One-unit models z &#8614; wz compose by multiplying weights. Among positive-integer weights, a model is a composite of two models of weight at least two exactly when its weight is not prime, so the zeta function of this composition monoid is &zeta;(s); Gaussian weights give the Dedekind zeta function of &#8474;(i).</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Dynatomic curves of a quadratic family</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">&Phi;<sub>c</sub>(x, y) = (1 + x<sup>2</sup> + 2(1+c)xy &minus; y<sup>2</sup>, c + (1+c)x<sup>2</sup> + (1+c)xy + cy<sup>2</sup>) is regular wherever (2c+1)<sup>2</sup>(c<sup>2</sup> + 2c + 2) &ne; 0. Its dynatomic curves Y(1), Y(2), Y(3) are irreducible over &#8474;, of degrees 4, 12 and 60; Y(1) has genus 3 and Y(2) genus 31, against 0 and 0 for z<sup>2</sup> + c. Y(2) branches simply at 12 period-doubling values, at two points over each of 32 saddle-node values, and with index three at c = &minus;1 &plusmn; i.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New object</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Computed exactly (simple branching confirmed to 110 digits); regularity and point counts over &#8484;/3, &#8484;/5, &#8484;/7 in Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">A Galois orbit at c = 2</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">The fibre of Y(2) at c = 2 factors over &#8474; as 2 + 10. The 2-cycle {(3/5 + &omega;, &minus;1/5), (3/5 + &omega;&#772;, &minus;1/5)}, with &omega;<sup>2</sup> + &omega; + 1 = 0, is defined over &#8474;(&radic;&minus;3), and &Phi;<sub>2</sub> maps each point to its Galois conjugate.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4</td></tr>
+    <tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Galois groups (conjecture)</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">For a generic one-parameter family of regular quadratic self-maps of affine D-space, D &ge; 2, the dynatomic curves Y(n) are irreducible for every n, with Galois group C<sub>n</sub> &#8768; S<sub>&nu;(n)/n</sub>, where &nu;(n) = &sum;<sub>d|n</sub> &mu;(n/d) 2<sup>Dd</sup>. Supported for n &le; 3: Frobenius factorisation patterns over about 26,000 primes match this group at the sampling-noise floor.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Conjecture</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Computed</td></tr>
+  </table></div>
+  <p style="color:rgba(245,240,232,0.55);font-size:0.8rem;line-height:1.6;max-width:74ch;margin:6px 0 14px;">Lean&nbsp;4: machine-checked. Computed: exact computer algebra, with any numerical step named. Applied: a published theorem applied to a new object.</p>
+  <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;max-width:74ch;margin-bottom:14px;">
+    The Riemann hypothesis for the reductions of these curves modulo primes holds by Weil&rsquo;s theorem; the open questions are their irreducibility, Galois groups and the growth of their genus.
+  </p>
+</div>
+</section>
+
+
 <section id="theory-yield" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
 <div class="container">
   <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.39 &middot; 1,336 pages</span>
+  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.46 &middot; 1,365 pages</span>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
     From theory to implementation
   </h2>
