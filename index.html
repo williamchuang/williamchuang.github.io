@@ -912,7 +912,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
     <strong style="color:rgba(245,240,232,0.82);">ANI (Artificial Narrow Intelligence)</strong> — systems restricted to bounded tasks or domains, including every current large-scale language model built on next-token prediction and parameter scaling: GPT-4 through GPT-6, Claude, Gemini, Grok, DeepSeek, Qwen, and their successors. <strong style="color:rgba(245,240,232,0.82);">AGI (Artificial General Intelligence)</strong> — broad, robust competence across most cognitive task families, at least at the level of a competent adult human. <strong style="color:rgba(245,240,232,0.82);">ASI (Artificial Superintelligence)</strong> — performance exceeding the best human across most major cognitive domains, with robust transfer to new task families not represented in training.
   </p>
   <p style="color:rgba(245,240,232,0.5);font-size:0.85rem;max-width:68ch;margin-bottom:36px;line-height:1.7;">
-    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.46).
+    The distinction between these tiers is not about benchmark scores or parameter count. It is architectural and mathematical. The table below is derived directly from the formal certification criteria and scenario analysis in the lecture notes (v21.54).
   </p>
 
   <!-- ── THREE-COLUMN HEADER ── -->
@@ -1010,7 +1010,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- ── KEY RESULT ── -->
   <div style="border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--navy-mid);padding:24px 28px;">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.46</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:12px;">Key result · lecture notes v21.54</span>
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.5;color:var(--cream);margin:0 0 12px;">
       <em>ANI solves tasks. An ASI seed improves the process that solves new task families.</em>
     </p>
@@ -1024,7 +1024,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
 
   <!-- what is not ASI -->
   <div style="margin-top:20px;padding:20px 24px;border:1px solid var(--border-dim);background:rgba(10,22,40,0.5);">
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.46)</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(201,168,76,0.4);display:block;margin-bottom:12px;">What is not ASI — from the formal definitions (lecture notes v21.54)</span>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
       <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
         <li style="font-size:0.84rem;color:rgba(245,240,232,0.45);line-height:1.55;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:rgba(201,168,76,0.35);font-size:0.72rem;">✗</span>A large language model (LLM), however large, operating at observational-correlation-only causality</li>
@@ -1096,7 +1096,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
             <div class="tl-year">2023–26</div>
             <div class="tl-right">
               <div class="tl-event">Formal integration → ASI seed architecture</div>
-              <div class="tl-detail">1,365-page lecture notes (v21.46), a companion working paper (v1.34) written to the Euclidean standard, in which every claim is proved, cited, or stated as a hypothesis with a falsifier, reproducible test harness, 55 claims in three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); and 20 claims in a fourth, the seed application claiming priority to U.S. Provisional 64/067,703, filed October 2026.</div>
+              <div class="tl-detail">1,385-page lecture notes (v21.54), a companion working paper (v1.35) written to the Euclidean standard, in which every claim is proved, cited, or stated as a hypothesis with a falsifier, reproducible test harness, 55 claims in three nonprovisional applications filed 8 October 2026: 19/833,766 (exact-invariance retrofit of trained models), 19/833,809 (training by checked programs) and 19/833,804 (transported-triple arithmetic); and 20 claims in a fourth, the seed application claiming priority to U.S. Provisional 64/067,703, filed October 2026.</div>
             </div>
           </div>
         </div>
@@ -1107,8 +1107,8 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
           <span class="stat-label">Root conception<br>predates transformers</span>
         </div>
         <div class="origin-stat">
-          <span class="stat-num">1,365</span>
-          <span class="stat-label">Pages of lecture<br>notes v21.46</span>
+          <span class="stat-num">1,385</span>
+          <span class="stat-label">Pages of lecture<br>notes v21.54</span>
         </div>
         <div class="origin-stat">
           <span class="stat-num">3</span>
@@ -1870,7 +1870,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Causal reversal</div>
       <p class="demo-why">A dataset where X appears to prevent Y in observed data, but causes Y under intervention. Correlation-only predictors give the wrong direction, and the open-source language model tested never recognised the cases that cannot be identified. The &Psi;-causal engine computes P(Y|do(X=x)) by SCM mutilation &mdash; correct whenever the effect is identifiable.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.46</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.54</div>
     </div>
 
     <div class="demo-card">
@@ -1878,7 +1878,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">In progress</span>
       <div class="demo-title">Action order matters</div>
       <p class="demo-why">&ldquo;Open drawer then grasp&rdquo; &ne; &ldquo;grasp then open drawer.&rdquo; Order-insensitive models treat these as the same, and the open-source language model tested chose the same order for every pair. The &Psi;-causal engine has [T<sub>a</sub>,&thinsp;T<sub>b</sub>] built in &mdash; the commutator is measurable and non-zero.</p>
-      <div class="demo-proof">Design principle &middot; lecture notes v21.46</div>
+      <div class="demo-proof">Design principle &middot; lecture notes v21.54</div>
     </div>
 
     <div class="demo-card">
@@ -1886,7 +1886,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Global coordination scaling</div>
       <p class="demo-why">On N-bit global parity, CEAS reduces coordination rounds via the rank-one collective variable &phi;(t). Crossover with local attention visible at a measurable scale threshold on a reproducible chart.</p>
-      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.46</div>
+      <div class="demo-proof">Coordination-round analysis &middot; lecture notes v21.54</div>
     </div>
 
     <div class="demo-card">
@@ -1902,7 +1902,7 @@ footer .patent-ref { font-family:'DM Mono',monospace;font-size:0.65rem;letter-sp
       <span class="demo-when">Complete &middot; research scale</span>
       <div class="demo-title">Physical inverse design</div>
       <p class="demo-why">Given a target state, compute the action sequence that causes it. Learned inverse models pattern-match forward &mdash; they do not invert physical dynamics outside their training distribution. The &Psi;-causal engine solves this by construction.</p>
-      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.46</div>
+      <div class="demo-proof">Correlation-only models cannot identify this in general &middot; lecture notes v21.54</div>
     </div>
 
     <div class="demo-card" style="border-color:rgba(201,168,76,0.2);">
@@ -2502,7 +2502,7 @@ M12ᴾ · provenance-weighted
     Logarch&eacute;on has developed an original method, distinct from all seven. Every other route stakes the whole system on each change: an update aimed at one skill can quietly damage another, and the damage is found, if at all, only by testing everything again. Logarch&eacute;on&rsquo;s method organises a model into separately upgradable modules, so that each improvement is confined to one module, checked against the skill it targets, recorded, and exactly reversible. In the architecture&rsquo;s own model class this is proved; for open models it is checked change by change. Improvements therefore build on one another instead of trading off; the growth needed for each new skill is known and costed before any training; and every change leaves the auditable record that high-assurance users need. The method starts from existing open models instead of costly new training, and it rests on machine-checked mathematics, not on benchmark scores alone.
   </p>
   <ul style="list-style:none;padding:0;margin:0 0 14px;max-width:74ch;color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.75;">
-    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">A complete theory, machine-checked.</b> 170 results on modular, self-upgrading architectures, each verified in Lean&nbsp;4.</li>
+    <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">A complete theory, machine-checked.</b> 193 results on modular, self-upgrading architectures, each verified in Lean&nbsp;4.</li>
     <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">One skill, one module.</b> In the architecture&rsquo;s own model class it is proved that a module can be retrained or replaced while every other skill stays exactly as it was, so each change needs to be checked only against the skill it targets.</li>
     <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">Trained models joined without retraining.</b> Two frozen models can be combined by one added control level, whose cost is known in advance and proved to be the least possible.</li>
     <li style="margin:0 0 0.55rem;padding-left:1.1rem;position:relative;"><span style="position:absolute;left:0.0rem;color:var(--gold);">&#9670;</span><b style="color:var(--gold-light);font-weight:700;">A known price for each new skill.</b> How much the architecture must grow to hold each added skill is stated by theorem before any training.</li>
@@ -2547,7 +2547,7 @@ M12ᴾ · provenance-weighted
     The theory runs from numbers to networks without a break. A model with a single unit and weight w is the map z &#8614; wz. Under composition, the prime models among those with positive whole-number weights are exactly the prime numbers, so Riemann&rsquo;s zeta function appears as the simplest case. Larger models, their graphs and their dynamics carry zeta functions of their own. For each of these, the Riemann hypothesis takes a definite form: a theorem in some cases, an open question in others, and in some false.
   </p>
   <p style="color:rgba(245,240,232,0.7);font-size:0.95rem;line-height:1.8;max-width:74ch;margin-bottom:14px;">
-    The theory is axiomatic in the standard sense. Its foundation is the logic of the Lean&nbsp;4 proof assistant, a standard foundation for mathematics, which uses three axioms: propositional extensionality, the axiom of choice, and soundness of quotients. On that foundation the theory adds no new axioms, only definitions. Models, their operations, their equivalence classes and their zeta functions are defined objects, and every theorem about them follows from those definitions. 170 such theorems are machine-checked. The theory, its operations and its new objects were developed by Logarch&eacute;on and are first published here.
+    The theory is axiomatic in the standard sense. Its foundation is the logic of the Lean&nbsp;4 proof assistant, a standard foundation for mathematics, which uses three axioms: propositional extensionality, the axiom of choice, and soundness of quotients. On that foundation the theory adds no new axioms, only definitions. Models, their operations, their equivalence classes and their zeta functions are defined objects, and every theorem about them follows from those definitions. 193 such theorems are machine-checked. The theory, its operations and its new objects were developed by Logarch&eacute;on and are first published here.
   </p>
   <ol style="color:rgba(245,240,232,0.7);font-size:0.92rem;line-height:1.7;max-width:74ch;margin:0 0 18px;padding-left:1.4rem;">
     <li style="margin:0 0 0.7rem;"><b style="color:var(--gold-light);font-weight:700;">Propositional extensionality</b> (<code>propext</code>): two propositions that imply each other are equal.<code style="font-family:'DM Mono',monospace;font-size:0.74rem;color:var(--gold-light);display:block;margin-top:4px;white-space:pre-wrap;word-break:break-word;">axiom propext {a b : Prop} : (a &harr; b) &rarr; a = b</code></li>
@@ -2616,7 +2616,7 @@ M12ᴾ · provenance-weighted
 <section id="theory-yield" style="padding:80px 0;border-bottom:1px solid var(--border-dim);">
 <div class="container">
   <div class="gold-rule"></div>
-  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.46 &middot; 1,365 pages</span>
+  <span class="mono" style="display:block;margin-bottom:16px;">Lecture notes v21.54 &middot; 1,385 pages</span>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;margin-bottom:16px;">
     From theory to implementation
   </h2>
@@ -2828,4 +2828,4 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
+<tr><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Golden-ratio mixing threshold of attention operators</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">For a softmax operator on N states with independent Gaussian scores at inverse temperature &beta;, the second eigenvalue &lambda;&#8322; and the entropy rate h satisfy |&lambda;&#8322;|&middot;e<sup>h/2</sup> &rarr; &radic;(e<sup>&beta;&sup2;</sup>&minus;1)&middot;e<sup>&minus;&beta;&sup2;/4</sup> almost surely. The scale-free Ramanujan bound |&lambda;&#8322;| &le; e<sup>&minus;h/2</sup>, under which the operator mixes as fast as its entropy allows, therefore holds for &beta; &lt; &radic;(2&nbsp;ln&nbsp;&phi;) &asymp; 0.981 and fails above it, &phi; being the golden ratio. The proof rests on a new theorem: a random Markov matrix with independent entries has no eigenvalue other than 1 outside the disc of its circular law, so &radic;N&thinsp;|&lambda;&#8322;| &rarr; &sigma;/m.</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">New</td><td style="white-space:normal;color:var(--gold-light);background:var(--gold-glow);">Lean&nbsp;4 (every deterministic step); the random-matrix inputs are published theorems</td></tr>
