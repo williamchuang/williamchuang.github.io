@@ -288,7 +288,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     In the canonical ensemble, \(p(\text{state}) \propto \exp(-\beta_{\text{phys}}\cdot \text{energy})\).
     In attention, \(p(i) \propto \exp(\beta\,s_i)\) by identifying \(\text{energy}=-s\).
     The entropy is the same object \(H=-\sum_i p\log p\), yielding
-    <nobr>\(\displaystyle \frac{dH}{d\beta} = -\,\beta\,\mathrm{Var}_{p}[s]\).</nobr>
+    <span style="white-space:nowrap;">\(\displaystyle \frac{dH}{d\beta} = -\,\beta\,\mathrm{Var}_{p}[s]\).</span>
     CEAS applies this locally so β functions as an operational temperature knob.
   </aside>
 
@@ -303,7 +303,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
     Training with negative log-likelihood equals minimizing KL divergence to data; in Gaussian settings this reduces to ordinary least squares.
     Managing β therefore directly manages the gap to data: sharper when evidence is clear, broader when it is not.
   </p>
-</section>
+</div></section>
 
 
 <section class="blurb" id="operational-control">
@@ -321,8 +321,8 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
 
 <section class="blurb" id="why-ceas-works">
 
-  </div>
-</section>
+  </section></main></div>
+
 
 <section class="page-section" id="controller">
   <div class="section-header">
@@ -395,7 +395,7 @@ thead[class~="bg-slate-50"] th { background: var(--navy-light) !important; color
         skips low-information work, while keeping a safe margin from pseudo-critical slowdowns. It is designed to
         drop cleanly into a standard Transformer training loop.
       </p>
-    </header>
+    
 
     <!-- Objectives callout -->
     <aside role="note" aria-label="Objectives" class="rounded-xl border border-blue-200 bg-blue-50/60 p-4 sm:p-5 mb-8">
@@ -830,8 +830,8 @@ Computed from the closed-form approximation above, not measured. In small-model 
 <!-- ===== EFFECT OF MODEL SIZE ON β SCALING DYNAMICS ===== -->
 <section id="beta-scaling-metaphor" class="research-list" aria-label="Model β Scaling and Rolling Log Analogy">
 
-  </div>
-</section>
+  </section></div>
+
 
 <section class="page-section" id="hardware">
   <div class="section-header">
@@ -944,7 +944,7 @@ Computed from the closed-form approximation above, not measured. In small-model 
 
 <article>
 
-  </div>
+  </article></div>
 </section>
 
 <section class="page-section" id="related">
@@ -970,7 +970,7 @@ Computed from the closed-form approximation above, not measured. In small-model 
       Critical Scaling in Hyperbolic Attention Mechanisms (PDF)
     </a>
   </p>
-</article>
+
 
 
 
@@ -980,7 +980,7 @@ Computed from the closed-form approximation above, not measured. In small-model 
 
     <!-- Inserted Content: ALL Centered -->
     <section class="research-journey centered-content">
-  </div>
+  </section></div>
 </section>
 
 <section class="page-section" id="origin">
@@ -1211,8 +1211,8 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 
 <section id="ising-deep-learning">
 
-  </div>
-</section>
+  </section></div>
+</div></section>
 
 <section class="page-section" id="bibliography">
   <div class="section-header">
@@ -1276,7 +1276,7 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
 
 
 
-</section>
+</div></section>
 
 
 
@@ -1295,20 +1295,13 @@ During my Intro to CS course at USF in 2015, I discussed with Dr. Cindi Thompson
     </nav>
     <p>&copy; 2026 William Chuang. All rights reserved.</p>
   </footer>-->
-</body>
-</html>
-  </div>
-</section>
-  </main>
-</div>
-
 <footer>
   &copy; <span id="yr"></span> William Chuang &middot; Logarch&eacute;on Inc.
   All rights reserved. &middot;
   U.S. Patent Portfolio &middot; Nonprovisional Applications 19/833,766 &middot; 19/833,809 &middot; 19/833,804 (filed 8 Oct 2026) &middot; Provisional 64/067,703 Pending.
 </footer>
 
-</div>
+
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
